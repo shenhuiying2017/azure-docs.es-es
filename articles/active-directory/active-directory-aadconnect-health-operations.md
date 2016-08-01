@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # Operaciones de Azure AD Connect Health
@@ -52,11 +52,20 @@ Cuando elimine un servidor, tenga en cuenta lo siguiente:
 
 #### Para eliminar un servidor del Servicio de Azure AD Connect Health
 
+Azure AD Connect Health para AD FS y Azure AD Connect (sincronización):
+
 1. Seleccione el nombre del servidor que se va a quitar para abrir la hoja Servidor en la hoja Lista de servidores.
 2. En la hoja Servidor, haga clic en el botón "Eliminar" de la barra de acciones.
 3. Confirme la acción para eliminar el servidor; para ello, escriba el nombre del servidor en el cuadro de confirmación.
 4. Haga clic en el botón "Eliminar".
 
+Azure AD Connect Health para AD DS:
+
+1. Abra el panel de controladores de dominio.
+2. Seleccione el controlador de dominio que va a quitar.
+3. Haga clic en el botón "Eliminar seleccionado" de la barra de acciones.
+4. Confirme la acción para eliminar el servidor.
+5. Haga clic en el botón "Eliminar".
 
 ### Eliminación de una instancia de servicio del Servicio de Azure AD Connect Health
 
@@ -110,16 +119,16 @@ El permiso se concede si un usuario final tiene acceso al nivel de directorio o 
 #### Paso 1: Seleccionar el ámbito de acceso adecuado
 Para permitir a un usuario acceder al nivel de *todas las instancias de servicio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br>
 #### Paso 2: Agregar usuarios, grupos y asignar roles
-1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> 
+1. Haga clic en la parte "Usuarios" de la sección Configurar.<br>
 ![Hoja principal de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Seleccione "Agregar".
 3. Seleccione "Rol" como "Propietario"<br> 
 ![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". 
+4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar".
 ![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Seleccione "Aceptar".<br>
 
-6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> 
+6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br>
 ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
@@ -147,7 +156,8 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

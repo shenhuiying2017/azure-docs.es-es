@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="07/19/2016"
    ms.author="seanmck"/>
 
 # Administración de los parámetros de la aplicación en varios entornos
@@ -63,7 +63,7 @@ El atributo DefaultValue especifica el valor que se usará en ausencia de un par
 
 El [modelo de aplicación de Service Fabric](service-fabric-application-model.md) permite a los servicios incluir paquetes de configuración que contienen pares clave-valor personalizados que se pueden leer en tiempo de ejecución. Los valores de estas opciones también se pueden diferenciar por entorno, para lo que se debe especificar `ConfigOverride` en el manifiesto de aplicación.
 
-Suponga que tiene la siguiente opción en el archivo Config\\Settings.xml para el servicio `Stateful1`:
+Suponga que tiene la siguiente opción en Config\\Settings.xml para el servicio `Stateful1`:
 
 
     <Section Name="MyConfigSection">
@@ -127,11 +127,11 @@ El script de PowerShell `Deploy-FabricApplication.ps1` incluido en la plantilla 
 
 ## Pasos siguientes
 
-Para más información sobre algunos de los conceptos principales descritos en este tema, vea la [Información técnica de Service Fabric](service-fabric-technical-overview.md). Para más información sobre otras funcionalidades de administración de aplicaciones disponibles en Visual Studio, vea [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Para obtener más información sobre algunos de los conceptos principales descritos en este tema, vea la [Información técnica de Service Fabric](service-fabric-technical-overview.md). Para obtener más información sobre otras funcionalidades de administración de aplicaciones disponibles en Visual Studio, vea [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

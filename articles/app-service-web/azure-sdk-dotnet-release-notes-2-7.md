@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
 # Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
@@ -79,14 +79,14 @@ Azure SDK 2.7 incluye Cloud Explorer para Visual Studio de 2015, que le permitir
 
 Cloud Explorer admite lo siguiente:
 
-- Vistas de grupo de recursos y tipo de recurso de los recursos de Azure 
+- Vistas de grupo de recursos y tipo de recurso de los recursos de Azure
 - Búsqueda de recursos por nombre (disponible en la vista de tipo de recurso)
-- Compatibilidad con las suscripciones y los recursos que tienen aplicado el control de acceso basado en rol (RBAC) 
+- Compatibilidad con las suscripciones y los recursos que tienen aplicado el control de acceso basado en rol (RBAC)
 - Panel de acción integrado que muestra las acciones orientadas a desarrolladores específicas para los recursos seleccionados. Por ejemplo: adjunte el depurador remoto para las máquinas virtuales creadas con la pila del Administrador de recursos, Ver datos del diagnóstico para máquinas virtuales, etc.
-- Panel de propiedades integrado que muestra propiedades orientadas a desarrolladores normalmente necesarias durante el desarrollo y las pruebas 
-- Cambio rápido de la cuenta que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
-- Filtrado de suscripciones que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
-- Vínculos profundos en el Portal de Azure para administración de recursos y grupos de recursos 
+- Panel de propiedades integrado que muestra propiedades orientadas a desarrolladores normalmente necesarias durante el desarrollo y las pruebas
+- Cambio rápido de la cuenta que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas)
+- Filtrado de suscripciones que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas)
+- Vínculos profundos en el Portal de Azure para administración de recursos y grupos de recursos
  
  
 ###Herramientas del Administrador de recursos de Azure 
@@ -98,18 +98,18 @@ Si está utilizando un proyecto del grupo de recursos de Azure desde una versió
  
 ###Herramientas del explorador de almacenamiento 
 
-- Compatibilidad con la visualización de los blobs de anexión. Puede obtener más información en [esta entrada de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
+- Compatibilidad con la visualización de los blobs de anexión. Puede obtener más información en [esta entrada de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx).
 - Soporte técnico para ver las cuentas de almacenamiento premium a través del Explorador de servidores. El Explorador de servidores solo mostrará los blobs de página de cuentas de almacenamiento premium como si fuera el único tipo compatible para cuentas de almacenamiento premium.
 
 ###Herramientas de Factoría de datos de Azure para Visual Studio 
 
 Introducción a **Herramientas de Factoría de datos de Azure** para Visual Studio. A continuación se muestran las características habilitadas. Para obtener más información, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=617530).
 
-- **Creación basada en plantillas**: seleccione plantillas de procesamiento de datos, de movimiento de datos o basadas en casos de uso para implementar una solución de integración de datos completa e iniciar la experiencia práctica rápidamente con Factoría de datos. 
-- **Integración con el Explorador de soluciones para la creación e implementación de entidades de Factoría de datos**: cree e implemente canalizaciones y las entidades relacionadas como proyectos de Visual Studio. 
-- **Integración con vista de diagrama de interacción visual durante la creación**: cree visualmente las canalizaciones y conjuntos de datos con ayuda de la vista de diagrama. 
-- **Integración con el Explorador de servidores para la exploración y la interacción con entidades ya implementadas**: aproveche el Explorador de servidores para examinar las factorías de datos ya implementadas y las entidades correspondientes. Importe una factoría de datos implementada o cualquier identidad (canalización, servicios vinculados o conjuntos de datos) en el proyecto. 
-- **Edición de JSON con IntelliSense enriquecido y validación de esquema**: configure y edite de forma eficiente documentos JSON de entidades de Factoría de datos con IntelliSense enriquecido y validación de esquema 
+- **Creación basada en plantillas**: seleccione plantillas de procesamiento de datos, de movimiento de datos o basadas en casos de uso para implementar una solución de integración de datos completa e iniciar la experiencia práctica rápidamente con Factoría de datos.
+- **Integración con el Explorador de soluciones para la creación e implementación de entidades de Factoría de datos**: cree e implemente canalizaciones y las entidades relacionadas como proyectos de Visual Studio.
+- **Integración con vista de diagrama de interacción visual durante la creación**: cree visualmente las canalizaciones y conjuntos de datos con ayuda de la vista de diagrama.
+- **Integración con el Explorador de servidores para la exploración y la interacción con entidades ya implementadas**: aproveche el Explorador de servidores para examinar las factorías de datos ya implementadas y las entidades correspondientes. Importe una factoría de datos implementada o cualquier identidad (canalización, servicios vinculados o conjuntos de datos) en el proyecto.
+- **Edición de JSON con IntelliSense enriquecido y validación de esquema**: configure y edite de forma eficiente documentos JSON de entidades de Factoría de datos con IntelliSense enriquecido y validación de esquema
 - **Publicación en varios entornos**: publique canalizaciones creadas para desarrollar, probar o producir un entorno mediante la creación de archivos de configuración para cada entorno.
 - **Soporte técnico de procesamiento de datos basado en Pig, Hive y .Net**: soporte técnico para scripts de Pig y Hive en el proyecto de Factoría de datos. Soporte técnico para hacer referencia al proyecto de C# para la administración de .Net Activity.
 
@@ -125,7 +125,7 @@ Para obtener una explicación más detallada acerca de las actualizaciones de he
 	Para ayudarle a entender mejor la consulta de Hive, se agregó la característica Vista de operador de Hive. Para ver todos los operadores dentro de un vértice, haga doble clic en los vértices del gráfico de trabajo. Para ver más detalles acerca de un operador determinado, mantenga el mouse sobre ese operador.
 - Marcador de Error de Hive (nueva característica)
 
-	Para que pueda ver los errores gramaticales al instante, se agregó la característica marcador de Error de Hive. También se mejoraron los mensajes de error y ahora puede ver los errores gramaticales con detalle instantáneamente (hasta esta versión, tenía que enviar un script de Hive al clúster y esperar un tiempo antes de obtener detalles sobre el mensaje de error).  
+	Para que pueda ver los errores gramaticales al instante, se agregó la característica marcador de Error de Hive. También se mejoraron los mensajes de error y ahora puede ver los errores gramaticales con detalle instantáneamente (hasta esta versión, tenía que enviar un script de Hive al clúster y esperar un tiempo antes de obtener detalles sobre el mensaje de error).
 - Gráfico de topología Storm (nueva característica)
 
 	La visualización es muy importante cuando desee comprobar si su topología funciona según lo esperado. En esta versión agregamos la visualización de gráficos Storm. Puede visualizar las métricas importantes para su topología (por ejemplo, un color indica si un Bolt está "ocupado" o no). También puede hacer doble clic en el Bolt/Spout para ver más detalles.
@@ -158,4 +158,4 @@ Los proyectos de LightSwitch no son compatibles con esta versión. Este problema
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

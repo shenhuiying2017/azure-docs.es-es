@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Acceso a los registros de diagnóstico de Azure Data Lake Store
@@ -50,15 +50,39 @@ Una vez habilitada la configuración de diagnóstico, puede ver los registros en
 
 ## Ver registros de diagnóstico de la cuenta de Data Lake Store
 
+Existen dos formas de ver los datos de registro para la cuenta de Data Lake Store.
+
+* Desde la vista de configuración de la cuenta de Data Lake Store
+* Desde la cuenta de Almacenamiento de Azure donde se almacenan los datos
+
+### Uso de la vista de configuración de Data Lake Store
+
 1. En la hoja **Configuración** de su cuenta de Data Lake Store, haga clic en **Registros de diagnóstico**.
 
 	![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnósticos")
 
-2. En la hoja **Registros de diagnóstico**, debe ver los registros clasificados por **Registros de auditoría** y **Registros de solicitudes**.
+2. En la hoja **Registros de diagnóstico**, debería ver los registros clasificados por **Registros de auditoría** y **Request Logs** (Registros de solicitudes).
 	* Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Store.
 	* Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Store. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
 
-3. Haga clic en el vínculo **Descargar** de cada entrada de registro para descargar esos registros.
+3. Haga clic en el vínculo **Descargar** de cada entrada de registro para descargar los registros.
+
+### En la cuenta de Almacenamiento de Azure que contiene los datos de registro
+
+1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Store para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.
+
+	![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnósticos")
+
+	* El contenedor **insights-logs-audit** contiene los registros de auditoría.
+	* El contenedor **insights-logs-requests** contiene los registros de solicitudes.
+
+2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura.
+
+	![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Ver registros de diagnósticos")
+
+	Por ejemplo, la ruta de acceso completa a un registro de auditoría sería `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	De forma similar, la ruta de acceso completa a un registro de solicitudes sería `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Comprender la estructura de los datos de registro
 
@@ -157,9 +181,15 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 |------------|--------|------------------------------------------|
 | StreamName | String | Ruta de acceso en la que se ha realizado la operación. |
 
+
+## Ejemplos para procesar los datos de registro
+
+Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+
+
 ## Consulte también
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

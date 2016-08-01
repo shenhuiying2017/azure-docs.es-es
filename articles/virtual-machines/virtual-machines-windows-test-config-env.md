@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración básica
 
-En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure mediante las máquinas virtuales creadas en Administrador de recursos.
+En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure mediante las máquinas virtuales creadas en Resource Manager.
 
 Puede utilizar el entorno de prueba resultante:
 
@@ -66,7 +66,7 @@ Obtenga el nombre de la suscripción con el comando siguiente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establezca su suscripción a Azure. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+Establezca su suscripción a Azure. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -75,7 +75,7 @@ Seguidamente, cree un nuevo grupo de recursos para el laboratorio de pruebas de 
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
-Cree un nuevo grupo de recursos con estos comandos. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+Cree un nuevo grupo de recursos con estos comandos. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$rgName="<resource group name>"
 	$locName="<location name, such as West US>"
@@ -92,7 +92,7 @@ Cree una nueva cuenta de almacenamiento para el nuevo entorno de prueba con esto
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Después, cree la red virtual de Azure TestLab que va a hospedar la subred de la red corporativa de la configuración base y protéjala con un grupo de seguridad de red.
+Después, cree la red virtual de TestLab que va a hospedar la subred de la red corporativa de la configuración base y protéjala con un grupo de seguridad de red.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
@@ -135,7 +135,7 @@ En primer lugar, proporcione el nombre del grupo de recursos, la ubicación de A
 
 A continuación, conéctese a la máquina virtual DC1.
 
-1.	En el Portal de Azure, haga clic en **Máquinas virtuales** y luego haga clic en la máquina virtual **DC1**.  
+1.	En el Portal de Azure, haga clic en **Máquinas virtuales** y luego haga clic en la máquina virtual **DC1**.
 2.	En el panel **DC1**, haga clic en **Conectar**.
 3.	Cuando se le pida, abra el archivo DC1.rdp descargado.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
@@ -333,4 +333,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

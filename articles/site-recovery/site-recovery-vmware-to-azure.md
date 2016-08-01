@@ -88,7 +88,7 @@ Va a configurar una máquina local como el servidor de configuración.
 
 **Requisito previo** | **Detalles**
 --- | ---
-**Servidor de configuración**| Necesita una máquina virtual o física local que ejecute Windows Server 2012 R2. Todos los componentes locales de Site Recovery están instalados en esta máquina.<br/><br/>Para la replicación de máquinas virtuales de VMware se recomienda implementar el servidor como una máquina virtual de VMware de alta disponibilidad. Si va a replicar máquinas físicas, la máquina puede ser un servidor físico.<br/><br/> La conmutación por recuperación en el sitio local desde Azure siempre será en máquinas virtuales de VMware, independientemente de si realizó conmutación por error de máquinas virtuales o servidores físicos. Si no implementa el servidor de configuración como una máquina virtual de VMware, necesitará configurar un servidor de destino maestro independiente como una máquina virtual de VMware para recibir tráfico de conmutación por recuperación.<br/><br/>Si el servidor es una máquina virtual de VMware, el tipo de adaptador de red debe ser VMXNET3. Si utiliza otro tipo de adaptador de red, necesitará instalar una [actualización de VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) en el servidor vSphere 5.5.<br/><br/>El servidor debe tener una dirección IP estática.<br/><br/>El servidor no debe ser un controlador de dominio.<br/><br/>El nombre de host del servidor debe tener 15 caracteres o menos.<br/><br/>El sistema operativo debe estar en inglés únicamente.<br/><br/> Necesitará instalar VMware vSphere PowerCLI 6.0. en el servidor de configuración.<br/><br/>El servidor de configuración necesita acceso a Internet. Se requiere acceso de salida como sigue:<br/><br/>acceso temporal en HTTP 80 durante la instalación de los componentes de Site Recovery (para descargar MySQL)<br/><br/>acceso de salida continuo en HTTPS 443 para la administración de replicación<br/><br/>acceso de salida continuo en HTTPS 9443 para el tráfico de replicación (se puede modificar este puerto)<br/><br/>El servidor también necesitará acceso a las siguientes direcciones URL para que se pueda conectar a Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor, compruebe que las reglas permitan la comunicación con Azure. Debe permitir los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el protocolo HTTPS (443).<br/><br/>Permita los intervalos de direcciones IP para la región de Azure de su suscripción y para el oeste de EE. UU.<br/><br/>Permita esta dirección URL para descargar MySQL: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+**Servidor de configuración**| Necesita una máquina virtual o física local que ejecute Windows Server 2012 R2. Todos los componentes locales de Site Recovery están instalados en esta máquina.<br/><br/>Para la replicación de máquinas virtuales de VMware se recomienda implementar el servidor como una máquina virtual de VMware de alta disponibilidad. Si va a replicar máquinas físicas, la máquina puede ser un servidor físico.<br/><br/> La conmutación por recuperación en el sitio local desde Azure siempre será en máquinas virtuales de VMware, independientemente de si realizó conmutación por error de máquinas virtuales o servidores físicos. Si no implementa el servidor de configuración como una máquina virtual de VMware, necesitará configurar un servidor de destino maestro independiente como una máquina virtual de VMware para recibir tráfico de conmutación por recuperación.<br/><br/>Si el servidor es una máquina virtual de VMware, el tipo de adaptador de red debe ser VMXNET3. Si utiliza otro tipo de adaptador de red, necesitará instalar una [actualización de VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) en el servidor vSphere 5.5.<br/><br/>El servidor debe tener una dirección IP estática.<br/><br/>El servidor no debe ser un controlador de dominio.<br/><br/>El nombre de host del servidor debe tener 15 caracteres o menos.<br/><br/>El sistema operativo debe estar en inglés únicamente.<br/><br/> Necesitará instalar VMware vSphere PowerCLI 6.0. en el servidor de configuración.<br/><br/>El servidor de configuración necesita acceso a Internet. Se requiere acceso de salida como sigue:<br/><br/>acceso temporal en HTTP 80 durante la instalación de los componentes de Site Recovery (para descargar MySQL)<br/><br/>acceso de salida continuo en HTTPS 443 para la administración de replicación<br/><br/>acceso de salida continuo en HTTPS 9443 para el tráfico de replicación (se puede modificar este puerto)<br/><br/>El servidor también necesitará acceso a las siguientes direcciones URL para que se pueda conectar a Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor, compruebe que las reglas permitan la comunicación con Azure. Debe permitir los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el protocolo HTTPS (443).<br/><br/>Permita los intervalos de direcciones IP para la región de Azure de su suscripción y para el oeste de EE. UU.<br/><br/>Permita esta dirección URL para descargar MySQL: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 ## Requisitos previos de host vCenter/vSphere de VMware
@@ -103,7 +103,7 @@ Va a configurar una máquina local como el servidor de configuración.
 
 **Requisito previo** | **Detalles**
 --- | ---
-**Máquinas virtuales de VMware locales)** | Las máquinas virtuales de VMware que desea proteger deben tener herramientas de VMware instaladas y en ejecución.<br/><br/> Las máquinas que desea proteger deben cumplir con los [requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) para crear máquinas virtuales de Azure.<br/><br/>La capacidad de disco individual en máquinas protegidas no debe ser superior a 1023 GB. Una máquina virtual puede tener hasta 64 discos (es decir, hasta 64 TB). <br/><br/>No se admiten los clústeres invitados de discos compartidos.<br/><br/>No se admite el arranque de Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI).<br/><br/>Los nombres de las máquinas deben tener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de haber habilitado la replicación de una máquina, puede modificar el nombre de Azure.<br/><br/>Si la máquina virtual de origen tiene formación de equipos NIC, se convertirá en una sola NIC después de la conmutación por error en Azure.<br/><br/>Si las máquina virtuales protegidas tienen un disco iSCSI, Site Recovery convierte el disco iSCSI de la máquina virtual protegida en un archivo VHD cuando la máquina virtual conmuta por error en Azure. Si la máquina virtual de Azure puede llegar al destino iSCSI, se conectará con él y, principalmente, verá dos discos: el disco VHD en la máquina virtual de Azure y el disco iSCSI de origen. En este caso deberá desconectar el destino iSCSI que aparece en la máquina virtual de Azure.
+**Máquinas virtuales de VMware locales)** | Las máquinas virtuales de VMware que desea proteger deben tener herramientas de VMware instaladas y en ejecución.<br/><br/> Las máquinas que desea proteger deben cumplir con los [requisitos previos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) para crear máquinas virtuales de Azure.<br/><br/>La capacidad de disco individual en máquinas protegidas no debe ser superior a 1023 GB. Una máquina virtual puede tener hasta 64 discos (es decir, hasta 64 TB). <br/><br/>No se admiten los clústeres invitados de discos compartidos.<br/><br/>No se admite el arranque de Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI).<br/><br/>Los nombres de las máquinas deben tener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de haber habilitado la replicación de una máquina, puede modificar el nombre de Azure.<br/><br/>Si la máquina virtual de origen tiene formación de equipos NIC, se convertirá en una sola NIC después de la conmutación por error en Azure.<br/><br/>Si las máquina virtuales protegidas tienen un disco iSCSI, Site Recovery convierte el disco iSCSI de la máquina virtual protegida en un archivo VHD cuando la máquina virtual conmuta por error en Azure. Si la máquina virtual de Azure puede llegar al destino iSCSI, se conectará con él y, principalmente, verá dos discos: el disco VHD en la máquina virtual de Azure y el disco iSCSI de origen. En este caso deberá desconectar el destino iSCSI que aparece en la máquina virtual de Azure.
 **Equipos Windows (físico o VMware)** | El equipo debe ejecutar un sistema operativo de 64 bits compatible: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 como mínimo.<br/><br/> El sistema operativo debe instalarse en la unidad C:\\. El disco del sistema operativo debe ser un disco básico de Windows y no dinámico. El disco de datos puede ser dinámico.<br/><br/>Site Recovery admite máquinas virtuales con un disco RDM. Durante la conmutación por recuperación, Site Recovery reutilizará el disco RDM si la máquina virtual de origen y el disco RDM originales están disponibles. Si no están disponibles, durante la conmutación por recuperación, Site Recovery creará un nuevo archivo VMDK para cada disco.
 **Equipos Linux** | Necesitará un sistema operativo compatible de 64 bits: Red Hat Enterprise Linux 6.7; Centos 6.5, 6.6,6.7; Oracle Enterprise Linux 6.4, 6.5 con la ejecución del kernel de Red Hat compatible o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>Los archivos /etc/hosts de las máquinas protegidas deben contener entradas que asignen el nombre de host local a las direcciones IP asociadas con todos los adaptadores de red.<br/><br/>Si quiere conectarse a una máquina virtual de Azure que ejecute Linux tras la conmutación por error con la utilización de un cliente de Secure Shell (ssh), asegúrese de que el servicio de Secure Shell en la máquina protegida está configurado para iniciarse automáticamente en el arranque del sistema y que las reglas de firewall permiten una conexión ssh a ella.<br/><br/>El nombre de host, los puntos de montaje, los nombres de dispositivo, las rutas de acceso de sistema de Linux y los nombres de archivo (por ejemplo, /etc/; /usr) deben estar en inglés únicamente.<br/><br/>La protección solo puede habilitarse para máquinas con Linux con el almacenamiento siguiente: sistema de archivos (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (múltiples rutas de acceso); administrador de volúmenes: (LVM2). No se admiten servidores físicos con almacenamiento de controlador HP CCISS. El sistema de archivos ReiserFS solo se admite en SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery admite máquinas virtuales con un disco RDM. Durante la conmutación por recuperación para Linux, Site Recovery no reutiliza el disco RDM. En cambio, crea un nuevo archivo VMDK para cada disco RDM correspondiente.<br/><br/>Asegúrese de establecer la configuración de disk.enableUUID=true en los parámetros de configuración de la máquina virtual de VMware. Si no existe, cree la entrada. Es necesario a fin de proporcionar un UUID uniforme al VMDK, para que se monte correctamente. Agregar esta configuración también garantiza que los cambios diferenciales solo se transfieran a local durante la conmutación por recuperación, y no una replicación completa.
 **Servicio de movilidad** | **Windows**: para insertar automáticamente una instancia de Mobility Service en máquinas virtuales que ejecutan Windows, deberá proporcionar una cuenta de administrador (administrador local en el equipo Windows) para que el servidor de procesos pueda realizar una instalación de inserción.<br/><br/> **Linux**: para insertar automáticamente una instancia de Mobility Service en máquinas virtuales que ejecutan Linux, necesitará crear una cuenta que el servidor de procesos pueda utilizar para realizar una instalación de inserción.<br/><br/> De manera predeterminada, se replican todos los discos en una máquina. Para [excluir un disco de la replicación](#exclude-disks-from-replication), la instancia de Mobility Service debe instalarse manualmente en la máquina antes de habilitar la replicación.
@@ -154,12 +154,12 @@ El servidor de procesos de Site Recovery puede detectar automáticamente las má
 ## Creación de un almacén de Servicios de recuperación
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Nueva** > **Administración** > **Backup and Site Recovery (OMS)** (Copia de seguridad y recuperación del sitio (OMS)). También puede hacer clic en **Examinar** > **Almacén de Servicios de recuperación** > **Agregar**.
+2. Haga clic en **Nuevo** > **Administración** > **Backup and Site Recovery (OMS)** (Copia de seguridad y recuperación del sitio [OMS]). También puede hacer clic en **Examinar** > **Almacén de Servicios de recuperación** > **Agregar**.
 
 	![Almacén nuevo](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione una de ellas.
-4. [Cree un nuevo grupo de recursos](../resource-group-portal.md#create-resource-group) o seleccione uno existente. Especifique una región de Azure. Las máquinas se replicarán en esta región. Tenga en cuenta que las redes y el almacenamiento de Azure utilizados para Site Recovery deberán estar en la misma región. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Cree un nuevo grupo de recursos](../resource-group-template-deploy-portal.md) o seleccione uno existente. Especifique una región de Azure. Las máquinas se replicarán en esta región. Tenga en cuenta que las redes y el almacenamiento de Azure utilizados para Site Recovery deberán estar en la misma región. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. Si desea acceder rápidamente al almacén desde el panel, haga clic en **Anclar al panel** y, luego, en **Crear**.
 
 	![Almacén nuevo](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
@@ -180,11 +180,11 @@ Comience la experiencia de introducción decidiendo cómo desea implementar Site
 Seleccione aquello que desea replicar y la ubicación en donde se va a realizar la replicación.
 
 1. En la hoja **Almacenes de servicios de recuperación**, seleccione el almacén y haga clic en **Configuración**.
-2. En **Configuración** > **Introducción**, haga clic en **Site Recovery** > **Step 1: Prepare Infrastructure** (Paso 1: Preparación de la infraestructura) > **Protection goal** (Objetivo de protección).
+2. En **Configuración** > **Introducción**, haga clic en **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
 	![Elegir objetivos](./media/site-recovery-vmware-to-azure/choose-goals.png)
 
-3. En **Protection goal** (Objetivo de protección), seleccione **To Azure** (En Azure) y seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). y, a continuación, haga clic en **Aceptar**.
+3. En **Objetivo de protección**, seleccione **To Azure** (En Azure) y seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). y, a continuación, haga clic en **Aceptar**.
 
 	![Elegir objetivos](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -193,7 +193,7 @@ Seleccione aquello que desea replicar y la ubicación en donde se va a realizar 
 
 Configure el servidor de configuración y regístrelo en el almacén de Servicios de recuperación. Si va a replicar máquinas virtuales de VMware, especifique la cuenta de VMware que está usando para la detección automática.
 
-1. Haga clic en **Step 1: Prepare Infrastructure** (Paso 1: Preparación de la infraestructura) > **Origen**. En **Prepare source** (Preparar origen), si no tiene un servidor de configuración, haga clic en **+Servidor de configuración** para agregar uno.
+1. Haga clic en **Paso 1: Preparar la infraestructura** > **Origen**. En **Preparar origen**, si no tiene un servidor de configuración, haga clic en **+Servidor de configuración** para agregar uno.
 
 	![Configurar origen](./media/site-recovery-vmware-to-azure/set-source1.png)
 
@@ -210,7 +210,7 @@ Configure el servidor de configuración y regístrelo en el almacén de Servicio
 ### Ejecución de la instalación unificada de Site Recovery
 
 1.	Ejecute el archivo de instalación unificada.
-2.	En **Antes de comenzar**, seleccione **Install the configuration server and process server** (Instalar el servidor de configuración y el servidor de procesos).
+2.	En **Antes de comenzar**, seleccione **Instalar el servidor de configuración y el servidor de procesos**.
 
 	![Antes de comenzar](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
@@ -240,7 +240,7 @@ Configure el servidor de configuración y regístrelo en el almacén de Servicio
 
 	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz6.png)
 
-8. En **Install Location** (Ubicación de instalación), seleccione dónde quiera instalar los archivos binarios y almacenar la memoria caché. Puede seleccionar una unidad que tenga al menos 5 GB de almacenamiento disponible, pero se recomienda usar una unidad de memoria caché con 600 GB o más de espacio libre.
+8. En **Ubicación de instalación**, seleccione dónde quiere instalar los archivos binarios y almacenar la memoria caché. Puede seleccionar una unidad que tenga al menos 5 GB de almacenamiento disponible, pero se recomienda usar una unidad de memoria caché con 600 GB o más de espacio libre.
 
 	![Ubicación de instalación](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
 
@@ -282,8 +282,8 @@ Parámetros:
 - InstallLocation: Obligatorio. La carpeta donde se instalan los componentes.
 - /MySQLCredsFilePath. Obligatorio. La ruta de acceso al archivo en que se almacenan las credenciales del servidor MySQL. El archivo debe tener este formato:
 	- [MySQLCredentials]
-	- MySQLRootPassword = "<Password>"
-	- MySQLUserPassword = "<Password>"
+	- MySQLRootPassword = "<Contraseña>"
+	- MySQLUserPassword = "<Contraseña>"
 - /VaultCredsFilePath. Obligatorio. Ubicación del archivo de credenciales del almacén.
 - /EnvType. Obligatorio. Tipo de instalación. Valores: VMware, NonVMware
 - /PSIP y /CSIP. Obligatorio. Dirección IP del servidor de procesos y del servidor de configuración.
@@ -293,9 +293,9 @@ Parámetros:
 	- [ProxySettings]
 	- ProxyAuthentication = "Sí/No"
 	- Proxy IP = "dirección IP >"
-	- ProxyPort = "<Port>"
-	- ProxyUserName="<User Name>"
-	- ProxyPassword="<Password>"
+	- ProxyPort = "<Puerto>"
+	- ProxyUserName="<Nombre de usuario>"
+	- ProxyPassword="<Contraseña>"
 - DataTransferSecurePort. Opcional. Número de puerto que se va a usar para los datos de replicación.
 - SkipSpaceCheck. Opcional. Omitir comprobación de espacio en memoria caché.
 - AcceptThirdpartyEULA. Obligatorio. La marca implica la aceptación de los términos de licencia de terceros.
@@ -319,7 +319,7 @@ Parámetros:
 Si va a replicar máquinas virtuales de VMware, conéctese a los hosts de vSphere y a los servidores vCenter.
 
 1. Compruebe que el servidor de configuración tiene acceso de red a los hosts de vSphere y servidores vCenter.
-2. Haga clic en **Prepare infrastructure** (Preparar infraestructura) > **Origen**. En **Prepare source** (Preparar origen) seleccione el servidor de configuración y haga clic en **+vCenter** para agregar un host vSphere o un servidor vCenter.
+2. Haga clic en **Preparar infraestructura** > **Origen**. En **Preparar origen**, seleccione el servidor de configuración y haga clic en **+vCenter** para agregar un host vSphere o un servidor vCenter.
 3. En **Add vCenter** (Agregar vCenter), especifique un nombre descriptivo para el host vSphere o el servidor vCenter y especifique la dirección IP o el FQDN del servidor. Deje el puerto 443 a menos que los servidores de VMware estén configurados para escuchar las solicitudes en un puerto diferente. A continuación, seleccione la cuenta que se usará para conectarse al servidor VMware. Haga clic en **Aceptar**.
 
 	![VMware](./media/site-recovery-vmware-to-azure/vmware-server.png)
@@ -332,7 +332,7 @@ Site Recovery se conecta a los servidores de VMware con la configuración especi
 
 Compruebe que tiene una cuenta de almacenamiento para la replicación y una red de Azure a la que las máquinas virtuales de Azure se conectarán tras la conmutación por error.
 
-1.	Haga clic en **Prepare infrastructure** (Preparar infraestructura) > **Destino** y seleccione la suscripción de Azure que desea utilizar.
+1.	Haga clic en **Preparar infraestructura** > **Destino** y seleccione la suscripción de Azure que desea utilizar.
 2.	Especifique el modelo de implementación que desea usar para las máquinas virtuales después de la conmutación por error.
 3.	Site Recovery comprueba que tiene una o más cuentas de almacenamiento y redes compatibles.
 
@@ -355,8 +355,8 @@ Compruebe que tiene una cuenta de almacenamiento para la replicación y una red 
 
 ## Paso 4: Configuración de las opciones de replicación
 
-1. Para crear una nueva directiva de replicación, haga clic en **Prepare infrastructure** (Preparar infraestructura) > **Configuración de la replicación** > **+Create and associate** (+Crear y asociar).
-2. En **Create and associate policy** (Crear y asociar directiva), especifique un nombre de directiva.
+1. Para crear una nueva directiva de replicación, haga clic en **Preparar infraestructura** > **Configuración de la replicación** > **+Crear y asociar**.
+2. En **Crear y asociar directiva**, especifique un nombre de directiva.
 3. En **Umbral de RPO**, especifique el límite de RPO. Se generarán alertas cuando la replicación continua supera este límite.
 5. En **Retención de punto de recuperación**, especifique, en horas, el tiempo que estará disponible el período de retención para cada punto de recuperación. Los equipos protegidos se pueden recuperar en cualquier punto dentro de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en almacenamiento premium.
 6. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
@@ -379,7 +379,7 @@ Site Recovery proporciona una herramienta de planeación de capacidad para ayuda
 - Recopilar información sobre su entorno de replicación, incluidas las máquinas virtuales, discos por máquina virtual y almacenamiento por disco.
 - Calcular la tasa de cambio (renovación) diaria para los datos replicados. Puede usar la [aplicación de planeamiento de capacidad de vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) para facilitar la tarea.
 
-1.	Haga clic en **Descargar** para descargar la herramienta y luego ejecútela. [Lea el artículo](site-recovery-capacity-planner.md) que acompaña a la herramienta.
+1.	Haga clic en **Download** (Descargar) para descargar la herramienta y luego ejecútela. [Lea el artículo](site-recovery-capacity-planner.md) que acompaña a la herramienta.
 2.	Cuando haya terminado, seleccione **Yes** (Sí) en **Have you completed capacity planning**? (¿Ha completado el planeamiento de capacidad?).
 
 	![Planificación de capacidad](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
@@ -389,23 +389,23 @@ En la tabla siguiente se indican una serie de puntos para ayudarlo con el planea
 
 **Componente** | **Detalles**
 --- | --- | ---
-**Replicación** | **Tasa máxima de cambios diaria**: una máquina protegida solo puede usar un servidor de procesos, y un servidor de procesos puede gestionar una tasa de cambios diaria de hasta 2 TB. Por lo tanto, la tasa máxima de cambios diaria que admite una máquina virtual es de 2 TB.<br/><br/> **Rendimiento máximo**: una máquina replicada puede pertenecer a una cuenta de almacenamiento en Azure. Una cuenta de almacenamiento estándar puede controlar un máximo de 20 000 solicitudes por segundo y se recomienda mantener la cantidad de E/S por segundo en una máquina de origen en 20 000. Por ejemplo, si tiene una máquina de origen con 5 discos y cada disco genera 120 E/S por segundo (8 K de tamaño) en el origen, se encontrará dentro del límite de 500 de Azure por E/S por segundo por disco. La cantidad de cuentas de almacenamiento necesarias = E/S por segundo de origen total/20 000.
+**Replicación** | **Tasa máxima de cambios diaria**: una máquina protegida solo puede usar un servidor de procesos, y un servidor de procesos puede gestionar una tasa de cambios diaria de hasta 2 TB. Por lo tanto, la tasa máxima de cambios de datos diaria que admite una máquina protegida es de 2 TB.<br/><br/> **Rendimiento máximo**: una máquina replicada puede pertenecer a una cuenta de almacenamiento en Azure. Una cuenta de almacenamiento estándar puede controlar un máximo de 20 000 solicitudes por segundo y se recomienda mantener la cantidad de E/S por segundo en una máquina de origen en 20 000. Por ejemplo, si tiene una máquina de origen con 5 discos y cada disco genera 120 E/S por segundo (8 K de tamaño) en el origen, se encontrará dentro del límite de 500 de Azure por E/S por segundo por disco. La cantidad de cuentas de almacenamiento necesarias = E/S por segundo de origen total/20 000.
 **Servidor de configuración** | El servidor de configuración debe poder controlar la capacidad de tasa de cambios diaria en todas las cargas de trabajo que se ejecutan en máquinas protegidas, y necesita el ancho de banda suficiente para realizar una replicación continua de los datos en el almacenamiento de Azure.<br/><br/> Como procedimiento recomendado, se sugiere que el servidor de configuración debe encontrarse en el mismo segmento de LAN y red que las máquinas que desea proteger. De todos modos, puede estar en una red distinta, pero las máquinas que desea proteger deben contar con la visibilidad de red L3 en ella.<br/><br/> En la tabla siguiente resumen las recomendaciones de tamaño para el servidor de configuración.
-**Servidor de proceso** | El primer servidor de procesos está instalado en el servidor de configuración de forma predeterminada. Puede implementar servidores de procesos adicionales para escalar el entorno. Tenga en cuenta que:<br/><br/> El servidor de procesos recibe datos de replicación provenientes de las máquinas virtuales y los optimiza con almacenamiento en caché, compresión y cifrado antes de enviarlos a Azure. La máquina del servidor de procesos debe tener los recursos suficientes para realizar estas tareas.<br/><br/> El servidor de proceso utiliza la caché basada en disco. Se recomienda tener un disco de caché independiente con 600 GB o más de capacidad para controlar los cambios en los datos almacenados ante la eventualidad de una interrupción o un cuello de botella en la red.
+**Servidor de proceso** | El primer servidor de procesos está instalado en el servidor de configuración de forma predeterminada. Puede implementar servidores de procesos adicionales para escalar el entorno. Tenga en cuenta que:<br/><br/> El servidor de procesos recibe datos de replicación provenientes de las máquinas virtuales y los optimiza con almacenamiento en caché, compresión y cifrado antes de enviarlos a Azure. La máquina del servidor de procesos debe tener los recursos suficientes para realizar estas tareas.<br/><br/> El servidor de proceso utiliza la caché basada en disco. Se recomienda tener un disco de caché independiente con 600 GB o más de capacidad para controlar los cambios en los datos almacenados ante la eventualidad de una interrupción o un cuello de botella en la red.
 
 ### Recomendaciones de tamaño del servidor de configuración
 
 **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) | 16 GB | < 300 GB | 500 GB o menos | Replicar menos de 100 máquinas.
-12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 y 150 máquinas.
-16 vCPU (2 sockets * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 200 máquinas.
-Implementar otro servidor de procesos | | | 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
+8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) | 16 GB | < 300 GB | 500 GB o menos | Replicar menos de 100 máquinas.
+12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 y 150 máquinas.
+16 vCPU (2 sockets * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 200 máquinas.
+Implementar otro servidor de procesos | | | 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
 
 Donde:
 
-- Cada máquina de origen está configurada con 3 discos de 100 GB cada una.
-- Usamos almacenamiento de pruebas comparativas de 8 unidades SAS de 10 K RPM con RAID 10 para las mediciones de disco de caché.
+- Cada máquina de origen está configurada con 3 discos de 100 GB cada una.
+- Usamos almacenamiento de pruebas comparativas de 8 unidades SAS de 10 K RPM con RAID 10 para las mediciones de disco de caché.
 
 ### Recomendaciones de tamaño para el servidor de procesos
 
@@ -419,13 +419,13 @@ Esta tabla describe un escenario en el cual:
 - No pretende utilizar el servidor de configuración como un servidor de procesos.
 - Ha configurado un servidor de procesos adicional.
 - Ha configurado máquinas virtuales protegidas para utilizar el servidor de procesos adicional.
-- Cada máquina de origen protegida está configurada con tres discos de 100 GB cada uno.
+- Cada máquina de origen protegida está configurada con tres discos de 100 GB cada uno.
 
 **Servidor de configuración** | **Servidores de procesos adicionales**| **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
-8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
-12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
+8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
+8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
+12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
 
 
 La manera en que escala los servidores dependerá de su preferencia con respecto a un modelo de escalado vertical o escalado horizontal. Puede escalar verticalmente con la implementación de algunos servidores de procesos y de configuración de alto nivel, mientras que, para escalar horizontalmente, debe implementar más servidores con menos recursos. Por ejemplo, si necesita proteger 220 máquinas, podría elegir una de las siguientes opciones:
@@ -440,7 +440,7 @@ La manera en que escala los servidores dependerá de su preferencia con respecto
 Puede utilizar la herramienta de planeación de capacidad para calcular el ancho de banda necesario para la replicación (replicación inicial y, a continuación, la diferencial). Para controlar el uso de ancho de banda de la replicación tiene algunas opciones:
 
 - **Limitar ancho de banda**: el tráfico de VMware que se replica en Azure pasa a través de un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
-- **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro.
+- **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
 	- El valor del Registro **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\UploadThreadsPerVM** especifica el número de subprocesos que se utilizan para la transferencia de datos (replicación inicial o diferencial) de un disco. Un valor mayor aumenta el ancho de banda de red utilizado para la replicación.
 	- **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\DownloadThreadsPerVM** especifica el número de subprocesos usados para la transferencia de datos durante la conmutación por recuperación.
 
@@ -505,7 +505,7 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 
 #### Preparación para la inserción automática en los servidores Linux
 
-1.	Asegúrese de que la máquina con Linux que quiere proteger sea compatible, tal como se describe en [Requisitos previos de equipos protegidos](#protected-machine-prerequisites). Asegúrese de que haya conectividad de red entre la máquina de Linux y el servidor de procesos.
+1.	Asegúrese de que la máquina con Linux que quiere proteger sea compatible, tal como se describe en los [requisitos previos de equipos protegidos](#protected-machine-prerequisites). Asegúrese de que haya conectividad de red entre la máquina de Linux y el servidor de procesos.
 
 2.	Cree una cuenta que el servidor de procesos pueda utilizar para tener acceso a la máquina. La cuenta debe ser un usuario raíz en el servidor de origen de Linux y solo se utiliza para la instalación de inserción.
 
@@ -519,7 +519,7 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 6.	Habilite la autenticación de la contraseña y del subsistema SFTP en el archivo sshd\_config:
 
 	- Inicie sesión como root.
-	- En el archivo /etc/ssh/sshd\_config, encuentre la línea que comienza con **PasswordAuthentication**.
+	- En el archivo /etc/ssh/sshd\_config, busque la línea que comienza con **PasswordAuthentication**.
 	- Quite la marca de comentario de la línea y cambie el valor de **no** a **yes**.
 	- Busque la línea que comienza por **Subsystem** y quite la marca de comentario.
 
@@ -532,7 +532,7 @@ Los instaladores están disponibles en **C:\\Archivos de programa (x86)\\Microso
 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
-Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
+Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
 CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
@@ -546,16 +546,16 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL
 
 	![Servicio de movilidad](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña que se generó al ejecutar la instalación unificada. Puede recuperar la frase de contraseña mediante la ejecución de **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** en el servidor de configuración.
+3. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña que se generó al ejecutar la instalación unificada. Para recuperar la frase de contraseña, ejecute: **<carpetaInstalaciónSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –n** en el servidor de configuración.
 
 	![Servicio de movilidad](./media/site-recovery-vmware-to-azure/mobility6.png)
 
-4. En **Install Location** (Ubicación de instalación), deje la configuración predeterminada y haga clic en **Siguiente** para comenzar la instalación.
-5. En **Installation Progress** (Progreso de la instalación), supervise la instalación y reinicie la máquina, si así se le solicita. Después de instalar el servicio, la actualización del estado en el portal puede tardar unos 15 minutos.
+4. En **Ubicación de instalación**, deje la configuración predeterminada y haga clic en **Siguiente** para comenzar la instalación.
+5. En **Progreso de la instalación**, supervise la instalación y reinicie la máquina, si así se le solicita. Después de instalar el servicio, la actualización del estado en el portal puede tardar unos 15 minutos.
 
 También puede instalar desde la línea de comandos:
 
-UnifiedAgent.exe [/Role <agente/destino maestro>] [/InstallLocation <directorio de instalación>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <ruta de acceso al archivo de frase de contraseña>] [/LogFilePath <Log File Path>]
+UnifiedAgent.exe [/Role <Agente/Destino maestro>] [/InstallLocation <Directorio de instalación>] [/CSIP <Dirección IP de CS con la que registrarse>] [/PassphraseFilePath <ruta de acceso al archivo de frase de contraseña>] [/LogFilePath <ruta de acceso al archivo de registro>]
 
 Donde:
 
@@ -568,12 +568,12 @@ Donde:
 #### Instalación manual en un servidor Linux:
 
 1. Copie el archivo tar adecuado según la tabla anterior en la máquina Linux que desea replicar.
-2. Abra un programa de shell y extraiga el archivo TAR comprimido en una ruta de acceso local mediante la ejecución de `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`.
+2. Abra un programa de shell y extraiga el archivo TAR comprimido en una ruta de acceso local mediante la ejecución de: `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
 3. Cree un archivo passphrase.txt en el directorio local en el que extrajo el contenido del archivo tar. Para ello, copie la frase de contraseña desde C:\\ProgramData\\Microsoft Azure Site Recovery\\private\\connection.passphrase en el servidor de configuración y guárdela en el archivo passphrase.txt mediante la ejecución de *`echo <passphrase> >passphrase.txt`* en el shell.
 4. Instale Mobility Service; para ello, ejecute *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Especifique la dirección IP interna del servidor de configuración y asegúrese de que el puerto 443 está seleccionado. Después de instalar el servicio, la actualización del estado en el portal puede tardar unos 15 minutos.
 
-**También puede instalarlo desde la línea de comandos**:
+**También puede instalar desde la línea de comandos**:
 
 1. Copie la frase de contraseña desde C:\\Archivos de programa (x86)\\InMage Systems\\private\\connection en el servidor de configuración y guárdela como "passphrase.txt" en el servidor de configuración. Luego, ejecute estos comandos. En nuestro ejemplo, la dirección IP del servidor de configuración es 104.40.75.37 y el puerto HTTPS debe ser 443:
 
@@ -595,7 +595,7 @@ Si va a replicar máquinas virtuales de VMware, tenga en cuenta lo siguiente:
 
 - Las máquinas virtuales de VMware se detectan cada 15 minutos y podrían tardar 15 minutos o más en aparecer en el portal después de su detección. Del mismo modo, la detección podría tardar 15 minutos o más si agrega un servidor vCenter o host vSphere nuevos.
 - Los cambios de entorno en la máquina virtual (como la instalación de herramientas de VMware) también pueden tardar 15 minutos o más en actualizarse en el portal.
-- Puede consultar la hora de la detección más reciente de las máquinas virtuales de VMware en el campo **Last Contact At** (Último contacto a las) correspondiente al servidor vCenter/host vSphere en la hoja **Servidores de configuración**.
+- Puede consultar la hora de la detección más reciente de las máquinas virtuales de VMware en el campo **Último contacto a las** correspondiente al servidor vCenter/host vSphere en la hoja **Servidores de configuración**.
 - Para agregar máquinas de replicación sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en el botón **Actualizar**.
 - Al habilitar la replicación, si la máquina está preparada, el servidor de procesos instala automáticamente Mobility Service en ella.
 
@@ -611,7 +611,7 @@ Cuando se habilita la replicación, de forma predeterminada se replican todos lo
 
 **Ahora habilite la replicación como sigue**:
 
-1. Haga clic en **Step 2: Replicate application** (Paso 2: Replicación de la aplicación) > **Origen**. Después de habilitar la replicación por primera vez, haga clic en **+Replicar** en el almacén para habilitar la replicación de máquinas adicionales.
+1. Haga clic en **Paso 2: Replicar la aplicación** > **Origen**. Después de habilitar la replicación por primera vez, haga clic en **+Replicar** en el almacén para habilitar la replicación de máquinas adicionales.
 2. En la hoja **Origen** > **Origen**, seleccione el servidor de configuración.
 3. En **Tipo de máquina**, seleccione **Máquinas virtuales** o **Máquinas físicas**.
 4. En **vCenter/vSphere Hypervisor**, seleccione el servidor vCenter que administra el host vSphere, o bien seleccione el host. Esta configuración es relevante si va a replicar máquinas físicas.
@@ -623,9 +623,9 @@ Cuando se habilita la replicación, de forma predeterminada se replican todos lo
 7. Seleccione la cuenta de almacenamiento de Azure que desea usar para los datos de replicación. Observe lo siguiente:
 
 	- Puede seleccionar una cuenta de almacenamiento estándar o premium. Si selecciona una cuenta premium, debe especificar una cuenta de almacenamiento estándar adicional para los registros de replicación en curso. Las cuentas deben estar en la misma región que el almacén de Servicios de recuperación.
-	- Si desea utilizar una cuenta de almacenamiento diferente de las que tiene, puede [crear una](#set-up-an-azure-storage-account). Para crear una cuenta de almacenamiento mediante el modelo de ARM, haga clic en **Crear nueva**. Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará en el [Portal de Azure](../storage/storage-create-storage-account-classic-portal.md).
+	- Si desea utilizar una cuenta de almacenamiento diferente de las que tiene, puede [crear una](#set-up-an-azure-storage-account). Para crear una cuenta de almacenamiento mediante el modelo de ARM, haga clic en **Crear nueva**. Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará [en el Portal de Azure](../storage/storage-create-storage-account-classic-portal.md).
 
-8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Servicios de recuperación. Seleccione la opción **Configure now for selected machines** (Configurar ahora para las máquinas seleccionadas) para aplicar la configuración de red a todas las máquinas que seleccione para proteger. Seleccione **Configure later** (Configurar más tarde) para seleccionar la red de Azure por máquina. Si no dispone de una red, debe [crear una](#set-up-an-azure-network). Para crear una red mediante el modelo de ARM, haga clic en **Crear nueva**. Si desea crear una red mediante el modelo clásico, hágalo [en el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Seleccione una subred si es posible. y, a continuación, haga clic en **Aceptar**.
+8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Servicios de recuperación. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** para aplicar la configuración de red a todas las máquinas que seleccione para proteger. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe [crear una](#set-up-an-azure-network). Para crear una red mediante el modelo de ARM, haga clic en **Crear nueva**. Si desea crear una red mediante el modelo clásico, hágalo [en el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Seleccione una subred si es posible. y, a continuación, haga clic en **Aceptar**.
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication3.png)
 
@@ -633,41 +633,41 @@ Cuando se habilita la replicación, de forma predeterminada se replican todos lo
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 
-10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que utilizará el servidor de procesos para instalar automáticamente Mobility Service en la máquina. De manera predeterminada se replican todos los discos. Haga clic en **All Disks** (Todos los discos) y desactive todos los discos que no desea replicar. y, a continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante.
+10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que utilizará el servidor de procesos para instalar automáticamente Mobility Service en la máquina. De manera predeterminada se replican todos los discos. Haga clic en **Todos los discos** y desactive todos los discos que no desea replicar. y, a continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante.
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-11. En **Configuración de la replicación** > **Configure replication settings**(Establecer configuración de replicación), compruebe que la directiva de replicación correcta está seleccionada. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > Nombre de directiva > **Editar configuración**. Los cambios aplicados a una directiva también se aplicarán a las máquinas nuevas y replicadas.
+11. En **Configuración de la replicación** > **Establecer configuración de replicación **, compruebe que la directiva de replicación correcta está seleccionada. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > Nombre de directiva > **Editar configuración**. Los cambios aplicados a una directiva también se aplicarán a las máquinas nuevas y replicadas.
 
-12. Habilite **Coherencia de múltiples VM** si desea recopilar las máquinas en un grupo de replicación y especifique un nombre para el grupo. y, a continuación, haga clic en **Aceptar**. Observe lo siguiente:
+12. Habilite la **coherencia de múltiples VM** si desea recopilar las máquinas en un grupo de replicación y especifique un nombre para el grupo. y, a continuación, haga clic en **Aceptar**. Observe lo siguiente:
 
 	- Todas las máquinas de un grupo de replicación se replican al mismo tiempo y comparten puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error.
 	- Se recomienda que recopile las máquinas virtuales y los servidores físicos juntos para que reflejen las cargas de trabajo. Habilitar la coherencia de múltiples VM puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia.
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 
-13. Haga clic en **Habilitar replicación**. Puede hacer un seguimiento del progreso del trabajo de **Habilitar protección** en **Configuración** > **Trabajos** > **Site Recovery jobs** (Trabajos de Site Recovery). La máquina estará preparada para la conmutación por error después de que finalice el trabajo de **Finalizar protección**.
+13. Haga clic en **Habilitar replicación**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Site Recovery jobs** (Trabajos de Site Recovery). La máquina estará preparada para la conmutación por error después de que finalice el trabajo de **Finalizar protección**.
 
 > [AZURE.NOTE] Si la máquina está preparada para la instalación de inserción, el componente Mobility Service se instalará cuando la protección esté habilitada. Después de que el componente se ha instalado en la máquina, se inicia un trabajo de protección y se produce un error. Debe reiniciar manualmente cada máquina después del error. Una vez que reinicie, el trabajo de protección vuelve a comenzar y se produce la replicación inicial.
 
 ### Visualización y administración de las propiedades de la máquina virtual
 
-Es recomendable que compruebe las propiedades de la máquina de origen. Recuerde que el nombre de la máquina virtual debe cumplir los [Requisitos para las máquinas virtuales de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Es recomendable que compruebe las propiedades de la máquina de origen. Recuerde que el nombre de la máquina virtual debe cumplir los [requisitos para las máquinas virtuales de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
-1. Haga clic en **Configuración** > **Elementos replicados** > y seleccione la máquina. En la hoja **Essentials** se muestra información sobre la configuración y el estado de las máquinas.
+1. Haga clic en **Configuración** > **Elementos replicados** > y seleccione la máquina. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
 
 2. En **Propiedades**, puede ver la información de replicación y conmutación por error de la máquina virtual.
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/test-failover2.png)
 
-3. En **Compute and Network** (Proceso y red) > **Compute properties** (Propiedades de proceso), puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los requisitos de Azure si es necesario. También puede ver y agregar la información sobre la red, la subred y la dirección IP de destino que se asignarán a la máquina virtual de Azure. Tenga en cuenta lo siguiente:
+3. En **Proceso y red** > **Propiedades de proceso**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los requisitos de Azure si es necesario. También puede ver y agregar la información sobre la red, la subred y la dirección IP de destino que se asignarán a la máquina virtual de Azure. Tenga en cuenta lo siguiente:
 
 	- Puede establecer la dirección IP de destino. Si no proporciona una dirección, la máquina conmutada por error usará DHCP. Si establece una dirección que no está disponible en el momento de la conmutación por error, la conmutación no funcionará. Se puede utilizar la misma dirección IP de destino para la conmutación por error de prueba si la dirección está disponible en la red.
 	- El número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino, de la siguiente manera:
 
 		- Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
 		- Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
-		- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador. 	
+		- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.
 	- Si la máquina virtual tiene varios adaptadores de red, todos ellos se conectarán a la misma red.
 
 	![Habilitar replicación](./media/site-recovery-vmware-to-azure/test-failover4.png)
@@ -684,7 +684,7 @@ Para probar la implementación, puede ejecutar una conmutación por error de pru
 
 - Para ejecutar una conmutación por error de prueba, le recomendamos que cree una nueva red de Azure que esté aislada de la red de producción de Azure (este es el comportamiento predeterminado cuando se crea una nueva red de Azure). [Más información](site-recovery-failover.md#run-a-test-failover) sobre la ejecución de conmutaciones por error de prueba.
 - Para obtener el mejor rendimiento cuando realice una conmutación por error en Azure, instale el agente de Azure en la máquina protegida. Hace más rápido el arranque y ayuda a solucionar problemas. Instale el agente de [Linux](https://github.com/Azure/WALinuxAgent) o de [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-- Para probar completamente la implementación necesitará una infraestructura para que la máquina replicada funcione según lo esperado. Si desea probar Active Directory y DNS puede crear una máquina virtual como controlador de dominio con DNS y replicar esta en Azure con Azure Site Recovery. Más información en las [consideraciones de la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
+- Para probar completamente la implementación necesitará una infraestructura para que la máquina replicada funcione según lo esperado. Si desea probar Active Directory y DNS puede crear una máquina virtual como controlador de dominio con DNS y replicar esta en Azure con Azure Site Recovery. Más información en las [consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 - Asegúrese de que el servidor de configuración se encuentre en ejecución. De lo contrario, se producirá un error de conmutación por error.
 - Si ha excluido discos de la replicación, debe crearlos manualmente en Azure después de la conmutación por error para que la aplicación se ejecute según lo esperado.
 - Si desea ejecutar una conmutación por error no planeada en lugar de una de prueba tenga en cuenta lo siguiente:
@@ -698,8 +698,8 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la c
 
 **En la máquina local antes de la conmutación por error**:
 
-- Para acceder a través de Internet, habilite el protocolo RDP, asegúrese de que se agregan las reglas TCP y UDP para **Público**, y asegúrese de que el protocolo RDP está permitido en **Firewall de Windows** -> **Aplicaciones y características permitidas** para todos los perfiles.
-- Para acceder a través de una conexión de sitio a sitio, habilite el protocolo RDP en la máquina y asegúrese de que está permitido en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **Dominio** y **Privadas**.
+- Para tener acceso a través de Internet, habilite el protocolo RDP, asegúrese de que se agregan las reglas TCP y UDP para **Público**, y asegúrese de que el protocolo RDP está permitido en **Firewall de Windows** -> **Aplicaciones y características permitidas** para todos los perfiles.
+- Para tener acceso a través de una conexión de sitio a sitio, habilite el protocolo RDP en la máquina y asegúrese de que está permitido en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **Dominio** y **Privadas**.
 - Instale el [agente de máquina virtual de Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) en la máquina local.
 - [Instale manualmente la instancia de Mobility Service](#install-the-mobility-service-manually) en las máquinas, en lugar de usar el servidor de procesos para insertar el servicio automáticamente. Esto se debe a que la instalación de inserción solo se produce después de habilitar la máquina para la replicación.
 - Asegúrese de que la directiva SAN del sistema operativo está establecida en OnlineAll. [Más información](https://support.microsoft.com/kb/3031135)
@@ -709,7 +709,7 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la c
 
 - Agregue un punto de conexión público para el protocolo RDP (puerto 3389) y especifique las credenciales de inicio de sesión.
 - Asegúrese de no tener ninguna directiva de dominio que impida que se conecte a una máquina virtual mediante una dirección pública.
-- Intente conectarse. Si no se puede conectar, compruebe que se está ejecutando la máquina virtual. Para obtener más sugerencias de solución de problemas, consulte este [artículo](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Intente conectarse. Si no se puede conectar, compruebe que se está ejecutando la máquina virtual. Para ver más sugerencias sobre solución de problemas, consulte este [artículo](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 Si desea acceder a una máquina virtual de Azure con Linux después de la conmutación por error mediante un cliente de Secure Shell (ssh), haga lo siguiente:
@@ -737,7 +737,7 @@ Si tiene un grupo de seguridad de red asociado a la máquina virtual o la subred
 
 2. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
 
-3. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales después de la conmutación por error.
+3. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales después de que se produzca una conmutación por error.
 4. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Probar conmutación por error** en Nombre de almacén > **Configuración** > **Trabajos** > **Site Recovery jobs** (Trabajos de Site Recovery).
 5. Cuando la conmutación por error alcance el estado **Completar prueba**, haga lo siguiente:
 
@@ -756,17 +756,17 @@ Si tiene un grupo de seguridad de red asociado a la máquina virtual o la subred
 
 
 6. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en el Portal de Azure > **Máquinas virtuales**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
-7. Si se [preparó para la conexión después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
+7. Si se [preparó para la conexión después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debería poder conectarse a la máquina virtual de Azure.
 
 ## Supervisión de la implementación
 
 Le mostramos cómo puede supervisar la configuración y el estado de la implementación de Site Recovery:
 
-1. Haga clic en el nombre del almacén para acceder al panel de **Essentials**. En este panel puede ver los trabajos de Site Recovery, el estado de la replicación, los planes de recuperación, y el estado y los eventos del servidor. Puede personalizar Essentials para mostrar los iconos y los diseños que sean más útiles para usted, incluido el estado de otros almacenes de Copia de seguridad y Site Recovery.
+1. Haga clic en el nombre del almacén para acceder al panel de **Información esencial**. En este panel puede ver los trabajos de Site Recovery, el estado de la replicación, los planes de recuperación, y el estado y los eventos del servidor. Puede personalizar Essentials para mostrar los iconos y los diseños que sean más útiles para usted, incluido el estado de otros almacenes de Copia de seguridad y Site Recovery.
 
 ![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
 
-2. En el icono **Estado** puede supervisar los servidores del sitio (servidores VMM o de configuración) que están experimentando el problema y los eventos provocados por Site Recovery en las últimas 24 horas.
+2. En el icono **Estado** puede supervisar los servidores del sitio (servidores VMM o de configuración) que están experimentando el problema y los eventos generados por Site Recovery en las últimas 24 horas.
 3. Puede administrar y supervisar la replicación en los iconos **Elementos replicados**, **Planes de recuperación** y **Site Recovery Jobs** (Trabajos de Site Recovery). Puede ver más detalles de los trabajos en **Configuración** -> **Trabajos** -> **Site Recovery Jobs** (Trabajos de Site Recovery).
 
 
@@ -774,7 +774,7 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
 
 Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, necesitará servidores de procesos adicionales para controlar el volumen del tráfico.
 
-Consulte las [Recomendaciones de tamaño para el servidor de procesos](#size-recommendations-for-the-process-server) y siga estas instrucciones para configurar el servidor de procesos. Después de configurar el servidor, debe migrar las máquinas de origen para que lo utilicen.
+Consulte las [recomendaciones de tamaño para el servidor de procesos](#size-recommendations-for-the-process-server) y siga estas instrucciones para configurar el servidor de procesos. Después de configurar el servidor, debe migrar las máquinas de origen para que lo utilicen.
 
 ### Instalación de un servidor de procesos adicional
 
@@ -787,12 +787,12 @@ Consulte las [Recomendaciones de tamaño para el servidor de procesos](#size-rec
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
 3. Descargue el archivo de instalación unificada de Site Recovery y ejecútelo para instalar el servidor de procesos y registrarlo en el almacén.
-4. En **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
+4. En **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de proceso adicionales para el escalado horizontal de la implementación).
 5. Complete el asistente tal y como hizo cuando [instaló](#step-2-set-up-the-source-environment) el servidor de configuración.
 
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure/add-ps1.png)
 
-6. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña. Para obtener la frase de contraseña, ejecute **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** en el servidor de configuración.
+6. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña. Para obtener la frase de contraseña, ejecute **<carpetaInstalaciónSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –n** en el servidor de configuración.
 
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure/add-ps2.png)
 
@@ -806,7 +806,7 @@ Consulte las [Recomendaciones de tamaño para el servidor de procesos](#size-rec
 
 	![Actualizar servidor de procesos](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 
-3. En **Seleccionar servidor de procesos de destino**, seleccione el nuevo servidor de procesos que desea usar y elija las máquinas virtuales que el nuevo servidor de procesos controlará. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
+3. En **Seleccionar servidor de procesos de destino**, seleccione el nuevo servidor de procesos que desea usar y elija las máquinas virtuales que controlará el nuevo servidor de procesos. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
 
 ## Permisos de cuenta de VMware
 
@@ -814,9 +814,9 @@ El servidor de procesos puede detectar automáticamente las máquinas virtuales 
 
 **Rol** | **Detalles** | **Permisos**
 --- | --- | ---
-Rol Azure\_Site\_Recovery | Detección de máquinas virtuales de VMware |Asigne estos privilegios para el servidor vCenter:<br/><br/>Almacén de datos-> Asignar espacio, Examinar almacén de datos, Operaciones de archivo de bajo nivel, Quitar archivo, Actualizar archivos de máquina virtual<br/><br/>Red-> Asignación de red<br/><br/>Recurso -> Asignar máquina virtual a un grupo de recursos, Migrar máquina virtual apagada, Migrar máquina virtual encendida<br/><br/>Tareas -> Crear tarea, actualizar tarea<br/><br/>Máquina virtual -> Configuración<br/><br/>Máquina virtual -> Interactuar -> Responder pregunta, Conexión de dispositivo, Configurar soporte físico de CD, Configurar soporte físico de disquete, Apagar, Encender, Instalación de herramientas de VMware<br/><br/>Máquina virtual -> Inventario -> Crear, Registrar, Anular registro<br/><br/>Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, Permitir carga de archivos de máquina virtual<br/><br/>Máquina virtual -> Instantáneas -> Quitar instantáneas
-Rol de usuario de vCenter | Detección/conmutación por error de VMware sin apagar la máquina virtual de origen | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos –> Propagar a objeto secundario, rol=solo lectura <br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos en el centro de datos. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** a los objetos secundarios (hosts vSphere, almacenes de datos, máquinas virtuales y redes).
-Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos: Propagar a objeto secundario, rol=Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos del centro de datos. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** al objeto secundario (hosts vSphere, almacenes de datos, máquinas virtuales y redes). 
+Rol Azure\_Site\_Recovery | Detección de máquinas virtuales de VMware |Asigne estos privilegios para el servidor vCenter:<br/><br/>Almacén de datos -> Asignar espacio, Examinar almacén de datos, Operaciones de archivo de bajo nivel, Quitar archivo, Actualizar archivos de máquina virtual<br/><br/>Red -> Asignación de red<br/><br/>Recurso -> Asignar máquina virtual a un grupo de recursos, Migrar máquina virtual apagada, Migrar máquina virtual encendida<br/><br/>Tareas -> Crear tarea, actualizar tarea<br/><br/>Máquina virtual -> Configuración<br/><br/>Máquina virtual -> Interactuar -> Responder pregunta, Conexión de dispositivo, Configurar soporte físico de CD, Configurar soporte físico de disquete, Apagar, Encender, Instalación de herramientas de VMware<br/><br/>Máquina virtual -> Inventario -> Crear, Registrar, Anular registro<br/><br/>Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, Permitir carga de archivos de máquina virtual<br/><br/>Máquina virtual -> Instantáneas -> Quitar instantáneas
+Rol de usuario de vCenter | Detección/conmutación por error de VMware sin apagar la máquina virtual de origen | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos –> Propagar a objeto secundario, rol=solo lectura <br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos del centro de datos. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** a los objetos secundarios (hosts vSphere, almacenes de datos, máquinas virtuales y redes).
+Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos: Propagar a objeto secundario, rol=Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos del centro de datos. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** al objeto secundario (hosts vSphere, almacenes de datos, máquinas virtuales y redes).  
 ## Pasos siguientes
 
 - [Más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
@@ -834,4 +834,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

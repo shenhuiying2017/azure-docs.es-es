@@ -18,7 +18,7 @@
 
 # Obtenga una vista previa de las instrucciones de desarrollo para cuentas de DocumentDB con soporte de protocolo para MongoDB.
 
-Puede comunicarse con DocumentDB a través de todos los [controladores](https://docs.mongodb.org/ecosystem/drivers/) de cliente de MongoDB de código abierto. El soporte de protocolo para MongoDB supone que los controladores de cliente de MongoDB se comunican con un punto de conexión del servidor de MongoDB 2.6 o posterior. DocumentDB admite esto mediante la adhesión al [protocolo de conexión](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) de MongoDB versión 2.6 (tenga en cuenta que el protocolo de conexión de la versión 3.2 es compatible casi en su totalidad, pero algunas experiencias de clientes como las sesiones shell de MongoDB versión 3.2 parecen indicar que se está "degradando al modo 'heredado'").
+Puede comunicarse con Azure DocumentDB a través de todos los [controladores](https://docs.mongodb.org/ecosystem/drivers/) de cliente de MongoDB de código abierto. El soporte de protocolo para MongoDB supone que los controladores de cliente de MongoDB se comunican con un punto de conexión del servidor de MongoDB 2.6 o posterior. DocumentDB admite esto mediante la adhesión al [protocolo de conexión](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) de MongoDB versión 2.6 (tenga en cuenta que el protocolo de conexión de la versión 3.2 es compatible casi en su totalidad, pero algunas experiencias de clientes como las sesiones shell de MongoDB versión 3.2 parecen indicar que se está "degradando al modo 'heredado'").
 
 DocumentDB es compatible con las funciones principales de la API de MongoDB para realizar acciones de creación, lectura, actualización y eliminación (CRUD) de datos así como de consulta de la base de datos. Las funcionalidades implementadas se han priorizado según las necesidades de plataformas, marcos, herramientas y patrones de aplicación comunes.
 
@@ -100,4 +100,4 @@ Diagnóstico|listDatabases, collStats, dbStats| |Todo lo demás
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -25,12 +25,12 @@ Al configurar la seguridad mediante certificados durante la creación del clúst
 ## Agregar un certificado secundario
 Para agregar otro certificado como secundario, debe cargar el certificado en un Almacén de claves de Azure y luego implementarlo en las máquinas virtuales del clúster. Para más información, consulte [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) (Implementación de certificados en máquinas virtuales desde un Almacén de claves administrado por el cliente).
 
-1. [Cargue un certificado X.509 en el Almacén de claves](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault).
+1. [Cargue un certificado X.509 en el Almacén de claves.](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y vaya al recurso del clúster al que quiere agregar este certificado.
 3. En **Configuración**, haga clic en la configuración de certificado y especifique la huella digital del certificado secundario.
 4. Haga clic en **Guardar**. Se iniciará una implementación y, cuando se complete, podrá usar tanto el certificado principal como el secundario para realizar operaciones de administración en el clúster.
 
-![Captura de pantalla de huellas digitales de certificados en el portal][SecurityConfigurations_02]
+![Screen shot of certificate thumbprints in the portal][SecurityConfigurations\_02]
 
 ## Quitar un certificado
 Este es el proceso para quitar un certificado antiguo de modo que el clúster no lo utilice:
@@ -49,4 +49,4 @@ Lea estos artículos para más información sobre la administración de clúster
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

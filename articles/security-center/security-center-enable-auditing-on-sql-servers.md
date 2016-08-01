@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Habilitación de la auditoría en los servidores SQL Server desde Azure Security Center
@@ -28,10 +28,10 @@ Esta recomendación solo se aplica en el servicio SQL de Azure; no se incluyen l
 
 ## Implementación de la recomendación
 
-1. En la hoja **Recomendaciones**, seleccione **Habilitar la auditoría en servidores SQL**. Se abrirá la hoja **Habilitar la auditoría en servidores SQL**. ![][1]
+1. En la hoja **Recomendaciones**, seleccione **Habilitar la auditoría en servidores SQL**. Se abrirá la hoja **Habilitar la auditoría en servidores SQL**. ![Habilitación de la auditoría en servidores SQL][1]
 
-2. Seleccione un servidor SQL Server en donde habilitar la auditoría. Se abrirá la hoja **Configuración de auditoría**. ![][2]
-3. En la hoja **Configuración de auditoría**, seleccione la opción **ACTIVAR** de **Auditoría**. ![][3]
+2. Seleccione un servidor SQL Server en donde habilitar la auditoría. Se abrirá la hoja **Configuración de auditoría**. ![Configuración de auditoría][2]
+3. En la hoja **Configuración de auditoría**, seleccione la opción **ACTIVAR** de **Auditoría**. ![Activación de la configuración de auditoría][3]
 
 4. Siga los pasos de [Introducción a la auditoría de bases de datos SQL](../sql-database/sql-database-auditing-get-started.md) para configurar el almacenamiento donde se guardarán los registros de auditoría. La cuenta de almacenamiento de la suscripción en la que se recopilarán datos es la predeterminada.
 
@@ -46,10 +46,10 @@ En este artículo, mostramos cómo implementar la recomendación Habilitar la au
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 - [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): sepa cómo las recomendaciones lo ayudan a proteger los recursos de Azure.
+- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
 - [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Administración de alertas de seguridad y respuesta a estas en Azure Security Center](security-center-managing-and-responding-alerts.md): sepa cómo administrar alertas de seguridad y responder a estas.
-- [Supervisión de las soluciones de partners con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de partners.
+- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): sepa cómo administrar alertas de seguridad y responder a estas.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

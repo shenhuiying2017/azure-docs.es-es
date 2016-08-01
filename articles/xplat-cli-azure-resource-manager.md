@@ -23,6 +23,7 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI de Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -45,7 +46,7 @@ Después de crear una implementación, puede administrar los recursos individual
 
 ## Autenticación
 
-Trabajar con Azure Resource Manager mediante la CLI de Azure requiere que se autentique en Microsoft Azure con el comando `azure login` y después especificando una cuenta administrada por Azure Active Directory: ya sea una cuenta profesional o educativa (una cuenta de organización) o una cuenta de Microsoft. En este modo no sirve autenticarse con un certificado instalado a través de un archivo .publishsettings.
+Trabajar con Azure Resource Manager mediante la CLI de Azure requiere que se autentique en Microsoft Azure con el comando `azure login` y después especificar una cuenta administrada por Azure Active Directory: ya sea una cuenta profesional o educativa (una cuenta de organización) o una cuenta de Microsoft. En este modo no sirve autenticarse con un certificado instalado a través de un archivo .publishsettings.
 
 Para obtener más información acerca de cómo autenticarse en Microsoft Azure, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md).
 
@@ -225,7 +226,7 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 
         azure group export testRG ~/azure/templates/
 
-* **Exportar la plantilla para una implementación concreta**: resulta útil si necesita ver la plantilla real que se usó para implementar recursos. La plantilla incluirá todos los parámetros y las variables definidas para la implementación original. Sin embargo, si alguien de su organización ha realizado cambios en el grupo de recursos fuera de lo que se define en la plantilla, esta plantilla no representará el estado actual del grupo de recursos.
+* **Descargar la plantilla para una implementación concreta**: resulta útil si necesita ver la plantilla real que se usó para implementar recursos. La plantilla incluirá todos los parámetros y las variables definidas para la implementación original. Sin embargo, si alguien de su organización ha realizado cambios en el grupo de recursos fuera de lo que se define en la plantilla, esta plantilla no representará el estado actual del grupo de recursos.
 
     Para descargar la plantilla usada para una implementación concreta en un directorio local, ejecute el comando `azure group deployment template download`.
 
@@ -238,4 +239,4 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md)
 * Para información sobre cómo trabajar con Azure Resource Manager desde el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

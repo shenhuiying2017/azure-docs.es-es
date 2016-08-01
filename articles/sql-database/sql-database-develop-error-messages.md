@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Códigos de error SQL: error de conexión de base de datos | Microsoft Azure"
-	description="Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la Base de datos SQL, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales."
+	description="Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la Base de datos SQL, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. "
 	keywords="código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL"
 	services="sql-database"
 	documentationCenter=""
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill"/>
 
 
@@ -31,15 +31,9 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de Base de datos SQL, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de la Base de datos SQL de Azure y no se aplican a Microsoft SQL Server.
 
-En la aplicación cliente, tiene la opción de ofrecer a su usuario un mensaje personalizado cuando se produzca cualquier error.
-
-<a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
-
-
 ## Errores de conexión de base de datos, errores transitorios y otros errores temporales
 
 En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a la Base de datos SQL.
-
 
 ### Errores de conexión de base de datos y errores transitorios más comunes
 
@@ -49,9 +43,9 @@ Si el programa cliente tiene lógica de reintento, puede intentar restablecer un
 
 Los errores transitorios suelen manifestarse como uno de los siguientes mensajes de error de los programas cliente:
 
-- La base de datos <db_name> en el servidor <Azure_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session_id>.
+- La base de datos <db\_name> del servidor <Azure\_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session\_id>
 
-- La base de datos <db_name> en el servidor <Azure_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session_id>. (Microsoft SQL Server, error: 40613)
+- La base de datos <db\_name> del servidor <Azure\_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session\_id>. (Microsoft SQL Server, error: 40613)
 
 - El host remoto cerró a la fuerza una conexión ya existente.
 
@@ -60,31 +54,27 @@ Los errores transitorios suelen manifestarse como uno de los siguientes mensajes
 Para obtener ejemplos de lógica de reintento, vea:
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
-
 - [Acciones para corregir errores de conexión y errores transitorios en Base de datos SQL](sql-database-connectivity-issues.md)
 
 Una explicación del *período de bloqueo* para clientes que usan ADO.NET está disponible en [Grupos de conexión de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Códigos de errores transitorios
 
+Los siguientes errores son transitorios y se deben volver a probar en la lógica de aplicación
 
 | Código de error | Gravedad | Descripción |
 | ---: | ---: | :--- |
 | 4060 | 16 | No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
 |40197|17|Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo.|
-|40501|20|El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* para obtener más información, consulte <br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).
+|40501|20|El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* Para más información, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).
 |40613|17|La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%. & #x2a; ls'.|
 |49918|16|No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
 |49919|16|No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 |49920|16|No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 
-
-<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
-
 ## Errores de copia de base de datos
 
-
-En la tabla siguiente se describen los diversos errores que puede encontrarse al copiar una base de datos en la Base de datos SQL de Azure. Para más información, vea [Copiar una base de datos SQL de Azure](sql-database-copy.md).
+Pueden encontrarse los siguientes errores al copiar una base de datos en Base de datos SQL de Azure. Para más información, vea [Copiar una base de datos SQL de Azure](sql-database-copy.md).
 
 
 |Código de error|Gravedad|Descripción|
@@ -103,55 +93,33 @@ En la tabla siguiente se describen los diversos errores que puede encontrarse al
 |40570|16|No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante.|
 |40571|16|No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante.|
 
-
-<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
-
 ## Errores de regulación de recursos
 
+La causa de los siguientes errores es un uso excesivo de recursos mientras se trabaja con Base de datos SQL de Azure. Por ejemplo:
 
-En la tabla siguiente se muestran los errores causados por un uso excesivo de recursos mientras se trabaja con la base de datos SQL de Azure. Por ejemplo:
-
-
-- Es posible que su transacción haya estado abierta demasiado tiempo.
-- Puede que su transacción contenga demasiados bloqueos.
-- Es posible que el programa está consumiendo demasiada memoria.
-- Puede que el programa está consumiendo demasiado espacio en `TempDb`.
-
-
-**Sugerencia:** el vínculo siguiente ofrece más información que se aplica a la mayoría de los errores de esta sección o a todos ellos:
-
-
-- [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
-
-
-|Código de error|Gravedad|Descripción|
-|---:|---:|:---|
-|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
-|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
-|40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
-|40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
-|40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
-|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar la consulta para reducir el uso de espacio de la tabla temporal.<br/><br/>*Sugerencia: * si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` si quita los objetos temporales cuando la sesión ya no los necesite.|
-|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize`o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
-|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código de Transact-SQL reduce los requisitos de memoria de la consulta.|
-
-
-Para obtener más información sobre la regulación de recursos y los errores asociados, vea:
-
-
-- [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
-
-
-<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
-
-## Errores de grupos elásticos
+- Una transacción ha permanecido abierta durante demasiado tiempo.
+- Una transacción contiene demasiados bloqueos.
+- Una aplicación consume demasiada memoria.
+- Una aplicación consume demasiado espacio en `TempDb`.
 
 Temas relacionados:
 
-* [Creación de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-create-csharp.md) 
-* [Administración y cambio de tamaño de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-manage-csharp.md). 
-* [Creación de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
-* [Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-manage-powershell.md).
+* Encontrará información más detallada aquí: [Límites de recursos de Base de datos SQL de Azure](sql-database-resource-limits.md)
+
+|Código de error|Gravedad|Descripción|
+|---:|---:|:---|
+|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* Para más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
+|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* Para más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
+|40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
+|40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
+|40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
+|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar la consulta para reducir el uso del espacio de la tabla temporal.<br/><br/>*Sugerencia:* si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` si quita los objetos temporales cuando la sesión ya no los necesite.|
+|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize` o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
+|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL reduce los requisitos de memoria de la consulta.|
+
+## Errores de grupos elásticos
+
+Los errores siguientes están relacionados con la creación y el uso de grupos elásticos.
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -162,26 +130,30 @@ Temas relacionados:
 | 40858 | EX\_USER | El grupo elástico '%ls' ya existe en el servidor: '%ls' | Nombre de grupo elástico, nombre del servidor. | El grupo elástico especificado ya existe en el servidor lógico especificado. | Proporcione un nuevo nombre de grupo elástico. |
 | 40859 | EX\_USER | El grupo elástico no admite el nivel de servicio '%ls'. | Nivel de servicio de grupo elástico. | El nivel de servicio especificado no se admite para el aprovisionamiento de grupo elástico. | Especifique la versión correcta o deje el nivel de servicio en blanco para usar el nivel de servicio predeterminado. |
 | 40860 | EX\_USER | La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. | Nombre del grupo flexible; nombre del objetivo de nivel de servicio. | El grupo elástico y el objetivo de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". | Especifique la combinación correcta de grupo elástico y objetivo de servicio. |
-| 40861 | EX\_USER | La edición de la base de datos '%.*ls' no puede ser diferente del nivel de servicio de grupo elástico que es '%.*ls'. | edición de base de datos, nivel de servicio de grupo elástico | La edición de base de datos es diferente del nivel de servicio de grupo elástico. | No especifique una edición de base de datos que sea diferente del nivel de servicio de grupo elástico. Tenga en cuenta que no es necesario especificar la edición de la base de datos. |
-| 40862 | EX\_USER | Se debe especificar el nombre del grupo elástico si se especifica el objetivo del servicio del grupo elástico. | Ninguno | El objetivo del servicio del grupo elástico no identifica de manera única un grupo elástico. | Especifique el nombre del grupo elástico si usa el objetivo del servicio del grupo elástico. |
-| 40864 | EX\_USER | Las DTU para el grupo elástico deben ser como mínimo (%d) DTU para nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por debajo del límite mínimo. | Vuelva a intentar establecer las DTU para el grupo elástico en al menos el límite mínimo. |
-| 40865 | EX\_USER | Las DTU para el grupo elástico no pueden superar (%d) DTU para el nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por encima del límite máximo. | Vuelva a intentar establecer las DTU para el grupo elástica en un número no superior al límite máximo. |
-| 40867 | EX\_USER | El máximo de DTU por base de datos debe ser al menos (%d) para el nivel de servicio '%.*ls'. | Número máximo de DTU por base de datos; nivel de servicio de grupo elástico | Intentando establecer el máximo de DTU por base de datos por debajo del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40868 | EX\_USER | El máximo de DTU por base de datos no puede superar (%d) para el nivel de servicio '%.*ls'. | Máximo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el máximo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40870 | EX\_USER | El mínimo de DTU no puede superar (%d) para el nivel de servicio '%. * ls'. | Mínimo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el mínimo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40873 | EX\_USER | El número de bases de datos (%d) y el mínimo de DTU por base de datos (%d) no puede superar las DTU del grupo flexible (%d). | Número de bases de datos en grupo elástico; mínimo de DTU por base de datos; DTU de grupo elástico. | Intentando especificar mínimo de DTU para bases de datos en el grupo elástico que supera las DTU del grupo flexible. | Considere la posibilidad de aumentar las DTU del grupo elástico o de reducir el mínimo de DTU por base de datos, o de reducir el número de bases de datos del grupo elástico. |
-| 40877 | EX\_USER | No se puede eliminar un grupo elástico a menos que no contenga ninguna base de datos. | Ninguno | El grupo elástico contiene una o más bases de datos y, por tanto, no se puede eliminar | Quite las bases de datos del grupo flexible para poder eliminarlo. |
-| 40881 | EX\_USER | El grupo elástico '%. * ls' ha alcanzado su límite de número de bases de datos. El límite del número de bases de datos para el grupo elástico no puede superar (%d) para un grupo elástico con (%d) DTU. | Nombre del grupo elástico; límite del número de bases de datos del grupo elástico; DTU para el grupo de recursos. | Intentando crear o agregar base de datos a grupo elástico cuando se ha alcanzado el límite del número de bases de datos del grupo elástico. | Considere la posibilidad de aumentar las DTU del grupo elástico si es posible para aumentar su límite de bases de datos o quitar bases de datos del grupo elástico. |
-| 40889 | EX\_USER | No se pueden reducir las DTU ni el límite de almacenamiento para el grupo elástico '%.*ls' puesto que eso no daría espacio de almacenamiento suficiente para sus bases de datos. | Nombre de grupo elástico. | Intentando reducir el límite de almacenamiento del grupo elástico por debajo de su uso de almacenamiento. | Considere la posibilidad de reducir el uso de almacenamiento de bases de datos individuales en el bloque elástico o quitar las bases de datos del grupo para reducir sus DTU o el límite de almacenamiento. |
-| 40891 | EX\_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
-| Por determinar | EX\_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
+| 40861 | EX\_USER | La versión de la base de datos '%.*ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.*ls'. | Versión de la base de datos, nivel de servicio del grupo elástico. | La versión de la base de datos es distinta del nivel de servicio del grupo elástico. | No especifique una versión de la base de datos distinta del nivel de servicio del grupo elástico. Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
+| 40862 | EX\_USER | Debe especificarse el nombre del grupo elástico si se especifica el objetivo de servicio del grupo elástico. | None | El objetivo del servicio de grupo elástico no identifica de manera única un grupo elástico. | Especifique el nombre del grupo elástico si usa el objetivo del servicio de grupo elástico. |
+| 40864 | EX\_USER | El número de DTU del grupo elástico debe ser de al menos (%d) DTU para el nivel de servicio ' %.* ls'. | Número de DTU del grupo elástico; nivel de servicio del grupo elástico. | Se intentó establecer el número de DTU para el grupo elástico por debajo del límite mínimo. | Vuelva a intentar establecer el número de DTU para el grupo elástico al menos en el límite mínimo. |
+| 40865 | EX\_USER | El número de DTU del grupo elástico no puede superar (%d) DTU para el nivel de servicio ' %.* ls'. | Número de DTU del grupo elástico; nivel de servicio del grupo elástico. | Se intentó establecer el número de DTU para el grupo elástico por encima del máximo. | Vuelva a intentar establecer el número de DTU para el grupo elástico a un valor inferior al límite máximo. |
+| 40867 | EX\_USER | El número máximo de DTU por base de datos debe ser al menos (%d) para el nivel de servicio '%.*ls'. | Número máximo de DTU por base de datos, nivel de servicio del grupo elástico. | Se intentó establecer el número máximo de DTU por base de datos por debajo del límite admitido. | Considere la posibilidad de utilizar el nivel de servicio del grupo elástico que admita la configuración deseada. |
+| 40868 | EX\_USER | El número máximo de DTU por base de datos no puede superar (%d) para el nivel de servicio '%.*ls'. | Número máximo de DTU por base de datos, nivel de servicio del grupo elástico. | Se intentó establecer el número máximo de DTU por base de datos por encima del límite admitido. | Considere la posibilidad de utilizar el nivel de servicio del grupo elástico que admita la configuración deseada. |
+| 40870 | EX\_USER | El número mínimo de DTU por base de datos no puede superar (%d) para el nivel de servicio '%.*ls'. | Número mínimo de DTU por base de datos, nivel de servicio del grupo elástico. | Se intentó establecer el número mínimo de DTU por base de datos por encima del límite admitido. | Considere la posibilidad de utilizar el nivel de servicio del grupo elástico que admita la configuración deseada. |
+| 40873 | EX\_USER | El número de bases de datos (%d) y el mínimo de DTU por base de datos (%d) no puede superar el número de DTU del grupo elástico (%d). | Número de bases de datos del grupo elástico; número mínimo de DTU por base de datos; número de DTU del grupo elástico. | Se intentó especificar un número mínimo de DTU para las bases de datos del grupo elástico que supera el número de DTU del grupo elástico. | Considere la posibilidad de aumentar el número de DTU del grupo elástico, reduzca el número mínimo de DTU por base de datos, o bien reduzca el número de bases de datos del grupo elástico. |
+| 40877 | EX\_USER | No se puede eliminar un grupo elástico a menos que no contenga ninguna base de datos. | None | El grupo elástico contiene una o más bases de datos y no se puede eliminar. | Quite las bases de datos del grupo elástico para poder eliminarlo. |
+| 40881 | EX\_USER | El grupo elástico ' %.* ls' ha alcanzado el límite de recuento de bases de datos. El límite de bases de datos del grupo elástico no puede superar (%d) para un grupo elástico con (%d) DTU. | Nombre del grupo elástico; límite de bases de datos del grupo elástico; número de eDTU del grupo de recursos. | Se intentó crear una base de datos en el grupo elástico, o agregar una base de datos al grupo elástico, cuando se ha alcanzado el límite de bases de datos del grupo elástico. | Considere la posibilidad de incrementar el número de DTU del grupo elástico si es posible para aumentar el límite de bases de datos, o bien quite bases de datos del grupo elástico. |
+| 40889 | EX\_USER | El límite de DTU o de almacenamiento del grupo elástico ' %.* ls' no se puede reducir, puesto que no proporcionaría suficiente espacio de almacenamiento para sus bases de datos. | Nombre del grupo elástico. | Se intentó reducir el límite de almacenamiento del grupo elástico por debajo de su uso de almacenamiento. | Considere la posibilidad de reducir el uso de almacenamiento de bases de datos individuales del grupo elástico, o bien quite bases de datos del grupo para reducir su número de DTU o el límite de almacenamiento. |
+| 40891 | EX\_USER | El número mínimo de DTU por base de datos (%d) no puede superar el número máximo de DTU por base de datos (%d). | Número mínimo de DTU por base de datos; número máximo de DTU por base de datos. | Se intentó establecer el número mínimo de DTU por base de datos con un valor superior al número máximo de DTU por base de datos. | Asegúrese de que el número mínimo de DTU por base de datos no supere el número máximo de DTU por base de datos. |
+| TBD | EX\_USER | El tamaño de almacenamiento para una base de datos individual de un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio ' %.* ls'. | Nivel de servicio de grupo elástico. | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos por debajo de los límites de tamaño máximo permitidos por el nivel de servicio del grupo elástico. |
 
+Temas relacionados:
+
+* [Creación de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-create-csharp.md)
+* [Administración de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-manage-csharp.md).
+* [Creación de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-create-powershell.md)
+* [Supervisión y administración de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## Errores generales
 
-
-En la tabla siguiente se muestran todos los errores generales que no pertenecen a ninguna categoría anterior.
-
+Los siguientes errores no se incluyen en ninguna categoría anterior.
 
 |Código de error|Gravedad|Descripción|
 |---:|---:|:---|
@@ -215,14 +187,14 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40528|16|Los usuarios no se pueden asignar a certificados, claves asimétricas o inicios de sesión de Windows en esta versión de SQL Server.|
 |40529|16|La función integrada '%.&#x2a;ls' en el contexto de suplantación no se admite en esta versión de SQL Server.|
 |40532|11|No se puede abrir el servidor "%.&#x2a;ls" solicitado por el inicio de sesión. Error de inicio de sesión.|
-|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar la consulta para procesar menos filas.<br/><br/>*Nota:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL ayuda a reducir los requisitos de memoria de su consulta.|
+|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Nota:* La reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL ayuda a reducir los requisitos de memoria de la consulta.|
 |40604|16|No se pudo CREATE/ALTER DATABASE porque superaría la cuota del servidor.|
 |40606|16|Adjuntar base de datos no se admite en esta versión de SQL Server.|
 |40607|16|Los inicios de sesión de Windows no se admiten en esta versión de SQL Server.|
 |40611|16|Los servidores pueden tener como máximo 128 reglas de firewall definidas.|
 |40614|16|La dirección IP de inicio de la regla de firewall no puede superar la dirección IP final.|
 |40615|16|No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor. Para habilitar el acceso, use el Portal de bases de datos SQL o ejecute sp\_set\_firewall\_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones. Puede tardar hasta cinco minutos que este cambio surta efecto.|
-|40617|16|El nombre de regla de firewall que comienza por <rule name> es demasiado largo. La longitud máxima es 128.|
+|40617|16|El nombre de regla de firewall que comienza por <nombre de regla> es demasiado largo. La longitud máxima es 128.|
 |40618|16|El nombre de la regla de firewall no puede estar vacío.|
 |40620|16|Error de inicio de sesión del usuario "%.&#x2a;ls". Error de cambio de contraseña. El cambio de contraseña durante el inicio de sesión no se admite en esta versión de SQL Server.|
 |40627|20|La operación en el servidor '{0}' y la base de datos '{1}' está en curso. Espere algunos minutos antes de volver a intentarlo.|
@@ -231,29 +203,28 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40632|16|Error de validación de contraseña. La contraseña no cumple los requisitos de directiva porque no es lo suficientemente compleja.|
 |40636|16|No se puede usar un nombre de base de datos reservado '%.&#x2a;ls' en esta operación.|
 |40638|16|Id. de suscripción no válido <subscription-id>. La suscripción no existe.|
-|40639|16|La solicitud no se ajusta al esquema: <schema error>.|
+|40639|16|La solicitud no se ajusta al esquema: <error de esquema>.|
 |40640|20|El servidor detectó una excepción inesperada.|
 |40641|16|La ubicación especificada no es válida.|
 |40642|17|El servidor está demasiado ocupado. Inténtelo de nuevo más tarde.|
 |40643|16|El valor del encabezado x-ms-version especificado no es válido.|
 |40644|14|No se pudo autorizar el acceso a la suscripción especificada.|
-|40645|16|El nombre de servidor <servername> no puede estar vacío ni ser NULL. Solo puede contener letras minúsculas de la 'a' a la 'z', los números del 0 al 9 y guiones. El guión no puede estar al principio ni al final del nombre.|
+|40645|16|El nombre de servidor <nombreDeServidor> no puede estar vacío ni ser NULL. Solo puede contener letras minúsculas de la 'a' a la 'z', los números del 0 al 9 y guiones. El guión no puede estar al principio ni al final del nombre.|
 |40646|16|El id. de suscripción no puede estar vacío.|
 |40647|16|La suscripción <subscription-id no tiene nombre de servidor.|
 |40648|17|Se han realizado demasiadas solicitudes. Inténtelo de nuevo más tarde.|
 |40649|16|Se ha especificado un content-type no válido. Solo se admite application/xml.|
 |40650|16|La suscripción <subscription-id> no existe o no está lista para la operación.|
 |40651|16|No se pudo crear el servidor porque la suscripción <subscription-id> está deshabilitada.|
-|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> excederá la cuota|
+|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> superará la cuota de servidor.|
 |40671|17|Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde.|
-|40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique sus cadenas de conexión que contienen 'secure' en el FQDN del servidor. -'server name'.database.windows.net debe modificarse para 'server name'.database.`secure`.windows.net.| 
-|45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.| 
+|40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique las cadenas de conexión que contienen 'secure' en el FQDN de servidor - 'server name'.database.windows.net debe cambiarse a 'server name'.database.`secure`.windows.net.|
+|45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.|
 |45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
-
 
 ## Vínculos relacionados
 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

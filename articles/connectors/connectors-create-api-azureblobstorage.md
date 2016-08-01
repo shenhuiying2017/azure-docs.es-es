@@ -14,220 +14,318 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="07/18/2016"
    ms.author="mandia"/>
 
 # Introducción al conector de almacenamiento de blobs de Azure
-Conéctese a un blob de Azure para administrar los archivos de un contenedor de blobs, por ejemplo, para crear o eliminar archivos, entre otras muchas cosas. El conector de almacenamiento de blobs de Azure puede utilizarse desde:
+Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados. Puede realizar diversas acciones en archivos como cargar, actualizar, obtener y eliminar blobs en el almacenamiento de blobs de Azure.
 
-- Aplicaciones lógicas 
+- Genere el flujo de trabajo mediante la carga de nuevos proyectos o la obtención de archivos que se hayan actualizado recientemente.
+- Use acciones para obtener metadatos de archivos, eliminar un archivo, copiar archivos y muchas otras cosas. Por ejemplo, si se actualiza una herramienta en un sitio web de Azure (un desencadenador), actualice a continuación un archivo en el almacenamiento de blobs (una acción).
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+En este tema se muestra cómo usar el conector de almacenamiento de blobs en una aplicación lógica y también se enumeran las acciones.
 
-Con Almacenamiento de blobs de Azure, puede:
+>[AZURE.NOTE] Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
 
-- Compilar el flujo de negocio en función de los datos que se obtienen del blob. 
-- Usar acciones que le permiten crear un archivo, obtener contenido del archivo y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar "urgente" en un archivo en el blob y, a continuación, enviar todos los archivos con "urgente" en un correo electrónico mediante Office 365. 
+Introducción a la [creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.INCLUDE [Qué necesita para empezar](../../includes/connectors-create-api-azureblobstorage.md)]
 
-## Desencadenadores y acciones
-Blob de Azure incluye las siguientes acciones. No hay desencadenadores.
 
-| Desencadenadores | Acciones|
-| --- | --- |
-| Ninguno. | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante</li><li>Actualizar archivo</li></ul> |
+## Conexión con el almacenamiento de blobs de Azure
 
-Todos los conectores admiten datos en formato JSON y XML.
+Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a Dropbox, debe crear primero una *conexión* a Dropbox. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que se está conectando. De esta forma, en el ejemplo de Dropbox, escriba sus credenciales de Dropbox para crear la conexión a este servicio.
 
-## Creación de una conexión a un blob de Azure
+Cuando agrega este conector a las aplicaciones lógicas, crea una conexión a la cuenta de almacenamiento de blobs. La primera vez que agregue este conector, se le pedirá la información de conexión:
 
->[AZURE.INCLUDE [Pasos para crear una conexión al almacenamiento de blobs de Azure](../../includes/connectors-create-api-azureblobstorage.md)]
+![](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-Después de crear la conexión, escriba las propiedades del blob, como el nombre de archivo o la ruta de acceso de carpeta. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
->[AZURE.TIP] Puede usar esta misma conexión de blob en otras aplicaciones lógicas.
+#### Creación de la conexión
+
+1. Escriba los detalles de la cuenta de almacenamiento. Aquellas propiedades con un asterisco son obligatorias.
+
+	| Propiedad | Detalles |
+|---|---|
+| Nombre de la conexión * | Escriba cualquier nombre para la conexión. |
+| Nombre de la cuenta de Almacenamiento de Azure * | Escriba el nombre de la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento se muestra en las propiedades de almacenamiento del Portal de Azure. |
+| Clave de acceso de la cuenta de Almacenamiento de Azure * | Escriba la clave de la cuenta de almacenamiento. Las claves de acceso se muestran en las propiedades de almacenamiento del Portal de Azure. |
+
+	Estas credenciales se usan para autorizar a la aplicación lógica a conectarse y acceder a sus datos. Una vez completado, los detalles de la conexión presentan un aspecto similar al siguiente:
+
+	![Paso de creación de conexión de blobs de Azure](./media/connectors-create-api-azureblobstorage/sample-connection.png)
+
+2. Seleccione **Crear**.
+
  
+## Uso de un desencadenador
 
-## Referencia de API de REST de Swagger
-Se aplica a la versión: 1.0.
+Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica como, por ejemplo, un desencadenador de periodicidad, un desencadenador de Webhook HTTP, los desencadenadores disponibles con otros conectores y otros varios. La [creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) sirve de ejemplo.
 
-### Crear archivo
-Carga un archivo en el almacenamiento de blobs de Azure. ```POST: /datasets/default/files```
+## Uso de una acción
+	
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderPath|cadena|yes|query| Ninguna |Ruta de acceso de la carpeta para cargar el archivo en el Almacenamiento de blobs de Azure|
-|name|cadena|yes|query|Ninguna |Nombre del archivo que se va a crear en Almacenamiento de blobs de Azure|
-|body|string(binary) |yes|body|Ninguna|Contenido del archivo que se va a cargar en el Almacenamiento de blobs de Azure|
+1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
 
-#### Respuesta
+	![](./media/connectors-create-api-azureblobstorage/add-action.png)
+
+2. Elija **Agregar una acción**.
+
+3. En el cuadro de texto, escriba "blob" para obtener una lista de todas las acciones disponibles.
+
+	![](./media/connectors-create-api-azureblobstorage/actions.png)
+
+4. En nuestro ejemplo, elija **AzureBlob: obtener metadatos de archivo mediante la ruta de acceso**. Si ya existe una conexión, seleccione el botón **...** (Mostrar selector) para seleccionar un archivo.
+
+	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+
+	Si se le solicita la información de conexión, escriba los detalles para crear la conexión. [Creación de la conexión](connectors-create-api-azureblobstorage.md#create-the-connection): en este tema se describen estas propiedades.
+
+	> [AZURE.NOTE] En este ejemplo, obtenemos los metadatos de un archivo. Para ver los metadatos, agregue otra acción que cree un archivo nuevo mediante otro conector. Por ejemplo, agregue una acción de OneDrive que cree un nuevo archivo de "prueba" basándose en los metadatos.
+
+5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) es una excelente herramienta para administrar varias cuentas de almacenamiento.
+
+## Detalles técnicos
+
+## Acciones
+
+|Acción|Descripción|
+|--- | ---|
+|[Obtención de metadatos de archivo](connectors-create-api-azureblobstorage.md#get-file-metadata)|Esta operación obtiene metadatos de archivo mediante el identificador de archivo.|
+|[Actualizar archivo](connectors-create-api-azureblobstorage.md#update-file)|Esta operación actualiza un archivo.|
+|[Eliminar archivo](connectors-create-api-azureblobstorage.md#delete-file)|Esta operación elimina un archivo.|
+|[Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|Esta operación obtiene metadatos de archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|Esta operación obtiene el contenido de archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo](connectors-create-api-azureblobstorage.md#get-file-content)|Esta operación obtiene el contenido de archivo mediante el identificador.|
+|[Crear archivo](connectors-create-api-azureblobstorage.md#create-file)|Esta operación carga un archivo.|
+|[Copiar archivo](connectors-create-api-azureblobstorage.md#copy-file)|Esta operación copia un archivo en el Almacenamiento de blobs de Azure.|
+|[Extraer archivo en la carpeta](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).|
+
+### Detalles de la acción
+
+En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+
+#### Obtención de metadatos de archivo
+Esta operación obtiene metadatos de archivo mediante el identificador de archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Actualizar archivo
+Esta operación actualiza un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+|body*|Contenido del archivo|Contenido del archivo que se va a actualizar|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Eliminar archivo
+Esta operación elimina un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Obtener metadatos de archivo mediante la ruta de acceso
+Esta operación obtiene metadatos de archivo mediante la ruta de acceso.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Obtener contenido de archivo mediante la ruta de acceso
+Esta operación obtiene el contenido de archivo mediante la ruta de acceso.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Obtener contenido de archivo
+Esta operación obtiene el contenido de archivo mediante el identificador.
+
+|Nombre de propiedad| Tipo de datos|Descripción|
+| ---|---|---|
+|id*|cadena|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Crear archivo
+Esta operación carga un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderPath*|Ruta de acceso a la carpeta|Seleccionar una carpeta|
+|name*|Nombre de archivo|Nombre del archivo que va a cargar|
+|body*|Contenido del archivo|Contenido del archivo que va a cargar|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos | 
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Copiar archivo
+Esta operación copia un archivo en el Almacenamiento de blobs de Azure.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Dirección URL de origen|Especifica la dirección URL al archivo de origen|
+|destination*|Ruta de acceso del archivo de destino|Especifica la ruta de acceso al archivo de destino, incluido el nombre de archivo de destino|
+|overwrite|¿Sobrescribir?|¿Se debe sobrescribir un archivo de destino existente (verdadero/falso)? |
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+#### Extraer archivo en la carpeta
+Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Ruta de acceso del archivo de origen|Seleccionar un archivo de almacenamiento|
+|destination*|Ruta de acceso a la carpeta de destino|Selecciona el contenido que se va a extraer|
+|overwrite|¿Sobrescribir?|¿Se debe sobrescribir un archivo de destino existente (verdadero/falso)?|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+## Respuestas HTTP
+
+Al realizar llamadas a las distintas acciones, es posible que obtenga determinadas respuestas. En la tabla siguiente se describen las respuestas y sus descripciones:
+
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido|
 |default|Error en la operación.|
-
-### Copiar archivo
-Copia un archivo en el almacenamiento de blobs de Azure. ```POST: /datasets/default/copyFile```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna |Dirección URL al archivo de origen|
-|de destino|cadena|yes|query| Ninguna|Ruta de acceso del archivo de destino en Almacenamiento de blobs de Azure, incluido el nombre de archivo de destino|
-|overwrite|boolean|no|query|Ninguna |Sobrescribe el archivo de destino si está establecido en 'true'|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Eliminar archivo
-Elimina un archivo del almacenamiento de blobs de Azure. ```DELETE: /datasets/default/files/{id}```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a eliminar del Almacenamiento de blobs de Azure|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Extraer archivo en la carpeta
-Extrae un archivo de almacenamiento en una carpeta del almacenamiento de blobs de Azure (ejemplo: .zip). ```POST: /datasets/default/ExtractFolderV2```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query| Ninguna|Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso en Almacenamiento de blobs de Azure para extraer el contenido del archivo|
-|overwrite|boolean|no|query|Ninguna |Sobrescribe los archivos de destino si está establecido en 'true'|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Obtener contenido de archivo
-Recupera contenido de archivo del almacenamiento de blobs de Azure mediante el identificador. ```GET: /datasets/default/files/{id}/content```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido de archivo del almacenamiento de blobs de Azure mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna |Ruta de acceso única al archivo en Almacenamiento de blobs de Azure|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Obtener metadatos de archivo
-Recupera los metadatos de archivo del almacenamiento de blobs de Azure mediante el id. de archivo. ```GET: /datasets/default/files/{id}```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de Almacenamiento de blobs de Azure mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna|Ruta de acceso única al archivo en Almacenamiento de blobs de Azure|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Actualizar archivo
-Actualiza un archivo en el almacenamiento de blobs de Azure. ```PUT: /datasets/default/files/{id}```
-
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a actualizar en Almacenamiento de blobs de Azure|
-|body|string(binary) |yes|body|Ninguna |Contenido del archivo que se va a actualizar en Almacenamiento de blobs de Azure|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-## Definiciones de objeto
-
-#### DataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos | Obligatorio|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-#### BlobDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-
-#### BlobMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
-|Tamaño|integer|no|
-|MediaType|cadena|no|
-|IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
 
 ## Pasos siguientes
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en aplicaciones lógicas en nuestra [lista de API](apis-list.md).
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="07/19/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
@@ -34,8 +34,8 @@ Antes de bloquear el tráfico de red entrante con un grupo de seguridad de red, 
 
 A continuación se muestra una lista de puertos utilizados por un entorno del Servicio de aplicaciones:
 
-- 454: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
-- 455: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+- 454: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones a través de SSL. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+- 455: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones a través de SSL. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
 - 80: el puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 443: el puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
@@ -140,4 +140,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

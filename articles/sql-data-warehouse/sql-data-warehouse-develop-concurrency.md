@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/12/2016"
+   ms.date="07/15/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
@@ -22,12 +22,12 @@ Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQ
 
 ## Límites de simultaneidad
 
-Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada consulta tiene garantizado un mínimo de memoria. Cuando se alcanzan los límites de simultaneidad durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.
+Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada consulta tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.
 
-Los límites de simultaneidad se rigen por dos conceptos **consultas simultáneas** y **espacios de simultaneidad**. Para que una consulta se ejecute, lo ha de hacer dentro tanto del límite de simultaneidad como de la asignación de espacio de simultaneidad.
+Los límites de simultaneidad se rigen por dos conceptos **consultas simultáneas** y **espacios de simultaneidad**. Para que una consulta se ejecute, lo ha de hacer tanto dentro de su límite de simultaneidad como dentro de la asignación de espacio de simultaneidad.
 
 - **Consultas simultáneas** no es otra cosa que el número de consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 **consultas simultáneas** en los tamaños de almacenamiento de datos más grandes, DW1000 y posteriores. Sin embargo, dado que el número de consultas simultáneas varía según el número de DWU, hemos proporcionado una tabla para mostrar las limitaciones de DWU.
-- **Espacios de simultaneidad** es un concepto más dinámico. Cada consulta que se ejecuta de forma simultánea consume una o varias ranuras de simultaneidad. El número exacto de espacios que consume una consulta depende del tamaño de Almacenamiento de datos SQL y de la [clase de recursos](#resource-classes) de la consulta.
+- **Espacios de simultaneidad** es un concepto más dinámico. Cada consulta puede consumir uno o varios espacios de simultaneidad. El número exacto de espacios que consume una consulta depende del tamaño de Almacenamiento de datos SQL y de la [clase de recursos](#resource-classes) de la consulta.
 
 La siguiente tabla describe los límites de consultas simultáneas y espacios de simultaneidad.
 
@@ -38,23 +38,23 @@ La siguiente tabla describe los límites de consultas simultáneas y espacios de
 | N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
 
-Cuando se alcanza uno de estos umbrales, las nuevas consultas se ponen en cola. Las consultas en cola se ejecutan siguiendo el modelo "el primero en entrar es el primero en salir", al irse completando las consultas, el número de las mismas así como de los espacios cae por debajo de los límites.
+Cuando se alcanza uno de estos umbrales, las nuevas consultas se ponen en cola. Las consultas en cola se ejecutan siguiendo el modelo "el primero en entrar es el primero en salir" al irse completando otras consultas, mientras que el número de las mismas y de los espacios cae por debajo de los límites.
 
-> [AZURE.NOTE]  Las consultas SELECT que se ejecutan exclusivamente en vistas de administración dinámica (DMV) o vistas de catálogo **no** están reguladas por las clases de recursos. Esto permite a los usuarios supervisar el sistema incluso cuando todas los espacios de simultaneidad están en uso.
+> [AZURE.NOTE]  Las consultas SELECT que se ejecutan exclusivamente en vistas de administración dinámica (DMV) o vistas de catálogo **no** están reguladas por ninguno de los límites de simultaneidad. Esto permite a los usuarios supervisar el sistema independientemente del número de consultas que se ejecutan en él.
 
 ## Clases de recursos
 
-Las clases de recursos son una parte esencial de la administración de cargas de trabajo de Almacenamiento de datos SQL, ya que permiten asignar más memoria y ciclos de CPU a las consultas realizadas por un usuario determinado. Existen cuatro clases de recursos, cada uno en forma de un **rol de base de datos**. Las cuatro clases de recursos son **smallrc, mediumrc, largerc y xlargerc**. Los usuarios en smallrc tienen una menor cantidad de memoria y, por ello en esta clase se permite una mayor simultaneidad. Por el contrario, los usuarios asignados a xlargerc reciben grandes cantidades de memoria y, por tanto, la cantidad de estas consultas que está autorizada ejecutarse simultáneamente es menor.
+Las clases de recursos son una parte esencial de la administración de cargas de trabajo de Almacenamiento de datos SQL, ya que permiten asignar más memoria y ciclos de CPU a las consultas realizadas por un usuario determinado. Existen cuatro clases de recurso que pueden asignarse a un usuario en forma de un **rol de base de datos**. Las cuatro clases de recursos son **smallrc, mediumrc, largerc y xlargerc**. Los usuarios en smallrc tienen una menor cantidad de memoria y, por ello en esta clase se permite una mayor simultaneidad. Por el contrario, los usuarios asignados a xlargerc reciben grandes cantidades de memoria y, por tanto, la cantidad de estas consultas que está autorizada ejecutarse simultáneamente es menor.
 
-Hay algunos tipos de consultas que no se benefician de una mayor asignación de memoria y por eso ignoran la asignación de recursos de su clase y se ejecutan en su lugar en una clase de recursos pequeña. Forzar estas consultas para que siempre se ejecuten en la clase de recursos pequeña, permite que se ejecuten cuando los espacios de simultaneidad están bajo presión y evita que consuman más espacios de los necesarios. Estas [excepciones de clases de recursos](#resource-class-exceptions) se tratan más adelante en este artículo.
-
-De forma predeterminada, cada usuario es miembro de la clase de recursos pequeña: smallrc. El procedimiento `sp_addrolemember` se utiliza para aumentar la clase de recursos y `sp_droprolemember` se utiliza para reducir la clase de recursos. Por ejemplo, este comando aumentaría la clase de recursos de loaduser a largerc:
+De forma predeterminada, cada usuario es miembro de la clase de recursos pequeña: smallrc. El procedimiento `sp_addrolemember` se usa para aumentar la clase de recurso, mientras que `sp_droprolemember` se utiliza para reducirla. Por ejemplo, este comando aumentaría la clase de recursos de loaduser a largerc:
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
 Es una práctica recomendada crear usuarios que estén permanentemente asignados a una clase de recursos, en lugar de cambiar la clase de recursos de un usuario. Por ejemplo, las cargas a tablas de almacén de columnas de clúster crean índices de mayor calidad cuando se les asigna más memoria. Para asegurarse de que las cargas tienen acceso a una memoria superior, cree un usuario específico para cargar datos y asigne este usuario de forma permanente a una clase de recursos más alta.
+
+Hay algunos tipos de consultas que no se benefician de una mayor asignación de memoria. El sistema ignorará la asignación de su clase de recurso y ejecutará siempre estas consultas en una clase de recurso pequeña en su lugar. Forzar estas consultas para que siempre se ejecuten en la clase de recursos pequeña, permite que se ejecuten cuando los espacios de simultaneidad están bajo presión y evita que consuman más espacios de los necesarios. Estas [excepciones de clases de recurso](#resource-class-exceptions) se tratan más adelante en este artículo.
 
 Más detalles en la clase de recursos:
 
@@ -66,9 +66,9 @@ Encontrará más detalles y ejemplos de creación de usuarios y su asignación a
 
 ## Asignación de memoria
 
-Aumentar clase de recursos de un usuario tiene ventajas y desventajas. Aunque el aumento de clase de recursos para un usuario puede hacer que sus consultas tengan acceso a más memoria y se ejecuten más rápidamente, también reduce el número de consultas simultáneas que puede ejecutar. Esto es consecuencia del principio de mantener el equilibrio entre asignar grandes cantidades de memoria a una sola consulta y permitir que otras consultas simultáneas, que también necesita asignaciones de memoria, se ejecuten al mismo tiempo. Si un usuario tiene más memoria para una consulta, otros usuarios no tendrán memoria disponible para ejecutar una consulta.
+Aumentar clase de recursos de un usuario tiene ventajas y desventajas. Aunque el aumento de clase de recurso para un usuario puede hacer que sus consultas tengan acceso a más memoria y se ejecuten clases de recurso superiores y más rápidas, también reduce el número de consultas simultáneas que puede ejecutar. Esto es consecuencia del principio de mantener el equilibrio entre asignar grandes cantidades de memoria a una sola consulta y permitir que otras consultas, que también necesitan asignaciones de memoria, se ejecuten al mismo tiempo. Si un usuario recibe asignaciones altas de memoria para una consulta, otros usuarios no tendrán acceso a esa misma memoria a fin de ejecutar una consulta.
 
-La tabla siguiente presenta un esquema de la memoria asignada a cada distribución por DWU y clases de recursos. En Almacenamiento de datos SQL existen 60 distribuciones por base de datos, por lo tanto, una consulta que se ejecuta en un DW2000 en la clase de recursos xlargerc, tendría acceso 6.400 MB en cada una de las 60 bases de datos.
+La tabla siguiente presenta un esquema de la memoria asignada a cada distribución por DWU y clases de recursos. En Almacenamiento de datos SQL, existen 60 distribuciones por base de datos. Por ejemplo, una consulta que se ejecuta en DW2000 en la clase de recurso extra grande, tendría acceso a 6400 MB en cada una de las 60 bases de datos distribuidas.
 
 ### Asignaciones de memoria por distribución (MB)
 
@@ -80,7 +80,7 @@ La tabla siguiente presenta un esquema de la memoria asignada a cada distribuci�
 | xlargerc | 400 | 800 | 800 | 1600 | 1600 | 1600 | 3\.200 | 3\.200 | 3\.200 | 6\.400 | 6\.400 | 12\.800 |
 
 
-Utilizando el mismo ejemplo anterior en todo el sistema, a una consulta que se ejecuta en un DW2000 en la clase de recursos xlargerc se le asignan 375 GB de memoria total (60 distribuciones de 6.400 MB * / 1.024 para convertir a GB).
+Utilizando el mismo ejemplo anterior en todo el sistema, a una consulta que se ejecuta en DW2000 en la clase de recursos extra grande se le asigna un total de 375 GB de memoria (6400 MB * 60 distribuciones / 1024 para convertir a GB).
 
 ### Asignaciones de memoria en todo el sistema (GB)
 
@@ -93,7 +93,7 @@ Utilizando el mismo ejemplo anterior en todo el sistema, a una consulta que se e
 
 ## Consumo de ranuras de simultaneidad
 
-Como ya se ha comentado aquí, cuanto mayor sea la clase de recursos más memoria se concede. Puesto que la memoria es un recurso fijo, cuanta más memoria se asigne por consulta, menos simultaneidad se admite. La siguiente tabla reitera el número de espacios de simultaneidad disponibles por DWU, así como los espacios consumidas por cada clase de recursos.
+Como ya se ha comentado aquí, cuanto mayor sea la clase de recursos más memoria se concede. Puesto que la memoria es un recurso fijo, cuanta más memoria se asigne por consulta, menos simultaneidad se admite. La siguiente tabla reitera todos los conceptos anteriores en una sola vista donde se muestra el número de espacios de simultaneidad disponibles por DWU, así como los espacios consumidos por cada clase de recurso.
 
 ### Asignación y consumo de espacios de simultaneidad
 
@@ -101,18 +101,18 @@ Como ya se ha comentado aquí, cuanto mayor sea la clase de recursos más memori
 | :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
 | **Asignación** | | | | | | | | | | | | |
 | N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 80 | 80 |
+| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
 | **Consumo de datos** | | | | | | | | | | | | |
 | smallrc | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | mediumrc | 1 | 2 | 2 | 4 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 32 |
 | largerc | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 64 |
 | xlargerc | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 | 64 | 128 |
 
-En esta tabla puede ver que una instancia de Almacenamiento de datos SQL que se ejecute como DW100 permite 4 consultas simultáneas smallrc o 2 consultas simultáneas largerc.
+En esta tabla puede ver que Almacenamiento de datos SQL, que se ejecuta como DW1000, ofrece un total de 40 espacios de simultaneidad hasta un máximo de 32 consultas simultáneas. Si todos los usuarios se ejecutan en la clase de recurso pequeña, se permitirían 32 consultas simultáneas, ya que cada una consumiría un espacio de simultaneidad. Si todos los usuarios se ejecutaran en la clase de recurso mediana, se asignarían a cada usuario 800 MB por distribuciones para una asignación de memoria total de 47 GB y la simultaneidad para todos estos usuarios de la clase de recurso mediana estaría limitada a ocho usuarios.
 
 ## Importancia de las consultas
 
-En segundo plano hay un total de ocho grupos de carga de trabajo que controlan el comportamiento de las clases de recursos. Sin embargo, solo cuatro de los ocho grupos se utilizan en cualquiera de los DWU. Esto tiene sentido ya que cada grupo de carga de trabajo está asignado a smallrc, mediumrc, largerc o xlargerc. La importancia de comprender estos grupos de carga de trabajo en segundo plano se cifra en que algunos de estos grupos se establecen con un nivel de **IMPORTANCIA** más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrá 3 veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la importancia en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
+En segundo plano hay un total de ocho grupos de carga de trabajo que controlan el comportamiento de las clases de recurso. Sin embargo, solo cuatro de los ocho grupos se utilizan en cualquiera de los DWU. Esto tiene sentido ya que cada grupo de carga de trabajo está asignado a smallrc, mediumrc, largerc o xlargerc. La importancia de comprender estos grupos de carga de trabajo en segundo plano se cifra en que algunos de estos grupos se establecen con un nivel de **IMPORTANCIA** más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrá 3 veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la importancia en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
 
 A continuación se muestran las asignaciones de importancia para cada grupo de carga de trabajo.
 
@@ -394,4 +394,4 @@ Para conocer más acerca de cómo administrar los usuarios de la base de datos y
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

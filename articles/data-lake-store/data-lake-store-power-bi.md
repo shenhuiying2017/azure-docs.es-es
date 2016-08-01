@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Análisis de datos en Almacén de Data Lake mediante Power BI
@@ -37,13 +37,13 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 1. Inicie Power BI Desktop en el equipo.
 
-2. En la cinta **Inicio**, haga clic en **Obtener datos** y luego en More. En el cuadro de diálogo **Obtener datos**, haga clic en **Azure**, en **Almacén de Azure Data Lake** y luego en **Conectar**.
+2. En la cinta **Inicio**, haga clic en **Obtener datos** y luego en Más. En el cuadro de diálogo **Obtener datos**, haga clic en **Azure**, en **Almacén de Azure Data Lake** y luego en **Conectar**.
 
 	![Conexión al Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conexión al Almacén de Data Lake")
 
 3. Si ve un cuadro de diálogo que indica que el conector está en fase de desarrollo, opte por continuar.
 
-4. En el cuadro de diálogo **Almacén de Microsoft Azure Data Lake**, indique la dirección URL a su cuenta de del Almacén de Data Lake y haga clic en **Aceptar**.
+4. En el cuadro de diálogo **Almacén de Microsoft Azure Data Lake**, indique la dirección URL a su cuenta del Almacén de Data Lake y haga clic en **Aceptar**.
 
 	![Dirección URL del Almacén de Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Dirección URL del Almacén de Data Lake")
 
@@ -107,7 +107,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 		![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Crear visualizaciones")
 
-16. Si selecciona un país específico en los filtros de nivel de página, ahora puede ver el número de conductores de cada ciudad del país seleccionado. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brasil**.
+16. Si selecciona un país específico en los filtros de nivel de página, ahora puede ver el número de conductores de cada ciudad del país seleccionado. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brazil**.
 
 	![Selección de un país](./media/data-lake-store-power-bi/select-country.png "Selección de un país")
 
@@ -125,4 +125,4 @@ Después de crear las visualizaciones en Power BI Desktop, puede compartirlas co
 
 * [Análisis de datos en el Almacén de Data Lake con Análisis de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

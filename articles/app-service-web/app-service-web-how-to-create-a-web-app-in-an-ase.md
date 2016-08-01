@@ -54,7 +54,7 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
 
 5. Escriba el nombre de la aplicación web y luego haga clic en **Crear**.
 
-	Si su ASE usa una VIP externa, la dirección URL de una aplicación de un ASE es: [*nombre del sitio*].[*nombre de su Entorno del Servicio de aplicaciones *].p.azurewebsites.net en lugar de [*nombre del sitio*].azurewebsites.net
+	Si su ASE usa una VIP externa, la dirección URL de una aplicación de un ASE es: [*nombre del sitio*].[*nombre de su Entorno del Servicio de aplicaciones*].p.azurewebsites.net en lugar de [*nombre del sitio*].azurewebsites.net
 	
 	Si su ASE usa una VIP interna, la dirección URL de una aplicación de un ASE es: [*nombre del sitio*].[*subdominio especificado durante la creación del ASE*]. Después de que seleccione su ASP durante la creación del ASE, verá la actualización del subdominio debajo del **Nombre**
 
@@ -112,4 +112,4 @@ Después de crear la aplicación web y el plan del Servicio de aplicaciones, es 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

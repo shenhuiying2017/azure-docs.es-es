@@ -35,9 +35,9 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 2. Actualice los tres campos siguientes para la nueva aplicación y, a continuación, haga clic en **Continue** (Continuar):
 
 	* **Name** (Nombre): escriba un nombre descriptivo para la aplicación en el campo **Name** (Nombre) de la sección **App ID Description** (Descripción del identificador de la aplicación).
-	
-	* **Bundle Identifier** (Identificador de paquete): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Debe coincidir con lo que también se usa en el proyecto XCode o Xamarin para la aplicación.
-	 
+
+	* **Bundle Identifier** (Identificador de paquete): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Debe coincidir con lo que también se usa en el proyecto XCode, Xamarin o Cordova para la aplicación.
+
 	* **Push Notifications** (Notificaciones push): seleccione la opción **Push Notifications** (Notificaciones push) en la sección **App Services** (Servicios de aplicaciones).
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -54,7 +54,7 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
    	Se mostrará el asistente "Add iOS Certificate" (Añadir certificado iOS).
 
-    > [AZURE.NOTE]Este tutorial usa un certificado de desarrollo. Se usa el mismo proceso cuando se registra un certificado de producción. Asegúrese de usa el mismo tipo de certificado cuando envíe notificaciones.
+    > [AZURE.NOTE] Este tutorial usa un certificado de desarrollo. Se usa el mismo proceso cuando se registra un certificado de producción. Asegúrese de usa el mismo tipo de certificado cuando envíe notificaciones.
 
 7. Haga clic en **Choose File** (Elegir archivo), vaya a la ubicación donde guardó el CSR para el certificado de inserción. A continuación, haga clic en **Generate** (Generar).
 
@@ -68,13 +68,13 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps\_development.cer**.
+    > [AZURE.NOTE] de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps\_development.cer**.
 
 9. Haga doble clic en el certificado de inserción **aps\_development.cer** descargado. De esta forma, se instala un nuevo certificado en las llaves, como se muestra a continuación:
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE]El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS):**.
+    > [AZURE.NOTE] El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS):**.
 
 10. En Acceso a llaves, haga clic con el botón derecho en el nuevo certificado de inserción que acaba de crear, en la categoría **Certificados**. Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
 
@@ -110,4 +110,4 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Solución de errores comunes de implementación de Azure con Azure Resource Manager
@@ -24,17 +24,65 @@ En este tema se describe cómo resolver algunos errores comunes con los que pued
 
 ## Plantilla o recurso no válidos
 
-Si recibe un error que indica que la plantilla o una propiedad de un recurso no es válida, puede que falte un carácter en la plantilla. Este error es fácil de cometer cuando utiliza expresiones de plantilla porque la expresión está incluida entre comillas, por lo que JSON lo valida y el editor puede no detectar el error. Por ejemplo, la siguiente asignación de nombre de una cuenta de almacenamiento contiene un conjunto de corchetes, tres funciones, tres conjuntos de paréntesis, un conjunto de comillas simples y una propiedad:
+Al implementar una plantilla, puede aparecer:
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+Si recibe un error que indica que la plantilla o una propiedad de un recurso no es válida, es posible que haya un error de sintaxis en la plantilla. Es fácil cometer este error porque las expresiones de plantilla pueden ser complejas. Por ejemplo, la siguiente asignación de nombre de una cuenta de almacenamiento contiene un conjunto de corchetes, tres funciones, tres conjuntos de paréntesis, un conjunto de comillas simples y una propiedad:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 Si no proporciona toda la sintaxis de coincidencia, la plantilla generará un valor que es muy diferente del que esperaba.
 
-En función de si el carácter que falta está ubicado en la plantilla, recibirá un error que indica que la plantilla o un recurso no son válidos. El error puede indicar también que el proceso de implementación no pudo procesar la expresión del lenguaje de plantilla. Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresiones.
+Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresiones. Considere la posibilidad de utilizar un editor JSON como [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) o [Visual Studio Code](resource-manager-vs-code.md) que puede avisarle de los errores de sintaxis.
+
+## Longitudes de segmentos incorrectas
+
+Cuando el nombre del recurso no tiene el formato correcto, se produce otro error de plantilla no válida.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene 2 segmentos y el nombre tiene 1 segmento, por lo que es un **nombre válido**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+Pero el ejemplo siguiente **no es un nombre válido** porque el nombre tiene el mismo número de segmentos que el tipo.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+Para los recursos secundarios, el tipo y el nombre deben tener el mismo número de segmentos. Esto tiene sentido ya que el nombre completo y el tipo para el elemento secundario incluyen el nombre del elemento primario y el tipo, por lo que el nombre completo sigue teniendo un segmento de menos que el tipo completo.
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+Obtener los segmentos correctos puede resultar especialmente complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, aplicar un bloqueo de recurso a un sitio web requiere un tipo con 4 segmentos. Por lo tanto, el nombre es 3 segmentos:
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
 
 ## El nombre del recurso ya existe o ya lo utiliza otro recurso
 
-Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring).
+Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Si no proporciona un nombre único, recibirá un error como:
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
+Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring).
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
@@ -55,7 +103,7 @@ Cuando es posible, Resource Manager optimiza la implementación mediante la crea
 
 ## No se pudo encontrar el miembro 'copy' en el objeto
 
-Este error se produce cuando se ha aplicado el elemento **copy** a una parte de la plantilla que no lo admite. Solo se puede aplicar el elemento copy a un tipo de recurso. No se puede aplicar el elemento copy a una propiedad de un tipo de recurso. Por ejemplo, puede aplicar el elemento copy a una máquina virtual, pero no puede aplicarlo a los discos del sistema operativo de una máquina virtual. En algunos casos, puede convertir un recurso secundario en un recurso primario para crear un bucle del elemento copy. Para obtener más información sobre cómo usar este elemento, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
+Este error se produce cuando se ha aplicado el elemento **copy** a una parte de la plantilla que no lo admite. Solo se puede aplicar el elemento copy a un tipo de recurso. No se puede aplicar el elemento copy a una propiedad de un tipo de recurso. Por ejemplo, puede aplicar el elemento copy a una máquina virtual, pero no puede aplicarlo a los discos del sistema operativo de una máquina virtual. En algunos casos, puede convertir un recurso secundario en un recurso primario para crear un bucle del elemento copy. Para más información sobre cómo usar este elemento, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
 
 ## SKU no disponible
 
@@ -168,9 +216,9 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 
 Puede recibir un error durante la implementación porque la cuenta o la entidad de servicio que intenta implementar los recursos no tiene acceso para realizar esas acciones. Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden acceder a qué recursos con un alto grado de precisión. Por ejemplo, si su cuenta se asigna al rol Lector, no podrá crear nuevos recursos. En ese caso, debería ver un mensaje de error que indica que hubo un error de autorización.
 
-Para obtener más información sobre el control de acceso basado en roles, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para obtener más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
 ## Solución de problemas con máquinas virtuales
 
@@ -210,7 +258,7 @@ Sin embargo, puede evitar que Azure informe de que la implementación se produjo
 
 ## Pasos siguientes
 
-- Para obtener más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

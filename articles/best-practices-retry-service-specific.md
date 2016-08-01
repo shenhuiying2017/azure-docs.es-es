@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Vuelva a intentar la orientación específica del servicio
@@ -39,7 +39,7 @@ En la tabla siguiente se resumen las características de reintento de los servic
 | **[DocumentDB](#documentdb-pre-release-retry-guidelines)** | Nativo en servicio | No configurable | Global | TraceSource |
 | **[Búsqueda](#search-retry-guidelines)** | Topaz* (con estrategia de detección personalizada) | Declarativo y programático | Bloques de código | Personalizado |
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con estrategia de detección personalizada) | Declarativo y programático | Bloques de código | Personalizado |
-**Topaz en el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
+*Topaz en el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
 
 > [AZURE.NOTE] Para la mayoría de los mecanismos de reintento integrados de Azure, actualmente no hay ninguna manera de aplicar una directiva de reintento diferente para distintos tipos de error o excepción más allá de la funcionalidad que se incluye en la directiva de reintentos. Por lo tanto, las instrucciones recomendadas disponibles en el momento de la escritura consisten en configurar una directiva que proporcione el rendimiento y la disponibilidad medios óptimos. Una forma de ajustar la directiva consiste en analizar archivos de registro para determinar el tipo de errores transitorios que se están produciendo. Por ejemplo, si la mayoría de los errores está relacionada con problemas de conectividad de red, podría intentar efectuar un reintento inmediato en lugar de esperar mucho tiempo para el primer reintento.
 
@@ -1107,4 +1107,4 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 | **Lineal (intervalo fijo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />true | Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

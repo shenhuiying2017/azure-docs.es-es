@@ -98,11 +98,13 @@ Si se deshabilitan todos los puntos de conexión de un perfil, o si se deshabili
 ## P+F
 
 ### ¿Puedo usar el Administrador de tráfico con puntos de conexión de varias suscripciones?
-Sí. Aunque la forma de hacerlo depende de si se utilizan las API de Administración del servicio o las de Azure Resource Manager del Administrador de tráfico. El [Portal de Azure](https://portal.azure.com) utiliza Azure Resource Manager, y el [portal clásico](https://manage.windowsazure.com), Administración del servicio.
+Para las aplicaciones web de Azure, esto no es posible. Esto se debe a que las aplicaciones web requieren que cualquier nombre de dominio personalizado usado con ellas se utilice solo en una sola suscripción. No es posible usar aplicaciones web de varias suscripciones con el mismo nombre de dominio y, por tanto, no pueden utilizarse con el Administrador de tráfico.
 
-En Azure Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en roles (RBAC) de Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. Aunque la forma de hacerlo depende de si se utilizan las API de Administración del servicio o las de Azure Resource Manager del Administrador de tráfico. El [Portal de Azure](https://portal.azure.com) usa Resource Manager y el [portal 'clásico'](https://manage.windowsazure.com), administración de servicios.
 
-En Administración del servicio, el Administrador de tráfico precisa que todos los servicios en la nube o aplicaciones web configurados como puntos de conexión de Azure residan en la misma suscripción que el perfil del Administrador de tráfico. Pueden agregarse puntos de conexión de servicio en la nube de otras suscripciones al Administrador de tráfico como puntos de conexión externos (se seguirán facturando con la tarifa de los puntos de conexión internos). No se puede utilizar aplicaciones web de otras suscripciones.
+En Azure Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+
+En Administración del servicio, el Administrador de tráfico precisa que todos los servicios en la nube o aplicaciones web configurados como puntos de conexión de Azure residan en la misma suscripción que el perfil del Administrador de tráfico. Pueden agregarse puntos de conexión de servicio en la nube de otras suscripciones al Administrador de tráfico como puntos de conexión externos (se seguirán facturando con la tarifa de los puntos de conexión internos).
 
 ### ¿Puedo usar el Administrador de tráfico con ranuras de ensayo de servicio en la nube?
 Sí. Las ranuras de ensayo de servicio en la nube se pueden configurar en el Administrador de tráfico como puntos de conexión externos.
@@ -140,6 +142,6 @@ En el caso de las aplicaciones web, los puntos de conexión de Azure del Adminis
 
 - Obtenga información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md) del Administrador de tráfico.
 
-- Conozca los [métodos de enrutamiento de tráfico del Administrador de tráfico](traffic-manager-routing-methods.md).
+- Conozca los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

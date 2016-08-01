@@ -23,12 +23,13 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI de Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Si quiere obtener más información cómo implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
+En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Si quiere obtener más información acerca de cómo implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
 Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -39,7 +40,7 @@ El Portal proporciona un panel que puede utilizar para supervisar y administrar 
 
 ![dashboard](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] Es la mejor manera de aprender a trabajar con los paneles ver el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Compilación de paneles personalizados en el Portal de Microsoft Azure).
+> [AZURE.TIP] La mejor manera de aprender a trabajar con paneles es ver el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Compilación de paneles personalizados en el Portal de Microsoft Azure).
 
 ### Uso compartido de los paneles y el control de acceso de Azure
 Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. El [control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure rige el acceso a la información que se muestra en los iconos del Portal. Todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
@@ -128,7 +129,7 @@ Al eliminar un grupo de recursos se eliminan todos los recursos contenidos en el
 ## Pasos siguientes
 
 - Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../resource-group-audit.md).
-- Para solucionar problemas de implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Para solucionar problemas de implementación, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Para implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

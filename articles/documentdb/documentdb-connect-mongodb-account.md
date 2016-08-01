@@ -19,7 +19,7 @@
 
 # Conexión de una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB
 
-Obtenga información acerca de cómo conectar una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB con el formato de identificador URI de cadena de conexión de MongoDB estándar.
+Obtenga información acerca de cómo conectar una cuenta de Azure DocumentDB con soporte de protocolo para MongoDB con el formato de identificador URI de cadena de conexión de MongoDB estándar.
 
 ## Obtención de información de la cadena de conexión de la cuenta
 
@@ -84,4 +84,4 @@ Como ya se mencionó, todas las cuentas de DocumentDB requieren la autenticació
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

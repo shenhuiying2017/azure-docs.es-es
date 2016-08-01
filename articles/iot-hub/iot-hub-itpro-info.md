@@ -36,7 +36,7 @@ Una vez creado un Centro de IoT en una región de Azure, el centro mantendrá la
 
 ## Centro de IoT y seguridad
 
-Solo los dispositivos registrados con un Centro de IoT están autorizados a comunicarse con ese Centro de IoT. A un dispositivo registrado se le debe conceder el permiso *DeviceConnect*. Un dispositivo se identifica mediante la inclusión de un token que encapsula el identificador único de los dispositivos en cada solicitud que realiza, y el centro comprueba la validez del token y que el dispositivo no está en la lista negra (permiso *DeviceConnect* revocado).
+Solo los dispositivos registrados con un Centro de IoT están autorizados a comunicarse con ese Centro de IoT. A un dispositivo registrado se le debe conceder el permiso *DeviceConnect*. Un dispositivo se identifica mediante la inclusión de un token que encapsula el identificador único de los dispositivos en cada solicitud que realiza, y el centro comprueba la validez del token y que el dispositivo no está en la lista negra (permiso *DeviceConnect* revocado). Para obtener información sobre los tokens compatibles con el Centro de IoT, consulte [Uso de tokens de seguridad del Centro de IoT y certificados X.509][lnk-tokens].
 
 El acceso a otros extremos de administración en un Centro de IoT también se controla a través de un conjunto de permisos: *iothubowner*, *service*, *registryRead*, y *registryReadWrite*. Cualquier aplicación de administración cliente que se conecta a un Centro de IoT debe incluir un token con los permisos adecuados.
 
@@ -51,13 +51,12 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
 - [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 
-[lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: iot-hub-manage-through-portal.md
 
 [lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Escenario de Automatización de Azure: uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure
@@ -29,6 +29,7 @@ Cuando la etiqueta Schedule se aplica a un grupo de recursos, se aplicará a tod
 
 En este escenario, lo que ocurre básicamente es que se toma una cadena JSON con un formato especificado y se agrega como el valor de una etiqueta denominada Schedule. Luego, un Runbook enumera todos los grupos de recursos y máquinas virtuales e identifica las programaciones de cada máquina virtual según los escenarios mencionados anteriormente, recorre estas máquinas virtuales con las programaciones adjuntas y evalúa qué acción debe realizarse, cuáles se pueden detener, apagar u omitir.
 
+Estos Runbooks se autentican mediante la [Cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
 ## Obtención del escenario
 
@@ -57,7 +58,7 @@ Haga lo siguiente para habilitar la programación en el Runbook Test-ResourceSch
 2. En la hoja de **Test-ResourceSchedule**, haga clic en el icono **Programaciones**.
 3. En la hoja **Programaciones**, haga clic en **Agregar una programación**.
 4. En la hoja **Programaciones**, seleccione **Vincular una programación a su Runbook** y, en la hoja **Programación**, seleccione **Crear una nueva programación**.
-5.  En la hoja **Nueva programación**, escriba el nombre de esta programación (por ejemplo, HourlyExecution).
+5.  En la hoja **Nueva programación**, escriba el nombre de esta programación. (por ejemplo, HourlyExecution).
 6. Como **inicio** de la programación, establezca la hora de inicio en un incremento de hora redondeado.
 7. Seleccione **Periodicidad** y, como intervalo de **repetición**, seleccione **1 hora**.
 8. Compruebe que **Configurar expiración** está establecido en **No** y, después, haga clic en **Crear** para guardar la nueva programación.
@@ -201,9 +202,10 @@ Puede ver los detalles del trabajo de Runbook **Test-ResourceSchedule** en el Po
 
 ## Pasos siguientes
 
--  Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, vea [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
--  Para saber más sobre los tipos de Runbook, sus ventajas y sus limitaciones, vea [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
--  Para más información sobre la característica de compatibilidad con scripts de PowerShell, vea [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Anuncio de la compatibilidad nativa con scripts de PowerShell en Automatización de Azure)
--  Para más información sobre el registro y salida de Runbooks, vea [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
+-  Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
+-  Para saber más sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md).
+-  Para más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Anuncio de la compatibilidad nativa con scripts de PowerShell en Automatización de Azure).
+-  Para más información sobre el registro y salida de Runbooks, vea [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md).
+-  Para más información acerca de una cuenta de ejecución de Azure y de cómo autenticar sus Runbooks mediante ella, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -3,8 +3,8 @@
 	description="Obtenga información sobre cómo automatizar la replicación de máquinas virtuales de Hyper-V en nubes de VMM con Site Recovery y PowerShell."
 	services="site-recovery"
 	documentationCenter=""
-	authors="csilauraa"
-	manager="jwhit"
+	authors="bsiva"
+	manager="abhiag"
 	editor="tysonn"/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="lauraa"/>
+	ms.date="07/12/2016"
+	ms.author="bsiva"/>
 
 # Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell: clásico
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](site-recovery-vmm-to-azure.md)
-- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Portal clásico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell: clásico](site-recovery-deploy-with-powershell.md)
 
@@ -46,7 +46,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 
 ### Requisitos previos de Azure
 
-- Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
+- Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/storage-introduction.md).
 - Deberá asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -60,7 +60,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 ### Requisitos previos de Hyper-V
 
 - Los servidores host de Hyper-V deben estar ejecutando al menos Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.
-- Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. Para ello, en Administrador de servidores > Administrador de clústeres de conmutación por error, conéctese al clúster, haga clic en **Configurar rol** y seleccione **Agente de réplica de Hyper-V** en la pantalla **Seleccionar rol** del Asistente para alta disponibilidad. 
+- Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. Para ello, en Administrador de servidores > Administrador de clústeres de conmutación por error, conéctese al clúster, haga clic en **Configurar rol** y seleccione **Agente de réplica de Hyper-V** en la pantalla **Seleccionar rol** del Asistente para alta disponibilidad.
 - Cualquier servidor o clúster del host de Hyper-V para el que desee administrar la protección debe incluirse en una nube de VMM.
 
 ### Requisitos previos de asignación de redes
@@ -449,4 +449,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 [Obtenga más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

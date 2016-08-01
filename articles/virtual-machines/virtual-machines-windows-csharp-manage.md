@@ -54,7 +54,7 @@ Ahora que la aplicación Azure Active Directory se crea y se instala la bibliote
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
         
-2. Agregue variables al método Main de la clase Program para especificar los nombres de los recursos que desea administrar, la ubicación de los recursos (por ejemplo, "Centro de EE. UU.") y el identificador de la suscripción:
+2. Agregue variables al método Main de la clase Program para especificar los nombres de los recursos que desea administrar, la ubicación de los recursos (por ejemplo, "Centro de EE. UU.") y el identificador de la suscripción:
 
         var groupName = "resource group name";
         var vmName = "virtual machine name";  
@@ -69,12 +69,12 @@ Ahora que la aplicación Azure Active Directory se crea y se instala la bibliote
 	    {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var result = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (result == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
-          return token;
+          return result;
         }
 	
     Reemplace {client-id} con el identificador de la aplicación Azure Active Directory, {client-secret} con la clave de acceso de la aplicación de AD y {tenant-id} con el identificador del inquilino de su suscripción. Para encontrar el identificador del inquilino, ejecute Get-AzureSubscription. Puede encontrar la clave de acceso mediante el Portal de Azure.
@@ -432,4 +432,4 @@ En este ejemplo se muestra cómo cambiar el tamaño de una máquina virtual en e
 
 Si se produjeron problemas con la implementación, le recomendamos echar un vistazo a [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

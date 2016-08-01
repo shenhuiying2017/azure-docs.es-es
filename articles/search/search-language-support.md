@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creación de un índice para documentos en varios idiomas en Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-   description="Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
+   description=" Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
    services="search"
    documentationCenter=""
    authors="yahnoosh"
@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="07/14/2016"
    ms.author="jlembicz"/>
 
 # Creación de un índice para documentos en varios idiomas en Búsqueda de Azure
@@ -24,21 +24,27 @@
 
 Desatar la potencia de los analizadores de lenguajes es tan fácil como establecer una propiedad en un campo de búsqueda en la definición del índice. Ahora puede realizar este paso en el portal.
 
-A continuación se muestran capturas de pantalla de las hojas del Portal de Azure clásico para Búsqueda de Azure que permiten a los usuarios definir un esquema de índice. En esta hoja, los usuarios pueden crear todos los campos y establecer la propiedad de analizador para cada uno de ellos.
+A continuación, se muestran capturas de pantalla de las hojas del Portal de Azure para Búsqueda de Azure que permiten a los usuarios definir un esquema de índice. En esta hoja, los usuarios pueden crear todos los campos y establecer la propiedad de analizador para cada uno de ellos.
 
-> [AZURE.NOTE] Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez definido el campo.
+> [AZURE.IMPORTANT] Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez guardado los cambios.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
-2. Haga clic en **Agregar un índice** en la parte superior del panel de servicio para iniciar un nuevo índice, o abra un índice existente para establecer un analizador de nuevos campos que se va a agregar a un índice existente.
+## Definición de una nueva definición de campo
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
+2. Haga clic en **Agregar un índice** en la barra de comandos de la parte superior del panel de servicio para iniciar un nuevo índice, o abra un índice existente para establecer un analizador de nuevos campos que se va a agregar a un índice existente.
 3. Aparece la hoja Campos, que proporciona opciones para definir el esquema del índice, incluida la pestaña Analizador usada para elegir un analizador de lenguaje.
-4. En Campos, inicie una definición de campo y proporcione un nombre, seleccione el tipo de datos y establezca los atributos para marcar el campo como texto completo que se puede buscar, recuperar resultados de búsqueda, que se pueden usar en estructuras de navegación de facetas, se pueden ordenar, etc. 
-5. Antes de pasar al siguiente campo, abra la pestaña **Analizador**. 
-6. Desplácese hasta encontrar el campo que va a definir. 
-7. Si no ha marcado el campo como de búsqueda, haga clic en la casilla para marcarla como Permite búsqueda.
+4. En Campos, inicie una definición de campo y proporcione un nombre, seleccione el tipo de datos y establezca los atributos para marcar el campo como texto completo que se puede buscar, recuperar resultados de búsqueda, que se pueden usar en estructuras de navegación de facetas, se pueden ordenar, etc.
+5. Antes de pasar al siguiente campo, abra la pestaña **Analizador**.
+
+   
+![][1] *Para seleccionar un analizador, haga clic en la pestaña Analizador en la hoja Campos*
+
+## Selección de un analizador
+
+6. Desplácese hasta encontrar el campo que va a definir.
+7. Si no ha marcado el campo como de búsqueda, haga clic en la casilla para marcarla como **Permite búsqueda**.
 8. Haga clic en el área Analizador para mostrar la lista de analizadores disponibles.
 9. Elija el analizador que desea usar.
-
-![][1] *Para seleccionar un analizador, haga clic en la pestaña Analizador en la hoja Campos*
 
 ![][2] *Seleccione uno de los analizadores compatibles para cada campo*
 
@@ -53,6 +59,8 @@ Muchas aplicaciones web y móviles dan servicio a usuarios de todo el mundo que 
 Si se conoce el idioma del agente que emite una consulta, una solicitud de búsqueda se puede aplicar a un campo específico con el parámetro de consulta **searchFields**. La siguiente consulta solo se emitirá en relación a la descripción en polaco:
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2015-02-28`
+
+Puede consultar el índice desde el portal con el **Explorador de búsqueda** para pegar una consulta similar a la mostrado anteriormente. El Explorador de búsqueda está disponible en la barra de comandos de la hoja del servicio. Para obtener más información, consulte [Consultas en Búsqueda de Azure.](search-explorer.md)
 
 A veces se desconoce el idioma del agente que emite una consulta, en cuyo caso la consulta puede emitir en todos los campos al mismo tiempo. Si es necesario, se pueden definir una preferencia de resultados en un determinado idioma mediante [perfiles de puntuación](https://msdn.microsoft.com/library/azure/dn798928.aspx). En el ejemplo siguiente, las coincidencias encontradas en la descripción en inglés tendrán una puntuación mayor que las coincidencias en polaco y francés:
 
@@ -74,4 +82,4 @@ Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizador
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="msStevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 # Consideraciones de seguridad y privacidad de Cloud App Discovery
@@ -139,7 +139,7 @@ Antes de activar una inspección en profundidad, se recomienda encarecidamente q
 ### Desventajas y problemas conocidos
 Hay algunos casos en los que la interceptación de TLS puede afectar a la experiencia del usuario final:
 
-- Los certificados de validación extendida (EV) muestran la barra de direcciones del explorador web en verde para que sirva de indicación visual de que está visitando un sitio web de confianza. La inspección de TLS no puede duplicar la EV en el certificado que emite al cliente, por lo que los sitios web que usen certificados EV funcionarán normalmente pero la barra de direcciones no se mostrará en verde.  
+- Los certificados de validación extendida (EV) muestran la barra de direcciones del explorador web en verde para que sirva de indicación visual de que está visitando un sitio web de confianza. La inspección de TLS no puede duplicar la EV en el certificado que emite al cliente, por lo que los sitios web que usen certificados EV funcionarán normalmente pero la barra de direcciones no se mostrará en verde.
 
 - La asignación de claves públicas (también conocida como asignación de certificados) está diseñada para ayudar a los usuarios a protegerse de ataques de tipo " Man-in-the-middle" y falsas entidades de certificación. Cuando el certificado raíz para un sitio asignado no coincide con el de una entidad de certificación válida conocida, el explorador rechaza la conexión con un error. Puesto que la interceptación de TLS es, de hecho, un ataque de tipo «Man in the middle», se producirá un error en estas conexiones.
 
@@ -180,4 +180,4 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

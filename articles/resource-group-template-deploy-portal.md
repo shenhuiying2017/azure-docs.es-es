@@ -23,19 +23,20 @@
 - [CLI de Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API DE REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para obtener información acerca de cómo administrar los recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
+En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para más información acerca de cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](./azure-portal/resource-group-portal.md).
 
-Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Creación de un grupo de recursos
 
-1. Para crear un grupo de recursos vacío, seleccione **Nuevo**, **Administración** y **Grupo de recursos**.
+1. Para crear un grupo de recursos vacío, seleccione **Nuevo** > **Administración** > **Grupo de recursos**.
 
     ![crear un grupo de recursos vacío](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
@@ -47,7 +48,7 @@ Actualmente, no todos los servicios son compatibles con el portal o con el Admin
 
 Una vez creado el grupo de recursos, puede implementar recursos en él desde Marketplace. Marketplace proporciona soluciones predefinidas para escenarios comunes.
 
-1. Para iniciar la implementación, simplemente seleccione **Nuevo** y el tipo de recurso que le gustaría implementar. A continuación, busque la versión concreta del recurso que le gustaría implementar.
+1. Para iniciar la implementación, seleccione **Nuevo** y el tipo de recurso que le gustaría implementar. A continuación, busque la versión concreta del recurso que le gustaría implementar.
 
     ![implementar recursos](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
@@ -87,7 +88,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 
     ![crear plantilla](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    En el editor, agregue la sintaxis JSON que define los recursos que desea implementar. Seleccione **Guardar** cuando haya terminado. Para obtener instrucciones sobre cómo escribir la sintaxis JSON, vea el [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
+    En el editor, agregue la sintaxis JSON que define los recursos que desea implementar. Seleccione **Guardar** cuando haya terminado. Para obtener instrucciones sobre cómo escribir la sintaxis JSON, consulte el [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
 
     ![editar plantilla](./media/resource-group-template-deploy-portal/edit-template.png)
 
@@ -120,7 +121,7 @@ El portal le permite guardar una plantilla en su cuenta de Azure y volver a impl
 ## Pasos siguientes
 
 - Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-- Para solucionar problemas de implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Para solucionar problemas de implementación, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para recuperar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar Halogen Software con Azur
 
 La integración de Halogen Software con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Halogen Software. 
+- Puede controlar en Azure AD quién tiene acceso a Halogen Software.
 - Puede permitir que los usuarios inicien sesión automáticamente en Halogen Software (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -43,7 +43,7 @@ Para configurar la integración de Azure AD con Halogen Software, necesita los s
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
@@ -51,7 +51,7 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar Halogen Software desde la galería 
+1. Agregar Halogen Software desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de Halogen Software en Azure AD, deberá agregar
 
 **Para agregar Halogen Software desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -147,7 +147,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     d. Para probar la configuración, haga clic en **Ejecutar prueba**.
 
-    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana*". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
+    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana *". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
 
     e. Seleccione **Habilitar SAML**.
     
@@ -216,8 +216,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Qué es Azure AD Connect][106]
 
-    a. Anote el valor del campo **Nueva contraseña**. 
-    b. Haga clic en **Completo**.
+    a. Anote el valor del campo **Nueva contraseña**. b. Haga clic en **Completo**.
   
  
 ### Creación de un usuario de prueba de Halogen Software
@@ -322,4 +321,4 @@ Al hacer clic en el icono de Halogen Software en el Panel de acceso, debería in
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

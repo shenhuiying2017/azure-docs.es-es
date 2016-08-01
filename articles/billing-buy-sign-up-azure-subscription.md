@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	/>
 
 <tags
@@ -90,4 +90,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor y obtuvo una cl
 
 3. Escriba la clave de producto y active la opción de contrato.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

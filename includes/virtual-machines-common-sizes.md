@@ -95,10 +95,10 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)| Ancho de banda de red máximo |
 |---|---|---|---|---|---|---|---|
-|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
-|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
 
 ## Serie D
 
@@ -222,10 +222,10 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 
 
 
-## Notas: Standard\_A0 - A4 con CLI y Powershell 
+## Notas: Standard\_A0 - A4 con CLI y PowerShell 
 
 
-En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en Powershell:
+En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en PowerShell:
 
 * Standard\_A0 es ExtraSmall
 * Standard\_A1 es Small
@@ -239,4 +239,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 - Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

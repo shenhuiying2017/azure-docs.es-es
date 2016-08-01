@@ -29,10 +29,10 @@ En ese caso, hay dos recursos a su disposición:
  - Diferenciar los datos operativos, leídos y escritos por las aplicaciones, de los datos analíticos, que se utilizan para proporcionar inteligencia empresarial (BI) para ayudar a determinar la tecnología adecuada para sus necesidades.
  - Una revisión rápida de tecnología relacional.
  - Una introducción a cada una de las tecnologías NoSQL de Azure: DocumentDB, HDInsight, HBase y almacenamiento de tablas.
- - Una comparación de las tecnologías de NoSQL y la Base de datos SQL de Azure. 
- - Cuándo usar DocumentDB, el almacenamiento de tablas, HBase, HDInsight o Base de datos SQL.
+ - Una comparación de las tecnologías de NoSQL y la Base de datos SQL de Azure.
+ - Cuándo usar Azure DocumentDB, el almacenamiento de tablas, HBase, HDInsight o Base de datos SQL.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

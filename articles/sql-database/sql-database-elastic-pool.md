@@ -4,15 +4,15 @@
 	keywords="base de datos elástica, bases de datos SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="srinia"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -53,6 +53,8 @@ Las bases de datos que son buenos candidatos para grupos de bases de datos elás
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
+Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio de Base de datos SQL proporciona legitimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La aplicación de esta legitimidad de uso compartido de recursos es adicional a cualquier cantidad de recursos de otro modo garantizados a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
+
 ## Propiedades del grupo de bases de datos elásticas
 
 ### Límites de grupos elásticos
@@ -81,7 +83,7 @@ Las bases de datos que son buenos candidatos para grupos de bases de datos elás
 
 Con un grupo, las tareas de administración se simplifican al ejecutarse los scripts en **[trabajos elásticos](sql-database-elastic-jobs-overview.md)**. Un trabajo de base de datos elástica elimina la mayoría de las tediosas tareas asociadas con un gran número de bases de datos. Para comenzar, consulte [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md).
 
-Para más información sobre otras herramientas, consulte [Base de datos SQL: uso de las características y herramientas de la base de datos elástica](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Para más información sobre otras herramientas, consulte [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) (Mapa de aprendizaje de herramientas de bases de datos elásticas).
 
 ## Características de continuidad del negocio para bases de datos de un grupo
 
@@ -94,7 +96,7 @@ La característica de restauración a un momento dado utiliza copias de segurida
 
 ### Restauración geográfica
 
-La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
+La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
 
 ### Replicación geográfica activa
 
@@ -104,4 +106,4 @@ Para las aplicaciones que tienen requisitos de recuperación más exigentes que 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -102,7 +102,7 @@ Sin embargo, si el proveedor de identidad emite algún tipo de token, estos no s
 
 El proceso comienza cuando un usuario intenta obtener acceso a la aplicación desde un explorador. La aplicación lo redirige a un IdP que elija (y en el que la aplicación también confíe). Se autentica en este IdP, especificando un nombre de usuario y una contraseña (paso 1), y el IdP devuelve un token con información sobre él (paso 2).
 
-Como se muestra en la ilustración, el control de acceso es compatible con una amplia variedad de IdP basados en la nube, incluidas las cuentas creadas por Google, Yahoo, Facebook, Microsoft (anteriormente Windows Live ID) y cualquier proveedor OpenID. También es compatible con identificaciones creadas con Azure Directory y, a través de la federación con AD FS, con Windows Server Active Directory. El objetivo es abarcar las identidades que se usan con más frecuencia hoy en día, ya que los IdP las emiten en la nube o localmente.
+Como se muestra en la ilustración, el control de acceso es compatible con una amplia variedad de IdP basados en la nube, incluidas las cuentas creadas por Google, Yahoo, Facebook, Microsoft (anteriormente Windows Live ID) y cualquier proveedor OpenID. También es compatible con identidades creadas con Azure Active Directory y, a través de la federación con AD FS, con Windows Server Active Directory. El objetivo es abarcar las identidades que se usan con más frecuencia hoy en día, ya que los IdP las emiten en la nube o localmente.
 
 Una vez que el explorador del usuario disponga de un token del IdP seleccionado, envía ese token al control de acceso (paso 3). El control de acceso valida el token y se asegura de que efectivamente el IdP lo ha emitido. A continuación, crea un nuevo token de acuerdo con las reglas definidas para esa aplicación. Como ocurre con Azure Active Directory, el control de acceso es un servicio multiinquilino, pero los inquilinos son aplicaciones en lugar de organizaciones de clientes. Cada aplicación puede obtener su propio espacio de nombre, como se muestra en la ilustración, y puede definir varias reglas sobre autorización, etc.
 
@@ -118,4 +118,4 @@ Trabajar con identidades es importante en prácticamente cualquier aplicación. 
 
 David Chappell es el director de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) en San Francisco (California).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0720_2016-->

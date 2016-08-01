@@ -18,7 +18,7 @@
 
 # Aumento del rendimiento de la cuenta de DocumentDB
 
-Siga estos pasos para aprovechar el aumento de rendimiento de su cuenta S1 de DocumentDB. Con poco o sin ningún costo adicional, puede aumentar el rendimiento de su cuenta S1 existente de 250 [RU/s](documentdb-request-units.md) a 400 RU/s o más.
+Siga estos pasos para aprovechar el aumento de rendimiento de su cuenta S1 de Azure DocumentDB. Con poco o sin ningún costo adicional, puede aumentar el rendimiento de su cuenta S1 existente de 250 [RU/s](documentdb-request-units.md) a 400 RU/s o más.
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
@@ -51,4 +51,4 @@ Para más información sobre los cambios de precio relativos al rendimiento pred
 
 Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte [Creación de una colección](documentdb-create-collection.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/15/2016"
 	ms.author="ashwink"/>
 
 # Procedimientos recomendados de escalado automático en Azure Insights
@@ -75,7 +75,7 @@ Veamos esto con un ejemplo para procurar que entienda el comportamiento de mejor
 - Aumentar las instancias en 1 cuando el número de mensajes de la cola de almacenamiento > = 50
 - Disminuir las instancias en 1 cuando el número de mensajes de la cola de almacenamiento < = 10
 
-Imaginemos que hay 2 instancias para empezar. Imaginemos ahora que siguen llegando mensajes y, al revisar la cola de almacenamiento, el recuento total es 50. Se supone que el escalado automático tendría que iniciar una acción de escalado horizontal. Sin embargo, vemos que sigue siendo de 50/2 = 25 mensajes por instancia. Por lo tanto, el escalado horizontal no se ha producido. Para que el primer escalado horizontal se produzca, el número total de mensajes en la cola de almacenamiento debe ser 100. Tras esto, imaginemos que el número total de mensajes llega a 100. Se agrega una tercera instancia debido a una acción de escalado horizontal. La siguiente acción de escalado horizontal no tendrá lugar hasta que el número total de mensajes en la cola llegue a 300. Echemos un vistazo a la acción de reducción horizontal. Supongamos que el número de instancias es 3. La primera acción de reducción horizontal ocurre cuando el número total de mensajes en la cola llega a 30, lo que hace un total de 30/3 = 10 mensajes por instancia, que es el umbral de reducción horizontal.
+Imaginemos que hay 2 instancias para empezar. Imaginemos ahora que siguen llegando mensajes y, al revisar la cola de almacenamiento, el recuento total es 50. Se supone que el escalado automático tendría que iniciar una acción de escalado horizontal. Sin embargo, vemos que sigue siendo de 50/2 = 25 mensajes por instancia. Por lo tanto, el escalado horizontal no se ha producido. Para que el primer escalado horizontal se produzca, el número total de mensajes en la cola de almacenamiento debe ser 100. Tras esto, imaginemos que el número total de mensajes llega a 100. Se agrega una tercera instancia debido a una acción de escalado horizontal. La siguiente acción de escalado horizontal no tendrá lugar hasta que el número total de mensajes en la cola llegue a 150. Echemos un vistazo a la acción de reducción horizontal. Supongamos que el número de instancias es 3. La primera acción de reducción horizontal ocurre cuando el número total de mensajes en la cola llega a 30, lo que hace un total de 30/3 = 10 mensajes por instancia, que es el umbral de reducción horizontal.
 
 ### Consideraciones de escalado cuando hay varios perfiles configurados en una configuración de escalado automático
 
@@ -126,4 +126,4 @@ El escalado automático notifica a los administradores y a los colaboradores del
 - No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 - Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado. Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -28,4 +28,3 @@ Para crear una directiva:
 
     La nueva directiva se aplica inmediatamente en el almacén.
 
-<!---HONumber=AcomDC_0608_2016-->

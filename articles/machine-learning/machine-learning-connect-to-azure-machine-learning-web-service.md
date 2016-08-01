@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye" />
 
 
@@ -40,10 +40,17 @@ Aprendizaje automático de Azure tiene dos tipos de servicios:
 Para obtener más información sobre los servicios web de Aprendizaje automático, vea [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtener una clave de autorización de Aprendizaje automático de Azure ##
-Obtiene una clave de API del servicio web a partir de un servicio web de Aprendizaje automático. Puede obtenerla de Estudio de aprendizaje automático o el Portal de Azure.
+
+Al implementar el experimento, se generan claves de API para el servicio web. La ubicación desde donde se recuperarán las claves dependerá de si se implementó el experimento como servicio web clásico o nuevo.
+
+## Servicio web clásico ##
+
+ Puede obtener una clave de Estudio de aprendizaje automático o el Portal de Azure.
+
 ### Estudio de aprendizaje automático ###
+
 1. En Estudio de aprendizaje automático, haga clic en **SERVICIOS WEB** a la izquierda.
-2. Haga clic en un servicio web. La "clave de API" está en la pestaña **PANEL**.
+2. Haga clic en un servicio web. La **clave de API** está en la pestaña **PANEL**.
 
 ### Portal de Azure ###
 
@@ -53,28 +60,40 @@ Obtiene una clave de API del servicio web a partir de un servicio web de Aprendi
 4. Haga clic en un servicio web.
 5. Haga clic en un extremo. La "CLAVE DE API" está inactiva en la parte inferior derecha.
 
+
+## Servicio web nuevo 
+
+Para recuperar la clave de API de un servicio web nuevo de Aprendizaje automático, debe iniciar sesión en el portal de[servicios web de Aprendizaje automático de Microsoft Azure](https://services.azureml.net/quickstart).
+
+1. En el portal de servicios web de Aprendizaje automático de Azure, haga clic en la opción **SERVICIOS WEB** del menú superior.
+2. Haga clic en el servicio web del que quiere recuperar la clave.
+3. En el menú superior, haga clic en **Consume** (Consumo).
+4. Copie y guarde la **clave principal**.
+
 ## <a id="connect"></a>Conexión a un servicio web de Aprendizaje automático
 
 Puede conectarse a un servicio web de Aprendizaje automático mediante cualquier lenguaje de programación que admita la respuesta y la solicitud HTTP. Puede ver ejemplos en C#, Python y R desde una página de ayuda de servicio web de Aprendizaje automático.
 
-### Para ver una página de Ayuda de API de servicio web de Aprendizaje automático ###
-Se crea una página de ayuda de API de Aprendizaje automático al implementar un servicio web. Vea [Tutorial de Aprendizaje automático de Azure: Implementación de un servicio web](machine-learning-walkthrough-5-publish-web-service.md).
+**Ayuda de Aprendizaje automático** Se crea una página de ayuda de API de Aprendizaje automático al implementar un servicio web. Vea [Tutorial de Aprendizaje automático de Azure: Implementación de un servicio web](machine-learning-walkthrough-5-publish-web-service.md). La ayuda de la API de Aprendizaje automático contiene información sobre un servicio web de predicción.
 
+**Pasos para ver la ayuda de la API de Aprendizaje automático de un servicio web clásico** En Estudio de aprendizaje automático, siga estos pasos:
 
-**Para ver una página de ayuda de API de Aprendizaje automático** en Estudio de aprendizaje automático:
+1. Haga clic en **SERVICIOS WEB**.
+2. Haga clic en un servicio web.
+3. Haga clic en **API help page** (Página de ayuda de la API), **REQUEST/RESPONSE** (SOLICITUD-RESPUESTA) o **BATCH EXECUTION** (EJECUCIÓN POR LOTES).
 
-1. Elija **SERVICIOS WEB**.
-2. Elija un servicio web.
-3. Elija **Página de ayuda de la API** - **SOLICITUD-RESPUESTA** o **EJECUCIÓN POR LOTES**.
+**Pasos para ver la ayuda de la API de Aprendizaje automático de un servicio web nuevo** En el portal de servicios web de Aprendizaje automático de Azure, siga estos pasos:
 
+1. Haga clic en la opción de menú **SERVICIOS WEB** del menú superior.
+2. Haga clic en el servicio web del que quiere recuperar la clave.
 
-**Página de ayuda de API de Aprendizaje automático** La página de ayuda de API de Aprendizaje automático contiene información sobre un servicio web de predicción.
+Haga clic en **Consume** (Consumo) para obtener los URI de los servicios de solicitud-respuesta y ejecución por lotes, además del código de ejemplo en C#, R y Python.
 
-
+Haga clic en **Swagger API** para obtener la documentación basada en Swagger de las API que se invocan desde los URI proporcionados.
 
 ### Ejemplo de C# ###
 
-Para conectarse a un servicio web de Aprendizaje automático, use un **HttpClient** que pase ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones de características numéricos que representa el ScoreData. Se autentica en el servicio de Aprendizaje automático con una clave API.
+Para conectarse a un servicio web de Aprendizaje automático, use un elemento **HttpClient** que pase ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones de características numéricos que representa el ScoreData. Se autentica en el servicio de Aprendizaje automático con una clave API.
 
 Para conectarse a un servicio web de Aprendizaje automático, se debe instalar el paquete NuGet **Microsoft.AspNet.WebApi.Client**.
 
@@ -100,6 +119,6 @@ Para conectarse a un servicio web de Aprendizaje automático, use la biblioteca 
 
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático.
 2. Asigne una clave de API con la clave de un servicio web. Consulte el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
-3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
+3. Asigne la URI de servicio a la URI de solicitud.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->
