@@ -76,7 +76,7 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 
 	![][2]
 
-3. Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android][Android SDK] (en inglés) e instálelas en el equipo local o la máquina virtual.
+3. Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android][Android SDK] \(en inglés) e instálelas en el equipo local o la máquina virtual.
 
 4. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**.
 

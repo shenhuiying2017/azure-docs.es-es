@@ -85,7 +85,7 @@ El [Centro de IoT][lnk-iothub] ingiere los datos enviados desde los dispositivos
 
 ## Análisis de transmisiones de Azure
 
-En la solución de supervisión remota, [Análisis de transmisiones de Azure][lnk-asa] (ASA) envía los mensajes recibidos por el Centro de IoT desde los dispositivos a otros componentes back-end para su procesamiento o almacenamiento. Diferentes trabajos de ASA realizan funciones específicas en función del contenido de los mensajes.
+En la solución de supervisión remota, [Análisis de transmisiones de Azure][lnk-asa] \(ASA) envía los mensajes recibidos por el Centro de IoT desde los dispositivos a otros componentes back-end para su procesamiento o almacenamiento. Diferentes trabajos de ASA realizan funciones específicas en función del contenido de los mensajes.
 
 **Trabajo 1: información de dispositivo** filtra los mensajes de información del dispositivo desde la transmisión de mensajes entrantes y los envía a un punto de conexión de Centro de eventos. Un dispositivo envía mensajes de información de dispositivo al inicio y como respuesta a un comando **SendDeviceInfo**. Este trabajo utiliza la siguiente definición de consulta para identificar mensajes de **información de dispositivo**:
 

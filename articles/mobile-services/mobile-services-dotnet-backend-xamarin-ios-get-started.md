@@ -18,7 +18,7 @@
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Para ver la versión equivalente de este tema en Aplicaciones móviles, consulte [Creación de una aplicación Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md).

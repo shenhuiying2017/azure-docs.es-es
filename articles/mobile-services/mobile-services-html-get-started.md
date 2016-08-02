@@ -43,7 +43,7 @@ Los siguientes requisitos son necesarios para completar este tutorial.
 
 	+  **En Windows**: IIS Express. IIS Express lo instala el [instalador de plataforma web de Microsoft].
 	+  **En MacOS X**: Python, que ya debería estar instalado.
-	+  **En Linux**: Python. Debe instalar la [última versión de Python] (información en inglés).
+	+  **En Linux**: Python. Debe instalar la [última versión de Python] \(información en inglés).
 
 	Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.
 

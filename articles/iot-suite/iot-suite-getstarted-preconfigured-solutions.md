@@ -201,7 +201,7 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 - La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
 - La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla los datos de telemetría entrantes.
 
-Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] (esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
+Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] \(esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
 
 > [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
 
