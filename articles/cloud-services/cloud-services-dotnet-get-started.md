@@ -229,7 +229,7 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Deje el archivo abierto para editarlo.
 
 2. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** en el panel de la izquierda, haga clic en la base de datos que creó para este tutorial, haga clic en la pestaña **Panel** y, por último, haga clic en **Mostrar cadenas de conexión**.
@@ -314,10 +314,10 @@ Y el archivo *ServiceConfiguration.Cloud.cscfg* incluye los valores introducidos
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ En esta sección configurará Almacenamiento de Azure y cadenas de conexión de 
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Si usa Visual Studio 2015, reemplace "v11.0" por "MSSQLLocalDB".
 
 2. Guarde los cambios.
@@ -482,7 +482,7 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón derecho e
 3. En el proyecto ContosoAdsCommon, elimine el archivo *Class1.cs* y agregue en su lugar los archivos *Ad.cs* y *ContosoAdscontext.cs* desde el proyecto descargado.
 
 3. En el proyecto ContosoAdsWeb, agregue los siguientes archivos desde el proyecto descargado.
-	- *Global.asax.cs*.  
+	- *Global.asax.cs*.
 	- En la carpeta *Views\\Shared*: *\_Layout.cshtml*.
 	- En la carpeta *Views\\Home*: *Index.cshtml*.
 	- En la carpeta *Controllers*: *AdController.cs*.
@@ -868,5 +868,6 @@ Para obtener más información, consulte los siguientes recursos:
 * [Servicios de nube de Azure, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
+* [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

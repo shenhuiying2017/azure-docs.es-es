@@ -85,7 +85,7 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [portal de Baidu].
 
 7. Escriba el número de verificación del mensaje en **验证码** (**código de confirmación**).
 
-8. Por último, complete el registro para desarrolladores. Para ello, acepte el acuerdo de Baidu y haga clic en **提交** (**enviar**). Se mostrará la página siguiente cuando el registro se haya completado correctamente:
+8. Por último, complete el registro para desarrolladores. Para ello, acepte el acuerdo de Baidu y haga clic en **提交 ** (**enviar**). Se mostrará la página siguiente cuando el registro se haya completado correctamente:
 
   	![][11]
 
@@ -105,7 +105,7 @@ Cuando se crea un proyecto de inserción de nube Baidu, recibirá el identificad
 
   	![][7]
 
-4. En la siguiente página, haga clic en **云推送** (**inserción en nube**)en la sección **云服务** (**servicios en la nube**).
+4. En la siguiente página, haga clic en **云推送 ** (**inserción en nube**)en la sección **云服务** (**servicios en la nube**).
 
   	![][12]
 
@@ -399,9 +399,9 @@ Verá le mensaje **保存成功** (mensaje **¡Guardado correctamente!**).
 ##Envío de notificaciones a la aplicación
 
 
-Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure clásico mediante la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+Para probar de forma rápida la recepción de notificaciones en su aplicación, envíe notificaciones en el [Portal de Azure](https://portal.azure.com/) mediante el botón **Envío de prueba** en el Centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 Las notificaciones push se envían normalmente en un servicio back-end como Servicios móviles o ASP.NET mediante una biblioteca compatible. También puede usar la API de REST directamente para enviar mensajes de notificación si no hay disponible una biblioteca para su back-end.
 
@@ -413,7 +413,7 @@ En este tutorial, vamos a simplificar las cosas y mostrar solo la prueba de su a
 
 * **Node.js**: [Uso de los Centros de notificaciones desde Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Servicios móviles de Azure**: para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
+* **Servicios móviles de Azure**: para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte [Incorporación de notificaciones push a la aplicación de Servicios móviles](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
 
 * **Java / PHP**: para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
@@ -504,4 +504,4 @@ Para enviar una notificación de prueba, puede usar la pestaña de depuración d
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

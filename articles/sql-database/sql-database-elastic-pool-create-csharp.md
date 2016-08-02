@@ -3,7 +3,7 @@
     description="Use técnicas de desarrollo de bases de datos de C# para crear un grupo de bases de datos elásticas escalable en la Base de datos SQL de Azure, para así poder compartir recursos entre muchas bases de datos."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # Creación de un nuevo grupo de bases de datos elásticas con C&#x23;
 
@@ -24,13 +24,13 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Obtenga información acerca de cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante C&#x23;.
+Obtenga información acerca de cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante C#;.
 
 Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
 
 En los ejemplos siguientes se usa la [biblioteca de la Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), por lo que, si aún no está instalada, debe instalarla antes de continuar. Puede instalar esta biblioteca ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Creación de un nuevo grupo
 
@@ -74,7 +74,7 @@ Cree una instancia de [DataBaseCreateorUpdateProperties](https://msdn.microsoft.
 
 Para mover una base de datos existente a un grupo, consulte [Movimiento de una base de datos a un grupo elástico](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Ejemplo: creación de un grupo mediante C&#x23
+## Ejemplo: creación de un grupo mediante C&#x23;
 
 Este ejemplo crea un nuevo grupo de recursos de Azure, una nueva instancia de SQL Server de Azure y un nuevo grupo elástico.
  
@@ -82,7 +82,7 @@ Este ejemplo crea un nuevo grupo de recursos de Azure, una nueva instancia de SQ
 Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y los valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md). Use el cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) para recuperar el valor para el identificador de suscripción.
@@ -249,4 +249,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

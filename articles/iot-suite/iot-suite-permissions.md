@@ -39,7 +39,7 @@ Puede encontrar más información acerca de los roles de administrador en AAD en
 
 **Administrador global:** puede haber muchos administradores globales por inquilino de AAD. Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo. El administrador global puede aprovisionar una solución preconfigurada y se le asigna el rol **ADMINISTRATOR** de la aplicación en su inquilino de AAD. Sin embargo, si otro usuario del mismo inquilino de AAD crea una aplicación, el rol predeterminado que se concede al administrador global es **IMPLICIT READ ONLY**. Los administradores globales pueden asignar roles para aplicaciones desde el [Portal de Azure clásico][lnk-classic-portal].
 
-**Miembro o usuario de dominio:** puede haber miembros o usuarios de dominio por inquilino de AAD. Un usuario de dominio puede aprovisionar una solución preconfigurada mediante el sitio [azureiotsuite.com][lnk-azureiotsuite]. El rol predeterminado que les concede en la aplicación que se aprovisionan es **ADMINISTRATOR**. Pueden crear una aplicación con el script build.cmd del repositorio [azure-iot-solution][lnk-github-repo], pero el rol predeterminado que se les concede es **IMPLICIT READONLY**, ya que no tiene permiso para asignar roles. Si otro usuario en el inquilino de AAD crea una aplicación, se le asignará el rol **IMPLICIT READONLY** en dicha aplicación. No tiene la capacidad de asignar roles en aplicaciones; por consiguiente, no puede agregar usuarios o roles a usuarios en una aplicación, aunque la haya aprovisionado.
+**Miembro o usuario de dominio:** puede haber miembros o usuarios de dominio por inquilino de AAD. Un usuario de dominio puede aprovisionar una solución preconfigurada mediante el sitio [azureiotsuite.com][lnk-azureiotsuite]. El rol predeterminado que les concede en la aplicación que se aprovisionan es **ADMINISTRATOR**. Pueden crear una aplicación con el script build.cmd del repositorio [azure-iot-remote-monitoring][lnk-rm-github-repo] o [azure-iot-predictive-maintenance][lnk-pm-github-repo] pero el rol predeterminado que se les concede es **IMPLICIT READONLY**, ya que no tiene permiso para asignar roles. Si otro usuario en el inquilino de AAD crea una aplicación, se le asignará el rol **IMPLICIT READONLY** en dicha aplicación. No tiene la capacidad de asignar roles en aplicaciones; por consiguiente, no puede agregar usuarios o roles a usuarios en una aplicación, aunque la haya aprovisionado.
 
 **Invitado o usuario invitado:** puede haber muchos invitados o usuarios invitados por inquilino de AAD. Los usuarios invitados tienen un conjunto de derechos limitado en el inquilino de AAD. Como consecuencia, los usuarios invitados no pueden aprovisionar una solución preconfigurada en el inquilino de AAD.
 
@@ -135,10 +135,15 @@ Observe el diagrama siguiente:
 
 Si está seguro de que tiene una suscripción de Azure, valide la asignación del inquilino de la suscripción y asegúrese de que se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino deseado es el correcto, siga el diagrama anterior y validar la asignación de la suscripción y de este inquilino de AAD.
 
+## Pasos siguientes
+
+Para más información sobre el Conjunto de aplicaciones de IoT, consulte cómo puede [personalizar una solución preconfigurada][lnk-customize].
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -147,5 +152,6 @@ Si está seguro de que tiene una suscripción de Azure, valide la asignación de
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

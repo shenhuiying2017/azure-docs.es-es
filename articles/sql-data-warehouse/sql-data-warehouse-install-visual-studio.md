@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/23/2016"
    ms.author="sonyama;barbkess"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
 
-Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2015 junto con la versión más reciente de SQL Server Data Tools (SSDT). También se admite Visual Studio 2013 con SSDT por compatibilidad con versiones anteriores.
+Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2015 junto con la versión más reciente de SQL Server Data Tools (SSDT). También se admite Visual Studio 2013 Update 5 con SSDT por compatibilidad con versiones anteriores.
 
 Con Visual Studio con SSDT, podrá usar el Explorador de objetos de SQL Server para explorar visualmente tablas, vistas, procedimientos almacenados y muchos más objetos en su instancia de Almacenamiento de datos SQL, así como para ejecutar consultas.
 
@@ -56,4 +56,4 @@ Ahora que tiene la versión más reciente de SSDT, está listo para [conectarse]
 [Instalar Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Descargar las últimas herramientas de datos SQL Server]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->
