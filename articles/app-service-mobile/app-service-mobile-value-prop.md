@@ -18,7 +18,7 @@
 
 # <a name="getting-started"> </a>¿Qué son las aplicaciones móviles?
 
-El Servicio de aplicaciones de Azure es una plataforma totalmente administrada como una oferta de servicio (PaaS) para desarrolladores profesionales que ofrece un amplio conjunto de capacidades para la web, dispositivos móviles y escenarios de integración. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
+El Servicio de aplicaciones de Azure es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) totalmente administrada para desarrolladores profesionales que ofrece un amplio conjunto de funcionalidades para escenarios de integración, web y móviles. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
 
 ![Aplicaciones móviles](./media/app-service-mobile-value-prop/overview.png)
 
@@ -27,13 +27,13 @@ Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una 
 
 - **Crear aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova (Phonegap) multiplataforma, puede aprovechar el Servicio de aplicaciones usando SDK nativos.
 - **Conectarse a sus sistemas empresariales**: con aplicaciones móviles, puede agregar el inicio de sesión corporativo en cuestión de minutos y conectarse a sus recursos locales o en la nube empresariales.
-- **Creación de aplicaciones de uso sin conexión con sincronización de datos**: haga que su plantilla móvil sea productiva mediante la creación de aplicaciones que funcionen sin conexión y utilice las aplicaciones móviles para sincronizar datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o API de SaaS.
+- **Crear aplicaciones de uso sin conexión con sincronización de datos**: haga que su plantilla móvil sea productiva mediante la creación de aplicaciones que funcionen sin conexión y utilice las aplicaciones móviles para sincronizar datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o API de SaaS.
 - **Notificaciones push a millones de personas en cuestión de segundos**: atraer a los clientes con notificaciones push instantáneas en cualquier dispositivo, que se personalizan según sus necesidades y que se envían en el momento oportuno.
 
 ## Características de las aplicaciones móviles
 Las siguientes características son importantes para el desarrollo móvil habilitado para la nube:
 
-- **Autenticación y autorización**: realice la selección de entre una lista creciente de proveedores de identidades, incluidos Azure Active Directory, para la autenticación empresarial, proveedores de redes sociales como Facebook, Google, Twitter y cuentas de Microsoft. Aplicaciones móviles de Azure proporciona un servicio de OAuth 2.0 para cada proveedor. También puede integrar el SDK para el proveedor de identidades para la funcionalidad específica del proveedor.
+- **Autenticación y autorización**: seleccione de entre una lista creciente de proveedores de identidades, incluidos Azure Active Directory, para la autenticación empresarial, proveedores de redes sociales como Facebook, Google, Twitter y cuentas de Microsoft. Aplicaciones móviles de Azure proporciona un servicio de OAuth 2.0 para cada proveedor. También puede integrar el SDK para el proveedor de identidades para la funcionalidad específica del proveedor.
 
   Descubra más acerca de nuestras [características de autenticación].
 
@@ -46,7 +46,7 @@ Las siguientes características son importantes para el desarrollo móvil habili
 
   Descubra más acerca de nuestras [características de notificaciones push].
 
-- **SDK de cliente**: proporcionamos un completo conjunto de los SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin para iOS y Android], [Xamarin Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
+- **SDK de cliente**: proporcionamos un completo conjunto de SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin para iOS y Android], [Xamarin Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
 
 ## Características del Servicio de aplicaciones de Azure
 Las siguientes características de plataforma suelen ser útiles para los sitios de producción móvil.
@@ -72,15 +72,15 @@ Las siguientes características de plataforma suelen ser útiles para los sitios
   Descubra más acerca de los [entornos del Servicio de aplicaciones].
 
 ## Introducción ##
-Para empezar a trabajar con aplicaciones móviles, siga el tutorial [Introducción]. Esto abarca los conceptos básicos de generar un back-end móvil y el cliente de su elección y a continuación, integrar la autenticación, la sincronización sin conexión y las notificaciones push. Puede realizar el tutorial [Introducción] varias veces: una vez para cada aplicación de cliente.
+Para empezar a trabajar con aplicaciones móviles, siga el tutorial [Introducción]. Esto abarca los conceptos básicos de generar un back-end móvil y el cliente de su elección y a continuación, integrar la autenticación, la sincronización sin conexión y las notificaciones push. Puede realizar el tutorial [Introducción] varias veces: una vez para cada aplicación cliente.
 
-Para más información sobre Aplicaciones móviles de Azure, revise nuestro [mapa de aprendizaje]. Para más información sobre la plataforma Servicio de aplicaciones de Azure, consulte[ Servicio de aplicaciones de Azure].
+Para más información sobre Aplicaciones móviles de Azure, revise nuestro [mapa de aprendizaje]. Para más información sobre la plataforma Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure].
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
+[Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
 [Introducción]: app-service-mobile-ios-get-started.md
 [Almacenamiento de tablas de Azure]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
@@ -102,4 +102,4 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizaje]: https://azure.microsoft.com/es-ES/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

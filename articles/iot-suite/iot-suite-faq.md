@@ -27,7 +27,7 @@
 
 ### ¿Cuántas instancias del Centro de IoT se pueden aprovisionar en una suscripción? 
 
-Diez. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket]; pero, de forma predeterminada, solo se pueden aprovisionar diez Centros de IoT por suscripción, como se esboza en [Límites de suscripciones de Azure][link-azuresublimits]. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan un Centro de IoT nuevo, solo se pueden aprovisionar diez soluciones preconfiguradas en una suscripción dada.
+Diez. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket]; pero, de forma predeterminada, solo se pueden aprovisionar diez Centros de IoT por suscripción, como se describe en [Límites de suscripciones de Azure][link-azuresublimits]. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan un Centro de IoT nuevo, solo se pueden aprovisionar diez soluciones preconfiguradas en una suscripción dada.
 
 ### ¿Cuántas instancias de DocumentDB se pueden aprovisionar en una suscripción?
 
@@ -62,8 +62,18 @@ En este momento, no se puede crear una solución preconfigurada con una cuenta d
 
 Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).
 
+## Pasos siguientes
+
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT:
+
+- [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
+- [Seguridad total de IoT][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[link-azuresublimits]: https://azure.microsoft.com/es-ES/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -72,4 +82,4 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

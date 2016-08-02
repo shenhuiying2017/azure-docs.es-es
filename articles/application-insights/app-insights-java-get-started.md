@@ -162,6 +162,7 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 * La clave de instrumentación se envía junto con todos los elementos de telemetría e indica a Application Insights que se muestre en el recurso.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
 * La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y lo agrega como una propiedad a cada elemento de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
+* Se puede pasar la clave de Application Insight dinámicamente desde el Portal de Azure como una propiedad del sistema (-DAPPLICATION\_INSIGHTS\_IKEY = your\_ikey). Si no hay ninguna propiedad definida, busca la variable de entorno (APPLICATION\_INSIGHTS\_IKEY) en Azure Appsetting. Si las propiedades no están definidas, se usa el valor predeterminado de InstrumentationKey de ApplicationInsights.xml. Esto ayuda a administrar InstrumentationKey diferentes para otro entorno dinámicamente.
 
 ### Alternativas para establecer la clave de instrumentación
 
@@ -412,4 +413,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/08/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
@@ -138,7 +138,7 @@ Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para
 
 Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes opciones de replicación:
 
-- **Almacenamiento con redundancia local (LRS).** El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.  
+- **Almacenamiento con redundancia local (LRS).** El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.
   
 	LRS se ofrece con un descuento. Para la máxima durabilidad, es recomendable utilizar el almacenamiento con redundancia geográfica, que se describe a continuación.
 
@@ -208,7 +208,9 @@ Es posible acceder a los recursos de Almacenamiento de Azure por medio de cualqu
 
 ### Herramientas y utilidades
 
-- [SDK y herramientas de Azure](https://azure.microsoft.com/downloads/)
+- [Explorador de almacenamiento de Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Herramientas de cliente de Almacenamiento de Azure](storage-explorers.md)
+- [SDK y herramientas de Azure](https://azure.microsoft.com/tools/)
 - [Emulador de almacenamiento de Azure](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [Utilidad de línea de comandos AzCopy](http://aka.ms/downloadazcopy)
@@ -265,4 +267,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 - [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

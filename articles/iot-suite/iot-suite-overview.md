@@ -53,14 +53,7 @@ El Conjunto de aplicaciones de IoT incluye soluciones preconfiguradas que permit
 
 ## Pasos siguientes
 
-Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicaciones de IoT y cuáles son sus componentes principales, puede:
-
-- Para más información acerca de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, consulte [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
-
-- Empezar a usar una de las soluciones preconfiguradas; vea [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfig-start].
-
-- Para más información acerca del servicio Centro de IoT de Azure, consulte la [documentación del Centro de IoT][lnk-iot-hub].
-
+Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicaciones de IoT y cuáles son sus componentes principales, puede obtener más información acerca de las soluciones preconfiguradas que incluye consultando el artículo [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,7 +64,5 @@ Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicac
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

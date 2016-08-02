@@ -34,7 +34,7 @@ El diagrama siguiente describe los componentes lógicos de la solución preconfi
 
 ## Dispositivos simulados
 
-En la solución preconfigurada, el dispositivo simulado representa un dispositivo de refrigeración (por ejemplo, el aire acondicionado del edificio o una unidad de tratamiento de aire en instalaciones). Al implementar la solución preconfigurada, aprovisiona automáticamente cuatro dispositivos simulados que se ejecutan en un [WebJob de Azure][lnk-webjobs]. Los dispositivos simulados facilitan la experimentación del comportamiento de la solución sin necesidad de implementar ningún dispositivo físico. Para implementar un dispositivo físico real, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connectyourdevice].
+En la solución preconfigurada, el dispositivo simulado representa un dispositivo de refrigeración (por ejemplo, el aire acondicionado del edificio o una unidad de tratamiento de aire en instalaciones). Al implementar la solución preconfigurada, aprovisiona automáticamente cuatro dispositivos simulados que se ejecutan en un [WebJob de Azure][lnk-webjobs]. Los dispositivos simulados facilitan la experimentación del comportamiento de la solución sin necesidad de implementar ningún dispositivo físico. Para implementar un dispositivo físico real, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
 
 Cada dispositivo simulado puede enviar los siguientes tipos de mensajes al Centro de IoT:
 
@@ -218,12 +218,17 @@ Las siguientes entradas de blog de TechNet proporcionan detalles adicionales ace
 - [IoT Suite - Under The Hood - Remote Monitoring: (Conjunto de aplicaciones de IoT: Supervisión remota interna)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Conjunto de aplicaciones de IoT, Supervisión remota: Incorporación de dispositivos activos y simulados)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
+Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los siguientes artículos:
+
+- [Conexión del dispositivo a la solución preconfigurada de supervisión remota][lnk-connect-rm]
+- [Permisos en el sitio azureiotsuite.com][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connectyourdevice]: iot-suite-connecting-devices.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

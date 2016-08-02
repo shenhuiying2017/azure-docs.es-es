@@ -42,7 +42,7 @@ La solución aprovecha un modelo de aprendizaje automático de Azure existente d
 
 La solución preconfigurada de mantenimiento predictivo de IoT de Azure utiliza el modelo de regresión creado a partir de esta plantilla; se implementa en su suscripción de Azure y se expone a través de una API generada automáticamente. La solución incluye un subconjunto de los datos de prueba que representa 4 (del total de 100) motores y 4 (del total de 21) flujos de datos de sensor que ofrecen un resultado exacto del modelo entrenado.
 
-*[1] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*.
+*[1] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/, NASA Ames Research Center, Moffett Field, CA*
 
 ## Pasos siguientes
 
@@ -58,4 +58,12 @@ Examine el [tutorial][lnk-predictive-walkthrough] de la solución preconfigurada
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_0525_2016-->
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT:
+
+- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+- [Seguridad total de IoT][lnk-security-groundup]
+
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->

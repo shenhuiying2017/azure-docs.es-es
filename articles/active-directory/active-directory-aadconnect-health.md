@@ -44,7 +44,7 @@ Azure AD Connect Health para AD FS es compatible con AD FS 2.0 en Windows Server
 
 El vídeo siguiente proporcionará información general de Azure AD Connect Health para AD FS
 
-> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 
@@ -60,6 +60,7 @@ El vídeo siguiente proporcionará información general de Azure AD Connect Heal
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [Azure AD Connect Health para AD DS (versión preliminar)](active-directory-aadconnect-health-adds.md)
+
 Azure AD Connect Health para AD DS proporciona supervisión para los controladores de dominio instalados en Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. La instalación de un agente de mantenimiento fácil y de bajo costo, le permite supervisar el entorno de AD DS local directamente desde la nube. Azure AD Connect Health para AD DS proporciona el siguiente conjunto de funcionalidades clave:
 
 - Alertas de supervisión para detectar cuándo el estado de los controladores de dominio es incorrecto y notificaciones de correo electrónico para alertas críticas.
@@ -122,4 +123,4 @@ El portal de Azure AD Connect Health permite ver alertas, información de superv
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
