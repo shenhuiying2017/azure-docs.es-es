@@ -122,6 +122,7 @@ se produce un error en su trabajo de Runbook con el mensaje "``<cmdlet name>``: 
 este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su Runbook. Esto podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, a que haya un conflicto de nombres con un nombre de runbook o a que el cmdlet también existe en otro módulo y Automatización no puede resolver el nombre.
 
 **Sugerencias para solucionar el problema:**  
+
 cualquiera de las siguientes alternativas solucionará este problema:  
 
 - Compruebe que ha escrito correctamente el nombre del cmdlet.
