@@ -160,7 +160,8 @@ algunas razones comunes por las que un módulo no se importa correctamente a Aut
 
 - El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.
 
-**Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
+**Sugerencias para solucionar el problema:**  
+cualquiera de las siguientes alternativas solucionará este problema:  
 
 - Asegúrese de que el módulo sigue el formato siguiente: NombreMódulo.zip **->** NombreMódulo o número de versión **->** (NombreMódulo.psm1, NombreMódulo.psd1)
 
