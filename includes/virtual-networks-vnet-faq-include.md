@@ -90,11 +90,11 @@ Dentro de las redes virtuales se admiten protocolos estándar basados en IP. Sin
 
 ### ¿Puedo hacer ping a mis enrutadores predeterminados dentro de una red virtual?
 
-Nº
+No.
 
 ### ¿Puedo usar tracert para diagnosticar la conectividad?
 
-Nº
+No.
 
 ### ¿Puedo agregar subredes una vez creada la red virtual?
 
