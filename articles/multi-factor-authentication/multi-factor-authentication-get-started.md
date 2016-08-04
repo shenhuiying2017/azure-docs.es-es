@@ -20,8 +20,8 @@
 
 Puesto que existen varios modelos de Azure Multi-Factor Authentication, es necesario determinar primero un par de cosas para descubrir cuál es el más adecuado para usar. Estas cosas son:
 
--	[Qué es lo que quiero proteger](#what-am-i-trying-to-secure)
--	[Dónde se encuentran los usuarios](#where-are-the-users-located)
+-	[Qué es lo que quiero proteger](#qu-es-lo-que-quiero-proteger)
+-	[Dónde se encuentran los usuarios](#dnde-se-encuentran-los-usuarios)
 
 Las siguientes secciones proporcionan instrucciones para determinar cada uno de estos puntos.
 
