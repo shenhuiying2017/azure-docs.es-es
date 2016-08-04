@@ -3,7 +3,7 @@
 	description="Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="rothja"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
