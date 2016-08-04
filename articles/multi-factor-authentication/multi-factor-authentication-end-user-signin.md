@@ -28,10 +28,10 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 
 ¿Qué hace normalmente?|Descripción
 :------------- | :------------- | 
-[Inicio de sesión con el teléfono de la oficina o con un móvil](#signing-in-with-mobile-or-office-phone) | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
-[Inicio de sesión con la aplicación móvil mediante la notificación](#signing-in-with-the-mobile-app-using-notification) | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
-[Inicio de sesión con la aplicación móvil mediante el código de comprobación](#signing-in-with-the-mobile-app-using-verification-code)|Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y un código de comprobación.
-[Inicio de sesión con un método alternativo](#signing-in-with-an-alternate-method)|Esto le mostrará qué esperar si desea usar un método alternativo.
+[Inicio de sesión con el teléfono de la oficina o con un móvil](#inicio-de-sesin-con-el-telfono-de-la-oficina-o-con-un-mvil) | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
+[Inicio de sesión con la aplicación móvil mediante la notificación](#inicio-de-sesin-con-la-aplicacin-mvil-mediante-la-notificacin) | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
+[Inicio de sesión con la aplicación móvil mediante el código de comprobación](#inicio-de-sesin-con-la-aplicacin-mvil-mediante-el-cdigo-de-comprobacin) | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y un código de comprobación.
+[Inicio de sesión con un método alternativo](#inicio-de-sesin-con-un-mtodo-alternativo) | Esto le mostrará qué esperar si desea usar un método alternativo.
 
 ## Inicio de sesión con el teléfono de la oficina o con un móvil
 
