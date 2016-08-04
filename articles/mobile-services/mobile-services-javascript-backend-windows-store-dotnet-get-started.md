@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="05/11/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Para ver la versión equivalente de este tema en Aplicaciones móviles, consulte [Creación de una aplicación para Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
@@ -100,4 +100,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Portal de Azure clásico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

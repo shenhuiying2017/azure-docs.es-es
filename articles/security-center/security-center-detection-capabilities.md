@@ -13,16 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Funcionalidades de detección de Azure Security Center
 En este documento se describen las funcionalidades de detección avanzada de Azure Security Center, lo que ayuda a identificar las amenazas activas dirigidas a los recursos de Microsoft Azure, y se proporciona la información necesaria para que pueda responder a estas amenazas con rapidez.
-
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
-
-## ¿Qué es el Centro de seguridad de Azure?
-El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ## Respuesta a las amenazas actuales
 En los últimos 20 años, las amenazas han cambiado considerablemente. Por lo general, en el pasado, las empresas solo tenían que preocuparse por las alteraciones que ciertos hackers realizaban en sus sitios web, aunque normalmente lo que estos hackers pretendían era comprobar “qué es lo que eran capaces de hacer”. Hoy en día, los atacantes son mucho más sofisticados y están más organizados. Normalmente, se mueven por un fin económico o estratégico. También disponen de más recursos, ya que a veces están financiados por estados o por el crimen organizado.
@@ -48,7 +43,7 @@ Security Center utiliza análisis avanzados que superan con creces los enfoques 
 > [AZURE.NOTE] El nivel estándar de Azure Security Center dispone de medidas de detección avanzadas. Hay una prueba de evaluación gratuita de 90 días. Si desea actualizar la versión, puede seleccionar las opciones disponibles en el Plan de tarifa de la [Directiva de seguridad](security-center-policies.md). Para más información sobre los precios, visite la [página de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### Información sobre amenazas
-Microsoft dispone de una ingente cantidad de información sobre amenazas. Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, la Unidad de crímenes digitales de Microsoft (DCU) y Microsoft Security Response Center (MSRC). Los investigadores también cuentan con la información sobre amenazas que comparten los principales proveedores de servicios en la nube y que procede de fuentes de terceros. Azure Security Center puede usar todos estos datos para avisarle de las amenazas procedentes de actores malintencionados conocidos. Estos son algunos ejemplos:
+Microsoft dispone de una ingente cantidad de información sobre amenazas globales. Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, la Unidad de crímenes digitales de Microsoft (DCU) y Microsoft Security Response Center (MSRC). Los investigadores también cuentan con la información sobre amenazas que comparten los principales proveedores de servicios en la nube y que procede de fuentes de terceros. Azure Security Center puede usar todos estos datos para avisarle de las amenazas procedentes de actores malintencionados conocidos. Estos son algunos ejemplos:
 
 - **Comunicaciones de salida dirigidas a una dirección IP malintencionada**: normalmente, el tráfico de salida hacia una red de robots (botnet) o una red oscura conocidas indica que el recurso se ha visto comprometido y que un atacante intenta ejecutar comandos en ese sistema o extraer información. Azure Security Center compara el tráfico de red con la base de datos de amenazas global de Microsoft y le avisa si detecta comunicaciones con una dirección IP malintencionada.
 
@@ -86,9 +81,9 @@ En este documento, ha visto cómo actúan las funcionalidades de detección de A
 
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

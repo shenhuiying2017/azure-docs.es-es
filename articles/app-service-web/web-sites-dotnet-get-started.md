@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/22/2016"
+	ms.date="07/22/2016"
 	ms.author="rachelap"/>
 
 # Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio
@@ -240,4 +240,6 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 	Para más información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+*	Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Para más guías rápidas de la demostración HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+
+<!---HONumber=AcomDC_0727_2016-->

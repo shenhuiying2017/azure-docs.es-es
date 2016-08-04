@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@ Polybase le permite aprovechar datos de orígenes diferentes con los mismos coma
 
 ## Pasos siguientes
 
-Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Almacenamiento de datos SQL][] y [cargar datos de ejemplo][] rápidamente. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.
+Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Almacenamiento de datos SQL][] y [cargar datos de ejemplo][] rápidamente. Si no está familiarizado con Azure, el [Glosario de Azure][] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.
 
 - [Blogs]
 - [Solicitud de función]
@@ -169,6 +169,7 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [asociados de soluciones de Almacenamiento de datos SQL]: sql-data-warehouse-partner-business-intelligence.md
 [información general sobre las herramientas integradas]: sql-data-warehouse-overview-integrate.md
 [información general sobre la copia de seguridad y la restauración]: sql-data-warehouse-restore-database-overview.md
+[Glosario de Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -181,4 +182,4 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

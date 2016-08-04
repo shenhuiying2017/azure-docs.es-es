@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # Acerca de las cuentas de almacenamiento de Azure
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Información general
 
@@ -28,7 +28,7 @@ Una cuenta de almacenamiento de Azure proporciona acceso a los servicios de Azur
 Existen dos tipos de cuentas de almacenamiento:
 
 - Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
-- Una cuenta de almacenamiento premium actualmente solo admite los discos de máquinas virtuales de Azure. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md) para una introducción detallada del Almacenamiento premium.
+- Una cuenta de almacenamiento premium actualmente solo admite los discos de máquinas virtuales de Azure. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md) para una información general detallada del Almacenamiento premium.
 
 ## Facturación de la cuenta de almacenamiento
 
@@ -37,7 +37,7 @@ El uso de Almacenamiento de Azure se le factura según su cuenta de almacenamien
 - La capacidad de almacenamiento se refiere a cuánto de la asignación correspondiente a cuentas de almacenamiento utiliza para almacenar datos. El coste de simplemente almacenar los datos está determinado por la cantidad de datos que almacena y la manera en que se replican.
 - La replicación determina cuántas copias de los datos se conservan al mismo tiempo, y en qué ubicaciones.
 - Las transacciones se refieren a todas las operaciones de lectura y escritura en Almacenamiento de Azure.
-- La salida de los datos se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar sus datos y servicios en los mismos centros de datos para reducir o eliminar los cargos por concepto de salida de los datos).  
+- La salida de los datos se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar sus datos y servicios en los mismos centros de datos para reducir o eliminar los cargos por concepto de salida de los datos).
 
 La página [Detalles de precios de Azure](https://azure.microsoft.com/pricing/details/storage) proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. La página [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
 
@@ -111,7 +111,7 @@ Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máqu
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para más información, consulte [Firmas de acceso compartido: descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 En el [Portal de Azure clásico](https://manage.windowsazure.com), use **Administrar claves** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios Blob, Tabla y Cola.
 
@@ -175,4 +175,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

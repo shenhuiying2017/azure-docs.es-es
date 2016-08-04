@@ -90,11 +90,11 @@ Dentro de las redes virtuales se admiten protocolos estándar basados en IP. Sin
 
 ### ¿Puedo hacer ping a mis enrutadores predeterminados dentro de una red virtual?
 
-Nº
+No.
 
 ### ¿Puedo usar tracert para diagnosticar la conectividad?
 
-Nº
+No.
 
 ### ¿Puedo agregar subredes una vez creada la red virtual?
 
@@ -270,4 +270,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->

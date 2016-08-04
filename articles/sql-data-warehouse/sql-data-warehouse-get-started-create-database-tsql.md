@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
@@ -24,15 +24,16 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-En este artículo se mostrará cómo crear una base de datos de Almacenamiento de datos SQL con Transact-SQL (T-SQL).
+En este artículo se mostrará cómo crear un Almacenamiento de datos SQL mediante T-SQL.
 
 ## Requisitos previos
-Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
-- **Cuenta de Azure**: consulte [Evaluación gratuita de Azure][] o [Crédito mensual de Azure para suscriptores de Visual Studio][] para crear una cuenta.
-- **SQL Server V12 de Azure**: consulte [Creación de un servidor lógico de Base de datos SQL de Azure][] o [Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall][].
-- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server V12 de Azure o consulte [Creación de un grupo de recursos][] para crear uno.
-- **Visual Studio con SQL Server Data Tools**: para ver instrucciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL][].
+Para empezar, necesitará lo siguiente:
+
+- **Cuenta de Azure**: visite [Evaluación gratuita de Azure][] o [Crédito mensual de Azure para suscriptores de Visual Studio][] para crear una cuenta.
+- **SQL Server de Azure**: consulte [Creación de un servidor lógico de Base de datos SQL de Azure con el Portal de Azure][] o [Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell][] para más información.
+- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server de Azure o consulte [Creación de un grupo de recursos][].
+- **Entorno para ejecutar T-SQL**: puede usar [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] o [SSMS][] para ejecutar T-SQL.
 
 > [AZURE.NOTE] La creación de una nueva instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
 
@@ -55,6 +56,7 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 El valor de `MAXSIZE` puede estar entre 250 GB y 240 TB. El valor de `SERVICE_OBJECTIVE` puede estar entre [DWU][] DW100 y DW2000. Para obtener una lista de todos los valores válidos, consulte la documentación de MSDN para [CREATE DATABASE][]. También se pueden cambiar los valores de MAXSIZE y SERVICE\_OBJECTIVE con un comando [ALTER DATABASE][] de T-SQL. Debe tener precaución al cambiar el valor de SERVICE\_OBJECTIVE ya que provocará un reinicio de los servicios que cancelará todas las consultas en marcha. Con el cambio de MAXSIZE no se reinician servicios, ya que es solo una operación de metadatos sencilla.
 
 ## Pasos siguientes
+
 Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
 
 <!--Article references-->
@@ -65,19 +67,20 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [desarrollar]: ./sql-data-warehouse-overview-develop.md
 [cargar]: ./sql-data-warehouse-overview-load.md
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-sample-databases.md
-[Creación de un servidor lógico de Base de datos SQL de Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md
-[Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL]: ./sql-data-warehouse-install-visual-studio.md
-
+[Creación de un servidor lógico de Base de datos SQL de Azure con el Portal de Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
 [Precios de Almacenamiento de datos SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

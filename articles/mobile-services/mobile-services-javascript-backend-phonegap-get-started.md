@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="ggailey777"/>
 
 # Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -39,7 +39,7 @@ Para completar este tutorial, se requiere lo siguiente:
 + PhoneGap admite el desarrollo para varias plataformas. Además de las propias herramientas de PhoneGap, debe instalar las herramientas para cada plataforma a la que se dirige:
 
 	- Windows Phone: instale [Visual Studio 2012 Express para Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: instale [Xcode] (se requiere v4.4+)
+	- iOS: instale [Xcode] \(se requiere v4.4+)
 	- Android: instale las [herramientas para desarrolladores de Android][Android SDK] <br/>(el SDK de Servicios móviles para Android es compatible con aplicaciones para Android 2.2 o una versión posterior. Se requiere Android 4.2 o superior para ejecutar la aplicación de inicio rápido).
 
 ## Creación de un servicio móvil
@@ -153,7 +153,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* **[Incorporación de autenticación a la aplicación]** Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.  
+* **[Incorporación de autenticación a la aplicación]** Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 * **[Incorporación de notificaciones push a la aplicación](https://msdn.microsoft.com/magazine/dn879353.aspx)** Obtenga información sobre cómo registrarse para obtener notificaciones de inserción y enviarlas a la aplicación.
 
@@ -176,4 +176,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,15 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.
-
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
-
-Lea en [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) una lista de preguntas habituales que también pueden ser útiles durante la fase de diseño y planeamiento.
 
 ## Guía de planeamiento
 Esta guía abarca un conjunto de pasos y tareas que se pueden seguir para optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración de nube de su organización. Para poder beneficiarse plenamente de Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas al desarrollo y las operaciones seguros, la supervisión, el gobierno y la respuesta a incidentes. Las áreas clave que se deben tener en cuenta al planear el uso de Security Center son:
@@ -34,6 +30,9 @@ Esta guía abarca un conjunto de pasos y tareas que se pueden seguir para optimi
 
 En la siguiente sección obtendrá información sobre cómo planear cada una de esas áreas y aplicar las recomendaciones según sus requisitos.
 
+> [AZURE.NOTE] Lea en [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) una lista de preguntas habituales que también pueden ser útiles durante la fase de diseño y planeamiento.
+
+
 ## Roles de seguridad y controles de acceso
 Según el tamaño y la estructura de su organización, puede que varias personas y equipos usen Security Center para llevar a cabo diferentes tareas relacionadas con la seguridad. A continuación, se ofrece un ejemplo de personas ficticias y sus respectivos roles y responsabilidades en cuanto a la seguridad:
 
@@ -44,7 +43,7 @@ Security Center hace posible que estos usuarios cumplan estas diversas responsab
 **Jeff (Propietario de la carga de trabajo de la nube)**
 
 - Ve y completa las recomendaciones de Security Center en el Portal de Azure.
-- También puede usar un sistema de vales para hacer el seguimiento de los cambios (rellena recomendaciones mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx)).
+- También puede usar un sistema de vales para hacer el seguimiento de los cambios (rellena recomendaciones mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Rex (Director de información y seguridad de la información)**
 
@@ -58,12 +57,12 @@ Security Center hace posible que estos usuarios cumplan estas diversas responsab
 **Sam (Operaciones de seguridad)**
 
 - Ve las alertas de Security Center y evalúa sus prioridades en el Portal de Azure.
-- Puede que use un panel existente (rellena alertas mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx)).
+- Puede que use un panel existente (rellena alertas mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Sherlock (Analista de seguridad)**
 
 - Ve las alertas de Security Center en el Portal de Azure.
-- Puede que use un panel existente (rellena alertas mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx)).
+- Puede que use un panel existente (rellena alertas mediante la [API](https://msdn.microsoft.com/library/mt704034.aspx))
 - Analiza las tendencias de alerta en Power BI.
 - Revisa los registros de eventos del almacenamiento.
 
@@ -102,7 +101,7 @@ Una directiva de seguridad define el conjunto de controles recomendados para los
 
 Las directivas que están habilitadas en el nivel de suscripción se propagarán automáticamente a todos los grupos de recursos de la suscripción, como se muestra en el diagrama siguiente:
 
-![Directivas de seguridad](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2.png)
+![Directivas de seguridad](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
 Como se muestra en la ilustración anterior, las directivas de seguridad para grupos de recursos se pueden heredar del nivel de suscripción.
 
@@ -140,7 +139,7 @@ Los requisitos de planeamiento variarán para cada uno de estos escenarios. Cons
 
 **Redes virtuales**: Azure Security Center evaluará la infraestructura y la configuración de la [Red virtual de Azure](https://azure.microsoft.com/documentation/services/virtual-network/) para comprobar que los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) estén aplicados y configurados correctamente con reglas de tráfico de entrada. Debe considerar qué reglas de tráfico se deben definir y comunicárselas a las personas que van a aplicar las recomendaciones de seguridad relacionadas.
 
-Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. Consulte [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) (Proporcionar detalles de contacto de seguridad en Azure Security Center) para más información sobre cómo habilitar esta recomendación.
+Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. Consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](security-center-provide-security-contact-details.md) para más información sobre cómo habilitar esta recomendación.
 
 ## Recopilación de datos y almacenamiento
 
@@ -191,7 +190,7 @@ La mayor parte de los entornos de Azure son dinámicos, con incorporaciones o re
 
 Cuando agregue nuevos recursos (máquinas virtuales, bases de datos SQL) a su entorno de Azure, Security Center los detectará automáticamente y empezará a supervisar su seguridad. Esto también incluye los roles web de PaaS y los roles de trabajo. Si la recopilación de datos está habilitada en la [directiva de seguridad](security-center-policies.md), se habilitarán automáticamente funcionalidades de supervisión adicionales para las máquinas virtuales.
 
-![Áreas clave](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3.png)
+![Áreas clave](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	Para las máquinas virtuales, acceda al icono **Estado de seguridad del recurso** y haga clic en **Máquinas virtuales**. Los problemas con la habilitación de la recopilación de datos o las recomendaciones relacionadas aparecerán en la sección **Supervisar las recomendaciones**.
 2.	Vea las **recomendaciones** para comprobar si se identificó algún riesgo de seguridad para el nuevo recurso.
@@ -226,7 +225,7 @@ Cada alerta de seguridad proporciona información que sirve para comprender la n
 
 En el ejemplo siguiente se muestra una actividad sospechosa de RDP:
 
-![Actividad sospechosa](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5.png)
+![Actividad sospechosa](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Como ve, esta hoja muestra detalles relacionados con la hora en que ocurrió el ataque, el nombre del host de origen, la máquina virtual de destino y también pasos recomendados. En algunas circunstancias, la información de origen del ataque puede estar vacía. Consulte [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Falta de información de origen en las alertas de Azure Security Center) para más información acerca de este tipo de comportamiento.
 
@@ -235,9 +234,9 @@ Como ve, esta hoja muestra detalles relacionados con la hora en que ocurrió el 
 En este documento, ha aprendido a planear la adopción de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

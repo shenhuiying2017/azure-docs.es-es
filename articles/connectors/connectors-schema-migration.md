@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 # Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview
 
 Para mover las aplicaciones lógicas existentes al nuevo esquema, realice lo siguiente:
-1. Abra la aplicación lógica en el Portal de Azure  
+1. Abra la aplicación lógica en el Portal de Azure
 2. Haga clic en Actualizar esquema:
 
  ![Icono de API][step1] La página Actualizar esquema aparece y ofrece un vínculo a un documento que proporciona más información acerca de las mejoras del nuevo esquema: ![Icono de API][step2]
@@ -42,4 +42,4 @@ Para mover las aplicaciones lógicas existentes al nuevo esquema, realice lo sig
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->
