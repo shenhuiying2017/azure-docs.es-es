@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="06/30/2016" 
+	ms.date="07/22/2016" 
 	ms.author="sdanie"/>
 
 # Creación de una aplicación web con Caché en Redis
@@ -802,6 +802,8 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 ## Pasos siguientes
 
 -	Más información sobre la [introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/).
+-	Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
+	-	Para más guías rápidas de la demostración HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -	Más información sobre el enfoque [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542) en Entity Framework que se utiliza en este tutorial.
 -	Más información sobre las [aplicaciones web del Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md).
 -	Más información sobre cómo [supervisar](cache-how-to-monitor.md) la memoria caché en el Portal de Azure.
@@ -810,7 +812,8 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 	-	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
 	-	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
 	-	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
-	-	Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel Premium.
+	-	Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel premium.
+
 
 
 <!-- IMAGES -->
@@ -846,4 +849,4 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

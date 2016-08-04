@@ -91,7 +91,7 @@ La solución hace un seguimiento del estado de cada comando que envía. Inicialm
 
 ## Adición de un nuevo dispositivo simulado
 
-Al implementar la solución preconfigurada, aprovisiona automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si quiere conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connecting-devices].
+Al implementar la solución preconfigurada, aprovisiona automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si quiere conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
 
 Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la solución:
 
@@ -105,7 +105,7 @@ Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la s
 
     ![Establecer nuevos detalles de los dispositivos en el panel][img-addnew]
     
-    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connecting-devices].
+    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
 
 4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
 
@@ -201,16 +201,17 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 - La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
 - La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla los datos de telemetría entrantes.
 
-Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] (esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
+Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] \(esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
 
 > [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
 
 ## Pasos siguientes
 
-Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los tutoriales siguientes:
+Ahora que ha implementado una solución preconfigurada de trabajo, puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los artículos siguientes:
 
--   [Directrices de personalización de soluciones preconfiguradas][lnk-customize]
--   [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive]
+- [Tutorial de la solución preconfigurada de supervisión remota][lnk-rm-walkthrough]
+- [Conexión del dispositivo a la solución preconfigurada de supervisión remota][lnk-connect-rm]
+- [Permisos en el sitio azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -239,13 +240,13 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

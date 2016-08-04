@@ -68,4 +68,4 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 
 Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->

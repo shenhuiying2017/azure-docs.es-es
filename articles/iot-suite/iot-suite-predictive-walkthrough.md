@@ -111,7 +111,12 @@ Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, 
 
 La entrada de blog de TechNet [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Conjunto de aplicaciones de IoT: Mantenimiento predictivo interno) proporciona información adicional sobre la solución de mantenimiento predictivo preconfigurada.
 
-  
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT:
+
+- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+- [Seguridad total de IoT][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -125,5 +130,7 @@ La entrada de blog de TechNet [IoT Suite - Under The Hood - Predictive Maintenan
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

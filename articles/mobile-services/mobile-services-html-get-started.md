@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/30/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -43,12 +43,12 @@ Los siguientes requisitos son necesarios para completar este tutorial.
 
 	+  **En Windows**: IIS Express. IIS Express lo instala el [instalador de plataforma web de Microsoft].
 	+  **En MacOS X**: Python, que ya debería estar instalado.
-	+  **En Linux**: Python. Debe instalar la [última versión de Python] (información en inglés).
+	+  **En Linux**: Python. Debe instalar la [última versión de Python] \(información en inglés).
 
 	Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.
 
 + Un servidor web compatible con HTML5.
-+ Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
 
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
@@ -154,4 +154,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

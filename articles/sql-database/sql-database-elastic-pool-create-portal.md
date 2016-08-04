@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/06/2016"
+	ms.date="07/20/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -33,9 +33,11 @@ Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos 
 
 ## Paso 1: Crear un grupo
 
-Cree un grupo de bases de datos elásticas agregando un nuevo grupo a un servidor. Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo.
+Este artículo muestra cómo crear un nuevo grupo a partir de una hoja de **servidor** que ya existe en el portal, que es la forma más sencilla de mover bases de datos existentes a un grupo.
 
-1. En el [Portal de Azure](http://portal.azure.com/), haga clic en **Servidores SQL Server** y, luego, en el servidor que contiene las bases de datos que desea agregar a un grupo.
+> [AZURE.NOTE] Independientemente de si ya tiene un servidor o no, también puede crear un nuevo grupo desde la hoja **Grupos elásticos de SQL** (situado debajo de la lista en el lado izquierdo del portal, haga clic en **Examinar** **>** **Grupos elásticos de SQL**). Si hace clic en **+ Agregar** en la hoja **Grupos elásticos de SQL** se proporcionarán los pasos para crear un nuevo servidor durante el flujo de trabajo de aprovisionamiento del grupo.
+
+1. En el [Portal de Azure](http://portal.azure.com/), debajo de la lista situada en el lado izquierdo, haga clic en **Examinar** **>** **Servidores SQL Server** y, luego, en el servidor que contiene las bases de datos que desea agregar a un grupo.
 2. Haga clic en **Grupo nuevo**.
 
     ![Adición de un grupo a un servidor](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -66,14 +68,14 @@ Para cambiar el plan de tarifa del grupo, haga clic en **Plan de tarifa**, luego
 
 Después de establecer el plan de tarifa, haga clic en Configurar grupo donde agregar bases de datos, establezca las EDTU y el almacenamiento (GB del grupo) del grupo y el lugar en que se establecen las EDTU mínima y máxima para las bases de datos elásticas del grupo.
 
-1. Haga clic en **Configurar grupo**.
+1. Haga clic en **Configurar grupo**
 2. Seleccione las bases de datos que desea agregar al grupo. Este paso es opcional al crear el grupo. Se pueden agregar bases de datos una vez creado el grupo. Para agregar bases de datos, haga clic en **Agregar base de datos**, luego en las bases de datos que quiera agregar y después en el botón **Seleccionar**.
 
     ![Adición de bases de datos](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Si está trabajando con bases de datos que tienen suficiente telemetría de historial de uso, el gráfico **Uso estimado de eDTU y GB** y el gráfico de barras **Uso real de eDTU** se actualizan para ayudarlo a tomar decisiones de configuración. Además, el servicio puede proporcionar un mensaje de recomendación que le ayuda a ajustar el tamaño correcto del grupo. Consulte [Recomendaciones dinámicas](#dynamic-recommendations).
+    Si está trabajando con bases de datos que tienen suficiente telemetría de historial de uso, el gráfico **Uso estimado de eDTU y GB** y el gráfico de barras **Uso real de eDTU** se actualizan para ayudarle a tomar decisiones de configuración. Además, el servicio puede proporcionar un mensaje de recomendación que le ayuda a ajustar el tamaño correcto del grupo. Consulte [Recomendaciones dinámicas](#dynamic-recommendations).
 
-3. Use los controles de la página **Configurar grupo** para explorar las opciones y establecer la configuración del grupo. Consulte los [límites de los grupos elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y las [consideraciones sobre precios y rendimiento para los grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo. Para más detalles acerca de la configuración de grupo, consulte [Propiedades del grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-properties).
+3. Use los controles de la página **Configurar grupo** para explorar las opciones y establecer la configuración del grupo. Consulte los [límites de los grupos elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y las [consideraciones sobre precios y rendimiento para los grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo. Para más información sobre la configuración de grupo, consulte [Propiedades del grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-properties).
 
 	![Configuración de grupos elásticos](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -109,6 +111,6 @@ Después de agregar las bases de datos al grupo, las recomendaciones se generar�
 - [Manage a SQL Database elastic pool with the portal (Administración de un grupo elástico de Base de datos SQL con el portal)](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell (Administración de un grupo elástico de Base de datos SQL con PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 - [Creación y administración de bases de datos SQL con C#](sql-database-elastic-pool-manage-csharp.md)
-- [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md) 
+- [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

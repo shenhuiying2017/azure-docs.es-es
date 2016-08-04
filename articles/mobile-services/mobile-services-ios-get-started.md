@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
@@ -41,7 +41,7 @@ Puede seguir un sencillo inicio rápido en el Portal de Azure clásico para crea
 
 1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
-2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
+2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma ** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
 
 3. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
 
@@ -92,4 +92,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

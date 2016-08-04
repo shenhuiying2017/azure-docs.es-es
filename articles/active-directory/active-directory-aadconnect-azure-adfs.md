@@ -257,7 +257,7 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 
 |Regla|Descripción|Flujo|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Permite la comunicación HTTPS con la red perimetral. | Entrada |
+|AllowHTTPSFromDMZ| Permitir la comunicación HTTPS desde la red perimetral | Entrada |
 |DenyAllFromDMZ| Esta regla bloqueará todo el tráfico de la subred DMZ a la interna. La regla AllowHTTPSFromDMZ ya se encarga de garantizar que la comunicación HTTPS pasa, mientras que todo lo demás queda bloqueado por esta regla. | Entrada |
 |DenyInternetOutbound| Sin acceso a Internet | Salida |
 
@@ -303,4 +303,4 @@ Cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación s
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

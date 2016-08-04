@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="07/20/2016"
 	ms.author="carlrab"/>
 
 # Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
@@ -31,7 +31,7 @@ Obtenga información acerca de qué opción se ajusta a la plataforma de datos d
 
 Una de las primeras cosas que hay que comprender al comparar Azure con bases de datos SQL Server locales es que puede usarlas todas. La plataforma de datos de Microsoft aprovecha la tecnología de SQL Server y la pone a disposición de los usuarios en máquinas físicas locales, entornos en nubes privadas, entornos en nubes privadas hospedados por terceros y la nube pública. Esto permite satisfacer necesidades únicas y diversas del negocio mediante una combinación de implementaciones locales y hospedadas en nube al tiempo que se usa el mismo conjunto de productos de servidor, herramientas de desarrollo y conocimientos en todos estos entornos.
 
-   ![Opciones de SQL Server en la nube: SQL Server en IaaS o base de datos SQL de SaaS en la nube.](./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![Opciones de SQL Server en la nube: SQL Server en IaaS o base de datos SQL de SaaS en la nube.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 Como se ve en el diagrama, cada oferta puede caracterizarse por el nivel de administración que se tiene sobre la infraestructura (en el eje X) y el grado de relación coste-eficacia obtenido mediante la automatización y la consolidación en el nivel de base de datos (en el eje Y).
 
@@ -156,4 +156,4 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 - Consulte [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para familiarizarse con SQL Server en máquinas virtuales de Azure.
 - Consulte [SQL Server en una máquina virtual de Azure: ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

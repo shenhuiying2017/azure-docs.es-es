@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ Las siguientes aplicaciones de API permiten estas funcionalidades gracias a la e
 
 
 ## BizTalk X12
-- Ejecuta acuerdos de X12 como se define en la instancia de la aplicación de API de TPM relacionada 
+- Ejecuta acuerdos de X12 como se define en la instancia de la aplicación de API de TPM relacionada
 - Presenta información de procesamiento y seguimiento de X12 para solucionar problemas
 - Proporciona administración de estado de lotes (iniciar y detener) tal y como se define en los acuerdos de X12 en la instancia de aplicación de API de TPM relacionada
 
@@ -79,4 +79,4 @@ Para crear acuerdos entre socios comerciales:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

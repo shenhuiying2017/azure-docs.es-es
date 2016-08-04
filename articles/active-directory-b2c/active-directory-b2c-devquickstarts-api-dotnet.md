@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Azure AD B2C | Microsoft Azure"
+	pageTitle="Azure AD B2C | Microsoft Azure"
 	description="Creación de una API web de .NET con Azure Active Directory B2C, protegida con tokens de acceso de OAuth 2.0 para autenticación."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Versión preliminar de Azure Active Directory B2C: compilación de una API web de .NET
+# Azure Active Directory B2C: Creación de una API web de .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Con Azure Active Directory (Azure AD) B2C, puede proteger una API web mediante el uso de tokens de acceso de OAuth 2.0. Estos tokens permiten a las aplicaciones cliente que usan Azure AD B2C autenticarse en la API. Este artículo le muestra cómo crear una aplicación "de tareas pendientes" de controlador de vista de modelos de .NET que incluya el registro, el inicio de sesión y la administración de perfiles de usuarios. La lista de tareas pendientes de cada usuario se almacenará por un servicio de la tarea. Se trata de una API web que permite a los usuarios autenticados crear y leer tareas en sus listas de tareas pendientes.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+Con Azure Active Directory (Azure AD) B2C, puede proteger una API web mediante el uso de tokens de acceso de OAuth 2.0. Estos tokens permiten a las aplicaciones cliente que usan Azure AD B2C autenticarse en la API. En este artículo se muestra cómo crear una API de "lista de tareas pendientes" del tipo Model-View-Controller (MVC) de .NET que permite a los usuarios realizar tareas de creación, lectura, actualización y eliminación. La API web se protege con Azure AD B2C y solo permite a los usuarios autenticados administrar sus listas de tareas pendientes.
 
 ## Creación de un directorio de Azure AD B2C
 
@@ -32,17 +30,17 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 
 A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
 
-- Incluir una **aplicación web** o **API web** en la aplicación.
-- Utilizar el **identificador uniforme de recursos de redirección** `https://localhost:44316/` para la aplicación web. Se trata de la ubicación predeterminada del cliente de aplicación web de este ejemplo de código.
-- Copiar el **Id. de aplicación** asignado a la aplicación. Lo necesitará más adelante.
+- Incluir una **aplicación web** o una **API web** en la aplicación.
+- Usar el **identificador uniforme de recursos de redirección** `https://localhost:44316/` para la aplicación web. Se trata de la ubicación predeterminada del cliente de aplicación web de este ejemplo de código.
+- Copiar el **id. de aplicación** asignado a la aplicación. Lo necesitará más adelante.
 
  [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Crear sus directivas
 
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). El cliente de este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Tendrá que crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia de usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). El cliente de este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Tendrá que crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
 
-- Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
+- Elegir **User ID sign-up** (Registro con id. de usuario) o **Email sign-up** (Registro con correo electrónico) en la hoja de proveedores de identidades.
 - Seleccionar **Nombre para mostrar** y otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones **Nombre para mostrar** e **Id. de objeto** como notificaciones de aplicación en todas las directivas. Puede elegir también otras notificaciones.
 - Copiar el **Nombre** de cada directiva después de crearla. Necesitará estos nombres de directiva más adelante.
@@ -53,9 +51,7 @@ Cuando haya creado correctamente las tres directivas, estará listo para crear s
 
 ## Descargar el código
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
-
-El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
+El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Para generar el ejemplo a medida que avanza, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -67,51 +63,30 @@ Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio 
 
 ## Configurar la aplicación web de tarea
 
-Cuando el usuario interactúa con `TaskWebApp`, el cliente envía solicitudes a Azure AD y recibe tokens que sirven para llamar a la API web `TaskService`. Para iniciar la sesión del usuario y obtener tokens, debe proporcionar a `TaskWebApp` algo de información sobre la aplicación. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
+Cuando el usuario interactúa con `TaskWebApp`, el cliente envía solicitudes a Azure AD y recibe tokens que sirven para llamar a la API web `TaskService`. Para iniciar la sesión del usuario y obtener tokens, debe proporcionar a `TaskWebApp` algo de información sobre la aplicación. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`. Puede dejar los valores `AadInstance`, `RedirectUri` y `TaskServiceUrl` como están.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
-    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
-    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
-</appSettings>
+  </appSettings>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
-Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página de la aplicación que requiere autenticación.
-
-```C#
-// Controllers\HomeController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public ActionResult Claims()
-{
-```
-
-```C#
-// Controllers\TasksController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public class TasksController : Controller
-{
-```
-
-Para ver cómo una aplicación web como `TaskWebApp` utiliza Azure AD B2C, consulte [Versión preliminar de Azure AD B2C: creación de una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Este artículo no incluye la creación del cliente `TaskWebApp`. Para obtener información sobre cómo crear una aplicación web con Azure AD B2C, consulte [nuestro tutorial de aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Proteger la API
 
-Cuando tenga un cliente que llame a la API en nombre de los usuarios, puede proteger `TaskService` con tokens de portador de OAuth 2.0. La API puede aceptar y validar tokens mediante la biblioteca de Open Web Interface for .NET (OWIN) de Microsoft.
+Si tiene un cliente que llama a la API en nombre de los usuarios, puede proteger `TaskService` con tokens de portador de OAuth 2.0. La API puede aceptar y validar tokens mediante la biblioteca de Open Web Interface for .NET (OWIN) de Microsoft.
 
 ### Instalar OWIN
 Empiece instalando la canalización de autenticación de OAuth de OWIN:
@@ -123,23 +98,25 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Escribir los detalles de B2C
-Abra el archivo `web.config` en la raíz del proyecto `TaskService` y reemplace los valores de la sección `<appSettings>`. Estos valores se usarán en toda la API y la biblioteca de OWIN.
+Abra el archivo `web.config` en la raíz del proyecto `TaskService` y reemplace los valores de la sección `<appSettings>`. Estos valores se usarán en toda la API y la biblioteca de OWIN. Puede dejar el valor `AadInstance` sin modificar.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/{1}/{2}?p={3}" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
-    <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
-</appSettings>
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
+  </appSettings>
 ```
 
 ### Agregar una clase de inicio de OWIN
-Agregue una clase de inicio de OWIN al proyecto `TaskService` llamada `Startup.cs`. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; a continuación, busque OWIN.
+Agregue una clase de inicio OWIN llamada `Startup.cs` al proyecto `TaskService`. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; después, busque OWIN.
 
 
 ```C#
@@ -164,32 +141,41 @@ Abra el archivo `App_Start\Startup.Auth.cs` e implemente el método `ConfigureAu
 
 public partial class Startup
 {
-	// These values are pulled from web.config
-	public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
-	public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-	public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-	public static string commonPolicy = ConfigurationManager.AppSettings["ida:PolicyId"];
-	private const string discoverySuffix = ".well-known/openid-configuration";
+    // These values are pulled from web.config
+    public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
+    public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+    public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+    public static string signUpPolicy = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
+    public static string signInPolicy = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
+    public static string editProfilePolicy = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
 
-	public void ConfigureAuth(IAppBuilder app)
-	{   
-		TokenValidationParameters tvps = new TokenValidationParameters
-		{
-			// This is where you specify that your API accepts tokens only from its own clients
-			ValidAudience = clientId,
-		};
+    public void ConfigureAuth(IAppBuilder app)
+    {   
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signUpPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signInPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(editProfilePolicy));
+    }
 
-		app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-		{   
-			// This SecurityTokenProvider fetches the Azure AD B2C metadata and signing keys from the OpenID Connect metadata endpoint
-			AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, "v2.0", discoverySuffix, commonPolicy)))
-		});
-	}
+    public OAuthBearerAuthenticationOptions CreateBearerOptionsFromPolicy(string policy)
+    {
+        TokenValidationParameters tvps = new TokenValidationParameters
+        {
+            // This is where you specify that your API only accepts tokens from its own clients
+            ValidAudience = clientId,
+            AuthenticationType = policy,
+        };
+
+        return new OAuthBearerAuthenticationOptions
+        {
+            // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, policy))),
+        };
+    }
 }
 ```
 
 ### Proteger el controlador de la tarea
-Cuando la aplicación esté configurada para utilizar la autenticación de OAuth 2.0, puede proteger su API web agregando una etiqueta `[Authorize]` al controlador de tareas. Este es el controlador donde tiene lugar cualquier manipulación de la lista de tareas pendientes, por lo que debe proteger todo el controlador en el nivel de clase. También puede agregar la etiqueta `[Authorize]` a determinadas acciones para un control específico.
+Cuando la aplicación esté configurada para usar la autenticación de OAuth 2.0, puede proteger su API web agregando una etiqueta `[Authorize]` al controlador de tareas. Este es el controlador donde tiene lugar cualquier manipulación de la lista de tareas pendientes, por lo que debe proteger todo el controlador en el nivel de clase. También puede agregar la etiqueta `[Authorize]` a determinadas acciones para un control específico.
 
 ```C#
 // Controllers\TasksController.cs
@@ -202,7 +188,7 @@ public class TasksController : ApiController
 ```
 
 ### Obtener la información del usuario del token
-`TasksController` almacena las tareas en una base de datos donde cada tarea tiene un usuario asociado que la "posee". El propietario se identifica por el **Id. de objeto** del usuario (por eso necesita agregar el Id. de objeto como una notificación de aplicación en todas sus directivas).
+`TasksController` almacena las tareas en una base de datos donde cada tarea tiene un usuario asociado que la "posee". El propietario se identifica por el **Id. de objeto** del usuario. (por eso necesita agregar el Id. de objeto como una notificación de aplicación en todas sus directivas).
 
 ```C#
 // Controllers\TasksController.cs
@@ -221,7 +207,7 @@ Por último, compile y ejecute `TaskWebApp` y `TaskService`. Regístrese en la a
 
 ## Editar sus directivas
 
-Una vez que haya protegido una API mediante el uso de Azure AD B2C, puede experimentar con las directivas de la aplicación y ver los efectos (o la ausencia de estos) en la API. Puede <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular las notificaciones de aplicación de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones que agregue estarán disponibles para la API web de MVC de .NET en el objeto `ClaimsPrincipal`, como se describió antes en este artículo.
+Una vez que haya protegido una API mediante el uso de Azure AD B2C, puede experimentar con las directivas de la aplicación y ver los efectos (o la ausencia de estos) en la API. Puede manipular las notificaciones de aplicación en las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones que agregue estarán disponibles para la API web de MVC de .NET en el objeto `ClaimsPrincipal`, como se describió antes en este artículo.
 
 <!--
 
@@ -235,4 +221,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="05/09/2016"
+	ms.date="07/25/2016"
 	ms.author="spelluru"/>
 
 # Adopción del Catálogo de datos de Azure
@@ -172,4 +172,4 @@ Este artículo versa sobre cómo empezar con el **Catálogo de datos de Azure** 
 -	[Anotación de orígenes de datos registrados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Metadatos de micromecenazgo](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

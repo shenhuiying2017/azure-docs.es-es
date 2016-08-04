@@ -142,7 +142,7 @@ El código de cada uno de estos SDK se genera en las especificaciones de la API 
 **Ejemplos**: empiece rápidamente en el lenguaje que desee.
 
 - [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *próximamente*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
 - [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
 - [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *próximamente*
@@ -171,4 +171,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

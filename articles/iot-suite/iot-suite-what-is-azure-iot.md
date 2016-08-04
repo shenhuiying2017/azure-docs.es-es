@@ -29,15 +29,14 @@ También es posible que le interese el servicio [Centro de IoT de Azure][] que u
 
 ## Pasos siguientes
 
-Examine estos recursos para obtener más información sobre IoT en Azure:
+Explore estos recursos para más información acerca del Conjunto de aplicaciones de IoT y las soluciones preconfiguradas:
 
-- [Información general del conjunto de aplicaciones de IoT de Azure][lnk-suite-overview].
-- [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfigured-solutions].
-- [Conexión del dispositivo a la solución de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting]
-- [Centro de IoT de Azure]
+- [¿Qué es el Conjunto de aplicaciones de IoT de Azure?][lnk-whatissuite]
+- [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Centro de IoT de Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Centros de eventos de Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
@@ -46,4 +45,4 @@ Examine estos recursos para obtener más información sobre IoT en Azure:
 [Almacenamiento de Azure]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->
