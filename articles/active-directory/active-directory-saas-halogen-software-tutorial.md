@@ -147,7 +147,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     d. Para probar la configuración, haga clic en **Ejecutar prueba**.
 
-    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana *". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
+    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana*". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
 
     e. Seleccione **Habilitar SAML**.
     
