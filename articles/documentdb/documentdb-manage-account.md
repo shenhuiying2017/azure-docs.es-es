@@ -28,12 +28,14 @@ La selección del nivel de coherencia adecuado depende de la semántica de su ap
 ### Para especificar la coherencia predeterminada de una cuenta de DocumentDB:
 
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
-2. En la hoja de cuenta, si la hoja **Configuración** no está ya abierta, haga clic en **Toda la configuración**. ![Sesión de coherencia predeterminada][5]
+2. En la hoja de cuenta, si la hoja **Configuración** no está ya abierta, haga clic en **Toda la configuración**.
+![Sesión de coherencia predeterminada][5]
 
-3. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**. ![Sesión de coherencia predeterminada][6]
+3. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**.
+    ![Sesión de coherencia predeterminada][6]
 
-4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
-5. Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
+4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
+5. Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de DocumentDB.
 

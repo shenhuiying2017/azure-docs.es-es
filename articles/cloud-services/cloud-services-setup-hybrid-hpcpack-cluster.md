@@ -199,7 +199,7 @@ En este tutorial, agregará dos nodos pequeños.
 
 2. En el asistente para agregar nodos, en la página **Seleccionar método de implementación**, haga clic en **Agregar nodos de Azure** y, a continuación, en **Siguiente**.
 
-	![Agregar nodo de Azure] [add\_node1\_1]
+	![Agregar nodo de Azure] [add\_node1_1]
 
 3. En la página **Especificar nodos nuevos**, seleccione la plantilla de nodo de Azure que creó anteriormente (llamada de manera predeterminada **Default AzureNode Template**). A continuación, especifique **dos** nodos de tamaño **pequeño** y, a continuación, haga clic en **Siguiente**.
 

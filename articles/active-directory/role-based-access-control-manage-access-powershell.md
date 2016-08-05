@@ -157,4 +157,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 - [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
