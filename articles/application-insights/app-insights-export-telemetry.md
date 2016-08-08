@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -24,7 +24,7 @@ La Exportación continua está disponible durante el período de evaluación gra
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
-* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel. 
+* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
 * [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría y también permite exportar los resultados.
 * Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
 
@@ -111,7 +111,7 @@ Where
 
 ## <a name="format"></a> Formato de datos
 
-* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
+* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'. Contiene la telemetría procesada durante un período de aproximadamente la mitad de un minuto.
 * Cada fila representa un punto de datos de telemetría, como una vista de página o una solicitud.
 * Cada fila es un documento JSON sin formato. Si quiere sentarse a mirarlo, ábralo en Visual Studio y elija Editar, Avanzadas, Archivo de formato:
 
@@ -178,7 +178,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
 ## Preguntas y respuestas
 
-* *Lo único que quiero es una descarga única de un gráfico.*  
+* *Lo único que quiero es una descarga única de un gráfico.*
  
     Sí, puede hacerlo. En la parte superior de la hoja, haga clic en [Exportar datos](app-insights-metrics-explorer.md#export-to-excel).
 
@@ -229,4 +229,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

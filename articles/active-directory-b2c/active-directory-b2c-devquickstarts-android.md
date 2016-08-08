@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Versión preliminar de Azure Active Directory B2C: llamado a una API web desde una aplicación de Android | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: llamado a una API web desde una aplicación de Android | Microsoft Azure"
 	description="Este artículo le mostrará cómo crear una aplicación Android de ";lista de tareas pendientes"; que llama a una API web de Node.js con tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure Active Directory B2C para administrar identidades de usuario y autenticar usuarios."
 	services="active-directory-b2c"
 	documentationCenter="android"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
-# Versión preliminar de Azure AD B2C: llamada a una API web desde una aplicación Android
+# Azure AD B2C: llamada a una API web desde una aplicación Android
+
+> [AZURE.WARNING] Este tutorial requiere algunas actualizaciones importantes, específicamente para eliminar el uso de Android ADAL para B2C. Vamos a publicar nuevas instrucciones para usar Azure AD B2C en las aplicaciones Android en la próxima semana, y se recomienda aplazarlo hasta ese momento. Pero si desea realizar pruebas, no dude en continuar con el siguiente artículo.
+
+
 
 Con Azure Active Directory (Azure AD) B2C es posible agregar eficaces características de administración de identidades de autoservicio tanto a aplicaciones Android como a API web en pocos pasos. Este artículo le mostrará cómo crear una aplicación Android de "lista de tareas pendientes" que llama a una API web de Node.jscon tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure AD B2C para administrar identidades de usuario y autenticar usuarios.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 Esta guía de inicio rápido requiere tener una API web protegida mediante Azure AD B2C para funcionar totalmente. Hemos creado una para que la pueda usar con .Net y con Node.js. En este tutorial se supone que se ha configurado el ejemplo de API web de Node.js. Para más información, consulte el tutorial sobre la [API web de Azure AD B2C para Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
@@ -30,7 +32,7 @@ Para los clientes de Android que necesitan tener acceso a recursos protegidos, A
 - Obtener listas de tareas pendientes de los usuarios.
 - Desconectar a los usuarios.
 
-> [AZURE.NOTE] Este artículo no trata sobre cómo implementar el inicio de sesión, el registro y la administración de perfiles con Azure AD B2C. Se centra en cómo realizar llamadas a las API web una vez autenticado el usuario. Si aún no lo ha hecho, debe comenzar por el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para aprender los conceptos básicos de Azure AD B2C.
+> [AZURE.NOTE] Este artículo no trata sobre cómo implementar el inicio de sesión, el registro y la administración de perfiles con Azure AD B2C. Se centra en cómo realizar llamadas a las API web una vez autenticado el usuario. Si aún no lo ha hecho, debe comenzar por el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para conocer los conceptos básicos de Azure AD B2C.
 
 ## Obtener un directorio de Azure AD B2C
 
@@ -40,7 +42,7 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 
 A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Tanto la aplicación como la API web se representan mediante un único **identificador de aplicación** en este caso, ya que conforman una aplicación lógica. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
 
-- Incluir una **aplicación web**/**API web** en la aplicación.
+- Incluir una **aplicación web** o una **API web** en la aplicación.
 - Escribir `urn:ietf:wg:oauth:2.0:oob` como **Dirección URL de respuesta**. Es la dirección URL predeterminada para este ejemplo de código.
 - Crear un **secreto de aplicación** para la aplicación y copiarlo. Lo necesitará más adelante. Tenga en cuenta que para poder usar este valor, es preciso [incluirlo entre secuencias de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiar el **identificador de aplicación** asignado a la aplicación. También lo necesitará más adelante.
@@ -975,4 +977,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [Aprenda más acerca de las cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

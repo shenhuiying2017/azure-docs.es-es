@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -63,7 +63,7 @@ Reemplace los valores para *SubscriptionId* y *ActiveDirectoryTenantId* por sus 
     ```
     Get-AzureAccount
     ```
-4.	Agregue las siguientes instrucciones using al archivo de origen (Program.cs) en el proyecto. 
+4.	Agregue las siguientes instrucciones using al archivo de origen (Program.cs) en el proyecto.
 
     ```
         using System;
@@ -180,4 +180,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

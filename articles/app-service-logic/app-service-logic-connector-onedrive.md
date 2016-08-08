@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -24,6 +24,6 @@ Se ha quitado el contenido (destinado a la versión 2014-12-01-preview de Aplica
 ## Pasos siguientes    
 
 - [Obtener más información sobre este nuevo conector](../connectors/connectors-create-api-onedrive.md)
-- Consultar [la lista completa](../connectors/apis-list.md) de los conectores que se ejecutan en la nueva versión del esquema 2015-08-01-preview de aplicaciones lógicas  
+- Consultar [la lista completa](../connectors/apis-list.md) de los conectores que se ejecutan en la nueva versión del esquema 2015-08-01-preview de aplicaciones lógicas
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -3,7 +3,7 @@
 	description="El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure. Las máquinas virtuales de Azure de la serie DS, DSv2 y GS admiten el Almacenamiento premium."
 	services="storage"
 	documentationCenter=""
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="prkhad"/>
+	ms.date="07/24/2016"
+	ms.author="aungoo-msft"/>
 
 
 # Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure
@@ -35,7 +35,7 @@ Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece 
 
 ## Características del Almacenamiento premium
 
-**Discos del Almacenamiento premium**: el Almacenamiento premium de Azure admite discos de máquina virtual que se pueden conectar a las máquinas virtuales de Azure de la serie DS, DSv2 o GS. Al usar el Almacenamiento premium, tendrá la opción de tres tamaños de disco: P10 (128 GiB), P20 (512 GiB) y P30 (1024 GiB), cada uno con sus propias especificaciones de rendimiento. Según los requisitos de la aplicación, puede conectar uno o varios de estos discos a una máquina virtual de la serie DS, DSv2 o GS. En la sección siguiente, [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#premium-storage-scalability-and-performance-targets), describiremos las especificaciones con más detalle.
+**Discos del Almacenamiento premium**: el Almacenamiento premium de Azure admite discos de máquina virtual que se pueden conectar a las máquinas virtuales de Azure de la serie DS, DSv2 o GS. Al usar el Almacenamiento premium, tendrá la opción de tres tamaños de disco: P10 (128 GiB), P20 (512 GiB) y P30 (1024 GiB), cada uno con sus propias especificaciones de rendimiento. Según los requisitos de la aplicación, puede conectar uno o varios de estos discos a una máquina virtual de la serie DS, DSv2 o GS. En la sección siguiente, [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#premium-storage-scalability-and-performance-targets), describiremos las especificaciones con más detalle.
 
 **Blob en páginas premium**: el Almacenamiento premium admite blobs en páginas de Azure, que se usan para contener discos persistentes para máquinas virtuales de Azure (VM). Actualmente, el Almacenamiento premium no admite blobs en bloques de Azure, blobs en anexos de Azure, archivos de Azure, tablas de Azure ni colas de Azure. Cualquier otro objeto colocado en una cuenta de Almacenamiento premium será un blob en páginas y se ajustará a uno de los tamaños aprovisionados admitidos. Por lo tanto, la cuenta de Almacenamiento premium no está pensada para el almacenamiento de blobs de tamaño muy pequeño.
 
@@ -73,7 +73,7 @@ A continuación, se muestran algunas de las características de las máquinas vi
 
 **Análisis**: para analizar el rendimiento de las máquinas virtuales con discos en cuentas de Almacenamiento premium, puede habilitar los diagnósticos de máquina virtual de Azure en el Portal de Azure. Consulte [Supervisión de máquinas virtuales de Microsoft Azure con la extensión de Diagnósticos de Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para ver información detallada. Para ver el rendimiento de disco, use herramientas del sistema operativo como [Monitor de rendimiento de Windows](https://technet.microsoft.com/library/cc749249.aspx) para máquinas virtuales de Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para máquinas virtuales de Linux.
 
-**Rendimiento y límites de escala de máquinas virtuales**: cada tamaño de máquina virtual de las series DS, DSv2 y GS tiene límites de escala y una especificación de rendimiento para IOPS, ancho de banda y número de discos que se pueden conectar por máquina virtual. Cuando use discos del Almacenamiento premium con máquinas virtuales de la serie DS, DSv2 o GS, asegúrese de que IOPS y el ancho de banda de la máquina virtual sean suficientes para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD\_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Un disco del Almacenamiento premium P10 puede proporcionar un ancho de banda de 100 MB por segundo. Si hay un disco del Almacenamiento premium P10 conectado a esta máquina virtual, solo puede ofrecer 32 MB por segundo, pero no llegaría a los 100 MB por segundo que puede proporcionar el disco P10.
+**Rendimiento y límites de escala de máquinas virtuales**: cada tamaño de máquina virtual de las series DS, DSv2 y GS tiene límites de escala y una especificación de rendimiento para IOPS, ancho de banda y número de discos que se pueden conectar por máquina virtual. Cuando use discos del Almacenamiento premium con máquinas virtuales de la serie DS, DSv2 o GS, asegúrese de que IOPS y el ancho de banda de la máquina virtual sean suficientes para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD\_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Un disco del Almacenamiento premium P10 puede proporcionar un ancho de banda de 100 MB por segundo. Si hay un disco del Almacenamiento premium P10 conectado a esta máquina virtual, solo puede ofrecer 32 MB por segundo, pero no llegaría a los 100 MB por segundo que puede proporcionar el disco P10.
 
 Actualmente, la máquina virtual más grande de la serie DS es STANDARD\_DS14 y puede proporcionar hasta 512 MB por segundo en todos los discos. La VM más grande de la serie GS es STANDARD\_GS5 y puede proporcionar hasta 2000 MB por segundo en todos los discos. Tenga en cuenta que estos límites son para el tráfico de disco por sí solo, sin incluir los aciertos de caché y el tráfico de red. Hay un ancho de banda independiente disponible para el tráfico de red de máquina virtual, que es diferente del ancho de banda dedicado para discos de Almacenamiento premium.
 
@@ -112,7 +112,7 @@ Las cuentas de Almacenamiento premium tienen estos objetivos de escalabilidad:
 
 Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](storage-scalability-targets.md).
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento, ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento, ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
 
 ### Límites de discos del Almacenamiento premium
 
@@ -151,15 +151,15 @@ Cuando aprovisiona un disco con una cuenta de Almacenamiento premium, la cantida
 
 Estos son algunos aspectos importantes que debe conocer sobre los objetivos de escalabilidad y rendimiento del Almacenamiento premium:
 
-- **Rendimiento y capacidad aprovisionados**: cuando se aprovisiona un disco del Almacenamiento premium, a diferencia del almacenamiento estándar, se garantizan la capacidad, las IOPS y el rendimiento de ese disco. Por ejemplo, si crea un disco P30, Azure aprovisiona una capacidad de almacenamiento de 1024 GB, 5000 IOPS y un rendimiento de 200 MB por segundo para ese disco. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos.
+- **Rendimiento y capacidad aprovisionados**: cuando se aprovisiona un disco del Almacenamiento premium, a diferencia del almacenamiento estándar, se garantizan la capacidad, las IOPS y el rendimiento de ese disco. Por ejemplo, si crea un disco P30, Azure aprovisiona una capacidad de almacenamiento de 1024 GB, 5000 IOPS y un rendimiento de 200 MB por segundo para ese disco. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos.
 
-- **Tamaño del disco**: Azure asigna el tamaño de disco (redondeado al alza) a la opción de disco del Almacenamiento premium más cercana según se especifica en la tabla. Por ejemplo, un disco de 100 GB se clasifica como una opción P10, puede realizar hasta 500 unidades de E/S por segundo y dispone de un rendimiento de hasta 100 MB por segundo. De forma similar, un disco de 400 GB se clasifica como una opción P20, puede realizar hasta 2300 unidades de E/S por segundo y dispone de un rendimiento de hasta 150 MB por segundo.
+- **Tamaño del disco**: Azure asigna el tamaño de disco (redondeado al alza) a la opción de disco del Almacenamiento premium más cercana según se especifica en la tabla. Por ejemplo, un disco de 100 GB se clasifica como una opción P10, puede realizar hasta 500 unidades de E/S por segundo y dispone de un rendimiento de hasta 100 MB por segundo. De forma similar, un disco de 400 GB se clasifica como una opción P20, puede realizar hasta 2300 unidades de E/S por segundo y dispone de un rendimiento de hasta 150 MB por segundo.
 
 	> [AZURE.NOTE] Puede aumentar fácilmente el tamaño de los discos existentes. Por ejemplo, si desea aumentar el tamaño de un disco de 30 GB a 128 GB o 1 TB. O bien, si lo desea, convertir el disco P20 en disco P30 porque necesita más capacidad o más E/S por segundo y rendimiento. Puede expandir el disco mediante el commandlet "Update-AzureDisk" de PowerShell con la propiedad "-ResizedSizeInGB". Para realizar esta acción, se debe desconectar el disco de la máquina virtual o se debe detener la máquina virtual.
 
-- **Tamaño de E/S**: el tamaño de la unidad de entrada y salida (E/S) es de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una sola unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
+- **Tamaño de E/S**: el tamaño de la unidad de entrada y salida (E/S) es de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una sola unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
 
-- **Rendimiento**: el límite de rendimiento incluye escrituras en el disco, así como lecturas desde ese disco que no se sirven desde la memoria caché. Por ejemplo, un disco P10 tiene un rendimiento de 100 MB por segundo por disco. Algunos ejemplos de rendimiento válido para el disco P10 son:
+- **Rendimiento**: el límite de rendimiento incluye escrituras en el disco, así como lecturas desde ese disco que no se sirven desde la memoria caché. Por ejemplo, un disco P10 tiene un rendimiento de 100 MB por segundo por disco. Algunos ejemplos de rendimiento válido para el disco P10 son:
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -185,20 +185,20 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 </tbody>
 </table>
 
-- **Aciertos de caché**: los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se usa un disco de datos con la configuración de caché ReadOnly en una máquina virtual de la serie DS, DSv2 o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco del Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales. Las máquinas virtuales de la serie GS tienen un límite de 5000 IOPS y 50 MB/s por núcleo para las E/S de SSD local y memoria caché.
+- **Aciertos de caché**: los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se usa un disco de datos con la configuración de caché ReadOnly en una máquina virtual de la serie DS, DSv2 o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco del Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales. Las máquinas virtuales de la serie GS tienen un límite de 5000 IOPS y 50 MB/s por núcleo para las E/S de SSD local y memoria caché.
 
 ## Limitaciones
 Puede que se produzca una limitación si las IOPS o el rendimiento de la aplicación superan los límites asignados a un disco del Almacenamiento premium o si el tráfico total de disco en todos los discos de la máquina virtual supera el límite de ancho de banda de disco disponible para la máquina virtual. Para evitar la limitación, recomendamos que limite el número de solicitudes de E/S pendientes para discos basándose en los objetivos de rendimiento y escalabilidad que ha aprovisionado y en el ancho de banda de disco disponible para la máquina virtual.
 
 La aplicación puede lograr la menor latencia cuando se ha diseñado para evitar la limitación. Por otro lado, si el número de solicitudes de E/S pendientes del disco es demasiado pequeño, la aplicación no puede aprovechar al máximo los niveles de rendimiento y IOPS que están disponibles en el disco.
 
-En los ejemplos siguientes se muestra cómo calcular los niveles de limitación. Todos los cálculos se basan en un tamaño de unidad de E/S de 256 KB.
+En los ejemplos siguientes se muestra cómo calcular los niveles de limitación. Todos los cálculos se basan en un tamaño de unidad de E/S de 256 KB.
 
 ### Ejemplo 1:
-La aplicación hizo 495 unidades de E/S de 16 KB de tamaño en un segundo en un disco P10. Se contarán como 495 unidades de E/S por segundo (IOPS). Si intenta una E/S de 2 MB en el mismo segundo, el total de unidades de E/S es igual a 495 + 8. Esto es porque una E/S de 2 MB resulta en 2048 KB / 256 KB = 8 unidades de E/S cuando el tamaño de la unidad de E/S es de 256 KB. Puesto que la suma de 495 + 8 supera el límite IOPS de 500 para el disco, se produce la limitación.
+La aplicación hizo 495 unidades de E/S de 16 KB de tamaño en un segundo en un disco P10. Se contarán como 495 unidades de E/S por segundo (IOPS). Si intenta una E/S de 2 MB en el mismo segundo, el total de unidades de E/S es igual a 495 + 8. Esto es porque una E/S de 2 MB resulta en 2048 KB / 256 KB = 8 unidades de E/S cuando el tamaño de la unidad de E/S es de 256 KB. Puesto que la suma de 495 + 8 supera el límite IOPS de 500 para el disco, se produce la limitación.
 
 ### Ejemplo 2:
-La aplicación hizo 400 unidades de E/S de 256 KB de tamaño en un disco P10. El ancho de banda total consumido es (400 × 256)/1024 = 100 MB/s. El rendimiento de un disco P10 es de 100 MB por segundo. Si la aplicación intenta realizar más operaciones de E/S en ese segundo, se limita porque supera el límite asignado.
+La aplicación hizo 400 unidades de E/S de 256 KB de tamaño en un disco P10. El ancho de banda total consumido es (400 × 256)/1024 = 100 MB/s. El rendimiento de un disco P10 es de 100 MB por segundo. Si la aplicación intenta realizar más operaciones de E/S en ese segundo, se limita porque supera el límite asignado.
 
 ### Ejemplo 3:
 Tiene una máquina virtual DS4 con dos discos P30 conectados. Cada disco P30 es capaz de tener un rendimiento de 200 MB por segundo. Sin embargo, una máquina virtual DS4 tiene una capacidad de ancho de banda de disco total de 256 MB por segundo. Por lo tanto, no puede dirigir los discos conectados al máximo rendimiento en esta máquina virtual DS4 al mismo tiempo. Para resolver este problema, puede mantener el tráfico de 200 MB por segundo en un disco y 56 MB por segundo en el otro disco. Si la suma del disco tráfico supera los 256 MB por segundo, el tráfico de disco queda limitado.
@@ -517,9 +517,9 @@ Tenga en cuenta que las opciones de directiva de almacenamiento en caché pueden
 
 	No, solo puede conectar discos de datos estándar a todas las máquinas virtuales que no sean de la serie DS, DSv2 o GS.
 
-3. **Si creo un disco de datos premium a partir un disco duro virtual existente con 80 GB de tamaño, ¿cuánto me costará?**
+3. **Si creo un disco de datos premium a partir un disco duro virtual existente con 80 GB de tamaño, ¿cuánto me costará?**
 
-	Un disco de datos premium creado a partir de un disco duro virtual de 80 GB se tratará como el siguiente tamaño de disco premium disponible, un disco P10. Se le cobrará según el precio de los discos P10.
+	Un disco de datos premium creado a partir de un disco duro virtual de 80 GB se tratará como el siguiente tamaño de disco premium disponible, un disco P10. Se le cobrará según el precio de los discos P10.
 
 4. **¿Hay costos de transacción cuando se usa el Almacenamiento premium?**
 
@@ -531,7 +531,7 @@ Tenga en cuenta que las opciones de directiva de almacenamiento en caché pueden
 
 6. **¿Cuántas IOPS y cuánto rendimiento puedo obtener de la memoria caché de disco?**
 
-	Los límites combinados de memoria caché y SSD local para la serie DS son 4000 IOPS por núcleo y 33 MB por segundo y núcleo. La serie GS ofrece 5000 IOPS por núcleo y 50 MB por segundo y núcleo.
+	Los límites combinados de memoria caché y SSD local para la serie DS son 4000 IOPS por núcleo y 33 MB por segundo y núcleo. La serie GS ofrece 5000 IOPS por núcleo y 50 MB por segundo y núcleo.
 
 7. **¿Qué es el SSD local en una máquina virtual de la serie DS, DSv2 o GS?**
 
@@ -565,4 +565,4 @@ Para más información sobre el Almacenamiento premium de Azure, consulte los si
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

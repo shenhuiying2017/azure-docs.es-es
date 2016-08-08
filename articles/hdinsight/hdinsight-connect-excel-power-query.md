@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -57,7 +57,7 @@ El complemento de Power Query para Excel facilita la importación de datos desde
 
 	**Nota:** Power Query también permite importar datos de HDFS haciendo clic **De otros orígenes**.
 
-3. En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de blobs de Azure asociada con su clúster y, a continuación, haga clic en **Aceptar**. Esto puede ser una [cuenta de almacenamiento predeterminada](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) o una cuenta de almacenamiento vinculada. El formato es *https://<StorageAccountName>.blob.core.windows.net/*.
+3. En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de blobs de Azure asociada con su clúster y, a continuación, haga clic en **Aceptar**. Esto puede ser una [cuenta de almacenamiento predeterminada](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) o una cuenta de almacenamiento vinculada. El formato es *https://<nombreDeLaCuentaDeAlmacenamiento>.blob.core.windows.net/*.
 
 4. En **Clave de cuenta**, escriba la clave de cuenta para la cuenta de almacenamiento de blobs y, a continuación, haga clic en **Guardar**. (Solo tendrá que hacer esto la primera vez que obtenga acceso a este almacén).
 
@@ -88,4 +88,4 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

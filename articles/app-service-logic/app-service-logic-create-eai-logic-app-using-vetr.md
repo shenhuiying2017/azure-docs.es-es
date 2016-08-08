@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -76,7 +76,7 @@ Vamos a configurar transformaciones para normalizar los datos de entrada.
 
 1. Agregue **Servicio de transformación de BizTalk** desde la galería.
 2. Para configurar una transformación para que transforme los mensajes XML entrantes, seleccione que la acción **Transformar** se lleve a cabo cuando se llame a esta API. Seleccione ```triggers(‘httplistener’).outputs.Content``` como valor de _inputXml_. *Map* es un parámetro opcional, ya que los datos de entrada se hacen corresponder con todas las transformaciones configuradas y se aplican solo aquellos que coinciden con el esquema.
-3. Por último, la transformación se ejecuta solamente si la validación se realiza correctamente. Para configurar esta condición, haga clic en el icono del engranaje de la parte superior derecha y seleccione _Agregar condición que debe cumplirse_. Establezca la condición en ```equals(actions('xmlvalidator').status,'Succeeded')```:  
+3. Por último, la transformación se ejecuta solamente si la validación se realiza correctamente. Para configurar esta condición, haga clic en el icono del engranaje de la parte superior derecha y seleccione _Agregar condición que debe cumplirse_. Establezca la condición en ```equals(actions('xmlvalidator').status,'Succeeded')```:
 
 ![Transformaciones de BizTalk][4]
 
@@ -86,7 +86,7 @@ A continuación, vamos a agregar el destino (una cola de Bus de servicio) en el 
 
 1. Agregue un **conector de Bus de servicio** desde la galería. Establezca **Nombre** en _Servicebus1_, **Cadena de conexión** en la cadena de conexión para la instancia de bus de servicio, **Nombre de entidad** en _Cola_ y omita **Nombre de suscripción**.
 2. Seleccione la acción **Enviar mensaje** y establezca el campo **Mensaje** de la acción en _actions('transformservice').outputs.OutputXml_.
-3. Establezca el campo **Tipo de contenido** en *aplicación/XML*.  
+3. Establezca el campo **Tipo de contenido** en *aplicación/XML*.
 
 ![Bus de servicio][5]
 
@@ -118,4 +118,4 @@ Algunos temas útiles:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

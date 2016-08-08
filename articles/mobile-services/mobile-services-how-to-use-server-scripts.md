@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="ricksal"/>
 
 
@@ -27,7 +27,7 @@ En un servicio móvil de back-end de JavaScript, puede definir la lógica de neg
 
 + [Inserción, lectura, actualización o eliminación de operaciones en una tabla determinada.][Table operations]
 + [Trabajos programados][Job Scheduler].
-+ [Métodos HTTP definidos en una API personalizada][Custom API anchor]. 
++ [Métodos HTTP definidos en una API personalizada][Custom API anchor].
 
 La firma de la función principal del script del servidor depende del contexto en el que se use el script. También puede definir el código de script común como módulos nodes.js que se comparten entre scripts. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
@@ -64,10 +64,10 @@ Escriba scripts de operaciones de tabla si necesita forzar la lógica de negocio
 
 Una función de script de tabla siempre cuenta con tres argumentos.
 
-- El primer argumento varía según la operación de tabla. 
+- El primer argumento varía según la operación de tabla.
 
 	- Para las inserciones y las actualizaciones, es un objeto de **elemento**, que es una representación JSON de la fila afectada por la operación. Esto le permite obtener acceso a los valores de columna por nombre, por ejemplo, *item.Owner*, donde *Owner* es uno de los nombres en la representación JSON.
-	- Para la eliminación, es el identificador del registro que se va a eliminar. 
+	- Para la eliminación, es el identificador del registro que se va a eliminar.
 	- Y para la lectura, es un [objeto de consulta] que especifica el conjunto de filas que se devuelve.
 
 - El segundo argumento es siempre un [objeto user][User object] que representa al usuario que envió la solicitud.
@@ -336,7 +336,7 @@ El estado global se mantiene entre ejecuciones.
 
 Puede definir los scripts del servidor que están registrados en métodos HTTP en un extremo de la API personalizada de alguna de las siguientes formas:
 
-+ En el [Portal de Azure clásico]. Los scripts de API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una API personalizada determinada. A continuación se muestra el script que invoca una solicitud POST en el extremo de la API personalizada `CompleteAll`. 
++ En el [Portal de Azure clásico]. Los scripts de API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una API personalizada determinada. A continuación se muestra el script que invoca una solicitud POST en el extremo de la API personalizada `CompleteAll`.
 
 	![2][2]
 	
@@ -471,7 +471,7 @@ En esta sección se muestra cómo aprovechar el control de origen para agregar s
 + [Carga de módulos Node.js]
 + [Uso de funciones auxiliares]
 + [Compartir código mediante el control de código fuente]
-+ [Trabajar con configuraciones de aplicaciones] 
++ [Trabajar con configuraciones de aplicaciones]
 
 ###<a name="leverage-source-control"></a>Información general del uso del código compartido
 
@@ -479,15 +479,15 @@ Puesto que Servicios móviles usa Node.js en el servidor, los scripts ya dispone
 
 A continuación se muestran algunos de los módulos más útiles de los que puede sacar provecho en los scripts mediante la función **require** global:
 
-+ **azure**: expone la funcionalidad del SDK de Azure para Node.js. Para obtener más información, vea el [SDK de Azure para Node.js]. 
++ **azure**: expone la funcionalidad del SDK de Azure para Node.js. Para obtener más información, vea el [SDK de Azure para Node.js].
 + **crypto**: proporciona la funcionalidad crypto de OpenSSL. Para obtener más información, consulte [Node.js documentation][crypto API].
 + **path**: contiene utilidades para trabajar con rutas de archivos. Para obtener más información, consulte [Node.js documentation][path API].
 + **querystring**: contiene utilidades para trabajar con cadenas de consulta. Para obtener más información, consulte [Node.js documentation][querystring API].
 + **request**: envía solicitudes HTTP a servicios REST externos, como Twitter y Facebook. Para obtener más información, vea [Envío de una solicitud HTTP].
 + **sendgrid**: envía un correo electrónico mediante el servicio de correo electrónico Sendgrid en Azure. Para obtener más información, vea [Envío de correo electrónico desde los Servicios móviles con SendGrid].
 + **url**: contiene utilidades para redistribuir y resolver direcciones URL. Para obtener más información, consulte [Node.js documentation][url API].
-+ **util**: contiene varias utilidades, como una comprobación del tipo de objeto y un formato de cadena. Para obtener más información, consulte [Node.js documentation][util API]. 
-+ **zlib**: ofrece la funcionalidad de compresión, como gzip y deflate. Para obtener más información, consulte [Node.js documentation][zlib API]. 
++ **util**: contiene varias utilidades, como una comprobación del tipo de objeto y un formato de cadena. Para obtener más información, consulte [Node.js documentation][util API].
++ **zlib**: ofrece la funcionalidad de compresión, como gzip y deflate. Para obtener más información, consulte [Node.js documentation][zlib API].
 
 ###<a name="modules-helper-functions"></a>Aprovechamiento de módulos
 
@@ -796,7 +796,7 @@ Estos métodos le proporcionan un control cada vez mayor de nivel bajo sobre el 
 + [Ejecución de una consulta dinámica]
 + [Unión de tablas relacionales]
 + [Ejecución de una consulta que devuelve resultados *sin procesar*]
-+ [Acceso a una conexión de base de datos]	
++ [Acceso a una conexión de base de datos]
 
 ####<a name="static-query"></a>Ejecución de una consulta estática
 
@@ -1055,4 +1055,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

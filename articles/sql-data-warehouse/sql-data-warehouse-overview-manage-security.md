@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="07/22/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -34,7 +34,7 @@ En este artículo se describen los fundamentos de la protección de una base de 
 
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública del equipo cliente o de aplicación, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener acceso a Almacenamiento de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433. Para obtener más información, vea [Firewall de Base de datos SQL de Azure][].
+Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública del equipo cliente o de aplicación, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener acceso a Almacenamiento de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433. Para obtener más información, consulte [Firewall de Base de datos SQL de Azure][], [sp\_set\_firewall\_rule][] y [sp\_set\_database\_firewall\_rule][].
 
 Las conexiones a Almacenamiento de datos SQL pueden cifrarse configurando el modo de cifrado en la cadena de conexión. La sintaxis para activar el cifrado de la conexión varía según el protocolo. Para ayudarle a configurar la cadena de conexión, desplácese a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
 
@@ -63,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Autenticación a Almacenamiento de datos SQL de Azure][].
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para obtener más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Autenticación a Almacenamiento de datos SQL de Azure][].
 
 
 ## Autorización
@@ -96,7 +96,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][]. Para más información, consulte [Introducción al cifrado de datos transparente (TDE)][].
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][]. Para obtener más información, consulte [Introducción al cifrado de datos transparente (TDE)][].
 
 ## Auditoría
 
@@ -115,6 +115,8 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [roles de base de datos]: https://msdn.microsoft.com/library/ms189121.aspx
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
@@ -125,4 +127,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

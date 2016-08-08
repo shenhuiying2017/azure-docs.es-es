@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Conceptos de Servicios móviles
@@ -84,4 +84,4 @@ En los temas siguientes se ofrecen ejemplos de cómo realizar tareas mediante sc
 - [Control de errores](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Teclas de método abreviado](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

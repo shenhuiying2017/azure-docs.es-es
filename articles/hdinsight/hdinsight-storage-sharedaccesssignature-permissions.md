@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Uso de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight
@@ -226,25 +226,25 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 
 1. En el símbolo del sistema, escriba lo siguiente. Reemplace __SASCONTAINER__ por el nombre del contenedor creado para la cuenta de almacenamiento de SAS. Reemplace __SASACCOUNTNAME__ por el nombre de la cuenta de almacenamiento utilizada para la SAS:
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     Se mostrará el contenido del contenedor, que debe incluir el archivo que se cargó al crear el contenedor y la SAS.
     
 2. Utilice lo siguiente para comprobar que puede leer el contenido del archivo. Reemplace __SASCONTAINER__ y __SASACCOUNTNAME__ tal como lo ha hecho en el paso anterior. Reemplace __FILENAME__ por el nombre de archivo que aparece en el comando anterior:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     Se mostrará el contenido del archivo.
     
 3. Para descargar el archivo en el sistema de archivos local, utilice lo siguiente:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     Se descargará el archivo en un archivo local denominado __testfile.txt__.
 
 4. Utilice lo siguiente para cargar el archivo local en un nuevo archivo denominado __testupload.txt__ en el almacenamiento de SAS:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     Recibirá un mensaje similar al siguiente:
     
@@ -252,7 +252,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
         
     Este error se produce porque la ubicación de almacenamiento es solo de lectura y lista. Utilice lo siguiente para colocar los datos en el almacenamiento predeterminado para el clúster, que tiene permiso de escritura:
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     Esta vez, la operación debe completarse correctamente.
     
@@ -290,4 +290,4 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

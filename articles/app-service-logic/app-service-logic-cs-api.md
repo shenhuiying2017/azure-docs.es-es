@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,7 +52,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
 Las entradas para la acción son las siguientes:
-- **Expresión de C#**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido. 
+- **Expresión de C#**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido.
 - **Objetos de contexto**: un objeto de contexto opcional que se puede pasar al desencadenador. Puede definir todas las propiedades que desee, pero la base debe ser un elemento JObject `{ ... }`; asimismo, puede hacerse referencia a los objetos en el script a través del nombre de clave (el valor se pasa como un elemento JToken correspondiente al nombre).
 - **Bibliotecas**: una matriz opcional de archivos .dll que se va a incluir en la compilación del script. La matriz usa la siguiente estructura y funciona mejor junto a un conector de almacenamiento de blobs con el .dll como resultado:
 
@@ -112,4 +112,4 @@ Después de crear el conector, puede agregarlo a un flujo empresarial mediante u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

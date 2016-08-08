@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Partición y escalado en Azure DocumentDB
@@ -82,7 +82,7 @@ Cuando DocumentDB almacena los documentos, los distribuye uniformemente entre la
 DocumentDB admite la creación de colecciones de una sola partición y con varias particiones.
 
 - Las **colecciones con particiones** pueden abarcar varias particiones y admitir una gran cantidad de almacenamiento y procesamiento. Debe especificarse una clave de partición para la colección.
-- Las **colecciones de partición única** tienen un precio menor y pueden realizar consultas y transacciones en todos los datos de la colección. No obstante, son más limitadas en cuanto a la escalabilidad y al almacenamiento. Para estas colecciones no es necesario especificar una clave de partición. 
+- Las **colecciones de partición única** tienen un precio menor y pueden realizar consultas y transacciones en todos los datos de la colección. No obstante, son más limitadas en cuanto a la escalabilidad y al almacenamiento. Para estas colecciones no es necesario especificar una clave de partición.
 
 ![Colecciones particionadas en DocumentDB][2]
 
@@ -248,6 +248,24 @@ La consulta siguiente no tiene filtro en la clave de partición (DeviceId) y por
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
+### Ejecución de consultas en paralelo
+
+Los SDK de DocumentDB de la versión 1.9.0 y posterior admiten opciones de ejecución de consultas en paralelo, que permiten realizar consultas de baja latencia en colecciones con particiones, incluso cuando tienen que acceder a un gran número de particiones. Por ejemplo, la siguiente consulta está configurada para ejecutarse en paralelo en particiones.
+
+    // Cross-partition Order By Queries
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+        .OrderBy(m => m.MetricValue);
+
+Puede administrar la ejecución de consultas en paralelo ajustando los parámetros siguientes:
+
+- Al establecer `MaxDegreeOfParallelism`, puede controlar el grado de paralelismo; es decir, el número máximo de conexiones de red simultáneas en las particiones de la colección. Si lo establece en -1, el grado de paralelismo lo administra el SDK.
+- Al establecer `MaxBufferedItemCount`, puede compensar el uso de memoria del cliente y la latencia de consulta. Si se omite este parámetro o lo establece en -1, el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo lo administrará el SDK.
+
+Como se trata del mismo estado de la colección, una consulta en paralelo devolverá resultados en el mismo orden que la ejecución en serie. Al realizar una consulta entre particiones que incluye la ordenación (ORDER BY o TOP), el SDK de DocumentDB emite la consulta en paralelo en las particiones y combina los resultados ordenados parcialmente en el lado del cliente para generar resultados ordenados globalmente.
+
 ### Ejecución de procedimientos almacenados
 
 También puede ejecutar transacciones atómicas en relación con documentos con el mismo identificador de dispositivo, por ejemplo, si desea mantener los agregados o el estado más reciente de un dispositivo en un único documento.
@@ -265,8 +283,8 @@ Cuando una aplicación que usa colecciones con partición única necesita mayor 
 
 Para migrar desde una colección de partición única a una colección con varias particiones
 
-1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para más detalles.
-2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obtener detalles adicionales.
+1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para obtener más información.
+2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obtener más detalles.
 
 ![Migración de datos a una colección con particiones en DocumentDB][3]
 
@@ -281,7 +299,7 @@ La elección de la clave de partición es una decisión importante que deberá r
 La elección de una clave de partición debe equilibrar la necesidad de permitir el uso de transacciones frente a la necesidad de distribuir las entidades en varias claves de partición para garantizar que la solución sea escalable. En un extremo, se puede establecer la misma clave de partición para todos los documentos, pero esto puede limitar la escalabilidad de su solución. En el otro extremo, se puede asignar una clave de partición única para cada documento, que podría ser altamente escalable, pero podría impedir el uso de transacciones entre documentos a través de desencadenadores y procedimientos almacenados. Una clave de partición idónea es la que permite usar consultas eficaces y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
 
 ### Evitar cuellos de botella de rendimiento y almacenamiento 
-También es importante elegir una propiedad que permita distribuir las escrituras entre una serie de valores distintos. Las solicitudes dirigidas a la misma clave de partición no pueden superar el procesamiento de una sola partición y se limitarán. Por tanto, es importante elegir una clave de partición que no dé como resultado **"zonas activas"** dentro de la aplicación. Además, el tamaño de almacenamiento total de documentos que tengan la misma clave de partición no puede superar los 10 GB.
+También es importante elegir una propiedad que permita distribuir las escrituras entre una serie de valores distintos. Las solicitudes dirigidas a la misma clave de partición no pueden superar el procesamiento de una sola partición y se limitarán. Por tanto, es importante elegir una clave de partición que no dé como resultado **zonas activas** dentro de la aplicación. Además, el tamaño de almacenamiento total de documentos que tengan la misma clave de partición no puede superar los 10 GB.
 
 ### Ejemplos de claves de partición correctas
 Estos son algunos ejemplos de cómo seleccionar la clave de partición de la aplicación:
@@ -296,8 +314,8 @@ Tenga en cuenta que, en algunos casos, como IoT y los perfiles de usuario mencio
 ### Creación de particiones, registro y datos de serie temporal
 Uno de los casos de uso más común de DocumentDB es el registro y telemetría. Es importante elegir una buena clave de partición, ya que es posible que necesite leer y escribir grandes volúmenes de datos. La opción dependerá de las tasas de lectura y escritura y de los tipos de consultas que espera ejecutar. Estas son algunas sugerencias sobre cómo elegir una buena clave de partición.
 
-- Si el caso de uso implica una pequeña tasa de escrituras que se acumulan durante un largo período de tiempo, y necesita consultar por intervalos de marcas de tiempo y otros filtros, el uso de un resumen de la marca de tiempo (por ejemplo, la fecha) como clave de partición es un buen enfoque. Esto le permite consultar todos los datos para una fecha desde una sola partición. 
-- Si la carga de trabajo tiene muchas operaciones de escritura, lo que normalmente es más común, debe usar una clave de partición que no se base en la marca de tiempo para que DocumentDB pueda distribuir escrituras uniformemente en varias particiones. En este caso, un nombre de host, identificador de proceso, identificador de actividad u otra propiedad con cardinalidad elevada, es una buena elección. 
+- Si el caso de uso implica una pequeña tasa de escrituras que se acumulan durante un largo período de tiempo, y necesita consultar por intervalos de marcas de tiempo y otros filtros, el uso de un resumen de la marca de tiempo (por ejemplo, la fecha) como clave de partición es un buen enfoque. Esto le permite consultar todos los datos para una fecha desde una sola partición.
+- Si la carga de trabajo tiene muchas operaciones de escritura, lo que normalmente es más común, debe usar una clave de partición que no se base en la marca de tiempo para que DocumentDB pueda distribuir escrituras uniformemente en varias particiones. En este caso, un nombre de host, identificador de proceso, identificador de actividad u otra propiedad con cardinalidad elevada, es una buena elección.
 - Un tercer enfoque es un híbrido donde tenga varias colecciones, una para cada día o mes, y la clave de partición sea una propiedad pormenorizada como nombre de host. Esto tiene la ventaja de que se pueden establecer distintos niveles de rendimiento en función de la ventana de tiempo; por ejemplo, la colección para el mes actual se aprovisiona con un mayor procesamiento ya que sirve lecturas y escrituras, mientras que los meses anteriores se aprovisionan con menor procesamiento ya que solo sirven lecturas.
 
 ### Creación de particiones y arquitectura multiempresa
@@ -322,4 +340,4 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

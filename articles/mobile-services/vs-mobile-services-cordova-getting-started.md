@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Introducción a Servicios móviles (proyectos Cordova)
@@ -69,7 +69,7 @@ Puede usar el método where para modificar la consulta. Aquí mostramos un ejemp
             items = results.slice();
         });
 
-Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 ##Actualización de un elemento de tabla
 
@@ -88,6 +88,4 @@ Elimine una fila en la tabla de datos utilizando el método **del**. Llame al m�
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Más información acerca de Servicios móviles](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

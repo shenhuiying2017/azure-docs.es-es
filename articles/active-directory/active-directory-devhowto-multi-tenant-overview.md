@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/05/2016"
+   ms.date="07/25/2016"
    ms.author="skwan;bryanla"/>
 
 # Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa
 Si ofrece una aplicación de software como servicio a muchas organizaciones, puede configurar la aplicación para que acepte inicios de sesión de cualquier inquilino de Azure AD. En Azure AD, esto se conoce como convertir su aplicación en una aplicación multiempresa. Los usuarios de cualquier inquilino de Azure AD podrán iniciar sesión en su aplicación después de dar su consentimiento al uso de su cuenta con ella.
 
-Si ya tiene una aplicación con su propio sistema de cuentas, o que admite otra clase de inicio de sesión de otros proveedores de nube, agregar el inicio de sesión de Azure AD es tan sencillo como registrar la aplicación, agregar código de inicio de sesión mediante los protocolos OAuth2, OpenID Connect o SAML y colocar un botón Iniciar sesión con Microsoft en la aplicación.
+Si ya tiene una aplicación con su propio sistema de cuentas, o que admite otra clase de inicio de sesión de otros proveedores de nube, agregar el inicio de sesión de Azure AD es tan sencillo como registrar la aplicación, agregar código de inicio de sesión mediante los protocolos OAuth2, OpenID Connect o SAML y colocar un botón Iniciar sesión con Microsoft en la aplicación. Haga clic en el botón que aparece a continuación para más información acerca de la personalización de marca de la aplicación.
 
-![Botón de inicio de sesión][AAD-Sign-In]
+[![Botón de inicio de sesión][AAD-Sign-In]][AAD-App-Branding]
+
 
 En este artículo se da por supuesto que ya está familiarizado con la creación de una aplicación de un solo inquilino para Azure AD. Si no lo está, vuelva a la [página principal de la guía del desarrollador][AAD-Dev-Guide] y pruebe una de nuestras guías de inicio rápido.
 
@@ -32,10 +33,10 @@ Para convertir la aplicación en una aplicación multiempresa de Azure AD, siga 
 3.	Actualice el código para administrar varios valores issuer
 4.	Comprenda el consentimiento de administrador y usuario y realice los cambios apropiados en el código
 
-Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiempresa][AAD-Samples-MT].
+Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiinquilino][AAD-Samples-MT].
 
 ## Actualización del registro para que sea multiempresa
-De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino. Para convertir su registro en multiempresa, busque el modificador "La aplicación es multiempresa" en la página de configuración del registro de la aplicación en el [Portal de Azure clásico][AZURE-classic-portal] y establézcalo en "Sí".
+De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino. Para convertir su registro en multiinquilino, busque el modificador "La aplicación es multiinquilino" en la página de configuración del registro de la aplicación en el [Portal de Azure clásico][AZURE-classic-portal] y establézcalo en "Sí".
 
 Nota: Para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo. Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino. En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos. El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD. Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un URI de id. de aplicación válido sería `https://contoso.onmicrosoft.com/myapp`. Si el inquilino tenía un dominio comprobado de `contoso.com`, entonces un URI de id. de aplicación válido también sería `https://contoso.com/myapp`. La configuración de una aplicación como multiempresa dará error si el URI de id. de aplicación no sigue este patrón.
 
@@ -54,7 +55,11 @@ Cuando Azure AD recibe una solicitud en el punto de conexión /common, inicia la
 
 La respuesta de inicio de sesión a la aplicación contiene un token que representa al usuario. El valor issuer del token indica a una aplicación el inquilino del que procede el usuario. Cuando el punto de conexión /common devuelva una respuesta, el valor issuer del token corresponderá al inquilino del usuario. Es importante advertir que el punto de conexión /common no es un inquilino ni un emisor, sino un multiplexador. Para tener esto en cuenta, la lógica de la aplicación para validar los tokens debe estar actualizada al utilizar /common.
 
-Vamos a detenernos en este punto un poco más.
+Como se mencionó anteriormente, las aplicaciones multiinquilino también deben proporcionar una experiencia coherente de inicio de sesión para los usuarios, que se ajuste a las directrices de personalización de marca de la aplicación de Azure AD. Haga clic en el botón que aparece a continuación para más información acerca de la personalización de marca de la aplicación.
+
+[![Botón de inicio de sesión][AAD-Sign-In]][AAD-App-Branding]
+
+Echemos un vistazo detenidamente a la utilización del punto de conexión más común y a la implementación de código.
 
 ## Actualización del código para administrar varios valores issuer
 Las aplicaciones web y las API web reciben y validan los tokens desde Azure AD.
@@ -81,11 +86,11 @@ Como el punto de conexión /common no corresponde a un inquilino y no es un emis
 
     https://sts.windows.net/{tenantid}/
 
-Por lo tanto, una aplicación multiempresa no puede validar los tokens con solo buscar la correspondencia del valor issuer en los metadatos con el valor `issuer` en el token. Una aplicación multiempresa necesita una lógica para decidir qué valores issuer son válidos y cuáles no, según la parte del id. de inquilino del valor issuer.
+Por lo tanto, una aplicación multiinquilino no puede validar los tokens con solo buscar la correspondencia del valor issuer en los metadatos con el valor `issuer` del token. Una aplicación multiempresa necesita una lógica para decidir qué valores issuer son válidos y cuáles no, según la parte del id. de inquilino del valor issuer.
 
-Por ejemplo, si una aplicación multiempresa solo permite el inicio de sesión desde inquilinos específicos que se han registrado para su servicio, debe comprobar el valor issuer o el valor de notificación `tid` en el token para asegurarse de que el inquilino se encuentra en su lista de suscriptores. Si una aplicación multiempresa solo trata con individuos y no toma ninguna decisión de acceso basada en los inquilinos, puede omitir completamente el valor issuer.
+Por ejemplo, si una aplicación multiinquilino solo permite el inicio de sesión desde inquilinos específicos que se han registrado para su servicio, debe comprobar el valor issuer o el valor de notificación `tid` en el token para asegurarse de que el inquilino se encuentra en su lista de suscriptores. Si una aplicación multiempresa solo trata con individuos y no toma ninguna decisión de acceso basada en los inquilinos, puede omitir completamente el valor issuer.
 
-En los ejemplos de multiempresa que encontrará en la sección [Contenido relacionado](#related-content) al final de este artículo, la validación del emisor está deshabilitada para permitir que cualquier inquilino de Azure AD inicie la sesión.
+En los ejemplos de multiinquilino que encontrará en la sección [Contenido relacionado](#related-content) al final de este artículo, la validación del emisor está deshabilitada para permitir que cualquier inquilino de Azure AD inicie la sesión.
 
 Ahora veamos la experiencia para los usuarios que inician sesión en aplicaciones multiempresa.
 
@@ -93,6 +98,8 @@ Ahora veamos la experiencia para los usuarios que inician sesión en aplicacione
 Para que un usuario inicie sesión en una aplicación en Azure AD, la aplicación debe estar representada en el inquilino del usuario. Esto permite que la organización realice cosas como aplicar directivas únicas cuando los usuarios de su inquilino inician sesión en la aplicación. Para una aplicación de un solo inquilino, este registro es sencillo; es lo que sucede cuando registra la aplicación en el [Portal de Azure clásico][AZURE-classic-portal].
 
 Para una aplicación multiempresa, el registro inicial de la aplicación reside en el inquilino de Azure AD utilizado por el desarrollador. Cuando usuarios de otro inquilino inician sesión en la aplicación por primera vez, Azure AD les pide que den su consentimiento a los permisos solicitados por ella. Si aceptan, se crea una representación de la aplicación llamada *entidad de servicio* en el inquilino del usuario y el inicio de sesión puede continuar. También se crea una delegación en el directorio que registra el consentimiento del usuario a la aplicación. Para más información sobre los objetos Application y ServicePrincipal y cómo se relacionan entre sí, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
+
+![Consentimiento para aplicaciones de nivel sencillo][Consent-Single-Tier]
 
 Esta experiencia de consentimiento depende de los permisos solicitados por la aplicación. Azure AD admite dos clases de permisos, solo de aplicación o delegado:
 
@@ -123,9 +130,15 @@ Esto puede ser un problema si la aplicación lógica consta de dos o más regist
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Esta propiedad se puede actualizar mediante el [manifiesto de aplicación][AAD-App-Manifest] del recurso y se demuestra en un ejemplo de llamada a la API web de un cliente nativo de niveles múltiples en la sección [Contenido relacionado](#related-content) al final de este artículo.
+Esta propiedad se puede actualizar mediante el [manifiesto de aplicación][AAD-App-Manifest] del recurso y se demuestra en un ejemplo de llamada a la API web de un cliente nativo de niveles múltiples en la sección [Contenido relacionado](#related-content) al final de este artículo. El diagrama siguiente proporciona una visión general del consentimiento para una aplicación de niveles múltiples:
+
+![Consentimiento para aplicaciones cliente conocidas con niveles múltiples][Consent-Multi-Tier-Known-Client]
 
 Un caso parecido tiene lugar si los diferentes niveles de una aplicación se registran en distintos inquilinos. Por ejemplo, considere el caso de la creación de una aplicación cliente nativa que llama a la API de Office 365 Exchange Online. Para desarrollar la aplicación nativa y, más tarde, para que se ejecute en el inquilino de un cliente, la entidad de servicio de Exchange Online debe existir. En este caso, el cliente tiene que comprar Exchange Online para que la entidad de servicio se cree en su inquilino. En el caso de una API creada por una organización que no sea Microsoft, el desarrollador de la API debe proporcionar una forma de que sus clientes acepten dar su consentimiento a su aplicación como inquilinos del cliente; por ejemplo, una página web que controle el consentimiento mediante los mecanismos descritos en este artículo. Después de crear la entidad de servicio en el inquilino, la aplicación nativa puede obtener tokens para la API.
+
+El diagrama siguiente proporciona información general acerca del consentimiento para una aplicación de niveles múltiples registrada en distintos inquilinos:
+
+![Consentimiento para aplicaciones de terceros con niveles múltiples][Consent-Multi-Tier-Multi-Party]
 
 ### Revocación del consentimiento
 Los usuarios y administradores pueden revocar el consentimiento a la aplicación en cualquier momento:
@@ -144,6 +157,7 @@ Las aplicaciones multiempresa también pueden obtener tokens de acceso para llam
 ## Contenido relacionado
 
 - [Ejemplos de aplicación multiempresa][AAD-Samples-MT]
+- [Directrices de personalización de marca para aplicaciones][AAD-App-Branding]
 - [Guía del desarrollador de Azure AD][AAD-Dev-Guide]
 - [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects]
 - [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]
@@ -153,8 +167,9 @@ Las aplicaciones multiempresa también pueden obtener tokens de acceso para llam
 
 Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
 
-<!--Reference style links -->
+<!--Reference style links IN USE -->
 [AAD-Access-Panel]: https://myapps.microsoft.com
+[AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -170,9 +185,9 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
-
-
-
+[Consent-Single-Tier]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-single-tier.png
+[Consent-Multi-Tier-Known-Client]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-multi-tier-known-clients.png
+[Consent-Multi-Tier-Multi-Party]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-multi-tier-multi-party.png
 
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
@@ -181,9 +196,9 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#userentity
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
@@ -200,4 +215,4 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

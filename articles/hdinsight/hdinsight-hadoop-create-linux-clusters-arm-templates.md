@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM
@@ -313,4 +313,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
     }
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

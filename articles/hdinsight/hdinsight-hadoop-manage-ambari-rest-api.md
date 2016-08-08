@@ -110,7 +110,7 @@ Lo siguiente recuperará el identificador URI de WASB del almacenamiento predete
 
 Esto devolverá un valor similar al siguiente, donde __CONTAINER__ es el contenedor predeterminado y __ACCOUNTNAME__ es el nombre de la cuenta de almacenamiento de Azure:
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.md) para cargar y descargar datos del contenedor.
 
@@ -136,7 +136,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
         
     Reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento. Reemplace __ACCOUNTKEY__ por la clave que se recuperó anteriormente. __FILEPATH__ es la ruta de acceso al archivo que desea cargar, mientras que __BLOBPATH__ es la ruta de acceso en el contenedor.
 
-    Por ejemplo, si desea que el archivo aparezca en HDInsight en wasb://example/data/filename.txt, __BLOBPATH__ sería `example/data/filename.txt`.
+    Por ejemplo, si desea que el archivo aparezca en HDInsight en wasbs://example/data/filename.txt, __BLOBPATH__ sería `example/data/filename.txt`.
 
 ##Ejemplo: Actualizar configuración de Ambari
 
@@ -255,4 +255,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE] Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

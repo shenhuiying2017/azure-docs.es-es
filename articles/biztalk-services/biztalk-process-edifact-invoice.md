@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -73,7 +73,7 @@ Puede crear estas colas de Bus de servicio mediante una aplicación cliente que 
 
 3.  En la pantalla, escriba el espacio de nombres ACS del Bus de servicio, el nombre del emisor y la clave del emisor.
 
-    ![][2]  
+    ![][2]
 4.  Aparece un mensaje que indica que se crearán las tres colas en el espacio de nombres del Bus de servicio. Haga clic en **Aceptar**.
 
 5.  Deje Tutorial Client en ejecución. Haga clic en **Bus de servicio** > **_el espacio de nombres del Bus de servicio_** > **Colas**, y compruebe que se hayan creado las tres colas.
@@ -112,7 +112,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
 
     3.  En la pestaña **Protocolo**, en la sección **Esquemas**, cargue el esquema **EFACT\_D93A\_INVOIC.xsd**. Este esquema está disponible con el paquete de ejemplo.
 
-        ![][4]  
+        ![][4]
     4.  En la pestaña **Transformación**, especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Bus de servicio** (en este tema).
 
         ![][5]
@@ -161,15 +161,15 @@ El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma
 
 2.  Haga clic en cualquier parte del lienzo y establezca la **dirección URL del servicio de BizTalk** en el cuadro de propiedad para especificar el nombre de la suscripción de Servicios de BizTalk. Por ejemplo: `https://contosowabs.biztalk.windows.net`.
 
-    ![][7]  
+    ![][7]
 3.  En el cuadro de herramientas, arrastre un **puente unidireccional Xml** al lienzo. Establezca las propiedades del puente **Nombre de entidad** y **Dirección relativa** en **ProcessInvoiceBridge**. Haga doble clic en **ProcessInvoiceBridge** para abrir la superficie de configuración del puente.
 
 4.  En el cuadro **Tipos de mensaje**, haga clic en el botón del signo de la suma (**+**) para especificar el esquema del mensaje entrante. Como el mensaje entrante para el puente EAI es siempre la factura interna, configúrelo en **INHOUSEINVOICE**.
 
-    ![][8]  
+    ![][8]
 5.  Haga clic en la forma **Transformación XML** y, en el cuadro de propiedad, en la propiedad **Asignaciones**, haga clic en el botón de puntos suspensivos (**...**). En el cuadro de diálogo **Selección de asignaciones**, seleccione el archivo de transformación **INHOUSEINVOICE\_to\_D93AINVOIC** y luego haga clic en **Aceptar**.
 
-    ![][9]  
+    ![][9]
 6.  Vuelva a **MessageFlowItinerary.bcs** y, en el cuadro de herramientas, arrastre un **punto de conexión de servicio externo bidireccional** a la derecha de **ProcessInvoiceBridge**. Establezca su propiedad **Nombre de entidad** en **EDIBridge**.
 
 7.  En el Explorador de soluciones, expanda **MessageFlowItinerary.bcs** y haga doble clic en el archivo **EDIBridge.config**. Reemplace el contenido de **EDIBridge.config** por lo siguiente.
@@ -231,8 +231,8 @@ El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma
 
 9.  En el cuadro de herramientas, haga clic en el **Conector** y únase a los componentes **ProcessInvoiceBridge** y **EDIBridge**. Seleccione el conector y, en el cuadro Propiedades, establezca **Condición de filtro** en **Coincidir todo**. Esto garantiza que todos los mensajes procesados por el puente EAI se enrutan al puente EDI.
 
-    ![][10]  
-10.  Guarde los cambios en la solución.  
+    ![][10]
+10.  Guarde los cambios en la solución.
 
 ### Implementación del proyecto
 
@@ -259,16 +259,16 @@ En este tema, examinaremos cómo probar la solución mediante la aplicación **T
 
     Ya copió el punto de conexión del puente EAI en el paso anterior. Para el punto de conexión del puente de recepción EDI, en el Portal de Servicios de BizTalk, vaya al contrato > Configuración de recepción > Transporte > Punto de conexión.
 
-    ![][12]  
+    ![][12]
 4.  En la ventana siguiente, en Contoso, haga clic en el botón **Enviar factura interna**. En el cuadro de diálogo Abrir, abra el archivo INHOUSEINVOICE.txt. Examine el contenido del archivo y luego haga clic en **Aceptar** para enviar la factura.
 
-    ![][13]  
+    ![][13]
 5.  En unos segundos, Northwind recibe la factura. Haga clic en el vínculo **Ver mensaje** para ver la factura recibida por Northwind. Observe cómo la factura que recibe Northwind está en formato EDIFACT estándar, mientras que la enviada por Contoso estaba en formato interno.
 
-    ![][14]  
+    ![][14]
 6.  Seleccione la factura y luego haga clic en **Enviar confirmación**. En el cuadro de diálogo que aparece, observe que el identificador de intercambio es igual en la factura recibida y en la confirmación enviada. Haga clic en Aceptar en el cuadro de diálogo **Enviar confirmación**.
 
-    ![][15]  
+    ![][15]
 7.  En unos segundos, Contoso recibe la confirmación correctamente.
 
     ![][16]
@@ -284,10 +284,10 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 
 3.  Especifique un criterio de procesamiento por lotes, que defina qué mensajes se deben procesar por lotes. En esta solución, procesamos por lote todos los mensajes. Así que, seleccione la opción Usar definiciones avanzadas y escriba **1 = 1**. Esta es una condición que siempre será verdadera y, por eso, todos los mensajes se procesarán por lotes. Haga clic en **Siguiente**.
 
-    ![][17]  
+    ![][17]
 4.  Especifique un criterio de liberación por lotes. En la lista desplegable, seleccione **MessageCountBased** y, para **Recuento**, especifique **3**. Es decir, se enviará a Northwind un lote de tres mensajes. Haga clic en **Siguiente**.
 
-    ![][18]  
+    ![][18]
 5.  Revise el resumen y luego haga clic en **Guardar**. Haga clic en **Implementar** para volver a implementar el contrato.
 
 6.  Vuelva a **Tutorial Client**, haga clic en **Enviar factura interna** y siga las indicaciones para enviar la factura. Verá que Northwind no recibe ninguna factura porque no se cumple el tamaño del lote. Repita este paso dos veces para tener tres mensajes de factura para enviar a Northwind. Con esto, se cumple el criterio de liberación del lote de tres mensajes, por lo que ahora se debería ver una factura en Northwind.
@@ -313,4 +313,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

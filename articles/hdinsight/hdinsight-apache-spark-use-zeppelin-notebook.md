@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -43,7 +43,7 @@ Puede instalar Zeppelin en un clúster Spark mediante la acción de scripts. La 
 
 ### Uso del portal de Azure
 
-Para obtener instrucciones sobre cómo usar SDK .NET de HDInsight para ejecutar acciones de scripts para instalar Zeppelin, vea [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Debe realizar un par de cambios en las instrucciones de ese artículo.
+Para obtener instrucciones sobre cómo usar el Portal de Azure con el fin de ejecutar acciones de scripts para instalar Zeppelin, vea [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Debe realizar un par de cambios en las instrucciones de ese artículo.
 
 * Debe utilizar el script para instalar Zeppelin. El script personalizado para instalar Zeppelin en un clúster Spark de HDInsight está disponible en los siguientes vínculos:
 	* Para clústeres de Spark 1.6.0: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -201,7 +201,7 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 	* **Nombre de patrón** - **zeppelinnotebook**: es solo un nombre descriptivo para el patrón.
 
-	* **Patrón de URL** - **\*hn0\***: define un patrón que coincide con el nombre de dominio completo interno del punto de conexión donde se hospedan los cuadernos de Zeppelin. Como los cuadernos de Zeppelin solo están disponibles en el nodo principal headnode0 del clúster y el punto de conexión suele ser `http://hn0-<string>.internal.cloudapp.net`, utilizando el patrón **hn0**, garantizaría que la solicitud se redirige al punto de conexión de Zeppelin.
+	* **Patrón de URL** - ***hn0****: define un patrón que coincide con el nombre de dominio completo interno del punto de conexión donde se hospedan los cuadernos de Zeppelin. Como los cuadernos de Zeppelin solo están disponibles en el nodo principal headnode0 del clúster y el punto de conexión suele ser `http://hn0-<string>.internal.cloudapp.net`, utilizando el patrón **hn0**, garantizaría que la solicitud se redirige al punto de conexión de Zeppelin.
 
 		![patrón de foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -211,11 +211,11 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 	![seleccionar modo de foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-Después de seguir estos pasos, solo las solicitudes de direcciones URL que contienen la cadena __internal.cloudapp.net__ se enrutarán a través del túnel SSL.
+Después de seguir estos pasos, solo las solicitudes de direcciones URL que contienen la cadena __hn0__ se enrutarán a través del túnel SSL.
 
 ## Acceso al cuaderno de Zeppelin
 
-Después de haber configurado la tunelización SSH, puede usar los pasos siguientes para acceder al cuaderno de Zeppelin en el clúster Spark.
+Después de haber configurado la tunelización SSH, puede usar los pasos siguientes para acceder al cuaderno de Zeppelin en el clúster Spark. En esta sección, verá cómo ejecutar instrucciones %sql y %hive.
 
 1. En el explorador web, abra el siguiente punto de conexión:
 
@@ -235,12 +235,14 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 
 	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Estado del cuaderno de Zeppelin")
 
+### Ejecución de instrucciones de T-SQL
+
 4. Cargue los datos de ejemplo en una tabla temporal. Cuando crea un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	En el párrafo vacío que se crea de manera predeterminada en el nuevo cuaderno, pegue el siguiente fragmento.
 
 		// Create an RDD using the default Spark context, sc
-		val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -297,6 +299,41 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 
 	![Reiniciar el intérprete Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Reinicie el intepretador Zeppelin")
 
+### Ejecución de instrucciones de Hive
+
+1. En Zeppelin Notebook, haga clic en el botón **Interpreter** (Intérprete).
+
+	![Actualización del intérprete de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Actualización del intérprete de Hive")
+
+2. Para el intérprete de **Hive**, haga clic en **editar**.
+
+	![Actualización del intérprete de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Actualización del intérprete de Hive")
+
+	Actualice las siguientes propiedades.
+
+	* Establezca **default.password** en la contraseña que especificó para el usuario administrador al crear el clúster de HDInsight Spark.
+	* Establezca **default.url** en `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Sustituya **<nombre\_clúster\_spark>** por el nombre del clúster de Spark.
+	* Establezca **default.user** en el nombre del usuario administrador que especificó al crear el clúster. Por ejemplo, *admin*.
+
+3. Haga clic en **Guardar** y, cuando se le pida reiniciar el intérprete de Hive, haga clic en **Aceptar**.
+
+4. Cree un nuevo cuaderno y ejecute la instrucción siguiente para obtener una lista de todas las tablas de Hive del clúster.
+
+		%hive
+		SHOW TABLES
+
+	De forma predeterminada, un clúster de HDInsight tiene una tabla de ejemplo denominada "**hivesampletable**", por tanto, debería ver el siguiente resultado.
+
+	![Salida de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Salida de Hive")
+
+5. Ejecute la instrucción siguiente para obtener una lista los registros de la tabla.
+
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
+
+	Debe ver un resultado parecido al siguiente.
+
+	![Salida de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Salida de Hive")
 
 ## <a name="seealso"></a>Otras referencias
 
@@ -325,7 +362,7 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -337,7 +374,7 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -350,4 +387,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

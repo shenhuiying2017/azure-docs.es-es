@@ -196,7 +196,7 @@ Una vez conectado, llegará a un símbolo de sistema similar al siguiente.
     
     También puede usar el direccionamiento de estilo WASB.
     
-        rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasbs:///")
 
 ## Uso de R Server en HDI desde una instancia remota de Microsoft R Server o Microsoft R Client
 
@@ -411,4 +411,4 @@ Ambas plantillas crean un nuevo clúster de HDInsight y una cuenta de almacenami
 
 Para obtener información general sobre utilizar plantillas de Resource Manager, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

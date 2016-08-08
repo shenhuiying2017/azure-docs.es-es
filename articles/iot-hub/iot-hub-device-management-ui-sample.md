@@ -125,6 +125,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Guía del desarrollador][lnk-devguide]
 - [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 - [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Protección total de la solución de IoT][lnk-securing]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -149,5 +150,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

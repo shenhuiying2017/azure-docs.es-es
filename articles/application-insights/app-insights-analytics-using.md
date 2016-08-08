@@ -21,12 +21,12 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
+* **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
 
 ## Apertura de Analytics
 
-En el recurso de inicio de la aplicación de Application Insights, haga clic en Analytics.
-
-![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-using/001.png)
+En el recurso de inicio de su aplicación en Application Insights, haga clic en Analytics. p ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-using/001.png)
 
 El tutorial en línea le dará algunas ideas sobre lo que puede hacer.
 
@@ -121,6 +121,8 @@ Si tiene varias columnas de los tipos correctos, puede elegir los ejes X e Y, as
 
 De manera predeterminada, los resultados se muestran en un principio en forma de tabla y el diagrama se selecciona manualmente. Sin embargo, para seleccionar un diagrama se puede usar la [directiva render](app-insights-analytics-reference.md#render-directive) al final de una consulta.
 
+Puede anclar un diagrama a uno de sus [paneles compartidos](app-insights-dashboards.md); simplemente haga clic en la chincheta. (Solo disponible para las aplicaciones en un plan de tarifa de pago).
+
 ## Exportación a Excel
 
 Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga clic en **Export, to Excel** (Exportar, a Excel).
@@ -148,4 +150,4 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

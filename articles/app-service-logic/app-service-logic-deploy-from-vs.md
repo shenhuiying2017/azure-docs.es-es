@@ -1,55 +1,82 @@
 <properties 
-	pageTitle="Implementación de la aplicación lógica desde Visual Studio | Microsoft Azure" 
-	description="Cree un proyecto de Visual Studio para administrar la aplicación lógica." 
-	authors="stepsic-microsoft-com" 
+	pageTitle="Creación de Logic Apps en Visual Studio | Microsoft Azure" 
+	description="Cree un proyecto en Visual Studio para crear e implementar la aplicación lógica." 
+	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
-	ms.author="stepsic"/>
+	ms.date="07/26/2016"
+	ms.author="jehollan"/>
 	
-# Implementación desde Visual Studio
+# Creación e implementación de Logic Apps en Visual Studio
 
-Aunque el [Portal de Azure](https://portal.azure.com/) le ofrece una excelente manera de diseñar y administrar las aplicaciones lógicas, es posible que también desee implementar la aplicación lógica desde Visual Studio. Hay un par de capacidades clave que lo habilitan:
+Aunque el [Portal de Azure](https://portal.azure.com/) le ofrece una excelente manera de diseñar y administrar las aplicaciones lógicas, es posible que también desee diseñar e implementar la aplicación lógica desde Visual Studio. Logic Apps viene con un sofisticado conjunto de herramientas de Visual Studio que permite crear una aplicación lógica mediante el diseñador, configurar las plantillas de implementación y automatización e implementarla en cualquier entorno.
 
-- Almacene la aplicación lógica junto con los demás recursos de la solución, de manea que pueda contener todos los aspectos de la aplicación.
-- Mantenga la definición de aplicación lógica protegida en el control de código fuente para poder usar TFS o Git para realizar revisiones en la aplicación 
+## Pasos de instalación
 
-Debe tener el SDK de Azure 2.7 o posterior instalado para seguir los pasos que se describen a continuación. Busque [el último SDK para VS](https://azure.microsoft.com/downloads/) aquí.
+A continuación se muestran los pasos para instalar y configurar las herramientas de Visual Studio para Logic Apps.
+
+### Requisitos previos
+
+- [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- [SDK de Azure más reciente](https://azure.microsoft.com/downloads/) (2.9.1 o superior)
+- Acceso a la web para usar el diseñador incrustado
+
+### Instalación de herramientas de Visual Studio para Logic Apps
+
+Una vez que tiene los requisitos previos instalados:
+
+1. Abra Visual Studio 2015 con el menú **Herramientas** y seleccione **Extensiones y actualizaciones**.
+1. Seleccione la categoría **En línea** para realizar búsquedas en línea.
+1. Busque **Logic Apps** para mostrar las **herramientas de Azure Logic Apps para Visual Studio**
+1. Haga clic en el botón **Descargar** para descargar e instalar la extensión.
+1. Reinicie Visual Studio después de la instalación.
+
+> [AZURE.NOTE] También puede descargar la extensión directamente desde [este vínculo](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+
+Una vez instalado, podrá usar el proyecto Azure Resource Group con el diseñador de aplicaciones lógicas.
 
 ## Creación de un proyecto
 
-1. Vaya al menú **Archivo** y seleccione **Nuevo** > **Proyecto** (o bien, vaya a **Agregar** y después seleccione **Nuevo proyecto** para agregarlo a una solución existente): ![Menú Archivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Vaya al menú **Archivo** y seleccione **Nuevo** > **Proyecto** (o bien, vaya a **Agregar** y seleccione **Nuevo proyecto** para agregarlo a una solución existente): ![Menú Archivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. En el cuadro de diálogo, busque **Nube** y después seleccione **Grupo de recursos de Azure**. Escriba un **nombre** y, a continuación, haga clic en **Aceptar**. ![Incorporación de proyecto nuevo](./media/app-service-logic-deploy-from-vs/addnewproject.png)
+1. En el cuadro de diálogo, busque **Nube** y seleccione **Azure Resource Group**. Escriba un **nombre** y, a continuación, haga clic en **Aceptar**. ![Incorporación de proyecto nuevo](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Ahora debe seleccionar si desea bien **Aplicación lógica**, bien **Aplicación lógica y aplicación de API**. La selección de **Aplicación lógica** requiere que apunte a las API existentes. Si selecciona **Aplicación lógica y aplicación de API**, también puede crear una aplicación de API nueva y vacía al mismo tiempo. En este documento, se ha seleccionado Aplicación lógica. ![Selección de plantilla de Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+1. Seleccione el plantilla **Logic app**. Esto creará una plantilla de implementación de aplicaciones lógicas en blanco con la que empezar. ![Selección de plantilla de Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-4. Una vez que haya seleccionado la **Plantilla**, presione **Aceptar**.
+1. Una vez que haya seleccionado la **plantilla**, presione **Aceptar**.
 
-Ahora el proyecto de aplicación lógica está agregado a la solución. Debería ver el archivo de implementación en el Explorador de soluciones: ![Implementación](./media/app-service-logic-deploy-from-vs/deployment.png)
+	Ahora el proyecto de aplicación lógica está agregado a la solución. Debería ver el archivo de implementación en el Explorador de soluciones:
 
-## Configuración de la aplicación lógica
+	![Implementación](./media/app-service-logic-deploy-from-vs/deployment.png)
 
-Una vez que tenga un proyecto, puede modificar la definición de la aplicación lógica en Visual Studio. Haga clic en el archivo JSON en el Explorador de soluciones. Se ve una definición de marcador de posición que puede rellenar con la lógica de la aplicación.
+## Uso del diseñador de aplicaciones lógicas
 
-Se recomienda usar **parámetros** en la definición. Esto es útil si desea implementar un entorno de desarrollo y uno de producción. En ese caso, debe colocar la configuración específica del entorno en el archivo `*.parameters.json`, y usar los parámetros en lugar de las cadenas reales.
+Una vez que tiene un proyecto Azure Resource Group que contiene una aplicación lógica, puede abrir el diseñador en Visual Studio para que le ayude a crear el flujo de trabajo. El diseñador requiere una conexión a Internet para consultar en los conectores los datos y propiedades disponibles (por ejemplo, si usa el conector de Dynamics CRM Online, el diseñador consultará la instancia de CRM para obtener una lista personalizada de las propiedades personalizadas y predeterminadas disponibles).
 
-En la actualidad, Visual Studio no tiene un diseñador JSON integrado por lo que, si desea usar una interfaz gráfica (en lugar de escribir JSON), utilice el Portal de Azure.
+1. Haga clic con el botón derecho en el archivo `<template>.json` y seleccione **Abrir con diseñador de aplicaciones lógicas** (o `Ctrl+L`).
+1. Elija la suscripción, el grupo de recursos y la ubicación para la plantilla de implementación.
+	- Es importante tener en cuenta que diseñar una aplicación lógica creará recursos de una **conexión de API** para consultar las propiedades durante el diseño. El grupo de recursos seleccionado será el grupo de recursos utilizado para crear dichas conexiones durante el diseño. Para ver o modificar las conexiones de API, vaya al Portal de Azure y busque **Conexiones de API**. ![Selector de suscripción](./media/app-service-logic-deploy-from-vs/designer_picker.png)
+1. El diseñador debe procesarse de acuerdo con la definición del archivo `<template>.json`.
+1. Ahora puede crear y diseñar la aplicación lógica; los cambios se actualizarán en la plantilla de implementación. ![Diseñador en Visual Studio](./media/app-service-logic-deploy-from-vs/designer_in_vs.png)
 
-Si anteriormente creó una aplicación lógica en el Portal de Azure y ahora desea protegerla e incluirla en el control de código fuente, existen tres formas de hacerlo:
+También verá los recursos `Microsoft.Web/connections` que se agregan al archivo de recursos para todas las conexiones necesarias para que la aplicación lógica funcione. Estas propiedades de conexión se pueden establecer durante la implementación y la administración después de implementar en **Conexiones de API** en el Portal de Azure.
 
-- Ir a la **vista Código** del portal y copiar la definición
-- Usar la [API de REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) de las aplicaciones lógicas para obtener la definición
-- Usar [PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md) (concretamente, el comando [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx)) para descargar la definición.
+### Cambio a la vista de código JSON
+
+Puede seleccionar la pestaña **Vista Código** en la parte inferior del diseñador para cambiar a la representación JSON de la aplicación lógica. Para volver al JSON de todos los recursos, haga clic en el archivo `<template>.json` y seleccione **Abrir**.
+
+### Guardado de la aplicación lógica
+
+Puede guardar la aplicación lógica en cualquier momento mediante el botón **Guardar** o `Ctrl+S`. Si hay errores con la aplicación lógica en el momento de guardar, aparecerán en la ventana **Salidas** de Visual Studio.
 
 ## Implementación de la aplicación lógica
 
@@ -61,9 +88,8 @@ Finalmente, después de configurar la aplicación, puede realizar la implementac
 
 3. Ahora debe elegir los detalles del grupo de recursos en los que desea implementar la aplicación lógica. ![Implementación en el grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
-     > [AZURE.NOTE]    Asegúrese de seleccionar los archivos de plantilla y parámetros correctos para el grupo de recursos (por ejemplo, si va a realizar la implementación en un entorno de producción, elegirá el archivo de parámetros de producción). 
-4.  Seleccione el botón Implementar.
-5. Se solicitará que corrija los errores que detectemos. Por ejemplo: ![Implementación en el grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegrouperror.png)
+     > [AZURE.NOTE]    Asegúrese de seleccionar los archivos de plantilla y parámetros correctos para el grupo de recursos (por ejemplo, si va a realizar la implementación en un entorno de producción, elegirá el archivo de parámetros de producción).
+4. Seleccione el botón Implementar.
  
     
 6. El estado de la implementación aparece en la ventana **Salida** (puede que tenga que elegir **Aprovisionamiento de Azure**). ![Salida](./media/app-service-logic-deploy-from-vs/output.png)
@@ -72,6 +98,11 @@ En el futuro, puede revisar la aplicación lógica en el control de código fuen
 
 > [AZURE.NOTE] Si modifica la definición directamente en el Portal de Azure, la próxima vez que realice la implementación desde Visual Studio, estos cambios se sobrescribirán.
 
-> [AZURE.TIP] Si no quiere usar Visual Studio, pero quiere usar herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
+## Pasos siguientes
 
-<!---HONumber=AcomDC_0511_2016-->
+- Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md).
+- [Ejemplos de aplicaciones lógicas y escenarios comunes](app-service-logic-examples-and-scenarios.md)
+- [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694)
+- [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
+
+<!---HONumber=AcomDC_0727_2016-->

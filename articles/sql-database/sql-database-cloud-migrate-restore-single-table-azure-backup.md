@@ -26,7 +26,7 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 	**Nota** Para evitar que se bloquee, asegúrese de que no haya ninguna actividad ejecutándose en la tabla a la que le está cambiando el nombre. Si encuentra algún problema, realice este procedimiento durante una ventana de mantenimiento.
 
-2. Restaure una copia de seguridad de su base de datos de un punto temporal anterior que desee recuperar. Para ello, consulte los pasos de [Recuperar una base de datos SQL de Azure de un error de usuario](sql-database-user-error-recovery.md).
+2. Restaure una copia de seguridad de su base de datos de un punto temporal anterior que desee recuperar. Para ello, consulte los pasos de [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Notas**:
 	- El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012\_2016-01-01T22-12Z**. Con este paso no se sobrescribirá el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitir que el usuario compruebe la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
@@ -71,4 +71,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

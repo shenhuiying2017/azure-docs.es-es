@@ -1,6 +1,6 @@
 <properties
    pageTitle="Habilitación de la recolección de datos en Azure Security Center | Microsoft Azure"
-   description="Aprenda a habilitar la recolección de datos en Azure Security Center."
+   description=" Aprenda a habilitar la recolección de datos en Azure Security Center. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitación de la recolección de datos en Azure Security Center
 
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa los datos sobre las máquinas virtuales de Azure, incluida la información de configuración, metadatos, registros de eventos y mucho más. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar desactivando la recopilación de datos en la directiva de Azure Security Center (consulte [Deshabilitación de la recopilación de datos](#disabling-data-collection)). Si desactiva la recopilación de datos, Security Center le recomendará activar la recopilación de datos en la directiva de seguridad de la suscripción.
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -60,7 +60,7 @@ Puede deshabilitar la recolección de datos en cualquier momento, esto quitará 
 
 5.	Seleccione la opción **Eliminar agentes** en la cinta de opciones superior para quitar los agentes de las máquinas virtuales existentes.
 
-## Pasos siguientes
+## Consulte también
 
 En este documento, mostramos cómo implementar la recomendación "Habilitar recopilación de datos" de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
@@ -80,4 +80,4 @@ En este documento, mostramos cómo implementar la recomendación "Habilitar reco
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

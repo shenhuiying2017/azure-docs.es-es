@@ -5,7 +5,7 @@
 	  keywords="integrar Azure AD con aplicaciones SaaS"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
@@ -31,7 +31,7 @@ Para las aplicaciones que admiten únicamente el inicio de sesión basado en for
 
 ## Autorización
 
-Una cuenta aprovisionada permite al usuario tener autorización para usar una aplicación, después de haberse autenticado a través de un inicio de sesión único. El aprovisionamiento de usuarios puede realizarse manualmente o, en algunos casos, puede agregar y quitar la información de usuario de la aplicación de SaaS basándose en los cambios realizados en Azure Active Directory. Para obtener más información sobre el uso de conectores de Azure AD existentes para el aprovisionamiento automatizado, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+Una cuenta aprovisionada permite al usuario tener autorización para usar una aplicación, después de haberse autenticado a través de un inicio de sesión único. El aprovisionamiento de usuarios puede realizarse manualmente o, en algunos casos, puede agregar y quitar la información de usuario de la aplicación de SaaS basándose en los cambios realizados en Azure Active Directory. Para más información sobre el uso de conectores de Azure AD existentes para el aprovisionamiento automatizado, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 De lo contrario, puede agregar manualmente la información de usuario a una aplicación o usar otras soluciones de aprovisionamiento que están disponibles en Marketplace.
 
@@ -72,4 +72,4 @@ Encontrará más información sobre todos estos problemas en la biblioteca de Az
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

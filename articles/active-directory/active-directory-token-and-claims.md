@@ -122,7 +122,7 @@ Cuando tu aplicación recibe un id\_token al inicio de sesión del usuario, tamb
 
 Para ver una lista completa de validaciones de notificación que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-En la [sección id\_token](#id_tokens) situada arriba se incluyen los detalles de los valores esperados para estas notificaciones.
+En la [sección id\_token](#id-tokens) situada arriba se incluyen los detalles de los valores esperados para estas notificaciones.
 
 ## Tokens de ejemplo
 
@@ -275,4 +275,4 @@ A continuación se muestra un ejemplo de token web JSON (JWT) típico que se usa
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

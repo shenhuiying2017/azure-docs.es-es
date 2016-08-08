@@ -48,7 +48,7 @@ Puede configurar el nivel de coherencia predeterminado en la cuenta de la base d
 - La obsolescencia entrelazada ofrece un orden global total excepto dentro de la "ventana de obsolescencia". Tenga en cuenta que la garantía de lectura monotónica existe dentro de una región tanto dentro como fuera de la "ventana de obsolescencia".
 - La obsolescencia entrelazada proporciona una garantía de coherencia más fuerte que la coherencia de sesión o la eventual. Para las aplicaciones de distribución global, se recomienda utilizar la obsolescencia entrelazada para aquellos escenarios donde se desea disponer de coherencia fuerte pero también de una disponibilidad del 99,99 % y una latencia baja.
 - Las cuentas de DocumentDB que están configuradas con la coherencia de obsolescencia entrelazada pueden asociarse con cualquier número de regiones de Azure.
-- El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con coherencia de obsolescencia entrelazada es mayor que con la de sesión o la eventual, pero igual que con la fuerte.
+- El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con uso vinculado es mayor que con la de sesión o la eventual, pero igual que con la de coherencia fuerte.
 
 **Sesión**:
 
@@ -122,4 +122,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

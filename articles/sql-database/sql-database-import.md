@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="07/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,7 +38,7 @@ Un BACPAC es un archivo .bacpac que contiene datos y un esquema de base de datos
 
 Para importar una base de datos SQL de un .bacpac, necesita lo siguiente:
 
-- Una suscripción de Azure. 
+- Una suscripción de Azure.
 - Servidor V12 de Base de datos SQL de Azure. Si no tiene un servidor V12, siga los pasos de este artículo para crear uno: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 - Un archivo .bacpac de la base de datos que quiere importar en un contenedor de blobs de [cuenta de almacenamiento de Azure (estándar)](../storage/storage-create-storage-account.md).
 
@@ -65,7 +65,7 @@ Abra la hoja SQL Server:
     ![seleccione nivel de precios][3]
 
 1.  Escriba un **NOMBRE DE BASE DE DATOS** para la base de datos que se va a crear desde el archivo BACPAC.
-2.  Elija el tipo de autenticación y, luego, proporcione la información de autenticación del servidor. 
+2.  Elija el tipo de autenticación y, luego, proporcione la información de autenticación del servidor.
 3.  Haga clic en **Crear** para crear la base de datos desde el BACPAC.
 
     ![crear base de datos][4]
@@ -92,13 +92,7 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 
 ## Pasos siguientes
 
-- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
-
-
-
-## Recursos adicionales
-
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- Para aprender a conectarse a una Base de datos SQL importada y realizar consultas en ella, consulte [Conexión a Base de datos SQL con SQL Server Management Studio y ejecución de una consulta T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
 
 <!--Image references-->
@@ -109,4 +103,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -56,7 +56,7 @@ Aprenda a procesar y a analizar archivos JSON mediante Hive en HDInsight. En el 
 	    ]
 	}
 
-El archivo se encuentra en wasb://processjson@hditutorialdata.blob.core.windows.net/. Para obtener más información sobre cómo usar el almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight](hdinsight-hadoop-use-blob-storage.md). Si lo desea, puede copiar el archivo en el contenedor predeterminado del clúster.
+El archivo se encuentra en wasbs://processjson@hditutorialdata.blob.core.windows.net/. Para obtener más información sobre cómo usar el almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight](hdinsight-hadoop-use-blob-storage.md). Si lo desea, puede copiar el archivo en el contenedor predeterminado del clúster.
 
 En este tutorial, utilizará la consola de Hive. Para obtener instrucciones sobre cómo abrir la consola de Hive, consulte [Uso de Hive con Hadoop en HDInsight con Escritorio remoto](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -81,7 +81,7 @@ Los métodos enumerados en la siguiente sección requieren que el documento JSON
 
 	SELECT * FROM StudentsOneLine
 
-El archivo sin formato de JSON se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
+El archivo sin formato de JSON se encuentra en **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
 
 La tabla de Hive *StudentsOneLine* almacenará los datos en el sistema de archivos predeterminado de HDInsight en la ruta de acceso */json/students/*.
 
@@ -153,7 +153,7 @@ SerDe es la mejor opción para analizar documentos JSON anidados ya que le permi
 	Una vez completada la instalación, agregue una nueva variable de entorno de usuario:
 
 	1. Abra **Ver la configuración avanzada del sistema** desde la pantalla de Windows.
-	2. Haga clic en **Variables de entorno**.  
+	2. Haga clic en **Variables de entorno**.
 	3. Agregue una nueva variable de entorno **JAVA\_HOME** que apunte a **C:\\Program Files\\Java\\jdk1.7.0\_55** o a donde esté instalado el JDK.
 
 	![Configuración de los valores correctos para JDK][image-hdi-hivejson-jdk]
@@ -260,4 +260,4 @@ Para ver otros artículos relacionados, consulte
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

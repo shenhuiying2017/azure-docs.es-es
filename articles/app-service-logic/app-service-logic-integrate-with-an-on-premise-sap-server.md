@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -49,7 +49,7 @@ Las bibliotecas de cliente específicas de SAP son necesarias en el equipo clien
 4. En la hoja Marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda: ![Aplicación de API del conector de SAP][2]
 5. Seleccione el **conector de SAP** publicado por Microsoft.
 6. En la hoja del conector SAP, seleccione **Crear**.
-7. En la nueva hoja que se abre, escriba lo siguiente:  
+7. En la nueva hoja que se abre, escriba lo siguiente:
 	1. **Ubicación**: elija la ubicación geográfica donde desea implementar el conector.
 	2. **Suscripción**: elija una suscripción en la que desee crear este conector.
 	3. **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -124,4 +124,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

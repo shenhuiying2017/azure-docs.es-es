@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="07/26/2016"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -239,11 +239,7 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 [AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Límites de Análisis de transmisiones
-
-| Identificador de límites | Límite | Comentarios |
-|----------------- | ------------|--------- |
-| Número máximo de unidades de streaming por suscripción por región | 50 | Se puede realizar una solicitud para aumentar las unidades de streaming de su suscripción más allá de 50 poniéndose en contacto con [Soporte técnico de Microsoft](https://support.microsoft.com/es-ES). |
-| Rendimiento máximo de una unidad de streaming | 1MB/s* | El rendimiento máximo por unidad de streaming depende del escenario. El rendimiento real puede ser inferior y depende de la complejidad y partición de la consulta. Encontrará más detalles en el artículo [Escalación de trabajos de Azure Stream Analytics](../articles/stream-analytics/stream-analytics-scale-jobs.md). |
+[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Límites de Active Directory
 
@@ -305,4 +301,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

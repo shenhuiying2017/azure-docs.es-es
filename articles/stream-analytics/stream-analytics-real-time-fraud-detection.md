@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok" />
 
 
@@ -45,7 +45,7 @@ La aplicación de ejemplo generará eventos y los insertará en una instancia de
 
 Para crear un Centro de eventos:
 
-1.	En el [Portal de Azure](https://manage.windowsazure.com/) haga clic en **Nuevo** > **Servicios de aplicaciones** > **Bus de servicio** > **Centro de eventos** > **Creación rápida**. Indique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.  
+1.	En el [Portal de Azure](https://manage.windowsazure.com/) haga clic en **Nuevo** > **Servicios de aplicaciones** > **Bus de servicio** > **Centro de eventos** > **Creación rápida**. Indique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.
 2.	Como práctica recomendada, cada trabajo de Análisis de transmisiones debe leer en un solo grupo de consumidores de Centro de eventos. A continuación, le guiaremos a través del proceso de creación de un grupo de consumidores y podrá [obtener más información sobre grupos de consumidores](https://msdn.microsoft.com/library/azure/dn836025.aspx). Para crear un grupo de consumidores, vaya al Centro de eventos recién creado y haga clic en la pestaña **Grupos de consumidores**. Después, haga clic en **Crear** en la parte inferior de la página e indique un nombre para el grupo de consumidores.
 3.	Para otorgar acceso al centro de eventos, necesitamos crear una directiva de acceso compartido. Haga clic en la pestaña **CONFIGURAR** de su Centro de eventos.
 4.	En **Directivas de acceso compartido**, cree una directiva con permisos para **Administrar**.
@@ -264,4 +264,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

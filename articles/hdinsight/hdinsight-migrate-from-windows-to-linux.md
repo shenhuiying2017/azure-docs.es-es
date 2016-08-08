@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
@@ -79,7 +79,7 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 
 6. En la sesión de SSH, use el siguiente comando para copiar los archivos de la cuenta de almacenamiento vinculada a la nueva cuenta de almacenamiento predeterminada. Reemplace CONTAINER y ACCOUNT por la información de contenedor y de cuenta que devolvió el script de PowerShell en el paso 1. Reemplace la ruta de acceso a datos por la ruta de acceso a un archivo de datos.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] Si la estructura de directorios que contiene los datos no existe en el entorno de prueba, puede crearla con el comando siguiente.
 
@@ -240,9 +240,9 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 -   **Si tiene scripts que ya se encuentran en el almacenamiento que utiliza el clúster**, puede usar el siguiente comando desde una sesión de SSH en el clúster basado en Linux para modificar el script.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##Pasos siguientes
 
@@ -254,4 +254,4 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 -   [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

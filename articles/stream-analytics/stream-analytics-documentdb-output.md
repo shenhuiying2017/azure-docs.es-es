@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Tener como destino DocumentDB de Azure para la salida de JSON de Análisis de transmisiones
@@ -54,12 +54,12 @@ La creación de DocumentDB como una salida en Análisis de transmisiones genera 
 
 ![pantalla de salida de análisis de transmisiones de documentdb](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)
 
--   **Alias de salida**: un alias para hacer referencia a esta salida en la consulta ASA.  
--   **Nombre de cuenta**: el nombre o el URI del punto de conexión de la cuenta de DocumentDB.  
--   **Clave de cuenta**: la clave de acceso compartido para la cuenta de DocumentDB.  
--   **Base de datos**: el nombre de la base de datos de DocumentDB.  
--   **Patrón de nombre de colección**: el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. A continuación se muestran entradas válidas como ejemplo: 1) MyCollection: debe existir una colección denominada "MyCollection". 2) MyCollection{partición} – deben existir tales colecciones: "MyCollection0", "MyCollection1", "MyCollection2" y así sucesivamente.  
--   **Clave de partición**: el nombre del campo en los eventos de salida que se usa para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
--   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
+-   **Alias de salida**: un alias para hacer referencia a esta salida en la consulta ASA.
+-   **Nombre de cuenta**: el nombre o el URI del punto de conexión de la cuenta de DocumentDB.
+-   **Clave de cuenta**: la clave de acceso compartido para la cuenta de DocumentDB.
+-   **Base de datos**: el nombre de la base de datos de DocumentDB.
+-   **Patrón de nombre de colección**: el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. A continuación se muestran entradas válidas como ejemplo: 1) MyCollection: debe existir una colección denominada "MyCollection". 2) MyCollection{partición} – deben existir tales colecciones: "MyCollection0", "MyCollection1", "MyCollection2" y así sucesivamente.
+-   **Clave de partición**: el nombre del campo en los eventos de salida que se usa para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).
+-   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

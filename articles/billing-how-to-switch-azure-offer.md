@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cambio de la suscripción de Azure a otra oferta | Microsoft Azure"
-	description="Describe cómo un suscriptor de Azure puede cambiar a otra oferta de Azure"
+	description="Obtenga información acerca de cómo cambiar su suscripción de Azure y cambiar a otra oferta de Azure mediante el portal de administración de suscripción"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/21/2016"
 	ms.author="genli"/>
 
 # Cambio de la suscripción de Azure a otra oferta
@@ -24,12 +24,12 @@ Puede cambiar la suscripción existente a una oferta más favorable sin ningún 
 -	Si descubre que tiene un alto gasto de Azure, es posible que tenga derecha a un descuento si cambia a la oferta de compromiso monetario. Haga clic [aquí](billing-usage-rate-card-overview.md) para más información sobre los detalles del consumo que hace de recursos de Microsoft Azure.
 -	Si desea aprovechar ventajas de pertenencia, como MSDN o BizSpark, después de haberse registrado con una suscripción de pago por uso.
 
-## Cambio de la suscripción a otra oferta
+## Guía para el cambio de la suscripción a otra oferta
 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Inicie sesión en [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
-2.	Seleccione la suscripción que va a transferir.
+2.	Seleccione la suscripción que va a cambiar.
 3.	Haga clic en **Cambiar a otra oferta**.
 
 	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
@@ -48,7 +48,7 @@ Puede cambiar la suscripción existente a una oferta más favorable sin ningún 
 
 **¿Qué cambios de oferta admite?**
 
-Vea [Ofertas disponibles a las que puede cambiar](#available-offers-you-can-switch-to).
+Consulte la lista de [ofertas disponibles a las que puede cambiar](#available-offers-you-can-switch-to).
 
 **¿Tendrán las ofertas de cambio consecuencias en el servicio?**
 
@@ -66,13 +66,15 @@ El día que realiza el cambio, se generará una factura por todos los cargos pen
 
 **¿Puedo usar este mecanismo para migrar desde una oferta directa de la web a [Proveedor de soluciones en la nube ](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o de una oferta de [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?**
 
-Este mecanismo se puede usar para cambiar desde ofertas directas de la web, y viceversa. Para mover la suscripción existente a EA, haga que el administrador de inscripciones agregue su cuenta a este contrato. A continuación, recibirá un correo electrónico de invitación. Al seguir las instrucciones de aceptación de la invitación, las suscripciones de un Contrato Enterprise se moverán automáticamente. En este momento no hay existe la posibilidad de mover una suscripción directa de la web existente a CSP hoy mismo.
+Este mecanismo se puede usar para cambiar solo desde ofertas directas de la web, y viceversa. Para mover la suscripción existente a EA, haga que el administrador de inscripciones agregue su cuenta a este contrato. A continuación, recibirá un correo electrónico de invitación. Al seguir las instrucciones de aceptación de la invitación, las suscripciones de un Contrato Enterprise se moverán automáticamente. En este momento no hay existe la posibilidad de mover una suscripción directa de la web existente a CSP hoy mismo.
 
 ## Ofertas disponibles a las que puede cambiar
 
-A continuación se muestran las rutas de acceso que se admiten actualmente en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Este artículo se actualizará a medida que agreguemos otras opciones. Para otros cambios de oferta, [póngase en contacto con soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
+A continuación se muestran las rutas de acceso que se admiten actualmente en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Este artículo se actualizará a medida que agreguemos otras opciones.
 
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a la [Oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a cualquiera de las [ofertas de crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0720_2016-->
+Para otros cambios de oferta, [póngase en contacto con soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+<!---HONumber=AcomDC_0727_2016-->

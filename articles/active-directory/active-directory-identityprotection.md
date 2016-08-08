@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -33,9 +33,10 @@ La versión preliminar de Azure Active Directory Identity Protection solo se enc
 
 La versión preliminar de Azure Active Directory Identity Protection presenta las siguientes limitaciones en combinación con los dominios federados:
 
-- Las directivas de seguridad no funcionan en los dominios federados.
+- Solo la directiva de seguridad de riesgo de inicio de sesión funciona para los dominios federados. Actualmente, la directiva de seguridad de riesgo del usuario no funciona para los dominios federados
 
 - Los eventos de riesgo son los únicos que se detectan para aplicaciones que se federan con Azure Active Directory
+
 
 ##Introducción
 
@@ -51,7 +52,7 @@ Pero Azure Active Directory Identity Protection es más de una herramienta de su
 
 **Detección de eventos de riesgo y cuentas peligrosas:**
 
-- Detectar 6 tipos de eventos de riesgo mediante el aprendizaje automático y las reglas heurísticas 
+- Detectar 6 tipos de eventos de riesgo mediante el aprendizaje automático y las reglas heurísticas
 
 - Calcular los niveles de riesgo del usuario
 
@@ -153,8 +154,8 @@ El estado de un evento de riesgo es **Activo** o **Cerrado**. Solo los eventos d
 El nivel de riesgo del usuario se calcula con las siguientes entradas:
 
 - Eventos de riesgo activos que afectan al usuario
-- Nivel de riesgo de estos eventos 
-- Si se ha tomado alguna acción de corrección 
+- Nivel de riesgo de estos eventos
+- Si se ha tomado alguna acción de corrección
 
 <br> ![Riesgos de usuario](./media/active-directory-identityprotection/86.png "Riesgos de usuario") <br>
 
@@ -194,7 +195,7 @@ Una corrección es una acción para proteger una identidad o un dispositivo que 
 
 Para corregir los eventos de riesgo del usuario, puede:
 
-- Realizar un restablecimiento de contraseña segura para corregir manualmente los eventos de riesgo del usuario. 
+- Realizar un restablecimiento de contraseña segura para corregir manualmente los eventos de riesgo del usuario.
 
 - Configurar una directiva de seguridad de riesgo del usuario para mitigar o corregir automáticamente los eventos de riesgo del usuario.
 
@@ -258,7 +259,7 @@ El valor predeterminado recomendado para la mayoría de las organizaciones es co
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
-- [Flujo de recuperación de cuentas en peligro](active-directory-identityprotection-flows.md#compromised-account-recovery).  
+- [Flujo de recuperación de cuentas en peligro](active-directory-identityprotection-flows.md#compromised-account-recovery).
 
 - [Flujo de cuentas en peligro bloqueadas](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
@@ -337,11 +338,11 @@ La directiva de riesgo de inicio de sesión:
 En la página **Eventos de riesgo** de la consola de Identity Protection se enumeran todos los eventos:
 
 - A los que se aplicó esta directiva.
-- Puede revisar la actividad y determinar si la acción era apropiada o no. 
+- Puede revisar la actividad y determinar si la acción era apropiada o no.
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
-- [Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
+- [Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 - [Inicios de sesión peligrosos bloqueados](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
@@ -383,7 +384,7 @@ Azure AD Identity Protection ayuda a administrar la puesta en servicio del regis
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
-- [Flujo de registro de autenticación multifactor](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+- [Flujo de registro de autenticación multifactor](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).
 
 - [Registro de autenticación multifactor durante un inicio de sesión peligroso](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
 
@@ -411,4 +412,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md) (Glosario de Azure Active Directory Identity Protection)
  - [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

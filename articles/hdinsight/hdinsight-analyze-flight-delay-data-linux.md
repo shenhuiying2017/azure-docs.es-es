@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -236,9 +236,9 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
 
 3. Use el comando siguiente para exportar los datos de hivesampletable a la tabla mobiledata:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Esto indica a Sqoop que debe conectarse a la base de datos SQL y a la base de datos que contiene la tabla delays, así como exportar los datos de wasb:///tutorials/flightdelays/output (donde se almacenó la salida de la consulta de Hive anterior) a la tabla delays.
+	Esto indica a Sqoop que debe conectarse a la base de datos SQL y a la base de datos que contiene la tabla delays, así como exportar los datos de wasbs:///tutorials/flightdelays/output (donde se almacenó la salida de la consulta de Hive anterior) a la tabla delays.
 
 4. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -291,4 +291,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

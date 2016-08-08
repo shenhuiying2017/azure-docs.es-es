@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="christopheranderson"/>
 
 # Recuperación del servicio móvil en caso de un desastre
@@ -115,4 +115,4 @@ Ahora debería encontrarse en un estado donde el servicio móvil se haya recuper
 [Panel de servicios de Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatización de servicios móviles con CLI de Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

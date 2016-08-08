@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 ## Empiece a crear una aplicación de aprendizaje automático mediante Spark MLlib
 
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -85,7 +85,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 Podemos usar `sqlContext` para realizar las transformaciones de datos estructurados. La primera tarea consiste en cargar los datos de ejemplo ((**Food\_Inspections1.csv**)) en una *trama de datos* de SQL Spark.
 
-1. Dado que los datos sin procesar están en formato CSV, tiene que usar el contexto de Spark para extraer cada línea del archivo en memoria como texto no estructurado; a continuación, utilice la biblioteca CSV de Python para analizar cada línea individualmente. 
+1. Dado que los datos sin procesar están en formato CSV, tiene que usar el contexto de Spark para extraer cada línea del archivo en memoria como texto no estructurado; a continuación, utilice la biblioteca CSV de Python para analizar cada línea individualmente.
 
 
 		def csvParse(s):
@@ -96,7 +96,7 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -222,11 +222,11 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
 
 4. Vemos que una inspección puede tener cinco resultados diferentes:
 	
-	* Business not located (no se encontró el negocio) 
+	* Business not located (no se encontró el negocio)
 	* Fail (no superado)
 	* Pass (pasado)
 	* Pss w/ conditions (ha pasado con condiciones), y
-	* Out of Business (negocio cerrado) 
+	* Out of Business (negocio cerrado)
 
 	Vamos a desarrollar un modelo que pueda predecir el resultado de una inspección de alimentos, teniendo en cuenta las infracciones (violations). Puesto que la regresión logística es un método de clasificación binaria, tiene sentido agrupar los datos en dos categorías: **Fail** y **Pass**. "Pass w/ Conditions" sigue siendo una categoría Pass, por lo que cuando se entrena el modelo, consideraremos los dos resultados como equivalentes. Los datos con otros resultados ("Business Not Located", "Out of Business") no son útiles y por ello los eliminaremos de nuestro conjunto de aprendizaje. Esta eliminación no tiene importancia ya que estas dos categorías constituyen un porcentaje muy pequeño de los resultados.
 
@@ -283,7 +283,7 @@ Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles se
 1. El fragmento de código siguiente crea una trama de datos nueva, **predictionsDf** que contiene la predicción generada por el modelo. El fragmento de código también crea una tabla temporal **Predictions** basada en la trama de datos.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -341,7 +341,7 @@ Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles se
 
 Ahora podemos crear una visualización final que nos ayude a analizar los resultados de esta prueba.
 
-1. Empezaremos por extraer los distintos resultados y predicciones de la tabla temporal **Predictions** creada anteriormente. Las siguientes consultas separan el resultado como *true\_positive*, *false\_positive*, *true\_negative* y *false\_negative*. En las consultas siguientes, hay que desactivar la visualización mediante el uso de `-q` y guardar también la salida (usando `-o`) como tramas de datos que pueden usarse con la instrucción mágica `%%local`. 
+1. Empezaremos por extraer los distintos resultados y predicciones de la tabla temporal **Predictions** creada anteriormente. Las siguientes consultas separan el resultado como *true\_positive*, *false\_positive*, *true\_negative* y *false\_negative*. En las consultas siguientes, hay que desactivar la visualización mediante el uso de `-q` y guardar también la salida (usando `-o`) como tramas de datos que pueden usarse con la instrucción mágica `%%local`.
 
 		%%sql -q -o true_positive
 		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -420,4 +420,4 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

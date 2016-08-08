@@ -106,7 +106,7 @@ Para obtener más información sobre los precios de Azure AD Premium o Basic, co
 | ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? | [Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? | [Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](active-directory-passwords-customize.md#password-managment-look-and-feel) |
+| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
 ##Configuración de los usuarios para que usen el restablecimiento de contraseña
@@ -252,4 +252,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

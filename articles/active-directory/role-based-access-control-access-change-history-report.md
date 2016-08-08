@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ## Creación de un informe con la CLI de Azure
 Para crear un informe de historial de cambios de acceso en la interfaz de línea de comandos (CLI) de Azure, use el comando siguiente:
 ```
-azure authorization changelog
+azure role assignment changelog list
 ```
 
 ## Exportación a una hoja de cálculo
@@ -67,4 +67,4 @@ Para guardar el informe o manipular los datos, exporte los cambios de acceso a u
 - [Control de acceso basado en roles de Azure](role-based-access-control-configure.md)
 - [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md) (Roles personalizados en RBAC de Azure)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

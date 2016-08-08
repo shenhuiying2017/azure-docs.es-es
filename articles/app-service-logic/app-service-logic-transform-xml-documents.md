@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -35,7 +35,7 @@ Otras características:
 - Al crear una asignación, se muestra una representación gráfica de la asignación, incluidas todas las relaciones y los vínculos que cree.
 - Utilice la característica **Comprobar asignación** para agregar un mensaje XML de ejemplo. Con un solo clic, puede probar la asignación creada y ver el resultado generado.
 - Cargue las asignaciones de servicios de BizTalk de Azure existentes (.trfm) y use todas las ventajas de la aplicación de API de transformación.
-- Cuando crea la asignación, no es necesario agregar un esquema. Cuando la asignación esté lista, agréguela a la aplicación de API de transformación y ya puede comenzar. 
+- Cuando crea la asignación, no es necesario agregar un esquema. Cuando la asignación esté lista, agréguela a la aplicación de API de transformación y ya puede comenzar.
 - Es compatible con el formato XML.
 
 
@@ -117,4 +117,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

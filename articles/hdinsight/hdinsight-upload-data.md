@@ -161,7 +161,7 @@ Por ejemplo, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Como el sistema de archivos predeterminado de HDInsight está en el almacenamiento de blobs de Azure, /example/datadavinci.txt está en realidad en el almacenamiento de blobs de Azure. También puede referirse al archivo como:
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 o
 
@@ -188,7 +188,7 @@ El *Explorador de almacenamiento de Azure* es una práctica herramienta para ins
 
 Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para ver instrucciones sobre cómo obtener esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].
 
-1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pedirá el ___Nombre de la cuenta de almacenamiento__ y la __Clave de cuenta de almacenamiento__. Si ya lo ejecutó antes, use el botón __Agregar__ para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
+1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pedirá el ___Nombre de la cuenta de almacenamiento_\_ y la __Clave de cuenta de almacenamiento__. Si ya lo ejecutó antes, use el botón __Agregar\_\_ para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
 
     Escriba el nombre y la clave para la cuenta de almacenamiento que usa el clúster de HDinsight y seleccione __GUARDAR Y ABRIR__.
 
@@ -282,4 +282,4 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

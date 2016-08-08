@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Continuidad del negocio en la nube: copia de seguridad integrada (Base de datos SQL) | Microsoft Azure"
+   pageTitle="Continuidad empresarial en la nube: copia de seguridad integrada (Base de datos SQL) | Microsoft Azure"
    description="Obtenga más información sobre las copias de seguridad integradas de Base de datos SQL que permiten revertir una Base de datos SQL de Azure a un momento dado previo o copiarla en una nueva base de datos en una región geográfica (hasta 35 días)."
    services="sql-database"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
+   ms.workload="NA"
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -32,13 +32,13 @@ Las bases de datos de niveles Básico, Estándar y Premium están protegidas por
 
 ## Redundancia geográfica
 
-Los archivos de copia de seguridad se almacenan en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar la disponibilidad con fines de recuperación ante desastres. A continuación se muestra la replicación geográfica de las copias de seguridad semanales y diarias almacenadas en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar la disponibilidad con fines de recuperación ante desastres.
+Los archivos de copia de seguridad se almacenan en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar la disponibilidad con fines de recuperación ante desastres. Esto garantiza que los archivos de copia de seguridad se repliquen en un [centro de datos asociado](../best-practices-availability-paired-regions.md). A continuación se muestra la replicación geográfica de las copias de seguridad semanales y diarias almacenadas en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar la disponibilidad con fines de recuperación ante desastres.
 
 ![restauración geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
 ## Uso de copias de seguridad automatizadas
 
-También puede [restaurar una base de datos desde las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md) durante su [período de retención](sql-database-service-tiers.md) en:
+También puede [restaurar una base de datos desde las copias de seguridad automatizadas](sql-database-recovery-using-backups.md) durante el [periodo de retención](sql-database-service-tiers.md) en:
 
 - Una base de datos nueva en el mismo servidor lógico recuperada en un punto especificado en el tiempo dentro del período de retención.
 - Una base de datos en el mismo servidor lógico recuperada a la hora de eliminación de una base de datos eliminada.
@@ -62,4 +62,4 @@ El período de retención se determina según el nivel de servicio de la base de
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 - Para obtener una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

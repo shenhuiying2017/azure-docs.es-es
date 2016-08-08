@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de colas de Python
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Información general
 
@@ -84,7 +84,7 @@ Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje represe
 
 ## Obtención de la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **get\_queue\_metadata** solicita al servicio de colas que devuelva los metadatos sobre la cola y el **approximate\_message\_count**. El resultado solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **get\_queue\_metadata** solicita al servicio Cola que devuelva los metadatos sobre la cola y el **approximate\_message\_count**. El resultado solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
 
 	metadata = queue_service.get_queue_metadata('taskqueue')
 	count = metadata.approximate_message_count
@@ -107,4 +107,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento en co
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

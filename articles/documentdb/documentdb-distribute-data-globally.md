@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/25/2016"
    ms.author="kipandya"/>
    
    
 # Distribución de datos global con DocumentDB
+
+> [AZURE.NOTE] La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Azure DocumentDB está diseñado para satisfacer las necesidades de aplicaciones de IoT que constan de millones de dispositivos distribuidos globalmente y aplicaciones a escala de Internet que proporcionan experiencias con una gran capacidad de respuesta a usuarios de todo el mundo. Estos sistemas de base de datos se enfrentan al desafío de lograr acceso de baja latencia a los datos de aplicaciones desde varias regiones geográficas con garantías bien definidas de coherencia y disponibilidad de datos. En cuando sistema de base de datos distribuido globalmente, DocumentDB simplifica la distribución global de los datos al ofrecer cuentas de base de datos de varias regiones completamente administradas que proporcionan un claro equilibrio entre coherencia, disponibilidad y rendimiento, todo ello con sus garantías correspondientes. Las cuentas de base de datos de DocumentDB se ofrecen con alta disponibilidad, latencias de ms de un solo dígito, varios [niveles de coherencia bien definidos][consistency], conmutación por error regional transparente con API de hospedaje múltiple, y la posibilidad de escalar elásticamente la capacidad de proceso y el rendimiento en todo el mundo.
 
@@ -35,7 +37,7 @@ La selección del nivel de coherencia adecuado depende de la garantía de cohere
 
 ## Uso de conmutación por error de varias regiones 
 
-Azure DocumentDB es capaz de conmutar por error de forma transparente cuentas de base de datos entre varias regiones de Azure; las nuevas [API de hospedaje múltiple][developingwithmultipleregions] garantizan que la aplicación puede seguir usando un punto de conexión lógico y que no se verá interrumpida por la conmutación por error. El usuario es quien controla la conmutación por error, lo que proporciona la flexibilidad para volver a ubicar la cuenta de base de datos en caso de que se produzca algunas de la posibles condiciones de error, como errores de aplicación, infraestructura, servicio o regionales (reales o simulados). En caso de error regional de DocumentDB, el servicio conmuta por error de forma transparente su cuenta de base de datos y la aplicación sigue accediendo a los datos sin pérdida de disponibilidad. Aunque DocumentDB ofrece [Acuerdos de Nivel de Servicio (SLA) de un 99,99 % de disponibilidad][sla], puede probar las propiedades de disponibilidad completa de la aplicación simulando un error regional. Esto puede hacerlo tanto [mediante programación][arm] como por medio del Portal de Azure.
+Azure DocumentDB es capaz de conmutar por error de forma transparente cuentas de base de datos entre varias regiones de Azure; las nuevas [API de hospedaje múltiple][developingwithmultipleregions] garantizan que la aplicación puede seguir usando un punto de conexión lógico y que no se verá interrumpida por la conmutación por error. El usuario es quien controla la conmutación por error, lo que proporciona la flexibilidad para volver a ubicar la cuenta de base de datos en caso de que se produzca algunas de la posibles condiciones de error, como errores de aplicación, infraestructura, servicio o regionales (reales o simulados). En caso de error regional de DocumentDB, el servicio conmuta por error de forma transparente su cuenta de base de datos y la aplicación sigue accediendo a los datos sin pérdida de disponibilidad. Aunque DocumentDB ofrece [SLA de un 99,99 % de disponibilidad][sla], puede probar las propiedades de disponibilidad completa de la aplicación simulando un error regional. Esto puede hacerlo tanto [mediante programación][arm] como por medio del Portal de Azure.
 
 
 ## Escalado en el mundo
@@ -61,7 +63,7 @@ Puede decidir que los datos se distribuyan local o globalmente mediante la asoci
 Más información sobre la distribución de datos global con DocumentDB en los siguientes artículos:
 
 * [Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB][throughputandstorage]
-* [Developing with multi-region DocumentDB accounts][developingwithmultipleregions] (Desarrollo con cuentas de DocumentDB de varias regiones)
+* [Developing with multi-region DocumentDB accounts (Desarrollo con cuentas de DocumentDB de varias regiones)][developingwithmultipleregions]
 * [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB][consistency]
 * [Contrato de nivel de servicio para DocumentDB][sla]
 * [Administración de una cuenta de DocumentDB][manageaccount]
@@ -79,12 +81,12 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/es-ES/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/regions/#services
+[serviceregions]: https://azure.microsoft.com/es-ES/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="¿Dónde está mi proyecto .NET después de agregar los servicios móviles mediante Visual Studio Connected Services? | Microsoft Azure"
-	description="Describe dónde está su proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services"
+	description="Describe dónde está su proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services "
 	services="mobile-services"
 	documentationCenter=""
 	authors="mlhoop"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # ¿Dónde está mi proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services?
@@ -41,4 +41,4 @@ Si se crea un servicio móvil .NET en el proveedor de servicios conectado, se cr
 
 [Más información acerca de Servicios móviles](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,257 +1,422 @@
 <properties
-    pageTitle="Incorporación del conector de SFTP a las aplicaciones lógicas | Microsoft Azure"
-    description="Información general del conector de SFTP con parámetros de la API de REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Aprenda a utilizar el conector de SFTP en las aplicaciones lógicas | Microsoft Azure"
+description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a la API de SFTP para enviar y recibir archivos. Puede realizar varias operaciones, como crear, actualizar, obtener o eliminar archivos."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="logic-apps"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/20/2016"
+ms.author="deonhe"/>
 
-# Introducción al conector de SFTP 
-Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor SFTP, como cargar archivos, eliminar archivos, etc. El conector de SFTP puede usarse desde:
+# Introducción al conector de SFTP
 
-- Aplicaciones lógicas
+Use el conector SFTP a fin de acceder a una cuenta SFTP para enviar y recibir archivos. Puede realizar varias operaciones, como crear, actualizar, obtener o eliminar archivos.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Con SFTP, puede:
+## Conexión a SFTP
 
-- Compilar el flujo de negocio en función de los datos que obtiene de SFTP. 
-- Usar un desencadenador cuando se actualiza un archivo.
-- Usar acciones que crean archivos, eliminan archivos, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener el contenido de un archivo y después actualizar una base de datos SQL. 
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-
-## Desencadenadores y acciones
-El conector de SFTP dispone de los siguientes desencadenadores y acciones.
-
-Desencadenadores | Acciones
---- | ---
-<ul><li>Cuando se crea o modifica un archivo </li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
-
-Todos los conectores admiten datos en formato JSON y XML.
-
-
-## Creación de una conexión a SFTP
-Cuando agregue este conector a las aplicaciones lógicas, escriba los valores siguientes:
-
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-|Dirección del servidor host| Sí | Escriba el dominio completo (FQDN) o la dirección IP del servidor SFTP.|
-|Nombre de usuario| Sí | Escriba el nombre de usuario para conectarse al servidor SFTP.|
-|Password | Sí | Escriba la contraseña del nombre de usuario.|
-|Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta tecla. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la tecla. | 
-
-Aquí se indican los pasos detallados para crear la conexión:
+### Creación de una conexión a SFTP
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a SFTP](../../includes/connectors-create-api-sftp.md)]
 
-Después de crear la conexión, especifique las propiedades de SFTP, como la ruta de acceso a la carpeta o el archivo. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+## Uso de un desencadenador de SFTP
 
->[AZURE.TIP] Puede usar esta misma conexión de SFTP en otras aplicaciones lógicas.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
+En este ejemplo, le enseñaremos a usar el desencadenador **SFTP - When a file is added or modified** (SFTP - Cuando se agrega o modifica un archivo) para que, cuando se agregue o se modifique un archivo en un servidor SFTP, se inicie el flujo de trabajo de una aplicación lógica. En el ejemplo, también aprenderá a agregar una condición que compruebe el contenido del archivo nuevo o modificado y a tomar una decisión para extraer el archivo si su contenido indica que debe extraerse antes de usar el contenido. Por último, aprenderá a agregar una acción para extraer el contenido de un archivo y colocar el contenido extraído en una carpeta del servidor SFTP.
 
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
+En un entorno empresarial, podría utilizar este desencadenador para supervisar los nuevos archivos que se agregan a una carpeta SFTP y que representan los pedidos de los clientes. Podría utilizar una acción del conector de SFTP, como **Get file content** (Obtener contenido del archivo), para obtener el contenido del archivo a fin de procesarlo y almacenarlo después en la base de datos de pedidos.
 
-### Crear archivo
-Carga un archivo en SFTP. ```POST: /datasets/default/files```
+>[AZURE.INCLUDE [Pasos para crear un desencadenador de SFTP](../../includes/connectors-create-api-sftp-trigger.md)]
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderPath|cadena|yes|query|Ninguna |Ruta de acceso única de la carpeta en SFTP|
-|name|cadena|yes|query| Ninguna|Nombre del archivo|
-|body|string(binary) |yes|body|Ninguna |Contenido del archivo que se va a crear en SFTP|
+## Agregar una condición
 
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+>[AZURE.INCLUDE [Pasos para agregar una condición](../../includes/connectors-create-api-sftp-condition.md)]
 
-### Copiar archivo
-Copia un archivo en SFTP. ```POST: /datasets/default/copyFile```
+## Uso de una acción de SFTP
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query| Ninguna|Ruta de acceso al archivo de origen|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso al archivo de destino, incluido el nombre de archivo|
-|overwrite|boolean|no|query|Ninguna|Sobrescribe el archivo de destino si está establecido en 'true'|
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Eliminar archivo 
-Elimina un archivo de SFTP. ```DELETE: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo en SFTP|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Extraer carpeta
-Extrae un archivo de almacenamiento en una carpeta mediante SFTP (ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna |Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso a la carpeta de destino|
-|overwrite|boolean|no|query|Ninguna|Sobrescribe los archivos de destino si está establecido en 'true'|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Obtener contenido de archivo
-Recupera el contenido de un archivo de SFTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo en SFTP|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+>[AZURE.INCLUDE [Pasos para crear una acción de SFTP](../../includes/connectors-create-api-sftp-action.md)]
 
 
-### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido de archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+## Detalles técnicos
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query| Ninguna|Ruta de acceso única del archivo en SFTP|
+Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
 
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+## Desencadenadores de SFTP
 
+SFTP tiene el siguiente desencadenador o desencadenadores:
 
-### Obtener metadatos de archivo 
-Recupera metadatos de un archivo de SFTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path| Ninguna|Identificador único del archivo en SFTP|
-
-#### Respuesta
-| Nombre | Descripción |
-| --- | --- |
-| 200 | OK | 
-| default | Error en la operación.
+|Desencadenador | Descripción|
+|--- | ---|
+|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified) (Cuando se agrega o modifica un archivo)|Esta operación desencadena un flujo cuando se agrega o modifica un archivo en una carpeta.|
 
 
-### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera metadatos de un archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+## Acciones SFTP
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna |Ruta de acceso única del archivo en SFTP|
+SFTP tiene las siguientes acciones:
 
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+
+|Acción|Descripción|
+|--- | ---|
+|[Obtención de metadatos de archivo](connectors-create-api-sftp.md#get-file-metadata)|Esta operación obtiene metadatos de archivo mediante el id. del archivo.|
+|[Actualizar archivo](connectors-create-api-sftp.md#update-file)|Esta operación actualiza el contenido del archivo.|
+|[Eliminar archivo](connectors-create-api-sftp.md#delete-file)|Esta operación elimina un archivo.|
+|[Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-sftp.md#get-file-metadata-using-path)|Esta operación obtiene metadatos de archivo mediante la ruta de acceso del archivo.|
+|[Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-sftp.md#get-file-content-using-path)|Esta operación obtiene el contenido de archivo mediante la ruta de acceso del archivo.|
+|[Obtener contenido de archivo](connectors-create-api-sftp.md#get-file-content)|Esta operación obtiene el contenido de archivo mediante el id. del archivo.|
+|[Crear archivo](connectors-create-api-sftp.md#create-file)|Esta operación carga un archivo en un servidor SFTP.|
+|[Copiar archivo](connectors-create-api-sftp.md#copy-file)|Esta operación copia un archivo en un servidor SFTP.|
+|[Enumerar archivos de la carpeta](connectors-create-api-sftp.md#list-files-in-folder)|Esta operación obtiene los archivos contenidos en una carpeta.|
+|[Enumerar archivos de la carpeta raíz](connectors-create-api-sftp.md#list-files-in-root-folder)|Esta operación obtiene los archivos en la carpeta raíz.|
+|[Extraer carpeta](connectors-create-api-sftp.md#extract-folder)|Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).|
+### Detalles de la acción
+
+Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas:
+
+
+
+### Obtención de metadatos de archivo
+Esta operación obtiene metadatos de archivo mediante el id. del archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Especificación del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
 
 
 ### Actualizar archivo
-Actualiza el contenido de un archivo mediante SFTP. ```PUT: /datasets/default/files/{id}```
+Esta operación actualiza el contenido del archivo.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo en SFTP|
-|body|string(binary) |yes|body| Ninguna|Contenido del archivo que se va a actualizar en SFTP|
 
-#### Respuesta
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Especificación del archivo|
+|body*|Contenido del archivo|Contenido del archivo que se va a actualizar|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Eliminar archivo
+Esta operación elimina un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Especificación del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Obtener metadatos de archivo mediante la ruta de acceso
+Esta operación obtiene metadatos de archivo mediante la ruta de acceso del archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Ruta de acceso única del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Obtener contenido de archivo mediante la ruta de acceso
+Esta operación obtiene el contenido de archivo mediante la ruta de acceso del archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Ruta de acceso única del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Obtener contenido de archivo
+Esta operación obtiene el contenido de archivo mediante el id. del archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Especificación del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Crear archivo
+Esta operación carga un archivo en un servidor SFTP.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderPath*|Ruta de acceso a la carpeta|Ruta de acceso única de la carpeta|
+|name*|Nombre de archivo|Nombre del archivo|
+|body*|Contenido del archivo|Contenido del archivo que se va a crear|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+|| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Copiar archivo
+Esta operación copia un archivo en un servidor SFTP.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Ruta de acceso del archivo de origen|Ruta de acceso al archivo de origen|
+|destination*|Ruta de acceso del archivo de destino|Ruta de acceso al archivo de destino, incluido el nombre de archivo|
+|overwrite|¿Sobrescribir?|Sobrescribe el archivo de destino si está establecido en 'true'|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### When a file is added or modified (Cuando se agrega o modifica un archivo)
+Esta operación desencadena un flujo cuando se agrega o modifica un archivo en una carpeta.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderId*|Carpeta|Especificación de una carpeta|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Enumerar archivos de la carpeta
+Esta operación obtiene los archivos contenidos en una carpeta.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Carpeta|Especificación de la carpeta|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Enumerar archivos de la carpeta raíz
+Esta operación obtiene los archivos en la carpeta raíz.
+
+
+No hay parámetros para esta llamada
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Extraer carpeta
+Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Ruta de acceso del archivo de origen|Ruta de acceso al archivo de almacenamiento|
+|destination*|Ruta de acceso a la carpeta de destino|Ruta de acceso a la carpeta de destino|
+|overwrite|¿Sobrescribir?|Sobrescribe los archivos de destino si está establecido en 'true'|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+## Respuestas HTTP
+
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido.|
 |default|Error en la operación.|
 
 
-### Cuando se crea o modifica un archivo 
-Desencadena un flujo al modificar un archivo en SFTP. ```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna |Identificador único de la carpeta|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
 
 
-## Definiciones de objeto
 
-#### DataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-#### BlobDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-#### BlobMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
-|Tamaño|integer|no|
-|MediaType|cadena|no|
-|IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

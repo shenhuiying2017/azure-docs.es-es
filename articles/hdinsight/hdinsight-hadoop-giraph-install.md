@@ -89,14 +89,14 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 		$clusterName = "clustername"
 		# Giraph examples jar
-		$jarFile = "wasb:///example/jars/giraph-examples.jar"
+		$jarFile = "wasbs:///example/jars/giraph-examples.jar"
 		# Arguments for this job
 		$jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
 		                "-ca", "mapred.job.tracker=headnodehost:9010",
 		                "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-		                "-vip", "wasb:///example/data/tiny_graph.txt",
+		                "-vip", "wasbs:///example/data/tiny_graph.txt",
 		                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-		                "-op",  "wasb:///example/output/shortestpaths",
+		                "-op",  "wasbs:///example/output/shortestpaths",
 		                "-w", "2"
 		# Create the definition
 		$jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -115,7 +115,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	En el ejemplo anterior, reemplace **clustername** por el nombre del clúster de HDInsight donde está instalado Giraph.
 
-5. Vea los resultados. Cuando haya finalizado el trabajo, los resultados se almacenarán en dos archivos de salida en la carpeta \_\___wasb:///example/out/shotestpaths__. Los archivos se denominan __part-m-00001__ y __part-m-00002__. Realice los pasos siguientes para descargar y ver el resultado:
+5. Vea los resultados. Una vez finalizado el trabajo, los resultados se almacenarán en dos archivos de salida en la carpeta __wasbs:///example/out/shotestpaths__. Los archivos se denominan __part-m-00001__ y __part-m-00002\_\_. Realice los pasos siguientes para descargar y ver el resultado:
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -183,4 +183,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
- pageTitle="Recursos de proceso de escalado automático en el clúster de HPC | Microsoft Azure"
+ pageTitle="Escalar nodos de clúster de HPC Pack automáticamente | Microsoft Azure"
  description="Aumento y reducción automáticos del número de nodos de proceso del clúster de HPC Pack en Azure"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un clúster de HPC Pack en máquinas virtuales de Azure, puede que quiera una manera de aumentar o reducir automáticamente el número de recursos de proceso de Azure, tales como los núcleos, según la carga de trabajo actual en el clúster. Esto le permite usar su recursos de Azure de forma más eficiente y controlar sus costos. Para ello, establezca la propiedad **AutoGrowShrink** del clúster de HPC Pack. También puede ejecutar el script de HPC PowerShell **AzureAutoGrowShrink.ps1**, que se instala con HPC Pack.
+Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un clúster de HPC Pack en máquinas virtuales de Azure, puede que quiera una manera de aumentar o reducir automáticamente el número de recursos de proceso de Azure, tales como los nodos o los núcleos, según la carga de trabajo actual en el clúster. Esto le permite usar su recursos de Azure de forma más eficiente y controlar sus costos. Para ello, establezca la propiedad **AutoGrowShrink** del clúster de HPC Pack. También puede ejecutar el script de HPC PowerShell **AzureAutoGrowShrink.ps1**, que se instala con HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Además, actualmente solo se pueden aumentar y reducir automáticamente los nodos de proceso de HPC Pack que ejecutan un sistema operativo Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Además, actualmente solo se pueden aumentar y reducir automáticamente los nodos de proceso de HPC Pack que ejecutan un sistema operativo Windows Server.
 
 ## Establecimiento de la propiedad de clúster AutoGrowShrink
 
@@ -34,7 +34,7 @@ Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un c
 
 * **Para un clúster con un nodo principal en Azure**: si usa el script de implementación de HPC Pack IaaS para crear el clúster, habilite la propiedad **AutoGrowShrink** del clúster mediante la opción AutoGrowShrink en el archivo de configuración del clúster. Para más información, consulte la documentación que acompaña a la [descarga del script](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    También puede establecer la propiedad **AutoGrowShrink** del clúster después de implementarlo mediante los comandos de HPC PowerShell que se describen en la sección siguiente. Para usar HPC PowerShell, complete primero los pasos siguientes:
+    También puede habilitar la propiedad **AutoGrowShrink** del clúster después de implementar este mediante los comandos de HPC PowerShell que se describen en la sección siguiente. Para prepararse para esto, complete primero los pasos siguientes:
     1. Configure un certificado de administración de Azure en el nodo principal y en la suscripción de Azure. En una implementación de prueba, puede usar el certificado autofirmado Default Microsoft HPC Azure que HPC Pack instala en el nodo principal; simplemente cargue dicho certificado en su suscripción de Azure. Para las opciones y los pasos, consulte la [Guía de la biblioteca de TechNet](https://technet.microsoft.com/library/gg481759.aspx).
     2. Ejecute **regedit** en el nodo principal, vaya a HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo y agregue un nuevo valor de cadena. Establezca Value name en "ThumbPrint" y Value data en la huella digital del certificado del paso 1.
 
@@ -90,7 +90,7 @@ Los siguientes son parámetros de AutoGrowShrink que se pueden modificar con el 
 
 ### Ejemplo de MPI
 
-De forma predeterminada, HPC Pack aumenta un 1 % los nodos adicionales para los trabajos de MPI (**ExtraNodesGrowRatio** se establece en 1). El motivo es que MPI puede necesitar varios nodos y el trabajo solo se puede ejecutar cuando todos los nodos están listos. Cuando Azure inicia los nodos, en ocasiones un nodo puede necesitar más tiempo para iniciarse que otros, lo que provoca que los demás nodos estén inactivos mientras esperan a que ese nodo se prepare. Al aumentar los nodos adicionales, HPC Pack reduce este tiempo de espera de recursos y podría ahorrar costos. Para aumentar el porcentaje de nodos adicionales para los trabajos MPI (por ejemplo, al 10 %), ejecute un comando similar a
+De forma predeterminada, HPC Pack aumenta un 1 % los nodos adicionales para los trabajos de MPI (**ExtraNodesGrowRatio** se establece en 1). El motivo es que MPI puede necesitar varios nodos y el trabajo solo se puede ejecutar cuando todos los nodos están listos. Cuando Azure inicia los nodos, en ocasiones un nodo puede necesitar más tiempo para iniciarse que otros, lo que provoca que los demás nodos estén inactivos mientras esperan a que ese nodo esté preparado. Al aumentar los nodos adicionales, HPC Pack reduce este tiempo de espera de recursos y podría ahorrar costos. Para aumentar el porcentaje de nodos adicionales para los trabajos MPI (por ejemplo, al 10 %), ejecute un comando similar a
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
@@ -179,4 +179,4 @@ En el ejemplo siguiente se configuran las máquinas virtuales del nodo de ejecuc
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

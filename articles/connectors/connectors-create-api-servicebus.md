@@ -1,148 +1,174 @@
 <properties
-pageTitle="Uso del conector del Bus de servicio de Azure en las aplicaciones lógicas | Microsoft Azure"
-description="Introducción al uso del conector del Bus de servicio de Azure (conector) en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="Aprenda a utilizar el conector del Bus de servicio de Azure en las aplicaciones lógicas | Microsoft Azure"
+description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/23/2016"
+ms.workload="integration"
+ms.date="07/27/2016"
 ms.author="deonhe"/>
 
-# Introducción al conector del Bus de servicio de Azure 
+# Introducción al conector del Bus de servicio de Azure
 
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Con el Bus de servicio de Azure, puede:
+## Conexión al Bus de servicio de Azure
 
-* Usarlo para crear aplicaciones lógicas  
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Crear una conexión al Bus de servicio de Azure
 
-## Hablemos de acciones y desencadenadores
+>[AZURE.INCLUDE [Pasos para crear una conexión al Bus de servicio de Azure](../../includes/connectors-create-api-servicebus.md)]
 
-El conector del Bus de servicio de Azure puede usarse como una acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
+## Uso de un desencadenador del Bus de servicio de Azure
 
- El conector del Bus de servicio de Azure tiene las siguientes acciones o desencadenadores disponibles:
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Acciones del Bus de servicio de Azure
-Puede realizar estas acciones:
+>[AZURE.INCLUDE [Pasos para crear un desencadenador del Bus de servicio](../../includes/connectors-create-api-servicebus-trigger.md)]
 
-|Acción|Descripción|
-|--- | ---|
-|SendMessage|Envía el mensaje a la cola o al tema del Bus de servicio de Azure.|
-### Desencadenadores del Bus de servicio de Azure
-Se pueden escuchar estos eventos:
+## Uso de una acción del Bus de servicio de Azure
+
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+[AZURE.INCLUDE [Pasos para crear una acción del Bus de servicio](../../includes/connectors-create-api-servicebus-action.md)]
+
+## Detalles técnicos
+
+Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
+
+## Desencadenadores del Bus de servicio de Azure
+
+El Bus de servicio de Azure tiene el siguiente desencadenador o desencadenadores:
 
 |Desencadenador | Descripción|
 |--- | ---|
-|GetMessageFromQueue|Obtiene un nuevo mensaje de la cola del Bus de servicio de Azure.|
-|GetMessageFromTopic|Obtiene un nuevo mensaje de la suscripción a un tema del Bus de servicio de Azure.|
+|[Cuando se recibe un mensaje en una cola](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|Esta operación desencadena un flujo al recibir un mensaje en una cola.|
+|[Cuando se recibe un mensaje en una suscripción al tema](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|Esta operación desencadena un flujo al recibir un mensaje en una suscripción al tema.|
 
 
-## Crear una conexión al Bus de servicio de Azure
-Para usar el conector del Bus de servicio de Azure, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
+## Acciones del Bus de servicio de Azure
 
->[AZURE.INCLUDE [Pasos para crear una conexión a ServiceBus](../../includes/connectors-create-api-servicebus.md)]
-
->[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
-
-## Referencia de la API de REST del Bus de servicio de Azure
-#### Esta documentación es para la versión: 1.0
+El Bus de servicio de Azure tiene las siguientes acciones:
 
 
-### Envía el mensaje a la cola o al tema del Bus de servicio de Azure.
-**```POST: /{entityName}/messages```**
+|Acción|Descripción|
+|--- | ---|
+|[Enviar mensaje](connectors-create-api-servicebus.md#send-message)|Esta operación envía un mensaje a una cola o un tema.|
+### Detalles de la acción
+
+Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas:
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|message| |yes|body|Ninguna|Mensaje del Bus de servicio|
-|entityName|cadena|yes|path|Ninguna|Nombre de la cola o del tema|
+### Enviar mensaje
+Esta operación envía un mensaje a una cola o un tema.
 
 
-### Estas son las posibles respuestas:
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|message*|Message|Mensaje para enviar|
+|entityName*|Nombre de la cola o el tema|Nombre de la cola o del tema|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Cuando se recibe un mensaje en una cola
+Esta operación desencadena un flujo al recibir un mensaje en una cola.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|queueName*|Nombre de cola|Nombre de la cola|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+ServiceBusMessage: este objeto tiene el contenido y las propiedades de un mensaje del Bus de servicio.
+
+
+| Nombre de propiedad | Tipo de datos | Descripción |
+|---|---|---|
+|ContentData|cadena|Contenido del mensaje|
+|ContentType|cadena|Tipo de contenido del contenido del mensaje|
+|ContentTransferEncoding|cadena|Codificación de transferencia de contenido del contenido del mensaje ("none"|"base64")|
+|Propiedades|objeto|Pares de clave y valor para cada propiedad asincrónica|
+|MessageId|cadena|Se trata de un valor definido por el usuario que el Bus de servicio puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|Para|cadena|Dirección de envío|
+|ReplyTo|cadena|Dirección de la cola a la que responder|
+|ReplyToSessionId|cadena|Identificador de la sesión a la que responder|
+|Etiqueta|cadena|Etiqueta específica de la aplicación|
+|ScheduledEnqueueTimeUtc|cadena|Fecha y hora, en UTC, a las que el mensaje se agregará a la cola|
+|SessionId|cadena|Identificador de la sesión|
+|CorrelationId|cadena|Identificador de la correlación|
+|TimeToLive|cadena|Se trata de la duración, en tics, durante la cual el mensaje es válido. La duración se inicia a partir del envío del mensaje al Bus de servicio.|
+
+
+
+
+### Cuando se recibe un mensaje en una suscripción al tema
+Esta operación desencadena un flujo al recibir un mensaje en una suscripción al tema.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|topicName*|Nombre del tema|Nombre del tema|
+|subscriptionName*|Nombre de la suscripción al tema|Nombre de la suscripción al tema|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+ServiceBusMessage: este objeto tiene el contenido y las propiedades de un mensaje del Bus de servicio.
+
+
+| Nombre de propiedad | Tipo de datos | Descripción |
+|---|---|---|
+|ContentData|cadena|Contenido del mensaje|
+|ContentType|cadena|Tipo de contenido del contenido del mensaje|
+|ContentTransferEncoding|cadena|Codificación de transferencia de contenido del contenido del mensaje ("none"|"base64")|
+|Propiedades|objeto|Pares de clave y valor para cada propiedad asincrónica|
+|MessageId|cadena|Se trata de un valor definido por el usuario que el Bus de servicio puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|Para|cadena|Dirección de envío|
+|ReplyTo|cadena|Dirección de la cola a la que responder|
+|ReplyToSessionId|cadena|Identificador de la sesión a la que responder|
+|Etiqueta|cadena|Etiqueta específica de la aplicación|
+|ScheduledEnqueueTimeUtc|cadena|Fecha y hora, en UTC, a las que el mensaje se agregará a la cola|
+|SessionId|cadena|Identificador de la sesión|
+|CorrelationId|cadena|Identificador de la correlación|
+|TimeToLive|cadena|Se trata de la duración, en tics, durante la cual el mensaje es válido. La duración se inicia a partir del envío del mensaje al Bus de servicio.|
+
+
+
+## Respuestas HTTP
+
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
 
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido.|
 |default|Error en la operación.|
-------
-
-
-
-### Obtiene un nuevo mensaje de la cola del Bus de servicio de Azure.
-**```GET: /{queueName}/messages/head```**
-
-
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|queueName|cadena|yes|path|Ninguna|Nombre de la cola.|
-
-
-### Estas son las posibles respuestas:
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-------
-
-
-
-### Obtiene un nuevo mensaje de la suscripción a un tema del Bus de servicio de Azure.
-**```GET: /{topicName}/subscriptions/{subscriptionName}/messages/head```**
-
-
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|topicName|cadena|yes|path|Ninguna|Nombre del tema.|
-|subscriptionName|cadena|yes|path|Ninguna|Nombre de la suscripción al tema.|
-
-
-### Estas son las posibles respuestas:
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-------
-
-
-
-## Definiciones de objeto: 
-
- **ServiceBusMessage**: el mensaje consta de contenido y propiedades.
-
-Propiedades necesarias para ServiceBusMessage:
-
-ContentTransferEncoding
-
-**Todas las propiedades**:
-
-
-| Nombre | Tipo de datos |
-|---|---|
-|ContentData|cadena|
-|ContentType|cadena|
-|ContentTransferEncoding|cadena|
-|Propiedades|objeto|
-
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

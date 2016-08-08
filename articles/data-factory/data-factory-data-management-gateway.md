@@ -126,10 +126,10 @@ En la página principal puede hacer lo siguiente:
 ### Página Configuración
 En la página Configuración puede hacer lo siguiente:
 
-- Ver, modificar y exportar el **certificado** usado por la puerta de enlace.
+- Ver, modificar y exportar el **certificado** usado por la puerta de enlace. Este certificado se utiliza para cifrar las credenciales de orígenes de datos.
 - Cambiar el **puerto HTTPS** del punto de conexión. La puerta de enlace abre un puerto para establecer las credenciales del origen de datos.
 - Ver el **estado** del punto de conexión
-- Ver el **certificado SSL** usado para establecer las credenciales de los orígenes de datos.
+- El **certificado SSL** de visualización se utiliza para establecer la comunicación SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.
 
 ### Página Diagnóstico
 En la página Diagnóstico puede hacer lo siguiente:
@@ -426,4 +426,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 ## Pasos siguientes
 - Vea el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md) para más información sobre la puerta de enlace.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

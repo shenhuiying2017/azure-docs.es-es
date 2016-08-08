@@ -1,4 +1,5 @@
-Las organizaciones usan más aplicaciones de Software como servicio (SaaS) para aumentar la productividad porque la tecnología de nube y herramientas están cada vez más disponibles. A medida que aumenta el número de aplicaciones de SaaS, se convierte en un desafío para los administradores administrar cuentas y derechos de acceso y para los usuarios recordar las distintas contraseñas. La administración de esas aplicaciones individualmente crea más trabajo y es menos seguro.
+Las organizaciones están usando más aplicaciones de [Software como servicio (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) para aumentar la productividad dado que la tecnología y las herramientas de nube son cada vez más fáciles de obtener. A medida que aumenta el número de aplicaciones de SaaS, se convierte en un desafío para los administradores administrar cuentas y derechos de acceso y para los usuarios recordar las distintas contraseñas. La administración de esas aplicaciones individualmente crea más trabajo y es menos seguro.
+
 
 - Los empleados que tienen que realizar un seguimiento de las contraseñas tienden a usar métodos menos seguros para recordarlas, ya sea escribiendo las contraseñas o usando las mismas contraseñas en varias cuentas.
 
@@ -21,4 +22,4 @@ En el caso de aquellos usuarios que crearon sus propias cuentas para las aplicac
 
 Al integrar una aplicación en Azure AD, puede asignar las identidades de aplicaciones establecidas de los usuarios a sus respectivas identidades de Azure AD.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

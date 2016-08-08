@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de archivos de Azure desde Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Información general
 
@@ -78,7 +78,7 @@ Para mostrar los archivos y los directorios en un recurso compartido, use el mé
 
 Para descargar datos desde un archivo, use **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes** o **get\_file\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-En el ejemplo siguiente se muestra cómo usar **get\_file\_to\_path** para descargar el contenido del archivo **myfile** y almacenarlo en el archivo **out-sunset.png**:
+En el ejemplo siguiente se muestra cómo usar **get\_file\_to\_path** para descargar el contenido del archivo **myfile** y almacenarlo en el archivo **out-sunset.png**.
 
 	file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 
@@ -100,4 +100,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ar
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

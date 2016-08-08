@@ -3,7 +3,7 @@
     description="Diseñe aplicaciones de alto rendimiento con Almacenamiento premium de Azure. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
 	editor="tysonn" />
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/26/2016"
+    ms.author="aungoo-msft"/>
 
 # Almacenamiento premium de Azure: diseño de alto rendimiento
 
@@ -25,11 +25,11 @@ Si bien en este artículo se tratan los escenarios de rendimiento de la capa de 
 
 Este artículo le ayudará a responder a las siguientes preguntas habituales acerca de cómo optimizar el rendimiento de las aplicaciones en Almacenamiento premium de Azure:
 
--   ¿Cómo medir el rendimiento de las aplicaciones?  
--   ¿Por qué no se ve el alto rendimiento esperado?  
--   ¿Qué factores influyen en el rendimiento de las aplicaciones en Almacenamiento premium?  
--   ¿Cómo influyen estos factores en el rendimiento de las aplicaciones en Almacenamiento premium?  
--   ¿Cómo puede optimizar para IOPS, el ancho de banda y la latencia?  
+-   ¿Cómo medir el rendimiento de las aplicaciones?
+-   ¿Por qué no se ve el alto rendimiento esperado?
+-   ¿Qué factores influyen en el rendimiento de las aplicaciones en Almacenamiento premium?
+-   ¿Cómo influyen estos factores en el rendimiento de las aplicaciones en Almacenamiento premium?
+-   ¿Cómo puede optimizar para IOPS, el ancho de banda y la latencia?
 
 Proporcionamos estas directrices específicamente para Almacenamiento premium porque las cargas de trabajo que se ejecutan en Almacenamiento premium dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Almacenamiento estándar.
 
@@ -144,12 +144,12 @@ Algunas aplicaciones permiten modificar su tamaño de E/S, mientras que otras ap
 
 Si usa una aplicación que no permite cambiar el tamaño de E/S, use las directrices de este artículo para optimizar el KPI de rendimiento que es más importante para su aplicación. Por ejemplo,
 
--   Una aplicación OLTP genera millones de solicitudes de E/S pequeñas y aleatorias. Para controlar estos tipos de solicitudes de E/S, debe diseñar la infraestructura de la aplicación para obtener una mayor IOPS.  
+-   Una aplicación OLTP genera millones de solicitudes de E/S pequeñas y aleatorias. Para controlar estos tipos de solicitudes de E/S, debe diseñar la infraestructura de la aplicación para obtener una mayor IOPS.
 -   Una aplicación de almacenamiento de datos genera solicitudes de E/S grandes y secuenciales. Para controlar estos tipos de solicitudes de E/S, debe diseñar sla infraestructura de la aplicación para obtener el mayor ancho de banda o el rendimiento.
 
 Si usa una aplicación que le permite cambiar el tamaño de E/S, use esta regla general para el tamaño de E/S, además otras directrices de rendimiento.
 
--   Un tamaño de E/S menor para obtener una mayor IOPS. Por ejemplo, 8 KB para una aplicación OLTP.  
+-   Un tamaño de E/S menor para obtener una mayor IOPS. Por ejemplo, 8 KB para una aplicación OLTP.
 -   Un tamaño de E/S mayor para obtener un mayor ancho de banda y rendimiento. Por ejemplo, 1024 KB para una aplicación de Almacenamiento de datos.
 
 Este es un ejemplo de cómo calcular la IOPS y el ancho de banda y el rendimiento de la aplicación. Considere una aplicación con un disco P30. El máximo rendimiento/ancho de banda e IOPS que un disco P30 puede lograr es 200 MB por segundo y 5000 IOPS respectivamente. Ahora, si la aplicación requiere la IOPS máxima en el disco P30 y usa un tamaño de E/S más pequeño, como 8 KB, el ancho de banda resultante que podrá obtener es de 40 MB por segundo. Sin embargo, si la aplicación requiere el máximo rendimiento/ancho de banda del disco P30 y usa un tamaño de E/S mayor, como 1024 KB, el número de IOPS resultante será menor, 200 IOPS. Por lo tanto, ajuste el tamaño de E/S para que cumpla los requisitos de IOPS y ancho de banda y rendimiento de la aplicación. En la tabla siguiente se resumen los distintos tamaños de E/S y la IOPS y el rendimiento correspondientes para un disco P30.
@@ -250,14 +250,14 @@ A continuación se muestra la configuración de caché de disco recomendada para
 
 *ReadOnly* Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Almacenamiento premium, puede lograr una baja latencia de lectura y obtener una IOPS de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
 
-1.  Las lecturas realizadas desde la memoria caché, que se encuentra en la memoria de la máquina virtual y el SSD local, son mucho más rápidas que las lecturas desde el disco de datos, que se encuentra en el almacenamiento de blobs de Azure.  
+1.  Las lecturas realizadas desde la memoria caché, que se encuentra en la memoria de la máquina virtual y el SSD local, son mucho más rápidas que las lecturas desde el disco de datos, que se encuentra en el almacenamiento de blobs de Azure.
 2.  Almacenamiento premium no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
 
 *ReadWrite* De forma predeterminada, los discos del sistema operativo tienen habilitada la caché ReadWrite. Recientemente hemos agregado también compatibilidad para el almacenamiento en caché ReadWrite en los discos de datos. Si usa el almacenamiento en caché ReadWrite, debe tener una manera adecuada de escribir los datos de la memoria caché en discos persistentes. Por ejemplo, SQL Server administra por sí mismo la escritura de los datos en caché en los discos de almacenamiento persistentes. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
 
 Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Almacenamiento premium del modo siguiente:
 
-1.  Configure la caché "ReadOnly" en discos de almacenamiento premium que hospeda archivos de datos. a. Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos. b. Atender las lecturas de la caché significa que hay un rendimiento adicional de los discos de datos premium. SQL Server puede usar este rendimiento adicional para recuperar más páginas de datos y otras operaciones, como copia de seguridad/restauración, cargas por lotes y volver a generar un índice.  
+1.  Configure la caché "ReadOnly" en discos de almacenamiento premium que hospeda archivos de datos. a. Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos. b. Atender las lecturas de la caché significa que hay un rendimiento adicional de los discos de datos premium. SQL Server puede usar este rendimiento adicional para recuperar más páginas de datos y otras operaciones, como copia de seguridad/restauración, cargas por lotes y volver a generar un índice.
 2.  Configure la caché “Ninguna” en los discos de almacenamiento premium que hospedan los archivos de registro. a. Los archivos de registro tienen sobre todo muchas operaciones de escritura. Por lo tanto, no se benefician de la caché ReadOnly.
 
 ## Seccionamiento del disco  
@@ -428,8 +428,8 @@ directory=/mnt/nocache
 ```
 
 Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para alcanzar la IOPS máxima
--   Una profundidad de la cola alta de 256.  
--   Un tamaño de bloque pequeño de 8 KB.  
+-   Una profundidad de la cola alta de 256.
+-   Un tamaño de bloque pequeño de 8 KB.
 -   Varios subprocesos que realizan escrituras aleatorias.
 
 Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
@@ -464,8 +464,8 @@ directory=/mnt/readcache
 
 Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para alcanzar la IOPS máxima
 
--   Una profundidad de la cola alta de 256.  
--   Un tamaño de bloque pequeño de 8 KB.  
+-   Una profundidad de la cola alta de 256.
+-   Un tamaño de bloque pequeño de 8 KB.
 -   Varios subprocesos que realizan escrituras aleatorias.
 
 Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
@@ -517,8 +517,8 @@ rate_iops=12500
 
 Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para alcanzar la IOPS máxima
 
--   Una profundidad de la cola alta de 128.  
--   Un tamaño de bloque pequeño de 4 KB.  
+-   Una profundidad de la cola alta de 128.
+-   Un tamaño de bloque pequeño de 4 KB.
 -   Varios subprocesos que realizan lecturas y escrituras aleatorias.
 
 Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
@@ -533,11 +533,11 @@ Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura y escrit
 
 Más información sobre Almacenamiento premium de Azure:
 
-- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)  
+- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)
 
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
 - [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
-- [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+- [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

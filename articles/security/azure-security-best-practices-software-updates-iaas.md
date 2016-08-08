@@ -18,7 +18,7 @@
 
 #Prácticas recomendadas para actualizaciones de software en IaaS de Microsoft Azure
 
-Antes de profundizar en cualquier tipo de discusión acerca de los procedimientos recomendados para un entorno de IaaS de Azure, es importante comprender cuáles son los escenarios en los que tendrá que administrar actualizaciones de software. El diagrama siguiente debería ayudarle con esto:
+Antes de profundizar en cualquier tipo de discusión sobre los procedimientos recomendados para un entorno de [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) de Azure, es importante comprender cuáles son los escenarios en los que tendrá que administrar actualizaciones de software. El diagrama siguiente debería ayudarle con esto:
 
 ![Modelos de nube y responsabilidades](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
@@ -118,4 +118,4 @@ Además de las consideraciones generales explicadas en este artículo, también 
 
 Use las instrucciones descritas en este artículo para determinar las mejores opciones sobre actualizaciones de software para máquinas virtuales dentro de IaaS de Azure. Hay muchas similitudes entre las prácticas recomendadas de actualización de software en un centro de datos tradicional y en IaaS de Azure, por lo tanto, se recomienda evaluar las directivas de actualización de software actuales para incluir máquinas virtuales de Azure y aplicar las prácticas recomendadas relevantes de este artículo en el proceso de actualización de software global.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->
