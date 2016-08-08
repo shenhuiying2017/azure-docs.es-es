@@ -112,7 +112,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -126,7 +126,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\\HomeController.cs*.
+1. Abra *Controllers\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 

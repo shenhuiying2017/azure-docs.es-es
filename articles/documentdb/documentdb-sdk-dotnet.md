@@ -155,7 +155,27 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versi처n | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.9.2](#1.9.2) | 23 de julio, 2016 |--- | 1.9.1 | En desuso |--- | 1.9.0 | En desuso |--- | [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- | [1\.7.1](#1.7.1) | 06 de mayo, 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- | [1\.6.3](#1.6.3) | 08 de abril, 2016 |--- | [1\.6.2](#1.6.2) | 29 de marzo, 2016 |--- | [1\.5.3](#1.5.3) | 19 de febrero, 2016 |--- | [1\.5.2](#1.5.2) | 14 de diciembre, 2015 |--- | [1\.5.1](#1.5.1) | 23 de noviembre, 2015 |--- | [1\.5.0](#1.5.0) | 05 de octubre, 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto, 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto, 2015 |--- | [1\.3.0](#1.3.0) | 05 de agosto, 2015 |--- | [1\.2.0](#1.2.0) | 06 de julio, 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril, 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- | [0\.9.3-versi처n preliminar](#0.9.x-preview) | 12 de marzo, 2015 | 29 de febrero, 2016 | [0\.9.2-versi처n preliminar](#0.9.x-preview) | Enero, 2015 | 29 de febrero, 2016 | [.9.1-versi처n preliminar](#0.9.x-preview) | 13 de octubre, 2014 | 29 de febrero, 2016 | [0\.9.0-versi처n preliminar](#0.9.x-preview) | 21 de agosto, 2014 | 29 de febrero, 2016
+| [1\.9.2](#1.9.2) | 23 de julio, 2016 |--- 
+| 1.9.1 | En desuso |--- | 1.9.0 | En desuso |--- 
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
+| [1\.7.1](#1.7.1) | 06 de mayo, 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
+| [1\.6.3](#1.6.3) | 08 de abril, 2016 |--- 
+| [1\.6.2](#1.6.2) | 29 de marzo, 2016 |--- 
+| [1\.5.3](#1.5.3) | 19 de febrero, 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 de diciembre, 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 de noviembre, 2015 |--- 
+| [1\.5.0](#1.5.0) | 05 de octubre, 2015 |--- 
+| [1\.4.1](#1.4.1) | 25 de agosto, 2015 |--- 
+| [1\.4.0](#1.4.0) | 13 de agosto, 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de agosto, 2015 |--- 
+| [1\.2.0](#1.2.0) | 06 de julio, 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 de abril, 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
+| [0\.9.3-versi처n preliminar](#0.9.x-preview) | 12 de marzo, 2015 | 29 de febrero, 2016 
+| [0\.9.2-versi처n preliminar](#0.9.x-preview) | Enero, 2015 | 29 de febrero, 2016 
+| [.9.1-versi처n preliminar](#0.9.x-preview) | 13 de octubre, 2014 | 29 de febrero, 2016 
+| [0\.9.0-versi처n preliminar](#0.9.x-preview) | 21 de agosto, 2014 | 29 de febrero, 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

@@ -262,7 +262,7 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 ## Artículos relacionados
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
-* [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](https://msdn.microsoft.com/powershell/dsc/overview)
+* [Información general sobre la configuración de estado deseado de Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 

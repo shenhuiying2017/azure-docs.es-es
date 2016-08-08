@@ -124,9 +124,9 @@ Máquinas virtuales de Linux compatibles:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versiones de Debian 7, 8
-- Versiones de CentOS 6.*, 7.*
-- Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
-- Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
+- Versiones de CentOS 6.\*, 7.*
+- Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
+- Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 

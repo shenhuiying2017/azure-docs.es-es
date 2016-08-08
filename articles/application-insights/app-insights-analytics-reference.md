@@ -1684,7 +1684,17 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o igual a |`>` |Mayor que |`>=`|Mayor que o igual a |`<>`|No igual a |`!=`|No igual a
+| - | Restar |
+| * | Multiplicar | 
+| / | Dividir | 
+| % | Aplicar módulo | 
+|| 
+|`<` |Menor que 
+|`<=`|Menor que o Igual a 
+|`>` |Mayor que 
+|`>=`|Mayor que o Igual a 
+|`<>`|No igual a 
+|`!=`|No igual a
 
 
 ### abs

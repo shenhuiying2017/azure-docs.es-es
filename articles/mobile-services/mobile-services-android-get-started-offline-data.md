@@ -200,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]
 
-* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] (Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
+* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] \(Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
 
 
 <!-- URLs. -->

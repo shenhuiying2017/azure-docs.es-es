@@ -39,7 +39,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 	+ **Back-end de .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **Back-end de JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE]Asegúrese de usar el formato correcto de ruta de acceso a dirección URL de redireccionamiento para su tipo de back-end de Servicios móviles. Si es incorrecto, la autenticación no se realizará correctamente. &nbsp;
+	 >[AZURE.NOTE] Asegúrese de usar el formato correcto de ruta de acceso a dirección URL de redireccionamiento para su tipo de back-end de Servicios móviles. Si es incorrecto, la autenticación no se realizará correctamente. &nbsp;
 
    	![][2]
 
