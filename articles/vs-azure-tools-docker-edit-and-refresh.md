@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="07/22/2016"
    ms.author="allclark" />
 
 # Depuración de aplicaciones en un contenedor de Docker local
@@ -107,6 +107,7 @@ Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS) puede
 - [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode): servicios de lenguaje para editar archivos de Docker, a los que próximamente se incorporarán más escenarios de E2E
 - [Documentación acerca de los contenedores de Windows](http://aka.ms/containers): información de Windows Server y Nano Server
 - [Servicio de contenedores de Azure](https://azure.microsoft.com/services/container-service/): [Presentación del servicio Contenedor de Azure](http://aka.ms/AzureContainerService)
+-    Para obtener más ejemplos de cómo trabajar con Docker, consulte cómo [trabajar con Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) en la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) realizada en Connect 2015. Para ver más guías rápidas de la demostración HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 ## Varias herramientas de Docker
 
@@ -124,4 +125,4 @@ Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS) puede
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

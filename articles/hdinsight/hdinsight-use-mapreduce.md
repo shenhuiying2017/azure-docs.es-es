@@ -62,17 +62,17 @@ En este ejemplo, para datos de ejemplo, usará los cuadernos de Leonardo Da Vinc
 
 Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado para clústeres de Hadoop. HDInsight puede acceder a archivos almacenados en el almacenamiento de blobs mediante el prefijo **wasb**. Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
 
-	wasb:///example/data/gutenberg/davinci.txt
+	wasbs:///example/data/gutenberg/davinci.txt
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE] En la sintaxis anterior, **wasb:///** se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] En la sintaxis anterior, **wasbs:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>Acerca del MapReduce de ejemplo
 
-El trabajo de MapReduce que se usa en este ejemplo se encuentra en **wasb://example/jars/hadoop-mapreduce-examples.jar** y se proporciona con el clúster de HDInsight. Contiene un ejemplo de recuento de palabras que se ejecutará con **davinci.txt**.
+El trabajo de MapReduce que se usa en este ejemplo se encuentra en **wasbs://example/jars/hadoop-mapreduce-examples.jar** y se proporciona con el clúster de HDInsight. Contiene un ejemplo de recuento de palabras que se ejecutará con **davinci.txt**.
 
-> [AZURE.NOTE] En los clústeres de HDInsight 2.1, la ubicación del archivo es **wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] En los clústeres de HDInsight 2.1, la ubicación del archivo es **wasbs:///example/jars/hadoop-examples.jar**.
 
 Como referencia, lo siguiente es el código Java para el trabajo de MapReduce de recuento de palabras:
 
@@ -188,4 +188,4 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

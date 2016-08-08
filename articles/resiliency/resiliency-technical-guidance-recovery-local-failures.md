@@ -110,7 +110,7 @@ Un disco de máquina virtual se almacena como un blob en páginas en Almacenamie
 
 Base de datos SQL de Azure proporciona la base de datos como un servicio. Permite que las aplicaciones se aprovisionen rápidamente bases de datos relacionales, inserten datos en ellas y las consulten. Proporciona muchas de las conocidas características y funcionalidades de SQL Server, al tiempo que reduce la carga de hardware, configuración, aplicación de revisiones y resistencia.
 
->[AZURE.NOTE] Base de datos SQL de Azure no proporciona una paridad de características uno a uno con SQL Server. Está pensada para satisfacer un conjunto diferente de requisitos, que es adecuado exclusivamente para aplicaciones en la nube (escala elástica, base de datos como servicio para reducir costos de mantenimiento, etc.). Para más información, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Base de datos SQL de Azure no proporciona una paridad de características uno a uno con SQL Server. Está pensada para satisfacer un conjunto diferente de requisitos, que es adecuado exclusivamente para aplicaciones en la nube (escala elástica, base de datos como servicio para reducir costos de mantenimiento, etc.). Para obtener más información, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Replicación
 
@@ -223,4 +223,4 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

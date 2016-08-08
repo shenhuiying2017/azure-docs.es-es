@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -121,10 +121,7 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 
 ## Más información.
 
-[Supervisión de las aplicaciones lógica](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Lista de aplicaciones de API y conectores del Servicio de aplicaciones](app-service-logic-connectors-list.md)<br/>
-[Control de acceso basado en roles en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
-[Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
+[Supervisión de las aplicaciones lógica](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de aplicaciones de API y conectores del Servicio de aplicaciones](app-service-logic-connectors-list.md)<br/> [Control de acceso basado en roles en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -137,4 +134,4 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

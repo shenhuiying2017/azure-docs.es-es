@@ -154,7 +154,15 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
 
 ## Pasos siguientes
 
-Para obtener más información sobre los dispositivos de IoT, consulte el [sitio para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot/), donde encontrará documentación y vínculos.
+Para obtener más información sobre las opciones para personalizar las soluciones preconfiguradas, consulte estos artículos:
+
+- [Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure][lnk-logicapp]
+- [Uso de telemetría dinámica con la solución de supervisión remota preconfigurada][lnk-dynamic]
+- [Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota][lnk-devinfo]
+
+[lnk-logicapp]: iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
@@ -164,4 +172,4 @@ Para obtener más información sobre los dispositivos de IoT, consulte el [sitio
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

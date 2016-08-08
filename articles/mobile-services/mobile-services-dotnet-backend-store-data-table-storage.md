@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas
@@ -103,7 +103,7 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
             return DomainManager.QueryAsync(options);
         }
 
-	A diferencia de una base de datos SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse en una consulta.
+	A diferencia de una base de datos SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado, pero no componerse en una consulta.
 
 ## Actualización de la aplicación de cliente
 
@@ -156,4 +156,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

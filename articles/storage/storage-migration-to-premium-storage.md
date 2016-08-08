@@ -3,7 +3,7 @@
     description="Migre las máquinas virtuales existentes a Almacenamiento premium de Azure. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
     editor="tysonn"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/25/2016"
+    ms.author="aungoo-msft"/>
 
 
 # Migrar a Almacenamiento premium de Azure
@@ -415,7 +415,7 @@ Si tiene varias máquinas virtuales para migrar, la automatización mediante scr
 
     # whether or not to copy the os disk, the default is only copy data disks
     [Parameter(Mandatory = $false)]
-    [String] $DataDiskOnly = $true,
+    [Bool] $DataDiskOnly = $true,
 
     # how frequently to report the copy status in sceconds
     [Parameter(Mandatory = $false)]
@@ -680,4 +680,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

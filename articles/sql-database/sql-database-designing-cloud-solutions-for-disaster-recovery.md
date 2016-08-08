@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/25/2016"
+   ms.date="07/20/2016"
    ms.author="sashan"/>
 
 # Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL
@@ -36,7 +36,7 @@ Esta opción es mejor para las aplicaciones con las siguientes características:
 
 En este caso la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando se ven afectados todos los componentes de aplicación y es necesario conmutar por error como una unidad. Para la redundancia geográfica tanto la lógica de aplicación como la base de datos se replican en otra región, pero no se usan para la carga de trabajo de aplicación en las condiciones normales. La aplicación en la región secundaria debe configurarse para usar una cadena de conexión SQL a la base de datos secundaria. El Administrador de tráfico se configura para usar [el método de enrutamiento de conmutación por error](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
-> [AZURE.NOTE] En este artículo [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) se utiliza únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de conmutación por error.    
+> [AZURE.NOTE] [Azure traffic manager]En este artículo (../traffic-manager/traffic-manager-overview.md) se utiliza únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de conmutación por error.
 
 Además de las instancias de la aplicación principal, debe considerar la implementación de una pequeña [aplicación de rol de trabajo](cloud-services-choose-me.md#tellmecs) que supervise la base de datos principal mediante la emisión de comandos periódicos T-SQL de solo lectura (RO). Puede usarla para activar automáticamente la conmutación por error, para generar una alerta en la consola de administración de la aplicación o para ambas acciones. Para asegurarse de que la supervisión no está afectada por las interrupciones que afecten a toda la región, debe implementar las instancias de la aplicación de supervisión en cada región y conectarlas a la base de datos en otra región, pero solo la instancia en la región secundaria tiene que estar activa.
 
@@ -161,9 +161,9 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 ## Pasos siguientes
 
 - Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
-- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md).
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
 - Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

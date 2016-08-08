@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
@@ -22,7 +22,7 @@ En este artículo se describe cómo puede usar la actividad de copia en Data Fac
 
 En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
 
-[AZURE.NOTE] En estos momentos, no se pueden copiar datos entre los almacenes de datos de IaaS de Azure o local y Azure DocumentDB. En breve, habilitaremos la matriz completa de Azure DocumentDB.
+> [AZURE.NOTE] La copia de datos de almacenes de datos locales o IaaS de Azure en Azure DocumentDB y viceversa es compatible con la versión 2.1 y posterior de la puerta de enlace de administración de datos.
 
 ## Ejemplo: copia de datos de DocumentDB a un blob de Azure
 
@@ -383,10 +383,10 @@ Ejemplo:
 ### Esquema de Data Factory
 En los almacenes de datos sin esquemas como DocumentDB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
 
-1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
-2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
 
-Por lo tanto, para los orígenes de datos sin esquemas, se recomienda especificar la estructura de los datos mediante la propiedad **structure**.
+Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
 
 ## Propiedades de tipo de actividad de copia de DocumentDB de Azure
 
@@ -430,4 +430,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

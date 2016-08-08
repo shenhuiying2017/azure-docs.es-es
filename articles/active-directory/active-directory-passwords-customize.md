@@ -37,7 +37,7 @@ A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda expl
 | ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? | [Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? | [Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](#password-managment-look-and-feel) |
+| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |
 
 
 ## Aspecto de la Administración de contraseñas
@@ -875,4 +875,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

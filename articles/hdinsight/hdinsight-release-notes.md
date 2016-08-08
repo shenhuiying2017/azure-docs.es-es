@@ -14,11 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/21/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+## Notas de la versión del 14/07/2016 de HDInsight
+
+Los números de versión completos de los clústeres de HDInsight basados en Linux implementados con esta versión son:
+
+|HDI |Versión del clúster de HDI |HDP |Compilación de HDP |Compilación de Ambari |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.7932505 |2\.2 |2\.2.9.1-11 |2\.2.1.12-2 |
+|3\.3 |3\.3.1000.0.7932505 |2\.3 |2\.3.3.1-18 |2\.2.1.12-2 |
+|3\.4 |3\.4.1000.0.7933003 |2\.4 |2\.4.2.0 |2\.2.1.12-2 |
+
+Los números de versión completos de los clústeres de HDInsight basados en Windows implementados con esta versión son:
+
+|HDI |Versión del clúster de HDI |HDP |Compilación de HDP |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.989.2441725 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.989.2441725 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.989.2441725 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.989.2441725 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.989.2441725 |2\.3 |2\.3.3.1-21 |
 
 ## Notas de la versión del 07/07/2016 de HDinsight
 
@@ -65,8 +85,8 @@ Esta versión contiene las siguientes actualizaciones.
 
 | Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Spark en HDInsight está disponible con carácter general | Esta versión ofrece mejoras de disponibilidad, escalabilidad y productividad para el código fuente de Apache Spark en HDInsight. <ul><li>Acuerdo de SLA líder del sector con disponibilidad del 99,9 %, lo que resulta adecuado para cargas de trabajo empresariales exigentes.</li><li>Capa de almacenamiento escalable mediante Azure Data Lake Store.</li><li>Herramientas de productividad en cada fase de la exploración y el desarrollo de los datos. Los cuadernos de Jupyter Notebook con el kernel Spark personalizado permiten la exploración interactiva de los datos, la integración con paneles de BI, como Power BI, Tableau y Qlik, resulta adecuada para compartir datos rápidamente y la creación continua de informes y el complemento IntelliJ es la opción en la que se puede confiar para el desarrollo y la depuración de artefactos de código a largo plazo.</li></ul>| Servicio | Spark| N/D|
-| Herramientas de HDInsight para IntelliJ | Se trata de un complemento IntelliJ IDEA para clústeres HDInsight Spark, y presenta las siguientes características.<ul><li>Creación y escritura de una aplicación Spark de forma fácil en Scala y Java con compatibilidad con herramientas de creación de primera clase para IntelliSense, formato automático, comprobación de errores, etc.</li><li>Prueba local de la aplicación Spark.</li><li>Envío de trabajos al clúster de HDInsight Spark y recuperación de los resultados.</li><li>Inicio de sesión en Azure y acceso a todos los clústeres Spark asociados a sus suscripciones de Azure.</li><li>Navegación por todos los recursos de almacenamiento asociados del clúster de HDInsight Spark.</li><li>Navegación por el historial de todos los trabajos e información de trabajos para el clúster HDInsight Spark.</li><li>Depuración de los trabajos de Spark de forma remota desde su equipo de escritorio.</li></ul>| Herramientas | Spark| N/D
+| Spark en HDInsight está disponible con carácter general | Esta versión ofrece mejoras de disponibilidad, escalabilidad y productividad para el código fuente de Apache Spark en HDInsight. <ul><li>Acuerdo de SLA líder del sector con disponibilidad del 99,9 %, lo que resulta adecuado para cargas de trabajo empresariales exigentes.</li><li>Capa de almacenamiento escalable mediante Almacén de Azure Data Lake.</li><li>Herramientas de productividad en cada fase de la exploración y el desarrollo de los datos. Los cuadernos de Jupyter Notebook con el kernel Spark personalizado permiten la exploración interactiva de los datos, la integración con paneles de BI, como Power BI, Tableau y Qlik, resulta adecuada para compartir datos rápidamente y la creación continua de informes y el complemento IntelliJ es la opción en la que se puede confiar para el desarrollo y la depuración de artefactos de código a largo plazo.</li></ul>| Servicio | Spark| N/D|
+| Herramientas de HDInsight para IntelliJ | Se trata de un complemento IntelliJ IDEA para clústeres HDInsight Spark, y presenta las siguientes características.<ul><li>Creación y escritura de una aplicación Spark de forma fácil en Scala y Java con compatibilidad con herramientas de creación de primera clase para IntelliSense, formato automático, comprobación de errores, etc.</li><li>Prueba local de la aplicación Spark.</li><li>Envío de trabajos al clúster de HDInsight Spark y recuperación de los resultados.</li><li>Inicio de sesión en Azure y acceso a todos los clústeres Spark asociados a sus suscripciones de Azure.</li><li>Navegación por todos los recursos de almacenamiento asociados del clúster de HDInsight Spark.</li><li>Navegación por el historial de todos los trabajos e información de trabajos para el clúster de HDInsight Spark.</li><li>Depuración de los trabajos de Spark de forma remota desde su equipo de escritorio.</li></ul>| Herramientas | Spark| N/D
 
 ## Notas de la versión del 13/05/2016 de HDinsight
 
@@ -1372,7 +1392,7 @@ Respecto al mensaje de error de Azure PowerShell y el SDK de HDInsight: "*El cl�
 
 ## Notas de la versión del 21/08/2014
 
-* Vamos a agregar la siguiente configuración de WebHCat (HIVE-7155) que establece el límite de memoria predeterminado para un trabajo de controlador Templeton en un 1 GB. (El valor predeterminado anterior era 512 MB).
+* Vamos a agregar la siguiente configuración de WebHCat (HIVE-7155) que establece el límite de memoria predeterminado para un trabajo de controlador Templeton en un 1 GB. (El valor predeterminado anterior era 512 MB).
 
 	 templeton.mapper.memory.mb (=1024)
 
@@ -1460,7 +1480,7 @@ Las tiendas de metadatos Oozie se asocian a clústeres específicos y no se pued
 
 ###Cambios drásticos
 
-**Sintaxis de prefijo**: la única sintaxis compatible con los clústeres de HDInsight 3.1 y 3.0 es "wasb://". La antigua sintaxis "asv://" es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.1 o 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight cuya versión sea 3.1 o 3.0 y que usen explícitamente la sintaxis "asv://" tendrán errores. Debería usarse la sintaxis "wasb://" en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight 3.1 o 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis "asv://" tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis "wasb://" para recursos de dirección.
+**Sintaxis de prefijo**: la única sintaxis compatible con los clústeres de HDInsight 3.1 y 3.0 es "wasb://". La antigua sintaxis "asv://" es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.1 o 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight cuya versión sea 3.1 o 3.0 y que usen explícitamente la sintaxis "asv://" tendrán errores. Debería usarse la sintaxis wasb:// en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight 3.1 o 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis "asv://" tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
 
 
 **Puertos**: los puertos usados por el servicio HDInsight han cambiado. Los números de puerto que se estuvieron usando estaban dentro del intervalo de puertos transitorio del sistema operativo Windows. Los puertos se asignan automáticamente desde un intervalo transitorio predefinido en comunicaciones basadas en protocolo de Internet de corta duración. El nuevo conjunto de números de puerto de servicio de Hortonworks Data Platform (HDP) permitidos están fuera de este intervalo para evitar conflictos que podrían surgir con los puertos que usan los servicios que se ejecutan en el nodo principal. Los nuevos números de puerto no deben provocar ningún cambio brusco. Los números usados son los siguientes:
@@ -1632,4 +1652,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

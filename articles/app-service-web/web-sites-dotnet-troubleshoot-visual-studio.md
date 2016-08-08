@@ -104,7 +104,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 3. Agregue la siguiente línea al elemento `system.web`:
 
-	`<customErrors mode="off"></customErrors>`
+	`<customErrors mode="Off"></customErrors>`
 
 	![Editar Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 
@@ -733,4 +733,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

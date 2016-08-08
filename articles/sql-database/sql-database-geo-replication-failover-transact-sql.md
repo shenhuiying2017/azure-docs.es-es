@@ -94,12 +94,12 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
 
 
-## Recursos adicionales
+## Pasos siguientes   
 
-- [Spotlight on new Geo-Replication capabilities (Lo más destacado de las nuevas funcionalidades de replicación geográfica)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
-- [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
+- Para obtener información sobre cómo llevar a cabo tareas de recuperación después de desastres mediante la replicación geográfica activa, incluidos los pasos previos y posteriores, consulte el artículo sobre [recuperación ante desastres](sql-database-disaster-recovery.md).
+- Para ver una entrada de blog de Sasha Nosov sobre la replicación geográfica activa, consulte [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica).
+- Para obtener información sobre cómo diseñar aplicaciones de nube para usar la replicación geográfica activa, consulte [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+- Para saber cómo utilizar la replicación geográfica activa con los grupos de bases de datos elásticas, consulte [Grupos de bases de datos elásticas](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Para ver una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

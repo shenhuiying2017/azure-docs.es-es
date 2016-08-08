@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Automatización de servicios móviles con herramientas de línea de comandos
@@ -187,4 +187,4 @@ Para obtener más información sobre el registro de scripts, consulte [Referenci
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Instalación de las herramientas de línea de comandos de Azure para Mac y Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

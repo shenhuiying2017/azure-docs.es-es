@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="markgal"
+   manager="jimpark"
    editor=""/>
 
 <tags
@@ -31,6 +31,8 @@ Antes de empezar a solucionar el problema, le recomendamos que descargue e insta
 
 También recomendamos encarecidamente que revise el artículo [P+F de servicio de Copia de seguridad de Azure](backup-azure-backup-faq.md) para asegurarse de que no experimenta alguno de los problemas habituales de configuración.
 
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 ## Pasos para solucionar problemas
 <a id="cause1"></a>
 ## Causa 1: Copia de seguridad lenta debido a cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad
@@ -45,13 +47,13 @@ Estos son algunos contadores de rendimiento e intervalos que pueden resultar út
 
 | Contador | Status |
 |---|---|
-|Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad | • Entre 100 % y 50 % de inactividad = Correcto</br> • Del 49 % al 20 % de inactividad = Advertencia o supervisión</br>• 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación|
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) | • 0,001 ms a 0,015 ms = Correcto</br>• 0,015 ms a 0,025 = Advertencia o supervisión</br>• 0,026 ms o superior = Situación crítica o fuera de la especificación|
+|Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad | • Entre 100 % y 50 % de inactividad = Correcto</br> • Del 49 % al 20 % de inactividad = Advertencia o supervisión</br>• Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación|
+| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) | • De 0,001 ms a 0,015 ms = Correcto</br>• De 0,015 ms a 0,025 = Advertencia o supervisión</br>• 0,026 ms o superior = Situación crítica o fuera de la especificación|
 | Logical Disk(Physical Disk) [Disco lógico (disco físico)] -- Longitud actual de la cola de disco (para todas las instancias) | 80 solicitudes durante más de 6 minutos |
-| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado)|• Inferior al 60 % del bloque consumido = Correcto<br>• 61 % al 80 % del bloque consumido = Advertencia o supervisión</br>• Superior al 80 % del bloque consumido = Situación crítica o fuera de la especificación|
-| Memoria: Bytes de bloque paginado |• Inferior al 60 % del bloque consumido = Correcto</br>• 61 % al 80 % del bloque consumido = Advertencia o supervisión</br>• Superior al 80 % del bloque consumido = Situación crítica o fuera de la especificación|
-| Memoria: Megabytes disponibles| • 50 % de memoria libre disponible o más = correcto</br>• 25 % de memoria libre disponible = Supervisión.</br>• 10 % de memoria libre disponible = Advertencia.</br>• Menos de 100 MB o el 5% de memoria libre disponible = Situación crítica o fuera de la especificación.|
-|Procesador: \\% de tiempo de procesador (todas las instancias)|• Inferior al 60 % consumido = Correcto</br>• Del 61 al 90 % consumido = Supervisión o precaución</br>• Del 91 % al 100 % consumido = Situación crítica|
+| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado)|• Inferior al 60 % del bloque consumido = Correcto<br>• Del 61 % al 80 % del bloque consumido = Advertencia o supervisión</br>• Superior al 80 % del bloque consumido = Situación crítica o fuera de la especificación|
+| Memoria: Bytes de bloque paginado |• Inferior al 60 % del bloque consumido = Correcto</br>• Del 61 % al 80 % del bloque consumido = Advertencia o supervisión</br>• Superior al 80 % del bloque consumido = Situación crítica o fuera de la especificación|
+| Memoria: Megabytes disponibles| • 50 % de memoria libre disponible o más = Correcto</br>• 25 % de memoria libre disponible = Supervisión.</br>• 10 % de memoria libre disponible = Advertencia.</br>• Menos de 100 MB o el 5 % de memoria libre disponible = Situación crítica o fuera de la especificación.|
+|Procesador: \\% de tiempo de procesador (todas las instancias)|• Inferior al 60 % consumido = Correcto</br>• Del 61 % al 90 % consumido = Supervisión o precaución</br>• Del 91 % al 100 % consumido = Situación crítica|
 
 
 > [AZURE.NOTE] Si ya se ha aislado la infraestructura causante, se aconseja desfragmentar los discos que desea proteger de forma regular para mejorar el rendimiento.
@@ -89,8 +91,8 @@ Este comportamiento se produce porque mientras se realiza la copia de seguridad 
 
 Siga los pasos que se describen a continuación para entender el cuello de botella y trabajar según corresponda en los pasos siguientes:
 
-a. **La interfaz de usuario muestra el progreso de la cantidad de datos transferidos**: en este caso, los datos se están transfiriendo todavía y el ancho de banda de red o el tamaño de los datos podría provocar retrasos.
+a. **La interfaz de usuario muestra el progreso de la cantidad de datos transferidos**: en este caso, los datos se están transfiriendo todavía y el ancho de banda de red o el tamaño de los datos podrían provocar retrasos.
 
 b. **La interfaz de usuario no muestra progreso**: en ese caso, abra los registros ubicados en "C:\\Agente de Servicios de recuperación de Microsoft Azure\\Temp" y, a continuación, busque la entrada "FileProvider::EndData" en los registros. Esta entrada indica que se completó la transferencia de datos y que se está realizando la operación de catálogo. No cancele los trabajos de copia de seguridad y, en su lugar, espere algo más de tiempo para que el catálogo finalice. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

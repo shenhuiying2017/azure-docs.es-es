@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
@@ -215,4 +215,4 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 [Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [panel del Centro de desarrollo de Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

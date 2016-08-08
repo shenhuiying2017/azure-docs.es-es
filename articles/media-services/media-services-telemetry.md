@@ -1,11 +1,22 @@
 <properties pageTitle="Telemetría de los servicios multimedia de Azure con .NET | Microsoft Azure" 
 	description="Este artículo muestra cómo usar la telemetría de los Servicios multimedia de Azure." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/23/2016"   
+	ms.author="juliako"/>
 
 # Telemetría de los Servicios multimedia de Azure con .NET
-
+ 
 ## Información general
 
 La telemetría y supervisión de los Servicios multimedia permite a los clientes de los mismos tener acceso a datos de métricas para sus servicios. La versión actual es compatible con los datos de telemetría para entidades "Channel" y "StreamingEndpoint". Puede configurar la telemetría en la granularidad de nivel de componente. Hay dos niveles de detalle "Normal" y "Detallado". La versión actual solo admite "Normal".
@@ -37,55 +48,52 @@ Para habilitar la telemetría es necesario realizar los pasos siguientes:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Uso de la información de telemetría
 
-## Registro StreamingEndpoint
+Los datos de telemetría se crean en una tabla de Almacenamiento de Azure de la cuenta de almacenamiento que especificó al configurar la telemetría para la cuenta de Servicios multimedia. El sistema de telemetría creará una tabla independiente para cada día nuevo basada en 00:00 UTC. Por ejemplo "TelemetryMetrics20160321" donde "20160321" es la fecha de la tabla creada. Habrá una tabla independiente para cada día.
 
-###Métricas disponibles
+Puede consultar las tablas de la siguiente información de métricas.
+
+### Registro StreamingEndpoint
 
 Puede consultar las siguientes métricas de StreamingEndPoint.
 
-- **PartitionKey** obtiene la clave de partición del registro.
-- **RowKey** obtiene la clave de fila del registro.
-- **AccountID** obtiene el ID de cuenta de Servicios multimedia.
-- **AccountID** obtiene el ID del punto de conexión de streaming de Servicios multimedia.
-- **ObservedTime** obtiene la hora observada de la métrica.
-- **HostName** obtiene el nombre de host del punto de conexión de streaming.
-- **StatusCode** obtiene el código de estado.
-- **ResultCode** obtiene el código de resultado.
-- **RequestCount** obtiene el número de solicitudes.
-- **BytesSent** obtiene los bytes enviados.
-- **ServerLatency** obtiene la latencia del servidor.
-- **EndToEndLatency** obtiene el tiempo de solicitud de principio a fin.
-
-###Ejemplo de resultado de consulta de punto de conexión de streaming
-
-![Consulta de punto de conexión de streaming](media/media-services-telemetry/media-services-telemetry01.png)
+Propiedad|Descripción|Valor de ejemplo
+---|---|---
+**PartitionKey**|Obtiene la clave de partición del registro.|60b71b0f6a0e4d869eb0645c16d708e1\_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|Obtiene la clave de fila del registro.|00959\_00000
+**AccountId**|Obtiene el id. de cuenta de Servicios multimedia.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|Obtiene el id. del punto de conexión de streaming de Servicios multimedia.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|Obtiene la hora observada de la métrica.|1/20/16 23:44:01
+**HostName**|Obtiene el nombre de host del punto de conexión de streaming.|builddemoserver.origin.mediaservices.windows.net
+**StatusCode**|Obtiene el código de estado.|200
+**ResultCode**|Obtiene el código de resultado.|S\_OK
+**RequestCount**|Obtiene el número de solicitudes.|3
+**BytesSent**|Obtiene los bytes enviados.|2987358
+**ServerLatency**|Obtiene la latencia del servidor (incluido el almacenamiento).|129
+**EndToEndLatency**|Obtiene el tiempo de solicitud de principio a fin.|250
 
 
-## Latido de canal en directo
-
-###Métricas disponibles
+### Latido de canal en directo
 
 Puede consultar las siguientes métricas de canal en directo.
 
-- **PartitionKey** obtiene la clave de partición del registro.
-- **RowKey** obtiene la clave de fila del registro.
-- **AccountID** obtiene el ID de cuenta de Servicios multimedia.
-- **ChannelID** obtiene el ID de canal de Servicios multimedia.
-- **ObservedTime** obtiene la hora observada de la métrica.
-- **CustomAttributes** obtiene los atributos personalizados.
-- **TrackType** obtiene el tipo de seguimiento.
-- **TrackType** obtiene el nombre de seguimiento.
-- **Bitrate** obtiene la velocidad de bits.
-- **IncomingBitrate** obtiene la velocidad de bits entrante.
-- **OverlapCount** obtiene el recuento de superposición.
-- **DiscontinuityCount** obtiene el recuento de discontinuidad.
-- **LastTimestamp** obtiene la última marca de tiempo.
+Propiedad|Descripción|Valor de ejemplo
+---|---|---
+**PartitionKey**|Obtiene la clave de partición del registro.|60b71b0f6a0e4d869eb0645c16d708e1\_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|Obtiene la clave de fila del registro.|13872\_00005
+**AccountId**|Obtiene el id. de cuenta de Servicios multimedia.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|Obtiene el id. de canal de Servicios multimedia.|
+**ObservedTime**|Obtiene la hora observada de la métrica.|1/21/2016 20:08:49
+**CustomAttributes**|Obtiene los atributos personalizados.|
+**TrackType**|Obtiene el tipo de seguimiento.|video
+**TrackName**|Obtiene el nombre de seguimiento.|video
+**Bitrate**|Obtiene la velocidad de bits.|785000
+**IncomingBitrate**|Obtiene la velocidad de bits entrante.|784548
+**OverlapCount**|Obtiene el recuento de superposición.|0
+**DiscontinuityCount**|Obtiene el recuento de discontinuidad.|0
+**LastTimestamp**|Obtiene la última marca de tiempo.|1800488800
  
-###Ejemplo del resultado de consulta de canal en vivo
-
-![Consulta de punto de conexión de streaming](media/media-services-telemetry/media-services-telemetry01.png)
-
 ## Ejemplo de métricas de StreamingEndpoint
 		
 	using System;
@@ -125,8 +133,7 @@ Puede consultar las siguientes métricas de canal en directo.
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -138,6 +145,10 @@ Puede consultar las siguientes métricas de canal en directo.
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {
@@ -235,4 +246,4 @@ Consulte las rutas de aprendizaje de los Servicios multimedia de Azure para cono
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Aprovisionamiento de clústeres de Hadoop en HDInsight
@@ -51,7 +51,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes:
 	- **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight proporciona la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
+	- **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight proporciona la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versión de HDInsight**
@@ -127,7 +127,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 	Los clústeres de HDInsight le permiten configurar dos cuentas de usuario durante el aprovisionamiento:
 
 	- Usuario de HTTP. El nombre de usuario predeterminado es admin durante la configuración básica en el Portal de Azure clásico.
-	- Usuario de RDP (clústeres de Windows): se usa para conectarse al clúster mediante RDP. Cuando crea la cuenta, debe establecer una fecha de caducidad que se encuentre dentro de 90 días a contar del día de hoy. 
+	- Usuario de RDP (clústeres de Windows): se usa para conectarse al clúster mediante RDP. Cuando crea la cuenta, debe establecer una fecha de caducidad que se encuentre dentro de 90 días a contar del día de hoy.
 	- Usuario SSH (clústeres de Linux): se usa para conectarse al clúster mediante SSH. Puede crear cuentas de usuario SSH adicional una vez que se cree el clúster siguiendo los pasos en [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
  
@@ -815,4 +815,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

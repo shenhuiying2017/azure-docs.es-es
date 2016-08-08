@@ -24,10 +24,10 @@ En este tema se muestra cada biblioteca o controlador que los programas cliente 
 | Idioma | Plataforma | Recursos adicionales | Descargar |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-develop-dotnet-simple.md) | [Descargar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
-| Java | Windows | [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-develop-java-simple-windows.md) | [Descargar](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| Java | Windows, Linux, Mac | [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-develop-java-simple-windows.md) | [Descargar](http://go.microsoft.com/fwlink/?LinkId=245496) |
 | PHP | Windows | [Conexión a la base de datos SQL mediante PHP en Windows](sql-database-develop-php-simple-windows.md) | [Descargar](https://www.microsoft.com/download/details.aspx?id=20098) |
 | Node.js | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Node.js](sql-database-develop-nodejs-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt652094.aspx) |
 | Python | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Python](sql-database-develop-python-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

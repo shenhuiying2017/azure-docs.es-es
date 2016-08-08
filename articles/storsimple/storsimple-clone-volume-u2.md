@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Usar el servicio StorSimple Manager para clonar un volumen (Update 2)
@@ -55,11 +55,11 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
 
   1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo. Si elige un volumen asociado a otros proveedores de servicios en la nube (no Azure), la lista desplegable del dispositivo de destino solo mostrará dispositivos físicos. No se puede clonar un volumen asociado a otros proveedores de servicios en la nube en un dispositivo virtual.
 
-        >[AZURE.NOTE] Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
     
-        >[AZURE.NOTE] El campo **Clonar volumen como** tiene el valor **En capas** aunque esté clonando un volumen anclado localmente.No puede cambiar esta configuración. Sin embargo, si necesita que el volumen clonado se ancle localmente también, puede convertir el clon en un volumen anclado localmente una vez creado correctamente el clon. Para más información sobre cómo convertir un volumen en capas en un volumen anclado localmente, vaya a [Cambiar el tipo de volumen](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -90,9 +90,9 @@ Este clon es ahora un volumen normal, y todas las operaciones que sean posibles 
 
 ## Clones transitorios frente a clones permanentes
 
-Los clones transitorios y permanentes solo se crean al clonarse en un dispositivo diferente. Se puede clonar un volumen específico de un conjunto de copia de seguridad a un dispositivo diferente. Los clones que se creen de esta forma son clones *transitorios*. El clon transitorio tendrá referencias al volumen original y usará ese volumen para leer mientras escribe de forma local.
+Los clones transitorios solo se crean al clonarse en un dispositivo diferente. Se puede clonar un volumen específico de un conjunto de copia de seguridad a un dispositivo diferente administrado por StorSimple Manager. El clon transitorio tendrá referencias a los datos del volumen original y usará esos datos para leer y escribir localmente en el dispositivo de destino.
 
-Después de tomar una instantánea en la nube de un clon transitorio, el clon resultante será un clon *permanente*. El clon permanente es independiente y no tiene ninguna referencia al volumen original desde el que se clonó.
+Después de tomar una instantánea en la nube de un clon transitorio, el clon resultante será un clon *permanente*. Durante este proceso, se crea una copia de los datos en la nube y el tiempo para copiar estos datos está determinado por el tamaño de los mismos y las latencias de Azure (es decir, una copia de Azure en Azure). Este proceso puede tardar días o semanas. El clon transitorio se convierte en independiente de esta forma y no tiene ninguna referencia a los datos del volumen original desde los que se clonaron.
 
 ## Escenarios para clones transitorios y permanentes
 
@@ -117,4 +117,4 @@ Necesita comprobar un error de prueba en el entorno de producción. Puede crear 
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

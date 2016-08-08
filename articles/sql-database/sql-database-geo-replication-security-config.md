@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/16/2016"
+	ms.date="07/16/2016"
 	ms.author="carlrab" />
 
 # Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres
@@ -23,7 +23,7 @@
 
 ## Información general sobre los requisitos de autenticación para la recuperación ante desastres
 
-En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la [georrestauración](sql-database-recovery-using-backups.md#geo-restore). Para obtener más información sobre las opciones de recuperación, consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
+En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la [georrestauración](sql-database-recovery-using-backups.md#geo-restore). Para más información sobre opciones de recuperación, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 
 ## Recuperación ante desastres con usuarios contenidos
 
@@ -95,4 +95,4 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 
 ## Recursos adicionales
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

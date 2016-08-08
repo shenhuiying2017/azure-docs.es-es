@@ -24,17 +24,17 @@ Base de datos SQL mantiene réplicas de la base de datos para permitir la recupe
 1.	En el [Portal de Azure](https://azure.microsoft.com/), haga clic en **Bases de datos SQL**.
 2.	Seleccione la base de datos en la lista y luego haga clic en **Restaurar**.
 3.	Escriba un nombre nuevo para la base de datos, elija la fecha y la hora desde la que restaurar, y luego haga clic en **Crear.**
-4.	Realice ajustes de aplicación según sea necesario para hacer referencia a la nueva base de datos. Vea [Recuperación de una base de datos de un error de usuario](sql-database-user-error-recovery.md).
+4.	Realice ajustes de aplicación según sea necesario para hacer referencia a la nueva base de datos. Consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## Para restaurar una base de datos eliminada accidentalmente
 1.	En el [Portal de Azure](https://azure.microsoft.com/), haga clic en **Servidores SQL Server**.
 2.	Seleccione el servidor que hospedaba la base de datos en la lista.
 3.	En la hoja Servidor, desplácese hacia abajo y haga clic en **Bases de datos eliminadas**.
 4.	Seleccione la base de datos que quiere restaurar y luego haga clic en **Crear**.
-5.	Realice ajustes de aplicación según sea necesario para hacer referencia a la nueva base de datos. Vea [Recuperación de una base de datos de un error de usuario](sql-database-user-error-recovery.md).
+5.	Realice ajustes de aplicación según sea necesario para hacer referencia a la nueva base de datos. Consulte [Restauración de la base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore).
 
 ## Para recuperarse de una interrupción del centro de datos regional
-Con bases de datos Estándar y Premium, si configura secundarias replicadas geográficamente, puede recuperarlas con estas secundarias. Esto le ofrece la capacidad de restaurar una base de datos con un potencial menor de pérdida de datos. Vea [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md) para detalles.
+Con bases de datos Estándar y Premium, si configura secundarias replicadas geográficamente, puede recuperarlas con estas secundarias. Esto le ofrece la capacidad de restaurar una base de datos con un potencial menor de pérdida de datos. Consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
 
 Azure ofrece también copias de seguridad de cada base de datos en una región diferente (una copia de seguridad con redundancia geográfica). Puede crear una base de datos nueva a partir de estas copias de seguridad, lo que se denomina restauración geográfica, pero es probable que pierda datos si solo confía en este método.
 
@@ -42,4 +42,4 @@ Azure ofrece también copias de seguridad de cada base de datos en una región d
 
 - En el [Portal de Azure](https://azure.microsoft.com/), haga clic en **Nuevo**, en **Datos y almacenamiento**, haga clic en **Base de datos SQL** y luego seleccione **Copia de seguridad** como el origen de la base de datos. Vea [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md) para detalles.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

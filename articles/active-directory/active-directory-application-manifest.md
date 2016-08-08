@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Descripción del manifiesto de aplicación de Azure Active Directory
@@ -104,7 +104,7 @@ Ahora vamos a recorrer los pasos necesarios para actualizar la configuración de
 Ahora que el manifiesto está guardado, puede otorgar a una aplicación cliente registrada acceso al nuevo permiso que agregamos antes, pero esta vez puede usar la interfaz de usuario web del Portal de Azure clásico en lugar de editar el manifiesto de la aplicación cliente:
 
 1. Primero, vaya a la página "Configurar" de la aplicación cliente a la que desea agregar acceso a la nueva API y haga clic en el botón "Agregar aplicación".
-2. A continuación, aparecerá la lista de aplicaciones (API) de recursos registrado en el inquilino. Haga clic en el signo de la suma (+) junto al nombre de la aplicación de recursos para seleccionarla.  
+2. A continuación, aparecerá la lista de aplicaciones (API) de recursos registrado en el inquilino. Haga clic en el signo de la suma (+) junto al nombre de la aplicación de recursos para seleccionarla.
 3. A continuación, haga clic en la marca de verificación de la esquina inferior derecha.
 4. Cuando vuelva a la sección "Agregar aplicación" de la página de configuración de su cliente, verá la nueva aplicación de recursos en la lista. Si mantiene el mouse sobre la sección "Permisos delegados" a la derecha de esa fila, verá aparecer una lista desplegable. Haga clic en la lista y seleccione el nuevo permiso para poder agregarlo a la lista de permisos solicitados del cliente. Nota: Este permiso nuevo se almacenará en la configuración de identidad de la aplicación cliente, en la propiedad de colección "requiredResourceAccess".
 
@@ -135,9 +135,9 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
@@ -147,4 +147,4 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

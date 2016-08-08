@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/13/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Desarrollo de programas de streaming para HDInsight
@@ -163,7 +163,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 2. Use el comando siguiente para iniciar el trabajo de MapReduce.
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasbs:///example/data/gutenberg/davinci.txt -output wasbs:///example/wordcountout
 
 	Este comando cuenta con las siguientes partes:
 
@@ -212,4 +212,4 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

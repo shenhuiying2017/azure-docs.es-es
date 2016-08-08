@@ -1,48 +1,74 @@
 <properties 
 	pageTitle="Creación de definiciones de aplicación lógica | Microsoft Azure" 
 	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas." 
-	authors="stepsic-microsoft-com" 
+	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="stepsic"/>
+	ms.date="07/25/2016"
+	ms.author="jehollan"/>
 	
 # Creación de definiciones de aplicación lógica
-En este tema se explica cómo usar definiciones de [aplicaciones lógicas de servicios de aplicaciones](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](app-service-logic-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
+En este tema se explica cómo usar definiciones de [Azure Logic Apps](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](app-service-logic-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](http://aka.ms/logicappsdocs).
 
 ## Varios pasos que se repiten en una lista
 
-Un patrón común es tener un paso que obtiene una lista de elementos y después disponer de una serie de dos o más acciones que desea realizar para cada elemento de la lista:
+Puede aprovechar el [tipo foreach](app-service-logic-loops-and-scopes.md) para repetir los elementos de una matriz de hasta 10 000 elementos y realizar una acción para cada uno.
 
-![Repetir sobre listas](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
+## Un paso de control de errores si algo va mal
 
-![Repetir sobre listas](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
-
-![Repetir sobre listas](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
-
-![Repetir sobre listas](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
-
- 
-En este ejemplo hay 3 acciones:
-
-1. Obtener una lista de artículos. Esto devuelve un objeto que contiene una matriz.
-
-2. Una acción que va a una propiedad de vínculo en cada artículo, que devuelve la ubicación real del artículo.
-
-3. Una acción que itera todos los resultados de la segunda acción para descargar los artículos reales.
+Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://myurl"
+			}
+		},
+		"postToErrorMessageQueue": {
+			"type": "ApiConnection",
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Failed"]
+			}
+		}
+	},
+	"outputs": {}
+}
+```
+
+Puede usar la propiedad `runAfter` para especificar que el elemento `postToErrorMessageQueue` solo debe ejecutarse cuando `readData` genere un **error**. También podría ser una lista de posibles valores, por lo que `runAfter` podría ser `["Succeeded", "Failed"]`.
+
+Por último, dado que ahora se ha controlado el error, la ejecución ya no genera ningún **error**. Como puede ver aquí, esta ejecución es **correcta** a pesar de que antes generara errores, porque escribí este paso para solucionar este error.
+
+## Dos pasos (o más) que se ejecutan en paralelo
+
+Para tener varias acciones que se ejecuten en paralelo, la propiedad `runAfter` debe ser equivalente en tiempo de ejecución.
+
+```
+{
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {},
 	"triggers": {
@@ -51,40 +77,110 @@ En este ejemplo hay 3 acciones:
 		}
 	},
 	"actions": {
-		"getArticles": {
+		"readData": {
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+				"uri": "http://myurl"
 			}
 		},
-		"readLinks": {
+		"branch1": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().link"
-			},
-			"forEach": "@body('getArticles').responseData.feed.entries"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		},
-		"downloadLinks": {
+		"branch2": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().outputs.headers.location"
-			},
-			"conditions": [{
-				"expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
-			}],
-			"forEach": "@actions('readLinks').outputs"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		}
 	},
 	"outputs": {}
 }
 ```
 
-Como se explica en [Uso de las características de aplicaciones lógicas](app-service-logic-use-logic-app-features.md), itere por la primera lista usando la propiedad `forEach:` en la segunda acción. Sin embargo, para la tercera acción, debe seleccionar la propiedad `@actions('readLinks').outputs`, dado que la segunda se ejecuta para cada artículo.
+Como puede ver en el ejemplo anterior, `branch1` y `branch2` se establecen para ejecutarse después de `readData`. Como resultado, ambas ramas se ejecutarán en paralelo:
 
-Dentro de la acción se puede usar la función [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item). En este ejemplo, se quería obtener el encabezado `location`, por lo que se tuvo que seguir con `@item().outputs.headers` para obtener los resultados de la ejecución de la segunda acción por la que estamos iterando actualmente.
+![Paralelo](./media/app-service-logic-author-definitions/parallel.png)
+
+Puede ver que la marca de tiempo para ambas bifurcaciones es idéntica.
+
+## Unión de dos ramas paralelas
+
+Puede unir dos acciones que se han establecido para ejecutarse en paralelo al agregar elementos a la propiedad `runAfter` similares a los anteriores.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
+    "actions": {
+        "readData": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {},
+            "type": "Http"
+        },
+        "branch1": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "branch2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "join": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "branch1": [
+                    "Succeeded"
+                ],
+                "branch2": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "inputs": {
+                "schema": {}
+            },
+            "kind": "Http",
+            "type": "Request"
+        }
+    }
+}
+```
+
+![Paralelo](./media/app-service-logic-author-definitions/join.png)
 
 ## Asignación de elementos de una lista a una configuración diferente
 
@@ -92,7 +188,7 @@ A continuación, supongamos que queremos obtener contenido completamente diferen
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"specialCategories": {
@@ -143,344 +239,6 @@ En este caso, en primer lugar, obtenemos una lista de artículos y, a continuaci
 
 Prestemos atención aquí a dos elementos: la función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) se utiliza para comprobar si la categoría coincide con una de las categorías conocidas definidas. En segundo lugar, una vez que obtenemos la categoría, podemos extraer el elemento de la asignación mediante corchetes: `parameters[...]`.
 
-## Encadenado/anidado de aplicaciones web repitiendo en una lista
-
-Suele ser más fácil administrar las aplicaciones lógicas cuando son más discretas. Para ello, factorice la lógica en varias definiciones y llámelas desde la misma definición principal. En este ejemplo, habrá una aplicación lógica principal que recibe pedidos y una aplicación lógica secundaria que ejecuta algunos pasos para cada pedido.
-
-En la aplicación lógica principal:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"iterateOverOrders": {
-			"type": "Workflow",
-			"inputs": {
-				"uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
-				"apiVersion": "2015-02-01-preview",
-				"trigger": {
-					"name": "submitOrder",
-					"outputs": {
-						"body": "@item()"
-					}
-				},
-				"authentication": {
-					"type": "Basic",
-					"username": "default",
-					"password": "xxxxxxxxxxxxxx"
-				}
-			},
-			"forEach": "@parameters('orders')"
-		},
-		"sendInvoices": {
-			"type": "Http",
-			"inputs": {
-				"uri": "http://www.example.com/?invoiceID=@{item().outputs.run.outputs.deliverTime.value}",
-				"method": "GET"
-			},
-			"forEach": "@outputs('iterateOverOrders')"
-		}
-	},
-	"outputs": {}
-}
-```
-
-A continuación, en la aplicación lógica secundaria usará la función [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) para obtener los valores que se pasaron al flujo de trabajo secundario. A continuación, deberá rellenar las salidas con los datos que desea devolver al flujo principal.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"calulatePrice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		},
-		"calculateDeliveryTime": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		}
-	},
-	"outputs": {
-		"deliverTime": {
-			"type": "String",
-			"value": "@outputs('calculateDeliveryTime').headers.etag"
-		}
-	}
-}
-```
-
-Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx).
-
->[AZURE.NOTE]El Diseñador de aplicaciones lógicas no admite acciones de tipo de aplicación lógica, por lo que deberá editar manualmente la definición.
-
-
-## Un paso de control de errores si algo va mal
-
-Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/es-ES/default.aspx", "https://gibberish.gibberish/"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"postToErrorMessageQueue": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?noteAnErrorFor=@{item().inputs.uri}"
-			},
-			"conditions": [{
-				"expression": "@equals(actions('readData').status, 'Failed')"
-			}, {
-				"expression": "@equals(item().status, 'Failed')"
-			}],
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Estoy utilizando dos condiciones porque en el primer paso estoy repetición de una lista. Si tiene una sola acción, sólo necesitaría una condición (la primera). Tenga en cuenta también que puede usar las *entradas* a la acción incorrecta en el paso de solución (aquí se pasa la URL con error al segundo paso):
-
-![Corrección](./media/app-service-logic-author-definitions/remediation.png)
-
-Por último, dado que ahora se ha controlado el error, la ejecución ya no genera ningún **error**. Como puede ver aquí, esta ejecución es **correcta** a pesar de que antes generara errores, porque escribí este paso para solucionar este error.
-
-## Dos pasos (o más) que se ejecutan en paralelo
-
-Para que varias acciones se ejecuten en paralelo y no en secuencias, necesita quitar la condición `dependsOn` que vincula ambas acciones. Cuando se quita la dependencia, se ejecutarán automáticamente las acciones en paralelo, a menos que necesiten datos entre sí.
-
-![Bifurcaciones](./media/app-service-logic-author-definitions/branches.png)
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/es-ES/default.aspx", "https://office.live.com/start/default.aspx"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch1Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch2Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Como puede ver en el ejemplo anterior, branch1 y branch2 sólo dependen en el contenido de readData. Como resultado, ambas ramas se ejecutarán en paralelo:
-
-![Paralelo](./media/app-service-logic-author-definitions/parallel.png)
-
-Puede ver que la marca de tiempo para ambas bifurcaciones es idéntica.
-
-## Combinación de dos bifurcaciones condicionales de lógica
-
-Puede combinar dos flujos condicionales de lógica (que puede o no puede haber ejecutado) al tener una única acción que obtiene los datos de ambas bifurcaciones.
-
-La estrategia en esta caso varía en función de si controla un elemento o una colección de elementos. Si se trata de un único elemento, deberá usar la función [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce):
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(parameters('order').quantity, 100)"
-			}]
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@greater(parameters('order').quantity, 100)"
-			}]
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
-			},
-			"conditions": [{
-				"expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
- 
-O bien, cuando las dos primeras bifurcaciones funcionan sobre una lista de pedidos, por ejemplo, deberá usar la función [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) para combinar los datos de ambas bifurcaciones.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@greater(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{item().outputs.headers.etag}"
-			},
-			"conditions": [{
-				"expression": "@equals(item().status, 'Succeeded')"
-			}],
-			"forEach": "@union(actions('handleNormalOrders').outputs, actions('handleSpecialOrders').outputs)"
-		}
-	},
-	"outputs": {}
-}
-```
 ## Trabajo con cadenas
 
 Existen diversas funciones que pueden usarse para manipular la cadena. Veamos un ejemplo donde tenemos una cadena que se va a pasar a un sistema, pero no estamos seguros de que la codificación de caracteres se controlará correctamente. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres.
@@ -489,7 +247,7 @@ También queremos una subcadena del nombre del pedido, porque los cinco primeros
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -539,7 +297,7 @@ Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un o
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -564,14 +322,15 @@ Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un o
 			}
 		},
 		"timingWarning": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-			},
-			"conditions": [{
-				"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-			}]
+			"actions" {
+				"type": "Http",
+				"inputs": {
+					"method": "GET",
+					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+				},
+				"runAfter": {}
+			}
+			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
 		}
 	},
 	"outputs": {}
@@ -581,57 +340,6 @@ Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un o
 En este ejemplo, vamos a extraer el valor `startTime` del paso anterior. A continuación, vamos a obtener la hora actual y le vamos a restar un segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (podría utilizar otras unidades de tiempo como `minutes` o `hours`). Por último, podemos comparar estos dos valores. Si el primero es menor que el segundo, significa que ha transcurrido más de un segundo desde la primera vez que se realizó el pedido.
 
 Observe también que podemos utilizar formateadores de cadena para dar formato a fechas: en la cadena de consulta utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) para obtener el RFC1123. Todos los formatos de fecha [están documentados en MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
-
-## Transferencia de valores en tiempo de ejecución para variar el comportamiento
-
-Supongamos que tiene comportamientos diferentes que desea ejecutar en función de algún valor que usa para iniciar la aplicación lógica. Puede utilizar la función [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) para obtener estos valores aparte de los que ha transferido:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@triggerOutputs().uriToGet"
-			}
-		},
-		"extraStep": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/extraStep"
-			},
-			"conditions": [{
-				"expression": "@triggerOutputs().doMoreLogic"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
-
-Para realizar este trabajo, al iniciar la ejecución es necesario transferir las propiedades que desee (en el ejemplo anterior, `uriToGet` y `doMoreLogic`).
-
-Con la siguiente carga. Tenga en cuenta que se ha proporcionado la aplicación lógica con los valores que se van a usar ahora:
-
-```
-{
-    "outputs": {
-        "uriToGet" : "http://my.uri.I.want/",
-        "doMoreLogic" : true
-    }
-}
-``` 
-
-Al ejecutar esta aplicación lógica, llamará al URI que ha transferido y ejecutará dicho pasos adicional porque he transferido `true`. Si desea variar solo los parámetros del tiempo de implementación (no para *ejecución*), entonces debe usar `parameters` como se menciona a continuación.
 
 ## Uso de parámetros de tiempo de implementación para entornos diferentes
 
@@ -643,10 +351,10 @@ Puede empezar con una definición muy sencilla, como esta:
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"connection": {
+		"uri": {
 			"type": "string"
 		}
 	},
@@ -660,7 +368,7 @@ Puede empezar con una definición muy sencilla, como esta:
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "@parameters('connection')"
+				"uri": "@parameters('uri')"
 			}
 		}
 	},
@@ -668,17 +376,11 @@ Puede empezar con una definición muy sencilla, como esta:
 }
 ```
 
-A continuación, en la solicitud `PUT` real para la aplicación lógica, puede proporcionar el parámetro `connection`. Tenga en cuenta que, como ya no hay ningún valor predeterminado, este parámetro es necesario en la carga de la aplicación lógica:
+A continuación, en la solicitud `PUT` real para la aplicación lógica, puede proporcionar el parámetro `uri`. Tenga en cuenta que, como ya no hay ningún valor predeterminado, este parámetro es necesario en la carga de la aplicación lógica:
 
 ```
 {
-    "properties": {
-        "sku": {
-            "name": "Premium",
-            "plan": {
-                "id": "/subscriptions/xxxxx/resourceGroups/xxxxxx/providers/Microsoft.Web/serverFarms/xxxxxx"
-            }
-        },
+    "properties": {},
         "definition": {
           // Use the definition from above here
         },
@@ -694,41 +396,6 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 
 En cada entorno puede proporcionar un valor diferente para el parámetro `connection`.
 
-## Ejecución de un paso hasta que se cumpla una condición
-
-Es posible que tenga una API a la que está llamando y quiera esperar una respuesta determinada antes de continuar. Por ejemplo, imagine que quiere esperar a que alguien cargue un archivo en un directorio antes de procesar el archivo. Puede hacerlo con *do-until*:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"http0": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://mydomain/listfiles"
-			},
-			"until": {
-				"limit": {
-					"timeout": "PT10M"
-				},
-				"conditions": [{
-					"expression": "@greater(length(action().outputs.body),0)"
-				}]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
-
 Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

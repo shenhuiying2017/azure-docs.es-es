@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -240,7 +240,7 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@ Los [adaptadores de registro][trace] usan esta API para enviar registros de terc
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-El límite de tamaño en `message` es mucho mayor que el límite en propiedades. Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
+
+Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
+
+El límite de tamaño en `message` es mucho mayor que el límite en propiedades. Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí podría codificar datos POST.
+
+
+Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad que puede usar para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Esto permitiría filtrar fácilmente en [Búsqueda][diagnostic] todos los mensajes de un determinado nivel de gravedad relativos a una determinada base de datos.
 
 ## Seguimiento de dependencia
 
@@ -528,7 +542,7 @@ Si está supervisando los eventos que no están asociados a una solicitud HTTP, 
 
     } // When operation is disposed, telemetry item is sent.
 
-Al igual que al establecer un contexto de operación, `StartOperation` crea un elemento de telemetría del tipo que especifique y lo envía cuando elimine la operación o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como el tipo de telemetría, entonces su duración se establece en el intervalo cronometrado entre el inicio y la detención.
+Al igual que al establecer un contexto de operación, `StartOperation` crea un elemento de telemetría del tipo que especifique y lo envía cuando elimine la operación o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como el tipo de telemetría, su duración se establece en el intervalo cronometrado entre el inicio y la detención.
 
 Los contextos de operación no pueden estar anidados. Si ya existe un contexto de operación, entonces su identificador está asociado a todos los elementos contenidos, incluido el elemento que se ha creado con StartOperation.
 
@@ -597,7 +611,7 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
 
 **Para los clientes web de JavaScript**, [use los inicializadores de telemetría de JavaScript](#js-initializer).
 
-**Para agregar propiedades a toda la telemetría**, incluidos los datos de los módulos de colección estándar, [implemente `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
+**Para agregar propiedades a toda la telemetría**, incluidos los datos de los módulos de recopilación estándar, [implemente `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Muestreo, filtrado y telemetría de procesamiento 
@@ -606,7 +620,7 @@ Puede escribir código para procesar la telemetría antes de que se envíe desde
 
 * [Agregue propiedades](app-insights-api-filtering-sampling.md#add-properties) a la telemetría mediante la implementación de `ITelemetryInitializer`; por ejemplo, para agregar números de versión o valores calculados a partir de otras propiedades.
 * El [filtrado](app-insights-api-filtering-sampling.md#filtering) puede modificar o descartar la telemetría antes de que se envíe desde el SDK, mediante la implementación de `ITelemetryProcesor`. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
-* El [muestreo](app-insights-api-filtering-sampling.md#sampling) es una solución en paquetes para reducir el volumen de los datos enviados desde la aplicación al portal. Hace esto sin afectar a las métricas que se muestran ni a su capacidad para diagnosticar problemas al navegar entre elementos relacionados, como excepciones, solicitudes y vistas de página.
+* El [muestreo](app-insights-api-filtering-sampling.md#sampling) es una solución empaquetada para reducir el volumen de datos enviado desde la aplicación al portal. Hace esto sin afectar a las métricas que se muestran ni a su capacidad para diagnosticar problemas al navegar entre elementos relacionados, como excepciones, solicitudes y vistas de página.
 
 [Más información](app-insights-api-filtering-sampling.md)
 
@@ -690,7 +704,7 @@ En páginas web, podría configurarla a partir del estado del servidor web, en l
 
 TelemetryClient tiene una propiedad de Context, que contiene un número de valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo. Por ejemplo:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 Si establece cualquiera de estos valores manualmente, considere la posibilidad de quitar la línea pertinente de [ApplicationInsights.config][config], de modo que no se confundan sus valores con los valores estándar.
 
@@ -778,4 +792,4 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

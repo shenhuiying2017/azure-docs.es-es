@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="07/27/2016"
    	ms.author="larryfr"/>
 
 #Creación de clústeres basados en Linux en HDInsight con cURL y la API de REST de Azure
@@ -362,7 +362,7 @@ Use lo siguiente para crear un grupo de recursos vacío. Debe crear el grupo pri
 
 * Reemplace __SubscriptionID__ por el identificador de la suscripción que recibió al crear la entidad de servicio.
 * Reemplace __AccessToken__ por el token de acceso que recibió en el paso anterior.
-* Reemplace __DataCenterLocation__ por el centro de datos en el que desea crear el grupo de recursos y los recursos. Por ejemplo, "Centro-Sur de EE.UU.". 
+* Reemplace __DataCenterLocation__ por el centro de datos en el que desea crear el grupo de recursos y los recursos. Por ejemplo, "Centro-Sur de EE.UU.".
 * Reemplace __ResourceGroupName__ por el nombre que desea usar para este grupo:
 
 ```
@@ -380,7 +380,7 @@ Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y 
 
 Use lo siguiente para implementar la configuración del clúster (plantilla y valores de parámetro) del grupo de recursos.
 
-* Reemplace __SubscriptionID__ y __AccessToken__ por los valores usados anteriormente. 
+* Reemplace __SubscriptionID__ y __AccessToken__ por los valores usados anteriormente.
 * Reemplace __ResourceGroupName__ por el nombre del grupo de recursos que creó en la sección anterior.
 * Reemplace __DeploymentName__ por el nombre que desea usar para esta implementación.
 
@@ -403,7 +403,7 @@ Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y 
 
 Use lo siguiente para comprobar el estado de la implementación.
 
-* Reemplace __SubscriptionID__ y __AccessToken__ por los valores usados anteriormente. 
+* Reemplace __SubscriptionID__ y __AccessToken__ por los valores usados anteriormente.
 * Reemplace __ResourceGroupName__ por el nombre del grupo de recursos que creó en la sección anterior.
 
 ```
@@ -435,4 +435,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

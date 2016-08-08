@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Administrar controladores de su dispositivo StorSimple
@@ -140,6 +140,8 @@ En esta sección se explica cómo apagar un dispositivo StorSimple en ejecución
 
 ## Restablecer el dispositivo a los valores predeterminados de fábrica.
 
+> [AZURE.IMPORTANT] Si necesita restablecer la configuración predeterminada de fábrica del dispositivo, póngase en contacto con Soporte técnico de Microsoft. El procedimiento descrito a continuación solo debe utilizarse junto con el Soporte técnico de Microsoft.
+
 Este procedimiento describe cómo restablecer su dispositivo Microsoft Azure StorSimple a los valores predeterminados de fábrica mediante Windows PowerShell para StorSimple. De forma predeterminada, el restablecimiento del dispositivo quita todos los datos y la configuración del clúster.
 
 Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azure StorSimple a los valores predeterminados de fábrica:
@@ -213,4 +215,4 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 - Para obtener información sobre el uso del servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

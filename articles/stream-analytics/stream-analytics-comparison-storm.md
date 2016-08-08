@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
@@ -588,4 +588,4 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

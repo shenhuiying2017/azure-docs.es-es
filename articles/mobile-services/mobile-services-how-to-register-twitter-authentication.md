@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 #Registro de aplicaciones para el inicio de sesión en Twitter con Servicios móviles
@@ -39,7 +39,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 	+ **Back-end de .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **Back-end de JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE] Asegúrese de usar el formato correcto de ruta de acceso a dirección URL de redireccionamiento para su tipo de back-end de Servicios móviles. Si es incorrecto, la autenticación no se realizará correctamente. &nbsp;
+	 >[AZURE.NOTE]Asegúrese de usar el formato correcto de ruta de acceso a dirección URL de redireccionamiento para su tipo de back-end de Servicios móviles. Si es incorrecto, la autenticación no se realizará correctamente. &nbsp;
 
    	![][2]
 
@@ -66,4 +66,4 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

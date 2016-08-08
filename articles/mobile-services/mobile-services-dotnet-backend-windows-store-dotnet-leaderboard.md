@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
@@ -766,4 +766,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -26,8 +26,8 @@ El [conector AS2](app-service-logic-connector-as2.md) expone la posibilidad de a
 
 El archivado se expone en dos puntos tanto para mensajes como para confirmaciones (MDN):
 
-1. **Desencadenador de recepción/decodificación**: el mensaje se archiva en cuanto se recibe en la instancia de aplicación de API 
-2. **Acción de codificación/envío**: el mensaje codificado se archiva después de que todo el procesamiento está completo y justo antes de enviarse al socio 
+1. **Desencadenador de recepción/decodificación**: el mensaje se archiva en cuanto se recibe en la instancia de aplicación de API
+2. **Acción de codificación/envío**: el mensaje codificado se archiva después de que todo el procesamiento está completo y justo antes de enviarse al socio
 
 ## Procedimientos: Recuperación de la URL archivada de un mensaje
 
@@ -42,4 +42,4 @@ Use la URL recuperada anteriormente para recuperar el mensaje archivado del Alma
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

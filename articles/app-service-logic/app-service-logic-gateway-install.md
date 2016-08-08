@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -221,4 +221,4 @@ Los registros de Data Management Gateway y PowerBIGateway se encuentran en **Reg
 - [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 - [Conectores de Aplicaciones lógicas](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

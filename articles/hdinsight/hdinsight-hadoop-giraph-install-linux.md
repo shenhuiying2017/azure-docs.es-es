@@ -131,7 +131,7 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 
 	Para obtener más información sobre estos y otros parámetros que se usan en los ejemplos de Giraph, consulte la [guía de inicio rápido de Giraph](http://giraph.apache.org/quick_start.html).
 
-5. Una vez finalizado el trabajo, los resultados se almacenarán en el directorio __wasb:///example/out/shotestpaths__. Los archivos creados empezarán por __part-m-\_\_ y terminarán en un número que indica el primer, segundo, etc., archivo. Use la siguiente instrucción para ver la salida:
+5. Una vez finalizado el trabajo, los resultados se almacenarán en el directorio __wasbs:///example/out/shotestpaths__. Los archivos creados empezarán por __part-m-\_\_ y terminarán en un número que indica el primer, segundo, etc., archivo. Use la siguiente instrucción para ver la salida:
 
 		hadoop fs -text /example/output/shortestpaths/*
 
@@ -158,4 +158,4 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -71,7 +71,7 @@ Ahora observe la tabla de la derecha. Esta vez, medimos la masa corporal de cada
 
 El siguiente ingrediente son unos datos conectados.
 
-![Datos conectados frente a datos desconectados: criterios de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Datos conectados frente a datos desconectados: criterios de datos y datos preparados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Estos son algunos datos que afectan a la calidad de las hamburguesas: temperatura de la parrilla, el peso de la carne y la clasificación en la revista de comida local. Pero observe los espacios vacíos en la tabla de la izquierda.
 
@@ -119,4 +119,4 @@ Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiant
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

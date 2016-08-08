@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ En todos los escenarios de este tema, hay que realizar las siguientes tareas:
 
 - Acceder a las entidades de certificación para emitir certificados de cliente.
 
-- Estas entidades deben configurarse en Azure Active Directory. Puede encontrar instrucciones detalladas sobre cómo completar la configuración en la sección Introducción.
+- Estas entidades deben configurarse en Azure Active Directory. En la sección [Introducción](#getting-started) puede encontrar instrucciones detalladas acerca de cómo completar la configuración.
 
 - La entidad de certificación raíz y las intermedias deben configurarse en Azure Active Directory.
 
@@ -61,17 +61,19 @@ En todos los escenarios de este tema, hay que realizar las siguientes tareas:
 
 | Aplicaciones | Soporte técnico |
 | ---                       | ---          |
-| OneDrive | Sí |
-| Outlook | Sí |
-| Word, Excel y PowerPoint | Sí |
-| Skype Empresarial | Sí |
+| Word, Excel y PowerPoint | ![Comprobar][1] |
+| OneNote | Próximamente |
+| OneDrive | ![Comprobar][1] |
+| Outlook | ![Comprobar][1] |
+| Yammer | ![Comprobar][1] |
+| Skype Empresarial | ![Comprobar][1] |
 
 
 ### Requisitos  
 
-La versión del sistema operativo del dispositivo debe ser Android 5.0 (Lollipop) y posterior.
+La versión del sistema operativo del dispositivo debe ser Android 5.0 (Lollipop) y superior.
 
-Debe configurarse un servidor de federación para llevar a cabo la CBA en las aplicaciones móviles de Office.
+Se debe configurar un servidor de federación.
 
 
 Para que Azure Active Directory revoque un certificado de cliente, el token de ADFS debe tener las siguientes notificaciones:
@@ -84,7 +86,7 @@ Azure Active Directory agrega estas notificaciones para el token de actualizaci�
 
 Se recomienda actualizar las páginas de error de ADFS con instrucciones sobre cómo obtener un certificado de usuario.
 
-Para ver más información, consulte [Personalizar las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Para más información, consulte [Personalizar las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
 
 
@@ -138,9 +140,9 @@ Para cargar la información, puede usar el módulo de Azure AD mediante Windows 
 
 1. Inicie Windows PowerShell con privilegios de administrador.
 
-2. Instale el módulo de Azure AD. Tiene que instalar la versión [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o una superior.
+2. Instale el módulo de Azure AD. Es preciso instalar la versión [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0), o una superior.
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Conéctelo al inquilino de destino:
 
@@ -191,7 +193,7 @@ Recupere las entidades de certificación almacenadas actualmente en Azure Active
 
 		$c[0].AuthorityType=1 
 
-3. Establezca la **Entidad de certificación**:
+3. Establezca la **entidad de certificación**:
 
 		Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
@@ -241,13 +243,13 @@ Para probar la autenticación basada en certificados con una aplicación para An
 
 ## Revocación
 
-Para revocar un certificado de cliente, Azure Active Directory recupera la lista de revocación de certificados (CRL) de las direcciones URL cargadas como parte de la información de la entidad de certificación y la almacena en caché. La última marca de tiempo publicada (propiedad **Effective Date**) de la lista CRL se utiliza para garantizar que esta sigue siendo válida. De forma periódica, se hace referencia a la CRL para revocar el acceso a los certificados que forman parte de la lista.
+Para revocar un certificado de cliente, Azure Active Directory recupera la lista de revocación de certificados (CRL) de las direcciones URL cargadas como parte de la información de la entidad de certificación y la almacena en caché. La última marca de tiempo de publicación (propiedad **Effective Date**) de la CRL se utiliza para garantizar que esta es aún es válida. De forma periódica, se hace referencia a la CRL para revocar el acceso a los certificados que forman parte de la lista.
 
-Si se requiere realizar una revocación más instantánea (por ejemplo, si un usuario pierde un dispositivo), se puede invalidar el token de autorización del usuario. Para ello, establezca el valor del campo **StsRefreshTokenValidFrom** de este usuario concreto mediante Windows PowerShell. Tiene que actualizar el campo **StsRefreshTokenValidFrom** en cada usuario cuyo acceso vaya a revocar.
+Si se requiere realizar una revocación más instantánea (por ejemplo, si un usuario pierde un dispositivo), se puede invalidar el token de autorización del usuario. Para ello, establezca el valor del campo **StsRefreshTokenValidFrom** de este usuario concreto mediante Windows PowerShell. Tiene que actualizar el campo **StsRefreshTokenValidFrom** para cada usuario cuyo acceso desee revocar.
  
-Para garantizar que la revocación se mantenga, debe establecer la **fecha de vigencia** de la CRL en una fecha posterior al valor que establece **StsRefreshTokenValidFrom**. Además, asegúrese de que el certificado en cuestión se encuentre en la CRL.
+Para asegurarse de que la revocación persiste, debe establecer la **fecha de vigencia** de la CRL en una fecha posterior al valor que establece **StsRefreshTokenValidFrom** y asegurarse de que el certificado en cuestión se encuentra en la CRL.
  
-En los siguientes pasos se describe el proceso de actualización e invalidación del token de autorización estableciendo el campo **StsRefreshTokenValidFrom**.
+En los siguientes pasos se describe el proceso de actualización e invalidación del token de autorización mediante el establecimiento del campo **StsRefreshTokenValidFrom**.
 
 1. Conéctese con credenciales de administrador al servicio MSOL:
 
@@ -265,6 +267,10 @@ En los siguientes pasos se describe el proceso de actualización e invalidación
 		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 
-La fecha establecida debe ser futura. De lo contrario, no se establecerá la propiedad **StsRefreshTokensValidFrom**. Si la fecha es futura, el valor de **StsRefreshTokensValidFrom** se establece en la hora actual (no la fecha que indica el comando Set-MsolUser).
+La fecha establecida debe ser futura. De lo contrario, no se establece la propiedad **StsRefreshTokensValidFrom**. Si la fecha es futura, el valor de **StsRefreshTokensValidFrom** se establece en la hora actual (no la fecha que indica el comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
+
+<!---HONumber=AcomDC_0727_2016-->

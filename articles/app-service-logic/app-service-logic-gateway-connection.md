@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,6 +24,9 @@ Los conectores de las aplicaciones lógicas compatibles permiten configurar la c
 
 * Debe utilizar una dirección de correo electrónico profesional o educativa en Azure para asociar la puerta de enlace de datos local a su cuenta (cuenta basada en Azure Active Directory).
     * Si usa una cuenta de Microsoft (por ejemplo, @outlook.com, @live.com), podrá usar su cuenta de Azure para crear una dirección de correo electrónico profesional o educativa [siguiendo estos pasos](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+
+> [AZURE.WARNING] Actualmente existe una limitación, y es que la instalación de la puerta de enlace local solo se realizará mediante una cuenta que se haya registrado con Power BI. Mientras tanto, registre cualquier cuenta con "Power BI (gratis)" para completar la instalación correctamente.
+
 * Debe tener la puerta de enlace de datos local [instalada en una máquina local](app-service-logic-gateway-install.md).
 * Ninguna otra puerta de enlace de datos local de Azure debe haber reclamado la puerta de enlace ([esto se produce en el proceso de creación del paso 2 que se indica a continuación](#2-create-an-azure-on-premises-data-gateway-resource)): una instalación solo puede estar asociada a un recurso de puerta de enlace.
 
@@ -38,12 +41,12 @@ Puede encontrar información sobre cómo instalar la puerta de enlace de datos l
 Una vez instalada, debe asociar su suscripción de Azure a la puerta de enlace de datos local.
 
 1. Inicie sesión en Azure con la misma dirección de correo electrónico profesional o académica utilizada durante la instalación de la puerta de enlace.
-1. Haga clic en el botón de recurso **New** (Nuevo).
-1. Busque y seleccione **On-premises data gateway** (Puerta de enlace de datos local).
-1. Complete la información para asociar la puerta de enlace a su cuenta (lo que incluye seleccionar el **Installation Name** (Nombre de instalación) pertinente).
+1. Haga clic en el botón de recurso **Nuevo**.
+1. Busque y seleccione **Puerta de enlace de datos local**.
+1. Complete la información para asociar la puerta de enlace a su cuenta (lo que incluye seleccionar el **nombre de la instalación** pertinente).
 
     ![Conexión a una puerta de enlace de datos local][1]
-1. Haga clic en el botón **Create** (Crear) para crear el recurso.
+1. Haga clic en el botón **Crear** para crear el recurso.
 
 ### 3\. Creación de una conexión con la aplicación lógica del diseñador
 
@@ -54,7 +57,7 @@ Ahora que su suscripción de Azure está asociada a una instancia de la puerta d
 
     ![Creación de una puerta de enlace del diseñador de Aplicaciones lógicas][2]
 1. Seleccione la **puerta de enlace** a la que desea conectarse y cumplimente cualquier otra información obligatoria sobre la conexión.
-1. Haga clic en **Create** (Crear) para crear la conexión.
+1. Haga clic en **Crear** para crear la conexión.
 
 Llegado a este punto, la conexión ya debería estar configurada correctamente para que pueda utilizarla en la aplicación lógica.
 
@@ -67,4 +70,4 @@ Llegado a este punto, la conexión ya debería estar configurada correctamente p
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

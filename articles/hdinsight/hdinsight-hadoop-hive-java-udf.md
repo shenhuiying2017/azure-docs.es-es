@@ -136,7 +136,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
 2. Una vez alcanzado el aviso `jdbc:hive2://localhost:10001/>`, escriba lo siguiente para agregar la función definida por el usuario a Hive y exponerla como una función.
 
-        ADD JAR wasb:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Use la función definida por el usuario para convertir los valores recuperados de una tabla a cadenas de minúsculas.
@@ -166,4 +166,4 @@ Para conocer otras formas de trabajar con Hive, consulte [Usar Hive y HiveQL con
 
 Para más información sobre las funciones definidas por el usuario de Hive, consulte la sección [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Operadores de Hive y funciones definidas por el usuario) de la wiki de Hive en apache.org.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

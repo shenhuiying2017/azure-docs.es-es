@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop en HDInsight
@@ -108,7 +108,7 @@ Use el siguiente script de Windows PowerShell para ejecutar un trabajo que use e
 	# set $jarFile to the jar file you
 	# uploaded.
 	# For example,
-	# $jarFile = "wasb:///example/jars/mahout-core-0.9-job.jar"
+	# $jarFile = "wasbs:///example/jars/mahout-core-0.9-job.jar"
 
 	# The arguments for this job
 	# * input - the path to the data uploaded to HDInsight
@@ -116,9 +116,9 @@ Use el siguiente script de Windows PowerShell para ejecutar un trabajo que use e
 	# * tempDir - the directory for temp files
 	$jobArguments = "--similarityClassname", "recommenditembased", `
                     "-s", "SIMILARITY_COOCCURRENCE", `
-	                "--input", "wasb:///HdiSamples/MahoutMovieData/user-ratings.txt",
-	                "--output", "wasb:///example/out",
-	                "--tempDir", "wasb:///example/temp"
+	                "--input", "wasbs:///HdiSamples/MahoutMovieData/user-ratings.txt",
+	                "--output", "wasbs:///example/out",
+	                "--tempDir", "wasbs:///example/temp"
 
 	# Create the job definition
 	$jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -366,19 +366,19 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 3. Use el siguiente comando para generar el descriptor de archivos (__KDDTrain+.info__), que usa Mahout.
 
-		hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
+		hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasbs:///example/data/KDDTrain+.arff" -f "wasbs:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
 	`N 3 C 2 N C 4 N C 8 N 2 C 19 N L` describe los atributos de los datos del archivo. Por ejemplo, L indica una etiqueta.
 
 4. Compile un bosque de árboles de decisiones mediante el siguiente comando:
 
-		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
+		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasbs:///example/data/KDDTrain+.arff -ds wasbs:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    La salida de esta operación se almacena en el directorio __nsl-forest__, que está ubicado en el almacenamiento del clúster de HDInsight en \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> es el nombre de usuario utilizado para la sesión de Escritorio remoto. Este archivo no es legible para el ojo humano.
+    La salida de esta operación se almacena en el directorio __nsl-forest__, que está ubicado en el almacenamiento del clúster de HDInsight en \_\_wasbs://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> es el nombre de usuario utilizado para la sesión de Escritorio remoto. Este archivo no es legible para el ojo humano.
 
 5. Para probar el bosque, clasifique el conjunto de datos __KDDTest+.arff__. Use el comando siguiente:
 
-    	hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasb:///example/data/KDDTest+.arff -ds wasb:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasb:///example/data/predictions
+    	hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasbs:///example/data/KDDTest+.arff -ds wasbs:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasbs:///example/data/predictions
 
     Este comando devuelve información resumida sobre el proceso de clasificación parecida a la siguiente.
 
@@ -406,7 +406,7 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Este trabajo también genera un archivo ubicado en \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Sin embargo, este archivo no es legible por el ojo humano.
+  Este trabajo también genera un archivo ubicado en \_\_wasbs:///example/data/predictions/KDDTest+.arff.out__. Sin embargo, este archivo no es legible por el ojo humano.
 
 > [AZURE.NOTE] Los trabajos de Mahout no sobrescriben archivos. Si desea ejecutar estos trabajos de nuevo, debe eliminar los archivos creados por trabajos anteriores.
 
@@ -424,9 +424,9 @@ Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualment
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Una vez se complete la compilación, podrá encontrar el archivo JAR en __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Cuando Mahout 1.0 esté disponible, podrá usar los paquetes de compilación previa con HDInsight 3.0. 
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Cargue el archivo jar en __example/jars__ en el almacenamiento predeterminado del clúster. Reemplace CLUSTERNAME en el siguiente script por el nombre de su clúster de HDInsight y FILENAME por la ruta de acceso al archivo __mahout-coure-0.9-job.jar__.
 
@@ -472,7 +472,7 @@ Los clústeres de HDInsight 3.1 incluyen Mahout. La ruta y el nombre de archivo 
             -Name $storageAccountName `
         -ResourceGroupName $resourceGroup)[0].Value
     Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "wasbs:///example/statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
@@ -524,4 +524,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

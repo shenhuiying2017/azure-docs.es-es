@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -73,4 +73,4 @@ Después de cargar un certificado, estará disponible para que pueda proteger lo
 - [Creación de una Aplicación lógica mediante características B2B](./app-service-logic-enterprise-integration-b2b.md)
 - [Más información sobre el Almacén de claves](../key-vault/key-vault-get-started.md "Información sobre el Almacén de claves")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

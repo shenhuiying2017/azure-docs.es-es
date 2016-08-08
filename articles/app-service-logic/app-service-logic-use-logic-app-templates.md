@@ -8,7 +8,7 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -46,4 +46,4 @@ Las plantillas sencillas que se integran con los servicios de redes sociales com
 Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Los pasos detallados puede encontrarlos en [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

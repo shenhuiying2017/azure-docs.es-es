@@ -47,7 +47,7 @@ DataFu puede descargarse e instalarse desde el repositorio de Maven. Use los pas
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE] En el ejemplo anterior se almacena el archivo jar en `wasb:///example/jars` ya que este directorio ya existe en el almacenamiento del clúster. Puede usar la ubicación que desee en el almacenamiento del clúster de HDInsight.
+    > [AZURE.NOTE] En el ejemplo anterior se almacena el archivo jar en `wasbs:///example/jars` ya que este directorio ya existe en el almacenamiento del clúster. Puede usar la ubicación que desee en el almacenamiento del clúster de HDInsight.
 
 ##Uso de DataFu con Pig
 
@@ -55,7 +55,7 @@ Los pasos descritos en esta sección asumen que está familiarizado con el uso d
 
 > [AZURE.IMPORTANT] Al usar DataFu desde Pig en un clúster de HDInsight basado en Linux, primero debe registrar el archivo jar mediante la siguiente instrucción de Pig Latin:
 >
-> ```register wasb:///example/jars/datafu-1.2.0.jar```
+> ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
 > DataFu se registra de forma predeterminada en los clústeres de HDInsight basados en Windows.
 
@@ -107,4 +107,4 @@ Para obtener más información sobre DataFu o Pig, consulte los documentos sigui
 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

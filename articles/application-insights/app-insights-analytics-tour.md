@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -22,7 +22,11 @@
 
 [Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
- 
+
+* **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
+
+
 Recorramos algunas preguntas básicas para comenzar.
 
 ## Conexión a los datos de Application Insights
@@ -119,7 +123,7 @@ Las [expresiones](app-insights-analytics-reference.md#scalars) pueden incluir to
 
     
 
-## [Extend](app-insights-analytics-reference.md#extend-operator): cálculo de columnas
+## [Extend](app-insights-analytics-reference.md#extend-operator): columnas de cálculo
 
 Si solo desea agregar columnas a las ya existentes, use [`extend`](app-insights-analytics-reference.md#extend-operator):
 
@@ -195,7 +199,7 @@ O bien, podríamos agrupar los resultados en función de la hora del día:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que es realmente solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
+Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que realmente es solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
 
 Podemos usar la misma técnica para reducir los intervalos de cadenas:
 
@@ -470,6 +474,9 @@ Use [let](./app-insights-analytics-reference.md#let-statements) para separar las
 > Sugerencia: en el cliente de Analytics, no incluya líneas en blanco entre las partes. Asegúrese de ejecutar todo.
 
 
+* **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
+
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

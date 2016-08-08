@@ -15,14 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="07/25/2016"
 	ms.author="genli"/>
 
 # Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure
 
 En este artículo se ofrece la información necesaria para abrir una incidencia en soporte técnico de Azure.
-
->[AZURE.NOTE]Solo el administrador de cuenta de Azure tiene permiso para acceder al Centro de cuentas.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/). Seleccione **Ayuda y soporte técnico**>**Nueva solicitud de soporte técnico**.
 
@@ -41,7 +39,9 @@ Un representante de soporte técnico de Azure se comunicará con usted conforme 
 
 También puede enviar una solicitud de soporte técnico desde el sitio web de soporte técnico de Azure o desde el Centro de cuentas de Azure:
 
- * Para enviar una incidencia de soporte técnico desde el [sitio web de soporte técnico de Azure](https://azure.microsoft.com/support/options/), haga clic en **Obtener soporte técnico**.
+ * Para enviar una incidencia de soporte técnico desde el [sitio web de soporte técnico de Azure](https://azure.microsoft.com/support/options/), haga clic en **Obtener soporte**.
  * Para enviar una incidencia de soporte técnico desde el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), seleccione una suscripción y haga clic en **Póngase en contacto con el servicio de soporte técnico de Microsoft**.
 
-<!---HONumber=AcomDC_0309_2016-->
+ >[AZURE.NOTE]Solo el administrador de cuenta de Azure tiene permiso para acceder al Centro de cuentas. Para más información sobre cómo averiguar quién es el administrador de cuenta de la suscripción, consulte las [Preguntas más frecuentes](billing-subscription-transfer.md#faq).
+
+<!---HONumber=AcomDC_0727_2016-->

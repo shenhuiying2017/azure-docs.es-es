@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -27,6 +27,13 @@ Si se producen errores al obtener acceso a una aplicación publicada o al public
 - Abra el Visor de eventos y busque eventos relacionados con el conector del proxy de aplicación ubicado en **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** > **Administrador**.
 - Si es necesario, puede disponer de registros más detallados si activa los registros de análisis y depuración, así como el registro de sesiones del conector del proxy de aplicación.
 
+## La página no se representa correctamente.
+
+Si no va a recibir un mensaje de error específico, es posible que tenga problemas con la representación o funcionamiento incorrecto de la aplicación. Esto puede ocurrir si se publica la ruta de acceso del artículo, pero la aplicación requiere contenido que existe fuera de dicha ruta de acceso.
+
+Por ejemplo, si publica la ruta de acceso https://yourapp/app pero la aplicación llama a imágenes de https://yourapp/media, no se representarán. Asegúrese de publicar la aplicación con la ruta de nivel superior que debe incluir todo el contenido relevante. En este ejemplo sería http://yourapp/.
+
+Si cambia la ruta de acceso para incluir el contenido al que se hace referencia, pero todavía necesita que los usuarios lleguen a un vínculo más profundo de la ruta de acceso, consulte la entrada del blog [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/) (Establecimiento del vínculo correcto para las aplicaciones del proxy de aplicación en el panel de acceso de Azure AD y en el selector de programas de Office 365).
 
 ## Errores generales
 
@@ -37,7 +44,7 @@ No se puede tener acceso a esta aplicación corporativa. No está autorizado par
 
 
 ## Solución de problemas del conector
-Si se produce un error en el registro durante la instalación del asistente del conector, puede ver el motivo del error si busca en el registro de eventos en **Registros de Windows** > **Aplicación** o ejecuta el siguiente comando de Windows PowerShell.
+Si se produce un error en el registro durante la instalación del asistente del conector, puede ver el motivo del error si busca en el registro de eventos en Services Logs\\Microsoft\\AadApplicationProxy\\Connector\\Admin o ejecuta el siguiente comando de Windows PowerShell.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
@@ -77,11 +84,11 @@ Si se produce un error en el registro durante la instalación del asistente del 
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
 - [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
 
-Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog de Proxy de aplicación).
+Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

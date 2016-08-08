@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/26/2016"
 	ms.author="micurd"/>
 
 # Cómo utilizar el almacenamiento de blobs de Xamarin (vista previa)
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Información general
 
@@ -49,7 +49,7 @@ El URI de la firma de acceso compartido para el nuevo contenedor debe ser simila
 
 La firma de acceso compartido que creó en el contenedor será válida durante el día siguiente. La firma concede permisos totales (*es decir*, lectura, escritura, eliminación y enumeración) para blobs situados dentro del contenedor.
 
-Para obtener más información sobre firmas de acceso compartido, vea [Firmas de acceso compartido: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
+Para más información sobre firmas de acceso compartido, vea [Firmas de acceso compartido: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Creación de una nueva aplicación Xamarin
 
@@ -179,4 +179,4 @@ Obtenga más información acerca de blobs, tablas y colas mediante la consulta d
 - [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

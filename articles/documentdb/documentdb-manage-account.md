@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # Administración de una cuenta de DocumentDB
@@ -28,14 +28,11 @@ La selección del nivel de coherencia adecuado depende de la semántica de su ap
 ### Para especificar la coherencia predeterminada de una cuenta de DocumentDB:
 
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
-2. En la hoja de cuenta, si la hoja **Configuración** no está ya abierta, haga clic en **Toda la configuración**.
-![Sesión de coherencia predeterminada][5]
+2. En la hoja de cuenta, si la hoja **Configuración** no está ya abierta, haga clic en **Toda la configuración**. ![Sesión de coherencia predeterminada][5]
 
-3. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**.
-    ![Sesión de coherencia predeterminada][6]
-
-4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
-5. Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
+3. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**. ![Sesión de coherencia predeterminada][6]
+4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
+5. Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de DocumentDB.
 
@@ -88,13 +85,9 @@ También incluye las claves de solo lectura para proporcionar a los usuarios acc
 
 ### Visualización y copia de una clave de acceso en el Portal de Azure
 
-1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
-
+1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
 2. En la barra **Essentials** (Información básica) de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
-
-3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
-
-  ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
+3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar. ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar las claves de acceso
 
@@ -119,7 +112,7 @@ Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Document
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.
 
-## <a id="delete"></a>Eliminación de una cuenta de DocumentDB
+## </a><a id="delete">Eliminación de una cuenta de DocumentDB
 Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar** de la hoja **Cuenta de DocumentDB**.
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
@@ -148,7 +141,7 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/es-ES/regions/#services
+[offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
@@ -100,4 +100,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Incorporación de autenticación a su aplicación]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Incorporación de notificaciones de inserción a la aplicación]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

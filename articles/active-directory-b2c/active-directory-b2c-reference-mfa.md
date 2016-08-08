@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Azure"
 	description="Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor protegidas por Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Versión preliminar de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
+# Azure Active Directory B2C: habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
 
 Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para que pueda agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones orientadas al consumidor. Y todo esto sin necesidad de escribir una sola línea de código. Actualmente se admite la comprobación mediante llamadas de teléfono y mensajes de texto. Aunque ya haya creado directivas de registro e inicio de sesión, puede habilitar Multi-Factor Authentication.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
 También se puede habilitar Multi-Factor Authentication al crear directivas de registro e inicio de sesión, no solo mediante la edición de las directivas existentes.
@@ -32,7 +30,7 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 
 ## Modificación de la directiva de registro para habilitar Multi-Factor Authentication
 
-1. [Siga estos pasos para ir a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de registro**.
 3. Haga clic en la directiva de registro (por ejemplo, "B2C\_1\_SiUp") para abrirla.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
@@ -44,7 +42,7 @@ Se crea una cuenta de consumidor en su directorio antes de que se produzca el pa
 
 ## Modificación de la directiva de inicio de sesión para habilitar Multi-Factor Authentication
 
-1. [Siga estos pasos para ir a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de inicio de sesión**.
 3. Haga clic en la directiva de inicio de sesión (por ejemplo, "B2C\_1\_SiIn") para abrirla. Haga clic en **Editar** en la parte superior de la hoja.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
@@ -58,4 +56,4 @@ Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si 
 
 Como se ha descrito anteriormente en relación con las directivas de registro e inicio de sesión, también es posible habilitar Multi-Factor Authentication en las directivas de registro o inicio de sesión y en las directivas de restablecimiento de contraseña. Muy pronto estará disponible en las directivas de edición de perfiles.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

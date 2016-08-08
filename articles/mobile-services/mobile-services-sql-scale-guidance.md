@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Escalamiento de servicios móviles respaldados por Base de datos SQL de Azure
@@ -76,8 +76,8 @@ Cuando se haya familiarizado con los diferentes niveles de base de datos, puede 
 
     - *Porcentaje de CPU* (disponible solo en los niveles Básico, Estándar y Premium)
     - *Porcentaje de E/S de registro* (disponible solo en los niveles Básico, Estándar y Premium)
-    - *Almacenamiento* 
-7. Inspeccione las métricas en la ventana de tiempo cuando el servicio experimente problemas. 
+    - *Almacenamiento*
+7. Inspeccione las métricas en la ventana de tiempo cuando el servicio experimente problemas.
 
     ![Azure classic portal - SQL Database Metrics][PortalSqlMetrics]
 
@@ -192,7 +192,7 @@ A continuación se mencionan algunas directrices que debe tener en cuenta cuando
 - **Implementar paginación.** algunas veces, la ejecución de consultas en la base de datos puede provocar la devolución de un gran número de registros al cliente. Para minimizar el tamaño y la latencia de las operaciones, plantéese implementar paginación.
 
     - De forma predeterminada, el servicio móvil limitará cualquier consulta entrante a un tamaño de página de 50 y manualmente puede solicitar hasta 1.000 registros. Para obtener más información, consulte "Devolución de datos en páginas" para [Tienda Windows](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) y [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - No hay un tamaño de página predeterminado para consultas realizadas desde el código del servicio móvil. Si la aplicación no implementa paginación, o como medida de protección, plantéese aplicar límites predeterminados a las consultas. En el back-end de JavaScript, use el operador **take** en el [objeto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si usa el back-end de .NET, plantéese usar el [método Take] como parte de la consulta LINQ.  
+    - No hay un tamaño de página predeterminado para consultas realizadas desde el código del servicio móvil. Si la aplicación no implementa paginación, o como medida de protección, plantéese aplicar límites predeterminados a las consultas. En el back-end de JavaScript, use el operador **take** en el [objeto query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si usa el back-end de .NET, plantéese usar el [método Take] como parte de la consulta LINQ.
 
 
 Para obtener más información sobre la mejora del diseño de consultas, incluido cómo analizar planes de consulta, vea [Diseño avanzado de consultas](#AdvancedQuery) al final de este documento.
@@ -494,4 +494,4 @@ Para analizar el plan de consulta en el **Portal de administración de bases de 
 <!-- BLOG LINKS -->
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

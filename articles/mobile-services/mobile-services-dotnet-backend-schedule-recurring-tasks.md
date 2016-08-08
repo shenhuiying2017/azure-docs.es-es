@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
+- [Back-end de .NET](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Back-end de JavaScript](mobile-services-schedule-recurring-tasks.md)
 
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de Azure clásico para definir el código de script de servidor que se ejecuta según la programación que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -79,7 +79,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 		using Microsoft.WindowsAzure.Mobile.Service;
 		using System.ComponentModel.DataAnnotations;
 
-3. Sustituya la definición de clase **Updates** por el siguiente código:
+3. Reemplace la definición de clase **Updates** por el código siguiente:
 
 		public class Updates
 	    {
@@ -91,7 +91,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda la carpeta Modelos, abra el archivo de contexto del modelo de datos (denominado *nombre\_servicio*Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
+4. Expanda la carpeta Models, abra el archivo de contexto del modelo de datos (denominado *nombre\_servicio*Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -218,7 +218,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son *mobile&#95;service&#95;name*Service y *mobile&#95;service&#95;name*Context, respectivamente.
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name* y el contexto *mobile&#95;service&#95;name*, respectivamente.
 
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
@@ -305,4 +305,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

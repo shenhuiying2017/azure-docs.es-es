@@ -31,7 +31,7 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 
 1. **¿Cuál es la diferencia entre las máquinas virtuales de SQL y el servicio Base de datos SQL?**
 
-	De manera conceptual, ejecutar SQL Server en una máquina virtual de Azure no es diferente a ejecutar SQL Server en un centro de datos remoto. En cambio, [Base de datos SQL](../sql-database/sql-database-technical-overview.md) ofrece base de datos como servicio. Con Base de datos SQL, no se tiene acceso a las máquinas que hospedan las bases de datos. Para ver una comparación completa, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)](../sql-database/media/data-management-azure-sql-database-and-sql-server-iaas.md).
+	De manera conceptual, ejecutar SQL Server en una máquina virtual de Azure no es diferente a ejecutar SQL Server en un centro de datos remoto. En cambio, [Base de datos SQL](../sql-database/sql-database-technical-overview.md) ofrece base de datos como servicio. Con Base de datos SQL, no se tiene acceso a las máquinas que hospedan las bases de datos. Para ver una comparación completa, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **¿Cómo puedo migrar mi base de datos local de SQL Server a la nube?**
 
@@ -77,4 +77,4 @@ Otros recursos son los siguientes:
 - [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md)
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

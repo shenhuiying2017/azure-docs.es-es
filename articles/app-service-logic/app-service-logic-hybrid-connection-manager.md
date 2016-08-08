@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -46,12 +46,12 @@ En el portal de Azure, copie la cadena de conexión SAS raíz de Bus de servicio
 
 ## Instalación del Administrador de conexiones híbridas
 
-1. En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione el conector que ha creado. Para abrirlo, puede seleccionar **Examinar**, **Aplicaciones de la API** y luego el conector o la aplicación de API. <br/><br/> En **Conexión híbrida**, la instalación está **incompleta**: <br/> ![][2] 
+1. En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione el conector que ha creado. Para abrirlo, puede seleccionar **Examinar**, **Aplicaciones de la API** y luego el conector o la aplicación de API. <br/><br/> En **Conexión híbrida**, la instalación está **incompleta**: <br/> ![][2]
 
 2. Seleccione **Conexión híbrida**. Se muestra la cadena de conexión del Bus de servicio que escribió anteriormente.
 3. Copie la **Cadena de configuración principal**: <br/> ![][PrimaryConfigString]
 
-4. En **Administrador de conexiones híbridas local**, puede descargar el Administrador de conexiones híbridas o instalarlo directamente desde el portal. <br/><br/> Para instalar directamente desde el portal, vaya a su servidor IIS local, vaya al portal y seleccione **Descargar y configurar**. <br/><br/> Para descargar el Administrador de conexiones híbridas, vaya al servidor IIS local y vaya a la **aplicación ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). La instalación se inicia automáticamente para que pueda ejecutarla.
+4. En **Administrador de conexiones híbridas local**, puede descargar el Administrador de conexiones híbridas o instalarlo directamente desde el portal. <br/><br/> Para instalar directamente desde el portal, vaya a su servidor IIS local, vaya al portal y seleccione **Descargar y configurar**. <br/><br/> Para descargar el administrador de conexiones híbridas, vaya al servidor IIS local y busque la **aplicación ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). La instalación se inicia automáticamente para que pueda ejecutarla.
 
 5. En la ventana **Configuración del proceso de escucha**, escriba la **Cadena de configuración principal** que pegó anteriormente (en el paso 3) y seleccione **Instalar**.
 
@@ -84,19 +84,19 @@ Puerto del sistema local | En el sistema local, abra el puerto usado por el sist
 
 1. En el servidor IIS, confirme que el rol web de IIS está instalado y que se inician todos los servicios IIS.
 2. En el servidor IIS, confirme que el Administrador de conexiones híbridas está instalado y ejecutándose:
- - En el Administrador de IIS (inetmgr), debe aparecer el sitio web ***MicrosoftAzureBizTalkHybridListener*** y estar en ejecución. 
+ - En el Administrador de IIS (inetmgr), debe aparecer el sitio web ***MicrosoftAzureBizTalkHybridListener*** y estar en ejecución.
  - Este sitio web usa el ***HybridListenerAppPool*** que se ejecuta como cuenta de usuario local integrada de *NetworkService*. Este grupo de aplicaciones también debería iniciarse.
-3. En el servidor IIS, confirme que el conector está instalado y ejecutándose: 
- - Se crea un sitio web para el conector del Servicio de aplicaciones. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector\_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia. 
- - Este sitio web usa su propio grupo de aplicaciones de IIS denominado ***HybridAppPoolnnn***. Este grupo de aplicaciones se ejecuta como la cuenta de usuario local integrada de *NetworkService*. Tanto este sitio web como el conjunto de aplicaciones se deben haber iniciado. 
+3. En el servidor IIS, confirme que el conector está instalado y ejecutándose:
+ - Se crea un sitio web para el conector del Servicio de aplicaciones. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector\_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia.
+ - Este sitio web usa su propio grupo de aplicaciones de IIS denominado ***HybridAppPoolnnn***. Este grupo de aplicaciones se ejecuta como la cuenta de usuario local integrada de *NetworkService*. Tanto este sitio web como el conjunto de aplicaciones se deben haber iniciado.
  - Busque el conector local. Por ejemplo, si el sitio web de su conector usa el puerto 6569, vaya a http://localhost:6569. Un documento predeterminado no está configurado así que se espera un `HTTP Error 403.14 - Forbidden error`.
 4. En el firewall, confirme que los puertos TCP que se muestran en este tema están abiertos.
 5. Mire el sistema de origen o de destino:
  - Algunos sistemas locales requieren archivos de dependencia adicionales. Por ejemplo, si se conecta a SAP local, algunos archivos de SAP adicionales se deben instalar en el servidor IIS.
  - Compruebe la conectividad con el sistema con la cuenta de inicio de sesión. Por ejemplo, el puerto TCP usado por el sistema debe estar abierto, como el puerto 1433 para SQL Server. La cuenta de inicio de sesión que escribió en el Portal de Azure debe tener acceso al sistema.
-6. En el servidor IIS, compruebe los registros de eventos para ver si hay errores. 
-7. Limpie y vuelva a instalar el Administrador de conexiones híbridas: 
- - En IIS, elimine manualmente el sitio web del conector y su grupo de aplicaciones. 
+6. En el servidor IIS, compruebe los registros de eventos para ver si hay errores.
+7. Limpie y vuelva a instalar el Administrador de conexiones híbridas:
+ - En IIS, elimine manualmente el sitio web del conector y su grupo de aplicaciones.
  - Vuelva a ejecutar el Administrador de conexiones híbridas y confirme que especifica la **Cadena de configuración principal** correcta para el conector.
 
 
@@ -140,4 +140,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -55,23 +55,23 @@ Aunque la arquitectura que se describe en este ejemplo corresponde a una soluci�
 
 En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar su consulta (11 x 17 pulgadas o tamaño A3): [Orquestación de HPC y de datos mediante Lote y Data Factory de Azure](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![HPC como diagrama de servicio](./media/data-factory-data-processing-using-batch/image1.png)
+[![Diagrama de procesamiento de datos de gran escala](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
 
 Estos son los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
-1.  Configure Lote de Azure con un grupo de nodos de proceso (máquinas virtuales). Puede especificar el número de nodos y el tamaño de cada nodo.
+1.  **Configure Lote de Azure con un grupo de nodos de proceso (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
 
-2.  Cree una instancia de Factoría de datos de Azure que esté configurada con entidades que representen Almacenamiento de blobs de Azure, el servicio de proceso de Lote de Azure, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
+2.  **Cree una instancia de Data Factory de Azure** que esté configurada con entidades que representen Almacenamiento de blobs de Azure, el servicio de proceso de Lote de Azure, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
 
-3.  La canalización de Factoría de datos tiene una actividad .NET personalizada, que está configurada para ejecutarse en el grupo de nodos de Lote de Azure.
+3.   **Cree una actividad personalizada de .NET en la canalización de Data Factory**. La actividad es el código de usuario que se ejecutará en el grupo de Lote de Azure.
 
-4.  Almacene grandes cantidades de datos de entrada como blobs en Almacenamiento de Azure. Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
+4.  **Almacene grandes cantidades de datos de entrada como blobs en Almacenamiento de Azure**. Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
 
-5.  Factoría de datos copia los datos que se procesarán en paralelo a la ubicación secundaria.
+5.  **Data Factory copia los datos que se procesarán en paralelo** en la ubicación secundaria.
 
-6.  Factoría de datos ejecuta la actividad personalizada con el grupo asignado por Lote. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Almacenamiento de Azure.
+6.  **Data Factory ejecuta la actividad personalizada con el grupo que asigna Lote**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Almacenamiento de Azure.
 
-7.  Una vez obtenidos todos los resultados, Factoría de datos los mueve a una tercera ubicación para que se distribuyan a través de una aplicación o para que se sigan procesando con otras herramientas.
+7.  **Data Factory mueve los resultados finales a una tercera ubicación** para que se distribuyan a través de una aplicación o para que se sigan procesando con otras herramientas.
 
 ## Implementación de la solución de ejemplo
 La solución de ejemplo se ha diseñado intencionadamente para que resulte sencilla, ya que el propósito es mostrarle cómo usar Data Factory y Lote juntos para procesar conjuntos de datos. La solución sencillamente cuenta el número de repeticiones de un término de búsqueda (“Microsoft”) en los archivos de entrada, que están organizados en una serie temporal. genera el recuento en archivos de salida.
@@ -548,7 +548,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
     
-		> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: \<nombreDeCuenta\>.\<región\>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
@@ -802,7 +802,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Use el Portal de Azure para ver las **tareas** asociadas con los **segmentos** y para comprobar en qué máquina virtual se ejecuta cada segmento. Para más información, consulte la sección [Integración de Data Factory y Lote](#data-factory-and-batch-integration).
+6.  Use el Portal de Azure para ver las **tareas** asociadas con los **segmentos** y para comprobar en qué máquina virtual se ejecuta cada segmento. Para obtener más información, consulte la sección [Integración de Data Factory y Lote](#data-factory-and-batch-integration).
 
 7.  Debería ver los archivos de salida en la carpeta **outputfolder** de **mycontainer** en su Almacenamiento de blobs de Azure.
 
@@ -917,7 +917,7 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
 		$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
-	Para más información, consulte [Escalado automático de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+	Para obtener más información, consulte [Escalado automático de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
 
 	Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 	 
@@ -962,4 +962,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -23,7 +23,7 @@ De manera predeterminada, los clústeres de Hadoop no están optimizados para el
 
 > [AZURE.IMPORTANT] En los pasos de este documento se usa el Portal de Azure clásico. Microsoft no recomienda usar el portal clásico al crear nuevos servicios. Para obtener una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Este documento también incluye información sobre cómo usar Azure PowerShell. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
+> Este documento también incluye información acerca de cómo usar Azure PowerShell. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
 >
 >Para ver una versión de este documento donde se usa el Portal de Azure, junto con fragmentos de código de PowerShell que usan Azure Resource Manager (ARM), consulte [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query.md).
 
@@ -33,8 +33,8 @@ El aumento del número de nodos de trabajo de un clúster puede aprovechar más 
 
 - En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el portal de Azure, PowerShell de Azure y la interfaz de la línea de comandos entre plataformas. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de Azure:
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
-- En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
+- En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]2]
 
 Para obtener más detalles sobre las distintas máquinas virtuales admitidas por HDInsight, vea [precios HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -42,7 +42,7 @@ Para obtener más detalles sobre las distintas máquinas virtuales admitidas por
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativa al motor de MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez\_1]
 
 
 Tez es más rápido porque:
@@ -90,7 +90,7 @@ La operación de E/S es el principal cuello de botella de rendimiento para ejecu
 
 La creación de particiones de Hive se implementa mediante la reorganización de los datos sin procesar en nuevos directorios teniendo cada partición su propio directorio (donde la partición se define por el usuario). En el siguiente diagrama se ilustra la creación de particiones de una tabla de Hive por la columna *Año*. Se crea un nuevo directorio para cada año.
 
-![creación de particiones][image-hdi-optimize-hive-partitioning_1]
+![partitioning][image-hdi-optimize-hive-partitioning\_1]
 
 Algunas consideraciones de particiones:
 
@@ -122,7 +122,7 @@ Cuando se cree la tabla con particiones, puede crear las particiones estáticas 
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **La partición dinámica** significa que desea que Hive cree particiones automáticamente para usted. Dado que ya hemos creado la tabla de particiones desde la tabla de almacenamiento temporal, lo único que debemos hacer es insertar datos en la tabla con particiones, como se muestra a continuación:
 
@@ -215,9 +215,6 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 - [Uso de Hive con HDInsight para analizar registros de sitios web](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

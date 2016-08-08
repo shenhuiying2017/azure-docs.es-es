@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="06/01/2016"
+   ms.date="07/25/2016"
    ms.author="brjohnst"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
@@ -978,6 +978,8 @@ La operación **Obtener estadísticas de índice** obtiene de Búsqueda de Azure
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
+> [AZURE.NOTE] Se recopilan estadísticas del tamaño de almacenamiento y el número de documento cada pocos minutos; es decir, no se hace en tiempo real. Por lo tanto, es posible que las estadísticas que devuelve esta API no reflejen los cambios causados por operaciones de indexación recientes.
+
 **Solicitud**
 
 HTTPS es necesario para todas las solicitudes de servicio. La solicitud **Obtener estadísticas de índices** puede crearse mediante el método GET.
@@ -1050,7 +1052,7 @@ o
       "charFilters": (optional) [ "char_filter_name" ]
     }
 
-`analyzer_name`, `tokenizer_name`, `token_filter_name` y `char_filter_name` deben ser nombres válidos de analizadores, tokenizadores, filtros de token y filtros de caracteres predefinidos o personalizados para el índice. Para más información sobre el proceso de análisis léxico, consulte [Análisis en Búsqueda de Azure](https://aka.ms/azsanalysis).
+`analyzer_name`, `tokenizer_name`, `token_filter_name` y `char_filter_name` deben ser nombres válidos de analizadores, tokenizadores, filtros de token y filtros de caracteres predefinidos o personalizados para el índice. Para obtener más información sobre el proceso de análisis léxico, consulte [Análisis en Búsqueda de Azure](https://aka.ms/azsanalysis).
 
 **Respuesta**
 
@@ -1160,7 +1162,7 @@ El cuerpo de la solicitud contiene uno o más documentos para indexar. Los docum
       ]
     }
 
-> [AZURE.NOTE] Las claves de documento solo pueden contener letras, números, guiones ("-"), caracteres de subrayado ("\_") y signos igual ("="). Para más información, consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+> [AZURE.NOTE] Las claves de documento solo pueden contener letras, números, guiones ("-"), caracteres de subrayado ("\_") y signos igual ("="). Para obtener más información, consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
 **Acciones de documentos**
 
@@ -1342,7 +1344,7 @@ La operación de **búsqueda** se emite como una solicitud GET o POST y especifi
 
 Cuando use HTTP GET para llamar a la API de **búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas o expresiones de filtro OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros y consultas mayores que GET. Con POST, el número de términos o cláusulas en una consulta es el factor limitador, no el tamaño de la consulta básica, ya que el límite de tamaño de la solicitud POST es de 16 MB aproximadamente.
 
-> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de Lucene de consulta en búsqueda de Azure](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda. **Solicitud**
+> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de Lucene de consulta en búsqueda de Azure](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para obtener más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda. **Solicitud**
 
 HTTPS es necesario para las solicitudes de servicio. La solicitud **Búsqueda** puede crearse mediante los método GET o POST.
 
@@ -1402,7 +1404,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 `facet=[string]` (cero o más): un campo por el que establecer facetas. Es posible que la cadena contenga parámetros para personalizar la faceta expresada como pares `name:value` separados por comas. Los parámetros válidos son:
 
 - `count` (número máximo de términos de faceta; el valor predeterminado es 10). No hay ningún máximo, pero los valores más altos incurren en una penalización de rendimiento correspondiente, especialmente si el campo con facetas contiene un gran número de términos únicos.
-  - Por ejemplo: `facet=category,count:5` obtiene las cinco categorías principales en los resultados de la faceta.  
+  - Por ejemplo: `facet=category,count:5` obtiene las cinco categorías principales en los resultados de la faceta.
   - **Nota**: Si el parámetro `count` es menor que el número de términos únicos, es posible que los resultados no sean precisos. Esto es debido a la manera en que se distribuyen las consultas de facetas entre las particiones. Aumentar `count` generalmente aumenta la precisión de los recuentos de términos, pero ello afecta al rendimiento.
 - `sort` (uno de `count` para ordenar de manera *descendente* por número, `-count` para ordenar de manera *ascendente* por número, `value` para ordenar de manera *ascendente* por valor o `-value` para ordenar de manera *descendente* por valor)
   - Por ejemplo: `facet=category,count:3,sort:count` obtiene las tres categorías principales en los resultados de la faceta en orden descendente por el número de documentos con el nombre de cada ciudad. Por ejemplo, si las tres categorías principales son Presupuesto, Motel y Lujo, y Presupuesto tiene 5 resultados, Motel tiene 6 y Lujo tiene 4, a continuación, los depósitos se colocarán en el orden siguiente: Motel, Presupuesto, Lujo.
@@ -1416,7 +1418,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 - `timeoffset` ([+-] hh: mm, [+-] hhmm, o [+-] hh) `timeoffset` es opcional. Solo se puede combinar con la opción `interval` y solo cuando se aplica a un campo de tipo `Edm.DateTimeOffset`. El valor especifica la diferencia horaria UTC para explicar la configuración de los límites de tiempo.
   - Por ejemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa el límite de día que comienza a la 01:00:00 UTC (medianoche en la zona horaria de destino)
 - **Nota**: `count` y `sort` se pueden combinar en la misma especificación de faceta, pero no se pueden combinar con `interval` o `values`, y `interval` y `values` no se pueden combinar entre sí.
-- **Nota**: Las facetas de intervalo de fecha y hora se calculan en función de la hora UTC si `timeoffset` no se ha especificado. Por ejemplo, para `facet=lastRenovationDate,interval:day`, el límite de día comienza a las 00:00:00 UTC. 
+- **Nota**: Las facetas de intervalo de fecha y hora se calculan en función de la hora UTC si `timeoffset` no se ha especificado. Por ejemplo, para `facet=lastRenovationDate,interval:day`, el límite de día comienza a las 00:00:00 UTC.
 
 > [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `facets` en lugar de `facet`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es una expresión de faceta independiente.
 
@@ -1440,7 +1442,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 
 - Por ejemplo, si el perfil de puntuación define una función con un parámetro denominado "mylocation", la opción de cadena de consulta sería `&scoringParameter=mylocation--122.2,44.8`. El primer guión separa el nombre de la lista de valores, mientras que el segundo guión es parte del primer valor (longitud en este ejemplo).
 - Para los parámetros de puntuación así como para el aprovechamiento de etiquetas que contienen comas, es posible separar tales valores de la lista mediante el uso de comillas simples. Si los propios valores contienen comillas simples, puede separarlos duplicando la comilla simple.
-  - Por ejemplo, si tiene un parámetro de aprovechamiento de etiqueta llamado "mytag" y desea aprovechar los valores de la etiqueta "Hello, O' Brien" y "Smith", la opción de la cadena de consulta sería `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Tenga en cuenta que las comillas solo son necesarias para los valores que contienen comas.
+  - Por ejemplo, si tiene un parámetro de aprovechamiento de etiqueta llamado mytag y desea aprovechar los valores de la etiqueta Hello, O' Brien y Smith, la opción de la cadena de consulta sería `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Tenga en cuenta que las comillas solo son necesarias para los valores que contienen comas.
 
 > [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par `name-values` independiente.
 
@@ -1835,7 +1837,7 @@ Una operación **Sugerencias** se emite como una solicitud GET o POST.
 
 Cuando use HTTP GET para llamar a la API de **Sugerencias**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas, en concreto, expresiones de filtro de OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros mayores que GET. Con POST, el número de cláusulas en un filtro es el factor limitador, no el tamaño de la cadena del filtro, ya que el límite de tamaño de la solicitud POST es de 16 MB aproximadamente.
 
-> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las expresiones de filtro no pueden ser arbitrariamente complejas. Consulte [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para más información sobre las limitaciones de complejidad de filtros.
+> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las expresiones de filtro no pueden ser arbitrariamente complejas. Consulte [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para obtener más información sobre las limitaciones de complejidad de filtros.
 
 **Solicitud**
 
@@ -1968,4 +1970,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

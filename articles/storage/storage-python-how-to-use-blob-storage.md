@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="07/26/2016"
 	ms.author="jehine"/>
 
 # Uso del almacenamiento de blobs de Azure desde Python
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Información general
 
@@ -42,7 +42,7 @@ El código siguiente crea un objeto **BlockBlobService** usando la clave de la c
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-En el siguiente ejemplo de código, puede usar un objeto **BlockBlobService** para crear el contenedor si no existe:
+En el siguiente ejemplo de código, puede usar un objeto **BlockBlobService** para crear el contenedor si no existe.
 
 	block_blob_service.create_container('mycontainer')
 
@@ -83,7 +83,7 @@ Para enumerar los blobs de un contenedor, use el método **list\\_blobs**. Este 
 
 ## Descargar blobs
 
-Para descargar datos de un blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Para descargar datos desde un blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
 En el ejemplo siguiente se muestra cómo usar **get\_blob\_to\_path** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **out-sunset.png**:
 
@@ -127,4 +127,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

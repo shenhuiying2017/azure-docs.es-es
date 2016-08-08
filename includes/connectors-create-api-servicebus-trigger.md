@@ -1,12 +1,11 @@
-In this example, I will show you how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is to a Service Bus queue.  
+En este ejemplo, le mostraremos cómo usar el desencadenador **Service Bus - When a message is received in a queue** (Bus de servicio: cuando se recibe un mensaje en una cola) para iniciar un flujo de trabajo de aplicación lógica cuando se reciba un nuevo elemento en una cola del Bus de servicio.
 
->[AZURE.NOTE]You will get prompted to sign with your Service Bus connection string if you have not already created a *connection* to Service Bus.  
+>[AZURE.NOTE]Si aún no ha creado una *conexión* al Bus de servicio, se le pedirá que inicie sesión con la cadena de conexión del Bus de servicio.
 
-1. Enter *service bus* in the search box on the logic apps designer then select the **Service Bus - When a message is received in a queue**  trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** control is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Escriba *bus de servicio* en el cuadro de búsqueda del diseñador de Logic Apps y luego seleccione el desencadenador **Service Bus - When a message is received in a queue** (Bus de servicio: cuando se recibe un mensaje en una cola). ![Imagen 1 de desencadenador del Bus de servicio](./media/connectors-create-api-servicebus/trigger-1.png)
+- Se muestra el control **When a message is received in a queue** (Cuando se recibe un mensaje en una cola). ![Imagen 2 de desencadenador del Bus de servicio](./media/connectors-create-api-servicebus/trigger-2.png)
+- Escriba el nombre de la cola del Bus de servicio que quiere que supervise el desencadenador. ![Imagen 3 de desencadenador del Bus de servicio](./media/connectors-create-api-servicebus/trigger-3.png)
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is  received in the queue you selected.    
+En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se reciba un nuevo elemento en la cola que ha seleccionado.
+
+<!---HONumber=AcomDC_0727_2016-->

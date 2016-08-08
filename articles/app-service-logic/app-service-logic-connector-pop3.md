@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -65,8 +65,7 @@ Una vez creada la aplicación de API, puede usar el conector POP3 como desencade
 5.	Ahora puede usar el conector de POP3 en el flujo. Seleccione el desencadenador "Obtener correo electrónico" y configure la frecuencia y el intervalo. Puede utilizar el correo electrónico recuperado desde el desencadenador de POP3 en otras acciones del flujo.
 		 
 
-	![][5]
-	![][6]
+	![][5] ![][6]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -86,4 +85,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

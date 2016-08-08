@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Depuración de los trabajos de Análisis de transmisiones mediante registros de operaciones y servicios
@@ -25,8 +25,8 @@ Todos los servicios de Azure ofrecen mensajes de registro operativo a los usuari
 
 A los registros de operaciones se puede acceder de dos maneras:
 
-- Panel del trabajo del Análisis de transmisiones  
-- Servicios de administración en el Portal de Azure clásico  
+- Panel del trabajo del Análisis de transmisiones
+- Servicios de administración en el Portal de Azure clásico
 
 ## Panel del trabajo del Análisis de transmisiones
 
@@ -39,7 +39,7 @@ Se muestra un vínculo a los registros correspondientes de un trabajo del Análi
 Para navegar de forma manual a los registros de operación para el Análisis de transmisiones y otros servicios en el Portal de Azure clásico:
 
 1.	Haga clic en **Servicios de administración** en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2.	Seleccione **Análisis de transmisiones** para **Tipo** y el nombre del trabajo para **Nombre de servicio**.  
+2.	Seleccione **Análisis de transmisiones** para **Tipo** y el nombre del trabajo para **Nombre de servicio**.
 
   ![Seleccionar el Análisis de transmisiones](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

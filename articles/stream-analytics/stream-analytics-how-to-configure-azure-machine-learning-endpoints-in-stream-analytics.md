@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"
 />
 
@@ -52,7 +52,7 @@ Mediante las API de REST, puede configurar el trabajo para llamar a funciones de
 
 Por ejemplo, el siguiente código de ejemplo crea una función definida por el usuario escalar denominada *newudf* que enlaza a un punto de conexión de Aprendizaje automático de Azure. Tenga en cuenta que el *punto de conexión* (URI de servicio) se puede encontrar en la página de ayuda de API para el servicio seleccionado, y la *apiKey* puede encontrarse en la página principal de servicios.
 
-PUT: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+PUT : /subscriptions/<idSuscripción>/resourceGroups/<grupoRecursos>/providers/Microsoft.StreamAnalytics/streamingjobs/<nombreTrabajoStreaming>/functions/<nombreudf>?api-version=<versiónapi>
 
 Ejemplo del cuerpo de solicitud:
 
@@ -76,7 +76,7 @@ Ejemplo del cuerpo de solicitud:
 
 Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetreiveDefaultDefinition ayuda a obtener la definición predeterminada para una función escalar enlazada a un punto de conexión de Aprendizaje automático de Azure. La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Aprendizaje automático de Azure. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Análisis de transmisiones llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia originalmente. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
 
-POST: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
+POST : /subscriptions/<idSuscripción>/resourceGroups/<grupoRecursos>/providers/Microsoft.StreamAnalytics/streamingjobs/<nombreTrabajoStreaming>/functions/<nombreudf>/RetrieveDefaultDefinition?api-version=<versiónapi>
 
 Ejemplo del cuerpo de solicitud:
 
@@ -131,7 +131,7 @@ Un ejemplo de salida tendría el aspecto siguiente.
 
 Ahora se debe revisar la función definida por el usuario con la respuesta anterior, tal como se muestra a continuación.
 
-PATCH: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+PATCH : /subscriptions/<idSuscripción>/resourceGroups/<grupoRecursos>/providers/Microsoft.StreamAnalytics/streamingjobs/<nombreTrabajoStreaming>/functions/<nombreudf>?api-version=<versiónapi>
 
 Cuerpo de la solicitud: salida de RetrieveDefaultDefinition
 
@@ -160,4 +160,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,9 +29,9 @@ Las herramientas de análisis de los medios sociales ayudan a las organizaciones
 Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. Por lo que en esencia requieren un motor de análisis de análisis de opiniones basado en esta fuente de medios sociales.
 
 ## Requisitos previos
-1.	Cuenta de Twitter y [token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+1.	Cuenta de Twitter y [token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) del Centro de descarga de Microsoft
-3.	Opcional: código fuente de cliente de twitter desde [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
+3.	Opcional: código fuente de cliente de twitter desde [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 
 ## Cree una entrada del centro de eventos y un grupo de consumidores
 
@@ -39,7 +39,7 @@ La aplicación de ejemplo genera eventos y los inserta en una instancia de los c
 
 Siga estos pasos para crear un Centro de eventos.
 
-1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y especifique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.  
+1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y especifique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.
 2.	Como práctica recomendada, debe leer cada trabajo de Análisis de transmisiones de un solo grupo de consumidores del centro de eventos. Le guiaremos a través del proceso de creación de un grupo de consumidores y podrá obtener más información aquí. Para crear un grupo de consumidores, vaya al centro de eventos recién creado y haga clic en la pestaña **GRUPOS DE CONSUMIDORES** y, después, haga clic en **CREAR** en la parte inferior de la página y proporcione un nombre para el grupo de consumidores.
 3.	Para otorgar acceso al centro de eventos, necesitamos crear una directiva de acceso compartido. Haga clic en la pestaña **CONFIGURAR** de su centro de eventos.
 4.	En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
@@ -57,11 +57,11 @@ Hemos proporcionado una aplicación cliente que aprovechará datos de Twitter a 
 Siga estos pasos para configurar la aplicación:
 
 1.	[Descargue la solución TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-2.	Abra TwitterClient.exe.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
+2.	Abra TwitterClient.exe.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.  
+	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.
 3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo TwitterClient.exe.config con la cadena de conexión del centro de eventos y el nombre. La cadena de conexión que copió anteriormente proporciona el nombre y la cadena de conexión del Centro de eventos, así que no se olvide de separar y colocar cada una de ellas en el campo correcto.
 4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo TwitterClient.exe.config, si lo desea.
 5.	Ejecute **TwitterClient.exe** para iniciar la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

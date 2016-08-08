@@ -51,7 +51,7 @@ Además, cada aplicación puede constar de varios *intentos de aplicación* para
 
 Los registros de aplicación (y los registros de contenedor asociados) son fundamentales en la depuración de las aplicaciones de Hadoop problemáticas. YARN proporciona un buen marco para recopilar, agregar y almacenar registros de aplicaciones con la característica [Agregación de registro][log-aggregation]. La característica Agregación de registro hace que el acceso a los registros de aplicaciones sea más determinante, ya que agrega los registros en todos los contenedores en un nodo de trabajo y los almacena como un archivo de registro agregado por nodo de trabajo en el sistema de archivos predeterminado después de que se complete una aplicación. Su aplicación puede utilizar cientos o miles de contenedores, pero los registros para todos los contenedores que se ejecutan en un nodo de trabajo único se agregarán siempre en un archivo único, lo que da como resultado un archivo de registro por nodo de trabajo usado por la aplicación. La agregación de registro está habilitada de forma predeterminada en los clústeres de HDInsight (versión 3.0 y posteriores). Los registros agregados se pueden encontrar en el contenedor predeterminado del clúster en la siguiente ubicación:
 
-	wasb:///app-logs/<user>/logs/<applicationId>
+	wasbs:///app-logs/<user>/logs/<applicationId>
 
 En dicha ubicación, *usuario* es el nombre del usuario que inició la aplicación. *applicationId*, por su parte, es el identificador único de una aplicación según la asignación del RM de YARN.
 
@@ -70,7 +70,7 @@ Puede ver estos registros como texto sin formato ejecutando uno de los siguiente
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 	
-Al ejecutar estos comandos debe usar la siguiente información: &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> y &lt;worker-node-address>.
+Al ejecutar estos comandos debe usar la siguiente información: <lt;applicationId>, <user-who-started-the-application>, <containerId> y <worker-node-address>.
 
 ##Interfaz de usuario de ResourceManager de YARN
 
@@ -96,4 +96,4 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

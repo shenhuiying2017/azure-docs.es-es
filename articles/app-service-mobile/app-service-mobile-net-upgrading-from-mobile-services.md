@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/25/2016"
 	ms.author="mahender"/>
 
 # Actualización del Servicio móvil de .NET existente a Servicio de aplicaciones
 
 Aplicaciones móviles del Servicio de aplicaciones es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Aplicaciones móviles?].
 
-En este tema se describe cómo actualizar una aplicación back-end de .NET existente en Servicios móviles de Azure a una nueva instancia de Aplicaciones móviles del Servicio de aplicaciones. Cuando realice esta migración, la aplicación de Servicios móviles existente puede continuar funcionando.
+En este tema se describe cómo actualizar una aplicación back-end de .NET existente en Servicios móviles de Azure a una nueva instancia de Aplicaciones móviles del Servicio de aplicaciones. Cuando realice esta migración, la aplicación de Servicios móviles existente puede continuar funcionando. Si necesita actualizar una aplicación back-end de Node.js, consulte [Actualización de los servicios móviles de Node.js](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
 Cuando un back-end móvil se actualiza a Servicio de aplicaciones de Azure, accede a todas las características de Servicio de aplicaciones y se factura conforme a los [precios del Servicio de aplicaciones], no según los precios de Servicios móviles.
 
@@ -277,4 +277,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 [Información general del SDK de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@ Puede utilizar Funciones de Azure para crear un desencadenador para una aplicaci
 En este ejemplo, se ejecuta una función para cada aplicación lógica que necesite desencadenarse. En primer lugar, cree una aplicación lógica que tenga un desencadenador de solicitud HTTP. La función llama a ese punto de conexión siempre que se reciba un mensaje en cola.
 
 1. Cree una aplicación lógica nueva y seleccione el desencadenador **Manual - When an HTTP Request is Received** (Manual: cuando se recibe una solicitud HTTP). Opcionalmente, puede especificar un esquema JSON para usar con el mensaje de cola mediante una herramienta como [jsonschema.net](http://jsonschema.net). Pegue el esquema en el desencadenador. Esto ayuda al diseñador a conocer la forma de los datos y hacer fluir más fácilmente las propiedades a través del flujo de trabajo.
-1. Agregue los pasos adicionales que desee que tengan lugar después de recibir un mensaje en cola. Por ejemplo, enviar un correo electrónico a través de Office 365.  
+1. Agregue los pasos adicionales que desee que tengan lugar después de recibir un mensaje en cola. Por ejemplo, enviar un correo electrónico a través de Office 365.
 1. Guarde la aplicación lógica para generar la dirección URL de devolución de llamada para el desencadenador a esta aplicación lógica. La dirección URL aparece en la tarjeta de desencadenador.
 
 ![La dirección URL de devolución de la llamada aparece en la tarjeta de desencadenador.][1]
@@ -66,4 +66,4 @@ Para probar, agregue un mensaje en cola a través de una herramienta como el [Ex
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

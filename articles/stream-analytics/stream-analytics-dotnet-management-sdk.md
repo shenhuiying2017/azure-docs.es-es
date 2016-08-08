@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -32,7 +32,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 - Instale Visual Studio 2012 o 2013.
 - Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
-- Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).  
+- Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 		# Log in to your Azure account
@@ -366,4 +366,4 @@ Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecu
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

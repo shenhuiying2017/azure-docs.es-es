@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Arquitectura de referencia: procesado de eventos en tiempo real con Análisis de transmisiones de Microsoft Azure
@@ -63,4 +63,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

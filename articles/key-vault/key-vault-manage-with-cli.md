@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
 	ms.author="bruceper"/>
 
 # Administración del Almacén de claves mediante CLI #
@@ -263,4 +263,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

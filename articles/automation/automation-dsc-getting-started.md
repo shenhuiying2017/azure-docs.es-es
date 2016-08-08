@@ -19,16 +19,16 @@
 
 # Introducción al DSC de Automatización de Azure:
 
-En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para ver la documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](Información general sobre la configuración de estado deseado de Windows PowerShell).
+En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para obtener documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Este tema proporciona a una guía paso a paso para usar DSC de Automatización de Azure. Si desea un entorno de ejemplo que ya se ha configurado sin seguir los pasos descritos en este tema, puede usar la plantilla de ARM de https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. Esta plantilla configura un entorno de DSC de Automatización de Azure completado, incluida una máquina virtual de Azure administrada por DSC de Automatización de Azure.
+Este tema proporciona a una guía paso a paso para usar DSC de Automatización de Azure. Si busca un entorno de ejemplo que ya se haya configurado sin seguir los pasos descritos en este tema, puede usar [la siguiente plantilla de ARM](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Esta plantilla configura un entorno de DSC de Automatización de Azure completado, incluida una máquina virtual de Azure administrada por DSC de Automatización de Azure.
  
 ## Requisitos previos
 
 Para completar los ejemplos de este tema, se requiere lo siguiente:
 
 - Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Automatización de Azure, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
-- Una máquina virtual de Azure Resource Manager (no clásico) ejecuta Windows Server 2008 R2, o cualquier versión posterior. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Una máquina virtual de Azure Resource Manager (no clásico) ejecuta Windows Server 2008 R2, o cualquier versión posterior. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ## Creación de una configuración de DSC
 
@@ -73,7 +73,7 @@ A continuación, importaremos la configuración en la cuenta de Automatización.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. En el menú Concentrador, haga clic en **Todos los recursos** y, luego, en el nombre de la cuenta de Automatización.
+2. En el menú del concentrador, haga clic en **Todos los recursos** y, luego, en el nombre de la cuenta de Automatización.
 
 3. En la hoja **Cuenta de Automatización**, haga clic en **Configuraciones DSC**.
 
@@ -96,7 +96,7 @@ Después de importar una configuración, puede verla en el Portal de Azure.
 
 3. En la hoja **Cuenta de Automatización**, haga clic en **Configuraciones DSC**.
 
-4. En la hoja **Configuraciones DSC, haga clic en **TestConfig** (es el nombre de la configuración que importó en el procedimiento anterior).
+4. En la hoja **Configuraciones DSC**, haga clic en **TestConfig** (es el nombre de la configuración que importó en el procedimiento anterior).
 
 5. En la hoja **TestConfig Configuration** (Configuración de TestConfig), haga clic en **Ver el origen de configuración**.
 
@@ -114,7 +114,7 @@ Para poder aplicar un estado deseado a un nodo, se debe compilar una configuraci
 
 3. En la hoja **Cuenta de Automatización**, haga clic en **Configuraciones DSC**.
 
-4. En la hoja **Configuraciones DSC, haga clic en **TestConfig** (el nombre de la configuración importada previamente).
+4. En la hoja **Configuraciones DSC**, haga clic en **TestConfig** (el nombre de la configuración importada previamente).
 
 5. En la hoja **TestConfig Configuration** (Configuración de TestConfig), haga clic en **Compilar** y luego en **Sí**. Así se inicia un trabajo de compilación.
     
@@ -132,7 +132,7 @@ Después de iniciar una compilación, puede verla en el icono **Trabajos de comp
 
 3. En la hoja **Cuenta de Automatización**, haga clic en **Configuraciones DSC**.
 
-4. En la hoja **Configuraciones DSC, haga clic en **TestConfig** (el nombre de la configuración importada previamente).
+4. En la hoja **Configuraciones DSC**, haga clic en **TestConfig** (el nombre de la configuración importada previamente).
 
 5. En el icono **Trabajos de compilación** de la hoja **TestConfig Configuration** (Configuración de TestConfig), haga clic en cualquiera de los trabajos enumerados. Se abre la hoja de un **trabajo de compilación**, etiquetada con la fecha en que se inició el trabajo de compilación.
 
@@ -164,7 +164,7 @@ DSC de automatización de Azure se puede usar para administrar máquinas virtual
 
 3. En la hoja **Cuenta de Automatización**, haga clic en **Nodos DSC**.
 
-4. En la hoja **Nodos de DSC**, haga clic en **Agregar máquina virtual de Azure**.
+4. En la hoja **Nodos DSC**, haga clic en **Agregar máquina virtual de Azure**.
 
     ![Captura de pantalla de la hoja Nodos DSC en la que se resalta el botón Agregar máquina virtual de Azure](./media/automation-dsc-getting-started/OnboardVM.png)
 
@@ -184,7 +184,7 @@ DSC de automatización de Azure se puede usar para administrar máquinas virtual
     
 9. En la hoja **Agregar máquinas virtuales de Azure**, haga clic en **Crear**.
 
-Azure iniciará el proceso de incorporación de la máquina virtual. Cuando se completa, la máquina virtual se mostrará en la hoja **Nodos DSC** en la cuenta de Automatización.
+Azure iniciará el proceso de incorporación de la máquina virtual. Cuando se complete, la máquina virtual se mostrará en la hoja **Nodos DSC** en la cuenta de Automatización.
 
 ## Visualización de la lista de nodos DSC
 
@@ -216,10 +216,10 @@ En la hoja de un informe individual puede ver la siguiente información de estad
 - El tiempo de ejecución total de la comprobación de coherencia.
 - El tipo de comprobación de coherencia.
 - Todos los errores, incluidos el código de error y el mensaje de error.
-- Los recursos de DSC utilizados en la configuración y el estado de cada recurso (si el nodo está en el estado deseado para dicho recurso), puede hacer clic en cada recurso para obtener información más detallada acerca del mismo.
+- Los recursos de DSC utilizados en la configuración y el estado de cada recurso (si el nodo está en el estado deseado para dicho recurso): puede hacer clic en cada recurso para más información.
 - El nombre, la dirección IP y el modo de configuración del nodo.
 
-También puede hacer clic **Ver informe sin formato** para ver los datos reales que el nodo envía al servidor. Para más información sobre el uso de esos datos, consulte [Uso de un servidor de informes de DSC](https://msdn.microsoft.com/powershell/dsc/reportserver).
+También puede hacer clic en **Ver informe sin formato** para ver los datos reales que el nodo envía al servidor. Para más información sobre el uso de esos datos, consulte [Uso de un servidor de informes de DSC](https://msdn.microsoft.com/powershell/dsc/reportserver).
 
 Después de que se incorpora un nodo puede pasar un tiempo antes de que el primer informe esté disponible. Después de incorporar un nodo es posible que tenga que esperar hasta 30 minutos para que aparezca el primer informe.
 
@@ -262,8 +262,8 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 ## Artículos relacionados
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
-* [Información general sobre la configuración de estado deseado de Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
+* [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

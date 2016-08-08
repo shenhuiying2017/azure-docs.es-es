@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -89,4 +89,4 @@ A continuación, sepa [cómo utilizar el valor de identificador de usuario para 
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -45,7 +45,7 @@ Puede utilizar este servicio en los siguientes escenarios:
 
 En esta sección, hemos enumerado los requisitos previos necesarios para utilizar este servicio. Revíselos detenidamente antes de enviar sus unidades.
 
-### Cuentas de almacenamiento
+### Cuenta de almacenamiento
 
 Debe disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento **clásico** para utilizar el servicio Importación/Exportación. Puede usar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento clásico. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
 
@@ -80,7 +80,7 @@ Descargue la versión más reciente de la [herramienta de cliente de Importació
 
 ### Unidades de disco duro
 
-El servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Puede utilizar unidades de disco duros de hasta 8 TB. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Para copiar datos en la unidad de disco duro, puede conectarla directamente mediante un conector SATA o externamente mediante un adaptador USB SATA II/III externo. Se recomienda usar uno de los siguientes adaptadores USB SATA II/III externos:
+El servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Para copiar datos en la unidad de disco duro, puede conectarla directamente mediante un conector SATA o externamente mediante un adaptador USB SATA II/III externo. Se recomienda usar uno de los siguientes adaptadores USB SATA II/III externos:
 
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
@@ -160,13 +160,13 @@ También debe proporcionar un número de cuenta válido de las empresas de trans
 
 Al enviar los paquetes, debe seguir los términos establecidos en los [Términos de servicio de Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
+> [AZURE.IMPORTANT] Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual. Por ejemplo, cualquier paquete que cruce fronteras internacionales necesita que una factura comercial acompañe al paquete (excepto si cruza fronteras dentro de la Unión Europea). Puede imprimir una copia cumplimentada de la factura comercial desde el sitio web de la compañía. Ejemplo de factura comercial son la [factura comercial de DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) o la [factura comercial de FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Asegúrese de que Microsoft no se ha indicado como el exportador.
 
 ## ¿Cómo funciona el servicio de importación y exportación de Azure?
 
 Se pueden transferir datos entre el sitio local y el Almacenamiento de blobs de Azure mediante el servicio Importación/Exportación de Azure; para ello, se crean trabajos y se envían unidades de disco duro a un centro de datos de Azure. Cada unidad de disco duro que se envía está asociada a un único trabajo. Cada trabajo está asociado a una única cuenta de almacenamiento. Revise atentamente la [sección de requisitos previos](#pre-requisites) para conocer las características específicas de este servicio, como los tipos de blobs, los tipos de discos, las ubicaciones y las formas de envío que se admiten.
 
-En esta sección, vamos a realizar una descripción de alto nivel de los pasos que intervienen en los trabajos de importación y exportación. Más adelante, en la sección [Inicio rápido](#quick-start), proporcionaremos instrucciones paso a paso crear un trabajo de importación y exportación.
+En esta sección, vamos a realizar una descripción de alto nivel de los pasos que intervienen en los trabajos de importación y exportación. Más adelante, en la sección [Inicio rápido](#quick-start), proporcionaremos instrucciones paso a paso para crear un trabajo de importación y exportación.
 
 ### Dentro de un trabajo de importación
 
@@ -224,7 +224,7 @@ El tiempo que se tarda en procesar un trabajo de importación o exportación var
 
 **Cuota de manipulación de unidades**
 
-Existe una cuota de manipulación por cada unidad procesada como parte del trabajo de importación o exportación. Consulte los detalles en [Azure Import/Export Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/) (Precios de importación/exportación de Azure).
+Existe una cuota de manipulación por cada unidad procesada como parte del trabajo de importación o exportación. Consulte los detalles en [Precios de importación/exportación](https://azure.microsoft.com/pricing/details/storage-import-export/).
 
 **Gastos de envío**
 
@@ -232,7 +232,7 @@ Al enviar unidades a Azure, pagar los gastos de envío al transportista. Cuando 
 
 **Costos de transacción**
 
-La importación de datos en el Almacenamiento de blobs no tiene ningún costo de transacción asociado. Los cargos de salida estándar son aplicables cuando se exportan datos desde el Almacenamiento de blobs. Para obtener más información sobre los costos de transacción, consulte [Data transfer pricing](https://azure.microsoft.com/pricing/details/data-transfers/) (Precios de transferencia de datos).
+La importación de datos en el Almacenamiento de blobs no tiene ningún costo de transacción asociado. Los cargos de salida estándar son aplicables cuando se exportan datos desde el Almacenamiento de blobs. Para más información sobre los costos de transacción, consulte [Detalles de precios de Transferencias de datos ](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Inicio rápido
 
@@ -300,9 +300,9 @@ Comando PrepImport de la herramienta de Importación/Exportación de Azure para 
 
 **Recordatorio**: De forma predeterminada, los datos se importan como blobs en bloques. Puede utilizar el parámetro /BlobType para importar los datos como un blobs en páginas. Por ejemplo, si va a importar archivos VHD que se van a montar como discos en una máquina virtual de Azure, debe importarlos como blobs en páginas. Si no está seguro de qué tipo de blob debe usar, puede especificar /blobType:auto para que nos ayude a determinar cuál es el correcto. En este caso, todos los archivos vhd y vhdx se importan como blobs en páginas y el resto como blobs en bloques.
 
-Para obtener más información sobre el uso de la herramienta de cliente de Importación/Exportación de Azure, consulte [Preparing Hard Drives for Import](https://msdn.microsoft.com/library/dn529089.aspx) (Preparación de las unidades de disco duro para la importación).
+Para más información sobre el uso de la herramienta de cliente de Importación/Exportación de Azure, consulte [Preparar las unidades de disco duro para un trabajo de importación](https://msdn.microsoft.com/library/dn529089.aspx).
 
-Además, consulte [Sample Workflow to Prepare Hard Drives for an Import Job](https://msdn.microsoft.com/library/dn529097.aspx) (Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación) si desea obtener instrucciones paso a paso más detalladas.
+Además, consulte [Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación](https://msdn.microsoft.com/library/dn529097.aspx) si desea obtener instrucciones paso a paso más detalladas.
 
 ### Creación del trabajo de importación
 
@@ -340,13 +340,13 @@ Cree un trabajo de exportación para notificar al servicio Importación/Exportac
 
 Para preparar las unidades para el trabajo de exportación, se recomienda realizar las siguientes comprobaciones previas:
 
-1. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta Importación/Exportación de Azure. Para obtener más información, consulte [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx) (Vista previa de uso de disco para un trabajo de exportación). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar.
+1. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta Importación/Exportación de Azure. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar.
 
 2. Compruebe que puede leer o escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
 
 ### Creación del trabajo de exportación
 
-1. 	Para crear un trabajo de exportación, acceda a la cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com) y visualice el panel. En **Vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del Asistente.
+1. 	Para crear un trabajo de exportación, acceda a la cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com) y visualice el panel. En **Vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
 
 2. 	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de exportación. Si desea guardar datos de registro detallados del trabajo de exportación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
@@ -423,7 +423,7 @@ Cualquier unidad que quiera omitir en la importación de datos se debe preparar 
 
 **¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?**
 
-No, pero se recomiendan algunas comprobaciones previas. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta Importación/Exportación de Azure. Para obtener más información, consulte [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx) (Vista previa de uso de disco para un trabajo de exportación). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
+No, pero se recomiendan algunas comprobaciones previas. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta Importación/Exportación de Azure. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
 
 **¿Qué sucede si envío por error un disco duro que no cumple con los requisitos de compatibilidad?**
 
@@ -489,7 +489,7 @@ El número de teléfono se le proporciona durante la creación del trabajo. Si n
 
 **¿Puedo usar el servicio Importación/Exportación de Azure para copiar buzones PST y datos de SharePoint en Office 365?**
 
-Consulte [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx) (Importar archivos PST o datos de SharePoint a Office 365).
+Consulte [Importar archivos PST o datos de SharePoint a Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
 **¿Puedo usar el servicio Importación/Exportación de Azure para copiar las copias de seguridad sin conexión en el servicio Copia de seguridad de Azure?**
 
@@ -501,4 +501,4 @@ Consulte [Flujo de trabajo de copia de seguridad sin conexión en Copia de segur
 
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->
