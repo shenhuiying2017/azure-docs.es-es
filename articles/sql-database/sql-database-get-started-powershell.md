@@ -1,11 +1,11 @@
-<properties 
-    pageTitle="Nueva configuración de Base de datos SQL con PowerShell | Microsoft Azure" 
-    description="Aprenda a crear una nueva Base de datos SQL con PowerShell. Las tareas de configuración comunes de la base de datos pueden administrarse mediante los cmdlets de PowerShell." 
+<properties
+    pageTitle="Nueva configuración de Base de datos SQL con PowerShell | Microsoft Azure"
+    description="Aprenda a crear una nueva Base de datos SQL con PowerShell. Las tareas de configuración comunes de la base de datos pueden administrarse mediante los cmdlets de PowerShell."
     keywords="creación de una nueva base de datos SQL,configuración de base de datos"
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.devlang="NA"
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="05/09/2016"
     ms.author="sstein"/>
 
-# Creación de una nueva Base de datos SQL y realización de tareas comunes de configuración de base de datos con los cmdlets de PowerShell 
+# Creación de una nueva Base de datos SQL y realización de tareas comunes de configuración de base de datos con los cmdlets de PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -34,22 +34,22 @@ Obtenga información sobre cómo crear una nueva base de datos SQL mediante cmdl
 
 ## Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall
 
-Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location** para ver una lista de las ubicaciones válidas.
+Una vez que dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location** para ver una lista de las ubicaciones válidas.
 
 Ejecute el comando siguiente para crear un nuevo grupo de recursos:
 
 	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
-Después de crear correctamente el nuevo grupo de recursos, puede ver información en pantalla que incluye el elemento **ProvisioningState: Succeeded**.
+Después de crear correctamente el nuevo grupo de recursos, puede ver lo siguiente: **ProvisioningState: Succeeded**.
 
 
-### Creación de un servidor 
+### Creación de un servidor
 
-Las bases de datos SQL se crean en los servidores de Base de datos SQL de Azure. Ejecute **New-AzureRmSqlServer** para crear un nuevo servidor. Reemplace ServerName con el nombre de su servidor. Debe ser único para todos los servidores SQL de Azure, por lo que obtendrá un error aquí si el nombre del servidor ya existe. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Puede editar el comando para usar cualquier ubicación válida que elija, pero debe utilizar la misma ubicación que empleó para el grupo de recursos creado en el paso anterior.
+Las bases de datos SQL se crean en los servidores de Base de datos SQL de Azure. Ejecute **New-AzureRmSqlServer** para crear un nuevo servidor. Reemplace *ServerName* con el nombre de su servidor. Este nombre debe ser único para todos los servidores de Base de datos SQL de Azure. Recibirá un mensaje de error si ya existe el nombre del servidor. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Puede editar el comando para usar cualquier ubicación válida que elija, pero debe utilizar la misma ubicación que empleó para el grupo de recursos creado en el paso anterior.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
-Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de usuario** y la **Contraseña**. No especifique aquí sus credenciales de Azure, sino el nombre de usuario y contraseña serán las credenciales de administrador que desea crear para el nuevo servidor.
+Al ejecutar este comando, se solicitará su nombre de usuario y contraseña. No escriba sus credenciales de Azure. En su lugar, escriba el nombre de usuario y la contraseña que quiere que sean las credenciales de administrador del nuevo servidor.
 
 Se mostrarán los detalles del servidor tras crear el servidor correctamente.
 
@@ -80,44 +80,46 @@ Se mostrarán los detalles de la base de datos tras crear la base de datos corre
 
 ## Creación de un script de PowerShell de Base de datos SQL
 
+A continuación se muestra un nuevo script de PowerShell de Base de datos SQL:
+
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
     $Location = "Japan West"
-    
+
     $ServerName = "uniqueservername"
-    
+
     $FirewallRuleName = "rule1"
     $FirewallStartIP = "192.168.0.0"
     $FirewallEndIp = "192.168.0.0"
-    
+
     $DatabaseName = "database1"
     $DatabaseEdition = "Standard"
     $DatabasePerfomanceLevel = "S1"
-    
-    
+
+
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-    
+
     $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-    
+
     $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
-    
+
     $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
-    
+
     $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
-    
+
     $SqlDatabase
-    
+
 
 
 ## Pasos siguientes
 Después de crear una nueva Base de datos SQL y de realizar las tareas de configuración básica de la base de datos, está listo para lo siguiente:
 
-- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
+- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
 
 ## Recursos adicionales
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

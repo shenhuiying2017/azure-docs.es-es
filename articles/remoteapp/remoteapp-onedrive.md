@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/15/2016"
+   ms.date="08/02/2016"
    ms.author="elizapo"/>
 
 # OneDrive para la Empresa y Azure RemoteApp
 
-OneDrive para la Empresa no es compatible con Azure RemoteApp.
+El agente de sincronización de OneDrive para la Empresa no es compatible con Azure RemoteApp.
 
-Este artículo ha descrito anteriormente las distintas opciones de implementación para usar OneDrive para la Empresa con Azure RemoteApp. Tenga en cuenta que ya no se admiten estas opciones de implementación.
+Puede incluir OneDrive para la Empresa dentro de una colección para su uso con Office 365.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="08/01/2016" 
 	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
@@ -24,7 +24,7 @@
 - [.NET](documentdb-dotnet-application.md)
 - [Node.js](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
-- [Python](documentdb-python-application.md) 
+- [Python](documentdb-python-application.md)
 
 Para resaltar cómo puede aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación ToDo mediante Azure DocumentDB. Las tareas se almacenarán como documentos JSON en Azure DocumentDB.
 
@@ -39,7 +39,7 @@ Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
 - Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) Update 4 o superior.
+- [Visual Studio 2015](http://www.visualstudio.com/) o Visual Studio 2013 Update 4, o cualquier versión superior. Si se usa Visual Studio 2013, será preciso instalar el [paquete NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) para agregar compatibilidad con C# 6.0.
 - SDK de Azure para .NET versión 2.5.1 o posterior, disponible a través del [Instalador de plataforma web de Microsoft][].
 
 Todas las capturas de pantalla en este artículo se han tomado con Visual Studio 2013 con Update 4 aplicado y el SDK de Azure para .NET versión 2.5.1. Si el sistema está configurado con versiones diferentes, es probable que las pantallas y las opciones no coincidan completamente, pero si cumple los requisitos previos mencionados, esta solución debe funcionar.
@@ -101,9 +101,9 @@ Ahora que ya tenemos la mayoría de los mecanismos de ASP.NET MVC que necesitamo
 
 	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
-2. En el cuadro **Examinar** de NuGet, escriba ***Azure DocumentDB***.
+2. En el cuadro **Browse** (Examinar) de NuGet, escriba ***Azure DocumentDB***.
 	
-	En los resultados, instale el paquete **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json. Haga clic en **Aceptar** en el ventana **Vista previa** y **Acepto** en la ventana **Aceptación de licencia** para completar la instalación.
+	En los resultados, instale el paquete **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json. Haga clic en **OK** (Aceptar) en el ventana **Preview** (Vista previa) y **I Accept** (Acepto) en la ventana **License Acceptance** (Aceptación de licencia) para completar la instalación.
 
   	![Captura de pantalla de la ventana Administrar paquetes de NuGet, con la biblioteca de cliente de Microsoft Azure DocumentDB resaltada](./media/documentdb-dotnet-application/nuget.png)
 
@@ -208,7 +208,7 @@ Por último, vamos a crear la **V** de MVC, las vistas.
 	- En el cuadro **Nombre de vista**, escriba ***Índice***.
 	- En el cuadro **Plantilla**, seleccione ***Lista***.
 	- En el cuadro **Clase de modelo**, seleccione ***Elemento (todo.Models)***.
-	- Deje el cuadro **Clase de contexto de datos** vacío. 
+	- Deje el cuadro **Clase de contexto de datos** vacío.
 	- En el cuadro de página de diseño, escriba ***~/Views/Shared/\_Layout.cshtml***.
 	
 	![Captura de pantalla que muestra el cuadro de diálogo Agregar vista](./media/documentdb-dotnet-application/image18.png)
@@ -239,7 +239,7 @@ Finalmente, agregue una última vista para editar un **elemento** como se hizo a
 	- En el cuadro **Nombre de vista**, escriba ***Editar***.
 	- En el cuadro **Plantilla**, seleccione ***Editar***.
 	- En el cuadro **Clase de modelo**, seleccione ***Elemento (todo.Models)***.
-	- Deje el cuadro **Clase de contexto de datos** vacío. 
+	- Deje el cuadro **Clase de contexto de datos** vacío.
 	- En el cuadro de página de diseño, escriba ***~/Views/Shared/\_Layout.cshtml***.
 	- Haga clic en **Agregar**.
 
@@ -333,7 +333,7 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 			}
 		}
 
-	>	[AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
+	> [AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
@@ -405,7 +405,7 @@ Abra ***App\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaul
 
 Esto indica ahora a ASP.NET MVC que si no ha especificado un valor en la dirección URL para controlar el comportamiento de enrutamiento que, en lugar de **Inicio**, usa **Elemento** como controlador e **Índice** de usuario como vista.
 
-Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\\**Elemento**\\**Índice**.
+Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\**Elemento**\**Índice**.
 
 Si crea y ejecuta este proyecto ahora, deberá ver algo parecido a esto.
 
@@ -545,7 +545,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 	![Captura de pantalla de la aplicación web de lista de tareas pendientes creada con este tutorial](./media/documentdb-dotnet-application/image24.png)
 
-	Si se producen errores en ese momento, puede comparar su código con el proyecto de ejemplo en [GitHub][].
+	Si utiliza Visual Studio 2013 y recibe el error "No se puede usar await en el cuerpo de una cláusula catch", será preciso que instale el [paquete NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). También puede comparar su código con el proyecto de ejemplo de [GitHub][].
 
 2. Haga clic en el vínculo **Crear nuevo** y agregue valores a los campos **Nombre** y **Descripción**. Deje la casilla **Completado** sin seleccionar; de lo contrario, el **elemento** nuevo se agregará en estado completado y no aparecerá en la lista inicial.
 
@@ -563,7 +563,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 4. Una vez que haya probado la aplicación, presione Ctrl+F5 para detener la depuración de la aplicación. Está listo para la implementación.
 
-##<a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
+## <a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
 
 Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB, vamos a implementar esta aplicación web en Sitios web Azure. Si seleccionó **Hospedar en la nube** cuando creó el proyecto vacío ASP.NET MVC, Visual Studio realmente facilita la tarea y hace gran parte del trabajo por usted.
 
@@ -577,11 +577,11 @@ Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB
 
 En pocos segundos, Visual Studio terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
 
-##<a name="_Toc395637775"></a>Pasos siguientes
+## <a name="_Toc395637775"></a>Pasos siguientes
 
 ¡Enhorabuena! Acaba de compilar su primera aplicación web ASP.NET MVC mediante Azure DocumentDB y la ha publicado en Sitios web de Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
 
-Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de DocumentDB en [GitHub][].
+Para agregar más funcionalidad a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) y si lo que desea es contribuir a ella, hágalo libremente en [GitHub][].
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -591,4 +591,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

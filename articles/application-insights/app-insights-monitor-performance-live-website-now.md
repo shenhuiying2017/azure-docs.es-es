@@ -12,43 +12,45 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="07/28/2016"
 	ms.author="awills"/>
 
 
-# Instalación del Monitor de estado de Application Insights para supervisar el rendimiento del sitio web
+# Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
 
 *Application Insights se encuentra en su versión de vista previa.*
 
-El Monitor de estado de Application Insights de Visual Studio permite diagnosticar las excepciones y los problemas de rendimiento de las aplicaciones de ASP.NET.
+Puede instrumentar una aplicación web activa con Visual Studio Application Insights, sin tener que modificar o volver a implementar el código. En las aplicaciones hospedadas por un servidor IIS local, instale el Monitor de estado; o bien, si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede instalar la extensión Application Insights. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Servicios en la nube de Azure](app-insights-cloudservices.md)).
 
 ![gráficos de ejemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] Existen varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Servicios en la nube de Azure](app-insights-cloudservices.md).
+Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones web .NET:
+
+* **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
+* **Tiempo de ejecución:** instrumenta la aplicación web en el servidor, como se describe a continuación, sin volver a generar e implementar el código.
+* **Ambos:** compila el SDK en el código de aplicación web y aplica las extensiones del sistema en tiempo de ejecución. Obtenga lo mejor de ambas opciones.
+
+A continuación hay un resumen de lo que se obtiene de cada forma:
+
+||Tiempo de compilación|Tiempo de ejecución|
+|---|---|---|
+|Solicitudes y excepciones|Sí|Sí|
+|[Excepciones más detalladas](app-insights-asp-net-exceptions.md)||Sí|
+|[Diagnósticos de dependencia](app-insights-asp-net-dependencies.md)|En .NET 4.6 +|Sí|
+|[Contadores de rendimiento del sistema](app-insights-web-monitor-performance.md#system-performance-counters)||Servicio en la nube de IIS o Azure, aplicación web no de Azure|
+|[API para la telemetría personalizada][api]|Sí||
+|[Integración del registro de seguimiento](app-insights-asp-net-trace-logs.md)|Sí||
+|[Datos de usuario y página](app-insights-javascript.md)|Sí||
+|No es necesario volver a compilar el código|No||
 
 
-Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones web IIS:
-
-* **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web. El resultado obtenido es el siguiente:
- * Un intervalo de telemetría estándar de diagnóstico y uso.
- * La [API de Application Insights][api] le permite escribir su propia telemetría para realizar un seguimiento detallado del uso o diagnosticar problemas.
-* **Tiempo de ejecución:** utilice el Monitor de estado para instrumentar su aplicación web en el servidor.
- * Supervise las aplicaciones web que ya se están ejecutando, sin necesidad de volver a compilarlas o publicarlas.
- * Un intervalo de telemetría estándar de diagnóstico y uso.
- * Diagnóstico de dependencia&#151; busque errores o rendimiento deficiente donde su aplicación usa otros componentes, como bases de datos, API de REST u otros servicios.
- * Solucione cualquier problema con la telemetría.
-* **Ambos:** compile el SDK en el código de la aplicación web y ejecute el Monitor de estado en el servidor web. Lo mejor de ambos mundos:
- * Telemetría estándar de diagnóstico y uso.
- * Diagnósticos de dependencia.
- * La API le permite escribir telemetría personalizada.
- * Solucione cualquier problema con el SDK y la telemetría.
 
 
-## Instalación del Monitor de estado de Application Insights
+## Instrumentación de la aplicación web en tiempo de ejecución
 
 Necesita una suscripción a [Microsoft Azure](http://azure.com)
 
-### Si la aplicación se ejecuta en su servidor IIS
+### Si la aplicación se hospeda en el servidor IIS
 
 1. En el servidor web IIS, inicie sesión con las credenciales de administrador.
 2. Descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -87,9 +89,15 @@ Una vez completado el asistente, puede volver a configurar el agente siempre que
 
 ### Si la aplicación es una aplicación web de Azure
 
-En el panel de control de la aplicación web de Azure, agregue la extensión Application Insights.
+1. En el [Portal de Azure](https://portal.azure.com), cree un recurso de Application Insights con el tipo ASP.NET. Aquí se almacenará, analizará y mostrará la telemetría de la aplicación.
 
-![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Agregue Application Insights. Seleccione el tipo ASP.NET.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Ahora abra la hoja de control de la aplicación web de Azure, abra **Herramientas > Supervisión de rendimiento** y agregue la extensión Application Insights.
+
+    ![En la aplicación web, Herramientas, Extensiones, Agregar, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Seleccione el recurso de Application Insights que acaba de crear.
 
 
 ### Si se trata de un proyecto de servicios en la nube de Azure
@@ -107,26 +115,28 @@ Abra la hoja Rendimiento para ver la solicitud, el tiempo de respuesta, la depen
 
 ![Rendimiento](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Haga clic para ajustar los detalles de lo que se muestra, o agregue un nuevo gráfico.
+Haga clic en cualquier gráfico para abrir una vista más detallada.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+También puede [Editar, reorganizar, guardar](app-insights-metrics-explorer.md) y anclar gráficos o toda la hoja a un [panel](app-insights-dashboards.md).
 
 ## Dependencias
 
 El gráfico de duración de dependencia muestra el tiempo que tardan las llamadas desde la aplicación a los componentes externos, como bases de datos, API de REST o almacenamiento de blobs de Azure.
 
-Para segmentar el gráfico por llamadas a diferentes dependencias, seleccione el gráfico, active la agrupación y, luego, elija la dependencia, el tipo de dependencia o el rendimiento de dependencia.
+Para segmentar el gráfico por llamadas a diferentes dependencias, edite el gráfico, active la agrupación y, luego, agrupe por la dependencia, el tipo de dependencia o el rendimiento de dependencia.
 
-También puede filtrar el gráfico para buscar en un depósito concreto de dependencia, tipo o rendimiento. Haga clic en Filtros.
+![Dependencia](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Contadores de rendimiento
+## Contadores de rendimiento 
 
 (No para aplicaciones web de Azure). Haga clic en Servidores en la hoja de información general para ver los gráficos de contadores de rendimiento de servidor, como el uso de memoria y la ocupación de CPU.
 
-Agregue un nuevo gráfico, o haga clic en cualquier gráfico para cambiar lo que se muestra.
+Si tiene varias instancias de servidor, puede editar los gráficos para agruparlos por instancia de rol.
+
+![Servidores](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 También puede [cambiar el conjunto de contadores de rendimiento que se notifican mediante el SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
+
 
 ## Excepciones
 
@@ -193,10 +203,10 @@ Encuentre las aplicaciones en supervisión:
 
 * Devuelve `ApplicationInsightsApplication` para cada aplicación:
  * `SdkState==EnabledAfterDeployment`: la aplicación se está supervisando y se ha instrumentado en tiempo de ejecución, ya sea con la herramienta Monitor de estado o con `Start-ApplicationInsightsMonitoring`.
- * `SdkState==Disabled`: la aplicación no se ha instrumentado para Application Insights. Nunca se ha instrumentado o se deshabilitó la supervisión en tiempo de ejecución con la herramienta Monitor de estado o con `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: la aplicación no se ha instrumentado para Application Insights. Nunca se ha instrumentado, o bien se deshabilitó la supervisión en tiempo de ejecución con la herramienta Monitor de estado o con `Stop-ApplicationInsightsMonitoring`.
  * `SdkState==EnabledByCodeInstrumentation`: se ha instrumentado la aplicación agregando el SDK al código fuente. El SDK no se puede actualizar ni detener.
  * `SdkVersion` muestra la versión en uso para la supervisión de esta aplicación.
- * `LatestAvailableSdkVersion` muestra la versión disponible actualmente en la galería de NuGet. Para actualizar la aplicación a esta versión, use `Update-ApplicationInsightsMonitoring`.
+ * `LatestAvailableSdkVersion` muestra la versión disponible en la galería de NuGet. Para actualizar la aplicación a esta versión, use `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
@@ -290,4 +300,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

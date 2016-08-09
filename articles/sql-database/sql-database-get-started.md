@@ -4,7 +4,7 @@
 	keywords="tutorial de base de datos SQL, creación de una base de datos SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -61,4 +61,4 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 [¿Qué es Base de datos SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

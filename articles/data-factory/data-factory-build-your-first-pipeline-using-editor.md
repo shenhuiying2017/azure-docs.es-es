@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Compilación de la primera Data Factory de Azure con el Portal de Azure/Editor de Data Factory
@@ -29,7 +29,7 @@ En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.c
 ## Requisitos previos
 
 1. **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
-2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).  
+2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
 
 ## Creación de Data Factory
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Comencemos con la creación de la factoría de datos en este paso.
@@ -46,19 +46,19 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 	![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
 	> [AZURE.IMPORTANT] El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "GetStartedDF" no está disponible**, cambie el nombre (por ejemplo, suNombreGetStartedDF) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
-	>  
+	> 
 	> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 	> 
 	> Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 
 
 3.	Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
-4.	Seleccione un **grupo de recursos** existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos denominado: **ADFGetStartedRG**.    
+4.	Seleccione un **grupo de recursos** existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos denominado: **ADFGetStartedRG**.
 5.	Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:   
+6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:
 
 	![Creación de estado de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma.	
+7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma.
 
 	![Hoja de la Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -77,14 +77,13 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 	
 	![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor. 
+	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor.
 4. Reemplace **accountname** por el nombre de la cuenta de almacenamiento de Azure y **accountkey** por la clave de acceso de la cuenta de almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 	![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **AzureStorageLinkedService** en la vista de árbol de la izquierda.
-   ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **AzureStorageLinkedService** en la vista de árbol de la izquierda. ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Creación de un servicio vinculado de HDInsight de Azure
@@ -126,7 +125,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
 	Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado. 
+3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 4. Confirme que **AzureStorageLinkedService** y **HDInsightOnDemandLinkedService** aparecen en la vista de árbol de la izquierda.
 
 	![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
@@ -182,7 +181,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 ### Creación del conjunto de datos de salida
 Ahora, va a crear el conjunto de datos de salida que representa los datos de salida almacenados en Almacenamiento de blobs de Azure.
 
-1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.  
+1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** y especifique la estructura de los datos que generará el script de Hive. Además, especifique que los resultados se almacenen en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 	
 		{
@@ -292,11 +291,11 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial.
 	
-	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización. 
+	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
+8. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización.
 
 	![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
-9. Confirme que la actividad de HDInsightHive está en la canalización. 
+9. Confirme que la actividad de HDInsightHive está en la canalización.
   
 	![Vista Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
@@ -308,11 +307,10 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 12. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Verá que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.  
-
+9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
 	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.
  
@@ -346,4 +344,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
   
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

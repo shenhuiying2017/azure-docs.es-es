@@ -4,7 +4,7 @@
 	keywords="opciones de base de datos, rendimiento de la base de datos"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -58,6 +58,30 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 
 [AZURE.INCLUDE [Descripción de DTU de base de datos SQL](../../includes/sql-database-understanding-dtus.md)]
 
+## Selección de un nivel de servicio
+
+Para decidir sobre un nivel de servicio, empiece por determinar si la base de datos será una base de datos independiente o formará parte de un grupo elástico.
+
+### Selección de un nivel de servicio para una base de datos independiente
+
+Para decidir sobre un nivel de servicio para una base de datos independiente, empiece por determinar las características de la base de datos que necesita para elegir la edición de Base de datos SQL:
+
+- Tamaño de la base de datos (5 GB como máximo en la edición Básica, 250 GB como máximo para la edición Estándar y de 500 GB a 1 TB como máximo para la edición Premium: según el nivel de rendimiento)
+- Período de retención de la copia de seguridad de la base de datos (7 días para la edición Básica, 35 días para la Estándar y 35 días para la Premium)
+
+Cuando haya determinado la edición de Base de datos SQL, estará preparado para determinar el nivel de rendimiento de la base de datos (el número de DTU). Este valor se puede estimar y, posteriormente, [escalar o reducir verticalmente](sql-database-scale-up.md) en función de su experiencia real. También puede utilizar la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para estimar el número aproximado de DTU que se necesitan.
+
+### Selección de un nivel de servicio para un grupo de bases de datos elásticas.
+
+Para decidir sobre un nivel de servicio para un grupo de bases de datos elásticas, empiece por determinar las características de la base de datos que necesita para elegir el nivel de servicio para el grupo.
+
+- Tamaño de la base de datos (2 GB para la edición Básica, 250 GB para la Estándar y 500 GB para la Premium)
+- Período de retención de la copia de seguridad de la base de datos (7 días para la edición Básica, 35 días para la Estándar y 35 días para la Premium)
+- Número de bases de datos por grupo (400 en la edición Básica, 400 en la Estándar y 50 en la Premium)
+- Capacidad máxima de almacenamiento por grupo (117 GB en la edición Básica, 1200 en la Estándar y 750 en la Premium)
+
+Una vez determinado el nivel de servicio para el grupo, estará preparado para determinar el nivel de rendimiento para este (eDTU). Este valor se puede estimar y, posteriormente, [escalar o reducir verticalmente](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) en función de su experiencia real. También puede utilizar la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para estimar el número aproximado de DTU que se necesitan para una base de datos individual dentro del grupo y ayudarle a establecer el límite superior para este.
+
 ## Pasos siguientes
 - Para obtener más información sobre los precios de estos niveles, consulte [Precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Conozca los detalles sobre los [grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md) y las [consideraciones de precio y rendimiento para grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
@@ -68,4 +92,4 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 
 Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

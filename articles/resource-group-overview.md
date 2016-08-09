@@ -24,7 +24,7 @@ La infraestructura de la aplicación está constituida normalmente por varios co
 
 Si no conoce Azure Resource Manager, estos son algunos términos con los que puede no estar familiarizado.
 
-- **recurso**: elemento que forma parte de la solución de Azure. Algunos recursos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual, pero hay muchos más.
+- **recurso**: un elemento administrable que está disponible a través de Azure. Algunos recursos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual, pero hay muchos más.
 - **grupo de recursos**: contenedor que almacena los recursos relacionados de una aplicación. El grupo de recursos puede incluir todos los recursos de una aplicación o solo aquellos que se agrupan de forma lógica. Puede decidir cómo desea asignar los recursos a los grupos de recursos en función de lo que más convenga a su organización. Consulte [Grupos de recursos](#resource-groups).
 - **proveedor de recursos**: servicio que proporciona los recursos que puede implementar y administrar mediante Resource Manager. Cada proveedor de recursos ofrece operaciones para trabajar con los recursos que se implementan. Algunos proveedores de recursos comunes son Microsoft.Compute, que proporciona el recurso de máquinas virtuales, Microsoft.Storage, que proporciona el recurso de cuentas de almacenamiento y Microsoft.Web que proporciona recursos relacionados con las aplicaciones web. Consulte [Proveedores de recursos](#resource-providers).
 - **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos. También define las dependencias entre los recursos implementados. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Implementación de plantilla](#template-deployment).
@@ -171,4 +171,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

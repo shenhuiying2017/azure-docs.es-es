@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante las API de REST
@@ -43,7 +43,7 @@ En este artículo, obtendrá información sobre cómo usar las API de REST de We
 	* **Para la autenticación no interactiva**: en Azure Active Directory, debe crear una **aplicación web**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
 		- Obtenga el **id. de cliente**, el **secreto de cliente** y el **URI de redirección** de la aplicación.
 		- Establecimiento de permisos delegados
-		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte la sección sobre cómo [asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte la sección sobre cómo [asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) para obtener instrucciones sobre cómo recuperar estos valores, establecer los permisos y asignar roles.
 
@@ -61,7 +61,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, utilice `https%3A%2F%2Flocalhost`).
+	>[AZURE.NOTE] <REDIRECT-URI> debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, utilice `https%3A%2F%2Flocalhost`).
 
 	Para este tutorial, puede sustituir los valores de marcador de posición de la dirección URL anterior y pegarlos en la barra de direcciones del explorador web. Se le redirigirá a una página autenticarse con sus datos de inicio de sesión de Azure. Una vez que haya iniciado sesión correctamente, la respuesta se muestra en la barra de direcciones del explorador. La respuesta estará en el formato siguiente:
 		
@@ -76,7 +76,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] En este caso, no se necesita codificar \<REDIRECT-URI>.
+	>[AZURE.NOTE] En este caso, no se necesita codificar <REDIRECT-URI>.
 
 3. La respuesta es un objeto JSON que contiene un token de acceso (por ejemplo, `"access_token": "<ACCESS_TOKEN>"`) y uno de actualización (por ejemplo, `"refresh_token": "<REFRESH_TOKEN>"`). La aplicación usa el token de acceso al acceder al Almacén de Azure Data Lake y el token de actualización para obtener otro token de acceso cuando expira un token de acceso.
 
@@ -276,4 +276,4 @@ Debe ver algo parecido a lo siguiente:
 - [Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

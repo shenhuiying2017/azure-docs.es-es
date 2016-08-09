@@ -6,4 +6,6 @@
 
 El signo "+" indica que este método de implementación solo se encuentra disponible para redes virtuales de la misma suscripción.
 
-<!---HONumber=AcomDC_0323_2016-->
+Tenga en cuenta que el emparejamiento de VNet, que está actualmente en versión preliminar, solo está disponible para determinados modelos y configuraciones de implementación. Para más información, consulte el artículo [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md) (Emparejamiento de VNET).
+
+<!---HONumber=AcomDC_0803_2016-->

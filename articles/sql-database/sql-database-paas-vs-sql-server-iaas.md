@@ -4,7 +4,7 @@
 	services="sql-database, virtual-machines"
 	keywords="Nube de SQL Server, SQL Server en la nube, base de datos de PaaS, DBaaS"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cjgronlund"/>
 
@@ -21,7 +21,7 @@
 
 Azure proporciona dos opciones para el hospedaje de las cargas de trabajo de SQL Server en Microsoft Azure:
 
-* [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/)
+* [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/) y para ver un vídeo, consulte [SAIIK: PaaS vs IaaS - Navigating the Decision Tree: Azure SQL DB vs SQL Server in a VM](https://channel9.msdn.com/Series/SAIIK-SQL-Server-on-Azure-IaaS-Implementation-Kit/SAIIK-PaaS-vs-IaaS) (SAIIK: PaaS vs IaaS: Navegación por el árbol de decisión: Azure SQL DB vs SQL Server en una máquina virtual).
 * [SQL Server en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado y hospedado en la nube en Máquinas virtuales de Windows Server que se ejecutan en Azure, conocido también como infraestructura como servicio (IaaS).
 
 Obtenga información acerca de qué opción se ajusta a la plataforma de datos de Microsoft y consiga ayuda sobre la opción más adecuada para sus requisitos empresariales. Si asigna mayor prioridad al ahorro o bien antepone la mínima administración a todo lo demás, este artículo puede ayudarle a decidir el enfoque correcto, en función de los requisitos empresariales que más le preocupan.
@@ -156,4 +156,4 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 - Consulte [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para familiarizarse con SQL Server en máquinas virtuales de Azure.
 - Consulte [SQL Server en una máquina virtual de Azure: ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
