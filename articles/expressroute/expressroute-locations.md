@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -52,6 +52,10 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 
 
 ## Ubicaciones de proveedor de conectividad
+
+> [AZURE.SELECTOR]
+[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
+[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
 
 ### Azure para producción
 
@@ -102,7 +106,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Próximamente | Chicago, Nueva York +, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Próximamente | Chicago, Nueva York +, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
 
 #### China
@@ -140,9 +144,11 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 |**Proveedor de conectividad**|**Exchange**|**Ubicaciones**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Seattle|
-|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapur|
+|**Alaska Communications**|Equinix|Seattle|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)**|Equinix|Nueva York, Washington DC|
+|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
+
 
 ## Integradores de sistemas de ExpressRoute
 
@@ -152,7 +158,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asia, Europa, Estados Unidos |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europa |
-|**[Servicios profesionales de Equinix](http://www.equinix.com/services/consulting/)**|US|
+|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|US|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | US |
@@ -165,4 +171,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

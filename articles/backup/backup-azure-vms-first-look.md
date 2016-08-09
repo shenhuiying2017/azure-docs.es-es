@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Primer análisis: protección de máquinas virtuales en Azure con Copia de seguridad de Azure | Microsoft Azure"
-	description="Protección de máquinas virtuales de Azure con el servicio Copia de seguridad de Azure. El tutorial explica la creación de un almacén, el registro de máquinas virtuales, la creación de directivas y la protección de máquinas virtuales en Azure."
+	pageTitle="Primer contacto: protección de máquinas virtuales con un almacén de copia de seguridad | Microsoft Azure"
+	description="Copia de seguridad de máquinas virtuales de Azure. El tutorial explica la creación de un almacén, el registro de máquinas virtuales, la creación de directivas y la protección de máquinas virtuales en Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/18/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primer contacto: copia de seguridad de máquinas virtuales de Azure
 
 > [AZURE.SELECTOR]
-- [Copia de seguridad de máquinas virtuales de Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Copia de seguridad de máquinas virtuales en modo clásico](backup-azure-vms-first-look.md)
+- [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
+- [Primer contacto: protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
 
-Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure en un almacén de copia de seguridad de Azure. Este artículo describe el modelo de implementación clásica o el de Service Manager, para la creación de copias de seguridad de máquinas virtuales. Si está interesado en la creación de una copia de seguridad de una máquina virtual en un almacén de Servicios de recuperación que pertenece a un grupo de recursos, consulte la pestaña Copia de seguridad de máquinas virtuales de Resource Manager. Para completar correctamente este tutorial, deben existir estos requisitos previos:
+Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure en un almacén de copia de seguridad de Azure. Este artículo describe el modelo de implementación clásica o el de Service Manager, para la creación de copias de seguridad de máquinas virtuales. Si está interesado en la realización de una copia de seguridad de una máquina virtual en un almacén de Servicios de recuperación que pertenece a un grupo de recursos, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Para completar correctamente este tutorial, deben existir estos requisitos previos:
 
 - Ha creado una máquina virtual en su suscripción de Azure.
 - La máquina virtual tiene conectividad a las direcciones IP públicas de Azure. Para más información, consulte [Conectividad de red](./backup-azure-vms-prepare.md#network-connectivity).
 
 Para realizar una copia de seguridad de una máquina virtual, hay cinco pasos principales:
 
-![step-one](./media/backup-azure-vms-first-look/step-one.png) Creación de un almacén de copia de seguridad o identificación de uno ya existente. <br/> ![step-two](./media/backup-azure-vms-first-look/step-two.png) Uso del Portal de Azure clásico para detectar y registrar las máquinas virtuales. <br/> ![step-three](./media/backup-azure-vms-first-look/step-three.png) Instalación del agente de máquina virtual. <br/> ![step-four](./media/backup-azure-vms-first-look/step-four.png) Creación de la directiva para proteger las máquinas virtuales. <br/> ![step-five](./media/backup-azure-vms-first-look/step-five.png) Ejecución de la copia de seguridad.
+![step-one](./media/backup-azure-vms-first-look/step-one.png) Crear un almacén de copia de seguridad o identificar uno existente. <br/> ![step-two](./media/backup-azure-vms-first-look/step-two.png) Usar el Portal de Azure clásico para detectar y registrar las máquinas virtuales. <br/> ![step-three](./media/backup-azure-vms-first-look/step-three.png) Instalar el agente de máquina virtual. <br/> ![step-four](./media/backup-azure-vms-first-look/step-four.png) Crear la directiva para proteger las máquinas virtuales. <br/> ![step-five](./media/backup-azure-vms-first-look/step-five.png) Ejecutar la copia de seguridad.
 
 ![Vista de alto nivel del proceso de copia de seguridad de máquina virtual](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure tiene dos modelos de implementación para crear y trabajar con recursos: [Resource Manager e implementación clásica](../resource-manager-deployment-model.md). Este tutorial es para su uso con las máquinas virtuales que se pueden crear en el Portal de Azure clásico. El servicio de copia de seguridad de Azure es compatible con máquinas virtuales basadas en Azure Resource Manager (ARM), también conocidas como máquinas virtuales de IaaS V2. Para más información sobre las copias de seguridad de máquinas virtuales de ARM, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Este tutorial es para su uso con las máquinas virtuales que se pueden crear en el Portal de Azure clásico. El servicio Copia de seguridad de Azure es compatible con las máquinas virtuales basadas en Resource Manager. Para más información sobre la realización de copias de seguridad de máquinas virtuales en un almacén de Servicios de recuperación, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -48,19 +48,19 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 
     ![Haga clic en el menú Nuevo](./media/backup-azure-vms-first-look/new-button.png)
 
-3. En el asistente para la creación rápida, haga clic en **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida**.
+3. En el Asistente para creación rápida, haga clic en **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida**.
 
     ![Crear un almacén de copia de seguridad](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    El asistente le solicita el **nombre** y la **región**. Si administra más de una suscripción, aparecerá un cuadro de diálogo para elegir la suscripción.
+    El asistente solicita el **nombre** y la **región**. Si administra más de una suscripción, aparecerá un cuadro de diálogo para elegir la suscripción.
 
 4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure.
 
-5. En **Región**, seleccione la región geográfica del almacén. El almacén **tiene que** estar en la misma región que las máquinas virtuales que desea proteger.
+5. En **Región**, seleccione la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales a las que protege.
 
-    Si no está seguro de en qué región está la máquina virtual, cierre el asistente y haga clic en **Máquinas virtuales** en la lista de los servicios de Azure. La columna ubicación proporciona el nombre de la región. Si tiene máquinas virtuales en varias regiones, cree un almacén de copia de seguridad en cada una de ellas.
+    Si no sabe en qué región está la máquina virtual, cierre el asistente y haga clic en **Máquinas virtuales** en la lista de servicios de Azure. La columna ubicación proporciona el nombre de la región. Si tiene máquinas virtuales en varias regiones, cree un almacén de copia de seguridad en cada una de ellas.
 
-6. Si no hay ningún cuadro de diálogo de **suscripción** en el asistente, vaya al paso siguiente. Si trabaja con varias suscripciones, seleccione una suscripción para asociarla con el nuevo almacén de copia de seguridad.
+6. Si no hay ningún cuadro de diálogo **Suscripción** en el asistente, vaya al paso siguiente. Si trabaja con varias suscripciones, seleccione una suscripción para asociarla con el nuevo almacén de copia de seguridad.
 
     ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
@@ -78,11 +78,11 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 
 9. En la página **Inicio rápido**, haga clic en **Configurar** para abrir la opción de replicación del almacenamiento. ![Lista de copias de seguridad](./media/backup-azure-vms-first-look/configure-storage.png)
 
-10. En la opción de **replicación del almacenamiento**, elija la opción de replicación para su almacén.
+10. En la opción de **replicación del almacenamiento**, elija la opción de replicación de su almacén.
 
     ![Lista de copias de seguridad](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si esta es su copia de seguridad principal, elija el almacenamiento con redundancia geográfica. Elija el almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Para más información sobre las opciones de almacenamiento con redundancia geográfica y local consulte [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md).
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si esta es su copia de seguridad principal, elija el almacenamiento con redundancia geográfica. Elija el almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Para más información sobre las opciones de almacenamiento con redundancia geográfica y con redundancia local, consulte [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md).
 
 Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
@@ -95,9 +95,9 @@ Antes de registrar la máquina virtual con un almacén, ejecute el proceso de de
 
 3. En la lista de almacenes de copia de seguridad, seleccione el almacén de copia de una máquina virtual.
 
-    Cuando seleccione el almacén, este se abrirá en la página **Inicio rápido**.
+    Cuando seleccione el almacén, este se abrirá en la página **Inicio rápido**
 
-4. En el menú de almacén, haga clic en **Elementos registrados**.
+4. En el menú del almacén, haga clic en **Elementos registrados**.
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms-first-look/configure-registered-items.png)
 
@@ -131,7 +131,7 @@ Antes de registrar la máquina virtual con un almacén, ejecute el proceso de de
 
     ![Registrando estado 1](./media/backup-azure-vms/register-status01.png)
 
-    Una vez completada la operación, el estado cambiará a *Registrado*.
+    Una vez que la operación se completa, el estado cambia para reflejar los *registrados*.
 
     ![Registrando estado 2](./media/backup-azure-vms/register-status02.png)
 
@@ -139,20 +139,20 @@ Antes de registrar la máquina virtual con un almacén, ejecute el proceso de de
 
 El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Puede ir directamente a la [protección de las máquinas virtuales](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
 
-Si la máquina virtual se migra desde un centro de datos local, es probable que no tenga instalado el agente de máquina virtual. Debe instalar al agente de máquina virtual en la máquina virtual antes de continuar con su protección. Para una información más detallada acerca de cómo instalar el agente de máquina virtual, consulte la [sección Agente de máquina virtual del artículo de copias de seguridad de máquinas virtuales](backup-azure-vms-prepare.md#vm-agent).
+Si la máquina virtual se migra desde un centro de datos local, es probable que no tenga instalado el agente de máquina virtual. Debe instalar al agente de máquina virtual en la máquina virtual antes de continuar con su protección. Para más información sobre cómo instalar el agente de máquina virtual, consulte la [sección Agente de máquina virtual del artículo Copia de seguridad de máquinas virtuales](backup-azure-vms-prepare.md#vm-agent).
 
 
 ## Paso 4: Creación de la directiva de copia de seguridad
 Antes de desencadenar el trabajo de copia de seguridad inicial, establezca la programación de cuándo se van a realizar las instantáneas de copia de seguridad. La programación de cuándo se realizan las instantáneas de copia de seguridad y el período de tiempo durante el que se conservan dichas instantáneas, forman la directiva de copia de seguridad. La información de retención se basa en un esquema de rotación abuelo-padre-hijo (GFS) para las copias de seguridad.
 
-1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure clásico y haga clic en **Elementos registrados**.
+1. Navegue al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure clásico y haga clic en **Elementos registrados**.
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
     ![Seleccionar carga de trabajo en el portal](./media/backup-azure-vms/select-workload.png)
 
 3. Haga clic en **PROTEGER**, en la parte inferior de la página. ![Haga clic en Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
 
-    Aparece el **asistente para la protección de elementos**, que muestra *solo* las máquinas virtuales que están registradas y no protegidas.
+    Aparece el **Asistente para la protección de elementos**, que enumera *solo* las máquinas virtuales que están registradas y no protegidas.
 
     ![Configuración de protección a escala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -174,7 +174,7 @@ Antes de desencadenar el trabajo de copia de seguridad inicial, establezca la pr
 
     La directiva de retención especifica el período de tiempo que se almacena una copia de seguridad. Puede especificar directivas de retención diferentes en función de cuándo se realizó la copia de seguridad.
 
-7. Haga clic en **Trabajos** para ver la lista de trabajos en **Configurar protección**.
+7. Haga clic en **Trabajos** para ver la lista de trabajos de **Configurar la protección**.
 
     ![Configurar trabajo de protección](./media/backup-azure-vms/protect-configureprotection.png)
 
@@ -182,7 +182,7 @@ Antes de desencadenar el trabajo de copia de seguridad inicial, establezca la pr
 
 ## Paso 5: copia de seguridad inicial
 
-Cuando una máquina virtual se ha protegido con una directiva, puede ver esa relación en la pestaña **Elementos protegidos**. Hasta que se realiza la copia de seguridad inicial, el **Estado de protección** aparece como **Protegido (copia de seguridad inicial pendiente)**. De forma predeterminada, la primera copia de seguridad programada es la *copia de seguridad inicial*.
+Una vez que una máquina virtual se ha protegido con una directiva, dicha relación se puede ver en la pestaña **Elementos protegidos**. Hasta que se realiza la copia de seguridad inicial, en **Estado de protección** se muestra el valor **Protegido (copia de seguridad inicial pendiente)**. De forma predeterminada, la primera copia de seguridad programada es la *copia de seguridad inicial*.
 
 ![Copia de seguridad pendiente](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
@@ -196,14 +196,14 @@ Para empezar con la copia de seguridad inicial de forma inmediata:
 
     ![Copia de seguridad en curso](./media/backup-azure-vms-first-look/protect-inprogress.png)
 
-    Una vez completada la copia de seguridad inicial, el estado de la máquina virtual en la pestaña **Elementos protegidos** se mostrará como *Protegido*.
+    Una vez completada la copia de seguridad inicial, el estado de la máquina virtual en la pestaña **Elementos protegidos** es *Protegido*.
 
     ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
     >[AZURE.NOTE] La copia de seguridad de máquinas virtuales es un proceso local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos un almacén de copia de seguridad en esa región.
 
 ## Pasos siguientes
-Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos que pueden ser de interés. El paso más lógico sería familiarizarse con la restauración de datos en una máquina virtual. Sin embargo, hay tareas de administración que le ayudarán a entender cómo mantener seguros sus datos y minimizar los costos.
+Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos que pueden ser de interés. El paso más lógico sería familiarizarse con la restauración de datos en una máquina virtual. Sin embargo, hay tareas de administración que le ayudarán a entender cómo mantener seguros los datos y minimizar los costos.
 
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
@@ -213,4 +213,4 @@ Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos q
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

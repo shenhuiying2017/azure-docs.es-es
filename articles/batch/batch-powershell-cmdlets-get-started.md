@@ -13,20 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
-Esta es una breve introducción a los cmdlets de Azure PowerShell que puede usar para administrar sus cuentas de Lote y trabajar con sus recursos de Lote tales como grupos, trabajos y tareas. Con los cmdlets de Lote puede realizar muchas de las mismas tareas que con las API de Lote, el Portal de Azure y la interfaz de la línea de comandos (CLI) de Azure. Este artículo se basa en los cmdlets de Azure PowerShell versión 1.3.2 o posteriores.
+Con los cmdlets de PowerShell de Lote de Azure puede realizar directamente y mediante scripts muchas de las mismas tareas que se llevan a cabo con las API de Lote, el Portal de Azure y la interfaz de la línea de comandos (CLI) de Azure. Esta es una breve introducción a los cmdlets que se pueden usar para administrar cuentas de Lote y trabajar con recursos de Lote tales como grupos, trabajos y tareas. Este artículo se basa en los cmdlets de Azure PowerShell versión 1.6.0.
 
 Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Requisitos previos
 
-* **Azure PowerShell**: consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones para descargar e instalar Azure PowerShell. 
+* **Azure PowerShell**: consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones para descargar e instalar Azure PowerShell.
    
-    * Como los cmdlets de Lote de Azure se incluyen en el módulo Azure Resource Manager, deberá ejecutar el cmdlet **Login-AzureRmAccount** para conectarse a su suscripción. 
+    * Como los cmdlets de Lote de Azure se incluyen en el módulo Azure Resource Manager, deberá ejecutar el cmdlet **Login-AzureRmAccount** para conectarse a su suscripción.
     
     * Le recomendamos que actualice su instancia de Azure PowerShell con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
     
@@ -45,7 +45,7 @@ Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada d
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especificando también un nombre de cuenta para <*account\_name*> y la ubicación en la que está disponible el servicio de Lote. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
+A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especifique su nombre en <*account\_name*> y la ubicación y el nombre del grupo de recursos. La operación de crear la cuenta de Lote puede tardar un tiempo en completarse. Por ejemplo:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,18 +94,24 @@ Pase el objeto BatchAccountContext a los cmdlets que usan el parámetro **BatchC
 ## Creación y modificación de recursos de Lote
 Use cmdlets como **New-AzureBatchPool**, **New-AzureBatchJob** y **New-AzureBatchTask** para crear recursos en una cuenta de Lote. Hay cmdlets **Get-** y **Set-** correspondientes para actualizar las propiedades de los recursos existentes, y cmdlets **Remove-** para quitar recursos en una cuenta de Lote.
 
+Cuando se utilizan muchos de estos cmdlets, además de pasar un objeto BatchContext, es preciso crear o pasar objetos que contienen la configuración detallada de los recursos, como se muestra en el ejemplo siguiente. Para obtener ejemplos adicionales, consulte la ayuda detallada de cada cmdlet.
+
 ### Crear un grupo de Lote
 
-Por ejemplo, el siguiente cmdlet crea un nuevo grupo de Lote configurado para usar máquinas virtuales de tamaño pequeño con la versión del sistema operativo más reciente de la familia 3 (Windows Server 2012), con el número de destino de nodos de proceso determinado por una fórmula de escalado automático. En este caso, la fórmula es simplemente **$TargetDedicated=3**, que indica que el número máximo de nodos de proceso en el grupo es 3. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como el objeto BatchAccountContext.
+Al crear o actualizar un grupo de Lote, seleccione una configuración de servicio en la nube o una configuración de máquina virtual para el sistema operativo en los nodos de proceso (consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md#pool)). La elección determina si se crean imágenes de los nodos de proceso con una de las [versiones de SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) o con una de las imágenes de máquina virtual Linux o Windows compatibles de Azure Marketplace.
+
+Al ejecutar **New-AzureBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente cmdlet crea un nuevo grupo de Lote con nodos de proceso de tamaño pequeño en la configuración del servicio en la nube, con una imagen de la última versión de sistema operativo de familia 3 (Windows Server 2012). En este caso, el parámetro **CloudServiceConfiguration** especifica la variable *$configuration* como objeto PSCloudServiceConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Actualmente, los cmdlets de PowerShell de Lote solo admiten la configuración de servicios en la nube para nodos de proceso. Esto le permite elegir una de las versiones de SO invitado de Azure del sistema operativo Windows Server para que se ejecute en los nodos de proceso. Para otras opciones de configuración de nodos de proceso para los grupos de Lote, use los SDK de Lote o la CLI de Azure.
+El número destino de nodos de proceso en el nuevo grupo se determina mediante una fórmula de autoescalado. En este caso, la fórmula es simplemente **$TargetDedicated=4**, que indica que el número máximo de nodos de proceso en el grupo es 4.
 
 ## Consulta de grupos, trabajos, tareas y otros detalles
 
-Use cmdlets como **Get-AzureBatchPool**, **Get-AzureBatchJob** y **Get-AzureBatchTask** para consultar las entidades creadas con una cuenta de Lote.
+Use cmdlets como **Get-AzureBatchPool**, **Get-AzureBatchJob** y **Get-AzureBatchTask** para consultar las entidades creadas en una cuenta de Lote.
 
 
 ### Consulta de datos
@@ -157,8 +163,8 @@ Los cmdlets de lote pueden aprovechar la canalización para enviar datos entre l
 
 
 ## Pasos siguientes
-* Para conocer la sintaxis detallada de cmdlets con ejemplos, consulte la [referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) (Cmdlets de Lote de Azure).
 
-* Vea [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md) para más información sobre cómo reducir el número de elementos y el tipo de información que se devuelve para las consultas a Lote.
+* Para más información acerca de cómo reducir el número de elementos y el tipo de información que se devuelve en las consultas a Lote, consulte [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

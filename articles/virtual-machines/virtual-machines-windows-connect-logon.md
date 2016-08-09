@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 # Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella 
@@ -34,7 +34,7 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 	![Captura de pantalla del Portal de Azure que muestra cómo conectarse a la máquina virtual.](./media/virtual-machines-windows-connect-logon/connect.png)
 	
- > [AZURE.TIP] Si el botón 'Conectar' del portal está atenuado y no está conectado a Azure a través de un [Express Route](../expressroute/expressroute-introduction.md) o una conexión [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar una dirección IP pública de la máquina virtual antes de poder usar RDP. Aquí puede conocer más información sobre [direcciones IP públicas en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+ > [AZURE.TIP] Si el botón **Conectar** del portal está atenuado y no está conectado a Azure a través de una conexión [Express Route](../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar a la máquina virtual la dirección IP pública antes de poder usar RDP. Aquí puede leer más sobre [direcciones IP públicas en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -43,6 +43,6 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 ## Pasos siguientes
 
-Si surgen problemas al intentar conectarse, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
+Si surgen problemas al intentar conectarse, consulte [Solución de problemas de conexiones del Escritorio remoto](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->
