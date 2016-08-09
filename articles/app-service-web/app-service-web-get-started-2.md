@@ -129,7 +129,7 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 
 - [Compre y configure un nombre de dominio personalizado](custom-dns-web-site-buydomains-web-app.md): compre un dominio atractivo para la aplicación web en lugar del dominio *.azurewebsites.net. También puede usar un dominio que ya tenga.
 - [Configure entornos de ensayo](web-sites-staged-publishing.md): implemente la aplicación en una dirección URL de ensayo antes de ponerla en producción. Actualice la aplicación web activa con confianza. Configure una solución de DevOps elaborada con varias ranuras de implementación.
-- [Configure la implementación continua](web-sites-publish-source-control.md): integre la implementación de la aplicación en el sistema de control de código fuente. Impleméntela en Azure con cada confirmación.
+- [Configure la implementación continua](app-service-continuous-deployment.md): integre la implementación de la aplicación en el sistema de control de código fuente. Impleméntela en Azure con cada confirmación.
 - [Acceda a recursos locales](web-sites-hybrid-connection-get-started.md): acceda a una base de datos local existente o un sistema CRM.
 - [Haga una copia de seguridad de la aplicación](web-sites-backup.md): configure la copia de seguridad y la restauración para la aplicación web. Prepárese para errores inesperados y recupérese de ellos.
 - [Habilite los registros de diagnóstico](web-sites-enable-diagnostic-log.md): lea los registros de IIS desde seguimientos de la aplicación o desde Azure. Léalos en una transmisión, descárguelos o pórtelos a [Application Insights](../application-insights/app-insights-overview.md) para realizar un análisis "llave en mano".
@@ -137,4 +137,4 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 - [Ejecute trabajos en segundo plano](../azure-functions/functions-overview.md): ejecute trabajos de procesamiento de datos, informes, etc.
 - [Obtener información acerca de cómo funciona el Servicio de aplicaciones](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

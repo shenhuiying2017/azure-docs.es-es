@@ -22,7 +22,8 @@ Azure Active Directory brinda mayor seguridad en el acceso a la aplicación e in
 En el caso de las organizaciones que invirtieron en soluciones de federación de terceros, este tema contiene guías sobre cómo configurar el inicio de sesión único para sus usuarios de Windows Server Active Directory con servicios en línea de Microsoft mediante el uso de proveedores de identidades de terceros que se incluyen en la "Lista de compatibilidad de federación de Azure Active Directory" que aparece más adelante.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/), un tercero, probó, en nombre de Microsoft, estas experiencias de inicio de sesión único con proveedores de identidades de terceros en relación con un conjunto de casos de uso común con Azure Active Directory.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
+[Oxford Computer Group](http://oxfordcomputergroup.com/), un tercero, probó, en nombre de Microsoft, estas experiencias de inicio de sesión único con proveedores de identidades de terceros en relación con un conjunto de casos de uso común con Azure Active Directory.
 
 Para obtener información sobre cómo obtener el proveedor de identidades de terceros que figura aquí, póngase en contacto con Oxford Computer Group en [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
@@ -338,4 +339,4 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 Para más información, consulte [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-) (Inicio de sesión único de AuthAnvil).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->

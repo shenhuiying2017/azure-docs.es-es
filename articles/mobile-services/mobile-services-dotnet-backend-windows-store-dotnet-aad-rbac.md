@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Control de acceso basado en rol en Servicios móviles con JavaScript y Azure Active Directory
@@ -32,7 +32,7 @@ Control de acceso basado en roles (RBAC) es la práctica de asignar permisos a r
 En este tutorial, se muestra el control de acceso basado en roles comprobando la pertenencia de cada usuario al grupo Sales definido en Azure Active Directory (AAD). La comprobación de acceso se llevará a cabo con el backend .NET de Servicios Móviles mediante la [API de REST Graph] para Azure Active Directory. Solo los usuarios que pertenecen al grupo Sales podrán consultar los datos.
 
 
->[AZURE.NOTE]La finalidad de este tutorial es ampliar sus conocimientos sobre autenticación para incluir prácticas de autorización. Debe haber completado antes el tutorial [Incorporación de autenticación a la aplicación] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continúa la actualización de la aplicación TodoItem que se usa en el tutorial [Incorporación de autenticación a la aplicación].
+>[AZURE.NOTE] La finalidad de este tutorial es ampliar sus conocimientos sobre autenticación para incluir prácticas de autorización. Debe haber completado antes el tutorial [Incorporación de autenticación a la aplicación] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continúa la actualización de la aplicación TodoItem que se usa en el tutorial [Incorporación de autenticación a la aplicación].
 
 ##Requisitos previos
 
@@ -179,7 +179,7 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 
 9. En AuthorizeAadRole.cs, actualice el método `GetAADToken` de la clase `AuthorizeAadRole`. Este método usa la configuración de aplicación almacenada en el servicio móvil para obtener un token de acceso a la AAD desde ADAL.
 
-    >[AZURE.NOTE]ADAL para .NET incluye una memoria caché de token de forma predeterminada para ayudar a mitigar el tráfico de red adicional en Active Directory. Sin embargo, puede escribir su propia implementación de la memoria caché o deshabilitar el almacenamiento en caché por completo. Para obtener más información, consulte [ADAL para .NET].
+    >[AZURE.NOTE] ADAL para .NET incluye una memoria caché de token de forma predeterminada para ayudar a mitigar el tráfico de red adicional en Active Directory. Sin embargo, puede escribir su propia implementación de la memoria caché o deshabilitar el almacenamiento en caché por completo. Para obtener más información, consulte [ADAL para .NET].
 
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
@@ -245,7 +245,7 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 
 11. En AuthorizeAadRole.cs, actualice el método `OnAuthorization` de la clase `AuthorizeAadRole` con el siguiente código. Este código espera que el usuario que llama al servicio móvil se haya autenticado en AAD. A continuación, obtiene el Id. de objeto AAD del usuario y comprueba la pertenencia con el grupo de Active Directory que corresponde al rol.
 
-    >[AZURE.NOTE]Puede buscar el grupo de Active Directory por el nombre. No obstante, muchas veces, es mejor almacenar el identificador del grupo como un valor de configuración de la aplicación de servicio móvil, porque es más probable que el nombre del grupo cambie, pero el identificador permanece igual.
+    >[AZURE.NOTE] Puede buscar el grupo de Active Directory por el nombre. No obstante, muchas veces, es mejor almacenar el identificador del grupo como un valor de configuración de la aplicación de servicio móvil, porque es más probable que el nombre del grupo cambie, pero el identificador permanece igual.
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -393,4 +393,4 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

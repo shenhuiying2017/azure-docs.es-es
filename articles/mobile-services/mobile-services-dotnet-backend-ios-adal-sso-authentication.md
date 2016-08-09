@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="07/21/2016"
 	ms.author="mahender"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
@@ -32,7 +32,7 @@ En este tutorial, agregará la autenticación al proyecto de inicio rápido medi
 Para poder autenticar a los usuarios, debe registrar su aplicación en Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su servicio móvil y exponer los permisos sobre él. En segundo lugar, debe registrar la aplicación de iOS y conceder acceso a esos permisos.
 
 
->[AZURE.NOTE]Este tutorial está pensado para ayudarle a comprender mejor cómo los Servicios móviles permiten autenticación de Azure Active Directory con inicio de sesión único para aplicaciones iOS. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles].
+>[AZURE.NOTE] Este tutorial está pensado para ayudarle a comprender mejor cómo los Servicios móviles permiten autenticación de Azure Active Directory con inicio de sesión único para aplicaciones iOS. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles].
 
 
 ##Requisitos previos
@@ -127,4 +127,4 @@ Este tutorial requiere lo siguiente:
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0727_2016-->

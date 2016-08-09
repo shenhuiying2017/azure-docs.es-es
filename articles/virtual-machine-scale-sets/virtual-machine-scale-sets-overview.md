@@ -141,11 +141,11 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **P.** Si reduzco la capacidad de mi conjunto de escala de máquinas virtuales de 20 a 15, ¿qué máquinas virtuales se quitarán?
 
-**R.** Las máquinas virtuales se quitan uniformemente del conjunto de escala por los dominios de actualización y dominios de error para potenciar al máximo la disponibilidad.
+**R.** Las máquinas virtuales se quitan uniformemente del conjunto de escala por los dominios de actualización y dominios de error para potenciar al máximo la disponibilidad. Primero se quitan las VM con el identificador más alto.
 
 **P.** ¿Y si después aumento la capacidad de 15 a 18?
 
-**R.** Si la aumenta a 18, se crearán máquinas virtuales con los índices 15, 16 y 17. En ambos casos, las máquinas virtuales se equilibran entre dominios de error y de actualización.
+**R.** Si aumenta la capacidad a 18, se crearán 3 nuevas VM. Cada vez el identificador de instancia de VM se incrementará a partir del valor más alto anterior (por ejemplo, 20, 21, 22). Las VM se equilibran entre dominios de error y de actualización.
 
 **P.** Si uso varias extensiones en un conjunto de escala de máquinas virtuales, ¿se puede aplicar una secuencia de ejecución?
 
@@ -155,4 +155,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con cinco dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

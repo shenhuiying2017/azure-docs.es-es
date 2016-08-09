@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/23/2016"
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,9 @@ Prueba comparativa|[Archivo de entrada: 5 minutos de duración, 640 x 360 p a 29
 
 - Si utiliza el grupo compartido, es decir, sin ninguna unidad reservada, las tareas de codificación tendrán el mismo rendimiento que con las RU S1. Sin embargo, no existe ningún límite superior para el tiempo que las tareas pueden estar en el estado en cola, y en un momento determinado, se estará ejecutando a lo sumo una tarea.
 
-- Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S3**: Sur de Brasil, India occidental, India central y Sur de la India.
+- Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S2**: Sur de Brasil, India occidental, India central y Sur de la India.
+
+- Los siguientes centros de datos no ofrecen el tipo de unidad reservada **S3**: Sur de Brasil, India occidental e India central.
 
 - Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste.
 
@@ -65,7 +67,7 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas, ha
 
 2. Seleccione la página **CODIFICACIÓN**.
 
-	Para cambiar el **TIPO DE UNIDAD RESERVADA**, presione S1, S2 o S3.
+	Para cambiar el **TIPO DE UNIDAD RESERVADA**, haga clic en S1, S2 o S3.
 
 	Para cambiar el número de unidades reservadas para el tipo de unidad reservada seleccionada, use el control deslizante **CODIFICACIÓN**.
 
@@ -91,4 +93,4 @@ Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir un
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

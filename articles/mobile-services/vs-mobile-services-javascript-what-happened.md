@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # ¿Qué sucede con mi proyecto de Javascript al agregar Servicios móviles de Azure para dispositivos móviles mediante Connected Visual Studio Services?
@@ -38,4 +38,4 @@ En la carpeta servicios, se han agregado los archivos de configuración de servi
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

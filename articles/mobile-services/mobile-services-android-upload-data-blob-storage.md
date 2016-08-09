@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Carga de imágenes a Almacenamiento de Azure desde un dispositivo Android
@@ -426,4 +426,4 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

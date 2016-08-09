@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -105,11 +105,11 @@ En el área de supervisión de un trabajo de Análisis de transmisiones, se han 
 
 Se definen de la manera siguiente:
 
-**SOLICITUDES DE FUNCIONES**: el número de solicitudes de función.
+**SOLICITUDES DE FUNCIONES**: Número de solicitudes de función.
 
-**EVENTOS DE FUNCIONES**: el número de eventos en las solicitudes de función.
+**EVENTOS DE FUNCIONES**: Número de eventos en las solicitudes de función.
 
-**SOLICITUDES DE FUNCIONES CON ERRORES**: el número de solicitudes de funciones con errores.
+**SOLICITUDES DE FUNCIONES CON ERRORES**: Número de solicitudes de funciones con errores.
 
 ## Puntos clave  
 
@@ -130,4 +130,4 @@ Para obtener más información sobre Análisis de transmisiones, vea:
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

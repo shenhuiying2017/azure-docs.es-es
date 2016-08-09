@@ -120,7 +120,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación CloudPassage (por ejemplo: *https://portal.cloudpassage.com/saml/init/accountid*).
 
-    b. En el cuadro de texto **URL de respuesta**, escriba su dirección URL de AssertionConsumerService (por ejemplo: **https://portal.cloudpassage.com/saml/consume/accountid*). Para obtener el valor de este atributo, haga clic en **SSO Setup documentation** (Documentación de instalación de inicio de sesión única) en la sección **Single Sign-on Settings* (Configuración de inicio de sesión único) del portal de CloudPassage. ![Configurar inicio de sesión único][10]
+    b. En el cuadro de texto **URL de respuesta**, escriba su dirección URL de AssertionConsumerService (por ejemplo: *https://portal.cloudpassage.com/saml/consume/accountid*). Para obtener el valor de este atributo, haga clic en **SSO Setup documentation** (Documentación de instalación de inicio de sesión única) en la sección **Single Sign-on Settings** (Configuración de inicio de sesión único) del portal de CloudPassage. ![Configurar inicio de sesión único][10]
 
     C. Haga clic en **Siguiente**.
 

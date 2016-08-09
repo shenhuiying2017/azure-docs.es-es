@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
@@ -46,15 +46,15 @@ Para otras entradas/salidas, vaya a la Parte 2.
 ###Centros de eventos
 1.  Vaya a la extensión del bus de servicio en el Portal de administración de Azure: ![graphic6][graphic6]
 2.  Busque el espacio de nombres del Bus de servicio utilizado por su trabajo y vaya a él: ![graphic7][graphic7]
-3.  Si su trabajo usa una directiva de acceso compartido en el espacio de nombres del Bus de servicio, vaya al paso 6  
+3.  Si su trabajo usa una directiva de acceso compartido en el espacio de nombres del Bus de servicio, vaya al paso 6
 4.  Vaya a la Pestaña Centros de eventos: ![graphic8][graphic8]
 5.  Busque el centro de eventos utilizado por su trabajo y vaya a él: ![graphic9][graphic9]
 6.  Vaya a la pestaña Configurar: ![graphic10][graphic10]
 7.  En la lista desplegable Nombre de directiva, busque la directiva de acceso compartido utilizada por su trabajo: ![graphic11][graphic11]
-8.  Entre la clave principal y la clave secundaria, **elija la que no utilice su trabajo**.  
+8.  Entre la clave principal y la clave secundaria, **elija la que no utilice su trabajo**.
 9.  Presione regenerar: ![graphic12][graphic12]
 10. Copie la clave recién generada: ![graphic13][graphic13]
-11. Vaya a la parte 2.  
+11. Vaya a la parte 2.
 
 ###Base de datos SQL
 
@@ -66,13 +66,13 @@ Para otras entradas/salidas, vaya a la Parte 2.
 4.  Tipo de base de datos maestra: ![graphic17][graphic17]
 5.  Escriba su nombre de usuario y contraseña y haga clic en Iniciar sesión: ![graphic18][graphic18]
 6.  Haga clic en Nueva consulta: ![graphic19][graphic19]
-7.  Escriba la siguiente consulta reemplazando <login_name> por su nombre de usuario y <enterStrongPasswordHere> por la nueva contraseña: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
+7.  Escriba la siguiente consulta reemplazando <nombre\_de\_inicio\_de\_sesión> por su nombre de usuario y <escribirContraseñaSegura> por la nueva contraseña: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Haga clic en Ejecutar: ![graphic20][graphic20]
 9.  Vuelva al paso 2 y esta vez haga clic en la base de datos: ![graphic21][graphic21]
 10. Haga clic en el comando Administrar: ![graphic22][graphic22]
 11. escriba su nombre de usuario y contraseña y haga clic en Iniciar sesión: ![graphic23][graphic23]
 12. Haga clic en Nueva consulta: ![graphic24][graphic24]
-13. Escriba la siguiente consulta reemplazando <user_name> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos (puede proporcionar el mismo valor que asignó para <login_name>, por ejemplo) y reemplazar <login_name> por su nuevo nombre de usuario: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Escriba la siguiente consulta reemplazando <nombre\_de\_usuario> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos (puede proporcionar el mismo valor que asignó para <nombre\_de\_inicio\_de\_sesión>, por ejemplo) y reemplazar <nombre\_de\_inicio\_de\_sesión> por su nuevo nombre de usuario: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Haga clic en Ejecutar: ![graphic25][graphic25]
 15. Ahora debe proporcionar el nuevo usuario con los mismos roles y privilegios que tenía el usuario original.
 16. Vaya a la parte 2.
@@ -100,9 +100,9 @@ Para otras entradas/salidas, vaya a la Parte 2.
 4.	Vaya a la parte 4.
 
 ###Power BI
-1.	Haga clic en la autorización de renovación:  
+1.	Haga clic en la autorización de renovación:
 * ![graphic35][graphic35]
-* Obtendrá la siguiente confirmación:  
+* Obtendrá la siguiente confirmación:
 * ![graphic36][graphic36]
 2.	Haga clic en el comando Guardar y confirme que desea guardar los cambios: ![graphic37][graphic37]
 3.	Al guardar los cambios se iniciará automáticamente una prueba de conexión ; asegúrese de que haya pasado correctamente.
@@ -111,14 +111,14 @@ Para otras entradas/salidas, vaya a la Parte 2.
 ###Base de datos SQL
 1.	Busque los campos Nombre de usuario y Contraseña y pegue en ellos el conjunto de credenciales recién creado: ![graphic38][graphic38]
 2.	Haga clic en el comando Guardar y confirme que desea guardar los cambios: ![graphic39][graphic39]
-3.	Una prueba de conexión se iniciará automáticamente al guardar los cambios; asegúrese de que haya pasado correctamente.  
+3.	Una prueba de conexión se iniciará automáticamente al guardar los cambios; asegúrese de que haya pasado correctamente.
 4.	Vaya a la parte 4.
 
 ##Parte 4: Inicio del trabajo desde la última vez que se detuvo
 1.	Salga de la entrada/salida: ![graphic40][graphic40]
 2.	Haga clic en el comando Iniciar: ![graphic41][graphic41]
 3.	Elija la última vez que se detuvo y haga clic en Aceptar: ![graphic42][graphic42]
-4.	Vaya a la parte 5.  
+4.	Vaya a la parte 5.
 
 ##Parte 5: Eliminación del antiguo conjunto de credenciales
 Esta parte es aplicable a las siguientes entradas/salidas:
@@ -134,8 +134,8 @@ Repita la Parte 1 para la clave de acceso usada previamente por su trabajo para 
 Repita la Parte 1 para la clave usada previamente por su trabajo para renovar la clave ahora no utilizada.
 
 ###Base de datos SQL
-1.	Vaya a la ventana de consulta de la Parte 1 Paso 7 y escriba la consulta siguiente, reemplazando <previous_login_name> por el nombre de usuario usado previamente por su trabajo: `DROP LOGIN <previous_login_name>`  
-2.	Haga clic en Ejecutar: ![graphic43][graphic43]  
+1.	Vaya a la ventana de consulta de la Parte 1 Paso 7 y escriba la consulta siguiente, reemplazando <nombre\_de\_inicio\_de\_sesión\_anterior> por el nombre de usuario usado previamente por su trabajo: `DROP LOGIN <previous_login_name>`
+2.	Haga clic en Ejecutar: ![graphic43][graphic43]
 
 Obtendrá la siguiente confirmación:
 
@@ -198,4 +198,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

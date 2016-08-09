@@ -33,7 +33,7 @@ El Administrador de tráfico de Azure admite varios algoritmos para determinar c
 
 Existen tres métodos de enrutamiento disponibles en el Administrador de tráfico:
 
-- **Prioridad:** seleccione "Prioridad" cuando quiera usar un punto de conexión de servicio primario para todo el tráfico, y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles. Para más información, consulte [Método de enrutamiento del tráfico prioritario](#wriority-traffic-routing-method).
+- **Prioridad:** seleccione "Prioridad" cuando quiera usar un punto de conexión de servicio primario para todo el tráfico, y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles. Para más información, consulte [Método de enrutamiento del tráfico prioritario](#priority-traffic-routing-method).
 
 - **Ponderado:** seleccione "Ponderado" cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, o bien de manera uniforme o según los pesos definidos. Para más información, consulte [Método de enrutamiento del tráfico ponderado](#weighted-traffic-routing-method).
 
@@ -126,4 +126,4 @@ Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

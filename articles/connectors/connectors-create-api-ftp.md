@@ -1,247 +1,441 @@
 <properties
-    pageTitle="Incorporación del conector de FTP a las aplicaciones lógicas | Microsoft Azure"
-    description="Información general del conector de FTP con parámetros de la API de REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Aprenda a usar el conector de FTP en aplicaciones lógicas | Microsoft Azure"
+description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a un servidor FTP para administrar sus archivos. En FTP, puede realizar diversas acciones, como cargar, actualizar, obtener y eliminar archivos."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="logic-apps"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/22/2016"
+ms.author="deonhe"/>
 
 # Introducción al conector de FTP
-Conéctese a un servidor FTP administrar los archivos, lo que incluye tareas como cargar archivos, eliminar archivos, etc. El conector de FTP puede usarse desde:
 
-- Aplicaciones lógicas (descritas en este tema)
-- PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
+Use el conector de FTP para supervisar, administrar y crear archivos en un servidor FTP.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Con FTP, puede:
+## Conexión a un FTP
 
-- Compilar el flujo de negocio en función de los datos que obtiene de FTP. 
-- Usar un desencadenador cuando se actualiza un archivo.
-- Usar acciones que crean archivos, obtienen contenido de archivos, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener el contenido de un archivo y después actualizar una base de datos SQL. 
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Creación de una conexión a FTP
 
+>[AZURE.INCLUDE [Pasos para crear una conexión a FTP](../../includes/connectors-create-api-ftp.md)]
 
-## Desencadenadores y acciones
-FTP tiene los siguientes desencadenadores y acciones disponibles.
+## Uso de un desencadenador de FTP
 
-Desencadenadores | Acciones
---- | ---
-<ul><li>Obtiene un archivo actualizado</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Obtener un archivo actualizado</li><li>Actualizar archivo</li></ul>
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Todos los conectores admiten datos en formato JSON y XML.
+>[AZURE.IMPORTANT]El conector de FTP necesita un servidor FTP que sea accesible desde Internet y que esté configurado para poder funcionar en modo PASIVO. Además, el conector de FTP **no es compatible con FTPS implícito (FTP por SSL)**. El conector de FTP solo admite FTPS explícito (FTP por SSL).
 
-## Creación de una conexión a FTP
+En este ejemplo, le enseñaremos a usar el desencadenador **FTP - When a file is added or modified** (FTP: cuando se agrega o modifica un archivo) para que, cuando se agregue o se modifique un archivo en un servidor FTP, se inicie el flujo de trabajo de una aplicación lógica. En un entorno empresarial, podría utilizar este desencadenador para supervisar los nuevos archivos que se agregan a una carpeta FTP y que representan los pedidos de los clientes. Podría utilizar una acción del conector de FTP, como **Get file content** (Obtener contenido del archivo), para obtener el contenido del archivo a fin de procesarlo y almacenarlo después en la base de datos de pedidos.
+
+1. Escriba *ftp* en el cuadro de búsqueda del diseñador de aplicaciones lógicas y seleccione el desencadenador **FTP - When a file is added or modified** (FTP: cuando se agrega o modifica un archivo). ![Imagen de desencadenador de FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) Se abrirá el control **When a file is added or modified** (Cuando se agrega o modifica un archivo). ![Imagen de desencadenador de FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
+- Seleccione la opción **...** situada a la derecha del control. Se abrirá el control de selector de carpeta. ![Imagen de desencadenador de FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)
+- Seleccione la opción **>** (flecha derecha) y busque la carpeta donde desea supervisar los archivos nuevos o modificados. Al seleccionar la carpeta, observará que esta aparece en el control **Carpeta**. ![Imagen de desencadenador de FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
 
 
->[AZURE.INCLUDE [Pasos para crear una conexión FTP](../../includes/connectors-create-api-ftp.md)]
+En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree o modifique un archivo en la carpeta FTP especificada.
 
-Después de crear la conexión, especifique las propiedades de FTP, como el archivo de origen o la carpeta de destino. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
-
->[AZURE.TIP] Puede usar esta misma conexión de FTP en otras aplicaciones lógicas.
-
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
-
-### Crear archivo
-Carga un archivo en el servidor FTP. ```POST: /datasets/default/files```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderPath|cadena|yes|query|Ninguna |Ruta de acceso de carpeta para cargar el archivo en el servidor FTP|
-|name|cadena|yes|query| Ninguna|Nombre del archivo que se va a crear en el servidor FTP|
-|body| |yes|body|Ninguna |Contenido del archivo que se va a cargar en el servidor FTP|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Copiar archivo
-Copia un archivo en el servidor FTP. ```POST: /datasets/default/copyFile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna |Dirección URL al archivo de origen|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso al archivo de destino en el servidor FTP, incluido el nombre de archivo de destino|
-|overwrite|boolean|no|query|Ninguna |Sobrescribe el archivo de destino si está establecido en 'true'|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Eliminar archivo 
-Elimina un archivo del servidor FTP. ```DELETE: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a eliminar del servidor FTP|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Extraer carpeta
-Extrae un archivo de almacenamiento en una carpeta del servidor FTP (por ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query| Ninguna|Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query| Ninguna|Ruta de acceso a la carpeta de destino|
-|overwrite|boolean|no|query|Ninguna|Sobrescribe los archivos de destino si está establecido en 'true'|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Obtener contenido de archivo
-Recupera el contenido del archivo del servidor FTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+>[AZURE.NOTE]Para que una aplicación lógica sea funcional, debe contener al menos un desencadenador y una acción. Siga los pasos que se describen en la sección siguiente para agregar una acción.
 
 
-### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido del archivo del servidor FTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna |Ruta de acceso única al archivo en el servidor FTP|
+## Uso de una acción de FTP
 
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una acción que obtendrá el contenido del archivo nuevo o modificado detectado por el desencadenador.
+
+1. Seleccione **+ Nuevo paso** para agregar la acción que obtendrá el contenido del archivo del servidor FTP.
+- Seleccione el vínculo **Add an action** (Agregar una acción). ![Imagen de acción de FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Escriba *FTP* para buscar todas las acciones relacionadas con FTP.
+- Seleccione **FTP - Get file content** (FTP: obtener contenido del archivo). Esta será la acción que se ejecutará cuando se encuentre un archivo nuevo o modificado en la carpeta FTP. ![Imagen de acción de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png) Se abrirá el control **Get file content** (Obtener contenido del archivo). **Nota**: Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta del servidor FTP. ![Imagen de acción de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Seleccione el control **Archivo** (el espacio en blanco situado bajo **ARCHIVO***). Aquí, podrá utilizar cualquiera de las propiedades del archivo nuevo o modificado detectado en el servidor FTP.
+- Seleccione la opción **Contenido del archivo**. ![Imagen de acción de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)
+-  El control se actualiza, lo que indica que la acción **FTP - Get file content** (FTP: obtener contenido del archivo) obtendrá el *contenido del archivo* nuevo o modificado del servidor FTP. ![Imagen de acción de FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Guarde el trabajo y agregue un archivo a la carpeta FTP para comprobar el flujo de trabajo.
+
+En este punto, la aplicación lógica está configurada con un desencadenador que supervisa una carpeta de un servidor FTP e inicia el flujo de trabajo cuando se detecta un archivo nuevo o modificado en dicho servidor.
+
+La aplicación lógica también está configurada con una acción que obtiene el contenido del archivo nuevo o modificado.
+
+Puede agregar otra acción; por ejemplo, [SQL Server - insert row](./connectors-create-api-sqlazure.md#insert-row) (SQL Server: insertar fila), para insertar el contenido del archivo nuevo o modificado en una tabla de base de datos SQL.
+
+## Detalles técnicos
+
+Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
+
+## Desencadenadores de FTP
+
+FTP dispone de los siguientes desencadenadores:
+
+|Desencadenador | Descripción|
+|--- | ---|
+|[When a file is added or modified](connectors-create-api-ftp.md#when-a-file-is-added-or-modified) (Cuando se agrega o modifica un archivo)|Esta operación desencadena un flujo cuando se agrega o modifica un archivo en una carpeta.|
 
 
-### Obtener metadatos de archivo 
-Recupera los metadatos del archivo del servidor FTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
+## Acciones de FTP
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
+FTP dispone de las siguientes acciones:
 
-#### Respuesta
-| Nombre | Descripción |
-| --- | --- |
-| 200 | OK | 
-| default | Error en la operación.
+
+|Acción|Descripción|
+|--- | ---|
+|[Obtención de metadatos de archivo](connectors-create-api-ftp.md#get-file-metadata)|Esta operación obtiene los metadatos de un archivo.|
+|[Actualizar archivo](connectors-create-api-ftp.md#update-file)|Esta operación actualiza un archivo.|
+|[Eliminar archivo](connectors-create-api-ftp.md#delete-file)|Esta operación elimina un archivo.|
+|[Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-ftp.md#get-file-metadata-using-path)|Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-ftp.md#get-file-content-using-path)|Esta operación obtiene el contenido de un archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo](connectors-create-api-ftp.md#get-file-content)|Esta operación obtiene el contenido de un archivo.|
+|[Crear archivo](connectors-create-api-ftp.md#create-file)|Esta operación crea un archivo.|
+|[Copiar archivo](connectors-create-api-ftp.md#copy-file)|Esta operación copia un archivo en un servidor FTP.|
+|[Enumerar archivos de la carpeta](connectors-create-api-ftp.md#list-files-in-folder)|Esta operación obtiene la lista de archivos y subcarpetas de una carpeta.|
+|[Enumerar archivos de la carpeta raíz](connectors-create-api-ftp.md#list-files-in-root-folder)|Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz.|
+|[Extraer carpeta](connectors-create-api-ftp.md#extract-folder)|Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).|
+### Detalles de la acción
+
+Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas:
+
+
+
+### Obtención de metadatos de archivo
+Esta operación obtiene los metadatos de un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Actualizar archivo
+Esta operación actualiza un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+|body*|Contenido del archivo|Contenido del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Eliminar archivo
+Esta operación elimina un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos del archivo del servidor FTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query| Ninguna|Ruta de acceso única al archivo en el servidor FTP|
 
-#### Respuesta
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Obtener contenido de archivo mediante la ruta de acceso
+Esta operación obtiene el contenido de un archivo mediante la ruta de acceso.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Obtener contenido de archivo
+Esta operación obtiene el contenido de un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Crear archivo
+Esta operación crea un archivo.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderPath*|Ruta de acceso a la carpeta|Seleccionar una carpeta|
+|name*|Nombre de archivo|Nombre del archivo|
+|body*|Contenido del archivo|Contenido del archivo|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Copiar archivo
+Esta operación copia un archivo en un servidor FTP.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Dirección URL de origen|Dirección URL al archivo de origen|
+|destination*|Ruta de acceso del archivo de destino|Ruta de acceso al archivo de destino, incluido el nombre del archivo de destino|
+|overwrite|¿Sobrescribir?|Sobrescribe el archivo de destino si está establecido en 'true'|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### When a file is added or modified (Cuando se agrega o modifica un archivo)
+Esta operación desencadena un flujo cuando se agrega o modifica un archivo en una carpeta.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderId*|Carpeta|Seleccionar una carpeta|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+
+### Enumerar archivos de la carpeta
+Esta operación obtiene la lista de archivos y subcarpetas de una carpeta.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Carpeta|Seleccionar una carpeta|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Enumerar archivos de la carpeta raíz
+Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz.
+
+
+No hay parámetros para esta llamada
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+
+### Extraer carpeta
+Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Ruta de acceso del archivo de origen|Ruta de acceso al archivo de almacenamiento|
+|destination*|Ruta de acceso a la carpeta de destino|Ruta de acceso a la carpeta de destino|
+|overwrite|¿Sobrescribir?|Sobrescribe los archivos de destino si está establecido en 'true'|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+
+
+#### Detalles de salida
+
+BlobMetadata
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+
+## Respuestas HTTP
+
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido.|
 |default|Error en la operación.|
 
 
-### Obtener un archivo actualizado
-Obtiene un archivo actualizado. ```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna |Identificador de la carpeta en la que se va a buscar un archivo actualizado|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
 
 
-### Actualizar archivo 
-Actualiza un archivo en el servidor FTP. ```PUT: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path| Ninguna|Identificador único del archivo que se va a actualizar en el servidor FTP|
-|body| |yes|body|Ninguna |Contenido del archivo que se va a actualizar en el servidor FTP|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
 
 
-## Definiciones de objeto
-
-#### DataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio |
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio |
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-#### BlobDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio |
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-#### BlobMetadata
-
-| Nombre | Tipo de datos | Obligatorio |
-|---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
-|Tamaño|integer|no|
-|MediaType|cadena|no|
-|IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
 
 ## Pasos siguientes
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

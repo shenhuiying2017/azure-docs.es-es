@@ -118,7 +118,7 @@ Las secciones siguientes proporcionan más información sobre cada área de la t
 
 ### Restauración a un momento dado
 
-**Restauración a un momento dado** es la capacidad de restaurar la base de datos a un momento anterior en el tiempo. El nivel de servicio determina el número de días que puede retroceder en el tiempo. Para más información consulte [Recuperar una Base de datos SQL de Azure de un error de usuario](sql-database-user-error-recovery.md).
+**Restauración a un momento dado** es la capacidad de restaurar la base de datos a un momento anterior en el tiempo. El nivel de servicio determina el número de días que puede retroceder en el tiempo. Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ### Recuperación ante desastres
 
@@ -368,7 +368,7 @@ La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
 En este ejemplo, se recomienda el siguiente índice.
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] \([col2])  
+	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 Una vez creado, esa misma instrucción SELECT elige un plan diferente que usa una búsqueda en lugar de un recorrido y se ejecuta más eficazmente, como se muestra en el siguiente plan de consulta.
 
@@ -507,4 +507,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

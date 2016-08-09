@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
@@ -165,9 +165,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | Id. (obligatorio) | String | clave principal en almacén remoto (requerido) |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | 
-	| ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
-	| ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property |
+    | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property |
+    | ms\_version | Cadena | (optional) used to detect conflicts, maps to \_\_version |
 
 
 
@@ -277,4 +277,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

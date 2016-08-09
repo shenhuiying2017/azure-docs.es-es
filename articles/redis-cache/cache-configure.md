@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="sdanie" />
 
 # Configuración de Caché en Redis de Azure
@@ -372,10 +372,11 @@ Para más información sobre los comandos de Redis, vea [http://redis.io/command
 
 Puede emitir comandos de forma segura para sus instancias de Caché en Redis de Azure con la **consola de Redis**, que está disponible para las memorias caché Standard y Premium.
 
->[AZURE.IMPORTANT] La Consola de Redis no funciona con red virtual o agrupación en clústeres.
+>[AZURE.IMPORTANT] La Consola de Redis no funciona con redes virtuales, agrupaciones en clústeres y bases de datos distintas de 0.
 >
 >-	[Red virtual](cache-how-to-premium-vnet.md): cuando la memoria caché forma parte de una red virtual, solo los clientes de la red virtual pueden tener acceso a la memoria caché. Dado que la Consola de Redis usa al cliente de redis-cli.exe hospedado en máquinas virtuales que no forman parte de su red virtual, no se puede conectar a su memoria caché.
 >-	[Agrupación en clústeres](cache-how-to-premium-clustering.md): la Consola de Redis usa el cliente de redis-cli.exe que no es compatible con la agrupación en clústeres en este momento. La utilidad redis-cli de la rama [inestable](http://redis.io/download) del repositorio de Redis en GitHub implementa compatibilidad básica cuando se inicia con el conmutador `-c`. Para más información, vea [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [http://redis.io](http://redis.io) en el [Tutorial del clúster de Redis](http://redis.io/topics/cluster-tutorial).
+>-	La Consola de Redis realiza una nueva conexión a la base de datos 0 cada vez que envía un comando. No se puede utilizar el comando `SELECT` para seleccionar otra base de datos, ya que se restablece a 0 con cada comando. Para obtener información sobre cómo ejecutar comandos de Redis, además de cambiar a otra base de datos, consulte [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
 Para el acceso a la Consola de Redis, haga clic en **Consola** desde la hoja **Caché en Redis**.
 
@@ -398,4 +399,4 @@ Para obtener información sobre cómo trasladar recursos de un grupo de recursos
 ## Pasos siguientes
 -	Para más información sobre cómo trabajar con los comandos de Redis, vea [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

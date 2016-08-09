@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Azure Active Directory B2C: personalización de la interfaz de usuario (UI) | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: personalización de la interfaz de usuario | Microsoft Azure"
 	description="Tema sobre las características de personalización de la interfaz de usuario de Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,43 +13,65 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/25/2016"
 	ms.author="swkrish"/>
 
-# Versión preliminar de Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
+# Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
 
 La experiencia del usuario es primordial en una aplicación de consumo. Ahí radica la diferencia entre una buena aplicación y otra excelente, y entre los consumidores simplemente activos y los realmente implicados. Azure Active Directory (Azure AD) B2C le permite personalizar las páginas de registro, inicio de sesión (*consulte la nota siguiente*), edición de perfiles y restablecimiento de la contraseña del consumidor, con un control perfecto de píxeles.
 
 > [AZURE.NOTE]
-En la actualidad, las páginas de inicio de sesión de cuentas locales (junto con las páginas de restablecimiento de la contraseña que las acompañan) y los mensajes de correo electrónico de verificación solo se pueden personalizar mediante la [característica de personalización de marca corporativa](../active-directory/active-directory-add-company-branding.md), no mediante los mecanismos descritos en este artículo.
+Actualmente, las páginas de inicio de sesión de cuentas locales, las páginas de restablecimiento de contraseña que las acompañan y los mensajes de correo electrónico de verificación solo se pueden personalizar mediante la [característica de personalización de marca corporativa](../active-directory/active-directory-add-company-branding.md), no mediante los mecanismos que se describen en este artículo.
 
 En este artículo se describen:
 
 - La característica de personalización de la interfaz de usuario de la página.
-- Una herramienta auxiliar que le ayudará a probar la característica de personalización de la interfaz de usuario de la página empleando nuestro contenido de ejemplo.
+- Una herramienta que le ayudará a probar la característica de personalización de la interfaz de usuario de la página con nuestro contenido de ejemplo.
 - Los elementos de interfaz de usuario principales en cada tipo de página.
 - Prácticas recomendadas al usar esta característica.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 ## La característica de personalización de la interfaz de usuario de la página
 
-La característica de personalización de la interfaz de usuario de la página le permite personalizar la apariencia de las páginas de registro, inicio de sesión y edición de perfil del consumidor (mediante la configuración de [directivas](active-directory-b2c-reference-policies.md)). Los consumidores tendrán experiencias uniformes al navegar entre su aplicación y las páginas a las que presta servicio Azure AD B2C.
+Con la característica de personalización de la interfaz de usuario de la página se puede personalizar la apariencia de las páginas de registro, inicio de sesión, restablecimiento de contraseña y edición de perfil del consumidor (mediante la configuración de [directivas](active-directory-b2c-reference-policies.md)). Sus consumidores tendrán experiencias más libres al navegar entre su aplicación y las páginas que Azure AD B2C sirve.
 
-A diferencia de otros servicios, donde las opciones de IU son limitadas o solo están disponibles a través de API, Azure AD B2C usa un enfoque moderno (y más sencillo) para la personalización de la interfaz de usuario de la página. Funciona de la siguiente manera: Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para cargar el contenido de una dirección URL que especifique en una directiva. Puede especificar diferentes direcciones URL para distintas páginas. El código combina elementos de IU de Azure AD B2C con el contenido cargado desde la dirección URL y muestra la página al consumidor. Basta con crear contenido HTML5 con un buen formato que incluya un elemento `<div id="api"></div>` (debe ser un elemento vacío) ubicado en algún lugar de `<body>`. Ese elemento marca el lugar en el que se inserta el contenido de Azure AD B2C. Este contenido debe hospedarse en un punto de conexión HTTPS (con CORS permitido). También puede aplicar estilo completo a elementos de la interfaz de usuario de Azure AD B2C.
+A diferencia de otros servicios, donde las opciones de IU son limitadas o solo están disponibles a través de API, Azure AD B2C usa un enfoque moderno (y más sencillo) para la personalización de la interfaz de usuario de la página.
+
+Funciona de la siguiente manera: Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para cargar el contenido de una dirección URL que especifique en una directiva. Puede especificar diferentes direcciones URL para distintas páginas. El código combina elementos de IU de Azure AD B2C con el contenido cargado desde la dirección URL y muestra la página al consumidor. Todo lo que necesita hacer es:
+
+1. Crear contenido HTML5 con un formato correcto que incluya un elemento `<div id="api"></div>` (es preciso que sea elemento vacío) ubicado en algún lugar de `<body>`. Ese elemento marca el lugar en el que se inserta el contenido de Azure AD B2C.
+2. Hospedar el contenido en un punto de conexión HTTPS (donde se permite CORS).
+3. Aplicar estilo a los elementos de la interfaz de usuario en que se inserta Azure AD B2C.
 
 ## Prueba de la característica de personalización de la interfaz de usuario
 
-Si quiere probar la característica de personalización de la interfaz de usuario mediante nuestro contenido HTML y CSS de ejemplo hospedado en el Almacenamiento de blobs de Azure, ponemos a su disposición [una sencilla herramienta auxiliar](active-directory-b2c-reference-ui-customization-helper-tool.md) para cargar y configurar el contenido estático.
+Si desea probar la característica de personalización de la interfaz de usuario con nuestro contenido HTML y CSS de ejemplo, ponemos a su disposición [una sencilla herramienta auxiliar](active-directory-b2c-reference-ui-customization-helper-tool.md) que carga y configura el contenido de ejemplo en el Almacenamiento de blobs de Azure.
+
+> [AZURE.NOTE]
+El contenido de la interfaz de usuario se puede hospedar en cualquier lugar: en servidores web, CDN, AWS S3, sistemas de uso compartido de archivos, etc. Mientras el contenido se aloje en un punto de conexión HTTPS disponible públicamente (en que se permita CORS), puede continuar. Almacenamiento de blobs de Azure se usa solo con fines ilustrativos.
+
+### El contenido HTML más básico para la prueba
+
+A continuación se muestra el contenido HTML más básico que se puede utilizar para probar esta funcionalidad. Use la misma herramienta auxiliar que se ha proporcionado antes para cargar y configurar este contenido en Almacenamiento de blobs de Azure. A continuación, puede comprobar que los botones básicos, sin estilo y los campos de formulario de cada página se muestran y funcionan.
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>!Add your title here!</title>
+	</head>
+	<body>
+		<div id="api"></div>	<!-- IMP: This element is intentionally empty; don't enter anything here -->
+	</body>
+</html>
+
+```
 
 ## Principales elementos de la interfaz de usuario en cada tipo de página
 
-En las secciones siguientes encontrará ejemplos de fragmentos de HTML5 que Azure AD B2C combina en el elemento <div id="api"></div> que se encuentra en su contenido. No inserte estos fragmentos en el contenido de HTML 5. Solo se muestran aquí con fines ilustrativos; el servicio de Azure AD B2C los inserta en tiempo de ejecución. Puede usar sus propias hojas de estilos para personalizar estos elementos de interfaz de usuario. Estas hojas de estilos tendrán que invalidar las hojas de estilos predeterminadas que agregamos en estas páginas en los fragmentos <head>.
+En las secciones siguientes encontrará ejemplos de fragmentos de HTML5 que Azure AD B2C combina en el elemento `<div id="api"></div>` que se encuentra en su contenido. **No inserte estos fragmentos en el contenido de HTML 5.** El servicio Azure AD B2C los inserta en tiempo de ejecución. Use estos ejemplos para diseñar sus propias hojas de estilo.
 
-> [AZURE.IMPORTANT]
-	Durante la vista previa, tenga en cuenta que cambiarán los elementos exactos de la interfaz de usuario a medida que recibimos sus comentarios y los adaptamos. Consulte siempre el código fuente de páginas predeterminadas para las actualizaciones más recientes. De hecho, el primer cambio que se va a considerar es la eliminación de nuestras hojas de estilos predeterminadas; esto significa que siempre debe suministrar sus propias hojas de estilos para estos elementos de interfaz de usuario en su contenido.
-
-### Página de selección de proveedores de identidades
+### El contenido de Azure AD B2C insertado en la "página de selección de proveedores de identidades"
 
 Esta página contiene una lista de proveedores de identidades que el usuario puede elegir durante el registro o el inicio de sesión. Estos son los proveedores de identidades sociales como Facebook y Google+ o las cuentas locales (basadas en una dirección de correo electrónico o un nombre de usuario).
 
@@ -77,7 +99,7 @@ Esta página contiene una lista de proveedores de identidades que el usuario pue
 
 ```
 
-### Página de registro de cuenta local
+### El contenido de Azure AD B2C insertado en la "página de registro de la cuenta local"
 
 Esta página contiene un formulario de registro que el usuario tiene que rellenar al registrarse con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. El formulario puede contener diferentes controles de entrada, como un cuadro de entrada de texto, un cuadro de entrada de contraseña, un botón de radio, cuadros desplegables de selección única y casillas de verificación de selección múltiple.
 
@@ -194,11 +216,11 @@ Esta página contiene un formulario de registro que el usuario tiene que rellena
 
 ```
 
-### Página de registro de cuenta social
+### El contenido de Azure AD B2C insertado en la "página de registro de la cuenta de redes sociales"
 
 Esta página contiene un formulario de registro que el consumidor tiene que rellenar al registrarse con una cuenta existente de un proveedor de identidades social como Facebook o Google+. Esta página es similar a la página de registro de cuenta local (que se muestra en la sección anterior) con la excepción de los campos de entrada de contraseña.
 
-### Página de registro de inicio o de inicio de sesión unificados
+### El contenido de Azure AD B2C insertado en la "página de registro o de inicio de sesión unificada"
 
 Esta página controla tanto la suscripción como el inicio de sesión de los consumidores, que pueden utilizar proveedores de identidades sociales como Facebook o Google +, o cuentas locales.
 
@@ -253,7 +275,7 @@ Esta página controla tanto la suscripción como el inicio de sesión de los con
 
 ```
 
-### Página de autenticación multifactor
+### El contenido de Azure AD B2C insertado en la "página de Multi-Factor Authentication"
 
 Esta página permite a los usuarios verificar sus números de teléfono (mediante texto o voz) durante el registro o el inicio de sesión.
 
@@ -299,7 +321,7 @@ Esta página permite a los usuarios verificar sus números de teléfono (mediant
 
 ```
 
-### Página de error
+### El contenido de Azure AD B2C insertado en la ""página de error"
 
 ```HTML
 
@@ -321,7 +343,8 @@ Esta página permite a los usuarios verificar sus números de teléfono (mediant
 Si piensa usar la característica de personalización de la interfaz de usuario de la página, revise las siguientes prácticas recomendadas:
 
 - No copie el contenido predeterminado de Azure AD B2C ni intente modificarlo. Es preferible generar su propio contenido de HTML5 desde cero y usar la plantilla predeterminada como referencia.
-- Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, use la [voz del usuario](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar la nueva funcionalidad.
+- En todas las páginas (excepto en las páginas de error) que sirven las directivas de inicio de sesión, registro y edición de perfiles, las hojas de estilo que proporcione tendrán que reemplazar las hojas de estilo predeterminadas que agregamos a estas páginas en los fragmentos de <head>. En todas las páginas que sirven las directivas de inicio de sesión, registro y contraseña, y las páginas de error de todas las directivas, tendrá que aportar todo el estilo usted mismo.
+- Por motivos de seguridad, no le permitimos incluir cualquier código JavaScript en su contenido. La mayor parte de lo que necesita debería estar disponible de fábrica. De no ser así, utilice [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar una nueva funcionalidad.
 - Versiones de explorador admitidas:
 	- Internet Explorer 11
 	- Internet Explorer 10
@@ -332,4 +355,4 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

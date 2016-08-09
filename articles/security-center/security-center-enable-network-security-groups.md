@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitación de los grupos de seguridad de red en Azure Security Center
@@ -23,7 +23,7 @@ Azure Security Center recomienda habilitar un grupo de seguridad de red (NSG) si
 Si no tiene habilitados los NSG, Security Center presentará dos recomendaciones: habilitar grupos de seguridad de red en subredes y habilitar grupos de seguridad de red de máquinas virtuales. Elija el nivel, subred o máquina virtual donde aplicar el NSG.
 
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -40,7 +40,7 @@ Si no tiene habilitados los NSG, Security Center presentará dos recomendaciones
 
 Si crea un nuevo NSG, siga los pasos de [Cómo administrar grupos de seguridad de red con el Portal de Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para crear un NSG y establecer las reglas de seguridad.
 
-## Pasos siguientes
+## Consulte también
 
 En este artículo se ha mostrado cómo implementar la recomendación de Security Center "Habilitar los grupos de seguridad de red" para las subredes o las máquinas virtuales. Para más información sobre la habilitación de NSG, consulte los siguientes recursos:
 
@@ -63,4 +63,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

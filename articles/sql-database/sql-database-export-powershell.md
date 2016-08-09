@@ -109,15 +109,9 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
 
+
 ## Pasos siguientes
 
-- [Importar una base de datos SQL de Azure](sql-database-import-powershell.md)
+- Para obtener información sobre cómo importar una base de datos SQL de Azure con PowerShell, consulte [Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell](sql-database-import-powershell.md).
 
-
-## Recursos adicionales
-
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

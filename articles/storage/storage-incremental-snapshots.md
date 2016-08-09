@@ -3,7 +3,7 @@
 	description="Cree una solución personalizada para realizar operaciones de copia de seguridad y recuperación de los discos de máquina virtual de Azure mediante instantáneas incrementales."
 	services="storage"
 	documentationCenter="na"
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="tamram;prkhad"/>
+	ms.date="07/25/2016"
+	ms.author="tamram;aungoo-msft"/>
 
 
 # Copias de seguridad de discos de máquinas virtuales de Azure con instantáneas incrementales
@@ -128,4 +128,4 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 - [Crear una instantánea de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0727_2016-->

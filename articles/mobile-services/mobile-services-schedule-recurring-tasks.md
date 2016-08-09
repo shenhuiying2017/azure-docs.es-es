@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
+- [Back-end de .NET](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Back-end de JavaScript](mobile-services-schedule-recurring-tasks.md)
 
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de Azure clásico para definir el código de script de servidor que se ejecuta según la programación que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -171,4 +171,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

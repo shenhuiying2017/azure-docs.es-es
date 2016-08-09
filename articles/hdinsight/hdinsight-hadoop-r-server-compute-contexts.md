@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,11 +26,13 @@ El nodo perimetral de los clústeres Premium proporciona un lugar conveniente pa
 
 ## Contextos de proceso de un nodo perimetral
 
-En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. La excepción son esos pasos que llaman a una función ScaleR. Las llamadas a ScaleR se ejecutan en un entorno de proceso determinado por la manera en que define el contexto de proceso de ScaleR. Al ejecutar el script de R desde un nodo perimetral, los valores posibles del contexto de proceso son secuencial local (‘local’), paralelo local (‘localpar’), Map Reduce y Spark, de la manera siguiente:
+En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. La excepción son esos pasos que llaman a una función ScaleR. Las llamadas a ScaleR se ejecutan en un entorno de proceso determinado por la manera en que define el contexto de proceso de ScaleR. Al ejecutar el script de R desde un nodo perimetral, los valores posibles del contexto de proceso son secuencial local (‘local’), paralelo local (‘localpar’), Map Reduce y Spark.
+
+Las opciones local y localpar solo difieren en cómo se ejecutan las llamadas de rxExec. Las dos ejecutan otras llamadas a función de rx de manera paralela en todos los núcleos disponibles, a menos que se especifique lo contrario mediante el uso de la opción numCoresToUse de ScaleR; por ejemplo, rxOptions(numCoresToUse=6). A continuación, se resumen las distintas opciones de contexto de proceso.
 
 | Contexto de proceso | Cómo definir | Contexto de ejecución |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Secuencial local | rxSetComputeContext(‘local’) | Ejecución secuencial (no paralelizada) en el servidor de nodo perimetral |
+| Secuencial local | rxSetComputeContext(‘local’) | Ejecución en paralelo en los núcleos del servidor de nodo perimetral, excepto las llamadas de rxExec que se ejecutan en serie |
 | Paralelo local | rxSetComputeContext(‘localpar’) | Ejecución paralelizada en los núcleos del servidor de nodo perimetral |
 | Spark | RxSpark() | Ejecución distribuida paralelizada vía Spark en los nodos del clúster de HDI |
 | MapReduce | RxHadoopMR() | Ejecución distribuida paralelizada vía MapReduce en los nodos del clúster de HDI |
@@ -50,10 +52,10 @@ Actualmente no hay ninguna fórmula que indique qué contexto de proceso ejecuta
 
 Con estos principios, las siguientes son algunas reglas generales para seleccionar un contexto de proceso:
 
-### Paralelo local
+### Local
 
-- Si la cantidad de datos que se va a analizar es pequeña y no requiere un análisis repetido, transmítalos directamente a la rutina de análisis y use ’localpar’.
-- Si la cantidad de datos que se va a analizar es pequeña o mediana y requiere análisis repetido, cópielos en el sistema de archivos local, impórtelos a XDF y analícelos mediante 'localpar'.
+- Si la cantidad de datos que se va a analizar es pequeña y no requiere un análisis repetido, transmítalos directamente a la rutina de análisis y use local o localpar.
+- Si la cantidad de datos que se va a analizar es pequeña o mediana y requiere análisis repetido, cópielos en el sistema de archivos local, impórtelos a XDF y analícelos mediante local o localpar.
 
 ### Hadoop Spark
 
@@ -69,7 +71,7 @@ Para más información sobre los contextos de proceso de ScaleR y ver algunos ej
 
     > ?rxSetComputeContext
 
-También puede consultar el documento "ScaleR Distributed Computing Guide" (Guía de informática distribuida de ScaleR) que se encuentra disponible en la biblioteca [MSDN de R Server](https://msdn.microsoft.com/library/mt674634.aspx "Servidor de R en MSDN").
+También puede consultar el documento ScaleR Distributed Computing Guide (Guía de informática distribuida de ScaleR) que se encuentra disponible en la biblioteca [MSDN de R Server](https://msdn.microsoft.com/library/mt674634.aspx "Servidor de R en MSDN").
 
 
 ## Pasos siguientes
@@ -81,4 +83,4 @@ En este artículo, ha aprendido a crear un nuevo clúster de HDInsight que inclu
 - [Add RStudio Server to HDInsight Premium (Agregar un servidor de RStudio a HDInsight Premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

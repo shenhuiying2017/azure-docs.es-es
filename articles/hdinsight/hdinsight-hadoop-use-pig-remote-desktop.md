@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig desde una conexión de Escritorio remoto
@@ -49,7 +49,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
 
 3. Introduzca la siguiente instrucción:
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 
 	Este comando carga el contenido del archivo sample.log en LOGS. Puede ver el contenido del archivo mediante el siguiente comando:
 
@@ -83,7 +83,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
 
 6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, el siguiente comando guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster:
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+		STORE RESULT into 'wasbs:///example/data/pigout'
 
 	> [AZURE.NOTE] Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un mensaje de error.
 
@@ -99,7 +99,7 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
 
 4. Escriba o pegue las siguientes líneas en el archivo **pigbatch.pig** y luego guárdelo cuando haya terminado.
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -136,4 +136,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

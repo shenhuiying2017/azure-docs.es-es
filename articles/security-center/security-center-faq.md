@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
 
 Estas preguntas más frecuentes responden a preguntas sobre el Centro de seguridad de Azure, un servicio que le ayuda a evitar, detectar y responder a amenazar con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
-
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
 
 ## Preguntas generales
 
@@ -41,7 +39,7 @@ Security Center recopila datos de las máquinas virtuales para evaluar su estado
 
 ### ¿Cómo se puede deshabilitar la recolección de datos?
 
-Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la recolección de datos.
 
@@ -57,7 +55,7 @@ La colección de datos se habilita a través de la extensión Supervisión de se
 El agente y la extensión utilizan una cantidad simbólica de los recursos del sistema y tienen un impacto menor en el rendimiento.
 
 ### ¿Dónde se almacenan los datos?
-Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando hace clic en una suscripción, se abre una hoja nueva. Seleccione **Elija las cuentas de almacenamiento** para seleccionar una región.
+Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando hace clic en una suscripción, se abre una hoja nueva. Seleccione **Elija las cuentas de almacenamiento** para seleccionar una región.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la selección de una región para la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
 
@@ -114,7 +112,7 @@ Para editar una directiva de seguridad, debe ser propietario o colaborador de la
 ## Máquinas virtuales
 
 ### ¿Qué tipos de máquinas virtuales serán compatibles?
-Está disponible la supervisión del mantenimiento de seguridad y las recomendaciones para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
+Está disponible la supervisión del mantenimiento de seguridad y las recomendaciones para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md).
 
 Máquinas virtuales de Windows admitidas:
 
@@ -130,6 +128,6 @@ Máquinas virtuales de Linux compatibles:
 - Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
 - Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
 
-También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más acerca del servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
+También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

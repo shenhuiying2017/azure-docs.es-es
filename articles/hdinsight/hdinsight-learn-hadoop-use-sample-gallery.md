@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Información sobre Hadoop con la Galería de introducción de HDInsight de Azure
@@ -36,7 +36,7 @@ El vídeo siguiente muestra cómo ejecutar la muestra de análisis de tendencias
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Al panel se pueda acceder a través de http://<YourHDInsightClusterName>.azurehdinsight.net/ o desde el Portal de Azure.
+Al panel se pueda acceder a través de http://<nombreDelClústerDeHDInsight>.azurehdinsight.net/ o desde el Portal de Azure.
 
 **Para ejecutar un ejemplo de la Galería de introducción, siga estos pasos:**
 
@@ -64,4 +64,4 @@ Otras formas de aprender HDInsight son:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

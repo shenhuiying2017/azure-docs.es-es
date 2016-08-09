@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticación a Almacenamiento de datos SQL de Azure
@@ -44,14 +44,14 @@ De forma predeterminada, su conexión se realizará a la base de datos principal
 1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
 2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
+> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
 
-De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <your DB>** no se admite para cambiar la base de datos en una conexión
+De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <su base de datos>** no se admite para cambiar la base de datos en una conexión
 
 
 ## Autenticación de Azure Active Directory (AAD)
 
-La autenticación de Azure Active Directory es un mecanismo de conexión a Almacenamiento de datos de Microsoft Azure SQL mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece un lugar único para administrar usuarios de Almacenamiento de datos SQL y simplifica la administración de permisos.
+La autenticación de [Azure Active Directory][What is Azure Active Directory] es un mecanismo de conexión a Almacenamiento de datos SQL de Microsoft Azure mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece un lugar único para administrar usuarios de Almacenamiento de datos SQL y simplifica la administración de permisos.
 
 ### Ventajas
 
@@ -86,10 +86,11 @@ Las principales diferencias entre el uso de la autenticación de Azure Active Di
 
 ## Pasos siguientes
 
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] (Realización de consultas con Visual Studio).
 
 <!-- Article references -->
-[Proteger una base de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage-security.md
-[Query with Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

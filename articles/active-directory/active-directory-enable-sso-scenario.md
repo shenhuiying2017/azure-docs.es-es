@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="05/03/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Administración de aplicaciones con Azure Active Directory
@@ -28,9 +28,9 @@ En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la ide
 
 En la terminología informática:
 
-- *Quién* se conoce como *identidad*: la administración de usuarios y grupos.
+- *Quién* se conoce como *identidad*: la administración de usuarios y grupos
 
-- *Qué* se conoce como *administración de acceso*: la administración del acceso a los recursos protegidos.
+- *Qué* se conoce como *administración de acceso*: la administración del acceso a los recursos protegidos
 
 Ambos componentes juntos se conocen como *Administración de identidad y acceso (IAM)*, que, según define el grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam), es "*la disciplina de seguridad que permite a las personas adecuadas tener acceso a los recursos adecuados en los momentos adecuados y por los motivos adecuados*".
 
@@ -54,7 +54,7 @@ De modo que, ¿qué impide normalmente a las organizaciones adoptar soluciones I
 
 Azure Active Directory es la solución completa de identidad como servicio (IDaaS) de Microsoft que:
 
-- Habilita la IAM como un servicio en la nube. 
+- Habilita la IAM como un servicio en la nube.
 
 - Proporciona administración de acceso central, inicio de sesión único (SSO) y creación de informes.
 
@@ -135,4 +135,4 @@ Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Gu
 
 [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

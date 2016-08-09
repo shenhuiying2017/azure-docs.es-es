@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -473,7 +473,7 @@ El siguiente paso es implementar un elemento [**MappedEntityDomainManager**](htt
             }
         }
 
-    En este caso, los métodos **InsertAsync** y **UpdateAsync** son interesantes. Aquí es donde imponemos la relación de que cada **Order** debe tener asociado un **Customer** válido. En **InsertAsync**, verá que rellenamos la propiedad **MobileOrder.CustomerId**, que se asigna a la propiedad **Order.CustomerId**. Obtenemos ese valor buscando el valor **Customer** con el valor **MobileOrder.MobileCustomerId** coincidente. Esto se debe a que, de forma predeterminada, el cliente solo conoce el identificador de Servicios móviles (**MobileOrder.MobileCustomerId**) del **Customer**, que es diferente de su clave principal real necesaria para establecer la clave externa (**MobileOrder.CustomerId**) de **Order** en **Customer**. Esto se usa solo internamente en el servicio para facilitar la operación de inserción.
+    En este caso, los métodos **InsertAsync** y **UpdateAsync** son interesantes. Aquí es donde imponemos la relación de que cada **Order** debe tener asociado un **Customer** válido. En **InsertAsync**, verá que rellenamos la propiedad **MobileOrder.CustomerId**, que se asigna a la propiedad **Order.CustomerId**. Obtenemos ese valor buscando el **Customer** con el **MobileOrder.MobileCustomerId** coincidente. Esto se debe a que, de forma predeterminada, el cliente solo conoce el identificador de Servicios móviles (**MobileOrder.MobileCustomerId**) del **Customer**, que es diferente de su clave principal real necesaria para establecer la clave externa (**MobileOrder.CustomerId**) de **Order** en **Customer**. Esto se usa solo internamente en el servicio para facilitar la operación de inserción.
 
 Ya estamos preparados para crear controladores para exponer nuestros objetos DTO a nuestros clientes.
 
@@ -619,4 +619,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0727_2016-->

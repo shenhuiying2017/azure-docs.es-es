@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -97,7 +97,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación integrada de Windows**. ![Configuración avanzada de aplicaciones](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/lob.contoso.com.
 
->[AZURE.IMPORTANT] Los UPN en Azure Active Directory deben ser idénticos a los UPN en su Active Directory local para que funcione la autenticación previa. Asegúrese de que su Azure AD se sincroniza con su AD local.
+>[AZURE.IMPORTANT] Si el UPN local y el UPN de Azure Active Directory no son idénticos, tendrá que configurar la [identidad de inicio de sesión delegada](#delegated-login-identity) para que funcione la autenticación previa.
 
 | | |
 | --- | --- |
@@ -110,14 +110,17 @@ El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se i
 
 ![Diagrama de SSO que no es de Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### Identidad delegada parcial
-Las aplicaciones que no son de Windows suelen obtener la identidad del usuario en forma de un nombre de usuario o un nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain). Esto es diferente de la mayoría de los sistemas basados en Windows, que prefieren un UPN que es más concluyente y garantiza que no haya ninguna duplicación entre dominios.
+### Identidad de inicio de sesión delegada
+La identidad de inicio de sesión delegada le ayuda a controlar los dos escenarios de inicio de sesión diferentes:
 
-Por este motivo, el Proxy de aplicación permite seleccionar qué identidad aparece en el vale Kerberos, por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico.
+- Las aplicaciones que no son de Windows suelen obtener la identidad del usuario en forma de un nombre de usuario o un nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain).
+- Aquellas configuraciones de inicio de sesión alternativas en las que el UPN de Azure AD y el UPN de Active Directory local son diferentes.
+
+Con el proxy de aplicación, puede seleccionar qué identidad utilizar para obtener el vale de Kerberos. Esta configuración es por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico, otras están pensadas para el inicio de sesión alternativo.
 
 ![Captura de pantalla de parámetro de identidad de inicio de sesión delegado](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-Si se usa la identidad parcial, y esta identidad pudiera no ser única para todos los dominios o bosques de la organización, puede que le interese publicar estas aplicaciones dos veces usando dos grupos distintos de conectores. Puesto que cada aplicación tiene una audiencia de usuarios diferente, puede unir sus conectores a un dominio diferente.
+Si se utiliza la identidad de inicio de sesión delegada, el valor no puede ser único para todos los dominios o bosques de la organización. Puede evitar este problema al publicar estas aplicaciones dos veces con dos grupos diferentes de conector. Puesto que cada aplicación tiene una audiencia de usuarios diferente, puede unir sus conectores a un dominio diferente.
 
 
 ## Trabajar con SSO cuando las identidades locales y en la nube no son idénticas
@@ -166,4 +169,4 @@ Para ver las últimas noticias y actualizaciones, consulte el [blog Application 
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

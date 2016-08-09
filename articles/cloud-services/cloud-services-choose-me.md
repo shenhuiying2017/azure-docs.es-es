@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Opciones de proceso de Azure (servicios en la nube) | Microsoft Azure" 
-	description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales" 
+<properties
+	pageTitle="Opciones de proceso de Azure (servicios en la nube) | Microsoft Azure"
+	description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales"
 	services="cloud-services"
     documentationCenter=""
-	authors="Thraka" 
+	authors="Thraka"
 	manager="timlt"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # ¿Debo elegir los servicios en la nube o alguna otra opción?
@@ -24,7 +24,7 @@
 <a name="tellmecs"></a>
 ## Información sobre los servicios en la nube
 
-Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Al igual que [Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
+Los servicios en la nube son un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
 ![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -35,7 +35,7 @@ La tecnología proporciona dos opciones de VM ligeramente diferentes: las instan
 Cualquier combinación de estas dos opciones ligeramente diferentes de hospedaje de máquinas virtuales está disponibles en un servicio en la nube:
 
 * **Rol web** se ejecuta Windows Server con la aplicación web que se implementa automáticamente en IIS.
-  
+
 * **Rol de trabajo** se ejecuta Windows Server sin IIS.
 
 Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Bus de servicio](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o [colas de Azure](../storage/storage-introduction.md)).
@@ -55,6 +55,6 @@ Servicios en la nube también brinda supervisión. Al igual que con Máquinas vi
 La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Servicios en la nube no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Máquinas virtuales de Azure, las escrituras que se realizan en las máquinas virtuales de Servicios en la nube no son permanentes; no hay nada parecido a un disco de datos de Máquinas virtuales. En lugar de eso, una aplicación de Servicios en la nube debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Servicios en la nube.
 
 ## Pasos siguientes
-[Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) [Creación de una aplicación de servicio en la nube en Python](../cloud-services-python-ptvs.md)
+[Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) [Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

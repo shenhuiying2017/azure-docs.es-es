@@ -199,7 +199,7 @@ En este tutorial, agregará dos nodos pequeños.
 
 2. En el asistente para agregar nodos, en la página **Seleccionar método de implementación**, haga clic en **Agregar nodos de Azure** y, a continuación, en **Siguiente**.
 
-	![Agregar nodo de Azure] [add\_node1\_1]
+	![Agregar nodo de Azure][add_node1_1]
 
 3. En la página **Especificar nodos nuevos**, seleccione la plantilla de nodo de Azure que creó anteriormente (llamada de manera predeterminada **Default AzureNode Template**). A continuación, especifique **dos** nodos de tamaño **pequeño** y, a continuación, haga clic en **Siguiente**.
 
@@ -329,7 +329,7 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add\_node1_1.png
+[add_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png

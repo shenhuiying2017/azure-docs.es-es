@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Acceso a registros de aplicación de YARN en HDInsight basado en Windows
@@ -56,7 +56,7 @@ Además, cada aplicación puede constar de varios *intentos de aplicación* para
 
 Los registros de aplicación (y los registros de contenedor asociados) son fundamentales en la depuración de las aplicaciones de Hadoop problemáticas. YARN proporciona un buen marco para recopilar, agregar y almacenar registros de aplicaciones con la característica [Agregación de registro][log-aggregation]. La característica Agregación de registro hace que el acceso a los registros de aplicaciones sea más determinante, ya que agrega los registros en todos los contenedores en un nodo de trabajo y los almacena como un archivo de registro agregado por nodo de trabajo en el sistema de archivos predeterminado después de que se complete una aplicación. Su aplicación puede utilizar cientos o miles de contenedores, pero los registros para todos los contenedores que se ejecutan en un nodo de trabajo único se agregarán siempre en un archivo único, lo que da como resultado un archivo de registro por nodo de trabajo usado por la aplicación. La agregación de registro está habilitada de forma predeterminada en los clústeres de HDInsight (versión 3.0 y posteriores). Los registros agregados se pueden encontrar en el contenedor predeterminado del clúster en la siguiente ubicación:
 
-	wasb:///app-logs/<user>/logs/<applicationId>
+	wasbs:///app-logs/<user>/logs/<applicationId>
 
 En dicha ubicación, *usuario* es el nombre del usuario que inició la aplicación. *applicationId*, por su parte, es el identificador único de una aplicación según la asignación del RM de YARN.
 
@@ -70,7 +70,7 @@ Los registros agregados no son legibles directamente tal como se escriben en un 
 
 La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster, y puede tener acceso a ella mediante el panel del Portal de Azure:
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com/). 
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Examinar**, haga clic en **Clústeres de HDInsight** y haga clic en un clúster basado en Windows que desea que tenga acceso a los registros de aplicación de YARN.
 3. En el menú superior, haga clic en **Panel**. Verá una página abierta en una nueva pestaña del explorador denominada **Consola de consultas de HDInsight**.
 4. Desde **Consola de consultas de HDInsight**, haga clic en **IU de YARN**.
@@ -84,4 +84,4 @@ La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principa
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

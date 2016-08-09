@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/30/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 #  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
@@ -28,7 +28,7 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 ## Requisitos previos
 
 * Cuenta de Microsoft Azure
-* Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
+* Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.
 * Cuenta profesional o educativa para Power BI
 
 ## Creación de un trabajo de Análisis de transmisiones de Azure
@@ -240,4 +240,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

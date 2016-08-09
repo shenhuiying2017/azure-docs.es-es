@@ -1,6 +1,6 @@
 <properties
 pageTitle="Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure"
-description="Aprenda a indexar blobs JSON con Búsqueda de Azure"
+description="Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -12,10 +12,14 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/20/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure 
+
+En este artículo se muestra cómo configurar el indexador de blobs de Búsqueda de Azure para extraer el contenido estructurado de los blobs que contienen JSON.
+
+## Escenarios
 
 De forma predeterminada, el [indexador de blobs de Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) analiza los blobs JSON como un único fragmento de texto. Normalmente, desea conservar la estructura de los documentos JSON. Por ejemplo, es posible que quiera analizar un documento JSON determinado
 
@@ -27,25 +31,33 @@ De forma predeterminada, el [indexador de blobs de Búsqueda de Azure](search-ho
 	    }
 	}
 
-con los campos "text", "datePublished" y "tags" en el índice de búsqueda.
+en un documento de Búsqueda de Azure con los campos text, datePublished y tags.
 
-Este artículo muestra cómo configurar el indexador de blobs de Búsqueda de Azure para el análisis de JSON. Esperamos que la indexación se realice correctamente.
+También, cuando los blobs contienen una **matriz de objetos JSON**, se recomienda que cada elemento de la matriz se convierta en un documento de Búsqueda de Azure independiente. Por ejemplo, en un blob con este JSON:
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+puede rellenar el índice de Búsqueda de Azure con 3 documentos independientes, cada uno con campos id y text.
 
 > [AZURE.IMPORTANT] Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 
 ## Configuración de la indexación de JSON
 
-Para indexar los blobs JSON, use el indexador de blobs en modo "Análisis de JSON". Habilite los ajustes de configuración de `useJsonParser` en la propiedad `parameters` de la definición del indexador:
+Para indexar los blobs JSON, establezca el parámetro de configuración `parsingMode` en `json` (para indexar cada blob como un solo documento) o `jsonArray` (si los blobs contienen una matriz JSON):
 
 	{
 	  "name" : "my-json-indexer",
 	  ... other indexer properties
-	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
 	}
 
 Si es necesario, utilice **asignaciones de campo** para elegir las propiedades del documento JSON de origen usado para completar el índice de búsqueda de destino. Esto se describe más detalladamente a continuación.
 
-> [AZURE.IMPORTANT] Cuando se utiliza el modo de análisis de JSON, Búsqueda de Azure supone que todos los blobs en el origen de datos serán JSON. Si necesita admitir una mezcla de blobs JSON y que no son JSON en el mismo origen de datos, háganoslo saber en [nuestro sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] Cuando se utiliza el modo de análisis de `json` o `jsonArray`, Búsqueda de Azure da por hecho que todos los blobs en el origen de datos serán JSON. Si necesita admitir una mezcla de blobs JSON y que no son JSON en el mismo origen de datos, háganoslo saber en [nuestro sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Uso de asignaciones de campo para crear documentos de búsqueda 
 
@@ -85,7 +97,28 @@ Si sus documentos JSON solo contienen propiedades simples de nivel superior, es 
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] Búsqueda de Azure solo admite actualmente el análisis de un blob JSON en un documento de búsqueda. Si los blobs contienen matrices JSON que le gustaría analizar en varios documentos de búsqueda, vote por [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) para ayudarnos a dar prioridad a este trabajo.
+## Indexación de matrices anidadas JSON
+
+¿Qué sucede si quiere indexar una matriz de objetos JSON, pero está anidada en alguna parte del documento? Puede elegir la propiedad que contiene la matriz mediante la propiedad de configuración `documentRoot`. Por ejemplo, si los blobs tienen el siguiente aspecto:
+
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
+
+utilice esta configuración para indexar la matriz contenida en la propiedad level2:
+
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
+
 
 ## Ejemplos de solicitud
 
@@ -127,4 +160,4 @@ Indexador:
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -19,9 +19,7 @@
 #Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-El objetivo de este tutorial es mostrar la integración de Azure y Salesforce Sandbox.
-Los espacios aislados ofrecen la capacidad de crear varias copias de su organización en entornos independientes para una variedad de propósitos, como desarrollo, pruebas y aprendizaje, sin poner en peligro los datos y las aplicaciones de la organización de producción de Salesforce.  
-Para obtener más información, vea [Información general del espacio aislado](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
+El objetivo de este tutorial es mostrar la integración de Azure y Salesforce Sandbox. Los espacios aislados ofrecen la capacidad de crear varias copias de su organización en entornos independientes para una variedad de propósitos, como desarrollo, pruebas y aprendizaje, sin poner en peligro los datos y las aplicaciones de la organización de producción de Salesforce. Para obtener más información, vea [Información general del espacio aislado](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
   
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -126,7 +124,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     
     g. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Salesforce Sandbox**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades).
     
-    h. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Salesforce Sandbox**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades).
+    h. SFDC no admite el cierre de sesión SAML. Como alternativa, pegue 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' en el cuadro de texto de la **dirección URL de cierre de sesión del proveedor de identidades**.
     
     i. Como **Vinculación de solicitud iniciada del proveedor de servicios**, seleccione **HTTP Post**.
     
@@ -138,8 +136,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ##Habilitación de su dominio
   
-En esta sección se supone que ya ha creado un dominio.
-Para obtener más información, vea [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+En esta sección se supone que ya ha creado un dominio. Para obtener más información, vea [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 ###Realice los pasos siguientes para habilitar su dominio:
 
@@ -205,7 +202,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones **Salesforce Sandbox **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Salesforce Sandbox **, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Asignar usuarios")
 
@@ -217,4 +214,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

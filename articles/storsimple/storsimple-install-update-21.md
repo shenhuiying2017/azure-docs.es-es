@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/18/2016"
+   ms.date="07/21/2016"
    ms.author="alkohli" />
 
 # Instalación de Update 2.2 en el dispositivo StorSimple
@@ -80,13 +80,13 @@ El método de revisión implica los tres pasos siguientes:
 **Si el dispositivo ejecuta Update 2.1**, debe descargar únicamente la actualización de software de dispositivo KB3179904. Instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por `all-cismdsagentupdatebundle`. De lo contrario, se producirá un error.
 
 
-#### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2 o 2.1
+#### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2
 
 **Si el dispositivo ejecuta Update 2**, debe descargar e instalar las siguientes revisiones en el orden indicado:
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3179954 | Actualización de software &#42; | Normal | ~45 min |
+| 1\. | KB3179904 | Actualización de software &#42; | Normal | ~45 min |
 | 2\. | KB3146621 | Paquete iSCSI | Normal | ~20 min |
 | 3\. | KB3103616 | Paquete WMI | Normal | ~12 min |
 
@@ -136,4 +136,4 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 Más información sobre el [lanzamiento de la actualización 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor="meerak"
 	tags="billing"
 	/>
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="07/25/2016"
 	ms.author="genli"/>
 
 # Cómo descargar las datos de uso diario y de factura de facturación de Azure
@@ -24,7 +24,8 @@ Como administrador de cuenta de Azure, puede ver la factura actual en el Centro 
 
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) como administrador de cuenta. En el [Portal de Azure](https://portal.azure.com), puede acceder al Centro de cuentas seleccionando **Suscripción**>*nombre de la suscripción*>**Administrar**.
 
-	> [AZURE.NOTE] Solo el administrador de cuenta tiene permiso para acceder al Centro de cuentas. Para obtener más información sobre el administrador de cuenta, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
+	> [AZURE.NOTE] Solo el administrador de cuenta tiene permiso para acceder al Centro de cuentas. Para más información sobre cómo averiguar quién es el administrador de cuenta de la suscripción, consulte las [Preguntas más frecuentes](billing-subscription-transfer.md#faq).
+	
 2. Seleccione la suscripción para la que quiere la información de factura y uso.
 3. Seleccione **HISTORIAL DE FACTURACIÓN**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 4. Puede ver sus extractos de los últimos seis períodos de facturación además del período actual sin facturar. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
@@ -32,4 +33,4 @@ Como administrador de cuenta de Azure, puede ver la factura actual en el Centro 
 6. Seleccione **Descargar factura** para ver una copia de la última factura. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Seleccione **Descargar uso** para descargar los datos de uso diario como un archivo CSV.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

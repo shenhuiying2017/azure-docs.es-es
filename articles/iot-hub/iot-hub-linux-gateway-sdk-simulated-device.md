@@ -133,6 +133,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Guía del desarrollador][lnk-devguide]
 - [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
 - [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Protección total de la solución de IoT][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -148,5 +149,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

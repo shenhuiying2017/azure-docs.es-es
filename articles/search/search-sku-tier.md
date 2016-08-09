@@ -14,16 +14,16 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/12/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
 # Selección de SKU o plan de tarifa de Búsqueda de Azure
 
-Durante el [aprovisionamiento del servicio](search-create-service-portal.md), debe especificar qué SKU o plan de tarifas se debe usar. Las opciones incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones de recursos y capacidades.
+Durante el [aprovisionamiento del servicio](search-create-service-portal.md), debe especificar qué SKU o plan de tarifas se debe usar. Las opciones incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades.
 
-Se recomienda que aprovisione siempre un servicio **gratis** (uno por cada suscripción sin expiración) para que esté fácilmente disponible para la demostración o prueba. Puede usar el servicio **gratis** para prueba y evaluación y, después, crear un segundo servicio facturable para cargas de trabajo de prueba o producción mayores.
+Se recomienda que aprovisione siempre un servicio **gratis** (uno por cada suscripción sin expiración) para que esté fácilmente disponible para los proyectos ligeros. Use el servicio **gratis** para prueba y evaluación y, después, cree un segundo servicio facturable en el nivel **Básico** o **Estándar** para cargas de trabajo de prueba o producción mayores.
 
-En Búsqueda de Azure la SKU determina la capacidad, no la disponibilidad de características. Todas las características están disponibles en cada plan de tarifas.
+En Búsqueda de Azure la SKU determina la capacidad, no la disponibilidad de características. Todas las características están disponibles en cada plan de tarifas, incluidas las de vista previa.
 
 ## Cómo enfocar una decisión de plan de tarifas
 
@@ -37,7 +37,7 @@ El número y el tamaño son importantes porque se alcanzan los límites máximos
 
 Cuando tenga las estimaciones, los pasos siguientes deberían simplificar el proceso:
 
-- **Paso 1** Revisar las descripciones de SKU siguientes para más información sobre las opciones disponibles.
+- **Paso 1** Revisar las descripciones de SKU siguientes para obtener más información sobre las opciones disponibles.
 - **Paso 2** Revisar las preguntas para reducir su elección.
 - **Paso 3**: Validar la decisión revisando los límites estrictos de almacenamiento y precios.
 
@@ -58,7 +58,7 @@ Estándar 3 de alta densidad (**S3 HD**) (versión preliminar)|Un gran número d
 
 > [AZURE.NOTE] Los valores máximos de réplicas y particiones se facturan como unidades de búsqueda (un máximo de 36 unidades por servicio), que impone un límite real inferior al valor nominal del máximo. Por ejemplo, para usar el máximo de 12 réplicas, podría tener, como máximo, 3 particiones (12 * 3 = 36 unidades). De forma similar, para utilizar la cantidad máxima de particiones, reduzca el número de réplicas a 3. Consulte [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md) para ver un gráfico de las combinaciones que pueden realizarse.
 
-## Guía de decisión para elegir una SKU
+## Revisión de los límites por nivel
 
 El gráfico siguiente es un subconjunto de los límites que figuran en [Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md). Muestra los factores que con más probabilidad pueden afectar a una decisión de SKU. Puede hacer referencia a este gráfico al revisar las preguntas siguientes.
 
@@ -75,11 +75,11 @@ Consultas por segundo|N/D|~ 3 por réplica|~ 15 por réplica|~ 60 por réplica|>
 <sup>1</sup> Las SKU de Gratis y Versión preliminar no se incluyen en los Acuerdos de Nivel de Servicio. Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
 
 
-### Preguntas más comunes al elegir una SKU
+## Eliminación de las SKU que no cumplen los requisitos 
 
 Las siguientes preguntas pueden ayudarlo a decidir qué SKU elegir para su carga de trabajo.
 
-1. ¿Tiene requisitos de **Acuerdo de Nivel de Servicio (SLA)**? Reduzca las opciones a los niveles Básico o Estándar (que no sea Vista previa).
+1. ¿Tiene requisitos de **SLA**? Reduzca las opciones a los niveles Básico o Estándar (que no sea Vista previa).
 2. **¿Cuántos índices** necesita? Una de las variables más importantes que afecta a la decisión de qué SKU elegir es el número de índices que admite cada una, ya que los planes de tarifas más económicos tienen límites muy diferentes. Los requisitos de número de índices podrían ser un factor determinante para decidir qué SKU elegir.
 3. **¿Cuántos documentos** se cargarán en cada índice? El número y tamaño de los documentos determinarán el tamaño final del índice. Si damos por hecho que puede estimar el tamaño previsto del índice, puede comparar ese número con el tamaño de la partición por SKU y sumarle la cantidad de particiones necesarias para almacenar un índice de ese tamaño.
 4. **¿Qué carga de consultas se espera**? Una vez que entiende los requisitos de almacenamiento, tenga en cuenta las cargas de trabajo de consultas. Las SKU de los niveles S2 y S3 ofrecen prácticamente el mismo rendimiento, pero los requisitos de SLA excluirán todas las SKU de vista previa.
@@ -92,7 +92,7 @@ El último paso consiste en volver a visitar la [página de precios](https://azu
 
 Si los requisitos de almacenamiento o precio se encuentran fuera de los límites, se recomienda, por ejemplo, refactorizar las cargas de trabajo entre varios servicios de menor envergadura. Si desea adoptar una solución más avanzada, podría volver a diseñar los índices para sean más pequeños, o bien usar filtros para realizar consultas de manera más eficaz.
 
-> [AZURE.NOTE] Los requisitos de almacenamiento pueden ser demasiado excesivos si los documentos contienen datos extraños. Lo ideal es que los documentos contengan solamente datos utilizables en búsquedas o metadatos. Los datos binarios no son utilizables en búsquedas y deben almacenarse por separado (por ejemplo, en un almacenamiento de tablas o blobs de Azure) con un campo en el índice para mantener una referencia de URL a los datos externos. El tamaño máximo de un documento individual es 16 MB (o menos si carga en masa varios documentos en una sola solicitud). Consulte [Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md) para más información.
+> [AZURE.NOTE] Los requisitos de almacenamiento pueden ser demasiado excesivos si los documentos contienen datos extraños. Lo ideal es que los documentos contengan solamente datos utilizables en búsquedas o metadatos. Los datos binarios no son utilizables en búsquedas y deben almacenarse por separado (por ejemplo, en un almacenamiento de tablas o blobs de Azure) con un campo en el índice para mantener una referencia de URL a los datos externos. El tamaño máximo de un documento individual es 16 MB (o menos si carga en masa varios documentos en una sola solicitud). Consulte [Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md) para obtener más información.
 
 ## Paso siguiente
 
@@ -101,4 +101,4 @@ Una vez que sepa qué SKU se ajusta a sus requisitos, consulte cuáles son los s
 - [Creación de un servicio Búsqueda de Azure mediante el Portal de Azure](search-create-service-portal.md)
 - [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

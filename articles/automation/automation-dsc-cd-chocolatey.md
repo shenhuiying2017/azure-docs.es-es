@@ -26,8 +26,8 @@ En el mundo del desarrollo de software con DevOps, existen muchas herramientas q
 
 Aunque todo esto pueda parecer bastante complicado, afortunadamente puede dividirse en dos procesos principales:
 
-  - Escribir código y probarlo, y después crear y publicar paquetes de instalación para las versiones principales y secundarias del sistema; 
-  - Crear y administrar las máquinas virtuales que instalarán y ejecutarán el código en los paquetes.  
+  - Escribir código y probarlo, y después crear y publicar paquetes de instalación para las versiones principales y secundarias del sistema;
+  - Crear y administrar las máquinas virtuales que instalarán y ejecutarán el código en los paquetes.
 
 Una vez que estos dos procesos principales se hayan puesto en práctica, queda poco para actualizar automáticamente el paquete que se ejecuta en cualquier máquina virtual concreta a medida que se creen e implementen las nuevas versiones.
 
@@ -63,7 +63,7 @@ En una línea de comandos de PowerShell (Add-AzureRmAccount) autenticada: (puede
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-Puede situar su cuenta de automatización en cualquiera de las siguientes regiones (o ubicaciones): Este de Japón, Este de EE. UU. 2, Europa occidental, Sudeste de Asia, Centro-Sur de EE. UU.
+Puede colocar su cuenta de automatización en cualquiera de las siguientes regiones (o ubicaciones): este de EE. UU. 2, centro-sur de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Sudeste Asiático, Japón Oriental, centro de la India y sudeste de Australia.
 
 ## Paso 2: Ajustes de la extensión de máquina virtual en la plantilla de ARM
 
@@ -79,10 +79,10 @@ También podemos aplicar el enfoque manual. La estructura de carpetas de un mód
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
     -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
-    -   `Install-Module –Name MODULE-NAME` <—toma el módulo de la Galería de PowerShell. 
--   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
--   Elimine los ejemplos y la documentación de la carpeta principal. 
--   Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta. 
+    -   `Install-Module –Name MODULE-NAME` <—toma el módulo de la Galería de PowerShell.
+-   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal.
+-   Elimine los ejemplos y la documentación de la carpeta principal.
+-   Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta.
 -   Coloque el archivo comprimido en una ubicación HTTP accesible, como Almacenamiento de blobs en una cuenta de Almacenamiento de Azure.
 -   Ejecute este código de PowerShell:
 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

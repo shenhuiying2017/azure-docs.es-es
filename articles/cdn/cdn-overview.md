@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Información general de la red CDN de Azure"
+	pageTitle="Información general de CDN de Azure | Microsoft Azure"
 	description="Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
@@ -82,4 +82,4 @@ Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [No
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

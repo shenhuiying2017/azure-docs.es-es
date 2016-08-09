@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Lista de conectores administrados de Microsoft para usar en Aplicaciones lógicas de Microsoft Azure | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure"
 	description="Obtenga una lista completa de los conectores administrados de Microsoft que puede usar para crear Aplicaciones lógicas en el Servicio de aplicaciones de Azure"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -183,4 +183,4 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

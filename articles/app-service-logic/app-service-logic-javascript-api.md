@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
 Las entradas para la acción son las siguientes:
-- **Expresión de JavaScript**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido. 
+- **Expresión de JavaScript**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido.
 - **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
 Por ejemplo, imagine que utiliza el desencadenador de Office 365 **Nuevo correo electrónico**. Que devuelve el siguiente objeto:
@@ -99,4 +99,4 @@ Después de crear el conector, puede agregarlo a un flujo empresarial mediante u
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

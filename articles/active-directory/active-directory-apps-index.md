@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/20/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
@@ -114,7 +114,7 @@ Una vez configurado el inicio de sesión único en las aplicaciones y los recurs
 | :---: | --- |
 | Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office 365 e Intune | [Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) |
 | Habilitación del acceso condicional para los siguientes tipos de recursos | [Acceso condicional para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acceso condicional para aplicaciones locales](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo | [Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Cómo habilitar el registro automático de dispositivos para dispositivos de Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8-1.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo | [Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Cómo habilitar el registro automático de dispositivos para dispositivos de Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Uso de la versión de Android de la aplicación Azure Authenticator para directivas que implican la autenticación multifactor | [Azure Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 Acceso condicional es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -228,4 +228,4 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

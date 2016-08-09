@@ -103,7 +103,13 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 - [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md): aprenda sobre la cadencia de sustitución de claves de firma de Azure AD y sobre cómo actualizar la clave en los escenarios de aplicación más comunes.
 
-- [Protocolo OAuth 2.0: descripción del flujo de concesión implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): aprenda sobre la concesión de autorización implícita y si es adecuada para su aplicación.
+- [Protocolo OAuth 2.0: uso de la concesión de código de autorización](active-directory-protocols-oauth-code.md): puede usar la concesión de código del protocolo de OAuth 2.0 para autorizar el acceso a aplicaciones web y API web en su inquilino de Azure Active Directory.
+
+- [Protocolo OAuth 2.0: descripción del flujo de concesión implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): aprenda más sobre la concesión de autorización implícita y si es adecuada para su aplicación.
+
+- [Protocolo OAuth 2.0: llamadas de servicio a servicio con las credenciales del cliente](active-directory-protocols-oauth-service-to-service.md): el flujo de concesión de credenciales del cliente de OAuth 2.0 permite a un servicio web (un cliente confidencial) usar sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente normalmente es un servicio web de nivel intermedio, un servicio demonio o un sitio web.
+
+- [Protocolo OpenID Connect 1.0: inicio de sesión y autenticación](active-directory-protocols-openid-connect-code.md): el protocolo OpenID Connect 1.0 amplía OAuth 2.0 para su uso como protocolo de autenticación. Una aplicación cliente puede recibir un elemento id\_token para administrar el proceso de inicio de sesión o aumentar el flujo del código de autorización para recibir el código de autorización y un elemento id\_token.
 
 - [Referencia del protocolo SAML 2.0](active-directory-saml-protocol-reference.md): el protocolo SAML 2.0 permite que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios.
 
@@ -139,4 +145,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

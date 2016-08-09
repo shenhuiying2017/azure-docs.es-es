@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Migración de la supervisión de punto de conexión de Azure a las pruebas de disponibilidad de Application Insights" 
-	description="Hemos transformado las pruebas de supervisión de puntos de conexión de Azure en las nuevas pruebas de disponibilidad de Application Insights. El cambio se realizará el 4 de abril de 2016."
+	description="Estamos pasando de las pruebas de Supervisión de punto de conexión de Azure a las nuevas pruebas de disponibilidad de Application Insights. Vamos a cambiar a ellas durante la semana del 22 de agosto de 2016."
 	services="application-insights" 
     documentationCenter=""
 	authors="soubhagyadash" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
  
 # Sustitución de la supervisión de punto de conexión de Azure por las pruebas de disponibilidad de Application Insights
 
-¿Utiliza [la supervisión de punto de conexión](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para las aplicaciones web de Azure? El 4 de abril de 2016, lo reemplazaremos por las nuevas y más eficaces [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md). Ya hemos creado las nuevas pruebas, aunque permanecerán deshabilitadas hasta el 4 de abril.
+¿Utiliza [la supervisión de punto de conexión](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para las aplicaciones de Azure? La semana del 22 de agosto de 2016, lo reemplazaremos por las nuevas y más eficaces [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md). Ya hemos creado algunas de estas nuevas pruebas, aunque permanecerán deshabilitadas hasta el 22 de agosto de 2016.
 
 Puede editar las nuevas pruebas y hacer el cambio si así lo desea. Las encontrará en el [Portal de Azure](https://portal.azure.com) en el grupo de recursos Default-ApplicationInsights-CentralUS.
 
@@ -28,10 +28,10 @@ Las pruebas de disponibilidad son una característica de Azure que comprueba con
 
 En el [Portal de Azure clásico](https://manage.windowsazure.com), estas pruebas se denominaban supervisión de puntos de conexión. Eran de un ámbito más limitado. Las nuevas pruebas de disponibilidad ofrecen una mejora sustancial:
 
-* Hasta 10 pruebas web de Visual Studio o pruebas de ping por cada recurso de Application Insights. 
-* Hasta 16 ubicaciones en todo el mundo pueden enviar solicitudes de prueba a la aplicación web. Mayor control de los criterios de éxito de la prueba. 
+* Hasta 10 pruebas web de Visual Studio o pruebas de ping por cada recurso de Application Insights.
+* Hasta 16 ubicaciones en todo el mundo pueden enviar solicitudes de prueba a la aplicación web. Mayor control de los criterios de éxito de la prueba.
 * Comprueba todos los sitios o servicios web: no solo las aplicaciones web de Azure.
-* Reintentos de pruebas: para reducir alertas de falsos positivos debido a problemas de red transitorios. 
+* Reintentos de pruebas: para reducir alertas de falsos positivos debido a problemas de red transitorios.
 * Webhooks puede recibir notificaciones de HTTP POST para las alertas.
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/16-1test.png)
@@ -44,7 +44,7 @@ Las pruebas de disponibilidad forman parte de [Application Insights de Visual St
 
 ## ¿Qué va a pasar con mis pruebas de puntos de conexión?
 
-* Hemos copiado las pruebas de supervisión de puntos de conexión en las nuevas pruebas de disponibilidad de Application Insights. Se copiaron el 4 de marzo de 2016, por lo que no se habrán copiado las pruebas de puntos de conexión que haya creado desde entonces.
+* Hemos copiado las pruebas de supervisión de puntos de conexión en las nuevas pruebas de disponibilidad de Application Insights.
 * Las nuevas pruebas de disponibilidad están deshabilitadas actualmente y las pruebas de puntos de conexión antiguas aún están en funcionamiento.
 * Las reglas de alertas *no* se han migrado. Las nuevas pruebas se han configurado inicialmente con una regla predeterminada:
  * Se desencadena cuando más de una ubicación informa de errores en 5 minutos.
@@ -54,29 +54,29 @@ En el [Portal de Azure](https://portal.azure.com) encontrará las pruebas migrad
 
 ## ¿Qué tengo que hacer?
 
-* Si creó las pruebas heredadas después del 4 de marzo de 2016 (o por algún motivo no se migraron las pruebas), las nuevas pruebas de disponibilidad son [fáciles de configurar](app-insights-monitor-web-app-availability.md).
+* Si por algún motivo no migró sus pruebas, las nuevas pruebas de disponibilidad son [fáciles de configurar](app-insights-monitor-web-app-availability.md).
 
 ### Opción A: no hacer nada. Nosotros nos encargaremos.
 
-**El 4 de abril,** haremos lo siguiente:
+**Durante la semana del 22 de agosto de 2016** realizaremos lo siguiente:
 
 * Deshabilitar las antiguas pruebas de puntos de conexión.
 * Habilitar las pruebas de disponibilidad migradas.
 
 ### Opción B: usted se encarga de administrar y habilitar las nuevas pruebas.
 
-* Revise y edite las nuevas pruebas de disponibilidad en el nuevo [Portal de Azure](https://portal.azure.com). 
+* Revise y edite las nuevas pruebas de disponibilidad en el nuevo [Portal de Azure](https://portal.azure.com).
  * Revise los criterios de desencadenamiento
  * Revise los destinatarios de correo electrónico
 * Habilite las nuevas pruebas
-* Elimine las antiguas pruebas de puntos de conexión [en el portal clásico](https://manage.windowsazure.com). Se recomienda esta opción para evitar alertas duplicadas y para reducir la carga de tráfico de prueba en su sitio web. Si no lo hace, nosotros las eliminaremos el 4 de abril de 2016.
+* Elimine las antiguas pruebas de puntos de conexión [en el portal clásico](https://manage.windowsazure.com). Se recomienda esta opción para evitar alertas duplicadas y para reducir la carga de tráfico de prueba en su sitio web. Si no lo hace, nosotros las eliminaremos el 22 de agosto de 2016.
 
 
 ### Opción C: no participar.
 
 Si no desea utilizar las pruebas de disponibilidad, puede eliminarlas en el [Portal de Azure](https://portal.azure.com). También hay un vínculo de cancelación de suscripción en la parte inferior de los correos electrónicos de notificación.
 
-Aún así se eliminarán las antiguas pruebas de puntos de conexión el 4 de abril.
+Aún así, se eliminarán las antiguas pruebas de puntos de conexión el 22 de agosto de 2016.
 
 ## ¿Cómo se pueden editar las nuevas pruebas?
 
@@ -116,12 +116,12 @@ Se conserva de las antiguas pruebas de puntos de conexión:
 * La dirección URL del punto de conexión que se va a probar.
 * Las ubicaciones geográficas desde donde se envían las solicitudes.
 * La frecuencia de prueba sigue siendo 5 minutos.
-* El tiempo de espera de prueba sigue siendo 30 segundos. 
+* El tiempo de espera de prueba sigue siendo 30 segundos.
 
 No se migran:
 
 * La regla de desencadenamiento de alerta. La regla que hemos configurado se desencadena cuando una ubicación informa de errores en 5 minutos.
-* Los destinatarios de la alerta. Se enviarán correos electrónicos de notificación a los propietarios y copropietarios de la suscripción. 
+* Los destinatarios de la alerta. Se enviarán correos electrónicos de notificación a los propietarios y copropietarios de la suscripción.
 
 ## ¿Cómo encuentro las nuevas pruebas?
 
@@ -137,4 +137,4 @@ Se aplicará la opción A. Habilitaremos las pruebas migradas y configuraremos l
 
 Agradecemos sus comentarios. Por favor, [envíenos un correo electrónico](mailto:vsai@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

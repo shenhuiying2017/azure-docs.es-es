@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -110,12 +110,12 @@ Vamos a usar ahora reglas de negocios para implementar esta lógica de negocios.
 Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería crear vocabularios. Lo normal es que sea el desarrollador el que se encargue de esta tarea. Aquí se muestra cómo hacer esto:
 
 
-1. Inicie la aplicación de API de Reglas de BizTalk en el portal; para ello, vaya a Examinar->Aplicaciones de API-><Your Rules API App>. Se dirigirá al panel de la aplicación de API de reglas, parecido a este:
+1. Inicie la aplicación de API de Reglas de BizTalk en el portal; para ello, vaya a Examinar->Aplicaciones de API->Su aplicación de API de reglas>. Se dirigirá al panel de la aplicación de API de reglas, parecido a este:
 
    ![Texto alternativo][4]
 
-2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.
-3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
+2\. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.
+3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -158,37 +158,37 @@ Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es
 
 ##Creación de reglas
 Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:
-1. 	And: operador condicional  
-2. 	Or: operador condicional  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
-10. is\_less\_than  
-11. is\_less\_than\_equal\_to  
-12. is\_not\_in  
-13. is\_not\_equal\_to  
-14. mod  
-15. true  
+1. 	And: operador condicional
+2. 	Or: operador condicional
+3. 	does\_not\_exist
+4. 	exists
+5. 	false
+6. 	is\_equal\_to
+7. 	is\_greater\_than
+8. 	is\_greater\_than\_equal\_to
+9. 	is\_in
+10. is\_less\_than
+11. is\_less\_than\_equal\_to
+12. is\_not\_in
+13. is\_not\_equal\_to
+14. mod
+15. true
 
 El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. A continuación se indican las palabras clave admitidas:
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+1.	equals
+2.	false
+3.	true
+4.	halt
+5.	mod
+6.	null
+7.	update
 
 Los cuadros de condición y acción proporcionan Intellisense para ayudar al autor a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. 
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:  
-   1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:
+   1.	update <definición de vocabulario>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
 ##Habilitación/deshabilitación de reglas
@@ -255,4 +255,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

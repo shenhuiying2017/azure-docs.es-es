@@ -87,14 +87,9 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 
 ## Pasos siguientes
 
-- [Importación de un BACPCAC en una Base de datos SQL de Azure](sql-database-import.md)
-- [Importación de un BACPCAC en una Base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
+- Para obtener información sobre cómo importar un BACPAC a una base de datos SQL de Azure, consulte [Importación de un BACPCAC en una Base de datos SQL de Azure](sql-database-import.md).
+- Para obtener información sobre cómo importar un BACPAC a una base de datos de SQL Server, consulte [Importación de un BACPCAC en una Base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
-## Recursos adicionales
-
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->
@@ -104,4 +99,4 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

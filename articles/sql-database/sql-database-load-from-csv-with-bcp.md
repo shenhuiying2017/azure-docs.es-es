@@ -3,7 +3,7 @@
    description="Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -127,4 +127,4 @@ Para migrar una base de datos de SQL Server, consulte el artículo sobre la [mig
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -8,12 +8,12 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
     
 # Creación de una API personalizada para usar con aplicaciones lógicas
@@ -30,17 +30,19 @@ La acción básica de una Aplicación lógica es un controlador que aceptará un
 
 De forma predeterminada, el motor de Aplicación lógica superará el tiempo de espera de una solicitud después de un minuto. Sin embargo, puede hacer que su API ejecute acciones que tardan más tiempo, y que el motor espere a que terminen, siguiendo un patrón async o webhook descrito a continuación.
 
+Para acciones estándar, basta con escribir un método de solicitud HTTP en la API que se expone mediante swagger. Puede ver ejemplos de aplicaciones de API que funcionan con Logic Apps en nuestra [repositorio de GitHub](https://github.com/logicappsio). A continuación se muestran varias formas de conseguir patrones comunes con un conector personalizado.
+
 ### Patrón de acciones de larga duración: asincrónico
 
 Al ejecutar un paso o una tarea largos, lo primero que debe hacer es asegurarse de que el motor sabe que no se ha agotado el tiempo de espera. También debe comunicarse con el motor para que sepa cuando ha terminado la tarea y, finalmente, debe devolver datos relevantes para el motor para poder seguir con el flujo de trabajo. Para completarlo mediante una API, siga el flujo que aparece a continuación. Estos pasos son desde el punto de vista de la API personalizada:
 
-1. Cuando se recibe una solicitud, se devuelve una respuesta inmediatamente (antes de realizar el trabajo). Esta respuesta será una respuesta `202 ACCEPTED`, que permite al motor saber que ha obtenido los datos, aceptado la carga y ahora se está procesando. La respuesta 202 debe contener los siguientes encabezados: 
- * Encabezado `location` (obligatorio): se trata de una ruta absoluta a la dirección URL que Aplicaciones lógicas puede usar para comprobar el estado del trabajo.
+1. Cuando se recibe una solicitud, se devuelve una respuesta inmediatamente (antes de realizar el trabajo). Esta respuesta será una respuesta `202 ACCEPTED`, que permite al motor saber que ha obtenido los datos, ha aceptado la carga útil y ahora se está procesando. La respuesta 202 debe contener los siguientes encabezados:
+ * Encabezado `location` (obligatorio): se trata de una ruta absoluta a la dirección URL que Logic Apps puede usar para comprobar el estado del trabajo.
  * `retry-after` (opcional, con el valor predeterminado 20 para las acciones). Se trata del número de segundos que el motor debe esperar antes de sondear la dirección URL de encabezado de ubicación para comprobar el estado.
 
-2. Una vez comprobado el estado del trabajo, realice las siguientes comprobaciones: 
- * Si el trabajo ha terminado: devuelve una respuesta `200 OK`, con la carga de la respuesta.
- * Si el trabajo todavía se está procesando: devuelve otra respuesta `202 ACCEPTED`, con los mismos encabezados como respuesta inicial.
+2. Una vez comprobado el estado del trabajo, realice las siguientes comprobaciones:
+ * Si el trabajo ha terminado: devuelve una respuesta `200 OK`, con la carga útil de la respuesta.
+ * Si el trabajo todavía se está procesando: devuelve otra respuesta `202 ACCEPTED`, con los mismos encabezados que la respuesta inicial.
 
 Este patrón permite ejecutar tareas extremadamente largas en un subproceso de la API personalizada, pero mantiene una conexión activa con el motor de Aplicaciones lógicas para que no agote el tiempo de espera o continúe antes de que finalice el trabajo. Al agregarlo a la Aplicación lógica, es importante tener en cuenta que no es necesario hacer nada en la definición de la Aplicación lógica para continuar sondeando y comprobando el estado. En cuanto el motor ve una respuesta 202 ACCEPTED con un encabezado de ubicación válida, respetará el patrón asincrónico y continuará sondeando el encabezado de ubicación hasta que se devuelve una respuesta que no es 202.
 
@@ -66,18 +68,18 @@ Además de las acciones, puede hacer que la API personalizada funcione como un d
 
 Los desencadenadores de sondeo actúan de forma muy parecida a las acciones de larga duración: asincrónico antes descrita. El motor de Aplicación lógica llamará el punto de conexión del desencadenador una vez transcurrido un período determinado (según la SKU, 15 segundos para Premium, 1 minuto para Standard y 1 hora para gratis).
 
-Si no hay ningún dato disponible, el desencadenador devuelve una respuesta `202 ACCEPTED`, con un encabezado `location` y `retry-after`. Sin embargo, para los desencadenadores se recomienda que el encabezado `location` contenga un parámetro de consulta de `triggerState`. Se trata de un identificador para que la API sepa cuándo se activó por última vez la Aplicación lógica. Si hay datos disponibles, el desencadenador devuelve una respuesta `200 OK`, con la carga de contenido. Esto desencadenará la Aplicación lógica.
+Si no hay ningún dato disponible, el desencadenador devuelve una respuesta `202 ACCEPTED`, con un encabezado `location` y `retry-after`. Sin embargo, para los desencadenadores se recomienda que el encabezado `location` contenga un parámetro de consulta de `triggerState`. Se trata de un identificador para que la API sepa cuándo se activó por última vez la Aplicación lógica. Si hay datos disponibles, el desencadenador devuelve una respuesta `200 OK`, con la carga útil de contenido. Esto desencadenará la Aplicación lógica.
 
 Por ejemplo, si yo estaba sondeando para ver si un archivo estaba disponible, usted podría crear un desencadenador de sondeo que haría lo siguiente:
 
 * Si se recibió una solicitud sin triggerState, la API devolverá una respuesta `202 ACCEPTED` con un encabezado `location` que tiene un elemento triggerState de la hora actual y un valor `retry-after` de 15.
 * Si se recibió una solicitud con triggerState:
- * Compruebe si se agregó algún archivo después de la fecha y hora de triggerState. 
-  * Si hay un archivo, devuelva una respuesta `200 OK` con la carga de contenido, aumente triggerState a la fecha y hora del archivo que he devuelto y establezca el valor de `retry-after` en 15.
-  * Si hay varios archivos, puedo devolver 1 cada vez con una respuesta `200 OK`, aumentar mi elemento triggerState en el encabezado `location` y establecer `retry-after` en 0. Esto indicará al motor que hay más datos disponibles y lo solicitará inmediatamente en el encabezado `location` especificado.
-  * Si no hay ningún archivo disponible, devuelva una respuesta `202 ACCEPTED` y deje el elemento triggerState `location` igual. Establezca `retry-after` en 15.
+ * Compruebe si se agregó algún archivo después de la fecha y hora de triggerState.
+  * Si hay un archivo, devuelve una respuesta `200 OK` con la carga de contenido, aumenta triggerState a la fecha y hora del archivo que he devuelto y establece el valor de `retry-after` en 15.
+  * Si hay varios archivos, puedo devolver uno cada vez con una respuesta `200 OK`, aumentar mi elemento triggerState en el encabezado `location` y establecer `retry-after` en 0. Esto indicará al motor que hay más datos disponibles y los solicitará inmediatamente en el encabezado `location` especificado.
+  * Si no hay ningún archivo disponible, devuelve una respuesta `202 ACCEPTED` y deja el elemento triggerState `location` igual. Establece `retry-after` en 15.
 
-Puede ver un ejemplo del patrón de sondeo en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
+Puede ver un ejemplo de un desencadenador de sondeo en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
 ### Desencadenadores de Webhook
 
@@ -89,4 +91,4 @@ Actualmente, el diseñador de Aplicación lógica no admite la detección de un 
 
 Puede ver un ejemplo de un desencadenador de webhook en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

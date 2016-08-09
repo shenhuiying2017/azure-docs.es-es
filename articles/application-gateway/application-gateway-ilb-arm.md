@@ -62,13 +62,13 @@ Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Adminis
 
 ### Paso 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 ### Paso 2
 
 Compruebe las suscripciones para la cuenta.
 
-		PS C:\> get-AzureRmSubscription
+		get-AzureRmSubscription
 
 Se le solicitará que se autentique con sus credenciales.<BR>
 
@@ -77,10 +77,10 @@ Se le solicitará que se autentique con sus credenciales.<BR>
 Elija qué suscripción de Azure va a utilizar.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Paso 4
+### Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -133,7 +133,7 @@ Se configura el grupo de direcciones IP de back-end denominado "pool01" con las 
 
 Configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
-### Paso 4
+### Paso 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
@@ -145,7 +145,7 @@ Configura el puerto IP del front-end denominado "frontendport01" para el ILB.
 
 Crea la configuración de la IP del front-end llamada "fipconfig01" y la asocia una dirección IP privada de la subred de la red virtual actual.
 
-### Paso 6
+### Paso 6
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
@@ -237,4 +237,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

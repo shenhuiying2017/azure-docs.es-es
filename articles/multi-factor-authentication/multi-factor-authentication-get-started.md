@@ -20,8 +20,8 @@
 
 Puesto que existen varios modelos de Azure Multi-Factor Authentication, es necesario determinar primero un par de cosas para descubrir cuál es el más adecuado para usar. Estas cosas son:
 
--	[Qué es lo que quiero proteger](#what-am-i-trying-to-secure)
--	[Dónde se encuentran los usuarios](#where-are-the-users-located)
+-	[Qué es lo que quiero proteger](#qu-es-lo-que-quiero-proteger)
+-	[Dónde se encuentran los usuarios](#dnde-se-encuentran-los-usuarios)
 
 Las siguientes secciones proporcionan instrucciones para determinar cada uno de estos puntos.
 
@@ -81,4 +81,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->

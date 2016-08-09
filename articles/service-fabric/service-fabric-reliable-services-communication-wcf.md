@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/28/2016"
+   ms.date="07/26/2016"
    ms.author="bharatn"/>
 
 # Pila de comunicación basada en WCF de Reliable Services
@@ -122,4 +122,4 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -104,7 +104,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 3. Agregue la siguiente línea al elemento `system.web`:
 
-	`<customErrors mode="off"></customErrors>`
+	`<customErrors mode="Off"></customErrors>`
 
 	![Editar Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 
@@ -112,7 +112,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -126,7 +126,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\\HomeController.cs*.
+1. Abra *Controllers\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -733,4 +733,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

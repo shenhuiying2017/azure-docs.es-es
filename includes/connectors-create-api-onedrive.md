@@ -2,7 +2,7 @@
 - Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
 - Una cuenta de [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3)
 
-Para poder usar su cuenta de OneDrive en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure.
+Para poder usar su cuenta de OneDrive en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Esto lo puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.
 
 Autorice a la aplicación lógica a conectarse a su cuenta de OneDrive con los pasos siguientes:
 
@@ -14,4 +14,4 @@ Autorice a la aplicación lógica a conectarse a su cuenta de OneDrive con los p
 4. Seleccione **Sí** para autorizar a la aplicación lógica a usar la cuenta de OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)
 5. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica: ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

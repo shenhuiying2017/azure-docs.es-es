@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016"
+ 	ms.date="07/26/2016"
 	ms.author="juliako;milangada;gtrifonov"/>
 
 
@@ -35,11 +35,15 @@ Además de especificar el tipo de unidad reservada, puede especificar el aprovis
 
 Para cambiar el tipo de unidad reservada y el número de unidades reservadas de codificación mediante el SDK de .NET, haga lo siguiente:
 
-IEncodingReservedUnit encodingS1ReservedUnit = \_context.EncodingReservedUnits.FirstOrDefault(); encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1 encodingS1ReservedUnit.Update(); Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
-
-encodingS1ReservedUnit.CurrentReservedUnits = 2; encodingS1ReservedUnit.Update();
-
-Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+	encodingS1ReservedUnit.Update();
+	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+	
+	encodingS1ReservedUnit.CurrentReservedUnits = 2;
+	encodingS1ReservedUnit.Update();
+	
+	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ##Apertura de una incidencia de soporte técnico
 
@@ -77,4 +81,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

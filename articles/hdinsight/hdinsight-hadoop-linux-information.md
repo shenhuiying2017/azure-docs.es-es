@@ -98,11 +98,11 @@ Debido a que es el almacén predeterminado para HDInsight, normalmente no tiene 
 
 	hadoop fs -ls /example/data
 
-Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo **WASB://** en el comando.
+Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo **wasb://** o **wasbs://** en el comando.
 
-HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **WASB://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
+HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **wasbs://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
 
-	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
+	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### ¿Qué almacenamiento de blobs utiliza el clúster?
 
@@ -116,7 +116,7 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 
     Esto devolverá un valor similar al siguiente, donde __CONTAINER__ es el contenedor predeterminado y __ACCOUNTNAME__ es el nombre de la cuenta de almacenamiento de Azure:
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 1. Para obtener el grupo de recursos para la cuenta de almacenamiento, use la [CLI de Azure](../xplat-cli-install.md). En el comando siguiente, reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento que se recuperó de Ambari:
 
@@ -206,7 +206,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
 	* __Interfaz de usuario de Storm__: siga estos pasos para reequilibrar una topología mediante la interfaz de usuario de Storm.
 
-		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ en el explorador web, donde CLUSTERNAME es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
+		1. Abra \_\_https://CLUSTERNAME.azurehdinsight.net/stormui__ en el explorador web, donde CLUSTERNAME es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
 
 		3. Selecciona la topología que quieres equilibrar y después selecciona el botón __Reequilibrar__. Especifica el retraso antes de realizar la operación de reequilibrio.
 
@@ -257,4 +257,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

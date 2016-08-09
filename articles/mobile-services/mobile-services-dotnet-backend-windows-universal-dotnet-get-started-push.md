@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -112,4 +112,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->
