@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -124,8 +124,8 @@ Puede probar la aplicación lógica mediante la adición de un nuevo registro en
 
 Consulta SQL | Compatible | No compatible
 --- | --- | ---
-Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, fecha/hora (entre comillas simples), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria, como ((operando operador operando) AND/OR (operando operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, etc.</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL e IS NOT Null</li><li>Cualquier número con caracteres no numéricos, como números hexadecimales</li></ul> 
-Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por coma. No se permiten prefijos de nombre de tabla (el conector funciona en una tabla cada vez).</li><li>Los nombres se pueden escapar con ‘[‘ y ‘]’</li></ul> | <ul><li>Palabras clave como TOP, DISTINCT, etc. en</li><li>Alias como calle + ciudad + código postal COMO dirección</li><li>Todas las funciones integradas, como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos, como *, -, +, etc.</li><li>Concatenaciones de cadenas mediante +</li></ul>
+Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, Fecha/hora (entre comillas sencillas), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria, como ((operando operador operando) AND/OR (operando operador operando))*</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX() NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, and so on</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL e IS NOT Null</li><li>Cualquier número sin caracteres numéricos, como números hexadecimales</li></ul>
+Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por coma. No se permiten prefijos de nombre de tabla (el conector funciona en una tabla cada vez).</li><li>Los nombres se pueden escapar con ' [‘ y ‘]'</li></ul> | <ul><li>Palabras clave como TOP, DISTINCT etc.</li><li>Alias como calle + ciudad + código postal COMO dirección</li><li>Todas las funciones integradas, como ADD(), MAX() NOW(), POWER() etc.</li><li>Operadores matemáticos, como *, -, +, etc.</li><li>Concatenaciones de cadenas mediante +</li></ul>
 
 #### Sugerencias
 
@@ -163,4 +163,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

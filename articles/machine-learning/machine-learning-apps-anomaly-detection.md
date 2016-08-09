@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/29/2016" 
+	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -34,7 +34,9 @@ Estas API pueden detectar los siguientes tipos de patrones anómalos en datos de
 Estos detectores de aprendizaje automático realizan un seguimiento de dichos cambios en los valores con el paso del tiempo e informan de los cambios continuados en sus valores con puntuaciones de anomalías. No requieren el ajuste del umbral ad hoc y sus puntuaciones pueden utilizarse para controlar el índice de falsos positivos. La API de detección de anomalías es útil en varios escenarios, por ejemplo, la supervisión de servicios mediante el seguimiento de KPI en el tiempo, la supervisión del uso mediante métricas como el número de búsquedas o el número de clics y la supervisión del rendimiento mediante contadores como la memoria, la CPU, las lecturas de archivos, etc., en el tiempo.
 
 La oferta de detección de anomalías incluye herramientas útiles para comenzar.
+
 * La [aplicación web](http://anomalydetection-aml.azurewebsites.net/) le ayuda a evaluar y visualizar los resultados de las API de detección de anomalías en los datos.
+
 * El [código de ejemplo](http://adresultparser.codeplex.com/) muestra cómo acceder a la API mediante programación y analizar los resultados en C#.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -156,10 +158,10 @@ La API de detección de anomalías admite detectores en tres categorías general
 |Categoría del detector|Detector|Descripción|Parámetros de entrada|Salidas
 |---|---|---|---|---|
 |Detectores de pico|Detector de TSpike|Detección de picos e interrupciones según la sensibilidad establecida|*tspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10, valor predeterminado: 3; cuanto más alto, menos sensible|TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario|
-|Detector de ZSpike|Detección de picos e interrupciones según la sensibilidad establecida|*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10, valor predeterminado: 3; cuánto más alto, menos sensible|ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0'|
-|Detector de tendencia lenta|Detector de tendencia lenta|Detección de tendencia positiva lenta según la sensibilidad establecida|*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible)|tscore: número flotante que representa la puntuación de anomalías en la tendencia|
-|Detectores de cambio de nivel|Detector de cambio de nivel unidireccional|Detección de cambio de nivel ascendente según la sensibilidad establecida|Los mismos que el detector de tendencia lenta|pscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente|
-|Detector de cambio de nivel bidireccional|Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida|Los mismos que el detector de tendencia lenta|rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente
+||Detector de ZSpike|Detección de picos e interrupciones según la sensibilidad establecida|*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10, valor predeterminado: 3; cuánto más alto, menos sensible|ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0'|
+|Detector de tendencia lenta|Detector de tendencia lenta|Detección de tendencia positiva lenta según la sensibilidad establecida|*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible)|TScore: número flotante que representa la puntuación de anomalías en la tendencia|
+|Detectores de cambio de nivel|Detector de cambio de nivel unidireccional|Detección de cambio de nivel ascendente según la sensibilidad establecida|*upleveldetector.sensitivity*: umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible)|PScore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente|
+||Detector de cambio de nivel bidireccional|Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida|*bileveldetector.sensitivity*: umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible)|RPScore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente
 
 ###Parámetros
 
@@ -209,4 +211,4 @@ Este resultado se puede analizar mediante un [analizador sencillo](https://adres
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

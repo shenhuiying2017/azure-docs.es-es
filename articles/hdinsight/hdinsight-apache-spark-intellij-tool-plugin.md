@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -100,12 +100,12 @@ El complemento de herramientas de HDInsight para IntelliJ IDEA está disponible 
 			    val conf = new SparkConf().setAppName("MyClusterApp")
 			    val sc = new SparkContext(conf)
 
-			    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 			    //find the rows which have only one digit in the 7th column in the CSV
 				val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-			    rdd1.saveAsTextFile("wasb:///HVACOut")
+			    rdd1.saveAsTextFile("wasbs:///HVACOut")
 			  }
 
 			}
@@ -155,7 +155,7 @@ Puede realizar una serie de operaciones con el complemento de HDInsight.
 
 	![Acceder a almacenamiento de clúster](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-access-storage.png)
 
-4. Haga clic en el nombre del contenedor de almacenamiento asociado con el clúster. En el panel derecho, debería ver una carpeta llamada "**HVACOut**". Haga doble clic para abrir la carpeta y verá archivos **part-**. Abra uno de esos archivos para ver el resultado de la aplicación.
+4. Haga clic en el nombre del contenedor de almacenamiento asociado con el clúster. En el panel derecho, debería ver una carpeta llamada "**HVACOut**". Haga doble clic para abrir la carpeta y verá archivos **part-***. Abra uno de esos archivos para ver el resultado de la aplicación.
 
 ### Acceso a la vista de trabajo directamente en el complemento
 
@@ -316,4 +316,4 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

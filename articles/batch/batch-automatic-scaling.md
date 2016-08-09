@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="04/18/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma"/>
 
 # Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
 
-Con la escala automática, el servicio Lote de Azure puede agregar o quitar dinámicamente nodos de proceso en un grupo en función de los parámetros definidos. Esto le permite ajustar automáticamente la cantidad de recursos de proceso utilizada por la aplicación, con lo que es posible que ahorre tiempo y dinero.
+Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. Con esto puede ahorrar tiempo y dinero ajustando automáticamente la cantidad de potencia de procesamiento utilizada por la aplicación: agregar nodos a medida que las demandas de la tarea del trabajo aumentan y quitarlos cuando disminuyen.
 
 Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una *fórmula de escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET de Lote](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
 
@@ -28,15 +28,15 @@ Puede habilitar el escalado automático al crear un grupo o bien en un grupo exi
 
 Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
-Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones formadas libremente que pueden incluir variables definidas por el sistema y por el usuario, así como constantes. Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
+Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-Las fórmulas suelen tener varias instrucciones que realizan operaciones en los valores obtenidos en las instrucciones anteriores:
+Las fórmulas suelen tener varias instrucciones que realizan operaciones en los valores obtenidos en las instrucciones anteriores. Por ejemplo, en primer lugar, se obtiene un valor para `variable1`, a continuación, se pasa a una función para rellenar `variable2`:
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
 Con estas instrucciones en la fórmula, el objetivo es llegar a un número de nodos de proceso al que debe escalar el grupo: el número de **destino** de **nodos dedicados**. Este número puede ser mayor, menor o igual que el número actual de nodos del grupo. Lote evalúa la fórmula de escalado automático del grupo según un intervalo específico (a continuación se describen los [intervalos de escalado automático](#automatic-scaling-interval)). Después, ajustará el número de destino de nodos del grupo al número que la fórmula de escalado automático especifica en el momento de la evaluación.
@@ -50,17 +50,19 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Las siguientes secciones de este artículo tratan de las distintas entidades que conformarán las fórmulas de escalado automático, incluidos variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
 
-> [AZURE.IMPORTANT] Cada cuenta de Lote de Azure se limita a un número máximo de nodos de ejecución que puede utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite. Por lo tanto, no podría alcanzar el número de destino que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener información sobre la visualización y aumento de las cuotas de la cuenta.
+> [AZURE.IMPORTANT] Cada cuenta de Lote de Azure se limita a un número máximo de núcleos (y por lo tanto de nodos de ejecución) que pueden utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite de núcleos. Por lo tanto, podría no alcanzar el número de nodos de ejecución que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
 
-## <a name="variables"></a>Variables
+## Variables
 
-Puede usar tanto variables definidas por el sistema como variables definidas por el usuario en las fórmulas de escalado automático. En la fórmula de ejemplo de dos líneas anterior, `$TargetDedicated` es una variable definida por el sistema, mientras que `$averageActiveTaskCount` está definida por el usuario. Las tablas siguientes muestran las variables de lectura y escritura y de solo lectura definidas por el servicio Lote.
+En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio se integran en el servicio de Lote: algunas son de lectura y escritura y otras son de solo lectura. Las variables definidas por el usuario son las que *usted* define. En la fórmula de ejemplo de dos líneas anterior, `$TargetDedicated` es una variable definida por el servicio, mientras que `$averageActiveTaskCount` está definida por el usuario.
 
-*Obtenga* y *establezca* los valores de estas **variables definidas por el sistema** para administrar el número de nodos de ejecución de un grupo:
+Las tablas siguientes muestran las variables de lectura y escritura y de solo lectura definidas por el servicio Lote.
+
+Puede **obtener** y **establecer** los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo:
 
 <table>
   <tr>
-    <th>Variables (lectura y escritura)</th>
+    <th>Lectura y escritura<br/>variables definidas por el servicio</th>
     <th>Descripción</th>
   </tr>
   <tr>
@@ -80,11 +82,11 @@ Puede usar tanto variables definidas por el sistema como variables definidas por
    </tr>
 </table>
 
-*Obtenga* el valor de estas **variables definidas por el sistema** para realizar ajustes basados en las métricas del servicio Lote:
+Puede **obtener** el valor de estas variables definidas por el servicio para realizar ajustes basados en las métricas del servicio Lote:
 
 <table>
   <tr>
-    <th>Variables (solo lectura)</th>
+    <th>Solo lectura<br/>definidas por el servicio<br/>variables</th>
     <th>Descripción</th>
   </tr>
   <tr>
@@ -152,7 +154,7 @@ Puede usar tanto variables definidas por el sistema como variables definidas por
   </tr>
 </table>
 
-> [AZURE.TIP] Las variables de solo lectura definidas por el sistema que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de muestra](#getsampledata) más adelante para obtener más información.
+> [AZURE.TIP] Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de ejemplo](#getsampledata) más adelante para más información.
 
 ## Tipos
 
@@ -163,6 +165,7 @@ Estos son los **tipos** que se admiten en las fórmulas.
 - doubleVecList
 - cadena
 - timestamp: timestamp es una estructura compuesta que contiene los siguientes miembros:
+
 	- year
 	- mes (1-12)
 	- día (1-31)
@@ -171,6 +174,7 @@ Estos son los **tipos** que se admiten en las fórmulas.
 	- minuto (00-59)
 	- segundo (00-59)
 - timeinterval
+
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
 	- TimeInterval\_Microsecond
@@ -188,22 +192,22 @@ Estas **operaciones** se permiten en los tipos enumerados arriba.
 
 | Operación | Operadores admitidos | Tipo de resultado |
 | ------------------------------------- | --------------------- | ------------- |
-| double *operator* double 				| +, -, *, /            | double		    |
-| double *operator* timeinterval 		| *                     | timeinterval	    |
-| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
-| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
-| timeinterval *operator* double 		| *, /                  | timeinterval	    |
-| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
-| timeinterval *operator* timestamp 	| +                     | timestamp		    |
-| timestamp *operator* timeinterval 	| +                     | timestamp		    |
-| timestamp *operator* timestamp 		| -                     | timeinterval	    |
-| *operator*double 						| -, !                  | double		    |
-| *operator*timeinterval 				| -                     | timeinterval	    |
-| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
-| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
-| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
-| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
-| double *operator* double 				| &&, &#124;&#124;      | double		    |
+| double *operador* double | +, -, *, / | double |
+| double *operador* timeinterval | * | timeinterval |
+| double *operador* double | +, -, *, / | doubleVec |
+| doubleVec *operador* doubleVec | +, -, *, / | doubleVec |
+| timeinterval *operador* double | *, / | timeinterval |
+| timeinterval *operador* timeinterval | +, - | timeinterval |
+| timeinterval *operador* timestamp | + | timestamp |
+| timestamp *operador* timeinterval | + | timestamp |
+| timestamp *operador* timestamp | - | timeinterval | 
+| *operador*double | -, ! | double | 
+| *operador*timeinterval | - | timeinterval | 
+| double *operador* double | <, <=, ==, >=, >, != | double | 
+| string *operador* string | <, <=, ==, >=, >, != | double | 
+| timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | 
+| timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | 
+| double *operator* double | &&, || | double |
 
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 
@@ -239,9 +243,9 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obtención de datos de muestra
+## <a name="getsampledata"></a>Obtención de datos de ejemplo
 
-Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Lote. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el sistema descritas anteriormente son objetos que proporcionan varios métodos para acceder a los datos que están asociados a cada objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
+Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Lote. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para acceder a los datos que están asociados a cada objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -284,25 +288,25 @@ Las fórmulas de escalado automático actúan en datos de métricas (muestras) p
   </tr>
 </table>
 
-### Muestras, porcentaje de muestras y el método *GetSample()*
+### Ejemplos, porcentaje de ejemplo y el método *GetSample()*
 
 La operación principal de una fórmula de escalado automático es la obtención de datos de métricas de tareas y recursos y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo las fórmulas de escalado automático interactúan con datos de métricas, también denominados "muestras".
 
 **Muestras**
 
-El servicio Lote toma periódicamente *muestras* de métricas de tareas y recursos y las pone a disposición de las fórmulas de escalado automático. El servicio Lote graba estas muestras cada 30 segundos. No obstante, hay algo de latencia que provoca un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, debido a diversos factores como problemas con la red o de infraestructura, es posible que las muestras no se hayan grabado para un intervalo determinado. Esto provoca muestras "desaparecidas".
+El servicio Lote toma periódicamente *ejemplos* de métricas de tareas y recursos y las pone a disposición de las fórmulas de escalado automático. El servicio Lote graba estas muestras cada 30 segundos. No obstante, hay algo de latencia que provoca un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, debido a diversos factores como problemas con la red o de infraestructura, es posible que las muestras no se hayan grabado para un intervalo determinado. Esto provoca muestras "desaparecidas".
 
 **Porcentaje de muestras**
 
-Al pasar `samplePercent` al método `GetSample()` o llamar al método `GetSamplePercent()`, "porcentaje" se refiere a una comparación entre el número *posible* total de muestras que graba el servicio Lote y el número de muestras que realmente están *disponibles* para la fórmula de escalado automático.
+Al pasar `samplePercent` al método `GetSample()` o llamar al método `GetSamplePercent()`, "porcentaje" se refiere a una comparación entre el número *posible* total de ejemplos que graba el servicio Lote y el número de ejemplos que realmente están *disponibles* para la fórmula de escalado automático.
 
-Echemos un vistazo a un intervalo de tiempo de 10 minutos como ejemplo. Dado que las muestras se graban cada 30 segundos, el número total máximo de muestras que Lote graba en un intervalo de tiempo de 10 minutos habría sido de 20 muestras (2 por minuto). Sin embargo, debido a la latencia inherente del mecanismo de informes o a algún otro problema dentro de la infraestructura de Azure, puede haber solo 15 muestras disponibles para leer para la fórmula de escalado automático. Esto significa que, durante ese período de 10 minutos, solo el **75 por ciento** del número total de muestras que se graban está realmente disponible para la fórmula.
+Echemos un vistazo a un intervalo de tiempo de 10 minutos como ejemplo. Dado que las muestras se graban cada 30 segundos, el número total máximo de muestras que Lote graba en un intervalo de tiempo de 10 minutos habría sido de 20 muestras (2 por minuto). Sin embargo, debido a la latencia inherente del mecanismo de informes o a algún otro problema dentro de la infraestructura de Azure, puede haber solo 15 muestras disponibles para leer para la fórmula de escalado automático. Esto significa que, durante ese período de 10 minutos, solo el **75 por ciento** del número total de ejemplos que se graban está realmente disponible para la fórmula.
 
 **GetSample() e intervalos de muestra**
 
-Las fórmulas de escalado automático van a aumentar y reducir los grupos, al agregar o quitar nodos. Dado que los nodos cuestan dinero, desea asegurarse de que las fórmulas utilizan un método de análisis inteligente que se basa en un número de datos suficiente. Por lo tanto, recomendamos que use un análisis de tipo tendencias en las fórmulas. Este tipo aumentará y reducirá los grupos basándose en un *intervalo* de muestras recopiladas.
+Las fórmulas de escalado automático van a aumentar y reducir los grupos, al agregar o quitar nodos. Dado que los nodos cuestan dinero, desea asegurarse de que las fórmulas utilizan un método de análisis inteligente que se basa en un número de datos suficiente. Por lo tanto, recomendamos que use un análisis de tipo tendencias en las fórmulas. Este tipo aumentará y reducirá los grupos basándose en un *intervalo* de ejemplos recopilados.
 
-Para ello, utilice `GetSample(interval look-back start, interval look-back end)` para devolver un **vector** de muestras:
+Para ello, utilice `GetSample(interval look-back start, interval look-back end)` para devolver un **vector** de ejemplos:
 
 `runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);`
 
@@ -310,19 +314,19 @@ Cuando Lote evalúe la línea anterior, devolverá un intervalo de muestras como
 
 `runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
 
-Una vez recopilado el vector de muestras, puede usar funciones como `min()`, `max()` y `avg()` para derivar valores significativos del intervalo recopilado.
+Una vez recopilado el vector de ejemplos, puede usar funciones como `min()`, `max()` y `avg()` para derivar valores significativos del intervalo recopilado.
 
-Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si menos de un determinado porcentaje de muestras está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Lote que deje de seguir evaluando la fórmula si el porcentaje de muestras especificado no está disponible, y no se realizará ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de muestras para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro a `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
+Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si menos de un determinado porcentaje de ejemplos está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Lote que deje de seguir evaluando la fórmula si el porcentaje de muestras especificado no está disponible, y no se realizará ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de ejemplos para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro de `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
 
 `runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
 
-También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que las muestras del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de muestra concreto.
+También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque los ejemplos tardan aproximadamente un minuto en propagarse por el sistema, por lo que los ejemplos del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
 
-> [AZURE.IMPORTANT] Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes." Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> [AZURE.IMPORTANT] Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
 
 ## Métricas
 
-Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) anterior para más información sobre cada métrica.
+Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) más arriba para más información sobre cada métrica.
 
 <table>
   <tr>
@@ -332,13 +336,13 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
   <tr>
     <td><b>Recurso</b></td>
     <td><p>Las <b>métricas de recurso</b> se basan en el uso de CPU, ancho de banda y memoria de nodos de ejecución, así como en el número de nodos.</p>
-		<p> Estas variables definidas por el sistema se usan para realizar ajustes basados en el número de nodos:</p>
+		<p> Estas variables definidas por el servicio se usan para realizar ajustes basados en el número de nodos:</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>Estas variables definidas por el sistema se usan para realizar ajustes basados en el uso de recursos de nodo:</p>
+    <p>Estas variables definidas por el servicio se usan para realizar ajustes basados en el uso de recursos de nodo:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -353,7 +357,7 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p>Las <b>métricas de tarea</b>: están basadas en el estado de las tareas, como Activo, Pendiente y Completado. Las siguientes variables definidas por el sistema se usan para realizar ajustes de tamaño de grupo basados en las métricas de tarea:</p>
+    <td><p>Las <b>métricas de tarea</b>: están basadas en el estado de las tareas, como Activo, Pendiente y Completado. Las siguientes variables definidas por el servicio se usan para realizar ajustes de tamaño de grupo basados en las métricas de tarea:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -426,7 +430,7 @@ Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente.
 
 ## Habilitación del escalado automático después de crear un grupo
 
-Si ya configuró un grupo con un número específico de nodos de ejecución mediante el parámetro *targetDedicated*, puede actualizar el grupo existente posteriormente para que el escalado se realice de forma automática. Puede realizar esto de una de estas formas:
+Si ya configuró un grupo con un número específico de nodos de proceso mediante el parámetro *targetDedicated*, puede actualizar el grupo existente posteriormente para que el escalado se realice de forma automática. Puede realizar esto de una de estas formas:
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: este método .NET requiere el identificador de un grupo existente y la fórmula de escalado automático que se va a aplicar al grupo.
 - [Habilitación del escalado automático en un grupo][rest_enableautoscale]\: esta API de REST requiere el identificador del grupo existente en el URI y la fórmula de escalado automático en el cuerpo de la solicitud.
@@ -607,4 +611,4 @@ La fórmula en el fragmento de código anterior:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/es-ES/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

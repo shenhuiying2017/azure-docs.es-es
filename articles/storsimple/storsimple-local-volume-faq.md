@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
@@ -121,7 +121,7 @@ Si se invalidan las instantáneas locales, recibirá una alerta informativa que 
 **R.** El proceso de conversión implica dos pasos:
 
   1. Aprovisionamiento de espacio en el dispositivo para el volumen que se va a convertir en anclado localmente.
-  2. Descarga de los datos en capas de la nube para asegurar garantías locales. 
+  2. Descarga de los datos en capas de la nube para asegurar garantías locales.
 
 Estos pasos son operaciones de larga duración que dependen del tamaño del volumen que se va a convertir, los datos en el dispositivo y el ancho de banda disponible. Puesto que algunos datos de los volúmenes en capas existentes pueden desperdigarse en la nube como parte del proceso de aprovisionamiento, el dispositivo puede experimentar un rendimiento reducido durante este tiempo. Además, el proceso de conversión puede ser más lento si:
 
@@ -213,4 +213,4 @@ Más información sobre la [conmutación por error y la recuperación ante desas
 
 **R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -81,7 +81,7 @@ El espacio total requerido ahora en el nivel local será: 240 GB + 120 GB + 330 
 
 En segundo lugar, necesitaremos al menos tanto espacio en el nivel local como la reserva individual más grande. Esta cantidad adicional se usa en caso de que sea preciso realizar una restauración a partir de una instantánea en la nube. En este ejemplo, la mayor reserva local es 330 GB (incluida la reserva para el sistema de archivos), por lo que se agregaría a los 660 GB: 660 GB + 330 GB = 990 GB. Si hemos realizado posteriores restauraciones adicionales, siempre podemos liberar el espacio de la operación de restauración anterior.
 
-En tercer lugar, necesitaremos un 15 % del total de su espacio local para almacenar las instantáneas locales, por lo que solo estará disponible un 85 %. En este ejemplo, sería alrededor de 990 GB = 0,85*TB del disco de datos aprovisionado. Por lo tanto, el disco de datos aprovisionado sería (990*(1/0,85)) = 1320 GB = 1,16 TB ~ 1,25 TB (redondeo al cuartil más cercano)
+En tercer lugar, necesitaremos un 15 % del total de su espacio local para almacenar las instantáneas locales, por lo que solo estará disponible un 85 %. En este ejemplo, sería alrededor de 990 GB = 0,85*TB del disco de datos aprovisionado. Por lo tanto, el disco de datos aprovisionado sería (990*[1/0,85]) = 1164 GB = 1,16 TB ~ 1,25 TB (redondeo al cuartil más cercano)
 
 Si tiene en cuenta un crecimiento inesperado y nuevas restauraciones, debe aprovisionar un disco local de alrededor de 1,25 - 1,5 TB.
 
@@ -350,4 +350,4 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 ## Consulte también
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-ova-manager-service-administration.md) mediante el servicio StorSimple Manager.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -45,9 +45,9 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 2. Para usar el comando de **Hadoop** para ejecutar un trabajo de MapReduce de ejemplo, utilice el siguiente comando:
 
-		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
-	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, usa el documento **wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: **wasb:///example/data/WordCountOutput**.
+	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, usa el documento **wasbs://example/data/gutenberg/davinci.txt** y la salida se almacena en: **wasbs:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Para obtener más información acerca de este trabajo de MapReduce y los datos de ejemplo, consulte <a href="hdinsight-use-mapreduce.md">Uso de MapReduce en Hadoop de HDInsight</a>.
 
@@ -58,9 +58,9 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en **wasb://example/data/WordCountOutput**:
+3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en **wasbs://example/data/WordCountOutput**:
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hadoop fs -ls wasbs:///example/data/WordCountOutput
 
 	Se deberían mostrar dos archivos, **\_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
@@ -68,9 +68,9 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 4. Para ver la salida, use el comando siguiente:
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
 
-	Esto muestra una lista de las palabras que se encuentran en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
+	Esto muestra una lista de las palabras que se encuentran en el archivo **wasbs://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
 		wreathed        3
 		wreathing       1
@@ -96,4 +96,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

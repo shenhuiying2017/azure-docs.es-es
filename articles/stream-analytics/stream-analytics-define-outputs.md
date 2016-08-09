@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/23/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
@@ -173,7 +173,7 @@ Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trab
 
 ### Autorización de una cuenta de Power BI
 
-1.	Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
+1.	Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.
 
     ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -318,4 +318,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

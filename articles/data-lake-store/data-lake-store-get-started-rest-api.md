@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante las API de REST
@@ -43,7 +43,7 @@ En este artículo, obtendrá información sobre cómo usar las API de REST de We
 	* **Para la autenticación no interactiva**: en Azure Active Directory, debe crear una **aplicación web**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
 		- Obtenga el **id. de cliente**, el **secreto de cliente** y el **URI de redirección** de la aplicación.
 		- Establecimiento de permisos delegados
-		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte la sección sobre cómo [asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte la sección sobre cómo [asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) para obtener instrucciones sobre cómo recuperar estos valores, establecer los permisos y asignar roles.
 
@@ -276,4 +276,4 @@ Debe ver algo parecido a lo siguiente:
 - [Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

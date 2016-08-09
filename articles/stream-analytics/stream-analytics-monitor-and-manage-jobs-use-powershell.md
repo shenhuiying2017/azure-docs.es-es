@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@ Aprenda a supervisar y administrar los recursos de Análisis de transmisiones co
 
 ## Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
 
- - Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).  
+ - Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Azure PowerShell 0.9.8:
 
@@ -472,4 +472,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

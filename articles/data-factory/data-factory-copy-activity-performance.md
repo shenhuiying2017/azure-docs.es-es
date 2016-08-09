@@ -182,13 +182,13 @@ En el **escenario de copia en la nube**, donde los almacenes de datos de origen 
 
 ![Copias almacenadas provisionalmente: escenario de modelo en la nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-En el **escenario de copia híbrida**, donde el almacén de origen se encuentra en un entorno local y el receptor está en la nube, el proceso de mover datos del almacén de datos de origen al provisional se realiza mediante **Data Management Gateway**, mientras que el movimiento de datos del almacén de datos provisional al receptor lo lleva a cabo el **servicio Data Factory de Azure**.
+En el **escenario de copia híbrida**, donde el almacén de origen se encuentra en un entorno local y el receptor está en la nube, el proceso de mover datos del almacén de datos de origen al provisional se realiza mediante **Data Management Gateway**, mientras que el movimiento de datos del almacén de datos provisional al receptor lo lleva a cabo el **servicio Data Factory de Azure**. Con el flujo invertido también se permite copiar datos de un almacén de datos en la nube a uno local a través de un almacenamiento provisional.
 
 ![Copias almacenadas provisionalmente: escenario de modelo híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Cuando se habilita el movimiento de datos mediante el almacenamiento provisional, puede especificar si desea que los datos se compriman antes de moverlos del almacén de datos de origen al provisional o al de almacenamiento provisional, y que se descompriman antes de moverlos del provisional o del de almacenamiento provisional al receptor.
 
-En este momento, no se pueden copiar datos de un almacén de datos en la nube a uno local, ni tampoco entre dos almacenes locales, aunque está previsto que pueda hacerse en breve.
+En este momento, no se pueden copiar datos entre dos almacenes locales, aunque está previsto que pueda hacerse en breve.
 
 ### Configuración
 Puede configurar el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en un almacenamiento de blobs de Azure antes de cargarlos en un almacén de datos de destino. Cuando el valor de enableStaging se establece en True, debe determinar otras propiedades que aparecen en la tabla siguiente. Además, tiene que crear un servicio vinculado de Almacenamiento de Azure o de SAS de Almacenamiento de Azure como almacenamiento provisional si aún no tiene ninguno.
@@ -392,4 +392,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

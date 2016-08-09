@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Protección de máquinas virtuales implementadas de Resource Manager con Copia de seguridad de Azure | Microsoft Azure"
-	description="Proteja las máquinas virtuales implementadas de Resource Manager con el servicio Copia de seguridad de Azure. Use copias de seguridad de máquinas virtuales implementadas de Resource Manager y máquinas virtuales de Almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
+	pageTitle="Primer análisis: copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación | Microsoft Azure"
+	description="Copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación. Use copias de seguridad de máquinas virtuales implementadas con Resource Manager, máquinas virtuales implementadas con el modelo clásico y máquinas virtuales con Almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,13 +18,13 @@
 	ms.author="markgal; jimpark"/>
 
 
-# Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación
+# Primer análisis: copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación
 
 > [AZURE.SELECTOR]
-- [Copia de seguridad de máquinas virtuales en ARM](backup-azure-vms-first-look-arm.md)
-- [Copia de seguridad de máquinas virtuales en modo clásico](backup-azure-vms-first-look.md)
+- [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
+- [Primer contacto: protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
 
-Este tutorial le guiará por los pasos para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
+Este tutorial le guiará por los pasos necesarios para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
 
 - Máquinas virtuales implementadas en Azure Resource Manager
 - Máquinas virtuales clásicas
@@ -37,7 +37,7 @@ Para obtener información adicional sobre la protección de máquinas virtuales 
 
 A un alto nivel, estos son los pasos que debe completar.
 
-1. Crear un almacén de Servicios de recuperación para una máquina virtual.
+1. Creación de un almacén de Servicios de recuperación para una máquina virtual.
 2. Usar el Portal de Azure para seleccionar un escenario, establecer directivas e identificar los elementos para proteger.
 3. Realizar la copia de seguridad inicial.
 
@@ -45,9 +45,9 @@ A un alto nivel, estos son los pasos que debe completar.
 
 ## Paso 1: Creación de un almacén de Servicios de recuperación para una máquina virtual
 
-Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación contiene también la directiva de copia de seguridad que se aplica a las máquinas virtuales protegidas.
+Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación también contiene la directiva de copia de seguridad que se aplica a las máquinas virtuales protegidas.
 
->[AZURE.NOTE] La copia de seguridad de máquinas virtuales es un proceso local. No puede hacer copias de seguridad de máquinas virtuales de una ubicación en un almacén de Servicios de recuperación que está en otra ubicación. Por lo tanto, para cada ubicación de Azure que tenga máquinas virtuales para realizar copias de seguridad, debe existir al menos un almacén de Servicios de recuperación en esa ubicación.
+>[AZURE.NOTE] La copia de seguridad de máquinas virtuales es un proceso local. No se pueden hacer copias de seguridad de máquinas virtuales de una ubicación en un almacén de Servicios de recuperación que esté en otra ubicación. Por lo tanto, en cada ubicación de Azure que tenga máquinas virtuales de las que se va a realizar copias de seguridad debe existir al menos un almacén de Servicios de recuperación.
 
 
 Para crear un almacén de Servicios de recuperación:
@@ -76,9 +76,9 @@ Para crear un almacén de Servicios de recuperación:
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales que quiere proteger.
 
-    >[AZURE.IMPORTANT] Si no está seguro de en qué ubicación existe la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, debe crear un almacén de Servicios de recuperación en cada región. Cree el almacén en la primera ubicación antes de pasar a la siguiente ubicación. No es necesario especificar cuentas de almacenamiento para almacenar los datos de copia de seguridad: el almacén de Servicios de recuperación y el servicio Copia de seguridad de Azure lo controlarán automáticamente.
+    >[AZURE.IMPORTANT] Si no está seguro de en qué ubicación existe la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, debe crear un almacén de Servicios de recuperación en cada una de ellas. Cree el almacén en la primera ubicación antes de pasar a la siguiente ubicación. No es necesario especificar cuentas de almacenamiento para almacenar los datos de copia de seguridad (el almacén de Servicios de recuperación y el servicio Copia de seguridad de Azure lo controlarán automáticamente).
 
-8. Haga clic en **Crear**. La creación del almacén de Servicios de recuperación puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación.
+8. Haga clic en **Crear**. La creación del almacén de Servicios de recuperación puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Servicios de recuperación.
 
     ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -102,7 +102,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 Antes de registrar una máquina virtual en un almacén, ejecute el proceso de detección para asegurarse de que se identifican todas las nuevas máquinas virtuales que se hayan agregado a la suscripción. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región. En el Portal de Azure, el escenario se refiere a lo que va a colocar en el almacén de servicios de recuperación. Directiva es la programación de la frecuencia y de cuándo se eligen los puntos de recuperación. La directiva también incluye el intervalo de retención de los puntos de recuperación.
 
-1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. Si no tiene abierto un almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú central, haga clic en **Examinar**.
+1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. Si no tiene abierto ningún almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú Concentrador, haga clic en **Examinar**.
 
   - En la lista de recursos, escriba **Servicios de recuperación**.
   - Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de servicios de recuperación** cuando lo vea.
@@ -110,7 +110,7 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
     ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
     Aparece la lista de almacenes de Servicios de recuperación.
-  - En la lista de almacenes de Servicios de recuperación, seleccione un almacén.
+  - En la lista de almacenes de Servicios de recuperación, seleccione uno de ellos.
 
     Se abre el panel del almacén seleccionado.
 
@@ -219,4 +219,4 @@ Si tiene problemas para realizar algunas de las tareas en este artículo, consul
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

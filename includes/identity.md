@@ -2,7 +2,9 @@ La administración de la identidad es igual de importante en la nube pública qu
 
 - Puede ejecutar Windows Server Active Directory (conocido normalmente como AD) en la nube con máquinas virtuales creadas con máquinas virtuales de Azure. Este enfoque es recomendable cuando usa Azure para ampliar el centro de datos local en la nube.
 
-- Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de Software como servicio (SaaS). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
+
+- Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de [Software como servicio (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
+
 
 - Las aplicaciones que se ejecutan en la nube o en local pueden usar el control de acceso de Azure Active Directory para permitir que los usuarios inicien sesión mediante identidades de Facebook, Google, Microsoft y otros proveedores de identidades.
 
@@ -118,4 +120,4 @@ Trabajar con identidades es importante en prácticamente cualquier aplicación. 
 
 David Chappell es el director de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) en San Francisco (California).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

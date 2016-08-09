@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -155,4 +155,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

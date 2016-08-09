@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/02/2016" 
+    ms.date="07/20/2016" 
     ms.author="elizapo" />
 
 
@@ -91,4 +91,4 @@ Bueno, creo que ya lo tenemos claro. Solo queda una cosa por hacer: crear la pri
 
 [Crear una colección de nube](remoteapp-create-cloud-deployment.md) o [crear una colección híbrida](remoteapp-create-hybrid-deployment.md): ya está preparado para crear su colección.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

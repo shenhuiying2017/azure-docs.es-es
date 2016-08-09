@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/25/2016"
    ms.author="kipandya"/>
    
 # Desarrollo con cuentas de DocumentDB de varias regiones
+
+> [AZURE.NOTE] La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Para aprovechar las ventajas de la [distribución global](documentdb-distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure DocumentDB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
@@ -139,8 +141,8 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 - [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md)
 - [Niveles de coherencia](documentdb-consistency-levels.md)
 - [Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Add regions using the Azure portal](documentdb-manage-account.md#addregion) (Incorporación de regiones con el Portal de Azure)
+- [Add regions using the Azure portal (Incorporación de regiones con el Portal de Azure)](documentdb-manage-account.md#addregion)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

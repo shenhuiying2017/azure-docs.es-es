@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Introducción a Servicios móviles (proyectos .NET)
@@ -83,4 +83,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

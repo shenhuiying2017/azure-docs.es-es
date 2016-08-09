@@ -101,8 +101,8 @@ Puede administrar cada directorio como un recurso totalmente independiente: cada
 
 - **Independencia de recursos**. Si crea o elimina un recurso en un directorio, esto no tiene efecto en ningún recurso de los demás directorios, con la excepción parcial de los usuarios externos, según se describe más adelante. Si utiliza un dominio personalizado “contoso.com” con un directorio, este no se puede utilizar con ningún otro directorio.
 - **Independencia administrativa**. Si un usuario no administrador del directorio "Contoso", crea un directorio de prueba "Prueba". En ese caso:
-    - ◦ La herramienta de sincronización de directorios, para sincronizar datos con un único bosque de AD.
-    - ◦ Los administradores del directorio "Contoso" no tienen privilegios administrativos directos en el directorio "Prueba", a menos que el administrador de "Prueba" les otorgue estos privilegios específicamente. Los administradores de "Contoso" pueden controlar el acceso al directorio "Prueba" en virtud del control que tengan de la cuenta de usuario que creó "Prueba".
+    - La herramienta de sincronización de directorios, para sincronizar los datos con un único bosque de AD.
+    - Los administradores del directorio "Contoso" no tienen privilegios administrativos directos en el directorio "Prueba", a menos que el administrador de "Prueba" les otorgue específicamente estos privilegios. Los administradores de "Contoso" pueden controlar el acceso al directorio "Prueba" en virtud del control que tengan de la cuenta de usuario que creó "Prueba".
 
     Y si cambia (agrega o quita) un rol de administrador de un usuario en un directorio, el cambio no afecta a ningún rol de administrador que ese usuario pueda tener en otro directorio.
 
@@ -129,8 +129,8 @@ Se comprueban las condiciones siguientes:
 - No puede haber aplicaciones en el directorio. Las aplicaciones se deben eliminar antes de poder eliminar el directorio.
 - No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. Para asociar su suscripción a un directorio diferente, inicie sesión en el Portal de administración de Azure y haga clic en **Configuración** en el panel izquierdo. A continuación, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. Para obtener más información acerca de las suscripciones de Azure, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
+> [AZURE.NOTE]
+Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 
 - No se pueden vincular proveedores de Multi-Factor Authentication al directorio.
 
@@ -148,4 +148,4 @@ Se comprueban las condiciones siguientes:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

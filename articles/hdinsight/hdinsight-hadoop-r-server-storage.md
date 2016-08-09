@@ -34,17 +34,17 @@ Si es necesario, se puede acceder a varias cuentas de almacenamiento o contenedo
 2. Especifique una cuenta de almacenamiento adicional con el nombre **storage2**.
 3. Copie el archivo mycsv.csv en el directorio /share y realice un análisis en ese archivo.
 
-````
-hadoop fs –mkdir /share
-hadoop fs –copyFromLocal myscsv.scv /share  
-````
+    ````
+    hadoop fs –mkdir /share
+    hadoop fs –copyFromLocal myscsv.scv /share  
+    ````
 
 3.	En código R, establezca el nodo de nombre en **default** e indique el directorio y el archivo que se van a procesar.
 
-````
-myNameNode <- "default"
-myPort <- 0
-````
+    ````
+    myNameNode <- "default"
+    myPort <- 0
+    ````
 
   Ubicación de los datos:
 
@@ -66,13 +66,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Todas las referencias de archivos y directorios apuntan a la cuenta de almacenamiento wasb://container1@storage1.blob.core.windows.net. Esta es la **cuenta de almacenamiento predeterminada** asociada al clúster de HDInsight.
+Todas las referencias de archivos y directorios apuntan a la cuenta de almacenamiento wasbs://container1@storage1.blob.core.windows.net. Esta es la **cuenta de almacenamiento predeterminada** asociada al clúster de HDInsight.
 
 Ahora supongamos que quiere procesar un archivo llamado mySpecial.csv que se encuentra en el directorio /private de **container2** en **storage2**.
 
 En el código R, apunte la referencia del nodo de nombres a la cuenta de almacenamiento **storage2**.
 
-    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
   Ubicación de los datos:
@@ -95,13 +95,13 @@ En el código R, apunte la referencia del nodo de nombres a la cuenta de almacen
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Todas las referencias de archivos y directorios apuntan ahora a la cuenta de almacenamiento wasb://container2@storage2.blob.core.windows.net. Este es el **nodo de nombres** que ha especificado.
+Todas las referencias de archivos y directorios apuntan ahora a la cuenta de almacenamiento wasbs://container2@storage2.blob.core.windows.net. Este es el **nodo de nombres** que ha especificado.
 
 Tenga en cuenta que tendrá que configurar el directorio /user/RevoShare/<SSH username> en **storage2** de la forma siguiente:
 
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 ## Uso de un almacén de Azure Data Lake
 
@@ -190,4 +190,4 @@ Ahora que comprende los aspectos básicos del uso de la consola de R desde una s
 - [Agregar un servidor de RStudio a HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

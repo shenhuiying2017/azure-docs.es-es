@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitación de la auditoría en los servidores SQL Server desde Azure Security Center
@@ -24,7 +24,7 @@ Cuando la haya activado, podrá configurar las opciones de Detección de amenaza
 
 Esta recomendación solo se aplica en el servicio SQL de Azure; no se incluyen las instancias de SQL Server que se ejecutan en las máquinas virtuales de los servicios de infraestructura de Azure (IaaS de Azure).
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -37,7 +37,7 @@ Esta recomendación solo se aplica en el servicio SQL de Azure; no se incluyen l
 
 5. Siga los pasos de [Introducción a Detección de amenazas de Base de datos SQL](../sql-database/sql-database-threat-detection-get-started.md) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
 
-## Pasos siguientes
+## Consulte también
 
 En este artículo, mostramos cómo implementar la recomendación Habilitar la auditoría en servidores SQL de Azure Security Center. Para obtener más información sobre cómo proteger bases de datos SQL, consulte los siguientes recursos:
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

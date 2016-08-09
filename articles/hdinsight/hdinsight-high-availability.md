@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -108,4 +108,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 - [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

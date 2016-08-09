@@ -18,7 +18,7 @@
 
 # Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Información general
 
@@ -158,4 +158,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

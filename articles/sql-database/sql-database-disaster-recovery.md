@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr" 
-   ms.date="06/16/2016"
+   ms.workload="NA" 
+   ms.date="07/20/2016"
    ms.author="carlrab"/>
 
 # Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria
@@ -23,19 +23,31 @@ Base de datos SQL de Azure ofrece las siguientes capacidades para recuperarse de
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Restauración geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-Para obtener información sobre cómo prepararse ante escenarios de desastres y sobre cuándo se debe recuperar la base de datos, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md) y [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria]().
+Para obtener información sobre los escenarios de continuidad empresarial y sus características, consulte el artículo sobre [continuidad empresarial](sql-database-business-continuity.md).
+
+### Preparación ante interrupciones
+
+Para que el proceso de recuperación pueda realizarse sin problemas en otra región de datos mediante la replicación geográfica activa o las copias de seguridad con redundancia geográfica, debe preparar un servidor en otra interrupción de un centro de datos para convertirlo en el nuevo servidor principal si lo considera necesario. También hay que contar con pasos bien definidos que se hayan documentado y probado para garantizar que la recuperación se lleve a cabo correctamente. Estos son algunos de los pasos correspondientes a la fase de preparación:
+
+- Identificar el servidor lógico en otra región para convertirse en el nuevo servidor principal. Con la replicación geográfica activa, será, como mínimo, uno de los servidores secundarios (y probablemente todos). Para la restauración geográfica, normalmente suele ser un servidor de la [región asociada](../best-practices-availability-paired-regions.md) a aquella en donde se encuentre la base de datos.
+- Identificar y, de manera opcional, definir las reglas de firewall de nivel de servidor que deben estar activas para que los usuarios accedan la nueva base de datos principal.
+- Determinar cómo va a redirigir a los usuarios al nuevo servidor principal; por ejemplo, cambiar las cadenas de conexión o las entradas DNS.
+- Identificar y, de manera opcional, crear los inicios de sesión que deben estar presentes en la base de datos maestra del nuevo servidor principal, así como asegurarse de que tienen los permisos adecuados en la base de datos maestra, si procede. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
+- Identificar las reglas de alerta que deben actualizarse para que se asignen a la nueva base de datos principal.
+- Documentar la configuración de auditoría de la base de datos principal actual.
+- Realice [maniobras de recuperación ante desastres](sql-database-disaster-recovery-drills.md). Para simular una interrupción con la restauración geográfica, puede eliminar o cambiar el nombre de la base de datos de origen para provocar el error de conectividad de la aplicación. Para realizar el mismo proceso con la replicación geográfica activa, puede deshabilitar la aplicación web o la máquina virtual conectadas a la base de datos, o bien llevar a cabo una conmutación por error en la base de datos para provocar errores de conectividad en la aplicación.
 
 ## Cuándo iniciar la recuperación
 
-La operación de recuperación repercute en la aplicación. Este proceso requiere cambiar la cadena de conexión SQL y puede provocar la pérdida de datos permanente. Por lo tanto, debe realizarse solo cuando la duración de la interrupción pueda durar más que el RTO de su aplicación. Cuando se implementa la aplicación en producción, deberá supervisar con frecuencia el estado de la aplicación. Para ello, use los siguientes puntos de datos para garantizar la recuperación:
+La operación de recuperación repercute en la aplicación. Este proceso requiere cambiar el redireccionamiento o la cadena de conexión SQL mediante DNS, y podría provocar la pérdida de datos permanente. Por lo tanto, debe realizarse solo cuando la duración de la interrupción pueda durar más que el objetivo de tiempo de recuperación de la aplicación. Cuando se implementa la aplicación en producción, deberá supervisar con frecuencia el estado de la aplicación. Para ello, use los siguientes puntos de datos para garantizar la recuperación:
 
 1.	Error de conectividad permanente de la capa de aplicación en la base de datos.
-2.	El Portal de Azure muestra una alerta acerca de una incidencia en una región con un gran impacto.
-3.	El servidor de base de datos de SQL Azure está marcado como degradado.
+2.	El Portal de Azure muestra una alerta sobre una incidencia en una región con un gran impacto.
+3.	El servidor de Base de datos SQL de Azure está marcado como degradado.
 
 En función de la tolerancia de la aplicación al tiempo de inactividad y de la posible responsabilidad civil, puede considerar las siguientes opciones de recuperación.
 
-Use la opción [Obtener base de datos recuperable](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) para obtener el último punto de restauración de replicación geográfica.
+Use la opción [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (Obtener base de datos recuperable) (*LastAvailableBackupDate*) para obtener el último punto de restauración de replicación geográfica.
 
 ## Espera para la recuperación del servicio
 
@@ -47,14 +59,11 @@ Si el tiempo de inactividad de la aplicación puede dar lugar a responsabilidade
 
 Para restaurar la disponibilidad de las bases de datos, es preciso iniciar la conmutación por error en la secundaria con replicación geográfica mediante uno de los métodos admitidos.
 
-
 Utilice una de las siguientes guías para realizar la conmutación por error en una base de datos secundaria con replicación geográfica:
 
 - [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md)
 - [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md)
 - [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)
-
-
 
 ## Recuperación mediante la restauración geográfica
 
@@ -64,7 +73,6 @@ Utilice una de las siguientes guías para restaurar geográficamente una base de
 
 - [Geo-Restore an Azure SQL Database from a geo-redundant backup using the Azure Portal (Restauración geográfica de una Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica con el Portal de Azure)](sql-database-geo-restore-portal.md)
 - [Restore an Azure SQL Database from a geo-redundant backup using PowerShell (Restauración de una Base de datos SQL de Azure a una región nueva con Powershell)](sql-database-geo-restore-powershell.md)
-
 
 ## Configuración de la base de datos después de realizar la recuperación
 
@@ -85,7 +93,7 @@ Es preciso que se asegure de que las reglas del firewall configuradas tanto en e
 
 Es preciso asegurarse de que todos los inicios de sesión que usa la aplicación existen en el servidor que hospeda la base de datos recuperada. Para obtener más información, consulte [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md).
 
->[AZURE.NOTE] Debe configurar y probar las reglas de firewall del servidor y los inicios de sesión (y sus permisos) durante una maniobra de recuperación ante desastres. Es posible que estos objetos de nivel de servidor y su configuración no estén disponibles durante la interrupción. Para obtener más información, consulte [Maniobras de recuperación ante desastres](sql-database-disaster-recovery-drills.md).
+>[AZURE.NOTE] Debe configurar y probar las reglas de firewall del servidor y los inicios de sesión (y sus permisos) durante una maniobra de recuperación ante desastres. Es posible que estos objetos de nivel de servidor y su configuración no estén disponibles durante la interrupción.
 
 ### Configuración de alertas de telemetría
 
@@ -95,15 +103,13 @@ Para obtener más información sobre las reglas de alerta de las bases de datos,
 
 ### Habilitar auditoría
 
-Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md). Además, para "clientes de nivel inferior", consulte [Base de datos SQL: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que se requiere una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md).
 
 
 ## Pasos siguientes
 
-- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
-- Para más información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad empresarial de Base de datos SQL de Microsoft Azure](sql-database-business-continuity-scenarios.md)
-- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas](sql-database-recovery-using-backups.md)
-- Para conocer las opciones de recuperación más rápidas, consulte [Información general: Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md)
-- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo sobre [Copia de una Base de datos SQL de Azure](sql-database-copy.md)
+- Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte el artículo sobre [escenarios de continuidad](sql-database-business-continuity.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md) (Recuperación de una base de datos SQL de Azure mediante copias de seguridad de base de datos automatizadas).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
-   ms.author="erihur"/>
+   ms.date="07/21/2016"
+   ms.author="erihur;genli"/>
 
 
 # Comprender la factura de Microsoft Azure
@@ -217,7 +217,7 @@ Información de servicio 2 | Información de servicio 2 | Se trata de un campo h
 
 Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, habrá formatos estandarizados para los datos en los campos siguientes:
 
-- **Id. de instancia**: el campo de Id. de instancia representa el identificador especificado por el usuario para el servicio de aprovisionamiento. Actualmente, existen dos formatos en los que está representado el id. de instancia: el nombre del recurso o el id. de recurso completo. Los servicios de Microsoft Azure están realizando la transición para representar el id. de instancia en un formato de Id. de recurso completo estandarizado _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Al realizar los servicios la transición al nuevo formato, verá el campo de datos de Id. de instancia cambiar desde el nombre del recurso al Id. de recurso. El Id. de recurso es el formato utilizado por la [API de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar los recursos en una suscripción.
+- **Id. de instancia**: el campo de Id. de instancia representa el identificador especificado por el usuario para el servicio de aprovisionamiento. Actualmente, existen dos formatos en los que está representado el id. de instancia: el nombre del recurso o el id. de recurso completo. Los servicios de Microsoft Azure están realizando la transición para representar el Id. de instancia en un formato de Id. de recurso completo estandarizado _**(/subscriptions/<identificador de suscripción>/resourcegroups/<nombre del grupo de recursos>/providers/<nombre de proveedor>/<nombre de recurso>)**_. Al realizar los servicios la transición al nuevo formato, verá el campo de datos de Id. de instancia cambiar desde el nombre del recurso al Id. de recurso. El Id. de recurso es el formato utilizado por la [API de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar los recursos en una suscripción.
 
 ![InstanceId](./media/billing-understand-your-bill/instanceid.png)
 
@@ -225,7 +225,7 @@ Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, h
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md). Los servicios que admiten la emisión de etiquetas son:  
+- **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md). Los servicios que admiten la emisión de etiquetas son:
     - Máquinas virtuales
     - Almacenamiento y
     - servicios de redes aprovisionados con la [API de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -253,4 +253,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

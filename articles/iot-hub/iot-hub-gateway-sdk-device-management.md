@@ -207,22 +207,24 @@ Lleve a cabo los pasos siguientes en el mismo equipo Ubuntu 14.04 que usó en la
 
 3. Copie el archivo **iotdm-edison-sample.bb** de la carpeta **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** a la carpeta **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample**.
 
-4. Copie el archivo **iotdm\_edison\_sample.service** de la carpeta **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** a la carpeta **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+4. Edite el archivo **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** y reemplace `-Duse_http:BOOL=OFF` por `-Duse_http:BOOL=ON`.
 
-5. Edite el archivo **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** para agregar una entrada para la nueva receta. Agregue la siguiente línea al final del archivo:
+5. Copie el archivo **iotdm\_edison\_sample.service** de la carpeta **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** a la carpeta **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+
+6. Edite el archivo **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** para agregar una entrada para la nueva receta. Agregue la siguiente línea al final del archivo:
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Como el SDK de puerta de enlace y el cliente de administración de dispositivos comparten algunas bibliotecas, deberá editar el archivo **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Agregue las siguientes líneas al final de este archivo. Asegúrese de reemplazar `<your user>` por su nombre de usuario actual:
+7. Como el SDK de puerta de enlace y el cliente de administración de dispositivos comparten algunas bibliotecas, deberá editar el archivo **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. Agregue las siguientes líneas al final de este archivo. Asegúrese de reemplazar `<your user>` por su nombre de usuario actual:
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Configure la conexión WiFi para que se inicie automáticamente en la placa Edison; para ello edite el archivo **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** y agregue las siguientes líneas al final. Asegúrese de reemplazar `<your wifi ssid>` y `<your wifi password>` por los valores correctos de su red WiFi:
+8. Configure la conexión WiFi para que se inicie automáticamente en la placa Edison; para ello edite el archivo **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** y agregue las siguientes líneas al final. Asegúrese de reemplazar `<your wifi ssid>` y `<your wifi password>` por los valores correctos de su red WiFi:
     
     ```
     network={
@@ -235,7 +237,7 @@ Lleve a cabo los pasos siguientes en el mismo equipo Ubuntu 14.04 que usó en la
     }
     ```
 
-8. Ahora puede crear la imagen de la placa Edison que contiene el SDK de puerta de enlace y el cliente de administración de dispositivos. El comando **bitbake** se ejecutará mucho más rápido que antes porque solo hace falta compilar la nueva receta y agregarla a la imagen:
+9. Ahora puede crear la imagen de la placa Edison que contiene el SDK de puerta de enlace y el cliente de administración de dispositivos. El comando **bitbake** se ejecutará mucho más rápido que antes porque solo hace falta compilar la nueva receta y agregarla a la imagen:
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@ Lleve a cabo los pasos siguientes en el mismo equipo Ubuntu 14.04 que usó en la
     bitbake edison-image
     ```
 
-9. Termine la compilación mediante la ejecución de los siguientes comandos:
+10. Termine la compilación mediante la ejecución de los siguientes comandos:
   
     ```
     cd ~/edison-src/
@@ -264,7 +266,7 @@ Cuando finalice el proceso de actualización, conéctese a la placa Edison media
 
 ### Ejecución del ejemplo
 
-Para conectarse como el dispositivo **GW-device** al centro de IoT, debe configurar el cliente de administración de dispositivos en la placa Edison. Utilice un editor de texto (como **vi** o **nano**) para crear un archivo denominado **.cs** en la carpeta /home/root de la placa Edison. Este archivo debe contener solamente la cadena de conexión de **GW-device**. Si no anotó anteriormente esta cadena de conexión, puede usar las herramientas [Device Explorer o iothub-explorer][lnk-explorer-tools] para recuperar esta cadena de conexión de dispositivo del Registro de dispositivos del Centro de IoT.
+Para conectarse como el dispositivo **GW-device** al Centro de IoT, debe configurar el cliente de administración de dispositivos en la placa Edison. Utilice un editor de texto (como **vi** o **nano**) para crear un archivo denominado **.cs** en la carpeta /home/root de la placa Edison. Este archivo debe contener solamente la cadena de conexión de **GW-device**. Si no anotó anteriormente esta cadena de conexión, puede usar las herramientas [Device Explorer o iothub-explorer][lnk-explorer-tools] para recuperar esta cadena de conexión de dispositivo del Registro de dispositivos del Centro de IoT.
 
 Cuando haya creado el archivo **.cs**, reinicie la placa Edison mediante el siguiente comando:
 
@@ -299,11 +301,11 @@ systemctl status iotdm_edison_sample.service
 
 ### Inicio del trabajo de actualización del firmware
 
-Una actualización de firmware en la placa Edison solicitada por el servicio de administración de dispositivos IoT normalmente descarga un archivo zip que contiene el firmware desde una dirección URL. Para simplificar este tutorial, copie manualmente el archivo zip en la placa Edison y utilice una dirección URL **file://** en lugar de una **http://** cuando solicite la actualización.
+Una actualización de firmware en la placa Edison solicitada por el servicio de administración de dispositivos IoT normalmente descarga un archivo zip que contiene el firmware desde una dirección URL. Para simplificar este tutorial, copie manualmente el archivo .zip en la placa Edison y utilice una dirección URL **file://** en lugar de una **http://** cuando solicite la actualización.
 
 De nuevo, para simplificar el tutorial, la actualización de firmware vuelve a aplicar la misma imagen de firmware en lugar de utilizar una nueva. Podrá ver que esta imagen se aplica a la placa Edison.
 
-Cree un archivo zip denominado **edison.zip** que contenga todos los archivos y subcarpetas de la carpeta **toFlash** en el equipo Ubuntu que usó para crear la imagen personalizada. Asegúrese de que los archivos de la carpeta **toFlash** se encuentran en la raíz del archivo zip. Utilice una herramienta como SCP (o PSCP si usa Putty) para copiar el archivo **edison.zip** en la carpeta /home/root de la placa Edison.
+Cree un archivo .zip denominado "**edison.zip**" que contenga todos los archivos y subcarpetas de la carpeta **toFlash** en el equipo Ubuntu que usó para crear la imagen personalizada. Asegúrese de que los archivos de la carpeta **toFlash** se encuentran en la raíz del archivo .zip. Utilice una herramienta como SCP (o PSCP si usa Putty) para copiar el archivo **edison.zip** en la carpeta /home/root de la placa Edison.
 
 Para enviar el trabajo de actualización de firmware y supervisar su progreso, utilice la [interfaz de usuario de ejemplo de administración de dispositivos][lnk-dm-sample-ui] de Node.js. Puede ejecutar este ejemplo en Windows o Linux y se requiere [Node.js][lnk-nodejs] 6.1.0 o superior. Para recuperar, compilar y ejecutar la interfaz de usuario de ejemplo de administración de dispositivos, siga estos pasos:
 
@@ -377,7 +379,7 @@ Ahora ha finalizado el tutorial que muestra cómo utilizar el cliente de adminis
 
 ## Pasos siguientes
 
-Para más información sobre la administración de dispositivos con el Centro de IoT y la interfaz de usuario de ejemplo, consulte el artículo [Introducción a la administración de dispositivos del Centro de IoT de Azure][lnk-device-management].
+Para obtener más información sobre la administración de dispositivos con el Centro de IoT y la interfaz de usuario de ejemplo, consulte el artículo [Introducción a la administración de dispositivos del Centro de IoT de Azure][lnk-device-management].
 
 Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, visite la página del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk].
 
@@ -423,4 +425,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

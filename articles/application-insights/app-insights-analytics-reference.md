@@ -19,6 +19,7 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) si su aplicación aún no envía datos a Application Insights.
 
 ## Índice
 
@@ -62,7 +63,7 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 Una cláusula let enlaza un [nombre](#names) a un resultado tabular, un valor escalar o una función. La cláusula es un prefijo a una consulta y el ámbito del enlace es esa consulta. (La cláusula let no proporciona una forma para dar nombre a elementos que se utilizan más adelante en la sesión.)
@@ -82,7 +83,7 @@ Una cláusula let enlaza un [nombre](#names) a un resultado tabular, un valor es
 
 **Ejemplos**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -213,7 +214,7 @@ Tenga en cuenta que los patrones son contiguos: pueden solaparse y, normalmente,
     El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
 
  * `all`: se muestran todas las columnas de la entrada.
- * `values`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `values`: filtra las columnas que solo tienen '*' en los resultados.
  * `minimal`: también filtra las columnas que son idénticas para todas las filas de la consulta original.
 
 
@@ -282,7 +283,7 @@ Todos los patrones que aparecen en más de una fracción especificada de los eve
 
     El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
 
- * `minimize`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `minimize`: filtra las columnas que solo tienen '*' en los resultados.
  * `all`: se muestran todas las columnas de la entrada.
 
 
@@ -336,7 +337,7 @@ Tenga en cuenta que los patrones no son distintivos: pueden solaparse y, normalm
 
     El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
 
- * `minimize`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `minimize`: filtra las columnas que solo tienen '*' en los resultados.
  * `all`: se muestran todas las columnas de la entrada.
 
 * `weight_column=` *column\_name*
@@ -364,7 +365,7 @@ extractcolumns se usa para enriquecer una tabla con varias columnas simples que 
     `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
 
 
-* `min_percent=` *double* (valor predeterminado: 10.0)
+* `min_percent=`*double* (valor predeterminado: 10.0)
 
     Otra forma de limitar las nuevas columnas es ignorar las columnas cuya frecuencia es menor que min\_percent.
 
@@ -468,7 +469,7 @@ Una tabla con:
  
      Hay una fila en la salida por cada combinación de filas coincidentes de la izquierda y la derecha.
 
-* `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`).
+* `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`)
 
      Además de las coincidencias internas, hay una fila por cada fila de la izquierda (o derecha), incluso si no tiene ninguna coincidencia. En este caso, las celdas de salida sin coincidencias contienen valores NULL.
 
@@ -785,7 +786,7 @@ Genera una tabla de valores de una columna única. Tenga en cuenta que no tiene 
 * *Stop*: el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* sobrepasa este valor).
 * *Step*: la diferencia entre dos valores consecutivos.
 
-Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en función de una tabla de entrada, utilice la función [range*,*](#range), quizás con el [operador mvexpand](#mvexpand-operator)).
+Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en función de una tabla de entrada, utilice la [ *función* range](#range), quizás con el [operador mvexpand](#mvexpand-operator)).
 
 **Devoluciones**
 
@@ -935,7 +936,7 @@ Si no proporciona ningún elemento *GroupExpression*, toda la tabla se resume en
 
 Las filas de entrada están organizadas en grupos que tienen los mismos valores que las expresiones `by`. A continuación, las funciones de agregación especificadas se calculan sobre cada grupo, generando una fila para cada grupo. El resultado contiene las columnas `by` y también al menos una columna para cada agregación procesada. (Algunas funciones de agregación devuelven varias columnas.)
 
-El resultado tiene tantas filas como el número de combinaciones distintivos de los valores de `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
+El resultado tiene tantas filas como el número de combinaciones distintivas de los valores de `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
 
 **Nota:**
 
@@ -1684,15 +1685,15 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 |---|-------------|
 | + | Agregar |
 | - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que
-|`<=`|Menor que o igual a
-|`>` |Mayor que
-|`>=`|Mayor que o igual a
-|`<>`|No igual a
+| * | Multiplicar | 
+| / | Dividir | 
+| % | Aplicar módulo | 
+|| 
+|`<` |Menor que 
+|`<=`|Menor que o Igual a 
+|`>` |Mayor que 
+|`>=`|Mayor que o Igual a 
+|`<>`|No igual a 
 |`!=`|No igual a
 
 
@@ -2225,7 +2226,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-True si el argumento es una cadena vacía o es null. Vea también [isnull](#isnull).
+True si el argumento es una cadena vacía o es null. Consulte también [isnull](#isnull).
 
 
 **Sintaxis**
@@ -2721,4 +2722,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico
@@ -102,9 +102,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
 > [AZURE.NOTE] También puede usar .NET SDK de HDInsight para habilitar el Escritorio remoto en un clúster. Use el método **EnableRdp** en el objeto de cliente de HDInsight de la siguiente manera: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. De forma similar, para deshabilitar el Escritorio remoto en el clúster, puede usar **client.DisableRdp(clustername, location)**. Para obtener más información sobre estos métodos, consulte [Referencia de .NET SDK de HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Esto solo se aplica a los clústeres de HDInsight que se ejecutan en Windows.
 
-
-
-> [AZURE.NOTE] Una vez RDP está habilitado para un clúster, debe actualizar la página antes de poder conectarse al clúster.
+> Una vez RDP está habilitado para un clúster, debe actualizar la página antes de poder conectarse al clúster.
 
 **Para conectarse a un clúster con RDP**
 
@@ -201,4 +199,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

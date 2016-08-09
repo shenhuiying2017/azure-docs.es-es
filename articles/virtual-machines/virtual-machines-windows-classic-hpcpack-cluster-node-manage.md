@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/18/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
@@ -68,7 +68,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
     3. La imagen debe ser una imagen privada en la categoría de usuario, no una imagen de máquina virtual de Azure pública.
 
-* **Quantity**: número de máquinas virtuales de nodo de ejecución que se van a agregar.
+* **Quantity**: número de máquinas virtuales de nodo de proceso que se van a agregar.
 
 * **InstanceSize**: tamaño de las máquinas virtuales de nodos de ejecución.
 
@@ -179,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Si busca una manera de aumentar o reducir automáticamente los nodos de clúster según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

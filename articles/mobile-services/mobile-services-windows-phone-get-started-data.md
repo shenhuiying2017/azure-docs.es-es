@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -196,4 +196,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="03/18/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Incorporación de notificaciones push a la aplicación de Xamarin.Forms
@@ -857,4 +857,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de inicio de notificación push de Xamarin.Forms Azure]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

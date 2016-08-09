@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -56,7 +56,7 @@ El flujo de trabajo que implementará siguiendo las instrucciones de este tutori
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una estación de trabajo con Azure PowerShell**. 
+- **Una estación de trabajo con Azure PowerShell**.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
@@ -128,7 +128,7 @@ RunHiveScript tiene distintas variables. Pasará los valores cuando envíe el tr
 <table border = "1">
 <tr><th>Variables de flujo de trabajo</th><th>Descripción</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost: 9010</strong> en HDInsight versión 3.0 y 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasbs://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Especifica el nombre de cola al que se enviará el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
 </table>
 
@@ -190,9 +190,9 @@ El script de PowerShell de esta sección lleva a cabo los siguientes pasos:
 
 	Ambos archivos se almacenan en un contenedor de blobs público.
 	
-	- Copie el script de HiveQL (useoozie.hql) en el almacenamiento de Azure (wasb:///tutorials/useoozie/useoozie.hql)).
-	- Copie workflow.xml en wasb:///tutorials/useoozie/workflow.xml.
-	- Copie el archivo de datos (/example/data/sample.log) en wasb:///tutorials/useoozie/data/sample.log.
+	- Copie el script de HiveQL (useoozie.hql) en el almacenamiento de Azure (wasbs:///tutorials/useoozie/useoozie.hql).
+	- Copie workflow.xml en wasbs:///tutorials/useoozie/workflow.xml.
+	- Copie el archivo de datos (/example/data/sample.log) en wasbs:///tutorials/useoozie/data/sample.log.
 	 
 6. Envíe un trabajo de Oozie.
 
@@ -448,7 +448,7 @@ Este es el script. Puede ejecutar el script desde Windows PowerShell ISE. Solo n
 	
 	#region - submit Oozie job
 	
-	$storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+	$storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 	
 	$oozieJobName = $namePrefix + "OozieJob"
 	
@@ -670,7 +670,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/es-ES/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -680,4 +680,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

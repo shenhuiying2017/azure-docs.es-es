@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -46,7 +46,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial requiere lo siguiente:
 
-* Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones. 
+* Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
 * Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) y [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 * Finalización del tutorial [Introducción a Servicios móviles].
 
@@ -184,4 +184,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [eliminación temporal]: mobile-services-using-soft-delete.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

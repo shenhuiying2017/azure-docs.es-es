@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio
@@ -39,8 +39,8 @@ En este artículo, aprenderá a usar Microsoft Visual Studio para crear su prime
 Los tutoriales siguientes muestran cómo crear e implementar las entidades de la instancia de Data Factory.
 
 ## Creación de un proyecto de Visual Studio 
-1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debe aparecer el cuadro de diálogo **Nuevo proyecto**.  
-2. En el cuadro de diálogo **Nuevo proyecto**, seleccione la plantilla **DataFactory** y haga clic en **Proyecto vacío de Factoría de datos**.   
+1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debe aparecer el cuadro de diálogo **Nuevo proyecto**.
+2. En el cuadro de diálogo **Nuevo proyecto**, seleccione la plantilla **DataFactory** y haga clic en **Proyecto vacío de Factoría de datos**.
 
 	![Cuadro de diálogo Nuevo proyecto](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -56,8 +56,8 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de H
 #### Creación de un servicio vinculado de Almacenamiento de Azure
 En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría de datos. Para este tutorial, usará la misma cuenta de Almacenamiento de Azure para almacenar los datos de entrada y salida y el archivo de script de HQL.
 
-4. Haga clic con el botón derecho en **Servicios vinculados** en el Explorador de soluciones, seleccione **Agregar** y haga clic en **Nuevo elemento**.      
-5. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **Servicio vinculado de Almacenamiento de Azure** en la lista y haga clic en **Agregar**. 
+4. Haga clic con el botón derecho en **Servicios vinculados** en el Explorador de soluciones, seleccione **Agregar** y haga clic en **Nuevo elemento**.
+5. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **Servicio vinculado de Almacenamiento de Azure** en la lista y haga clic en **Agregar**.
 3. Reemplace los valores de **accountname** y **accountkey** por el nombre de la cuenta de Almacenamiento de Azure y su clave. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 	![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
@@ -68,7 +68,7 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 En este paso, vinculará un clúster de HDInsight a petición con la factoría de datos. El clúster de HDInsight se crea automáticamente en tiempo de ejecución y se elimina después de hacer el procesamiento y de permanecer inactivo durante el período de tiempo especificado. Puede usar su propio clúster de HDInsight en lugar de usar un clúster de HDInsight a petición. Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Servicios vinculados**, seleccione **Agregar** y haga clic en **Nuevo elemento**.
-2. Seleccione **Servicio vinculado de HDInsight a petición** y haga clic en **Agregar**. 
+2. Seleccione **Servicio vinculado de HDInsight a petición** y haga clic en **Agregar**.
 3. Reemplace el código **JSON** por el siguiente:
 
 		{
@@ -101,7 +101,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 	
 		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
 
-	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
+	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información.
 4. Guarde el archivo **HDInsightOnDemandLinkedService1.json**.
 
 ## Creación de conjuntos de datos
@@ -109,9 +109,9 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 
 #### Creación de un conjunto de datos de entrada
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Tablas**, seleccione **Agregar** y haga clic en **Nuevo elemento**. 
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Tablas**, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Blob de Azure** en la lista, cambie el nombre del archivo a **InputDataSet.json** y haga clic en **Agregar**.
-3. Reemplace el código **JSON** del editor por lo siguiente: 
+3. Reemplace el código **JSON** del editor por lo siguiente:
 
 	En el fragmento de código JSON, va a crear un conjunto de datos denominado **AzureBlobInput** que representa los datos de entrada para una actividad de la canalización. Además, va a especificar que los datos de entrada se coloquen en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata**.
 		
@@ -255,14 +255,14 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
 
-1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.  
+1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.
 2. Navegue hasta **C:\\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
 
 Al publicar la solución en el paso siguiente, se carga el archivo **partitionweblogs.hql** en la carpeta de scripts del contenedor de blobs **adfgetstarted**.
 
 ### Publicación e implementación de las entidades de Factoría de datos
 
-18. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**. 
+18. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**.
 19. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
 20. Debería ver el siguiente cuadro de diálogo:
 
@@ -270,16 +270,16 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 21. En la página Configurar Data Factory, haga lo siguiente:
 	1. Seleccione la opción **Crear nueva factoría de datos**.
-	2. Escriba **FirstDataFactoryUsingVS** como **nombre**. 
+	2. Escriba **FirstDataFactoryUsingVS** como **nombre**.
 	
 		> [AZURE.IMPORTANT] El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 	3. Seleccione la suscripción correcta en el campo **Suscripción**.
 	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear.
 	5. Seleccione la **Región** de la factoría de datos.
 	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Presione la tecla **TAB** para salir del campo Nombre si el botón **Siguiente** está deshabilitado).
-23. En la página **Publicar elementos**, asegúrese de que todas las entidades de Factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
+23. En la página **Publicar elementos**, asegúrese de que todas las entidades de Factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
-25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
+25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar.
 
 Tenga en cuenta lo siguiente:
 
@@ -300,7 +300,7 @@ Tenga en cuenta lo siguiente:
 ## Supervisión de la canalización
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**.
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
 		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos.
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
@@ -308,25 +308,25 @@ Tenga en cuenta lo siguiente:
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
 7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial.
 	
-	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png) 
+	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
 8. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización.
 
 	![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png)
-9. Confirme que la actividad de HDInsightHive está en la canalización. 
+9. Confirme que la actividad de HDInsightHive está en la canalización.
   
 	![Vista Abrir canalización](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
-	Para volver a la vista anterior, haga clic en **Factoría de datos** en el menú de la barra de ruta de navegación en la parte superior. 
+	Para volver a la vista anterior, haga clic en **Factoría de datos** en el menú de la barra de ruta de navegación en la parte superior.
 10. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Puede que el segmento tarde un par de minutos en aparecer con ese estado. Si esto no sucede después de esperar un tiempo, compruebe si el archivo de entrada (input.log) está en el contenedor (adfgetstarted) y en la carpeta (inputdata) correctos.
 
 	![Segmento de entrada con estado Listo](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
-11. Haga clic en **X** para cerrar la hoja **AzureBlobInput**. 
+11. Haga clic en **X** para cerrar la hoja **AzureBlobInput**.
 12. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Verá que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
 
-	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).  
+	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
@@ -483,4 +483,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayudará a comprender los conjuntos de datos en Factoría de datos de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

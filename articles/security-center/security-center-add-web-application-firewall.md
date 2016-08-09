@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Adición de un firewall de aplicaciones web en el Centro de seguridad de Azure
 
 El Centro de seguridad de Azure puede recomendarle agregar Firewall de aplicaciones web (WAF) de un partner de Microsoft para proteger las aplicaciones web. Este documento le ofrece un ejemplo de cómo hacerlo:
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -48,7 +48,7 @@ El Centro de seguridad de Azure puede recomendarle agregar Firewall de aplicacio
 
 Los registros de ese WAF ahora están totalmente integrados. El Centro de seguridad puede comenzar a recopilar y analizar automáticamente los registros, con el fin de poder exponer las alertas de seguridad importantes.
 
-## Pasos siguientes
+## Consulte también
 
 En este documento, mostramos cómo implementar la recomendación "Adición de una aplicación web" del Centro de seguridad. Para obtener más información sobre cómo configurar un firewall de aplicaciones web, vea lo siguiente:
 
@@ -71,4 +71,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

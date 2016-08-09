@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -27,7 +27,7 @@ Obtenga información acerca de cómo crear una aplicación de aprendizaje autom�
 Debe tener lo siguiente:
 
 - Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un clúster Apache Spark en HDInsight Linux. Para instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md). 
+- Un clúster Apache Spark en HDInsight Linux. Para instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ##<a name="data"></a>Visualización de los datos
 
@@ -45,7 +45,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 En esta aplicación se usa una canalización Spark ML para realizar una clasificación de documentos. En la canalización, se divide el documento en palabras, se convierten las palabras en un vector numérico de característica y finalmente se genera un modelo de predicción que use los vectores de característica y las etiquetas. Realice los siguientes pasos para crear la aplicación:
 
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -111,7 +111,7 @@ En esta aplicación se usa una canalización Spark ML para realizar una clasific
     		return LabeledDocument((values[6]), textValue, hot)
 
 		# Load the raw HVAC.csv file, parse it using the function
-		data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 		training = documents.toDF()
@@ -262,4 +262,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

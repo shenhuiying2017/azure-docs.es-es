@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Actualización de la versión del sistema operativo en Azure Security Center
 
 Para las máquinas virtuales de los servicios en la nube, Azure Security Center recomienda que se actualice el sistema operativo si hay disponible una versión más reciente. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción.
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -28,7 +28,7 @@ Para las máquinas virtuales de los servicios en la nube, Azure Security Center 
 
 2. Se abrirá la hoja **Actualizar versión del sistema operativo**. Siga los pasos de esta hoja para actualizar la versión del sistema operativo.
 
-## Pasos siguientes
+## Consulte también
 
 En este artículo, mostramos cómo implementar la recomendación "Actualizar versión del sistema operativo" de Security Center. Para más información acerca de los servicios en la nube y la actualización de la versión de sistema operativo para un servicio en la nube, consulte:
 
@@ -49,4 +49,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -50,4 +50,4 @@ En este tutorial, aprenderá a usar el Portal de Azure para:
 ## Pasos siguientes
 Ahora que ha completado este tutorial de Base de datos SQL, ha creado una cuenta de usuario y ha concedido a la cuenta de usuario permisos de dbo, está preparado para aprender más sobre la [seguridad de Base de datos SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

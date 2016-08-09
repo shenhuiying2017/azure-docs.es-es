@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="kgremban"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="kgremban"/>
 
 
@@ -62,7 +62,19 @@ La propiedad **Actions** de un rol personalizado especifica las operaciones de A
 
 Use `Get-AzureRmProviderOperation` (en PowerShell) o `azure provider operations show` (en la CLI de Azure) para mostrar las operaciones de proveedores de recursos de Azure. También puede usar estos comandos para comprobar que una cadena de operación es válida y para expandir las cadenas de operación con comodín.
 
+```
+Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+
+Get-AzureRMProviderOperation Microsoft.Network/*
+```
+
 ![Captura de pantalla de PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+```
+azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
+
+azure provider operations show "Microsoft.Network/*"
+```
 
 ![Captura de pantalla de la CLI de Azure: azure provider operations show "Microsoft.Compute/virtualMachines/*/action"](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
@@ -92,11 +104,11 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 - ¿Quién puede ver los roles personalizados? Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación. Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito.
 
 ## Consulte también
-- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
+- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
 - Aprenda a administrar el acceso con:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API DE REST](role-based-access-control-manage-access-rest.md)
-- [RBAC: Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles que se incluyen como estándar en RBAC.
+- [Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles incluidos de forma predeterminada en RBAC.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

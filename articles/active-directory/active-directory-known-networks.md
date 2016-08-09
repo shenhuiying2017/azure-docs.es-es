@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"  
+	manager="femila"  
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="07/20/2016" 
 	ms.author="markvi"/>
 
 # Redes conocidas
@@ -25,7 +25,7 @@ Es posible que los informes "*Inicios de sesión desde varias ubicaciones geogr�
 
 Por ejemplo, esto puede ocurrir cuando:
 
-- Un usuario de su oficina de Boston que ha iniciado sesión de forma remota en su centro de datos en San Francisco desencadena el informe "Inicios de sesión desde varias ubicaciones geográficas". 
+- Un usuario de su oficina de Boston que ha iniciado sesión de forma remota en su centro de datos en San Francisco desencadena el informe "Inicios de sesión desde varias ubicaciones geográficas".
 
 - Un usuario de su organización que intenta iniciar sesión varias veces con una contraseña incorrecta desencadena el informe "Inicios de sesión desde direcciones IP con actividad sospechosa".
 
@@ -56,4 +56,4 @@ Para evitar estos casos de generación de informes de seguridad engañosos, debe
 * [Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

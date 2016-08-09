@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell
@@ -24,6 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Este artículo le guiará a través de los pasos necesarios para crear una conexión entre redes virtuales mediante el modelo de implementación de Resource Manager y PowerShell. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **Información sobre los modelos de implementación de Azure**
@@ -83,9 +85,9 @@ Esta configuración se aplica a las redes virtuales que están en la misma suscr
 
 ### Antes de empezar
 
-- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [beneficios como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+- Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ### <a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
@@ -120,7 +122,7 @@ En este ejercicio, utilice los siguientes valores para las redes virtuales:
 - TestVNet2: 10.41.0.0/16 y 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - Backend: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Grupo de recursos: TestRG4
 - Ubicación: Oeste de EE. UU.
 - Servidor DNS: 8.8.8.8
@@ -292,13 +294,13 @@ Después de configurar TestVNet1, debe repetir los pasos para crear TestVNet4. S
 
 	Después de unos minutos, la conexión debería haberse establecido.
 
-## <a name="Verify"></a>Comprobación de la conexión de red virtual a red virtual
+## <a name="Verify"></a>Comprobación de una conexión de red virtual a red virtual
 
 En los ejemplos siguientes se muestra cómo comprobar la conexión. Asegúrese de cambiar los valores para que coincidan con los de su entorno.
 
 ### Para comprobar la conexión mediante el uso del Portal de Azure
 
-Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** ->** haga clic en el nombre de su puerta de enlace** ->**Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
+Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** ->**haga clic en el nombre de su puerta de enlace** -> **Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
 
 
 ### Para comprobar la conexión mediante el uso de PowerShell
@@ -479,7 +481,7 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 		PS C:\> $vnet5gw.Id
 		/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
 
-3. **[Suscripción 1]** Creación de la conexión de TestVNet1 a TestVNet5
+3. **[Suscripción 1]** Creación de la conexión entre TestVNet1 y TestVNet5
 
 	En este paso, creará la conexión de TestVNet1 a TestVNet5. La diferencia en este caso es que no se puede obtener $vnet5gw directamente porque está en una suscripción diferente. Debe crear un nuevo objeto de PowerShell con los valores que se le hayan proporcionado para la suscripción 1 en los pasos anteriores. Reemplace el nombre (Name), el identificador (Id) y la clave compartida por sus propios valores. Lo importante es que la clave compartida coincida en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión.
 
@@ -491,7 +493,7 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 		$Connection15 = "VNet1toVNet5"
 		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-4. **[Suscripción 5]** Creación de la conexión de TestVNet5 a TestVNet1
+4. **[Suscripción 5]** Creación de la conexión entre TestVNet5 y TestVNet1
 
 	Este paso es similar al anterior, salvo en que se crea la conexión de TestVNet5 a TestVNet1. Aquí también se aplica el mismo proceso de creación de un objeto de PowerShell basándose en los valores obtenidos de la suscripción 1. En este paso, asegúrese de que las claves compartidas coincidan.
 
@@ -509,6 +511,6 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 ## Pasos siguientes
 
 - Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
-- Para más información acerca de BGP, consulte [Información general de BGP con puertas de enlace de VPN de Azure](vpn-gateway-bgp-overview.md) y [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
+- Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

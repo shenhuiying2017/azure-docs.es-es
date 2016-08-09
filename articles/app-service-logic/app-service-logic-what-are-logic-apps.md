@@ -4,7 +4,7 @@
 	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -82,4 +82,4 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

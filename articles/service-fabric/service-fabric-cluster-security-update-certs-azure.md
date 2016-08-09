@@ -30,7 +30,7 @@ Para agregar otro certificado como secundario, debe cargar el certificado en un 
 3. En **Configuración**, haga clic en la configuración de certificado y especifique la huella digital del certificado secundario.
 4. Haga clic en **Guardar**. Se iniciará una implementación y, cuando se complete, podrá usar tanto el certificado principal como el secundario para realizar operaciones de administración en el clúster.
 
-![Screen shot of certificate thumbprints in the portal][SecurityConfigurations\_02]
+![Screen shot of certificate thumbprints in the portal][SecurityConfigurations_02]
 
 ## Quitar un certificado
 Este es el proceso para quitar un certificado antiguo de modo que el clúster no lo utilice:

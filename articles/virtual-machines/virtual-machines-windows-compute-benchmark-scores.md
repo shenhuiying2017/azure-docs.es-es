@@ -1,5 +1,5 @@
 <properties
- pageTitle="Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows | Microsoft Azure"
+ pageTitle="Puntuaciones de pruebas comparativas de proceso para VM Windows | Microsoft Azure"
  description="Comparación de puntuaciones de pruebas comparativas de proceso de SPECint para máquinas virtuales de Azure con Windows Server"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -68,4 +68,4 @@ Las cifras de Windows se calcularon mediante la ejecución de [SPECint 2006](htt
 
 * Para más información sobre las capacidades de almacenamiento, los detalles del disco y consideraciones adicionales para seleccionar tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

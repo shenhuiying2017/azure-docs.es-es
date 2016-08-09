@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/13/2016" 
+	ms.date="07/21/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solución de problemas en el backend .NET de Servicios móviles
@@ -164,4 +164,4 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 <!-- Links -->
 [SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

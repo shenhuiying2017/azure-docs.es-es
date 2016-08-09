@@ -1,268 +1,284 @@
 <properties
-pageTitle="Incorporación del conector de Salesforce a PowerApps Enterprise y a las aplicaciones lógicas| Microsoft Azure"
-description="Información general del conector de Salesforce con parámetros de la API de REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="Aprenda a utilizar el conector de Salesforce en las aplicaciones lógicas | Microsoft Azure"
+description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/19/2016"
+ms.workload="integration"
+ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Introducción al conector de Salesforce 
-Conéctese a Salesforce y cree objetos, obtenga objetos, etc. El conector de Salesforce puede usarse desde:
+# Introducción al conector de Salesforce
 
-- Aplicaciones lógicas 
-- PowerApps
+El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce.
 
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-salesforce.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-&nbsp;
+## Conexión con el conector de Salesforce
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.
 
-Con Salesforce, puede:
+### Creación de una conexión con el conector de Salesforce
 
-- Compilar el flujo de negocio en función de los datos que obtiene de SalesForce. 
-- Usar desencadenadores para cuando se crea o actualiza un objeto.
-- Usar acciones para crear un objeto, eliminar un objeto, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo objeto en Salesforce, puede enviar un correo electrónico mediante Office 365.
-- Agregar el conector de Salesforce a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
+>[AZURE.INCLUDE [Pasos para crear una conexión al conector de Salesforce](../../includes/connectors-create-api-salesforce.md)]
 
-Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+## Uso de un desencadenador del conector de Salesforce
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Desencadenadores y acciones
-La API de Salesforce incluye los siguientes desencadenadores y acciones.
+>[AZURE.INCLUDE [Pasos para crear un desencadenador de Salesforce](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-| Desencadenadores | Acciones|
-| --- | --- |
-|<ul><li>Cuando se crea un objeto</li><li>Cuando se modifica un objeto</li></ul> | <ul><li>Crear objeto</li><li>Obtener objetos</li><li>Cuando se crea un objeto</li><li>Cuando se modifica un objeto</li><li>Eliminar objeto</li><li>Obtener objeto</li><li>Obtener tipos de objeto (SObjects)</li><li>Actualizar objeto</li></ul>
+## Agregar una condición 
+>[AZURE.INCLUDE [Pasos para crear una condición de Salesforce](../../includes/connectors-create-api-salesforce-condition.md)]
 
-Todos los conectores admiten datos en formato JSON y XML.
+## Uso de una acción del conector de Salesforce
 
-## Creación de una conexión a Salesforce 
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su Salesforce.
+>[AZURE.INCLUDE [Pasos para crear una acción de Salesforce](../../includes/connectors-create-api-salesforce-action.md)]
 
->[AZURE.INCLUDE [Pasos para crear una conexión a Salesforce](../../includes/connectors-create-api-salesforce.md)]
+## Detalles técnicos
 
-Después de crear la conexión, especifique las propiedades de Salesforce, como el nombre de tabla. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
 
->[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
+## Desencadenadores del conector de Salesforce
 
-## Referencia de API de REST de Swagger
-Se aplica a la versión: 1.0.
+El conector de Salesforce tiene el siguiente desencadenador o desencadenadores:
+
+|Desencadenador | Descripción|
+|--- | ---|
+|[Cuando se crea un objeto](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|Esta operación desencadena un flujo al crear un objeto.|
+|[Cuando se modifica un objeto](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|Esta operación desencadena un flujo al modificar un objeto.|
+
+
+## Acciones del conector de Salesforce
+
+El conector de Salesforce tiene las siguientes acciones:
+
+
+|Acción|Descripción|
+|--- | ---|
+|[Obtener objetos](connectors-create-api-salesforceconnector.md#get-objects)|Esta operación obtiene objetos de un determinado tipo de objeto como 'Cliente potencial'.|
+|[Crear objeto](connectors-create-api-salesforceconnector.md#create-object)|Esta operación crea un objeto.|
+|[Obtener objeto](connectors-create-api-salesforceconnector.md#get-object)|Esta operación obtiene un objeto.|
+|[Eliminar objeto](connectors-create-api-salesforceconnector.md#delete-object)|Esta operación elimina un objeto.|
+|[Actualizar objeto](connectors-create-api-salesforceconnector.md#update-object)|Esta operación actualiza un objeto.|
+|[Obtener tipos de objeto](connectors-create-api-salesforceconnector.md#get-object-types)|Esta operación enumera los tipos de objeto disponibles.|
+### Detalles de la acción
+
+Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas:
+
+
+
+### Obtener objetos
+Esta operación obtiene objetos de un determinado tipo de objeto como 'Cliente potencial'.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto de Salesforce como 'Cliente potencial'|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir el número de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+ItemsList
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
 
 
 ### Crear objeto
-Crea un objeto de Salesforce. ```POST: /datasets/default/tables/{table}/items```
+Esta operación crea un objeto.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|item| |yes|body|Ninguna|Objeto de Salesforce para crear|
 
-### Respuesta
-|Nombre|Descripción|
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Cliente potencial'|
+|item*|Objeto|Objeto que se va a crear|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+Elemento
+
+
+| Nombre de propiedad | Tipo de datos |
 |---|---|
-|200|OK|
-|default|Error en la operación.|
+|ItemInternalId|cadena|
+
 
 
 
 ### Obtener objeto
-Recupera un objeto de Salesforce. ```GET: /datasets/default/tables/{table}/items/{id}```
+Esta operación obtiene un objeto.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|id|cadena|yes|path|Ninguna|Identificador único del objeto de Salesforce para recuperar|
 
-### Respuesta
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto de Salesforce como 'Cliente potencial'|
+|id*|Id. de objeto|Identificador del objeto que se va a obtener|
 
-|Nombre|Descripción|
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+Elemento
+
+
+| Nombre de propiedad | Tipo de datos |
 |---|---|
-|200|OK|
-|default|Error en la operación.|
+|ItemInternalId|cadena|
+
 
 
 
 ### Eliminar objeto
-Elimina un objeto de Salesforce. ```DELETE: /datasets/default/tables/{table}/items/{id}```
+Esta operación elimina un objeto.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|id|cadena|yes|path|Ninguna|Identificador único del objeto de Salesforce para eliminar|
 
-### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Cliente potencial'|
+|id*|Id. de objeto|Identificador del objeto que se va a eliminar|
+
+El símbolo * indica que la propiedad es obligatoria.
+
 
 
 
 ### Actualizar objeto
-Actualiza un objeto de Salesforce. ```PATCH: /datasets/default/tables/{table}/items/{id}```
+Esta operación actualiza un objeto.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|id|cadena|yes|path|Ninguna|Identificador único del objeto de Salesforce para actualizar|
-|item| |yes|body|Ninguna|Objeto de Salesforce con propiedades cambiadas|
 
-### Respuesta
-|Nombre|Descripción|
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Cliente potencial'|
+|id*|Id. de objeto|Identificador del objeto que se va a actualizar|
+|item*|Objeto|Objeto con propiedades cambiadas|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+Elemento
+
+
+| Nombre de propiedad | Tipo de datos |
 |---|---|
-|200|OK|
-|default|Error en la operación.|
+|ItemInternalId|cadena|
+
 
 
 
 ### Cuando se crea un objeto
-Desencadena un flujo cuando se crea un objeto en Salesforce. ```GET: /datasets/default/tables/{table}/onnewitems```
+Esta operación desencadena un flujo al crear un objeto.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|$skip|integer|no|query|Ninguna|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|integer|no|query|Ninguna|Número máximo de entradas para recuperar (valor predeterminado = 256)|
-|$filter|cadena|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
-|$orderby|cadena|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
 
-### Respuesta
-|Nombre|Descripción|
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Cliente potencial'|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir el número de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+ItemsList
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+
+
+### Cuando se modifica un objeto
+Esta operación desencadena un flujo al modificar un objeto.
+
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Cliente potencial'|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir el número de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+
+El símbolo * indica que la propiedad es obligatoria.
+
+#### Detalles de salida
+
+ItemsList
+
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+
+
+### Obtener tipos de objeto
+Esta operación enumera los tipos de objeto disponibles.
+
+
+No hay parámetros para esta llamada
+
+#### Detalles de salida
+
+TablesList
+
+
+| Nombre de propiedad | Tipo de datos | 
+|---|---|
+|value|array|
+
+
+
+## Respuestas HTTP
+
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+
+|Name|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido.|
 |default|Error en la operación.|
 
 
 
-### Cuando se modifica un objeto 
-Desencadena un flujo cuando se modifica un objeto en Salesforce. ```GET: /datasets/default/tables/{table}/onupdateditems```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|table|cadena|yes|path|Ninguna|Tipo SObject de Salesforce (ejemplo: 'Lead')|
-|$skip|integer|no|query|Ninguna|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|integer|no|query|Ninguna|Número máximo de entradas para recuperar (valor predeterminado = 256)|
-|$filter|cadena|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
-|$orderby|cadena|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
-
-### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-## Definiciones de objeto 
-
-#### DataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-
-#### TabularDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-
-#### BlobDataSetsMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-
-#### TableMetadata
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|name|cadena|no|
-|título|cadena|no|
-|x-ms-permission|cadena|no|
-|schema|not defined|no|
-
-
-#### DataSetsList
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSet
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|Nombre|cadena|
-|DisplayName|cadena|no|
-
-
-#### Tabla
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-
-
-#### Elemento
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|ItemInternalId|cadena|no|
-
-
-#### ItemsList
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|value|array|no|
-
-
-#### TablesList
-
-| Nombre | Tipo de datos | Obligatorio|
-|---|---|---|
-|value|array|no|
 
 
 ## Pasos siguientes
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Volver a la [lista de API](apis-list.md).
-
-
-[5]: https://developer.salesforce.com
-[6]: ./media/connectors-create-api-salesforce/salesforce-developer-homepage.png
-[7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
-[8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

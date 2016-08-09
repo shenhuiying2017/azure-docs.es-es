@@ -203,13 +203,13 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 3. Una vez conectado al nodo principal, use el siguiente comando para ejecutar el trabajo de recuento de palabras.
 
-        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
+        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
 
     De esta forma, se ejecuta la clase de WordCount que implementó anteriormente. `--hdfs` indica al trabajo que utilice HDFS. `--input` Especifica el archivo de texto de entrada y `--output` especifica la ubicación de salida.
 
 4. Una vez completado el trabajo, utilice lo siguiente para ver el resultado.
 
-        hdfs dfs -text wasb:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/part-00000
 
     Debería ver información similar a la siguiente:
 
@@ -279,13 +279,13 @@ Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución 
         #Create a job definition and start the job
         $jobDef=New-AzureRmHDInsightMapReduceJobDefinition `
             -JobName ScaldingWordCount `
-            -JarFile wasb:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
+            -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
                        "--input", `
-                       "wasb:///example/data/gutenberg/davinci.txt", `
+                       "wasbs:///example/data/gutenberg/davinci.txt", `
                        "--output", `
-                       "wasb:///example/wordcountout"
+                       "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `
@@ -343,4 +343,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

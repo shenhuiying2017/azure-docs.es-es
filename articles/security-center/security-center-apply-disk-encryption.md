@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Aplicación del cifrado de discos en el Centro de seguridad de Azure
@@ -45,7 +45,7 @@ Existen varios enfoques que pueden usarse para configurar los requisitos previos
 
 
 
-## Pasos siguientes
+## Consulte también
 
 En este documento, mostramos cómo implementar la recomendación "Aplicar el cifrado de discos" del Centro de seguridad. Para más información acerca del cifrado de discos, consulte lo siguiente:
 
@@ -67,4 +67,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

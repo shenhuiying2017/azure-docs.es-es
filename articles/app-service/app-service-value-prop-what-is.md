@@ -33,7 +33,7 @@ Estas son algunas de las características y funcionalidades principales del Serv
 
 - **Varios lenguajes y plataformas**: Servicio de aplicaciones es compatible con ASP.NET, Node.js, Java, PHP y Python. También puede ejecutar [Windows PowerShell y otros scripts o ejecutables](../app-service-web/web-sites-create-web-jobs.md) en máquinas virtuales del Servicio de aplicaciones.
 
-- **Optimización de DevOps**: configure la [integración y la implementación continuas](../app-service-web/app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](../app-service-web/web-sites-staged-publishing.md). Realice [pruebas A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Administre las aplicaciones de Servicio de aplicaciones mediante [Azure PowerShell](../powershell-install-configure.md) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
+- **Optimización de DevOps**: configure la [integración y la implementación continuas](../app-service-web/app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](../app-service-web/web-sites-staged-publishing.md). Realice [pruebas A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Administre las aplicaciones de Servicio de aplicaciones mediante [Azure PowerShell](../powershell-install-configure.md) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
  
 - **Escala global con alta disponibilidad**: escale [vertical](../app-service-web/web-sites-scale.md) u [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual o automática. Hospede las aplicaciones en cualquier parte de la infraestructura del centro de datos global de Microsoft y el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/app-service/) del Servicio de aplicaciones promete una alta disponibilidad.
 
@@ -80,4 +80,4 @@ También puede abrir una [cuenta de Azure gratis](https://azure.microsoft.com/pr
 * [Introducción a Aplicaciones de API, ASP.NET y Swagger en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

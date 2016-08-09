@@ -4,7 +4,7 @@
 	keywords="supervisión de base de datos, rendimiento de base de datos"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -47,4 +47,4 @@ Las mismas métricas que se exponen en el Portal están también disponibles a t
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="micurd"/>
 
 # Movimiento de datos hacia y desde Almacenamiento de Azure
@@ -27,6 +27,8 @@ Si está creando una aplicación, desarrollando con la API de REST o con una de 
 Almacenamiento de Azure proporciona bibliotecas de cliente enriquecidas para .NET, iOS, Java, Android, Plataforma universal de Windows (UWP), Xamarin, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
 
 Consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md) para más información.
+
+Además, también ofrecemos [Data Movement Library de Almacenamiento de Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que es una biblioteca diseñada para copia de datos de alto rendimiento en Azure y desde Azure. Consulte nuestra [documentación](https://github.com/Azure/azure-storage-net-data-movement) de Data Movement Library para más información.
 
 ## Visualización o interacción rápida con los datos
 
@@ -80,4 +82,4 @@ Si tiene aplicaciones y cargas de trabajo locales, necesitará una solución que
 
 Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para más información.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -70,7 +70,7 @@ El bucle forEach especifica una matriz para repetir una acción varias veces. Si
 
 Además del diseñador, puede editar directamente el código que define una aplicación lógica, como sigue.
 
-1. Haga clic en el botón **vista Código** en la barra de comandos. 
+1. Haga clic en el botón **vista Código** en la barra de comandos.
 
 	Se abrirá un editor completo que muestra la definición que acaba de modificar.
 
@@ -112,4 +112,4 @@ Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un 
 <!-- Shared links -->
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

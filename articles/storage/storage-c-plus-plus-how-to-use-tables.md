@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # Uso de almacenamiento de tablas desde C++
@@ -34,8 +34,8 @@ En esta guía, usará las características de almacenamiento que se pueden ejecu
 
 Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, puede usar los métodos siguientes:
 
--	**Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows:** en Visual Studio, haga clic en **Herramientas > Administrador de paquetes de NuGet > Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione Entrar.  
+-	**Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+-	**Windows:** en Visual Studio, haga clic en **Herramientas > Administrador de paquetes de NuGet > Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione Entrar.
 
 		Install-Package wastorage
 
@@ -167,10 +167,10 @@ Puede insertar un lote de entidades en el servicio Tabla mediante una operación
 
 Algunos aspectos que cabe tener en cuenta acerca de las operaciones por lotes:
 
--	Puede ejecutar cualquier combinación de 100 operaciones de inserción, eliminación, combinación, reemplazo, inserción o combinación e inserción o reemplazo en un único lote.  
--	Una operación por lotes puede tener una operación de recuperación, si es que es la única operación del lote.  
--	Todas las entidades de la misma operación por lotes deben compartir la misma clave de partición.  
--	Una operación por lotes se limita a una carga de datos de 4 MB.  
+-	Puede ejecutar cualquier combinación de 100 operaciones de inserción, eliminación, combinación, reemplazo, inserción o combinación e inserción o reemplazo en un único lote.
+-	Una operación por lotes puede tener una operación de recuperación, si es que es la única operación del lote.
+-	Todas las entidades de la misma operación por lotes deben compartir la misma clave de partición.
+-	Una operación por lotes se limita a una carga de datos de 4 MB.
 
 ## todas las entidades de una partición
 Para consultar una tabla a fin de obtener todas las entidades de una partición, use un objeto **table\_query**. El ejemplo de código siguiente especifica un filtro para las entidades en las que “Smith” es la clave de partición. En este ejemplo, los campos de cada entidad se imprimen en la consola, como parte de los resultados de la consulta.
@@ -414,4 +414,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

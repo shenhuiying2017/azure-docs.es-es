@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@ Enterprise Integration Pack admite estos estándares del sector:
 - [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
 - [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

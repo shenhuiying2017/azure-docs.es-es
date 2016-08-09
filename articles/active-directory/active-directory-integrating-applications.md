@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integración de aplicaciones con Azure Active Directory
@@ -153,10 +153,10 @@ Puede desarrollar una API web y ponerla a disposición de las aplicaciones clien
 ![Se muestran los permisos de la lista de tareas](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Más sobre el manifiesto de aplicación
-El manifiesto de aplicación realmente actúa como un mecanismo para actualizar la entidad de aplicación, que define todos los atributos de configuración de identidad de una aplicación de Azure AD, incluidos los ámbitos de acceso de API que analizamos. Para más información sobre la entidad de aplicación, consulte la [documentación sobre la entidad de aplicación de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). Ahí encontrará completa información de referencia sobre los miembros de la entidad de aplicación utilizados para especificar los permisos para la API:
+El manifiesto de aplicación realmente actúa como un mecanismo para actualizar la entidad de aplicación, que define todos los atributos de configuración de identidad de una aplicación de Azure AD, incluidos los ámbitos de acceso de API que analizamos. Para más información sobre la entidad de aplicación, consulte la [documentación sobre la entidad de aplicación de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Ahí encontrará completa información de referencia sobre los miembros de la entidad de aplicación utilizados para especificar los permisos para la API:
 
-- el miembro appRoles, que es una colección de entidades de [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) que puede usarse para definir los **permisos de aplicación** para una API web  
-- el miembro oauth2Permissions, que es una colección de entidades de [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) que puede usarse para definir los **permisos delegados** para una API web
+- el miembro appRoles, que es una colección de entidades de [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) que puede usarse para definir los **permisos de aplicación** para una API web
+- el miembro oauth2Permissions, que es una colección de entidades de [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) que puede usarse para definir los **permisos delegados** para una API web
 
 Para más información sobre los conceptos del manifiesto de aplicación en general, consulte [Descripción del manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md).
 
@@ -166,8 +166,8 @@ Como se mencionó anteriormente, además de exponer y tener acceso a API en sus 
 
 Para más información sobre los ámbitos de acceso expuestos por:
 
-- API Graph de Azure AD, consulte el artículo [Permission scopes | Graph API concepts (Ámbitos de permiso | Conceptos de API Graph)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
-- API de Office 365, consulte el artículo [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) (Autenticación y autorización mediante el marco de consentimiento común). Consulte [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) (Configurar el entorno de desarrollo de Office 365) para ver una descripción completa sobre cómo crear una aplicación cliente que se integre con las API de Office 365.
+- API Graph de Azure AD, consulte el artículo [Permission scopes | Graph API concepts] (Ámbitos de permiso | Conceptos de API Graph) (https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+- API de Office 365, consulte el artículo [Authentication and Authorization using Common Consent Framework (Autenticación y autorización mediante el marco de consentimiento común)](https://msdn.microsoft.com/office/office365/howto/application-manifest). Consulte [Set up your Office 365 development environment (Configurar el entorno de desarrollo de Office 365)](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) para ver una descripción completa sobre cómo crear una aplicación cliente que se integre con las API de Office 365.
 
 >[AZURE.NOTE] Debido a una limitación actual, las aplicaciones cliente nativas solo pueden llamar a la API de Azure AD Graph si usan el permiso "Acceso al directorio de la organización". Esta restricción no se aplica a las aplicaciones web.
 
@@ -330,7 +330,7 @@ Estas son las aplicaciones que se muestran con el filtro "Aplicaciones que tiene
 
 1. En el menú superior, haga clic en **Aplicaciones** y luego en la aplicación que quiera configurar. Aparecerá la página Inicio rápido con el inicio de sesión único y otra información de configuración.
 
-1. En la sección La aplicación es multiempresa, haga clic en **No**. Esto hace que la aplicación sea de un solo inquilino, pero la aplicación seguirá estando en la organización que ya le dio su consentimiento.
+1. En la sección La aplicación es multiinquilino, haga clic en **No**. Esto hace que la aplicación sea de un solo inquilino, pero la aplicación seguirá estando en la organización que ya le dio su consentimiento.
 
 1. Haga clic en el botón **Eliminar** de la barra de comandos.
 
@@ -351,4 +351,4 @@ A fin de quitar el acceso de una aplicación multiinquilino a su directorio (des
 
 - Visite la [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Azure Active Directory B2C: Preguntas más frecuentes | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: preguntas más frecuentes | Microsoft Azure"
 	description="Preguntas más frecuentes acerca de Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Vista previa de Azure Active Directory B2C: Preguntas más frecuentes
+# Azure Active Directory B2C: P+F
 
-Esta página responde a las preguntas más frecuentes acerca de la versión preliminar de Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
 
 ### ¿Puedo usar las características de Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
 
@@ -56,7 +54,7 @@ No, puede hospedar la aplicación en cualquier lugar (en la nube o de forma loca
 
 ### Tengo varios inquilinos de Azure AD B2C ¿Cómo puedo administrarlos en el Portal de Azure?
 
-Cada inquilino de Azure AD B2C tiene su propia hoja de características B2C en el Portal de Azure. Consulte [Versión preliminar de Azure Active Directory B2C: registro de la aplicación](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) para saber cómo acceder a la hoja de características B2C de un inquilino determinado del Portal de Azure. El cambio entre directorios de Azure AD B2C en el Portal de Azure no mantendrá abierta la hoja de características B2C en la mayoría de los exploradores.
+Cada inquilino de Azure AD B2C tiene su propia hoja de características B2C en el Portal de Azure. Consulte [Azure Active Directory B2C: registro de la aplicación](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) para saber cómo acceder a la hoja de características B2C de un inquilino determinado del Portal de Azure. El cambio entre directorios de Azure AD B2C en el Portal de Azure no mantendrá abierta la hoja de características B2C en la mayoría de los exploradores.
 
 ### ¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo "De:") enviados por Azure AD B2C?
 
@@ -64,11 +62,11 @@ Utilice la [característica de personalización de marca de compañía](../activ
 
 ### ¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 
-Puede usar la API Graph de Azure AD para escribir la herramienta de migración. Consulte el [ejemplo de API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para obtener más información. Ofreceremos varias opciones de migración y herramientas listas para usar en el futuro.
+Puede usar la API Graph de Azure AD para escribir la herramienta de migración. Consulte el [ejemplo de API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para más información. Ofreceremos varias opciones de migración y herramientas listas para usar en el futuro.
 
 ### ¿Qué directiva de contraseñas se utiliza para las cuentas locales en Azure AD B2C?
 
-La directiva de contraseñas de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Azure AD B2C utiliza la seguridad de contraseña "segura" y la opción de que ninguna contraseña caduca. Lea [Directiva de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener más detalles.
+La directiva de contraseñas de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Las directivas de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C utilizan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para más información.
 
 ### ¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 
@@ -84,7 +82,7 @@ Actualmente, no. Azure AD B2C no tiene compatibilidad con tokens SAML 1.1 que lo
 
 ### ¿Debo utilizar Azure AD B2C o B2B para administrar identidades externas?
 
-Lea este artículo sobre [identidades externas](../active-directory/active-directory-b2b-compare-external-identities.md) para obtener más información sobre cómo aplicar las características apropiadas a los escenarios de identidades externas.
+Lea este artículo sobre [identidades externas](../active-directory/active-directory-b2b-compare-external-identities.md) para más información sobre cómo aplicar las características apropiadas a los escenarios de identidades externas.
 
 ### ¿Qué características de auditoría e informes proporciona Azure AD B2C? ¿Son las mismas que en Azure AD Premium?
 
@@ -107,7 +105,7 @@ Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 - Ahora, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de suscripciones. (esto es, con la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
 - Vaya a la extensión de Active Directory de la izquierda y haga clic en el inquilino B2C.
 - Haga clic en la pestaña **Usuarios**.
-- Seleccione cada usuario de uno en uno (excluya al usuario que ya tiene la sesión iniciada, es decir, el administrador de suscripciones). Haga clic en el botón **Eliminar** de la parte inferior de la página y, después, haga clic en **Sí** cuando se pida confirmación.
+- Seleccione cada usuario de uno en uno (excluya al usuario que ya tiene la sesión iniciada, es decir, el administrador de suscripciones). Haga clic en **Eliminar** en la parte inferior de la página y, a continuación, haga clic en **Sí** cuando se pida confirmación.
 - Haga clic en la pestaña **Aplicaciones**.
 - Seleccione **Aplicaciones que tiene mi compañía** en el campo de la lista desplegable **Mostrar** y haga clic en la marca de verificación.
 - Verá una aplicación denominada "**b2c-extensions-app**". Haga clic en el botón **Eliminar** de la parte inferior de la página y, después, haga clic en **Sí** cuando se pida confirmación.
@@ -122,12 +120,8 @@ No, Azure AD B2C es un servicio de Azure de pago por uso y no forma parte de Ent
 
 Consulte [Versión preliminar de Azure Active Directory B2C: presentación de solicitudes de soporte técnico](active-directory-b2c-support.md).
 
-### ¿Cuándo estará disponible con carácter general Azure AD B2C?
-
-No podemos proporcionar información sobre la fecha en la que estará disponible con carácter general de momento.
-
 ## Más información
 
-Le recomendamos consultar las [limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
+Le recomendamos consultar las [limitaciones y restricciones del servicio](active-directory-b2c-limitations.md) actual.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -25,20 +25,16 @@ La factoría de datos admite la conexión a orígenes de DB2 locales mediante Da
 
 Factoría de datos solo admite actualmente el movimiento de datos desde DB2 a otros almacenes de datos, pero no desde otros almacenes de datos a DB2.
 
-> [AZURE.NOTE] Actualmente, este conector DB2 admite DB2 para LUW (Linux, UNIX y Windows). Para copiar datos de DB2 para z/OS o DB2 para AS/400, plantéese la posibilidad de utilizar el conector ODBC genérico y de instalar el controlador ODBC correspondiente en la máquina de puerta de enlace. Por ejemplo, para introducir datos de DB2 para AS/400, puede usar iSeries Access ODBC Driver y hacer referencia a los [orígenes de datos ODBC local o de IaaS de Azure](data-factory-odbc-connector.md) con el objetivo de configurar la actividad de copia.
-
 ## Instalación 
 
-Para que Data Management Gateway se conecte a la base de datos DB2, es preciso instalar [IBM DB2 Data Server Drive](http://go.microsoft.com/fwlink/p/?LinkID=274911) en el mismo sistema que Data Management Gateway.
+Para que la puerta de enlace de administración de datos se conecte a la base de datos DB2, a partir de la versión 2.1, Data Factory de Azure proporciona un controlador integrado compatible con DB2 (SQLAM 9, 10 y 11), incluidos DB2 para LUW (Linux, Unix y Windows), DB2 para z/OS y DB2 para i (AS/400). Por tanto, no tiene que instalar manualmente los controladores al copiar datos de DB2.
 
-Se conocen varios problemas notificados por IBM acerca de la instalación de IBM DB2 Data Server Driver en Windows 8, donde se necesitan pasos de instalación adicionales. Para obtener más información sobre IBM DB2 Data Server Driver en Windows 8, consulte [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
-
-> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias de solución de problemas de conexión o puerta de enlace.
+> [AZURE.NOTE] Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
 
 
 ## Ejemplo: Copiar datos de DB2 a un blob de Azure
 
-En este ejemplo, se muestra cómo copiar datos de una base de datos DB2 local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia de Data Factory de Azure.
+En este ejemplo, se muestra cómo copiar datos de una base de datos DB2 local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
  
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
@@ -141,7 +137,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -149,7 +145,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -157,7 +153,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -326,4 +322,4 @@ Char | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

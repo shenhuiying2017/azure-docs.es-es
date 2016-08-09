@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Uso de CDN de Azure"
+	 pageTitle="Uso de CDN de Azure | Microsoft Azure"
 	 description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure. El tutorial le guía a través de la creación de un perfil y un punto de conexión nuevos de la red CDN."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Uso de CDN de Azure  
@@ -67,7 +67,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 	
 	> [AZURE.NOTE] El valor de **Puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información del origen. El propio punto de conexión solo estará disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), independencia de cuál sea el **puerto de origen**.
 	>
-	> Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md) (Detalles del comportamiento de la red CDN de Azure de Akamai).
+	> Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Puertos de origen permitidos de la red CDN de Azure de Akamai).
 	>
 	> El acceso al contenido de la red CDN usando HTTPS tiene la siguiente restricciones:
 	> 
@@ -97,4 +97,4 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

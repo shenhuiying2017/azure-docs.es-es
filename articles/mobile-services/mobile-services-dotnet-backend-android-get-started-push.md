@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -116,4 +116,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Enviar notificaciones de difusión a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

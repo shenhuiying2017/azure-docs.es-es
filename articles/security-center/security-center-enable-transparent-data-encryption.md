@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitación del Cifrado de datos transparente en Azure Security Center
@@ -22,7 +22,7 @@ Azure Security Center recomienda que habilite el Cifrado de datos transparente (
 
 Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al servicio SQL que se ejecuta en las máquinas virtuales.
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -35,7 +35,7 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
 
   ![Estado de cifrado][4]
 
-## Pasos siguientes
+## Consulte también
 
 En este artículo mostramos cómo implementar la recomendación "Habilitar el cifrado de datos transparente" de Security Center. Para obtener más información sobre TDE de SQL, vea lo siguiente:
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

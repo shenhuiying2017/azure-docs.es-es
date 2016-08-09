@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -42,13 +42,13 @@ El conector Edifact puede usarse como un desencadenador o como una acción.
 
 ### Desencadenador
 - Inicie el diseñador de flujo de aplicaciones lógicas de Azure.
-- Haga clic en el conector Edifact en el panel derecho: 
+- Haga clic en el conector Edifact en el panel derecho:  
 ![Configuración del desencadenador][3]
-- Haga clic en ->: 
+- Haga clic en ->:  
 ![Opciones del desencadenador][4]
-- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*: 
+- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*:  
 ![Entrada de lote de versión][5]
-- Este desencadenador no tiene ninguna entrada. Haga clic en ->: 
+- Este desencadenador no tiene ninguna entrada. Haga clic en ->:  
 ![Lote de versión configurado][6]
 - Como parte de la salida, el conector devuelve la carga Edifact, el identificador del contrato e información sobre si el mensaje se procesa por lotes o no.
 
@@ -100,4 +100,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -206,7 +206,7 @@ Para implementar una aplicación como un servicio en la nube de Azure, primero d
 **CSPack** generalmente se encuentra en `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
 
 >[AZURE.NOTE]
-CSPack.exe (en Windows) está disponible cuando se ejecuta el acceso directo del **símbolo del sistema de Microsoft Azure** que se instala con el SDK.
+CSPack.exe (en Windows) está disponible cuando se ejecuta el acceso directo del **símbolo del sistema de Microsoft Azure ** que se instala con el SDK.
 >  
 >Ejecute el programa CSPack.exe por sí solo para ver documentación sobre todos los comandos y modificadores posibles.
 
@@ -249,7 +249,6 @@ Donde las variables se definen como de la manera siguiente:
 
 Voy a crear un paquete de servicio en la nube y quiero...
 
-* [Configuración de recursos de almacenamiento local](cloud-services-configure-local-storage-resources.md)
 * [Configurar Escritorio remoto para una instancia de servicio en la nube][remotedesktop]
 * [Implementar un proyecto de servicio en la nube][deploy]
 
@@ -267,4 +266,4 @@ Estoy usando Visual Studio y quiero...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

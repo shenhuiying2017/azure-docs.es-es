@@ -31,7 +31,8 @@ Para obtener más información sobre Stretch Database, vea [Stretch Database](sq
 ## <a name="Intro"></a>Introducción
 Consulte el propósito del asistente y los requisitos previos.
 
-Entre los requisitos previos importantes se incluyen los siguientes.
+Entre los requisitos previos importantes se incluyen los siguientes:
+
 -   Debe ser administrador para cambiar la configuración de la base de datos.
 -   Necesita una suscripción a Microsoft Azure.
 -   Es necesario que su servidor SQL Server pueda comunicarse con el servidor remoto de Azure.
@@ -190,4 +191,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

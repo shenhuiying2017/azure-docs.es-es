@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -87,4 +87,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

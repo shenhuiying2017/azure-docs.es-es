@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="¿Qué le ha ocurrido a mi proyecto Cordova (Visual Studio Connected Services)? | Microsoft Azure" 
-	description="Describe dónde está mi proyecto de Azure Cordova después de agregar los servicios móviles de Azure mediante Visual Studio Connected Services" 
+	description="Describe dónde está mi proyecto de Azure Cordova después de agregar los servicios móviles de Azure mediante Visual Studio Connected Services " 
 	services="mobile-services" 
 	documentationCenter="na" 
 	authors="mlhoop" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # ¿Dónde está mi proyecto de Azure Cordova después de agregar los servicios móviles de Azure mediante Visual Studio Connected Services?
@@ -35,4 +35,4 @@ En `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScrip
 
 [Más información acerca de Servicios móviles](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # ¿Cuáles son las imágenes de plantilla de Azure RemoteApp?
@@ -61,7 +61,7 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 - Excel
 - Lync
 - OneNote
-- OneDrive para la Empresa
+- OneDrive para la Empresa (tenga en cuenta que no se admite el uso del agente de sincronización con Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +94,7 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 - Excel
 - Lync
 - OneNote
-- OneDrive para la Empresa
+- OneDrive para la Empresa (tenga en cuenta que no se admite el uso del agente de sincronización con Azure RemoteApp)
 - Outlook
 - PowerPoint
 - proyecto
@@ -104,4 +104,4 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 
 > [AZURE.IMPORTANT]**Información legal**: esta imagen no incluye una licencia de Microsoft Office y *no se puede usar en producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles sobre las licencias de Office, consulte [Uso de Office 365 con Azure RemoteApp](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

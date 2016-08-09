@@ -475,7 +475,7 @@ Eventos de diagnóstico de Visual Studio 2015: Error de RunAsync en **fabric:/He
 
 **System.NamingService** informa del estado en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) o [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx) son operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos, como en [métodos de administración de servicios](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) o [métodos de administración de propiedades](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
 
-> [AZURE.NOTE] El servicio de nombres resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Se trata de un servicio guardado con particiones de Service Fabric. Una de las particiones representa a Authority Owner, que contiene metadatos sobre todos los nombres y servicios de System Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones Name Owner, por lo que el servicio se puede ampliar. Obtenga más información sobre el [servicio de nomenclatura](service-fabric-architecture.md).
+> [AZURE.NOTE] El servicio de nombres resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Se trata de un servicio guardado con particiones de Service Fabric. Una de las particiones representa a Authority Owner, que contiene metadatos sobre todos los nombres y servicios de Service Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones Name Owner, por lo que el servicio se puede ampliar. Obtenga más información sobre el [servicio de nomenclatura](service-fabric-architecture.md).
 
 Cuando una operación de nomenclatura tarda más de lo esperado, la operación se marca con un informe de advertencia en la *réplica principal de la partición del servicio de nomenclatura que se usa para la operación*. Si la operación se completa correctamente, la advertencia se elimina. Si la operación se completa con un error, el informe de estado incluye detalles sobre el error.
 
@@ -667,4 +667,4 @@ HealthEvents          :
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

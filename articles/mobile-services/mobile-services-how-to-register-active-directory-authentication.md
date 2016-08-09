@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Registro de las aplicaciones para usar un inicio de sesión de la cuenta de Azure Active Directory
@@ -70,4 +70,4 @@ Ahora está preparado para usar Azure Active Directory para realizar la autentic
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [Portal clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

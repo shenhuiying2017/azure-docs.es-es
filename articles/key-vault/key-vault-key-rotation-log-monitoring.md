@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configuración del Almacén de claves con rotación y auditoría integrales | Microsoft Azure"
 	description="Utilice este tutorial para establecer la configuración con rotación de claves y supervisar los registros del almacén de claves"
-	services="key-vault, automation,app-service\logic"
+	services="key-vault"
 	documentationCenter=""
 	authors="swgriffith"
 	manager=""
@@ -424,4 +424,4 @@ En la acción, elija _Office 365 - send email_ (Office 365 - enviar correo elect
 
 En este momento, tiene una canalización integral que, una vez por minuto, busca nuevos registros de auditoría del Almacén de claves. Todos los registros que encuentre los insertará en una cola del Bus de servicio. La aplicación lógica se desencadenará en cuanto un nuevo mensaje llegue a la cola y, si el identificador de aplicación del evento no coincide con el identificador de la aplicación de llamada, enviará un correo electrónico.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

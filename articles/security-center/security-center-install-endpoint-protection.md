@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Instalación de Endpoint Protection en Azure Security Center
 
 Azure Security Center recomendará que aprovisione un programa antimalware en sus máquinas virtuales de Azure si todavía no se ha habilitado. Esta recomendación se aplica únicamente a las máquinas virtuales de Windows.
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## Implementación de la recomendación
 
@@ -36,7 +36,7 @@ Azure Security Center recomendará que aprovisione un programa antimalware en su
 
 [Microsoft Antimalware](../azure-security-antimalware.md) ahora está activo en las máquinas virtuales seleccionadas.
 
-## Pasos siguientes
+## Consulte también
 
 En este documento, mostramos cómo implementar la recomendación "Instalar Endpoint Protection" de Security Center. Para más información sobre cómo habilitar un programa antimalware en Azure, vea lo siguiente:
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

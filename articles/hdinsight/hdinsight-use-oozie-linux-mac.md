@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 
@@ -64,7 +64,7 @@ El flujo de trabajo que implementará siguiendo las instrucciones de este docume
 
 ##Creación del directorio de trabajo
 
-Oozie espera los recursos necesarios para que un trabajo se almacene en el mismo directorio. En este ejemplo se usa **wasb:///tutorials/useoozie**. Use el comando siguiente para crear este directorio y el directorio de datos que contendrá la nueva tabla de Hive creada con este flujo de trabajo:
+Oozie espera los recursos necesarios para que un trabajo se almacene en el mismo directorio. En este ejemplo se usa **wasbs:///tutorials/useoozie**. Use el comando siguiente para crear este directorio y el directorio de datos que contendrá la nueva tabla de Hive creada con este flujo de trabajo:
 
 	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
@@ -114,7 +114,7 @@ Utilice los pasos siguientes para crear un script de HiveQL que define una consu
 
 2. Presione Ctrl-X para salir del editor. Cuando se lo pregunten, seleccione **Y** para guardar el archivo y presione **Entrar** para usar el nombre de archivo **useooziewf.hql**.
 
-3. Ejecute los comandos siguientes para copiar **useooziewf.hql** en **wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Ejecute los comandos siguientes para copiar **useooziewf.hql** en **wasbs:///tutorials/useoozie/useooziewf.hql**:
 
 		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -187,7 +187,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 	- **RunSqoopExport**: exporta los datos creados a partir del script de Hive a Base de datos SQL con Sqoop. Solo se ejecutarán si la acción **RunHiveScript** es correcta.
 
-		> [AZURE.NOTE] Para obtener más información acerca del flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] \(para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] \(para la versión del clúster de HDInsight 2.1).
+		> [AZURE.NOTE] Para obtener más información acerca del flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 
 	Tenga en cuenta que el flujo de trabajo tiene varias entradas, como `${jobTracker}`, que se reemplazarán por los valores que use en la definición del trabajo más adelante en este documento.
 
@@ -195,7 +195,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 2. Presione Ctrl-X y luego **Y** y **Entrar** para guardar el archivo.
 
-3. Use el comando siguiente para copiar el archivo **workflow.xml** en **wasb:///tutorials/useoozie/workflow.xml**:
+3. Use el comando siguiente para copiar el archivo **workflow.xml** en **wasbs:///tutorials/useoozie/workflow.xml**:
 
 		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
@@ -257,9 +257,9 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 	Este comando debiera devolver información similar a la siguiente:
 
 		<name>fs.defaultFS</name>
-		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		<value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Guarde el valor **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, ya se usará en los pasos siguientes.
+	Guarde el valor **wasbs://mycontainer@mystorageaccount.blob.core.windows.net**, ya se usará en los pasos siguientes.
 
 2. Use el siguiente comando para obtener el nombre de dominio completo del nodo principal del clúster. Se utilizará para la dirección de JobTracker para el clúster. Se usará en el archivo de configuración en un momento:
 
@@ -282,7 +282,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 		  <property>
 		    <name>nameNode</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 		  </property>
 
 		  <property>
@@ -302,7 +302,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 		  <property>
 		    <name>hiveScript</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
 		  </property>
 
 		  <property>
@@ -312,7 +312,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 		  <property>
 		    <name>hiveDataFolder</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
 		  </property>
 
 		  <property>
@@ -332,13 +332,13 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 		  <property>
 		    <name>oozie.wf.application.path</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		  </property>
 		</configuration>
 
-	* Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** por el valor que recibió anteriormente.
+	* Reemplace todas las instancias de **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** por el valor que recibió anteriormente.
 
-	> [AZURE.WARNING] Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción RunHiveScript generará un error cuando se inicie el trabajo.
+	> [AZURE.WARNING] Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasbs:///), la acción RunHiveScript generará un error cuando se inicie el trabajo.
 
 	* Reemplace **JOBTRACKERADDRESS** por la dirección de JobTracker/ResourceManager que recibió antes.
 
@@ -392,7 +392,7 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 		Job ID : 0000005-150622124850154-oozie-oozi-W
 		------------------------------------------------------------------------------------------------------------------------------------
 		Workflow Name : useooziewf
-		App Path      : wasb:///tutorials/useoozie
+		App Path      : wasbs:///tutorials/useoozie
 		Status        : PREP
 		Run           : 0
 		User          : USERNAME
@@ -454,7 +454,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 1. Cree un túnel SSH para el clúster de HDInsight. Para obtener información sobre cómo hacerlo, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Cuando se ha creado un túnel, abra la interfaz de usuario web de Ambari en el explorador web. El URI del sitio de Ambari es **https://CLUSTERNAME.azurehdinsight.net**. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight basado en Linux.
+2. Cuando se ha creado un túnel, abra la interfaz de usuario web de Ambari en el explorador web. El URI para el sitio de Ambari es **https://CLUSTERNAME.azurehdinsight.net**. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight basado en Linux.
 
 3. En el lado izquierdo de la página, seleccione **Oozie**, luego **Vínculos rápidos** y por último **Oozie Web UI**.
 
@@ -530,7 +530,7 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 		    <property>
 		      <name>workflowPath</name>
-		      <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		      <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		    </property>
 
 		Reemplace los valores de **mycontainer** y **mystorageaccount** por los valores usados en otras entradas del archivo job.xml.
@@ -599,7 +599,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Causa**: las direcciones WASB usadas en el archivo **job.xml** no incluyen el nombre del contenedor de almacenamiento ni de la cuenta de almacenamiento. El formato de dirección WASB debe ser `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Causa**: las direcciones WASB usadas en el archivo **job.xml** no incluyen el nombre del contenedor de almacenamiento ni de la cuenta de almacenamiento. El formato de dirección WASB debe ser `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolución**: cambie las direcciones WASB que usa el trabajo.
 
@@ -695,4 +695,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

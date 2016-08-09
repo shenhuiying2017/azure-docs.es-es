@@ -79,7 +79,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
 
-## Envío de un mensaje de nube a dispositivo desde el back-end de la aplicación
+## Envío de mensajes de nube a dispositivo
 
 En esta sección, escribirá una aplicación de consola de Windows que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado.
 
@@ -198,4 +198,4 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

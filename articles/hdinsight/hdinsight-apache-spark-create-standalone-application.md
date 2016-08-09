@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -102,12 +102,12 @@ Si la instalación de IntelliJ IDEA no pide habilitar el complemento de Scala, i
 		    val conf = new SparkConf().setAppName("WASBIOTest")
 		    val sc = new SparkContext(conf)
 
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
-		    rdd1.saveAsTextFile("wasb:///HVACout")
+		    rdd1.saveAsTextFile("wasbs:///HVACout")
 		  }
 		}
 
@@ -207,4 +207,4 @@ Para ejecutar la aplicación en el clúster, debe hacer lo siguiente:
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

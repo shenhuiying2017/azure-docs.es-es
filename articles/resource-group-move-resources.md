@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="07/21/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -272,4 +272,4 @@ Con el cuerpo de solicitud:
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

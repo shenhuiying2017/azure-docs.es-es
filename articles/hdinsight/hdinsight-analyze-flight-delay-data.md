@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -63,8 +63,8 @@ La siguiente tabla enumera los archivos utilizados en este tutorial:
 
 <table border="1">
 <tr><th>Archivos</th><th>Descripción</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Archivo de scripts de HiveQL que necesita el trabajo de Hive que va a ejecutar. Este script se ha cargado en una cuenta de almacenamiento de blobs de Azure con el público. El <a href="#appendix-b">apéndice B</a> tiene instrucciones para preparar y cargar este archivo a su propia cuenta de almacenamiento de blobs de Azure.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Datos de entrada para los trabajos de Hive. Los datos se han cargado en una cuenta de almacenamiento de blobs de Azure con el acceso público. El <a href="#appendix-a">apéndice A</a> tiene instrucciones para obtener y cargar los datos en su propia cuenta de almacenamiento de blobs de Azure.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Archivo de scripts de HiveQL que necesita el trabajo de Hive que va a ejecutar. Este script se ha cargado en una cuenta de almacenamiento de blobs de Azure con el público. El <a href="#appendix-b">apéndice B</a> tiene instrucciones para preparar y cargar este archivo a su propia cuenta de almacenamiento de blobs de Azure.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Datos de entrada para los trabajos de Hive. Los datos se han cargado en una cuenta de almacenamiento de blobs de Azure con el acceso público. El <a href="#appendix-a">apéndice A</a> tiene instrucciones para obtener y cargar los datos en su propia cuenta de almacenamiento de blobs de Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>La ruta de acceso de salida para el trabajo de Hive. El contenedor predeterminado se usa para almacenar los datos de salida.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>La carpeta de estado del trabajo de Hive en el contenedor predeterminado.</td></tr>
 </table>
@@ -195,7 +195,7 @@ Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecut
 		###########################################
 		# Submit the Sqoop job
 		###########################################
-		$exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+		$exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 		
 		$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
 						-Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -258,7 +258,7 @@ La carga del archivo de datos y los archivos de script de HiveQL (consulte el [A
 3. Haga clic en **Descargar**.
 4. Descomprima el archivo en la carpeta **C:\\Tutorials\\FlightDelay\\2013Data**. Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
 5.	Cambie el nombre del archivo al nombre del mes que contiene los datos. Por ejemplo, el archivo que contiene los datos de enero se llamaría *January.csv*.
-6. Repita los pasos 2 y 5 para descargar un archivo para cada uno de los 12 meses de 2013. Necesitará como mínimo un archivo para ejecutar el tutorial.  
+6. Repita los pasos 2 y 5 para descargar un archivo para cada uno de los 12 meses de 2013. Necesitará como mínimo un archivo para ejecutar el tutorial.
 
 **Para cargar los datos de retraso de vuelos en el almacenamiento de blobs de Azure**
 
@@ -346,7 +346,7 @@ La carga del archivo de datos y los archivos de script de HiveQL (consulte el [A
 
 Si decide usar un método diferente para cargar los archivos, asegúrese de que la ruta de acceso del archivo sea tutorials/flightdelay/data. La sintaxis para tener acceso a los archivos es:
 
-	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+	wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 La ruta de acceso tutorials/flightdelay/data es la carpeta virtual que creó al cargar los archivos. Compruebe que haya 12 archivos, uno para cada mes.
 
@@ -362,7 +362,7 @@ Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o emp
 El script de HiveQL realizará lo siguiente:
 
 1. **Anular la tabla delays\_raw**, en caso de que la tabla ya exista.
-2. **Crear la tabla externa de Hive delays\_raw** que apunta a la ubicación del almacenamiento de blobs con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN\_CITY\_NAME y DEST\_CITY\_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.  
+2. **Crear la tabla externa de Hive delays\_raw** que apunta a la ubicación del almacenamiento de blobs con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN\_CITY\_NAME y DEST\_CITY\_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.
 3. **Anular la tabla de retrasos**, en caso de que la tabla ya exista.
 4. **Crear la tabla de retrasos**. Es útil realizar una limpieza de los datos antes de realizar un procesamiento adicional. Esta consulta crea una tabla nueva, *delays*, a partir de la tabla delays\_raw. Tenga en cuenta que las columnas TEMP no se copian (como se mencionó anteriormente) y que la función **substring** se usa para quitar las comillas de los datos.
 5. **Procesa el retraso promedio a causa del tiempo y agrupa los resultados por nombre de la ciudad.** También producirá los resultados en el almacenamiento de blobs. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de **weather\_delay** es null. Esto es necesario porque Sqoop, que se usa más adelante en este tutorial, no trata estos valores correctamente de forma predeterminada.
@@ -495,7 +495,7 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 			"ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
 			"LINES TERMINATED BY '\n' " +
 			"STORED AS TEXTFILE " +
-			"LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+			"LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 		
 		$hqlDropDelays = "DROP TABLE delays;"
 		
@@ -742,4 +742,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Azure" 
-	description="Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
+	description="Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,10 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
+* **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
 
+## Funciones de consultas de Analytics
  
 Una consulta típica consta de una tabla de *origen* seguida de una serie de *operadores* separados por `|`.
 
@@ -81,4 +84,4 @@ En la actualidad, los resultados de consulta están limitados exclusivamente a s
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

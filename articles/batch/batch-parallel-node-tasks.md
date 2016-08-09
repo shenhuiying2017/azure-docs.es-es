@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="07/25/2016"
 	ms.author="marsma" />
 
 # Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo
 
-Obtenga información sobre cómo ejecutar más de una tarea simultáneamente en cada nodo de proceso dentro de su grupo de Lote de Azure. Al habilitar la ejecución de tareas simultáneas en los nodos de proceso de un grupo, puede maximizar el uso de recursos en un número menor de nodos del grupo. Para algunas cargas de trabajo, esto puede reducir los costos y el tiempo dedicado al trabajo.
+A través de la ejecución simultánea de más de una tarea en cada nodo de proceso dentro del grupo de Lote de Azure, puede maximizar el uso de recursos en un menor número de nodos en el grupo. Para algunas cargas de trabajo, esto puede reducir los costos y el tiempo dedicado al trabajo.
 
 Si bien algunos escenarios se beneficiarán de que todos los recursos de un nodo estén dedicados a una sola tarea, en otras situaciones será conveniente permitir que varias tareas compartan esos recursos:
 
@@ -32,13 +32,13 @@ Si bien algunos escenarios se beneficiarán de que todos los recursos de un nodo
 
 ## Escenario de ejemplo
 
-Este es un ejemplo que ilustra las ventajas de la ejecución en paralelo de tareas. Supongamos que la aplicación de tareas tenga requisitos de CPU y memoria para los que un tamaño de nodo [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d) es el adecuado. Pero, para ejecutar el trabajo en el tiempo requerido, se necesitan 1.000 nodos de ese tipo.
+Como ejemplo para ilustrar las ventajas de la ejecución en paralelo de tareas, supongamos que la aplicación de la tarea tiene requisitos de CPU y memoria tales que un tamaño de nodo [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d) es suficiente. Pero, para ejecutar el trabajo en el tiempo requerido, se necesitan 1.000 nodos de ese tipo.
 
-En lugar de usar los nodos Standard\_D1, que tienen un núcleo de CPU, podría emplear nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) que tienen 16 núcleos cada uno y habilitar la ejecución de tareas en paralelo. En este caso, se podría usar un *número de nodos 16 veces menor*; es decir, en lugar de 1000 nodos, solo serían necesarios 63. Esto mejorará enormemente el tiempo de ejecución del trabajo y la eficacia si se requieren archivos de aplicación de gran tamaño o datos de referencia para cada nodo.
+En lugar de usar los nodos Standard\_D1, que tienen 1 núcleo de CPU, se pueden emplear nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d), que tienen 16 núcleos cada uno, y habilitar la ejecución de tareas en paralelo. En este caso, se podría usar un *número de nodos 16 veces menor*; es decir, en lugar de 1000 nodos, solo serían necesarios 63. Además, si para cada nodo son necesarios datos de referencia o archivos de aplicación de gran tamaño, la eficiencia y la duración del trabajo también se mejoran, ya que los datos se copian en solo 16 nodos.
 
 ## Habilitación de la ejecución en paralelo de tareas
 
-Los nodos de proceso en la solución Lote se configuran para la ejecución en paralelo de tareas en el nivel de grupo. Cuando se usa la biblioteca de .NET de Lote, se establece la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net] al crear un grupo. Si usa la API de REST de Lote, se establece el elemento [maxTasksPerNode][rest_addpool] en el cuerpo de la solicitud durante la creación del grupo.
+Los nodos de proceso para la ejecución en paralelo de tareas se configuran a nivel de grupo. Con la biblioteca de .NET de Lote, establezca la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net] al crear un grupo. Si usa la API de REST de Lote, establezca el elemento [maxTasksPerNode][rest_addpool] en el cuerpo de la solicitud durante la creación del grupo.
 
 Lote de Azure permite una configuración máxima de tareas por nodo que casi cuadriplica el número de núcleos de nodo. Por ejemplo, si el grupo está configurado con nodos de tamaño "Grande" (cuatro núcleos), `maxTasksPerNode` se puede establecer en 16. Para más información sobre el número de núcleos de cada uno de los tamaños de nodo, consulte [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md). Para más información sobre los límites del servicio, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md).
 
@@ -46,7 +46,7 @@ Lote de Azure permite una configuración máxima de tareas por nodo que casi cua
 
 ## Distribución de tareas
 
-Cuando los nodos de proceso dentro de un grupo son capaces de ejecutar tareas al mismo tiempo, es importante especificar cómo desea que se distribuyan las tareas entre los nodos del grupo.
+Cuando los nodos de proceso dentro de un grupo pueden ejecutar tareas de forma simultánea, es importante especificar cómo desea que se distribuyan las tareas entre los nodos del grupo.
 
 Mediante la propiedad [CloudPool.TaskSchedulingPolicy][task_schedule], puede especificar que las tareas se deberían asignar de manera uniforme entre todos los nodos del grupo ("propagación"). O bien, puede especificar que se deberían asignar todas las tareas posibles a cada nodo antes de asignarlas a otro nodo del grupo ("empaquetado").
 
@@ -90,9 +90,9 @@ En este fragmento de la API de [REST de Lote][api_rest], se muestra una solicitu
 
 > [AZURE.NOTE] Solo puede establecer el elemento `maxTasksPerNode` y la propiedad [MaxTasksPerComputeNode][maxtasks_net] en el momento de crear el grupo. No se pueden modificar después de haberlos creado.
 
-## Exploración del proyecto de ejemplo
+## Código de ejemplo
 
-Consulte el proyecto [ParallelNodeTasks][parallel_tasks_sample] en GitHub. Es un ejemplo de código de trabajo que ilustra el uso de [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
+El proyecto [ParallelNodeTasks][parallel_tasks_sample] en GitHub muestra el uso de la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
 
 Esta aplicación de consola de C# utiliza la biblioteca [.NET de Lote][api_net] para crear un grupo con uno o más nodos de proceso. Ejecuta un número configurable de tareas en esos nodos para simular una carga variable. Los resultados de la aplicación especifican qué nodos han ejecutado cada tarea. La aplicación también proporciona un resumen de los parámetros de trabajo y la duración. Abajo se muestra la parte de resumen de los resultados de dos ejecuciones diferentes de la aplicación de ejemplo.
 
@@ -118,9 +118,11 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 
 > [AZURE.NOTE] La duración del trabajo en los resúmenes anteriores no incluye el tiempo de creación del grupo. Cada uno de los trabajos anteriores se envió a grupos ya creados cuyos nodos de proceso se encontraban en el estado *inactivo* en el momento del envío.
 
-## Mapa térmico de Batch Explorer
+## Pasos siguientes
 
-[Explorador de Lote][batch_explorer], una de las [aplicaciones de ejemplo][github_samples] de Lote de Azure, contiene una característica denominada *Mapa térmico* que proporciona visualización de la ejecución de tareas. Cuando ejecuta la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], puede usar la característica Mapa térmico para visualizar fácilmente la ejecución en paralelo de tareas en cada nodo.
+### Mapa térmico de Batch Explorer
+
+El [Explorador de Lote][batch_explorer], una de las [aplicaciones de ejemplo][github_samples] de Lote de Azure, contiene una característica denominada *Mapa térmico* que proporciona una visualización de la ejecución de tareas. Cuando ejecuta la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], puede usar la característica Mapa térmico para visualizar fácilmente la ejecución en paralelo de tareas en cada nodo.
 
 ![Mapa térmico de Batch Explorer][1]
 
@@ -141,4 +143,4 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

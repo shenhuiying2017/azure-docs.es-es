@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
@@ -66,13 +66,13 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 |Recomendación|Descripción|
 |-----|-----|
 |[Habilitar la colección de datos de las suscripciones](security-center-enable-data-collection.md)|Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones y para todas las máquinas virtuales de la suscripción.|
-|[Corrección de vulnerabilidades del SO](security-center-resolve-mismatch-baseline-rules.md)|Recomienda armonizar las configuraciones del SO con las reglas de configuración recomendadas; por ejemplo, no permitir guardar las contraseñas.|
+|[Corrección de vulnerabilidades del SO](security-center-remediate-os-vulnerabilities.md)|Recomienda armonizar las configuraciones del SO con las reglas de configuración recomendadas; por ejemplo, no permitir guardar las contraseñas.|
 |[Aplicar actualizaciones del sistema](security-center-apply-system-updates.md)|Recomienda implementar las actualizaciones críticas y de seguridad del sistema en las máquinas virtuales.|
 |[Reiniciar tras actualizar el sistema](security-center-apply-system-updates.md#reboot-after-system-updates)|Se recomienda que reinicie una máquina virtual para completar el proceso de aplicación de actualizaciones del sistema.|
 |[Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)|Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. Los dispositivos WAF (creados mediante el modelo de implementación de Resource Manager) deben implementarse en una red virtual independiente. Los dispositivos WAF (creados mediante el modelo de implementación clásica) están limitados a usar un grupo de seguridad de red. Esta compatibilidad se extenderá a una implementación completamente personalizada de dispositivos WAF (clásica) en el futuro.|
 |[Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection)|Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración.|
 |[Agregar un firewall de próxima generación](security-center-add-next-generation-firewall.md)|Recomienda agregar un firewall de próxima generación (NGFW) de un asociado de Microsoft para aumentar la protección.|
-|[Enrutar el tráfico solo a través de NGFW](security-center-route-traffic-through-ngfw-only.md)|Recomienda configurar reglas de grupos de seguridad de red (NSG) que fuercen que el tráfico entrante pase a su máquina virtual mediante el NGFW.|
+|[Enrutar el tráfico solo a través de NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recomienda configurar reglas de grupos de seguridad de red (NSG) que fuercen que el tráfico entrante pase a su máquina virtual mediante el NGFW.|
 |[Instalación de Endpoint Protection](security-center-install-endpoint-protection.md)|Recomienda aprovisionar programas antimalware a las máquinas virtuales (solo máquinas virtuales de Windows).|
 |[Resolver alertas de estado de Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)|Recomienda resolver los errores de Endpoint Protection.|
 |[Habilitar grupos de seguridad de red en subredes o máquinas virtuales](security-center-enable-network-security-groups.md)|Recomienda habilitar NSG en subredes o máquinas virtuales.|
@@ -115,4 +115,4 @@ En este documento, se han presentando las recomendaciones de seguridad del Centr
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

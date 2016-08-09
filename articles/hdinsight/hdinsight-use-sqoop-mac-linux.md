@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 #Uso de Sqoop con Hadoop en HDInsight (SSH)
@@ -106,9 +106,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 4. Utilice el siguiente comando para exportar los datos de **hivesampletable** a la tabla **mobiledata**:
 
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de **wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
+    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de **wasbs:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
 
 5. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -123,15 +123,15 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 ##Importación de Sqoop
 
-1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio **wasb:///tutorials/usesqoop/importeddata** en HDInsight:
+1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio **wasbs:///tutorials/usesqoop/importeddata** en HDInsight:
 
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     Los datos importados tendrán campos separados por un carácter de tabulación y las líneas terminarán con un carácter de nueva línea.
 
 2. Una vez completada la importación, use el siguiente comando para enumerar los datos en el nuevo directorio:
 
-        hadoop fs -text wasb:///tutorials/usesqoop/importeddata/part-m-00000
+        hadoop fs -text wasbs:///tutorials/usesqoop/importeddata/part-m-00000
 
 ##Uso de SQL Server
 
@@ -170,7 +170,7 @@ También puede utilizar Sqoop para importar y exportar datos de SQL Server, tant
 
 * Cuando se conecta a SQL Server desde HDInsight, es posible que deba utilizar la dirección IP de SQL Server a menos que haya configurado un Sistema de nombres de dominio (DNS) para resolver los nombres de la Red virtual de Azure. Por ejemplo:
 
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
 ##Limitaciones
 
@@ -206,4 +206,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

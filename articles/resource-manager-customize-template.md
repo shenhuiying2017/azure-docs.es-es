@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz"/>
 
 # Personalización de una plantilla de Azure Resource Manager exportada
@@ -233,4 +233,4 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 - Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 - Para aprender sobre la estructura de las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

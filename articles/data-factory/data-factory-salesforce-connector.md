@@ -215,9 +215,12 @@ En caso de actividad de copia cuando el origen es de tipo **RelationalSource** (
 | -------- | ----------- | -------------- | -------- |
 | query | Utilice la consulta personalizada para leer los datos. | Consulta de SQL-92 o del [lenguaje de consulta de objetos de Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.es-ES.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: select * from MyTable\_\_c. | No (si se especifica **tableName** de **dataset**) |
 
-> [AZURE.IMPORTANT]  La parte "\_\_c" del nombre de la API es necesaria para cualquier objeto personalizado.<br> Cuando especifique una consulta que incluya una cláusula where en la columna datetime, use SOQL; por ejemplo: $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+> [AZURE.IMPORTANT]  La parte "\_\_c" del nombre de la API es necesaria para cualquier objeto personalizado. <br><br> Cuando se especifica una consulta que incluye una cláusula WHERE en la columna datetime, utilice la consulta SOQL; por ejemplo, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Recuperación de datos de informes de Salesforce
+Puede recuperar datos de informes de Salesforce especificando las consultas como {call "<nombre del informe>"}; por ejemplo, "query": "{call "TestReport"}".
 
 ## Límites de solicitudes de Salesforce
 Salesforce tiene límites para el número total de solicitudes de API y el de solicitudes de API simultáneas. Consulte la sección **API Request Limits** (Límites de solicitudes de API) del artículo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/es-ES/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de solicitudes de API de Salesforce) para más detalles.
@@ -254,6 +257,6 @@ URL | String
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -96,7 +96,7 @@ Nombre | Script
 
 La acción de script puede implementarse desde el Portal de Azure, Azure PowerShell o mediante el SDK de HDInsight para .NET. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE] Los scripts de ejemplo solo funcionan con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Los scripts de ejemplo solo funcionan con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
 
 
 
@@ -174,7 +174,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 
 	HDInsight tiene una arquitectura activa-pasiva para alta disponibilidad, en la cual un nodo principal está en modo activo (donde se ejecutan los servicios de HDInsight) y el otro nodo principal está en modo de espera (en el que los servicios de HDInsight no se están ejecutando). Los nodos cambian los modos activos y pasivos si se interrumpen los servicios HDInsight. Si se utiliza una acción de script para instalar servicios en ambos nodos principales para alta disponibilidad, tenga en cuenta que el mecanismo de conmutación por error de HDInsight no podrá realizar la conmutación por error de estos servicios instalados por el usuario de manera automática. Por tanto, los servicios instalados por el usuario en los nodos principales de HDInsight que se espera que tengan una alta disponibilidad, deben tener su propio mecanismo de conmutación por error si se encuentra en modo activo-pasivo o si se requiere que estén en modo activo-activo.
 
-	Se ejecuta un comando de acción de script de HDInsight en ambos nodos principales cuando el rol del nodo principal se especifica como un valor en el parámetro *ClusterRoleCollection* (documentado a continuación en la sección [Ejecución de una acción de script](#runScriptAction)). Por tanto, cuando diseñe un script personalizado, asegúrese de que el script reconoce esta configuración. No debiera encontrarse con problemas donde estén instalados los mismos servicios y se inicien en ambos nodos principales y terminen compitiendo entre sí. Además, tenga en cuenta que se perderán datos durante el restablecimiento de la imagen original, por lo que el software instalado mediante la acción de script debe ser resistentes a dichos eventos. Las aplicaciones deben diseñarse para trabajar con datos de alta disponibilidad que se distribuyen entre varios nodos. Tenga en cuenta que se puede volver a crear imágenes de 1/5 de los nodos de un clúster como máximo a la vez.
+	Un comando de acción de script de HDInsight se ejecuta en ambos nodos de proceso cuando el rol del nodo de proceso se especifica como valor en el parámetro *ClusterRoleCollection*. Por tanto, cuando diseñe un script personalizado, asegúrese de que el script reconoce esta configuración. No debiera encontrarse con problemas donde estén instalados los mismos servicios y se inicien en ambos nodos principales y terminen compitiendo entre sí. Además, tenga en cuenta que se perderán datos durante el restablecimiento de la imagen original, por lo que el software instalado mediante la acción de script debe ser resistentes a dichos eventos. Las aplicaciones deben diseñarse para trabajar con datos de alta disponibilidad que se distribuyen entre varios nodos. Tenga en cuenta que se puede volver a crear imágenes de 1/5 de los nodos de un clúster como máximo a la vez.
 
 
 - Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure
@@ -206,7 +206,7 @@ En este ejemplo, debe asegurarse de que el contenedor "somecontainer" de la cuen
 
 Para pasar varios parámetros al cmdlet Add-AzureRmHDInsightScriptAction, debe dar formato al valor de cadena para que contenga todos los parámetros del script. Por ejemplo:
 
-	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
 o
 
@@ -245,39 +245,6 @@ Estos son los pasos que se llevaron a cabo al prepararse para implementar estos 
 4. Use una carpeta de archivo temporal, como $env:TEMP, para conservar el archivo descargado que usan los scripts y, a continuación, limpie una vez que se ejecuten los scripts.
 5. Instale el software personalizado solo en D:\\ o en C:\\apps. No deben usarse otras ubicaciones de la unidad C: ya que están reservadas. Tenga en cuenta que instalar archivos en la unidad C fuera de la carpeta C:\\apps puede generar errores de instalación durante el restablecimiento de la imagen inicial del nodo.
 6. En el caso de que los archivos de configuración de servicio de Hadoop o la configuración en el nivel de SO hayan cambiado, es posible que desee reiniciar los servicios de HDInsight para que puedan escoger cualquier configuración en el nivel de SO, tal como las variables de entorno definidas en los scripts.
-
-
-
-## Prueba de scripts personalizados con el emulador de HDInsight
-
-Una manera simple de probar un script personalizado antes de usarlo en el comando de acción de script de HDInsight es ejecutarlo en el emulador de HDInsight. Puede instalar el emulador de HDInsight localmente o en una máquina virtual de Windows Server 2012 R2 de infraestructura como servicio (IaaS) de Azure o en una máquina local y observar si el comportamiento del script es correcto. Tenga en cuenta que la máquina virtual de Windows Server 2012 R2 es la misma máquina virtual que HDInsight usa para sus nodos.
-
-En esta sección se describe el procedimiento para usar el emulador de HDInsight localmente con fines de prueba, pero el procedimiento para usar una máquina virtual es similar.
-
-**Instale el emulador de HDInsight**: para ejecutar localmente la acción de script, debe tener instalado el emulador de HDInsight. Para obtener instrucciones sobre cómo instalarlo, consulte [Introducción al emulador de HDInsight](../hdinsight-get-started-emulator/).
-
-**Establezca la directiva de ejecución para Azure PowerShell**: abra Azure PowerShell y ejecute (como administrador) el comando siguiente para establecer la directiva de ejecución en *LocalMachine* y para que esté en modo *Unrestricted*:
-
-	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
-
-Necesitamos que esta directiva esté restringida ya que los scripts no están firmados.
-
-**Descargue la acción de script** que desea ejecutar en un destino local. Los siguientes scripts de ejemplo se encuentran disponibles para descarga desde las siguientes ubicaciones:
-
-* **Spark**. https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
-* **R**. https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
-* **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
-* **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
-
-**Ejecute la acción de script**: abra una ventana nueva de Azure PowerShell en modo de administrador y ejecute el script de instalación de Spark o R desde la ubicación local donde se guardaron.
-
-**Ejemplos de uso** Cuando use los clústeres de Spark y R, es posible que los archivos de datos necesarios no se encuentren en el emulador de HDInsight. Por lo tanto, es posible que necesite cargar importantes archivos .txt que contienen datos en una ruta de acceso en HDFS y, a continuación, usar esa ruta para tener acceso a los datos. Por ejemplo:
-
-	val file = sc.textFile("/example/data/gutenberg/davinci.txt")
-
-
-Tenga en cuenta que, en algunos casos, un script personalizado puede depender realmente de componentes de HDInsight, como en la detección de si determinados servicios de Hadoop están activos. En este caso, deberá probar los scripts personalizados al implementarlos en un clúster de HDInsight real.
-
 
 ## Depuración de scripts personalizados
 
@@ -344,13 +311,13 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 - [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
 - [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
+[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
+[powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

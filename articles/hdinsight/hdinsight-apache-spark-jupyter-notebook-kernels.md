@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ Debe tener lo siguiente:
 
 ## ¿Cómo puedo usar los kernels? 
 
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -96,7 +96,7 @@ La instrucción mágica %%sql es compatible con distintos parámetros que se pue
 | -o | `-o <VARIABLE NAME>` | Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/). El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
 | -q | `-q` | Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL con efectos secundarios, como una instrucción `CREATE TABLE`), simplemente use `-q` sin especificar un argumento `-o`. |
 | -m | `-m <METHOD>` | Donde **METHOD** es **take** o **sample** (el valor predeterminado es **take**). Si el método es **take**, el kernel toma elementos de la parte superior del conjunto de datos de resultados especificado por MAXROWS (se describe más adelante en esta tabla). Si el método es **sample**, el kernel tomará como muestra de forma aleatoria elementos del conjunto de datos según el parámetro `-r`, que se describe a continuación en esta tabla. |
-| -r | `-r <FRACTION>` | Aquí **FRACTION** es un número de punto flotante entre 0,0 y 1,0. Si el método de ejemplo de la consulta de SQL es `sample`, el kernel toma como muestra de forma aleatoria la fracción especificada de los elementos del conjunto de resultados; por ejemplo, si ejecuta una consulta de SQL con los argumentos `-m sample -r 0.01`, se tomará como muestra de forma aleatoria el 1 % de las filas de resultados. |
+| -r | `-r <FRACTION>` | Aquí **FRACTION** es un número de punto flotante entre 0,0 y 1,0. Si el método de ejemplo de la consulta de SQL es `sample`, el kernel toma como muestra de forma aleatoria la fracción especificada de los elementos del conjunto de resultados; por ejemplo, si ejecuta una consulta de SQL con los argumentos `-m sample -r 0.01`, se tomará como muestra de forma aleatoria el 1 % de las filas de resultados. |
 | -n | `-n <MAXROWS>` | **MAXROWS** es un valor entero. El kernel limitará el número de filas de resultados a **MAXROWS**. Si **MAXROWS** es un número negativo como **-1**, no se limitará el número de filas del conjunto de resultados. |
 
 **Ejemplo:**
@@ -108,7 +108,7 @@ La instrucción anterior hace lo siguiente:
 
 * Selecciona todos los registros de **hivesampletable**.
 * Dado que se usa -q, desactiva la visualización automática.
-* Dado que se usa `-m sample -r 0.1 -n 500`, toma como muestra de forma aleatoria el 10 % de las filas de hivesampletable y limita el tamaño del conjunto de resultados a 500 filas.
+* Dado que se usa `-m sample -r 0.1 -n 500`, toma como muestra de forma aleatoria el 10 % de las filas de hivesampletable y limita el tamaño del conjunto de resultados a 500 filas.
 * Por último, dado que se ha usado `-o query2`, también guarda el resultado en una trama de datos denominada **query2**.
 	
 
@@ -128,7 +128,7 @@ Puede abrir el cuaderno **00 - [READ ME FIRST] Spark Magic Kernel Features** de 
 
 ## Almacenamiento de los cuadernos
 
-Los cuadernos de Jupyter se guardan en la cuenta de almacenamiento asociada al clúster en la carpeta **/HdiNotebooks**. Es posible acceder a los cuadernos, los archivos de texto y las carpetas que se crean en Jupyter desde WASB. Por ejemplo, si usa Jupyter para crear una carpeta **myfolder** y un cuaderno **myfolder/mynotebook.ipynb**, puede acceder a ese cuaderno en `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. También ocurre lo contrario, es decir, si carga un cuaderno directamente en la cuenta de almacenamiento en `/HdiNotebooks/mynotebook1.ipynb`, será visible también desde Jupyter. Los cuadernos permanecen en la cuenta de almacenamiento incluso después de que se elimine el clúster.
+Los cuadernos de Jupyter Notebook se guardan en la cuenta de almacenamiento asociada al clúster en la carpeta **/HdiNotebooks**. Es posible acceder a los cuadernos, los archivos de texto y las carpetas que se crean en Jupyter desde WASB. Por ejemplo, si usa Jupyter para crear una carpeta **myfolder** y un cuaderno **myfolder/mynotebook.ipynb**, puede acceder a ese cuaderno en `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`. También ocurre lo contrario, es decir, si carga un cuaderno directamente en la cuenta de almacenamiento en `/HdiNotebooks/mynotebook1.ipynb`, será visible también desde Jupyter. Los cuadernos permanecen en la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
 La forma de guardar los cuadernos en la cuenta de almacenamiento es compatible con HDFS. Por lo tanto, si se usa SSH en el clúster, puede usar comandos de administración de archivos como los siguientes:
 
@@ -174,7 +174,7 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -186,6 +186,6 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

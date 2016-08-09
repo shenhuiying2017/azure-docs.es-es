@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 El conector Trello puede usarse desde:
 
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [Flujo](http://flows.microsoft.com)  
+- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [Flujo](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -610,4 +610,4 @@ Obtiene listas según el identificador: obtiene listas según el identificador
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->
