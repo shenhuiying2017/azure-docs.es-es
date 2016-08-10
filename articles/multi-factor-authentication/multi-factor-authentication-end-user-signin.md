@@ -28,12 +28,12 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 
 ¿Qué hace normalmente?|Descripción
 :------------- | :------------- | 
-[Inicio de sesión con el teléfono de la oficina o con un móvil](#inicio-de-sesin-con-el-telfono-de-la-oficina-o-con-un-mvil) | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
-[Inicio de sesión con la aplicación móvil mediante la notificación](#inicio-de-sesin-con-la-aplicacin-mvil-mediante-la-notificacin) | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
-[Inicio de sesión con la aplicación móvil mediante el código de comprobación](#inicio-de-sesin-con-la-aplicacin-mvil-mediante-el-cdigo-de-comprobacin) | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y un código de comprobación.
-[Inicio de sesión con un método alternativo](#inicio-de-sesin-con-un-mtodo-alternativo) | Esto le mostrará qué esperar si desea usar un método alternativo.
+<a href="#1">Inicio de sesión con el teléfono de la oficina o con un móvil</a> | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
+<a href="#2">Inicio de sesión con la aplicación móvil mediante la notificación</a> | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
+<a href="#3">Inicio de sesión con la aplicación móvil mediante el código de comprobación</a> | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y un código de comprobación.
+<a href="#4">Inicio de sesión con un método alternativo</a> | Esto le mostrará qué esperar si desea usar un método alternativo.
 
-## Inicio de sesión con el teléfono de la oficina o con un móvil
+<h2 id="1">Inicio de sesión con el teléfono de la oficina o con un móvil</h2>
 
 La siguiente información describe la experiencia de uso de la autenticación multifactor con el teléfono de su oficina o con el móvil.
 
@@ -50,7 +50,7 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 - Con esto debe haber iniciado sesión.</li>
 
-## Inicio de sesión con la aplicación móvil mediante la notificación
+<h2 id="2">Inicio de sesión con la aplicación móvil mediante la notificación</h2>
 
 La siguiente información describe la experiencia de uso de la autenticación multifactor con su aplicación móvil a través del envío de una notificación.
 
@@ -70,7 +70,7 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 - Con esto debe haber iniciado sesión.
 
 
-## Inicio de sesión con la aplicación móvil mediante el código de comprobación
+<h2 id="3">Inicio de sesión con la aplicación móvil mediante el código de comprobación</h2>
 
 La siguiente información describe la experiencia de uso de la autenticación multifactor con su aplicación móvil a través del uso de un código de comprobación.
 
@@ -88,8 +88,7 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 - Con esto debe haber iniciado sesión.
 
 
-## Inicio de sesión con un método alternativo
-
+<h2 id="4">Inicio de sesión con un método alternativo</h2>
 
 En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.
 
