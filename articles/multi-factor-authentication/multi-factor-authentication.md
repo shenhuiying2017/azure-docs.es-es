@@ -147,12 +147,12 @@ Elija el modelo por puesto o según el consumo que mejor funcione para su organi
 
 Puesto que existen varios modelos de Azure Multi-Factor Authentication, es necesario determinar primero un par de cosas para descubrir cuál es el más adecuado para usar. Estas cosas son:
 
--	[Qué es lo que quiero proteger](#qu-es-lo-que-quiero-proteger)
--	[Dónde se encuentran los usuarios](#dnde-se-encuentran-los-usuarios)
+-	<a href="#1">Qué es lo que quiero proteger</a>
+-	<a href="#2">Dónde se encuentran los usuarios</a>
 
 Las siguientes secciones proporcionan instrucciones para determinar cada uno de estos puntos.
 
-### ¿Qué es lo que quiero proteger?
+<h3 id="1">Qué es lo que quiero proteger</h3>
 
 Para determinar la solución correcta para la autenticación multifactor, en primer lugar, hay que responder a la pregunta de qué es lo que está intentando proteger con un segundo método de autenticación. ¿Es una aplicación que está en Azure? O es, por ejemplo, un sistema de acceso remoto. Mediante la determinación de lo que estamos intentando proteger, encontraremos la respuesta a la pregunta de dónde hay que habilitar la autenticación multifactor.
 
@@ -168,7 +168,7 @@ Acceso remoto como VPN, RDG| |* |
 
 
 
-### Dónde se encuentran los usuarios
+<h3 id="2">Dónde se encuentran los usuarios</h3>
 
 A continuación, dependiendo de dónde se encuentran los usuarios, podemos determinar la solución correcta a utilizar, la autenticación multifactor en la nube o local con el Servidor MFA.
 
