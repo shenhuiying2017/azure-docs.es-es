@@ -166,8 +166,8 @@ Como se mencionó anteriormente, además de exponer y tener acceso a API en sus 
 
 Para más información sobre los ámbitos de acceso expuestos por:
 
-- API Graph de Azure AD, consulte el artículo [Permission scopes | Graph API concepts] (Ámbitos de permiso | Conceptos de API Graph) (https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
-- API de Office 365, consulte el artículo [Authentication and Authorization using Common Consent Framework (Autenticación y autorización mediante el marco de consentimiento común)](https://msdn.microsoft.com/office/office365/howto/application-manifest). Consulte [Set up your Office 365 development environment (Configurar el entorno de desarrollo de Office 365)](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) para ver una descripción completa sobre cómo crear una aplicación cliente que se integre con las API de Office 365.
+- API Graph de Azure AD, consulte el artículo [Ámbitos de permiso | Conceptos de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+- API de Office 365, consulte el artículo [Autenticación y autorización mediante el marco de consentimiento común](https://msdn.microsoft.com/office/office365/howto/application-manifest). Consulte [Configurar el entorno de desarrollo de Office 365](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) para ver una descripción completa sobre cómo crear una aplicación cliente que se integre con las API de Office 365.
 
 >[AZURE.NOTE] Debido a una limitación actual, las aplicaciones cliente nativas solo pueden llamar a la API de Azure AD Graph si usan el permiso "Acceso al directorio de la organización". Esta restricción no se aplica a las aplicaciones web.
 
