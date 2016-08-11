@@ -24,7 +24,7 @@ Además del flujo de trabajo o contenido real, para las empresas las aplicacione
 
 2. Para permitir la seguridad y la regulación, las organizaciones deben controlar y supervisar quién puede tener acceso y quién accede realmente a cada aplicación.
 
-En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar "*A QUIÉN se le permite hacer QUÉ*".
+En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar "* A QUIÉN se le permite hacer QUÉ *".
 
 En la terminología informática:
 
@@ -32,7 +32,7 @@ En la terminología informática:
 
 - *Qué* se conoce como *administración de acceso*: la administración del acceso a los recursos protegidos
 
-Ambos componentes juntos se conocen como *Administración de identidad y acceso (IAM)*, que, según define el grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam), es "*la disciplina de seguridad que permite a las personas adecuadas tener acceso a los recursos adecuados en los momentos adecuados y por los motivos adecuados*".
+Ambos componentes juntos se conocen como *Administración de identidad y acceso (IAM)*, que, según define el grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam), es "* la disciplina de seguridad que permite a las personas adecuadas tener acceso a los recursos adecuados en los momentos adecuados y por los motivos adecuados *".
 
 Entonces, ¿cuál es el problema? Si IAM *no se administra* en un solo lugar con una solución integrada:
 

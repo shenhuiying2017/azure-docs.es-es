@@ -67,7 +67,7 @@ Una definición de compilación de Team Services describe un flujo de trabajo co
       1. Plataforma: $(BuildPlatform)
       2. Configuración: $(BuildConfiguration)
    3. Compilación de Visual Studio (nombre: Package application [Empaquetar aplicación])
-      1. Solución: **\\*.sfproj
+      1. Solución: *\*\\*.sfproj
       2. Argumentos de MSBuild: /t:Package /p:PackageLocation=$(build.artifactstagingdirectory)\\applicationpackage
       3. Plataforma: $(BuildPlatform)
       4. Configuración: $(BuildConfiguration)
@@ -75,7 +75,7 @@ Una definición de compilación de Team Services describe un flujo de trabajo co
       1. Paquete de aplicación: $(build.artifactstagingdirectory)\\applicationpackage
    5. Copiar archivos
       1. Carpeta de origen: $(build.sourcesdirectory)
-      2. Contenido: **\\PublishProfiles\\*.xml &lt;new line&gt; **\\ApplicationParameters\\*.xml
+      2. Contenido: \*\*\PublishProfiles\\\*.xml &lt;new line&gt; \*\*\ApplicationParameters\\\*.xml
       3. Carpeta de destino: $(build.artifactstagingdirectory)\\projectartifacts
    6. Publicar los artefactos de la compilación
       1. Ruta de acceso para publicar: $(build.artifactstagingdirectory)
