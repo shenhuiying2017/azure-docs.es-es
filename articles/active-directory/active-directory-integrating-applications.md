@@ -63,7 +63,7 @@ Por ejemplo, si una aplicación cliente web necesita llamar a la API web de Offi
 
 El marco de consentimiento se basa en OAuth 2.0 y sus distintos flujos, como la concesión de credenciales de cliente y la concesión de código de autorización, mediante clientes públicos o confidenciales. Mediante el uso de OAuth 2.0, Azure AD permite crear muchos tipos diferentes de aplicaciones cliente, como en un teléfono, tableta, servidor o una aplicación web, y obtener acceso a los recursos necesarios.
 
-Para más información sobre el marco de consentimiento, consulte [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md) y el tema de Office 365 [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) (Descripción de la autenticación con las API de Office 365).
+Para más información sobre el marco de consentimiento, consulte [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md) y el tema de Office 365 [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) \(Descripción de la autenticación con las API de Office 365).
 
 #### Ejemplo de la experiencia de consentimiento
 
