@@ -146,7 +146,7 @@ Para los contadores de rendimiento de Windows, puede elegir una instancia espec�
 | --- | --- |
 | \_Total | Total de todas las instancias |
 | * | Todas las instancias |
-| (/|/var) | Coincide con las instancias con nombre: / o /var |
+| (/&#124;/var) | Coincide con las instancias con nombre: / o /var |
 
 
 De forma similar, el intervalo de muestra que elija para un contador primario se aplica a todos sus contadores secundarios. En otras palabras, todos los intervalos de muestra y las instancias del contador secundario están vinculadas entre sí.
