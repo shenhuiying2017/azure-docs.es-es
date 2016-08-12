@@ -538,7 +538,7 @@ Si deseamos crear configuraciones de alta disponibilidad de implementaciones de 
 
 * Las máquinas virtuales nuevas se deben agregar a la misma red virtual de Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>).
 * Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales. 
-[comentario]: [comment]: <> (MSSedusch TODO Test if still true in ARM)
+[comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### Direcciones IP
 Se recomienda encarecidamente configurar las máquinas virtuales para configuraciones de alta disponibilidad de una manera flexible. En Azure no se recomienda depender de las direcciones IP para abordar los asociados de alta disponibilidad dentro de la configuración de alta disponibilidad, a menos que se utilizan direcciones IP estáticas. Hay dos conceptos de apagado en Azure:
