@@ -66,8 +66,8 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 |:--|:--|
 | Type=Event | Todos los eventos de Windows. |
 | Type=Event EventLevelName=error | Todos los eventos de Windows con gravedad de error. |
-| Type=Event | Measure count() by Source | Contador de eventos de Windows por origen. |
-| Type=Event EventLevelName=error | Measure count() by Source | Contador de eventos de error de Windows por origen. |
+| Type=Event &#124; Measure count() by Source | Contador de eventos de Windows por origen. |
+| Type=Event EventLevelName=error &#124; Measure count() by Source | Contador de eventos de error de Windows por origen. |
 
 ## Pasos siguientes
 

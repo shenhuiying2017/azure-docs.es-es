@@ -63,4 +63,4 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

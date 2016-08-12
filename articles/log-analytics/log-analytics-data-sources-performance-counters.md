@@ -110,4 +110,4 @@ Si el intervalo de tiempo que ha seleccionado es de 6 horas, o inferior, el grá
 - Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 - Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
 
-<!------HONumber=AcomDC_0504_2016-->
+<!-------HONumber=AcomDC_0504_2016-->
