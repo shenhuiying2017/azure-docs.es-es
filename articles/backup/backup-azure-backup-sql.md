@@ -3,8 +3,8 @@
 	description="Introducción a copia de seguridad de bases de datos SQL Server mediante el servicio Copia de seguridad de Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Copia de seguridad de Azure para cargas de trabajo de SQL Server con DPM
@@ -174,4 +174,4 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
 • [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

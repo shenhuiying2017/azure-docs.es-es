@@ -44,7 +44,7 @@ Si no tiene una aplicación web, puede crearla en el [Portal de Azure](https://p
 
 ## Publicación Git
 
-Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones de [Implementación continua con GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md). Este tutorial usa Git para crear, administrar y publicar nuestra aplicación web Python en Aplicaciones web de Azure.
+Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones que se describen en [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md). Este tutorial usa Git para crear, administrar y publicar nuestra aplicación web Python en Aplicaciones web de Azure.
 
 Después de configurar la publicación Git, se creará un repositorio Git y se asociará a la aplicación web. La URL del repositorio se mostrará y, en adelante, se podrá usar para enviar datos del entorno de desarrollo local a la nube. Para publicar aplicaciones a través de Git, asegúrese de que también se haya instalado un cliente Git y use las instrucciones facilitadas para enviar el contenido de la aplicación web al Servicio de aplicaciones de Azure.
 
@@ -385,4 +385,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

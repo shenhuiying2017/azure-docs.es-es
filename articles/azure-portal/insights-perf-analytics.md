@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Supervisión del rendimiento de aplicaciones web de Azure"
+	pageTitle="Supervisión del rendimiento de aplicaciones web de Azure | Microsoft Azure"
 	description="Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento."
 	services="azure-portal"
     documentationCenter="na"
@@ -12,20 +12,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="07/28/2016"
 	ms.author="awills"/>
 
 # Supervisión del rendimiento de aplicaciones web de Azure
 
 En el [Portal de Azure](https://portal.azure.com), puede configurar la supervisión para que recopile estadísticas y detalles sobre las dependencias de las aplicaciones en las [aplicaciones web](../app-service-web/app-service-web-overview.md) o [máquinas virtuales](../virtual-machines/virtual-machines-linux-about.md) de Azure.
 
-Azure admite que Supervisión de rendimiento de aplicaciones (o *APM*) haga uso de *extensiones*. Dichas extensiones se instalan en la aplicación, donde recopilan datos e informan a los servicios de supervisión.
+Azure permite usar extensiones para admitir Supervisión de rendimiento de aplicaciones (APM). Dichas extensiones se instalan en la aplicación, donde recopilan datos e informan a los servicios de supervisión.
 
-Application Insights y New Relic son dos de las extensiones de supervisión de rendimiento que hay disponibles. Para usarlas, instale un agente en tiempo de ejecución. Con Application Insights, también existe la posibilidad de generar el código con un SDK. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
+**Application Insights** y **New Relic** son dos de las extensiones de supervisión de rendimiento que hay disponibles. Para usarlas, instale un agente en tiempo de ejecución. Con Application Insights, también existe la posibilidad de generar el código con un SDK. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
+
+## Application Insights
+
+### (Opcional) Volver a compilar la aplicación con el SDK...
+
+Application Insights puede proporcionar una telemetría más detallada instalando un SDK en la aplicación.
+
+En Visual Studio (2013 Update 2 o posteriores), agregue el SDK de Application Insights al proyecto.
+
+![Haga clic con el botón derecho y elija Agregar Application Insights.](./media/insights-perf-analytics/03-add.png)
+
+Cuando se la pide que inicie sesión, use las credenciales de su cuenta de Azure.
+
+La operación tiene dos efectos:
+
+1. Crea un recurso de Application Insights en Azure, donde se almacenan, analizan y muestran los datos de telemetría.
+2. Agrega el paquete NuGet de Application Insights al código y lo configura para enviar los datos de telemetría al recurso de Azure.
+
+Para probar la telemetría, ejecute la aplicación en el equipo de desarrollo (F5) o vuelva a publicarla directamente.
+
+El SDK proporciona una API para que pueda [escribir telemetría personalizada](../application-insights/app-insights-api-custom-events-metrics.md) para realizar un seguimiento del uso.
+
+### ...o configurar un recurso manualmente
+
+Si no agregó el SDK a Visual Studio, debe configurar el recurso de Application Insights en Azure, donde se almacenan, analizan y muestran los datos de telemetría.
+
+![Haga clic en Agregar, Servicios para desarrolladores, Application Insights. Elija el tipo de aplicación ASP.NET.](./media/insights-perf-analytics/01-new.png)
+
 
 ## Habilitación de extensiones
 
-1. Haga clic en **Examinar** y seleccione la aplicación web o la máquina virtual que desee instrumentar.
+1. Vaya a la hoja de control de la aplicación web o la máquina virtual que quiere instrumentar.
 
 2. Agregue toda la extensión de Application Insights o New Relic.
 
@@ -37,43 +65,35 @@ O bien, si utiliza una máquina virtual:
 
 ![Haga clic en el icono Análisis](./media/insights-perf-analytics/10-vm1.png)
 
-### En Application Insights: recompilar con el SDK
 
-Application Insights puede proporcionar una telemetría más detallada instalando un SDK en la aplicación.
-
-En Visual Studio, agregue el SDK de Application Insights al proyecto.
-
-![Haga clic con el botón derecho y elija Agregar Application Insights.](./media/insights-perf-analytics/03-add.png)
-
-Cuando se le pide que inicie sesión, use las credenciales de su cuenta de Azure.
-
-Para probar la telemetría, ejecute la aplicación en el equipo de desarrollo o vuelva a publicarla.
-
-El SDK proporciona una API para que pueda [escribir telemetría personalizada](../application-insights/app-insights-api-custom-events-metrics.md) para realizar un seguimiento del uso.
 
 ## Exploración de los datos
 
-Use la aplicación para generar telemetría.
+1. Abra el recurso de Application Insights (directamente mediante Examinar o con la herramienta de supervisión de rendimiento de la aplicación web).
 
-1. A continuación, desde la hoja de la máquina virtual o la aplicación web, podrá ver la extensión instalada.
-2. Haga clic en la fila que representa la aplicación para navegar a ese proveedor:
-![Haga clic en Actualizar](./media/insights-perf-analytics/06-overview.png)
+2. Haga clic en cualquier gráfico para obtener información más detallada:
 
-También puede usar **Examinar** para ir directamente al componente Application Insights o a la cuenta de New Relic que utilizó previamente.
+    ![En la hoja de información general de Application Insights, haga clic en un gráfico.](./media/insights-perf-analytics/07-dependency.png)
 
-Cuando llegue a la hoja, en Application Insights, por ejemplo, puede:
-- Abrir la opción Rendimiento:
+    También puede [personalizar las hojas de métricas](../application-insights/app-insights-metrics-explorer.md).
 
-![En la hoja de información general de Application Insights, haga clic en el icono Rendimiento](./media/insights-perf-analytics/07-dependency.png)
+3. Siga haciendo clic para ver los eventos individuales y sus propiedades:
 
-- Acceder a las solicitudes individuales:
+    ![Haga clic en un tipo de evento para abrir una búsqueda filtrada en ese tipo.](./media/insights-perf-analytics/08-requests.png)
 
-![En la cuadrícula, haga clic en una dependencia para ver las solicitudes relacionadas.](./media/insights-perf-analytics/08-requests.png)
+    Observe el vínculo "..." para abrir todas las propiedades.
 
-- En este ejemplo se muestra el tiempo invertido en una dependencia SQL, incluido el número de llamadas SQL y las estadísticas relacionadas, por ejemplo, la duración media y la desviación estándar.
+    También puede [personalizar las búsquedas](../application-insights/app-insights-diagnostic-search.md).
 
-![](./media/insights-perf-analytics/01-example.png)
+Para realizar búsquedas más eficaces sobre los datos de telemetría, use el [lenguaje de consulta Analytics](../application-insights/app-insights-analytics-tour.md).
 
+
+## Preguntas y respuestas
+
+¿Cómo cambio para enviar datos a un recurso de Application Insights diferente?
+
+* *Si agregó Application Insights a su código en Visual Studio:* haga clic con el botón derecho en el proyecto, elija **Application Insights > Configurar** y elija el recurso que quiera. Tiene la opción de crear un nuevo recurso. Vuelva a compilar e implementar.
+* *En caso contrario:* en Azure, abra la hoja de control de la aplicación web y abra **Herramientas > Extensiones**. Elimine la extensión de Application Insights. Después, abra **Herramientas > Rendimiento**, 'haga clic aquí', elija Application Insights y el recurso que quiera. (Si quiere crear un nuevo recurso de Application Insights, haga esto primero).
 
 
 ## Pasos siguientes
@@ -81,7 +101,7 @@ Cuando llegue a la hoja, en Application Insights, por ejemplo, puede:
 * [Supervise las métricas del estado del servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y responde adecuadamente.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
-* Utilice [aplicaciones y páginas web de Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obtener el análisis del cliente acerca de los exploradores que visitan una página web.
-* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
+* Use [aplicaciones y páginas web de Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obtener la telemetría del cliente de los exploradores que visitan una página web.
+* [Configure pruebas web de disponibilidad](../application-insights/app-insights-monitor-web-app-availability.md) para recibir una alerta si el sitio deja de estar activo.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

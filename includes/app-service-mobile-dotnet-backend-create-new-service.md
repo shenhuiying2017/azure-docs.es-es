@@ -1,28 +1,15 @@
 1. Inicie sesión en el [Portal de Azure].
 
-2. Haga clic en **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, a continuación, proporcione un nombre para el back-end de la aplicación móvil.
+2. Haga clic en **+NUEVO** y escriba **Aplicaciones móviles** en _Buscar en marketplace_. Seleccione **Inicio rápido de aplicaciones móviles** y haga clic en **Crear**.
 
-3. Para el **grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
+	![Portal de Azure con inicio rápido de Aplicaciones móviles resaltado](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png)
+
+
+3. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
  
-	Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes de Servicio de aplicaciones y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-4. Para **Plan del Servicio de aplicaciones**, se selecciona el plan predeterminado (en el [nivel estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). La configuración del plan del Servicio de aplicaciones determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados a la aplicación.
-
-	Después de decidir el plan, haga clic en **Crear**. Esto crea el back-end de aplicación móvil
-	
-6. En la hoja **Configuración** del nuevo back.end de Aplicaciones móviles, haga clic en **Inicio rápido** > la plataforma de aplicaciones cliente > **Conectar a una base de datos**.
-
-	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-
-7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL** > **Crear una nueva base de datos**, escriba el **Nombre** de la base de datos, seleccione un plan de tarifa y haga clic en **Servidor**. Puede reutilizar esta nueva base de datos. Si ya tiene una base de datos en la misma ubicación, puede elegir **Usar base de datos existente**. No se recomienda el uso de una base de datos en una ubicación diferente debido a los costos de ancho de banda y a una mayor latencia.
- 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-
-8. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor**, proporcione un inicio de sesión y una contraseña, active **Permitir que los servicios de Azure accedan al servidor** y haga clic en **Aceptar**. Esto creará la nueva base de datos.
-
-9. De nuevo en la hoja **Agregar conexión de datos**, haga clic en **Cadena de conexión**, escriba los valores de inicio de sesión y contraseña para la base de datos y haga clic en **Aceptar**. Espere unos minutos para que se implemente la base de datos correctamente antes de continuar.
+4. Haga clic en **Crear**. Espere unos minutos para que se implemente el servicio correctamente antes de continuar.
 
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

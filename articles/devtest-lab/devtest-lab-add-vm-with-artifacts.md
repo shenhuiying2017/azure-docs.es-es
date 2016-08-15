@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Incorporación de una máquina virtual con artefactos a un laboratorio
 
-> [AZURE.NOTE] Vea el vídeo que acompaña a este artículo: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) (Cómo crear VM con artefactos en un laboratorio).
+> [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Información general
 
@@ -60,11 +60,11 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 1. Seleccione **Subred** y seleccione la subred.
 
-1. Si se establece la directiva de laboratorio para permitir las direcciones IP públicas para la subred seleccionada, especifique si desea que la dirección IP sea pública seleccionando **Sí** o **No**. De lo contrario, se deshabilitará esta opción y se seleccionará como **No**.
+1. Si se establece la directiva de laboratorio para permitir las direcciones IP públicas para la subred seleccionada, especifique si desea que la dirección IP sea pública seleccionando **Sí** o **No**. De lo contrario, se deshabilita esta opción y se selecciona como **No**.
 
 1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base. **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
 
-1. Si desea ver o copiar la plantilla ARM, vaya a la sección [Almacenamiento de plantilla ARM](#save-arm-template) y vuelva aquí cuando haya finalizado.
+1. Si desea ver o copiar la plantilla ARM, vaya a la sección [Almacenamiento de una plantilla de ARM](#save-arm-template) y vuelva aquí cuando haya finalizado.
 
 1. Seleccione **Crear** para agregar la máquina virtual especificada al laboratorio.
 
@@ -76,13 +76,13 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 Al crear una máquina virtual, puede agregar artefactos existentes. Cada laboratorio incluye artefactos procedentes del repositorio de artefactos de DevTest Labs público, así como los artefactos que ha creado y agregado a su propio repositorio de artefactos. Para descubrir cómo crear artefactos, consulte el artículo [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 
-1. En la hoja **Lab VM** (Máquina virtual de laboratorio), seleccione **Artifacts** (Artefactos). 
+1. En la hoja **Lab VM** (Máquina virtual de laboratorio), seleccione **Artefactos** .
 
 1. En la hoja **Agregar artefactos**, seleccione el artefacto deseado.
 
 ![Hoja de Agregar artefactos](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
-1. Escriba los valores de parámetro necesarios y cualquier otro parámetro opcional que necesite.  
+1. Escriba los valores de parámetro necesarios y cualquier otro parámetro opcional que necesite.
 
 1. Seleccione **Agregar** para agregar el artefacto y vuelva a la hoja **Agregar artefactos**.
 
@@ -96,7 +96,7 @@ De forma predeterminada, las acciones de los artefactos se ejecutan en el orden 
 
 1. En la parte superior de la hoja **Agregar artefactos**, seleccione el vínculo que indica cuántos artefactos se han agregado a la máquina virtual.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Número de artefactos que se agregan a la máquina virtual](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Arrastre y coloque los artefactos de la lista de modo que reflejen el orden deseado. **Nota:** Si tiene problemas para arrastrar el artefacto, asegúrese de que lo arrastra desde el lado izquierdo del artefacto.
 
@@ -108,7 +108,7 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 
 1. En la parte superior de la hoja **Agregar artefactos**, seleccione el vínculo que indica cuántos artefactos se han agregado a la máquina virtual.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Número de artefactos que se agregan a la máquina virtual](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. En la hoja **Artefactos seleccionados**, seleccione el artefacto que desea ver o modificar.
 
@@ -122,11 +122,11 @@ Una plantilla de ARM proporciona una manera declarativa de definir una implement
 
 1. En la hoja **Lab VM** (Máquina virtual de laboratorio), seleccione **View ARM Template** (Ver plantilla de ARM).
 
-1. En la hoja **Ver plantilla de Azure Resource Manager**, seleccione todo el texto de la plantilla.
+1. En la hoja **View Azure Resource Manager Template** (Ver plantilla de Azure Resource Manager) seleccione todo el texto de la plantilla.
 
 1. Copie el texto seleccionado en el Portapapeles.
 
-1. Seleccione **Aceptar** para cerrar la hoja **View ARM Template** (Ver plantilla de ARM).
+1. Seleccione **Aceptar** para cerrar la hoja **View Azure Resource Manager Template** (Ver plantilla de Azure Resource Manager).
 
 1. Abra un editor de texto.
 
@@ -140,4 +140,4 @@ Una plantilla de ARM proporciona una manera declarativa de definir una implement
 - Aprenda a [crear artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 - Explore la [galería de plantillas de inicio rápido de ARM de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Definición de directivas de laboratorio
+
+> [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
 ## Información general
 
@@ -76,7 +78,7 @@ La directiva sobre el **máximo de máquinas virtuales por usuario** le permite 
 
 1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. Si habilita esta directiva, en el cuadro de texto **Máximo de máquinas virtuales permitidas por usuario**, escriba un valor numérico que indique el número máximo de máquinas virtuales que puede crear un usuario. Si escribe un número que no sea válido, la interfaz de usuario mostrará el número máximo permitido para este campo.
+1. Si habilita esta directiva, en el cuadro de texto **Maximum VMs allowed per User** (Máximo de máquinas virtuales permitidas por usuario), escriba un valor numérico que indique el número máximo de máquinas virtuales que puede crear un usuario. Si escribe un número que no sea válido, la interfaz de usuario mostrará el número máximo permitido para este campo.
 
 1. Seleccione **Guardar**.
 
@@ -90,7 +92,7 @@ La directiva sobre el **total de máquinas virtuales permitidas** le permite esp
 
 1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. Si habilita esta directiva, en el cuadro de texto **Total de máquinas virtuales permitidas en este laboratorio**, escriba un valor numérico que indique el número máximo de máquinas virtuales que se pueden crear para el laboratorio actual. Si escribe un número que no sea válido, la interfaz de usuario mostrará el número máximo permitido para este campo.
+1. Si habilita esta directiva, en el cuadro de texto **Total VMs allowed in this lab** (Total de máquinas virtuales permitidas en este laboratorio), escriba un valor numérico que indique el número máximo de máquinas virtuales que se pueden crear para el laboratorio actual. Si escribe un número que no sea válido, la interfaz de usuario mostrará el número máximo permitido para este campo.
 
 1. Seleccione **Guardar**.
 
@@ -108,7 +110,7 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 1. Seleccione **Guardar**.
 
-1. De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra la hoja de la máquina virtual y cambie la configuración de **Apagado automático**.
+1. De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra la hoja de la máquina virtual y cambie el valor de **Auto Shutdown** (Apagado automático)
 
 ## Definir inicio automático
 
@@ -124,15 +126,15 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 1. Seleccione **Guardar**.
 
-1. Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra la hoja de la máquina virtual y cambie la configuración de **Inicio automático**.
+1. Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar este valor a una máquina virtual específica, abra la hoja de la máquina virtual y cambie el valor de **Auto Start** (Inicio automático)
 
 ## Pasos siguientes
 
 Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
 
-- [Configurar administración de costos](./devtest-lab-configure-cost-management.md): se muestra el uso del gráfico **Monthly Estimated Cost Trend** (Tendencia de costos estimados mensuales) para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo previsto para fin de mes.
-- [Crear una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
-- [Configurar imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): Laboratorios de desarrollo y pruebas admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
-- [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
+- [Configurar administración de costos](./devtest-lab-configure-cost-management.md): se muestra el uso del gráfico de **tendencias de costo estimado mensual** para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo previsto para fin de mes.
+- [Creación de una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
+- [Configuración de imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): DevTest Labs admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
+- [Creación de una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

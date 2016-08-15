@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Información general sobre X12 y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Aprenda a utilizar los contratos X12 para crear Aplicaciones lógicas." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -189,4 +189,4 @@ Después de seleccionar **Aceptar** en las hojas abiertas, siga estos pasos:
 ## Más información
 - [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

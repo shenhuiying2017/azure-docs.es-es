@@ -40,7 +40,7 @@ Para crear la puerta de enlace de VPN para la red virtual clásica, siga las ins
 1. Abra el portal clásico desde https://manage.windowsazure.com y escriba sus credenciales, si es necesario.
 2. En la esquina inferior izquierda de la pantalla, haga clic en el botón **NUEVO**, haga clic en **SERVICIOS DE RED** en**REDES VIRTUALES** y, a continuación, en**AGREGAR RED LOCAL**.
 3. En la ventana **Especificar los detalles de la red local**, escriba un nombre para la red virtual ARM a la que desea conectarse y, a continuación, en la esquina inferior derecha de la ventana, haga clic en el botón de flecha.
-3. En el cuadro de texto **IP DE INICIO** del espacio de direcciones, escriba el prefijo de red de la red virtual ARM a la que desea conectarse. 
+3. En el cuadro de texto **IP DE INICIO** del espacio de direcciones, escriba el prefijo de red de la red virtual ARM a la que desea conectarse.
 4. En el menú desplegable **CIDR (RECUENTO DE DIRECCIONES)**, seleccione el número de bits usados para la parte de la red del bloque CIDR usado por la red virtual ARM a la que desea conectarse.
 5. En **DIRECCIÓN IP DEL DISPOSITIVO VPN (OPCIONAL)**, escriba cualquier dirección IP pública válida. Cambiaremos esta dirección IP más adelante. A continuación, haga clic en el botón de marca de verificación de la parte inferior derecha de la pantalla. En la siguiente ilustración se muestra la configuración de ejemplo de esta página.
 
@@ -64,7 +64,7 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 
 3. Ejecute el comando siguiente para crear una dirección IP pública para la puerta de enlace.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 
 5. Ejecute el comando siguiente para crear un objeto de configuración de IP para la puerta de enlace. Observe el identificador de una subred de puerta de enlace. Esa subred debe existir en la red virtual.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] Debe pasarse la propiedad de Id de la subred y los objetos de la dirección IP respectivamente a los parámetros *SubnetId* y *PublicIpAddressId*. No puede usar una cadena sencilla.
 	
 5. Ejecute el comando siguiente para crear la puerta de enlace de la red virtual ARM.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Una vez creada la puerta de enlace VPN, ejecute el comando siguiente para recuperar su dirección IP pública. Copie la dirección IP, la necesitará para configurar la red local para la red virtual clásica.
@@ -118,4 +119,4 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 - Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](resource-groups-networking.md).
 - Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

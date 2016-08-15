@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="06/16/2016"
+   ms.date="07/31/2016"
    ms.author="mihaelab"/>
 
 #Obtención de detalles de la recuperación ante desastres
@@ -66,10 +66,9 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 ## Pasos siguientes
 
-- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
-- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Para obtener información sobre los escenarios de continuidad empresarial, consulte el artículo sobre [escenarios de continuidad](sql-database-business-continuity.md)
+- Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
 - Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

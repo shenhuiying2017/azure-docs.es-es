@@ -1,11 +1,12 @@
 <properties
    pageTitle="El uso de Microsoft Azure y las API de RateCard permiten a Cloudyn proporcionar ITFM a los clientes | Microsoft Azure"
    description="Proporciona una perspectiva exclusiva del socio de facturación de Microsoft Azure Cloudyn sobre sus experiencias de integración de las API de facturación de Azure en su producto. Esto es especialmente útil para los clientes de Azure y de Cloudyn que están interesados en usar o probar Cloudyn para servicios de Azure."
-   services="billing"
+   services=""
    documentationCenter=""
    authors="BryanLa"
    manager="mbaldwin"
-   editor=""/>
+   editor=""
+   tags="billing"/>
 
 <tags
    ms.service="billing"
@@ -48,7 +49,7 @@ Entre los casos de uso de ITFM de Cloudyn comunes habilitados por la integració
 
 ![Gráfico de asignación de costos 360][4]
 
-+ **Ajuste de tamaño rentable**: proporciona recomendaciones de ajuste de tamaño para máquinas virtuales infrautilizadas, lo que reduce los gastos del cliente en máquinas sobredimensionadas o provisionadas en exceso. Se hace examinando la CPU de la máquina virtual y las métricas de RAM (con la API de rendimiento), las horas de tiempo de ejecución (con la API de uso) y el costo (con la API de RateCard). Cloudyn proporciona, a continuación, recomendaciones de ajuste de tamaño en función de los recursos de CPU o memoria RAM (rendimiento) infrautilizados y calcula el ahorro estimado derivado multiplicando el diferencial de precios (RateCard) entre las máquinas virtuales por el uso de tiempo real (Uso) de la máquina infrautilizada. 
++ **Ajuste de tamaño rentable**: proporciona recomendaciones de ajuste de tamaño para máquinas virtuales infrautilizadas, lo que reduce los gastos del cliente en máquinas sobredimensionadas o provisionadas en exceso. Se hace examinando la CPU de la máquina virtual y las métricas de RAM (con la API de rendimiento), las horas de tiempo de ejecución (con la API de uso) y el costo (con la API de RateCard). Cloudyn proporciona, a continuación, recomendaciones de ajuste de tamaño en función de los recursos de CPU o memoria RAM (rendimiento) infrautilizados y calcula el ahorro estimado derivado multiplicando el diferencial de precios (RateCard) entre las máquinas virtuales por el uso de tiempo real (Uso) de la máquina infrautilizada.
 
 ![Ajuste de tamaño rentable][5]
 
@@ -72,7 +73,7 @@ Este es un breve vídeo que muestra cómo un cliente de Azure puede utilizar Clo
 ## Pasos siguientes
 
 + Inicie una prueba gratuita de [Cloudyn para Azure](https://www.cloudyn.com/microsoft-azure/) para ver cómo puede obtener transparencia en los costos gracias a la creación de informes y análisis personalizados para la implementación en nube de Microsoft Azure.
-+ Consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md) para obtener información general sobre las API de uso de recursos de Azure y de RateCard. 
++ Consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md) para obtener información general sobre las API de uso de recursos de Azure y de RateCard.
 + Consulte [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (Referencia de API de REST de facturación de Azure) para obtener más información sobre ambas API, que forman parte del conjunto de API proporcionadas por Administrador de recursos de Azure.
 + Si quiere profundizar en el código de ejemplo, consulte nuestros ejemplos de código de la API de facturación de Microsoft Azure en [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
@@ -90,4 +91,4 @@ Este es un breve vídeo que muestra cómo un cliente de Azure puede utilizar Clo
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

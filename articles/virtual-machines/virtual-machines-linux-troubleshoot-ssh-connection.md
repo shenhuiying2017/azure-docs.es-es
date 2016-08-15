@@ -70,7 +70,7 @@ azure vm reset-access -g <resource group> <vm name> -u <username> -p <new passwo
 Si utiliza la autenticación de claves SSH, puede restablecer la clave SSH de un usuario determinado:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g <resource group> -n <vm name> -u <username> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 #### Extensión de acceso a máquina virtual
@@ -134,4 +134,4 @@ Siga estos pasos para intentar resolver los errores de conexión SSH más habitu
 
 - Para más información sobre cómo solucionar problemas de máquinas virtuales que se crearon mediante el modelo de implementación clásica, consulte [Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

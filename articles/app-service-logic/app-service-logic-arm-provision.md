@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Creación de una aplicación lógica mediante plantillas del Administrador de recursos de Azure en el Servicio de aplicaciones de Azure | Microsoft Azure" 
 	description="Use una plantilla del Administrador de recursos de Azure para implementar una aplicación lógica vacía para definir flujos de trabajo." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@ Esta definición determinada se ejecuta una vez cada hora y hace ping en la ubic
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

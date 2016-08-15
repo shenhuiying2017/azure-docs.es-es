@@ -1,7 +1,7 @@
 <properties
    pageTitle="Desagrupación, ámbitos y bucles de aplicaciones lógicas| Microsoft Azure"
    description="Conceptos de desagrupación, ámbitos y bucles de aplicaciones lógicas"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@ Se pueden agrupar una serie de acciones con un ámbito. Esto es especialmente ú
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

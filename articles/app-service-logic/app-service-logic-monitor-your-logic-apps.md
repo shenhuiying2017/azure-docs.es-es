@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -138,4 +138,4 @@ Puede aprovechar esta información de telemetría del Centro de eventos o del al
 - [Creación de una implementación de aplicación lógica](app-service-logic-create-deploy-template.md)
 - [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/23/2016"
+   ms.date="07/29/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticación a Almacenamiento de datos SQL de Azure
@@ -37,14 +37,12 @@ Para conectarse a Almacenamiento de datos SQL, deberá proporcionar la siguiente
 - Password
 - Base de datos predeterminada (opcional)
 
-Es importante tener en cuenta que los usuarios deben autenticarse mediante autenticación de SQL. No se admite la autenticación de confianza en este momento.
-
 De forma predeterminada, su conexión se realizará a la base de datos principal y no a su base de datos de usuario. Para conectarse a la base de datos de usuario puede hacer dos cosas:
 
-1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
+1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT, SSMS o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
 2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
 De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <su base de datos>** no se admite para cambiar la base de datos en una conexión
 
@@ -78,7 +76,7 @@ En los pasos de configuración se incluyen los siguientes procedimientos para co
 5. Crear usuarios de base de datos independiente en la base de datos y asignados a identidades de Azure AD.
 6. Conectarse a su almacenamiento de datos mediante identidades de Azure AD.
 
-Las principales diferencias entre el uso de la autenticación de Azure Active Directory con Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure es que debe utilizar SQL Server Data Tools en lugar de SQL Server Management Studio para conectarse a Almacenamiento de datos SQL. Almacenamiento de datos SQL requiere al menos la versión de abril de 2016 (14.0.60311.1) de SQL Server Data Tools para Visual Studio 2015. Actualmente los usuarios de Azure Active Directory no se muestran en el Explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Actualmente los usuarios de Azure Active Directory no se muestran en el Explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ### Búsqueda de los detalles
 - Siga los pasos detallados. Los pasos detallados para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure. Siga los pasos detallados del tema [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
@@ -86,11 +84,11 @@ Las principales diferencias entre el uso de la autenticación de Azure Active Di
 
 ## Pasos siguientes
 
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
 <!-- Article references -->
 [Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

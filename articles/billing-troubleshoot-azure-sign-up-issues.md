@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Resolución de problemas de suscripción a Azure | Microsoft Azure"
 	description="Solución de los problemas que pueden producirse al realizar la suscripción a Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -81,4 +81,4 @@ Sugerencias
 Sugerencias
 - Si ya activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de comprar una suscripción de pago por uso. También puede ser elegible para una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) como alternativa al plan de evaluación gratuita de Azure. Tenga en cuenta que los planes de ofertas y prestaciones requieren requisitos previos específicos.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure
 
@@ -214,4 +214,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 - [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

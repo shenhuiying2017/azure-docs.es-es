@@ -3,8 +3,8 @@
    description="Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="trinadhk"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="06/08/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
 Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Protection Manager pueden:
@@ -45,7 +45,7 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.
-2. **Directiva de retención semanal**: las copias de seguridad realizadas cada sábado a medianoche y a las 18:00 h se conservarán durante 4 semanas.
+2. **Directiva de retención semanal**: las copias de seguridad realizadas todos los días a medianoche y el sábado a las 18:00 h se conservan durante 4 semanas.
 3. **Directiva de retención mensual**: las copias de seguridad realizadas a medianoche y a las 6 p.m. del último sábado de cada mes se conservarán durante 12 meses.
 4. **Directiva de retención anual**: las copias de seguridad realizadas del último sábado de cada mes de marzo se conservarán durante 10 días.
 
@@ -71,4 +71,4 @@ Para obtener más información sobre Copia de seguridad de Azure, vea
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

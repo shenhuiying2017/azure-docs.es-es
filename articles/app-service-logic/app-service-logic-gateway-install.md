@@ -1,7 +1,7 @@
 <properties
    pageTitle="Instalación de la puerta de enlace de datos local para las Aplicaciones lógicas | Microsoft Azure"
    description="Información sobre cómo instalar la puerta de enlace de datos local para su uso en una aplicación lógica."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ Los registros de Data Management Gateway y PowerBIGateway se encuentran en **Reg
 - [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 - [Conectores de Aplicaciones lógicas](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

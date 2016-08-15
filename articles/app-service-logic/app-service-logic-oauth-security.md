@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Seguridad OAUTH en conectores SaaS y aplicaciones de API | Azure"
 	description="Obtenga información acerca la seguridad OAUTH en los conectores y las aplicaciones de API del Servicio de aplicaciones de Azure; arquitectura de microservicios; saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -51,4 +51,4 @@ Ahora debería poder usar el conector de Aplicaciones lógicas. Al usar este con
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

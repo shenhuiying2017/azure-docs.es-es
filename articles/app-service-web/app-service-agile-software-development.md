@@ -21,7 +21,7 @@
 
 En este tutorial, aprenderá a crear aplicaciones complejas de gran escala con el [Servicio de aplicaciones de Azure](/services/app-service/) de manera que admita [ Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). Se supone que ya conoce la [Implementación de aplicaciones complejas con criterio previsible en Azure](app-service-deploy-complex-application-predictably.md).
 
-Las limitaciones de los procesos técnicos a menudo pueden ser un obstáculo para una implementación correcta de metodologías ágiles. El Servicio de aplicaciones de Azure, con características tales como [publicación continua](web-sites-publish-source-control.md), [entornos de ensayo](web-sites-staged-publishing.md) (ranuras) y [supervisión](web-sites-monitor.md), cuando se acompaña acertadamente de la orquestación y la administración de implementación del [Administrador de recursos de Azure](../resource-group-overview.md), puede formar parte de una gran solución para los desarrolladores que adoptan Agile Software Development.
+Las limitaciones de los procesos técnicos a menudo pueden ser un obstáculo para una implementación correcta de metodologías ágiles. El Servicio de aplicaciones de Azure, con características tales como [publicación continua](app-service-continuous-deployment.md), [entornos de ensayo](web-sites-staged-publishing.md) (ranuras) y [supervisión](web-sites-monitor.md), cuando se acompaña acertadamente de la orquestación y la administración de implementación del [Administrador de recursos de Azure](../resource-group-overview.md), puede formar parte de una gran solución para los desarrolladores que adoptan Agile Software Development.
 
 La tabla siguiente es una breve lista de los requisitos asociados al desarrollo ágil y la forma en que Servicios de Azure habilita cada uno de ellos.
 
@@ -77,7 +77,7 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 
 >[AZURE.NOTE] El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
 >
->Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
+>Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](app-service-continuous-deployment.md). Solo tiene que hacer esto una vez.
 
 En un escenario típico de DevOps, tiene una aplicación que se ejecuta directamente en Azure y quiere realizar cambios en ella mediante publicación continua. En este escenario, tiene una plantilla que ya desarrolló, probó y usó para implementar el entorno de producción. La configurará en esta sección.
 
@@ -282,4 +282,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

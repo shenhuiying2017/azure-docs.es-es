@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Aplicación nativa .NET de Azure AD v2.0 | Microsoft Azure"
-	description="Cómo crear una aplicación nativa .NET con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Aplicación nativa .NET de Azure Active Directory v2.0 | Microsoft Azure"
+description="Cómo crear una aplicación nativa .NET con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Agregar inicio de sesión a una aplicación de escritorio de Windows
 
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones de escritorio compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. También permite que la aplicación se comunique de forma segura con una API web back-end, así como con [Microsoft Graph](https://graph.microsoft.io) y algunas de las [API unificadas de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+> [AZURE.NOTE] No todas las características y escenarios de Azure Active Directory (AD) son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 
 Para las [aplicaciones nativas .NET que se ejecutan en un dispositivo](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD proporciona la biblioteca de autenticación de identidades de Microsoft o MSAL. El único propósito de MSAL es facilitar a su aplicación la obtención de tokens de acceso para llamar a servicios web. Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes de .NET WPF que permita realizar las siguientes acciones:
 
--	Iniciar la sesión del usuario y obtener token de acceso mediante el [protocolo de autenticación de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
--	Llama a un servicio web de lista de tareas pendientes back-end, que también está protegido con OAuth 2.0.
--	Cierre la sesión de los usuarios.
+- Iniciar la sesión del usuario y obtener token de acceso mediante el [protocolo de autenticación de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+- Llama a un servicio web de lista de tareas pendientes back-end, que también está protegido con OAuth 2.0.
+- Cierra la sesión del usuario.
 
 ## Descarga de código de ejemplo
 
-El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) o clonar el esqueleto:
+El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Para poder continuar, puede [descargar el esqueleto de la aplicación como .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) o clonar el esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 La aplicación completa se ofrece también al final de este tutorial.
 
@@ -247,9 +246,10 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 Ahora puede pasar a temas más avanzados. Es posible que desee probar:
 
-- [Proteger la API web TodoListService con el punto de conexión v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Proteger la API web TodoListService con el punto de conexión v2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Para obtener recursos adicionales, consulte:
+
 - [La guía del desarrollador v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Etiqueta "msal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ Para obtener recursos adicionales, consulte:
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

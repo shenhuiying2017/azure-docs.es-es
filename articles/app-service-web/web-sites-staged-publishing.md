@@ -68,7 +68,7 @@ La aplicación web debe estar ejecutándose en el modo **Estándar** o **Premium
 
 5. Haga clic en la dirección URL de la aplicación en la hoja del espacio. Observe que el espacio de implementación tiene su propio nombre de host y que se trata también de una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte [Aplicación web del Servicio de aplicaciones: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-No hay ningún contenido después de la creación de un espacio de implementación. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido. Por ejemplo, [puede publicar en esta ranura mediante Git](web-sites-publish-source-control.md).
+No hay ningún contenido después de la creación de un espacio de implementación. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido. Por ejemplo, [puede publicar en esta ranura mediante Git](app-service-deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 ## Configuración de ranuras de implementación ##
@@ -100,7 +100,7 @@ Para establecer una configuración de aplicación o una cadena de conexión que 
 
 >[AZURE.IMPORTANT] Antes de colocar una aplicación web de una ranura de implementación en producción, asegúrese de que todos los valores específicos que no son de ranura están configurados exactamente como desea que estén en el destino de intercambio.
 
-1. Para intercambiar las ranuras de implementación, haga clic en el botón **Intercambiar** en la barra de comandos de la aplicación web o en la barra de comandos de una ranura de implementación. Asegúrese de que el origen y el destino del intercambio estén correctamente establecidos. Normalmente, el destino de intercambio suele ser el espacio de producción.  
+1. Para intercambiar las ranuras de implementación, haga clic en el botón **Intercambiar** en la barra de comandos de la aplicación web o en la barra de comandos de una ranura de implementación. Asegúrese de que el origen y el destino del intercambio estén correctamente establecidos. Normalmente, el destino de intercambio suele ser el espacio de producción.
 
 	![Botón de cambio][SwapButtonBar]
 
@@ -114,7 +114,7 @@ El intercambio automático optimiza los escenarios de DevOps donde desee impleme
 
 Es fácil configurar el intercambio automático para un espacio. Siga estos pasos:
 
-1. En la hoja **Ranuras de implementación**, elija una ranura que no sea de producción, haga clic en **Todas las configuraciones** para la hoja de esa ranura.  
+1. En la hoja **Ranuras de implementación**, elija una ranura que no sea de producción, haga clic en **Todas las configuraciones** para la hoja de esa ranura.
 
 	![][Autoswap1]
 
@@ -162,7 +162,7 @@ En la hoja de una ranura de implementación, haga clic en **Eliminar** en la bar
 
 PowerShell de Azure es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluida la compatibilidad para administrar espacios de implementación de aplicaciones web del Servicio de aplicaciones de Azure.
 
-- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).  
+- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 ----------
 
@@ -283,4 +283,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0803_2016-->

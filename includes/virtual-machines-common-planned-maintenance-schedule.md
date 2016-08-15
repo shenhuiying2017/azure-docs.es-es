@@ -16,7 +16,7 @@ Puede seleccionar la hora del mantenimiento planeado que afecta a las máquinas 
 
 3.	Puede quitar la máquina virtual del conjunto de disponibilidad en el portal clásico.
    
-    1.	En el portal clásico, haga clic en la máquina virtual y después seleccione “configuración”. 
+    1.	En el portal clásico, haga clic en la máquina virtual y después seleccione “configuración”.
 
     2.	En “configuración” puede ver en qué conjunto de disponibilidad se encuentra la máquina virtual.
 
@@ -43,7 +43,7 @@ Puede seleccionar la hora del mantenimiento planeado que afecta a las máquinas 
 
 Paso a paso
 
-1.	Se le enviará un correo electrónico 7 días naturales antes del mantenimiento planeado para las máquinas virtuales en una configuración de instancia única. Los identificadores de suscripción y los nombres de las máquinas virtuales de instancia única afectados se incluirán en el cuerpo del correo electrónico. 
+1.	Se le enviará un correo electrónico 7 días naturales antes del mantenimiento planeado para las máquinas virtuales en una configuración de instancia única. Los identificadores de suscripción y los nombres de las máquinas virtuales de instancia única afectados se incluirán en el cuerpo del correo electrónico.
 
 2.	Durante estos 7 días, puede elegir la hora en la que se reinicia la instancia trasladando las máquinas virtuales de instancia única a un conjunto de disponibilidad en esa misma región. Este cambio de configuración ocasionará un reinicio, ya que la máquina virtual se traslada desde un host físico, destinado para el mantenimiento, a otro host físico que no está destinado al mantenimiento.
 
@@ -64,3 +64,5 @@ Esto también se puede lograr con Azure PowerShell:
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
+<!---HONumber=AcomDC_0803_2016-->

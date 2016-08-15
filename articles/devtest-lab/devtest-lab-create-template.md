@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # Creación de una imagen personalizada de DevTest Labs desde un archivo de VHD
@@ -74,8 +74,13 @@ Para agregar una nueva imagen personalizada, deberá tener acceso a un archivo V
 
 1. En la siguiente hoja se muestran instrucciones para modificar y ejecutar un script de PowerShell que carga en su suscripción de Azure un archivo VHD. **Nota:** este proceso puede durar bastante tiempo, en función del tamaño del archivo VHD y de la velocidad de conexión.
 
+## Entradas blogs relacionadas
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/) (¿Imágenes personalizadas o fórmulas?)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs) (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)
+
 ##Pasos siguientes
 
 Una vez que haya agregado una imagen personalizada para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

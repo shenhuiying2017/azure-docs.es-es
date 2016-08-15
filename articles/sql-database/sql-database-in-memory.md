@@ -107,7 +107,7 @@ La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic 
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) en el Portapapeles.
+3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles.
  - El script T-SQL crea los objetos In-Memory necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
 
 4. Pegue el script T-SQL en SSMS.exe y ejecútelo.
@@ -233,7 +233,7 @@ end
 ```
 
 
-Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas apariciones de la subcadena *\_inmem* con *\_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
+Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas apariciones de la subcadena *\_inmem* substring with *\_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
 
 
 ### Instalación de ostress y utilidades de RML
@@ -286,7 +286,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copie el texto de la línea de comandos ostress.exe anterior en el Portapapeles.
 
-3. Reemplace el <placeholders> de los parámetros -S -U -P -d por los valores reales correctos.
+3. Reemplace los <marcadores de posición> de los parámetros -S -U -P -d por los valores reales correctos.
 
 4. Ejecute la línea de comandos modificada en una ventana del símbolo del sistema de RML.
 
@@ -310,7 +310,7 @@ Una vez que tenga el resultado de la ejecución de \_inmem, realice los pasos si
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Edite la línea de comandos de ostress.exe para reemplazar todos los *\_inmem* por *\_ondisk*.
+2. Edite la línea de comandos de ostress.exe para reemplazar todos los *\_inmem* with *\_ondisk*.
 
 3. Ejecute ostress.exe por segunda vez y capture el resultado de la duración.
 
@@ -348,7 +348,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
  - Use ese nombre exacto.
  - Elija un nivel de servicio Premium.
 
-2. Copie [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) en el Portapapeles.
+2. Copie [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) en el Portapapeles.
  - El script T-SQL crea los objetos In-Memory necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
  - El script crea la tabla de dimensiones y dos tablas de hechos. Las tablas de hechos se rellenan con 3,5 millones de filas cada una.
  - El script podría tardar 15 minutos en completarse.
@@ -371,7 +371,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
 #### Consultas cruciales para comparar el índice de almacén de columnas
 
 
-[Aquí](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) hay varios tipos de consultas de T-SQL que se pueden ejecutar para ver las mejoras de rendimiento. En el paso 2 del script de T-SQL, hay un par de consultas que son de gran interés. Las dos consultas difieren solo en una línea:
+[Aquí](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) hay varios tipos de consultas de T-SQL que se pueden ejecutar para ver las mejoras de rendimiento. En el paso 2 del script de T-SQL, hay un par de consultas que son de gran interés. Las dos consultas difieren solo en una línea:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -537,4 +537,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

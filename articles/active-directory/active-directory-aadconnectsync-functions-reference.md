@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -657,7 +657,13 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 
 **Sintaxis:** `String PCase(string)`
 
+**Comentarios:**
+
+- Esta función no proporciona por el momento un uso de mayúsculas correcto para convertir una palabra que esté completamente en mayúsculas, como un acrónimo.
+
 **Ejemplo**: `PCase("TEsT")` devuelve "Test".
+
+`PCase(LCase("TEST"))` devuelve "Test".
 
 ----------
 ### RandomNum
@@ -859,4 +865,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

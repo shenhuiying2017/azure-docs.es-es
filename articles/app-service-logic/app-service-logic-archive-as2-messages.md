@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Archivo de mensajes del conector AS2 | Servicio de aplicaciones de Microsoft Azure" 
    description="Cómo archivar o almacenar mensajes del conector AS2 en Servicio de aplicaciones de Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="dwrede" 
@@ -42,4 +42,4 @@ Use la URL recuperada anteriormente para recuperar el mensaje archivado del Alma
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

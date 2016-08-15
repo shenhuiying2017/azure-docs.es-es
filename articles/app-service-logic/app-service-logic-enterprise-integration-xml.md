@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Información general sobre el procesamiento XML en Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Aprenda a procesar y validar mensajes XML con Enterprise Integration Pack y las Aplicaciones lógicas" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -30,4 +30,4 @@ Enterprise Integration Pack facilita la validación y el procesamiento de los do
 
 [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

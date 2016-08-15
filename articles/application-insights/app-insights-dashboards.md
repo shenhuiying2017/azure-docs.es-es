@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/30/2016"
 	ms.author="awills"/>
 
 # Navegación y paneles en el portal de Application Insights
@@ -56,18 +56,24 @@ Elija lo que desea ver en la información general. En Personalizar, puede insert
 Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azure](https://portal.azure.com) es un panel. Aquí puede agrupar los gráficos que le resultan más importantes de todos los recursos de Azure, incluidos los datos de telemetría desde [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![Panel personalizado.](./media/app-insights-dashboards/30.png)
+![Panel personalizado.](./media/app-insights-dashboards/31.png)
 
-1. Haga clic en la esquina superior en cualquier momento para volver al panel.
-2. Haga clic en un gráfico o en un icono del panel para ver más detalles acerca de sus datos.
-3. Utilice la barra de navegación para obtener una visión completa de todos los recursos.
-4. Edite, cree y comparta paneles con la barra de herramientas del panel.
+
+1. Edite, cree y comparta paneles con la barra de herramientas del panel.
+2. Vuelva al panel actual o cambie a otras vistas recientes.
+3. Cambie los paneles.
+4. Cree, edite y comparta los paneles.
+5. Mantenga el puntero sobre un icono y, a continuación, utilice la barra superior para moverlo, personalizarlo o quitarlo.
 
 ## Adición a un panel
 
 Cuando esté consultando una hoja o un conjunto de gráficos especialmente interesante, puede anclar una copia al panel. Lo verá la próxima vez que regrese.
 
 ![Para anclar un gráfico, mantenga el puntero encima y haga clic en "..." en el encabezado.](./media/app-insights-dashboards/33.png)
+
+1. Ancle un gráfico al panel. Una copia del gráfico aparece en el panel.
+2. Ancle la hoja completa en el panel: aparecerá en el panel como un icono en el que puede hacer clic.
+3. Haga clic en la esquina superior izquierda para volver al panel actual. A continuación, puede utilizar el menú desplegable para volver a la vista actual.
 
 Observe que los gráficos se agrupan en iconos: un icono puede contener más de un gráfico. El icono se ancla entero al panel.
 
@@ -77,7 +83,7 @@ Una vez que un icono se encuentra en el panel, es posible ajustarlo.
 
 ![Mantenga el mouse sobre un gráfico para modificarlo.](./media/app-insights-dashboards/36.png)
 
-1. Agregue un gráfico al icono. 
+1. Agregue un gráfico al icono.
 2. Configure la métrica, la dimensión de agrupación y el estilo (tabla, gráfico) de un gráfico.
 3. Configure las propiedades de intervalo de tiempo y filtrado de los gráficos en el icono. Puede establecer su propio intervalo de tiempo del gráfico o heredar el intervalo de tiempo del panel.
 4. Establezca el título del icono.
@@ -146,4 +152,4 @@ El botón Settings (Configuración) de la hoja de información general no sirve 
 |[Búsqueda de diagnóstico](app-insights-diagnostic-search.md)<br/>Busque y examine eventos y eventos relacionados, y cree errores. |![Ejemplo de búsqueda](./media/app-insights-dashboards/61.png)
 |[Analytics](app-insights-analytics.md)<br/>Lenguaje de consulta eficaz| ![Ejemplo de búsqueda](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

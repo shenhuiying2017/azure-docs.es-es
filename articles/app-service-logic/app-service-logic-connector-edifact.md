@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del conector Edifact de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure" 
    description="Creación y configuración del conector Edifact de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -53,13 +53,13 @@ El conector Edifact puede usarse como un desencadenador o como una acción.
 - Como parte de la salida, el conector devuelve la carga Edifact, el identificador del contrato e información sobre si el mensaje se procesa por lotes o no.
 
 ### Acción
-- Haga clic en el conector Edifact en el panel derecho: 
+- Haga clic en el conector Edifact en el panel derecho:  
 ![Configuración de la acción][7]
-- Haga clic en ->: 
+- Haga clic en ->:  
 ![Lista de acciones][8]
-- El conector Edifact admite muchas acciones. Seleccione *Codificar*: 
+- El conector Edifact admite muchas acciones. Seleccione *Codificar*:  
 ![Codificar entrada][9]
-- Proporcione las entradas para la acción y configúrela: 
+- Proporcione las entradas para la acción y configúrela:  
 ![Codificar configurado][10]
 
 	Parámetro|Tipo|Descripción del parámetro
@@ -100,4 +100,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="08/01/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Uso del Explorador de recursos de Azure para ver y modificar recursos
@@ -34,7 +34,7 @@ A medida que se desplace a un grupo de recursos verá los proveedores para los q
 
 Desde ahí puede comenzar a obtener detalles de las instancias de recursos. En la siguiente captura de pantalla, puede ver la instancia de SQL Server `sltest` en la vista de árbol. En el lado derecho, aparece información acerca de las solicitudes de API de REST que se pueden usar con ese recurso. Si se desplaza hasta el nodo de un recurso, el Explorador de recursos envía automáticamente la solicitud GET para recuperar información sobre el recurso. En el área de texto grande debajo de la dirección URL, verá la respuesta de la API.
 
-A medida que se familiarice con las plantillas ARM, el contenido del cuerpo le empezará a resultar familiar. La sección **Propiedades** de la respuesta coincide con los valores que pueden proporcionarse en la sección **Propiedades** de la plantilla.
+A medida que se familiarice con las plantillas de Resource Manager, el contenido del cuerpo le empezará a resultar familiar. La sección **Propiedades** de la respuesta coincide con los valores que pueden proporcionarse en la sección **Propiedades** de la plantilla.
 
 ![sql server](./media/resource-manager-resource-explorer/are-03-sqlserver-with-response.png)
 
@@ -70,8 +70,8 @@ La pestaña PowerShell del Explorador de recursos muestra los cmdlets que debe u
 Para más información sobre los cmdlets de Azure PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 
 ## Resumen
-Cuando trabaje con ARM, el Explorador de recursos puede ser una herramienta muy útil. Es una excelente forma de encontrar maneras de usar PowerShell para consultar y realizar cambios. Si está trabajando con la API de REST, es una excelente forma de comenzar a trabajar y probar rápidamente las llamadas a API antes de empezar a escribir código. Y si escribe plantillas de ARM, puede ser una excelente forma de comprender la jerarquía de recursos y encontrar la ubicación de la configuración: puede realizar un cambio en el Portal y, a continuación, buscar las entradas correspondientes en el Explorador de recursos.
+Cuando trabaje con Resource Manager, el Explorador de recursos puede ser una herramienta muy útil. Es una excelente forma de encontrar maneras de usar PowerShell para consultar y realizar cambios. Si está trabajando con la API de REST, es una excelente forma de comenzar a trabajar y probar rápidamente las llamadas a API antes de empezar a escribir código. Y si escribe plantillas, puede ser una excelente forma de comprender la jerarquía de recursos y encontrar la ubicación de la configuración: puede realizar un cambio en el Portal y, a continuación, buscar las entradas correspondientes en el Explorador de recursos.
 
 Para obtener más información, vea el [vídeo de Channel 9 con Scott Hanselman y David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

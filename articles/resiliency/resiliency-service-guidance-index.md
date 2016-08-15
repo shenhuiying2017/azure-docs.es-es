@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 # Información orientativa acerca de la resistencia del servicio de Microsoft Azure
@@ -38,4 +38,4 @@ Los siguientes vínculos conducen a una guía de diseño que se ha creado para a
 ##Pasos siguientes
 Si busca una guía que se centre de forma más general en sistemas y soluciones, lea el artículo [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](https://aka.ms/drtechguide).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

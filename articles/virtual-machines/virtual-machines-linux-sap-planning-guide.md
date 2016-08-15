@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver on Azure virtual machines (VMs) – Planning and Implementation Guide (SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación)
@@ -641,7 +641,7 @@ Dado que la red y la resolución de nombres es una parte fundamental de la imple
 
 Se puede definir el intervalo de direcciones IP privadas asignadas por la funcionalidad de DHCP de Azure mediante la creación de una red virtual de Azure. En escenarios entre locales, el intervalo de direcciones IP definido se seguirá asignando mediante DHCP por Azure. Sin embargo, la resolución de nombres de dominio se llevará a cabo en local (suponiendo que las máquinas virtuales formen parte de un dominio local) y, por tanto, se pueden resolver direcciones independientemente de los diferentes servicios en la nube de Azure.
 
-[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, se requiere que las redes virtuales de Azure ya **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se ha mencionado anteriormente que, en contraposición a las recomendaciones del año anterior, **ya NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>)
+[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, se requiere que las redes virtuales de Azure ya **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se ha mencionado anteriormente que, en contraposición a las recomendaciones del año anterior, **ya NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>.
 
 Cada máquina virtual de Azure debe estar conectada a una red virtual.
 
@@ -686,7 +686,7 @@ VPN de punto a sitio requiere que cada equipo cliente se conecte a Azure con su 
 #### VPN de varios sitios
 Asimismo, en la actualidad Azure ofrece la posibilidad de crear una conectividad VPN multisitio para una suscripción de Azure. Anteriormente, las suscripciones únicas estaban limitaban a una conexión VPN de sitio a sitio. Esta limitación desapareció con las conexiones VPN multisitio para suscripciones únicas. De este modo, una suscripción específica puede aprovechar varias regiones de Azure mediante configuraciones entre locales.
 
-Para obtener más documentación, consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell]. 
+Para obtener más documentación, consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell].
 [comment]: <> (MShermannd TODO found no ARM docu link)
 
 #### Conexión de red virtual a red virtual
@@ -781,10 +781,10 @@ También podrá encontrar pasos más detallados sobre cómo instalar, actualizar
 
 Hasta el momento, de la experiencia de los clientes se extrae que PowerShell (PS) es sin lugar a dudas la herramienta más eficaz para implementar máquinas virtuales y crear pasos personalizados en la implementación de estas. Todos los clientes que ejecutan instancias de SAP en Azure usan cmdlets de PS como complemento a las tareas de administración que llevan a cabo en el Portal de Azure o incluso los utilizan exclusivamente para administrar sus implementaciones en Azure. Como los cmdlets específicos de Azure comparten la misma convención de nomenclatura que los más de 2000 cmdlets relacionados con Windows, a los administradores de Windows les resulta sencillo utilizarlos.
 
-Consulte un ejemplo aquí:
- <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Consulte un ejemplo aquí: 
+<http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+[comment]: <> (MShermannd TODO describe new CLI command when tested )
 La implementación de la extensión de supervisión de Azure para SAP (consulte el capítulo [Solución de supervisión de Azure para SAP][planning-guide-9.1] de este documento) solo se puede llevar a cabo mediante PowerShell o la CLI. Por lo tanto, es obligatorio para instalar y configurar PowerShell o la CLI al implementar o administrar un sistema SAP NetWeaver en Azure.
 
 Como Azure ofrece más funciones, se agregarán nuevos cmdlets de PS que requieren una actualización de los cmdlets. Por lo tanto, es recomendable consultar el sitio de descargas de Azure al menos una vez al mes <https://azure.microsoft.com/downloads/> para ver si se ha publicado una nueva versión de los cmdlets. La nueva versión simplemente se instalará sobre la anterior.
@@ -1809,7 +1809,7 @@ La solución SIOS DataKeeper proporciona un clúster de disco compartido para lo
 * SIOS DataKeeper Cluster Edition debe estar configurado de forma que refleje de forma sincrónica el contenido del volumen del VHD adicional conectado procedente de las máquinas virtuales de origen en el volumen del VHD adicional conectado a la máquina virtual de destino.
 * SIOS DataKeeper debe abstraer los volúmenes locales de origen y de destino presentarlos en el clúster de conmutación por error de Windows como un único disco compartido.
  
-Se pueden encontrar todos los detalles sobre cómo instalar un clúster de conmutación por error de Windows con SIOS Datakeeper y SAP en las notas del producto [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Agrupación en clústeres de una instancias de SAP ASCS usando el clúster de conmutación por error de Windows Server en Azure con SIOS DataKeeper).
+Se pueden encontrar todos los detalles sobre cómo instalar un clúster de conmutación por error de Windows con SIOS Datakeeper y SAP en las notas del producto [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Agrupación en clústeres de una instancias de SAP ASCS usando el clúster de conmutación por error de Windows Server en Azure con SIOS DataKeeper).
 
 #### Alta disponibilidad en la instancia de SAP (A)SCS en Linux
  
@@ -1932,5 +1932,4 @@ Los aspectos más destacados de la alta disponibilidad en los sistemas SAP en Az
 * No tiene mucho sentido efectuar una copia de seguridad de las instancias de diálogo de SAP, ya que volver a implementar instancias de diálogo sencillas suele ser un método más rápido.
 * Por el contrario, sí que tiene sentido realizar una copia de seguridad de la máquina virtual que contiene el directorio global del sistema SAP y, con él, todos los perfiles de las distintas instancias, lo cual debe hacerse mediante las copias de seguridad de Windows o p. ej., mediante tar en Linux. Dado que existen diferencias entre Windows Server 2008 (R2) y Windows Server 2012 (R2), pues las versiones más recientes de Windows Server facilitan la realización de copias de seguridad, se recomienda ejecutar Windows Server 2012 (R2) como sistema operativo invitado Windows.
 
-
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

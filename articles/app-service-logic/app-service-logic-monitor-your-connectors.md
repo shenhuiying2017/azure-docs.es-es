@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Administración y supervisión de las aplicaciones de API y los conectores en el Servicio de aplicaciones | Microsoft Azure"
-	description="Visualización del rendimiento de las aplicaciones de API y los conectores en el Servicio de aplicaciones de Azure; arquitectura de microservicios"
+	description="Visualización del rendimiento de los conectores y de las aplicaciones de API en Logic Apps; arquitectura de microservicios"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # Administración y supervisión de las aplicaciones de API y los conectores integrados
@@ -110,14 +110,14 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 - Seleccione **Definición de API**para abrir el archivo de Swagger creado automáticamente para la aplicación de API específica.
 - Seleccione **Dependencias** para ver los archivos que necesita la aplicación de API. Por ejemplo, si usa el conector SAP, debe instalar algunos archivos adicionales en el Administrador de conexiones de híbridas local. Estas dependencias se muestran en la hoja Aplicación de API.
 
-> [AZURE.IMPORTANT] Cuando abra las propiedades de la aplicación de API y mire en **Essentials**, verá los vínculos **Host** y **Puerta de enlace** que abren nuevas hojas:
+>[AZURE.IMPORTANT] Cuando abra las propiedades de la aplicación de API y mire en **Essentials**, verá los vínculos **Host** y **Puerta de enlace** que abren nuevas hojas:
 >
 > ![][host]
 >
-> Estas propiedades son específicas del sitio web que hospeda la aplicación de API. Cuando se usa una aplicación de API App o un conector integrados, la mayoría de estas propiedades no se aplican realmente y se recomienda que no las actualice. Si creó su propia aplicación de API en Visual Studio y la implementó en su suscripción a Azure, puede usar las hojas Host y Puerta de enlace.
+>Estas propiedades son específicas del sitio web que hospeda la aplicación de API. Cuando se usa una aplicación de API App o un conector integrados, la mayoría de estas propiedades no se aplican realmente y se recomienda que no las actualice. Si creó su propia aplicación de API en Visual Studio y la implementó en su suscripción a Azure, puede usar las hojas Host y Puerta de enlace. <br/><br/>
 
 
->[AZURE.NOTE] Si desea empezar a utilizar aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Cree su aplicación del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic). Puede crear una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Para empezar a utilizar Logic Apps antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar aplicación lógica](https://tryappservice.azure.com/?appservice=logic). Puede crear una aplicación lógica de inicio de corta duración. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Más información.
 
@@ -137,4 +137,4 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

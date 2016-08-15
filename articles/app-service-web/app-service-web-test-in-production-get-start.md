@@ -26,7 +26,7 @@ Con la característica de enrutamiento del tráfico del [Servicio de aplicacione
 
 - Detectar errores funcionales o identificar cuellos de botella en el rendimiento de las actualizaciones antes de realizar su implementación en todo el sitio
 - Realizar "vuelos de prueba controlados" de los cambios realizando la medición de las métricas de facilidad de uso en la versión beta de la aplicación
-- Cambiar gradualmente a una nueva actualización y volver sin problemas a la versión actual si se produce un error 
+- Cambiar gradualmente a una nueva actualización y volver sin problemas a la versión actual si se produce un error
 - Optimizar los resultados empresariales de su aplicación mediante la ejecución de [pruebas A / B](https://en.wikipedia.org/wiki/A/B_testing) o [pruebas sobre múltiples variables](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) en varias ranuras de implementación
 
 ### Requisitos para usar el enrutamiento del tráfico en las aplicaciones web
@@ -39,7 +39,7 @@ Con la característica de enrutamiento del tráfico del [Servicio de aplicacione
 
 En el nivel básico en todas las situaciones TiP, se enruta un porcentaje predefinido del tráfico directo a una ranura de implementación que no sea de producción. Para ello, siga estos pasos:
 
->[AZURE.NOTE] En estos pasos se supone que ya tiene una [ranura de implementación que no sea de producción](web-sites-staged-publishing.md) y que el contenido de la aplicación web deseada ya está [implementado](web-sites-publish-source-control.md) en dicha ranura.
+>[AZURE.NOTE] En estos pasos se supone que ya tiene una [ranura de implementación que no sea de producción](web-sites-staged-publishing.md) y que el contenido de la aplicación web deseada ya está [implementado](web-sites-deploy.md) en dicha ranura.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. En la hoja de la aplicación web, haga clic en **Configuración** > **Enrutamiento de tráfico**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
@@ -86,4 +86,4 @@ Para permitir a los usuarios participar en la aplicación de la versión beta, e
 -   [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md)
 -	[Uso eficaz de entornos DevOps para las aplicaciones web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

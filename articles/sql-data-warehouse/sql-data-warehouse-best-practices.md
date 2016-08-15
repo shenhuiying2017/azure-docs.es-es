@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Procedimientos recomendados para Almacenamiento de datos SQL de Azure
@@ -80,7 +80,7 @@ Dado que las tablas de almacén de columnas generalmente no insertan datos en un
 
 Al consultar una tabla de almacén de columnas, las consultas se ejecutarán más rápido si selecciona solo las que necesita.
 
-Consulte también [Table indexes][] \(Índices de tablas), [Guía de índices de almacén de columnas][]
+Consulte también [Table indexes][] \(Índices de tablas), [Guía de índices de almacén de columnas][] y [Rebuilding columnstore indexes][] \(Regeneración de índices de almacén de columnas)
 
 ## Uso de clases de recursos más grandes para mejorar el rendimiento de las consultas
 Almacenamiento de datos SQL usa grupos de recursos para asignar memoria a las consultas. De manera predeterminada, todos los usuarios se asignan a los recursos de clase pequeña, que concede a 100 MB de memoria por distribución. Dado que siempre hay 60 distribuciones y cada distribución tiene un mínimo de 100 MB, la asignación de memoria total del sistema es de 6 000 MB o justo por debajo de 6 GB. Algunas consultas, como las combinaciones de gran tamaño o las cargas a las tablas de almacén de columnas agrupadas, se beneficiarán de las mayores asignaciones de memoria. Algunas consultas, como los exámenes puros, no sufrirán cambios. Por otro lado, usar las clases de recursos mayores afecta la simultaneidad, por lo que deberá tener esto en cuenta antes de cambiar todos los usuarios a una clase de recursos grande.
@@ -115,6 +115,7 @@ Por último, use la página [ de comentarios sobre Almacenamiento de datos SQL d
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexes]: ./sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
@@ -159,4 +160,4 @@ Por último, use la página [ de comentarios sobre Almacenamiento de datos SQL d
 [foro de Stack Overflow para Almacenamiento de datos SQL de Azure]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

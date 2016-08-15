@@ -26,7 +26,7 @@ Las colecciones de trabajos son la entidad facturable en Programador de Azure. L
 |**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo|Acceso al conjunto completo de características de Programador|
 |**Premium P10**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium P10 como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
-|**Premium P20**|1000 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 500 colecciones de trabajos premium P20 como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
+|**Premium P20**|1000 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium P20 como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
 
 ## Actualizaciones y degradaciones de planes de colección de trabajos
 
@@ -49,13 +49,19 @@ Una unidad facturable estándar puede incluir como máximo 10 colecciones de tra
 
 Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará 1 unidad de facturación estándar. Si tiene entre 11 y 20 colecciones de trabajos estándar, se le facturarán 2 unidades de facturación estándar. Si tiene entre 21 y 30 colecciones de trabajos estándar, se le facturarán 3 unidades de facturación estándar.
 
-## Unidades facturables premium
+## Unidades facturables premium P10
 
-Una unidad facturable premium puede incluir como máximo 10.000 colecciones de trabajos premium. Puesto que una colección de trabajos premium puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500.000 trabajos: casi 22 mil millones de ejecuciones de trabajos al mes.
+Una unidad facturable premium P10 puede incluir como máximo 10 000 colecciones de trabajos premium P10. Puesto que una colección de trabajos premium P10 puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500 000 trabajos: casi 22 mil millones de ejecuciones de trabajos al mes.
 
-Si tiene entre 1 y 10.000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium. Si tiene entre 10.001 y 20.000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium.
+Si tiene entre 1 y 10 000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium P10. Si tiene entre 10 001 y 20 000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium P10.
 
-Por lo tanto, las colecciones de trabajos premium tienen la misma funcionalidad que las colecciones de trabajos estándar, pero ofrecen un descuento en caso de que la aplicación requiera gran cantidad de colecciones de trabajos.
+Por lo tanto, las colecciones de trabajos premium P10 tienen la misma funcionalidad que las colecciones de trabajos estándar, pero ofrecen un descuento en caso de que la aplicación requiera gran cantidad de colecciones de trabajos.
+
+## Unidades facturables premium P20
+
+Una unidad facturable premium P20 puede incluir como máximo 5000 colecciones de trabajos premium P20. Puesto que una colección de trabajos premium P20 puede tener hasta 1000 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 5 000 000 trabajos: casi 220 mil millones de ejecuciones de trabajos al mes.
+
+Las colecciones de trabajos premium P20 proporcionan las mismas funcionalidades que las de los trabajos premium P10. Sin embargo, también admiten un mayor número de trabajos por colección de trabajos y más trabajos globales que los de premium P10, con lo que puede obtener una mayor escalabilidad.
 
 ## Estado de facturación y activo
 
@@ -86,4 +92,4 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

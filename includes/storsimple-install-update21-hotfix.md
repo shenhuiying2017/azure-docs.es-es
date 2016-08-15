@@ -60,7 +60,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
 
 6. Escriba **Y** cuando se le solicite que confirme la instalación de la revisión.
 
-> [AZURE.IMPORTANT] Si instala Update 2.2, instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por all-cismdsagentupdatebundle. De lo contrario, se producirá un error.
+	> [AZURE.IMPORTANT] Si instala Update 2.2, instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por all-cismdsagentupdatebundle. De lo contrario, se producirá un error.
 
 7. Supervise la actualización mediante el cmdlet `Get-HcsUpdateStatus`. La actualización se completará en primer lugar en el controlador pasivo. Una vez actualizado el controlador pasivo, se producirá una conmutación por error, tras lo cual la actualización se aplicará en el otro controlador. La actualización estará completa cuando ambos controladores se hayan actualizado.
 
@@ -102,13 +102,13 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     - `MdsAgentVersion: 30.0.4698.16`
 
 	Si los números de versión no cambian después de aplicar la actualización, indica que la revisión no se ha podido aplicar. Si ve esto, póngase en contacto con [Soporte de Microsoft](storsimple-contact-microsoft-support.md) para obtener más ayuda.
+	
+	> [AZURE.IMPORTANT] Antes de aplicar el resto de actualizaciones, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
 
 9. Repita los pasos 3 a 5 para instalar las revisiones en modo normal restantes.
 
-	> [AZURE.IMPORTANT] Antes de aplicar el resto de actualizaciones, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
-	
-	
 	- Actualización de iSCSI (KB3146621)
+	
 	- Actualización de WMI (KB3103616)
 	
 
@@ -241,4 +241,4 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
 
 1. Los controladores se reiniciarán al salir del modo de mantenimiento. Cuando las actualizaciones de firmware de disco se apliquen correctamente y el dispositivo haya salido del modo de mantenimiento, regrese al Portal de Azure clásico. Tenga en cuenta que, durante 24 horas, es posible que no aparezca en el portal la instalación de las actualizaciones en modo de mantenimiento.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

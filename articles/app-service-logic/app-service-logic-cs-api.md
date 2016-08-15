@@ -1,7 +1,7 @@
 <properties
    pageTitle="Ejecución de expresiones de C# en una aplicación de API de C# en una aplicación lógica | Microsoft Azure"
    description="Aplicación de API de C# o conector"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net"
    authors="jeffhollan"
    manager="dwrede"
@@ -112,4 +112,4 @@ Después de crear el conector, puede agregarlo a un flujo empresarial mediante u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

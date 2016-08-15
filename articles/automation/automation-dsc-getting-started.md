@@ -211,6 +211,7 @@ Cada vez que DSC de Automatización de Azure realiza una comprobación de cohere
     ![Captura de pantalla de la hoja Informe](./media/automation-dsc-getting-started/NodeReport.png)
 
 En la hoja de un informe individual puede ver la siguiente información de estado de la comprobación de coherencia correspondiente:
+
 - El estado del informe, si el nodo es "Compatible", la configuración "Error" o el nodo es "No compatible" (cuando el nodo está en modo **applyandmonitor** y la máquina no está en el estado deseado).
 - La hora de inicio de la comprobación de coherencia.
 - El tiempo de ejecución total de la comprobación de coherencia.
@@ -262,8 +263,8 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 ## Artículos relacionados
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
-* [Información general sobre la configuración de estado deseado de Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
+* [Información general de la configuración de estado deseado de Windows Powershell](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

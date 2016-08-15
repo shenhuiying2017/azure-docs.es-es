@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimización de transacciones para Almacenamiento de datos SQL
@@ -33,6 +33,8 @@ Almacenamiento de datos SQL de Azure confirma los cambios en la base de datos co
 ## Registro mínimo frente a registro completo
 
 A diferencia de las operaciones con registro completo, que usan el registro de transacciones para realizar un seguimiento de cada cambio en las filas, las operaciones con registro mínimo solo realizan un seguimiento de las asignaciones de extensión y los cambios en los metadatos. Por lo tanto, el registro mínimo implica registrar solo la información necesaria para revertir la transacción si se produce un error o una solicitud explícita (`ROLLBACK TRAN`). Puesto que se realiza un seguimiento de mucha menos información en el registro de transacciones, una operación con registro mínimo funciona mejor que una operación con registro completo de tamaño similar. Además, dado que menos escrituras van al registro de transacciones, se genera una cantidad mucho menor de datos de registro y sus operaciones de E/S son más eficientes.
+
+Los límites de seguridad de la transacción solo se aplican a las operaciones de registro completo.
 
 >[AZURE.NOTE] Las operaciones con registro mínimo pueden participar en transacciones explícitas. Puesto que se realiza el seguimiento de todos los cambios en las estructuras de asignación, es posible revertir las operaciones con registro mínimo. Es importante comprender que el cambio se registra "mínimamente", no se elimina el registro.
 
@@ -54,6 +56,8 @@ Las siguientes operaciones admiten el registro mínimo:
 - UPDATE on LOB Types .WRITE
 - SELECT..INTO
 -->
+
+>[AZURE.NOTE] Las operaciones de movimiento de datos internos (como `BROADCAST` y `SHUFFLE`) no se ven afectados por el límite de seguridad de la transacción.
 
 ## Registro mínimo con carga masiva
 
@@ -168,7 +172,7 @@ RENAME OBJECT [dbo].[FactInternetSales_u] TO [FactInternetSales];
 DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
-> [AZURE.NOTE] Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de Almacenamiento de datos SQL. Para obtener más información, consulte la sección de administración de cargas de trabajo en el artículo sobre [simultaneidad][].
+> [AZURE.NOTE] Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de Almacenamiento de datos SQL. Para más información, consulte la sección de administración de cargas de trabajo en el artículo sobre [simultaneidad][].
 
 ## Optimización con modificación de particiones
 
@@ -424,4 +428,4 @@ Consulte [Transacciones en el Almacenamiento de datos SQL][] para obtener más i
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

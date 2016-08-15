@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2016"
+   ms.date="08/02/2016"
    ms.author="alkohli" />
 
 # Instalación de Update 2.2 en el dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 En este tutorial se explica cómo instalar Update 2.2 en un dispositivo StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico y usando el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
 
-Update 2.2 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
+Update 2.2 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde la versión 2.1, se debe aplicar únicamente la actualización de software del dispositivo. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
 
 > [AZURE.IMPORTANT]
 
@@ -63,7 +63,7 @@ Las versiones de software que se pueden actualizar mediante el método de revisi
 
 - Update 0.1, 0.2, 0.3
 - Update 1, 1.1, 1.2
-- Update 2.2.1
+- Update 2, 2.1
 
 > [AZURE.IMPORTANT]
 >
@@ -77,7 +77,7 @@ El método de revisión implica los tres pasos siguientes:
 
 #### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2.1
 
-**Si el dispositivo ejecuta Update 2.1**, debe descargar únicamente la actualización de software de dispositivo KB3179904. Instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por `all-cismdsagentupdatebundle`. De lo contrario, se producirá un error.
+**Si el dispositivo ejecuta Update 2.1**, debe descargar únicamente la actualización de software de dispositivo KB3179904. Instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por `all-cismdsagentupdatebundle`. De lo contrario, se producirá un error. Se trata de una actualización sin interrupciones, no se interrumpirá la E/S y el dispositivo no tendrá ningún tiempo de inactividad.
 
 
 #### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2
@@ -86,9 +86,9 @@ El método de revisión implica los tres pasos siguientes:
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3179904 | Actualización de software &#42; | Normal | ~45 min |
-| 2\. | KB3146621 | Paquete iSCSI | Normal | ~20 min |
-| 3\. | KB3103616 | Paquete WMI | Normal | ~12 min |
+| 1\. | KB3179904 | Actualización de software &#42; | Regular <br></br>Sin interrupciones | ~45 min |
+| 2\. | KB3146621 | Paquete iSCSI | Regular <br></br>Sin interrupciones | ~20 min |
+| 3\. | KB3103616 | Paquete WMI | Regular <br></br>Sin interrupciones | ~12 min |
 
 
  &#42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: actualización de software de dispositivo precedido por `all-hcsmdssoftwareupdate` y el agente de Cis y Mds precedido por `all-cismdsagentupdatebundle`. La actualización de software de dispositivo debe instalarse antes que el agente de Cis y Mds. También debe reiniciar el controlador activo mediante el cmdlet `Restart-HcsController` después de aplicar la actualización del agente de Cis y MDS (y antes de aplicar el resto de actualizaciones).*
@@ -99,15 +99,15 @@ El método de revisión implica los tres pasos siguientes:
  
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4\. | KB3121900 | Controlador LSI y firmware | Normal | ~20 min |
+| 4\. | KB3121900 | Controlador LSI y firmware | Regular <br></br>Sin interrupciones | ~20 min |
 
 
 <br></br> **Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0, 1.1 o 1.2**, debe descargar e instalar la revisión de Storport y Spaceport. Ya estarán instaladas si ejecuta Update 2.
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5\. | KB3090322 | Revisión de Spaceport </br> Windows Server 2012 R2 | Normal | ~20 min |
-| 6\. | KB3080728 | Revisión de Storport </br> Windows Server 2012 R2 | Normal | ~20 min |
+| 5\. | KB3090322 | Revisión de Spaceport </br> Windows Server 2012 R2 | Regular <br></br>Sin interrupciones | ~20 min |
+| 6\. | KB3080728 | Revisión de Storport </br> Windows Server 2012 R2 | Regular <br></br>Sin interrupciones | ~20 min |
 
 
 
@@ -116,7 +116,7 @@ El método de revisión implica los tres pasos siguientes:
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7\. | KB3121899 | Firmware del disco | Mantenimiento | ~30 min |
+| 7\. | KB3121899 | Firmware del disco | Mantenimiento <br></br>Perjudicial | ~30 min |
  
 <br></br>
 
@@ -136,4 +136,4 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 Más información sobre el [lanzamiento de la actualización 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
