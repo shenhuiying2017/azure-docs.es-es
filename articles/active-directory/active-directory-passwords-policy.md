@@ -29,7 +29,7 @@ Cada cuenta de usuario que se necesita iniciar sesión en el sistema de autentic
 
 | Propiedad | Requisitos de UserPrincipalName |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! # ^ ~</li></ul> |
+| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Caracteres no permitidos | <ul> <li>Cualquier carácter "@" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes que el símbolo "@"</li></ul> |
 | Restricciones de longitud | <ul> <li>La longitud total no debe superar los 113 caracteres</li><li>64 caracteres antes que el símbolo ‘@’</li><li>48 caracteres después del símbolo ‘@’</li></ul>
 
