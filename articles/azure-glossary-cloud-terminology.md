@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/04/2016"
+    ms.date="08/03/2016"
     ms.author="monicar"/>
 
 
@@ -146,8 +146,8 @@ Una red que proporciona conectividad entre los recursos de Azure que se encuentr
 
 ###**Consulte también**  
 - [Comience a usar Azure](https://azure.microsoft.com/get-started/)
-- [Centro de recursos en la nube](https://azure.microsoft.com/resources/)  
+- [Centro de recursos en la nube](https://azure.microsoft.com/resources/)
 - [Azure para aplicaciones empresariales](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [Azure en su centro de datos](https://azure.microsoft.com/overview/business-apps-on-azure/) 
+- [Azure en su centro de datos](https://azure.microsoft.com/overview/business-apps-on-azure/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

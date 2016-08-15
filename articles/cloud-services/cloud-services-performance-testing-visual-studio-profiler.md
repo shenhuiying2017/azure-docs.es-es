@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/30/2016" 
 	ms.author="tarcher"/>
 
 # Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio
@@ -30,15 +30,15 @@ Este artículo abarca el método de muestreo de CPU de la generación de perfile
 
 Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**. También puede hacer referencia a http://referencesource.microsoft.com/symbols, que puede tener archivos de símbolos adicionales.
 
-![][4]
+![Opciones Símbolo][4]
 
 Si lo desea, puede simplificar los informes que genera el generador de perfiles al configurar Solo mi código. Si Solo mi código está habilitado, las pilas de llamadas de función se simplifican de modo que las llamadas que son completamente internas para las bibliotecas y el .NET Framework están ocultas de los informes. En el menú **Herramientas**, elija **Opciones**. A continuación, expanda el nodo **Herramientas de rendimiento** y elija **General**. Seleccione la casilla **Habilitar solo mi código para informes del generador de perfiles**.
 
-![][17]
+![Opciones Solo mi código][17]
 
 Puede usar estas instrucciones con un proyecto existente o con un proyecto nuevo. Si crea un proyecto nuevo para probar las técnicas que se describen a continuación, elija un proyecto de C# de **Servicio en la nube de Azure** y seleccione un **rol web** y un **rol de trabajo**.
 
-![][5]
+![Roles de proyecto del servicio en la nube de Azure][5]
 
 Para propósitos de ejemplo, agregue parte del código al proyecto que tarda demasiado tiempo y demuestra un problema de rendimiento obvio. Por ejemplo, agregue el siguiente código a un proyecto de rol de trabajo:
 
@@ -76,11 +76,11 @@ En vez de generar un perfil en la aplicación al iniciarla desde Visual Studio 2
 
 Para asociar el generador de perfiles a un proceso, en el menú **Analizar**, elija **Generador de perfiles** y **Asociar/desasociar**.
 
-![][6]
+![Opción para adjuntar perfil][6]
 
 Para un rol de trabajo, busque el proceso WaWorkerHost.exe.
 
-![][7]
+![Proceso WaWorkerHost][7]
 
 Si la carpeta de su proyecto se encuentra en una unidad de red, el generador de perfiles le pedirá proporcionar otra ubicación para guardar los informes de generación de perfiles.
 
@@ -92,17 +92,17 @@ Si la carpeta de su proyecto se encuentra en una unidad de red, el generador de 
 
 Para ver el registro, inicie la interfaz de usuario del emulador de proceso.
 
-![][8]
+![Inicio de la interfaz de usuario del emulador de proceso][8]
 
 Abra la ventana de consola de registro del rol de trabajo en la interfaz de usuario del emulador de proceso al hacer clic en la barra de título de la ventana de la consola. Puede ver el identificador de proceso en el registro.
 
-![][9]
+![Visualización del identificador de proceso][9]
 
 Después de que se haya asociado, realice los pasos en la interfaz de usuario de su aplicación (si es necesario) para reproducir el escenario.
 
 Cuando desee detener la generación de perfiles, seleccione el vínculo **Detener generación de perfiles**.
 
-![][10]
+![Opción Detener generación de perfiles][10]
 
 ## 3: Vista de informes de rendimiento
 
@@ -110,18 +110,18 @@ Aparece el informe de rendimiento de la aplicación.
 
 En este punto, el generador de perfiles detiene su ejecución, guarda los datos en un archivo .vsp y exhibe un informe que muestra un análisis de estos datos.
 
-![][11]
+![Informe del generador de perfiles][11]
 
 
 Si ve String.wstrcpy en la ruta de acceso activa, haga clic en Solo mi código para cambiar la vista a fin de mostrar el código de usuario solamente. Si ve String.Concat, intente presionar el botón Mostrar todo el código.
 
 Debería ver el método Concatenate y String.Concat que ocupan una gran parte del tiempo de ejecución.
 
-![][12]
+![Análisis del informe][12]
 
 Si agregó el código de concatenación de cadena en este artículo, debería ver una advertencia en la lista de tareas para esta. Es posible que también vea una advertencia de que hay una cantidad excesiva de elementos no utilizados, lo que se debe a la cantidad de cadenas que se crearon y desplegaron.
 
-![][14]
+![Advertencias de rendimiento][14]
 
 ## 4: Realización de cambios y comparación del rendimiento
 
@@ -140,11 +140,11 @@ Puede también comparar el rendimiento antes y después de un cambio en el códi
 
 Realice otra ejecución de rendimiento y, a continuación, compárelo. En el Explorador de rendimiento, si las ejecuciones se encuentran en la misma sesión, simplemente puede seleccionar ambos informes, abrir el menú de acceso directo y seleccionar **Comparar informes de rendimiento**. Si desea realizar una comparación con una ejecución en otra sesión de rendimiento, abra el menú **Analizar** y seleccione **Comparar informes de rendimiento**. En el cuadro de diálogo que aparece, especifique ambos archivos.
 
-![][15]
+![Opción para comparar informes de rendimiento][15]
 
 Los informes resaltan las diferencias entre las dos ejecuciones.
 
-![][16]
+![Informe de comparación][16]
 
 ¡Enhorabuena! Ya ha empezado a usar el generador de perfiles.
 
@@ -186,4 +186,4 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

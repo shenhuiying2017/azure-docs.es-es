@@ -48,6 +48,8 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Para un mejor rendimiento de E/S de disco, se recomienda [almacenamiento Premium][premium-storage], que almacena los datos en unidades de estado sólido (SSD). El costo se basa en el tamaño del disco aprovisionado. Las E/S por segundo y el rendimiento (es decir, la velocidad de transferencia de datos) también dependen del tamaño del disco, por lo que al aprovisionar un disco, debería tener en cuenta los tres factores (capacidad, E/S por segundo y rendimiento).
 
+- Una cuenta de almacenamiento puede admitir de 1 a 20 máquinas virtuales.
+
 - Agregue uno o más discos de datos. Cuando se crea un nuevo disco duro virtual, no tiene formato. Inicie sesión en la VM para dar formato al disco.
 
 - Si tiene un gran número de discos de datos, tenga en cuenta los límites de E/S totales de la cuenta de almacenamiento. Para más información, consulte [Límites de discos de máquinas virtuales][vm-disk-limits].
@@ -122,7 +124,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Antimalware.** Si está habilitada esta opción, el Centro de seguridad comprueba si está instalado software antimalware. También puede utilizar el Centro de seguridad para instalar software antimalware desde el Portal de Azure.
 
-- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia incluyen [Usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y [Colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
+- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia son, por ejemplo, el de [usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y el de [colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
     > [AZURE.NOTE] RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.
 
@@ -149,23 +151,24 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Este archivo define la configuración de red virtual, como nombre, espacio de direcciones, subredes y las direcciones de los servidores DNS necesarios. Tenga en cuenta que las direcciones de subred deben incluir el espacio de direcciones de la red virtual.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "addressPrefixes": [
-            "172.17.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-subnet",
-              "addressPrefix": "172.17.0.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg",
+        "addressPrefixes": [
+          "172.17.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-subnet",
+            "addressPrefix": "172.17.0.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
-	}
+    }
+  }
 	```
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. Este archivo contiene las definiciones de NSG y reglas de NSG. El parámetro `name` del bloque `virtualNetworkSettings` especifica la red virtual a la que está asociado el NSG. El parámetro `subnets` del bloque `networkSecurityGroupSettings` identifica las subredes que aplican las reglas de NSG en la red virtual. Estos elementos se deben definir en el archivo **virtualNetwork.parameters.json**.
@@ -173,17 +176,19 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
 	Tenga en cuenta que la regla de seguridad predeterminada que se muestra en el ejemplo permite al usuario conectarse a la máquina virtual a través de una conexión a Escritorio remoto (RDP). Puede abrir puertos adicionales (o denegar el acceso a través de puertos específicos) agregando más elementos a la matriz `securityRules`.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
       },
-      "networkSecurityGroupSettings": {
-        "value": {
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "networkSecurityGroupSettings": {
+      "value": [
+        {
           "name": "app1-nsg",
           "subnets": [
             "app1-subnet"
@@ -202,8 +207,9 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
             }
           ]
         }
-      }
-	}
+      ]
+    }
+  }
 	```
 
 - **[virtualMachineParameters.json][vm-parameters]**. Este archivo define la configuración de la propia máquina virtual, como su nombre y tamaño, las credenciales de seguridad del usuario administrador, los discos que se van a crear y las cuentas de almacenamiento que contendrán estos discos.
@@ -214,76 +220,77 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
-	El parámetro `subnetName` de la sección `nics` especifica la subred de la máquina virtual. De forma similar, el parámetro `name` de la sección `virtualNetworkSettings` identifica la red virtual que se usará. Estos valores deben ser el nombre de una subred y la red virtual definida en el archivo **virtualNetwork.parameters.json**.
+	El parámetro `subnetName` de la sección `nics` especifica la subred de la máquina virtual. De forma simular, el parámetro `name` en `virtualNetworkSettings` identifica el VNet que usar. Debe ser el nombre de una subred y VNet definida en el archivo **virtualNetwork.parameters.json**.
 
 	Puede crear varias máquinas virtuales, bien mediante el uso compartido de una cuenta de almacenamiento, o con sus propias cuentas de almacenamiento si modifica la configuración de la sección `buildingBlockSettings`. Si crea varias máquinas virtuales, también debe especificar el nombre de un conjunto de disponibilidad que se usará o creará en la sección `availabilitySet`.
 
 	```json
-	"parameters": {
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "app1",
-          "computerNamePrefix": "",
-          "size": "Standard_DS1",
-          "osType": "windows",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osAuthenticationType": "password",
-          "nics": [
-            {
-              "isPublic": "true",
-              "subnetName": "app1-subnet",
-              "privateIPAllocationMethod": "dynamic",
-              "publicIPAllocationMethod": "dynamic",
-              "isPrimary": "true"
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "dataDisks": {
-            "count": 2,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": ""
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "app1",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "osType": "windows",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "sshPublicKey": "",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "app1-subnet",
+            "privateIPAllocationMethod": "dynamic",
+            "publicIPAllocationMethod": "dynamic",
+            "isPrimary": "true"
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 2,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
           }
         },
-        "metadata": {
-          "description": "Settings for Virtual Machines"
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": ""
         }
       },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "resourceGroup": "app1-dev-rg"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 1,
-          "vmStartIndex": 0
-        },
-        "metadata": {
-          "description": "Settings specific to the building block"
-        }
+      "metadata": {
+        "description": "Settings for Virtual Machines"
       }
-	}
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
+      },
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 0
+      },
+      "metadata": {
+        "description": "Settings specific to the building block"
+      }
+    }
+  }
 	```
 
 ## Implementación
@@ -337,7 +344,7 @@ Para ejecutar el script que implementa la solución:
 
 ## Pasos siguientes
 
-Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Ejecución de varias máquinas virtuales en Azure][multi-vm].
+Para que se aplique el [Acuerdo de Nivel de Servicio para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 <!-- links -->
 
@@ -389,4 +396,4 @@ Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar 
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura de una única máquina virtual Windows en Azure"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

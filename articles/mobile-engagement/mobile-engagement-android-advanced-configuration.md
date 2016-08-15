@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/02/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Configuración avanzada para el SDK de Android para Azure Mobile Engagement
@@ -118,4 +118,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 	  android:summaryOn="Engagement is enabled."
 	  android:summaryOff="Engagement is disabled." />
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

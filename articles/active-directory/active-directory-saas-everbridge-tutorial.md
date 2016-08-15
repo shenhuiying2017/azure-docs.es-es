@@ -289,4 +289,4 @@ Al hacer clic en el icono de Everbridge en el panel de acceso, debería iniciar 
 [204]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

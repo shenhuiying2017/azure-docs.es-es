@@ -18,21 +18,21 @@
 
 # Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure
 
-El servicio Lote de Azure le permite ejecutar cargas de trabajo de proceso paralelas en máquinas virtuales de Linux y Windows. Este artículo detalla cómo crear grupos de nodos de proceso de Linux en el servicio Lote mediante las bibliotecas de cliente de [Python de Lote][py_batch_package] y [.NET de Lote][api_net].
+Puede usar el servicio Lote de Azure para ejecutar cargas de trabajo de proceso paralelas en máquinas virtuales Linux y Windows. Este artículo detalla cómo crear grupos de nodos de proceso de Linux en el servicio Lote mediante las bibliotecas de cliente de [Python de Lote][py_batch_package] y [.NET de Lote][api_net].
 
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) **no se admiten actualmente** en los nodos de proceso de Linux.
+> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Algunos aspectos de la característica aquí descrita pueden cambiar antes de tener disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) no se admiten actualmente en los nodos de proceso de Linux.
 
 ## Configuración de la máquina virtual
 
-Cuando crea un grupo de nodos de proceso en el servicio Lote, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: **Configuración de servicios en la nube** y **Configuración de máquina virtual**.
+Cuando crea un grupo de nodos de proceso en el servicio Lote, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: configuración de servicios en la nube y configuración de la máquina virtual.
 
-**Configuración de servicios en la nube** *solo* proporciona nodos de proceso de Windows. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md) y los sistemas operativos disponibles se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene los nodos de servicios en la nube, debe especificar únicamente el tamaño del nodo y la "familia del SO" que se encuentran en estos artículos. Cuando se crean grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los servicios en la nube.
+La **Cloud Services Configuration** (Configuración de servicios en la nube) *solo* proporciona nodos de proceso de Windows. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md) y los sistemas operativos disponibles se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene los nodos de servicios en la nube de Azure, debe especificar únicamente el tamaño del nodo y la "familia del SO" que se encuentran en estos artículos. Para los grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los servicios en la nube.
 
-La **Configuración de máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) y [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de los nodos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** del servicio Lote que desea instalar en los nodos.
+**Configuración de la máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md). Cuando se crea un grupo que contiene los nodos de configuración de la máquina virtual, debe especificar su tamaño, la referencia de la imagen de máquina virtual y el SKU del agente de nodo del servicio Lote que desea instalar en los nodos.
 
 ### Referencia de imagen de máquina virtual
 
-El servicio Lote utiliza [conjuntos de escalas de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de forma interna para proporcionar los nodos de proceso de Linux y las imágenes del sistema operativo para estas máquinas virtuales las proporciona el [Catálogo de máquinas virtuales de Azure Marketplace][vm_marketplace]. Al configurar una referencia de la imagen de máquina virtual, especifique las propiedades de una imagen de máquina virtual de Marketplace. Las propiedades siguientes son necesarias cuando se crea una referencia de la imagen de máquina virtual:
+El servicio Lote utiliza [conjuntos de escala de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para proporcionar nodos de proceso de Linux. Las imágenes del sistema operativo para estas máquinas virtuales se proporcionan mediante [Azure Marketplace][vm_marketplace]. Al configurar una referencia de la imagen de máquina virtual, especifique las propiedades de una imagen de máquina virtual de Marketplace. Las propiedades siguientes son necesarias cuando se crea una referencia de la imagen de máquina virtual:
 
 | **Propiedades de la referencia de la imagen** | **Ejemplo** |
 | ----------------- | ------------------------ |
@@ -41,23 +41,23 @@ El servicio Lote utiliza [conjuntos de escalas de máquina virtual](../virtual-m
 | SKU | 14\.04.4-LTS |
 | Versión | más reciente |
 
-> [AZURE.TIP] Puede encontrar más información acerca de estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote, consulte [SKU del agente de nodo](#node-agent-sku) a continuación.
+> [AZURE.TIP] Puede aprender más acerca de estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote. Para más información, consulte [SKU del agente de nodo](#node-agent-sku).
 
 ### SKU del agente de nodo
 
-El agente de nodo del servicio Lote es un programa que se ejecuta en cada nodo del grupo y proporciona la interfaz de comando y control entre el nodo y el servicio. Hay diferentes implementaciones del agente de nodo, conocidas como SKU, para distintos sistemas operativos. Básicamente, al crear una configuración de máquina virtual, debe especificar primero la referencia de la imagen de máquina virtual y, a continuación, el agente de nodo que se va a instalar en la imagen. Normalmente, cada SKU del agente de nodo es compatible con varias imágenes de máquina virtual. Estos son algunos ejemplos de SKU del agente de nodo:
+El agente de nodo del servicio Lote es un programa que se ejecuta en cada nodo del grupo y proporciona la interfaz de comandos y control entre el nodo y el servicio. Hay diferentes implementaciones del agente de nodo, conocidas como SKU, para distintos sistemas operativos. Básicamente, al crear una configuración de la máquina virtual, debe especificar primero la referencia de la imagen de máquina virtual y, después, el agente de nodo que se va a instalar en la imagen. Normalmente, cada SKU del agente de nodo es compatible con varias imágenes de máquina virtual. Estos son algunos ejemplos de SKU del agente de nodo:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] No todas las imágenes de máquinas virtuales disponibles en Marketplace son compatibles con los agentes de nodo del servicio Lote disponibles actualmente. Debe utilizar los SDK del servicio Lote para mostrar las SKU del agente de nodo disponibles y las imágenes de máquina virtual con las que son compatibles. Consulte la [Lista de imágenes de máquinas virtuales](#list-of-virtual-machine-images) a continuación para más información.
+> [AZURE.IMPORTANT] No todas las imágenes de máquinas virtuales que están disponibles en Marketplace son compatibles con los agentes de nodo de Lote disponibles actualmente. Debe utilizar los SDK del servicio Lote para mostrar las SKU del agente de nodo disponibles y las imágenes de máquina virtual con las que son compatibles. Consulte la [Lista de imágenes de máquinas virtuales](#list-of-virtual-machine-images) más adelante en este artículo para más información.
 
 ## Cree un grupo de Linux: Python de Lote
 
-El fragmento de código siguiente muestra la creación de un grupo de nodos de proceso de servidor de Ubuntu mediante la [biblioteca de cliente del servicio Lote de Microsoft Azure para Python][py_batch_package]. Se puede encontrar documentación de referencia para el módulo de Python de Lote en[azure.batch package ][py_batch_docs] en la sección Lea los documentos.
+El fragmento de código siguiente muestra un ejemplo de cómo usar la [biblioteca de cliente de Lote de Microsoft Azure para Python][py_batch_package] para crear un grupo de nodos de proceso del servidor de Ubuntu. Se puede encontrar documentación de referencia para el módulo de Python de Lote en [azure.batch package ][py_batch_docs] en la sección Lea los documentos.
 
-En este fragmento de código, se va a crear una [ImageReference][py_imagereference] explícitamente, especificando cada una de sus propiedades (publicador, oferta, sku, versión). Se recomienda, no obstante, que en el código de producción use el método [list\_node\_agent\_skus][py_list_skus] para determinar y seleccionar entre las combinaciones disponibles de SKU del agente de nodo y las imágenes en tiempo de ejecución.
+En este fragmento de código, se crea una [ImageReference][py_imagereference] explícitamente y se especifica cada una de sus propiedades (publicador, oferta, SKU, versión). No obstante, en el código de producción recomendamos usar el método [list\_node\_agent\_skus][py_list_skus] para determinar y seleccionar entre las combinaciones disponibles de SKU del agente de nodo y las imágenes en tiempo de ejecución.
 
 ```python
 # Import the required modules from the
@@ -134,9 +134,9 @@ vmc = batchmodels.VirtualMachineConfiguration(
 
 ## Cree un grupo de Linux: .NET de Lote
 
-El fragmento de código siguiente muestra la creación de un grupo de nodos de proceso de servidor de Ubuntu mediante la biblioteca de cliente de [.NET de Lote][nuget_batch_net]. Puede encontrar la [documentación de referencia de .NET de Lote][api_net] en MSDN.
+El fragmento de código siguiente muestra un ejemplo de cómo utilizar la biblioteca de cliente [.NET de lote][nuget_batch_net] para crear un grupo de nodos de proceso del servidor de Ubuntu. Puede encontrar la [documentación de referencia de .NET de Lote][api_net] en MSDN.
 
-El fragmento de código siguiente utiliza el método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para seleccionar entre la lista de combinaciones de imágenes de Marketplace y SKU del agente de nodo admitidas actualmente. Esta técnica es recomendable porque la lista de combinaciones admitidas puede cambiar de vez en cuando (normalmente se agregan más combinaciones admitidas).
+El fragmento de código siguiente utiliza el método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para seleccionar entre la lista de combinaciones de imágenes de Marketplace y SKU del agente de nodo admitidas actualmente. Esta técnica es deseable porque la lista de combinaciones admitidas puede cambiar de vez en cuando. Normalmente, se agregan las combinaciones admitidas.
 
 ```csharp
 // Pool settings
@@ -198,9 +198,9 @@ ImageReference imageReference = new ImageReference(
 
 ## Lista de imágenes de máquinas virtuales
 
-La tabla siguiente enumera las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo del servicio Lote disponibles **en el momento de redactar este artículo**. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] \(Python) y [ListNodeAgentSkus][net_list_skus] \(.NET de Lote) para determinar y seleccionar entre las SKU disponibles actualmente.
+En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo de Lote disponibles en el momento de redactar este artículo. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] (Python) y [ListNodeAgentSkus][net_list_skus] (.NET de Lote) para determinar y seleccionar entre las SKU disponibles.
 
-> [AZURE.WARNING] La siguiente lista puede cambiar en cualquier momento. Utilice siempre los métodos **list\_node\_agent\_SKU** disponibles en las API de Lote para mostrar y seleccionar entre las máquinas virtuales y SKU del agente de nodo disponibles al ejecutar los trabajos del servicio Lote.
+> [AZURE.WARNING] La siguiente lista se puede cambiar en cualquier momento. Utilice siempre los métodos **list\_node\_agent\_SKU** disponibles en las API de Lote para mostrar y seleccionar entre las máquinas virtuales y SKU del agente de nodo disponibles al ejecutar los trabajos del servicio Lote.
 
 | **Publicador** | **Oferta** | **SKU de imagen** | **Versión** | **Identificador de SKU del agente de nodo** |
 | ------- | ------- | ------- | ------- | ------- |
@@ -231,7 +231,7 @@ La tabla siguiente enumera las imágenes de máquinas virtuales de Marketplace q
 
 Durante el desarrollo o solución de problemas, es posible que necesite iniciar sesión en los nodos del grupo. A diferencia de los nodos de proceso de Windows, no puede utilizar el protocolo de escritorio remoto (RDP) para conectarse a los nodos de Linux. En su lugar, el servicio de Lote habilita el acceso SSH en cada nodo para la conexión remota.
 
-El siguiente fragmento de código de Python crea un usuario en cada nodo de un grupo, lo cual es un requisito para la conexión remota y, a continuación, imprime la información de conexión de SSH para cada nodo.
+El siguiente fragmento de código de Python crea un usuario en cada nodo de un grupo, que es necesario para la conexión remota. A continuación, imprime la información de conexión de SSH para cada nodo.
 
 ```python
 import getpass
@@ -267,7 +267,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-Este es el resultado del ejemplo de código anterior para un grupo que contiene cuatro nodos de Linux:
+Este es un ejemplo de resultado del código anterior para un grupo que contiene cuatro nodos de Linux:
 
 ```
 Password:
@@ -277,25 +277,25 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Tenga en cuenta que, en lugar de una contraseña, puede especificar una clave pública SSH al crear un usuario en un nodo. En el SDK de Python, esto se lleva a cabo mediante el parámetro **ssh\_public\_key** en [ComputeNodeUser][py_computenodeuser], y en. NET, esto se realiza mediante la propiedad [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
+Tenga en cuenta que, en lugar de una contraseña, puede especificar una clave pública SSH al crear un usuario en un nodo. En el SDK de Python, esto se hace mediante el parámetro **ssh\_public\_key** en [ComputeNodeUser][py_computenodeuser]. En. NET, esto se hace mediante la propiedad [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
 
 ## Precios
 
-El servicio Lote de Azure se basa en la tecnología de Servicios en la nube de Azure y en la de Máquinas virtuales de Azure. El propio servicio de Lote se ofrece sin costo, lo cual significa que se cobrará solo por los recursos de proceso utilizados por las soluciones del servicio. Cuando elige **Configuración de servicios en la nube** se le cobrará según la estructura de [precios de Servicios en la nube][cloud_services_pricing]. Cuando elige **Configuración de la máquina virtual** se le cobrará según la estructura de [precios de Máquinas virtuales][vm_pricing].
+El servicio Lote de Azure se basa en la tecnología de Servicios en la nube de Azure y en la de Máquinas virtuales de Azure. El propio servicio Lote se ofrece sin costo, lo que significa que solo se cobrará por los recursos de proceso utilizados por las soluciones del servicio. Al elegir **Cloud Services Configuration** (Configuración de servicios en la nube) se le cobrará según la estructura de [precios de Servicios en la nube][cloud_services_pricing]. Al elegir **Configuración de la máquina virtual** se le cobrará según la estructura de [precios de Máquinas virtuales][vm_pricing].
 
 ## Pasos siguientes
 
 ### Tutorial de Python de Lote
 
-Para obtener un tutorial más completo sobre cómo trabajar con Lote mediante Python, consulte [Introducción al cliente Python de Lote de Azure](batch-python-tutorial.md). El [código de ejemplo][github_samples_pyclient] complementario incluye una función auxiliar, `get_vm_config_for_distro`, que muestra otra técnica para obtener una configuración de máquina virtual.
+Para ver un tutorial más completo sobre cómo trabajar con Lote mediante Python, consulte [Introducción al cliente Python de Lote de Azure](batch-python-tutorial.md). El [código de ejemplo][github_samples_pyclient] complementario incluye una función auxiliar, `get_vm_config_for_distro`, que muestra otra técnica para obtener una configuración de la máquina virtual.
 
 ### Ejemplos de código de Python de lote
 
-Extraiga los otros [ejemplos de código de Python][github_samples_py] del repositorio [azure-batch-samples][github_samples] en GitHub para obtener varios scripts que muestran cómo realizar operaciones comunes del servicio de Lote como crear grupos, trabajos, tareas y muchas más. El archivo [LÉAME][github_py_readme] que acompaña a los ejemplos de Python incluye detalles acerca de cómo instalar los paquetes necesarios.
+Extraiga los otros [ejemplos de código de Python][github_samples_py] del repositorio [azure-batch-samples][github_samples] en GitHub para obtener varios scripts que muestran cómo realizar operaciones comunes del servicio Lote como crear grupos, trabajos y tareas. El archivo [LÉAME][github_py_readme] que acompaña a los ejemplos de Python incluye detalles acerca de cómo instalar los paquetes necesarios.
 
-### Foro de Batch
+### Foro de Lote
 
-El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y formular preguntas acerca del servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio de Lote.
+El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y formular preguntas acerca del servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -327,4 +327,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nivel de paquetes de aplicación"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

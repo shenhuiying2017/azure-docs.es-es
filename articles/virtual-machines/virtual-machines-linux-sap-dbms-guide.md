@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver en máquinas virtuales de Azure: guía de implementación de DBMS
@@ -537,8 +537,7 @@ Debe configurarse expresamente durante la implementación de máquinas virtuales
 Si deseamos crear configuraciones de alta disponibilidad de implementaciones de DBMS (independientemente de la funcionalidad de DBMS de alta disponibilidad que se emplee), las máquinas virtuales de DBMS tendrían que cumplir los siguientes requisitos:
 
 * Las máquinas virtuales nuevas se deben agregar a la misma red virtual de Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>).
-* Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales. 
-[comment]: <> (MSSedusch TODO Test if still true in ARM)
+* Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales. [comentario]: [comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### Direcciones IP
 Se recomienda encarecidamente configurar las máquinas virtuales para configuraciones de alta disponibilidad de una manera flexible. En Azure no se recomienda depender de las direcciones IP para abordar los asociados de alta disponibilidad dentro de la configuración de alta disponibilidad, a menos que se utilizan direcciones IP estáticas. Hay dos conceptos de apagado en Azure:
@@ -616,8 +615,7 @@ La compresión de las bases de datos funciona también correctamente en las máq
 SQL Server 2014 ofrece la posibilidad de almacenar archivos de base de datos directamente en el almacén de blobs de Azure sin necesidad de usar contenedor de un VHD en ellos. Especialmente al utilizar el almacenamiento estándar de Azure o tipos de máquina virtual con tamaños más pequeños, se producen escenarios donde pueden superarse los límites de IOPS impuestos por un número de limitado de VHD que pueden montarse en tipos de máquinas virtuales de menor tamaño. Aunque esto funciona con las bases de datos de usuario, no lo hace con las de sistema de SQL Server. También funciona con los archivos de registro y de datos de SQL Server. Si desea implementar una base de datos de SQL Server de SAP de este modo, en lugar de contenerla en VHD, tenga en cuenta lo siguiente:
 
 * La cuenta de almacenamiento utilizada debe estar en la misma región de Azure que la que se empleó para implementar la máquina virtual que se está ejecutando en SQL Server.
-* Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los VHD en diferentes cuentas de almacenamiento de Azure. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de almacenamiento de Azure. 
-[comment]: <> (MSSedusch TODO But this will use network bandwith and not storage bandwith, doesn't it?)
+* Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los VHD en diferentes cuentas de almacenamiento de Azure. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de almacenamiento de Azure. [comment]: <> (MSSedusch TODO But this will use network bandwith and not storage bandwith, doesn't it?)
 
 En el siguiente artículo se ofrece información sobre este tipo de implementación: <https://msdn.microsoft.com/library/dn385720.aspx>
  
@@ -758,26 +756,14 @@ Estas son algunas de las consideraciones que hay que tener en cuenta al usar un 
 
 * Solo se puede usar un agente de escucha del grupo de disponibilidad con Windows Server 2012 o Windows Server 2012 R2 como SO invitado de la máquina virtual. Para Windows Server 2012, tiene que asegurarse de que se aplique esta revisión: <https://support.microsoft.com/kb/2854082>
 * Esta revisión no está disponible para Windows Server 2008 R2 y AlwaysOn tendría que usarse de la misma manera que la funcionalidad de creación de reflejo de base de datos especificando un asociado de conmutación por error en la cadena de conexiones (se realiza mediante el parámetro de SAP default.pfl dbs/mss/server; consulte la nota de SAP [965908]).
-* Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. La funcionalidad de resolución de nombres de las implementaciones exclusivas en la nube precisaría que todas las máquinas virtuales de un sistema SAP (servidores de aplicaciones, el servidor de DBMS y el servidor ASCS) se encuentren en la misma red virtual, o bien que se realizara un mantenimiento del archivo etc\\host en una capa de aplicación de SAP para obtener resueltos los nombres de las máquinas virtuales de SQL Server. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de las máquinas virtuales en la configuración AlwaysOn (el proceso definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo) 
-[comment]: <> (Old blogs) 
-[comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+* Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. La funcionalidad de resolución de nombres de las implementaciones exclusivas en la nube precisaría que todas las máquinas virtuales de un sistema SAP (servidores de aplicaciones, el servidor de DBMS y el servidor ASCS) se encuentren en la misma red virtual, o bien que se realizara un mantenimiento del archivo etc\\host en una capa de aplicación de SAP para obtener resueltos los nombres de las máquinas virtuales de SQL Server. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de las máquinas virtuales en la configuración AlwaysOn (el proceso definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo) [comment]: <> (Old blogs) [comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Es decir, se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
 * El agente de escucha de grupo de disponibilidad se va a crear en Azure con los puntos de conexión TCP/IP asignados a las máquinas virtuales que ejecutan las réplicas principales y secundarias del grupo de disponibilidad.
 * Puede que haya que proteger estos puntos de conexión con ACL.
 
-[comment]: <> (TODO old blog) 
-[comment]: <> (The detailed steps and necessities of installing an AlwaysOn configuration on Azure are best experienced when walking through the tutorial available [here][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) 
-[comment]: <> (Preconfigured AlwaysOn setup via the Azure gallery <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) 
-[comment]: <> (Creating an Availability Group Listener is best described in [this][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) 
-[comment]: <> (Securing network endpoints with ACLs are explained best here:) 
-[comment]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) 
-[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) 
-[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) 
-[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[comment]: <> (TODO old blog) [comment]: <> (The detailed steps and necessities of installing an AlwaysOn configuration on Azure are best experienced when walking through the tutorial available [here][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) [comment]: <> (Preconfigured AlwaysOn setup via the Azure gallery <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) [comment]: <> (Creating an Availability Group Listener is best described in [this][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) [comment]: <> (Securing network endpoints with ACLs are explained best here:) [comment]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) [comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) [comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) [comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-Es posible implementar un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure también. Esta funcionalidad aprovechará la conectividad entre redes virtuales de Azure ([más información][virtual-networks-configure-vnet-to-vnet-connection]). 
-[comment]: <> (TODO old blog) 
-[comment]: <> (The setup of SQL Server AlwaysOn Availability Groups in such a scenario is described here: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
+Es posible implementar un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure también. Esta funcionalidad aprovechará la conectividad entre redes virtuales de Azure ([más información][virtual-networks-configure-vnet-to-vnet-connection]). [comment]: <> (TODO old blog) [comment]: <> (The setup of SQL Server AlwaysOn Availability Groups in such a scenario is described here: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
 
 #### Resumen de alta disponibilidad de SQL Server en Azure
 Como el almacenamiento de Azure está protegiendo el contenido, hay una razón menos para insistir en el uso de una imagen de espera activa. Es decir, el escenario de alta disponibilidad solo tiene que protegerse contra los siguientes casos:
@@ -1137,8 +1123,7 @@ Si necesita más IOPS, se recomienda encarecidamente utilizar bloques de almacen
 Para utilizar la funcionalidad de copia de seguridad y restauración, las SAP BR*Tools para Oracle se admiten del mismo modo que en los sistemas operativos Windows Server y Hyper-V estándares. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en discos y las restauraciones desde discos.
 
 #### Alta disponibilidad
-[comment]: <> (vínculo que hace referencia a ASM) 
-Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Encontrará los detalles [aquí][virtual-machines-windows-classic-configure-oracle-data-guard].
+[comment]: <> (vínculo que hace referencia a ASM) Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Encontrará los detalles [aquí][virtual-machines-windows-classic-configure-oracle-data-guard].
 
 #### Otros
 Todos los demás temas generales, como la supervisión de conjuntos de disponibilidad de Azure o SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con la base de datos de Oracle.
@@ -1358,4 +1343,4 @@ Todos los demás temas generales, como la supervisión de conjuntos de disponibi
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

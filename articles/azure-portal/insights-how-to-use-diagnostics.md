@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Habilitación de supervisión y diagnóstico" 
-	description="Obtenga información acerca de la configuración del diagnóstico de los recursos en Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="Habilitación de la supervisión y el diagnóstico de Microsoft Azure | Microsoft Azure "
+	description="Obtenga información acerca de la configuración del diagnóstico de los recursos en Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Habilitación de supervisión y diagnóstico
@@ -26,7 +26,7 @@ Los datos de diagnóstico, supervisión y métrica de Azure se guardan en una cu
 
 La mayoría de los servicios le permiten habilitar el diagnóstico cuando los crea por primera vez en el [Portal Azure](https://portal.azure.com).
 
-1. Vaya a **Nuevo** y elija el recurso que le interesa. 
+1. Vaya a **Nuevo** y elija el recurso que le interesa.
 
 2. Seleccione **Configuración opcional**. ![Hoja Diagnósticos](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
 
@@ -49,12 +49,12 @@ Si ya ha creado un recurso y desea cambiar la configuración de diagnóstico (pa
 ### Categorías de recopilación de datos para máquinas virtuales
 Todos los registros y métricas de las máquinas virtuales se registran a intervalos de un minuto, así que siempre dispondrá de la información más actualizada sobre la máquina.
 
-- **Métricas básicas**: métricas de mantenimiento sobre la máquina virtual, como el procesador y la memoria. 
+- **Métricas básicas**: métricas de mantenimiento sobre la máquina virtual, como el procesador y la memoria.
 - **Métricas web y de red**: métricas sobre las conexiones de red y los servicios web.
 - **Métricas .NET**: métricas sobre las aplicaciones .NET y ASP.NET que se ejecutan en la máquina virtual.
 - **Métricas SQL**: si está ejecutando el servicio SQL de Microsoft, sus métricas de rendimiento.
 - **Registros de la aplicación de eventos de Windows**: los eventos de Windows que se envían al canal de la aplicación.
-- **Registros del sistema de eventos de Windows**: los eventos de Windows que se envían al canal del sistema. También se incluyen todos los eventos de [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
+- **Registros del sistema de eventos de Windows**: los eventos de Windows que se envían al canal del sistema. También se incluyen todos los eventos de [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409).
 - **Registros de seguridad de eventos de Windows**: los eventos de Windows que se envían al canal de seguridad.
 - **Registros de infraestructura de diagnóstico**: registro sobre la infraestructura de recopilación de diagnósticos.
 - **Registros IIS**: registros sobre su servidor IIS.
@@ -68,7 +68,6 @@ Tenga en cuenta que actualmente no se admiten algunas distribuciones de Linux y 
 * [Escale el número de instancias automáticamente](insights-how-to-scale.md) para asegurarse de que la escala de servicio está basada en la demanda.
 * [Supervise el rendimiento de la aplicación](insights-perf-analytics.md) si desea comprender exactamente cómo funciona su código en la nube.
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
-* [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento. 
- 
+* [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

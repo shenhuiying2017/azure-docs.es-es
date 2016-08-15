@@ -1,7 +1,7 @@
 <properties
    pageTitle="Control del tipo de contenido de las aplicaciones lógicas | Microsoft Azure"
    description="Descubra cómo las aplicaciones lógicas administran los tipos de contenido en los procesos de diseño y runtime"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -93,4 +93,4 @@ como no se trata de texto sin formato ni JSON, se almacenará en la acción como
 
 Donde `$content` es la carga codificada como cadena base64 para conservar todos los datos. Como en estos momentos no hay una función nativa para datos de formulario, podría seguir usando estos datos dentro de un flujo de trabajo mediante el acceso manual a los datos con una función como `@string(body('formdataAction'))`. Si quisiéramos que la solicitud saliente tenga también el encabezado content-type `application/x-www-url-formencoded`, solo tendría que agregarla al cuerpo de la acción sin realizar ninguna conversión como `@body('formdataAction')`. Sin embargo, esto solo funcionará si el cuerpo es el único parámetro de la entrada `body`. Si trata de agregar `@body('formdataAction')` dentro de una solicitud `application/json`, obtendrá un error en runtime, ya que se enviará al cuerpo codificado.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

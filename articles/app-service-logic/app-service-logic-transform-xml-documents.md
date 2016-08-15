@@ -4,7 +4,7 @@
 	authors="anuragdalmia" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -117,4 +117,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso.
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

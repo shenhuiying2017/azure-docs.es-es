@@ -3,7 +3,7 @@
 	description="Este tema proporciona instrucciones para ayudarle a determinar qué nivel de servicio es el adecuado para su aplicación y proporciona recomendaciones para optimizar la aplicación y para obtener el máximo partido de Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="" />
 
@@ -246,14 +246,14 @@ En el ejemplo siguiente, se muestran las diferentes formas a través de las cual
 		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
-		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
-		    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
+		    avg(avg_data_io_percent) AS 'Average Physical Data IO Utilization In Percent',
+		    max(avg_data_io_percent) AS 'Maximum Physical Data IO Utilization In Percent',
 		    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
 		    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
-		    avg(active_session_count) AS 'Average # of Sessions',
-		    max(active_session_count) AS 'Maximum # of Sessions',
-		    avg(active_worker_count) AS 'Average # of Workers',
-		    max(active_worker_count) AS 'Maximum # of Workers'
+		    avg(max_session_percent) AS 'Average % of Sessions',
+		    max(max_session_percent) AS 'Maximum % of Sessions',
+		    avg(max_worker_percent) AS 'Average % of Workers',
+		    max(max_worker_percent) AS 'Maximum % of Workers'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -266,7 +266,7 @@ En el ejemplo siguiente, se muestran las diferentes formas a través de las cual
 		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -283,7 +283,7 @@ En el ejemplo siguiente, se muestran las diferentes formas a través de las cual
 		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -507,4 +507,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

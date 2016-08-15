@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del conector de Oracle Database en aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
    description="Creación y configuración del conector de Oracle Database o la aplicación de API y su uso en una aplicación lógica en el Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -120,4 +120,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

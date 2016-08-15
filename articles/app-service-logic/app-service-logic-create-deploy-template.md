@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creación de una plantilla de implementación de aplicación lógica | Microsoft Azure"
    description="Obtenga información acerca de cómo crear una plantilla de implementación de aplicación lógica y usarla para la administración de versiones."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@ Un escenario común para implementar y administrar un entorno es usar una herram
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

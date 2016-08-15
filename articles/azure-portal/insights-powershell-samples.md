@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -148,13 +148,13 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 |Ubicación (Location) de esta regla de alerta|	Este de EE. UU.|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|Nombre de la métrica (MetricName) de la alerta que se crea|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` siguiente sobre cómo recuperar los nombres de métrica exactos|
-|Operador (Operator)| GreaterThan|
-|Valor de umbral (Threshold) (recuento o segundos de esta métrica)| 1|
-|WindowSize (formato hh:mm:ss)| 00:05:00|
-|Agregador (estadísticas de la métrica que, en este caso, usa el recuento Average)| Average|
-|Correos electrónicos personalizadas (matriz de cadena)|'foo@example.com','bar@example.com'|
-|Envío de mensajes de correo electrónico a propietarios, colaboradores y lectores| -SendToServiceOwners|
+|Nombre de la métrica (MetricName) de la alerta que se crea|	\\Disco físico(\_Total)\\Escrituras en disco/s. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo obtener los nombres exactos de las métricas|
+|operator|	GreaterThan|
+|Valor de umbral (número por segundo para esta métrica)|	1|
+|WindowSize (formato hh:mm:ss)|	00:05:00|
+|aggregator (estadística de la métrica que, en este caso, usa el recuento medio)|	Media|
+|mensajes de correo electrónico personalizados (matriz de cadenas)|'foo@example.com','bar@example.com'|
+|enviar correo electrónico a los propietarios, colaboradores y lectores|	-SendToServiceOwners|
 
 Creación de una acción de correo electrónico
 
@@ -186,7 +186,7 @@ El cmdlet Add alert también actualiza la regla si ya existe una para las propie
 
 >[AZURE.NOTE] Esta característica aún sigue en la fase de vista previa.
 
-En este escenario, deberá enviar correo electrónico cuando un sitio web se haya iniciado correctamente en mi suscripción del grupo de recursos *abhingrgtest123*.
+En este escenario, deberá enviar un mensaje de correo electrónico cuando un sitio web se inicie correctamente en mi suscripción del grupo de recursos *abhingrgtest123*.
 
 Configuración de una regla de correo electrónico
 
@@ -212,7 +212,7 @@ Recuperación de la regla de alerta
 Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-El cmdlet `Add-AlertRule` admite otros parámetros diferentes. Puede obtener más información en la sección sobre el cmdlet [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
+El cmdlet `Add-AlertRule` admite otros parámetros diferentes. Para más información, consulte [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## Obtención de una lista de métricas disponibles para las alertas
 Puede usar el cmdlet `Get-AzureRmMetricDefinition` para ver la lista de todas las métricas de un recurso específico.
@@ -322,7 +322,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 Puede crear un *perfil de registro* y exportar los datos de sus registros de auditoría a una cuenta de almacenamiento y configurar la retención de datos. Si lo desea, también puede transmitir los datos al Centro de eventos. Tenga en cuenta que esta característica se encuentra actualmente en la fase de vista previa y solo puede crear un perfil de registro por suscripción. Puede utilizar los siguientes cmdlets con su suscripción actual para crear y administrar perfiles de registro. También puede elegir una suscripción específica. Aunque PowerShell tiene como valor predeterminado la suscripción actual, puede cambiarla cuando quiera con `Set-AzureRmContext`. Puede configurar los registros de auditoría para enrutar los datos a cualquier cuenta de almacenamiento o al Centro de eventos de dicha suscripción. Los datos se escriben como archivos blob en formato JSON.
 
 ### Obtención de un perfil de registro
-Para capturar los perfiles de registro existentes, utilice el cmdlet `Get-AzureRmLogProfile`.
+Para capturar los perfiles de registro existentes, use el cmdlet `Get-AzureRmLogProfile`.
 
 ### Adición de un perfil de registro sin retención de datos
 
@@ -338,7 +338,7 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 
 ### Adición de un perfil de registro con retención de datos
 
-Puede especificar la propiedad **-RetentionInDays** con el número de días, por ejemplo, un entero positivo, que será donde se conservarán los datos.
+Puede especificar la propiedad **-RetentionInDays** con el número de días, como un entero positivo, que se conservarán los datos.
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
@@ -384,4 +384,4 @@ Habilitación de la configuración de diagnóstico con retención para una categ
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

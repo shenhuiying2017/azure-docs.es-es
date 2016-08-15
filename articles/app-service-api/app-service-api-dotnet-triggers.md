@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Desencadenadores de aplicaciones de API del Servicio de aplicaciones API | Microsoft Azure" 
 	description="Cómo implementar desencadenadores en una aplicación de API del Servicio de aplicaciones de Azure" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
@@ -342,4 +342,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
     }
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

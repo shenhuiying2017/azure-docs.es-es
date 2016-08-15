@@ -3,7 +3,7 @@
    description="Restauración a un momento dado, base de datos de Microsoft Azure SQL, restaurar base de datos, recuperar base de datos, Portal de Azure clásico, Portal de Azure clásico"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -56,4 +56,4 @@ Para obtener más información sobre las reglas de alerta de bases de datos, con
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

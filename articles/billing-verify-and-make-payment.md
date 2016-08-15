@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Cómo comprobar su método de pago y realizar pagos por una suscripción de Azure | Microsoft Azure"
 	description="Describe cómo comprobar su método de pago y realizar pagos por una suscripción de Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -44,4 +45,4 @@ Si ha configurado una tarjeta de crédito o una tarjeta de débito como forma de
 
 Si se encuentra en un método de factura de pago, envíe el pago a la ubicación indicada en la parte inferior de la factura. Para ayuda adicional, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Aplicaciones lógicas como puntos de conexión invocables"
    description="Cómo crear y configurar puntos de conexión desencadenadores y usarlos en una aplicación lógica del Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ Esta funcionalidad está disponible a través de **Administración de API**:
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

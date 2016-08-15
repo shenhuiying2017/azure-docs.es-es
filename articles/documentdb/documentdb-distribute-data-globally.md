@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="kipandya"/>
    
    
@@ -54,9 +54,7 @@ Por último, dado que DocumentDB es completamente [independiente del esquema][vl
 
 ## Habilitación de la distribución global 
 
-Puede decidir que los datos se distribuyan local o globalmente mediante la asociación de una o varias regiones de Azure con una cuenta de base de datos de DocumentDB. Puede decidir distribuir los datos globalmente o confinarlos en una sola región agregando o quitando regiones en la cuenta de base de datos en cualquier momento. Las cuentas de base de datos de DocumentDB que admiten la asignación de varias regiones se pueden crear mediante Azure Marketplace; para ello, seleccione "DocumentDB – Multi-Region Database Account (Cuenta de base de datos de varias regiones)".
-
-
+Puede decidir que los datos se distribuyan local o globalmente mediante la asociación de una o varias regiones de Azure con una cuenta de base de datos de DocumentDB. Puede agregar o quitar regiones a su cuenta de base de datos en cualquier momento.
 
 ## Pasos siguientes
 
@@ -89,4 +87,4 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

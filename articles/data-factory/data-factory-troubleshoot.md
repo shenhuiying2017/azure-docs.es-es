@@ -47,14 +47,14 @@ La configuración rápida de Data Management Gateway requiere Internet Explorer 
 - Use el vínculo **Configuración manual** que aparece en la misma hoja del portal para descargar el archivo de instalación y ejecútelo manualmente. Después de realizarse correctamente la instalación, verá el cuadro de diálogo Configuración de Data Management Gateway. Copie la **clave** desde la pantalla del portal y úsela en el administrador de configuración para registrar manualmente la puerta de enlace con el servicio.
 
 ### Problema: no se pudo conectar al servidor SQL Server local. 
-Inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace y use la pestaña **Solución de problemas** para probar la conexión a SQL Server desde el equipo de la puerta de enlace. Consulte [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener más información.
+Inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace y use la pestaña **Solución de problemas** para probar la conexión a SQL Server desde el equipo de la puerta de enlace. Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
  
 
 ### Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
 
 Los segmentos pueden estar en el estado **En espera** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
-Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar **externalData** al establecer external en true.
+Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
 Consulte el artículo [Conjuntos de datos](data-factory-create-datasets.md) para obtener más información sobre esta propiedad.
 	
@@ -85,7 +85,7 @@ Consulte el artículo [Conjuntos de datos](data-factory-create-datasets.md) para
 Para resolver el error, agregue la propiedad **external** y la sección **externalData** opcional a la definición de JSON de la tabla de entrada y vuelva a crear la tabla.
 
 ### Problema: la operación de copia híbrida produce un error.
-Consulte [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) si quiere ver los pasos para solucionar problemas con la copia a un almacén de datos local como origen o destino mediante Data Management Gateway.
+Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) si quiere ver los pasos para solucionar problemas con la copia en un almacén de datos local como origen o destino usando Data Management Gateway.
 
 ### Problema: El aprovisionamiento de HDInsight a petición produce un error
 Al usar un servicio vinculado de tipo HDInsightOnDemand, debe especificar linkedServiceName que apunte a Almacenamiento de blobs de Azure. El servicio Data Factory usa este almacenamiento para almacenar registros y archivos auxiliares para el clúster de HDInsight a petición. A veces, el aprovisionamiento de un clúster de HDInsight a petición produce el siguiente error:
@@ -143,4 +143,4 @@ Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-bu
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

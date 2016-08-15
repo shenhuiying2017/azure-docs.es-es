@@ -25,10 +25,13 @@ Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un
 
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
 
+## Solución de problemas
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+
 ## Pasos siguientes
 
 -  [Conexión de un disco](virtual-machines-linux-attach-disk-portal.md) para agregar almacenamiento adicional para la máquina virtual.
 -  [Configuración del software RAID](virtual-machines-linux-configure-raid.md) para la redundancia.
--  [Captura de una máquina virtual en Linux](virtual-machines-linux-classic-capture-image.md) para poder implementar rápidamente máquinas virtuales adicionales.
+-  [Captura de una máquina virtual Linux](virtual-machines-linux-classic-capture-image.md) para poder implementar rápidamente máquinas virtuales adicionales.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -35,7 +35,7 @@ Máquinas virtuales de Azure, Administrador de recursos de Azure y Almacén de c
       - las plantillas para implementar las claves
       - las plantillas para implementar una máquina virtual con referencias a las claves
       - los materiales de clave reales en el almacén. Cada plantilla (y acción) pueden estar bajo roles RBAC diferentes para una separación completa de responsabilidades.
-- La carga de secretos en una máquina virtual durante la implementación se produce a través de un canal directo entre el tejido de Azure y el Almacén de claves dentro de los confines del centro de datos de Microsoft. Una vez que las claves se encuentran en el Almacén de claves, nunca salen a la luz través de un canal que no sea de confianza fuera del centro de datos.  
+- La carga de secretos en una máquina virtual durante la implementación se produce a través de un canal directo entre el tejido de Azure y el Almacén de claves dentro de los confines del centro de datos de Microsoft. Una vez que las claves se encuentran en el Almacén de claves, nunca salen a la luz través de un canal que no sea de confianza fuera del centro de datos.
 - Los almacenes de claves son siempre regionales, por lo que los secretos siempre tienen la localidad (y soberanía) con las máquinas virtuales. No hay almacenes de claves globales.
 
 ### Separación de claves de las implementaciones
@@ -339,4 +339,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Para configurar el enrutamiento y el reenvío IP, consulte [Creación de enrutamientos definidos por el usuario (UDR) en el administrador de recursos mediante una plantilla](./virtual-network/virtual-network-create-udr-arm-template.md).
 - Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

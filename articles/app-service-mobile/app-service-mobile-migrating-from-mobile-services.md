@@ -287,17 +287,17 @@ Ya no podrá usar el comando _azure mobile_ para administrar el sitio de Servici
 | mobile show _name_ | site show _name_ |
 | mobile restart _name_ | site restart _name_ |
 | mobile redeploy _name_ | site deployment redeploy _commitId_ _name_ |
-| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile config list _name_ | site appsetting list _name_ |
 | mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
-| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile domain list _name_ | site domain list _name_ |
 | mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
 | mobile domain delete _name_ | site domain delete _domain_ _name_ |
 | mobile scale show _name_ | site show _name_ |
 | mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
 | mobile appsetting list _name_ | site appsetting list _name_ |
-| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_ |
 | mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
 | mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
 
@@ -381,17 +381,17 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
+[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Escalado automático]: ../app-service-web/web-sites-scale.md
 [Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
 [documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
 [Portal de Azure]: https://portal.azure.com
-[Región de Azure]: https://azure.microsoft.com/regions/
+[Región de Azure]: https://azure.microsoft.com/es-ES/regions/
 [planes del Programador de Azure]: ../scheduler/scheduler-plans-billing.md
-[implementar su sitio de forma continuada]: ../app-service-web/web-sites-publish-source-control.md
-[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[implementar su sitio de forma continuada]: ../app-service-web/app-service-continuous-deployment.md
+[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/es-ES/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -409,4 +409,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

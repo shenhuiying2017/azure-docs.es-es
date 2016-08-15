@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Control del comportamiento del almacenamiento en caché de las solicitudes con cadenas de consulta"
-	description="El almacenamiento en caché de las cadenas de consultas de CDN controla la manera en que se almacenarán en caché los archivos cuando contienen cadenas de consulta."
+	pageTitle="Control del comportamiento del almacenamiento en caché de las solicitudes de CDN de Azure con cadenas de consulta | Microsoft Azure"
+	description="El almacenamiento en caché de las cadenas de consulta de la red CDN de Azure controla el modo en que se almacenan en caché los archivos cuando contienen cadenas de consulta."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Control del comportamiento del almacenamiento en caché de las solicitudes de CDN con cadenas de consultas
@@ -56,4 +56,4 @@ Hay tres modos disponibles:
 
 > [AZURE.IMPORTANT] Es posible que los cambios en la configuración no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de la red CDN. Para los perfiles de la <b>red CDN de Azure de Akamai</b>, la propagación normalmente se completará en un minuto. Para los perfiles de <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

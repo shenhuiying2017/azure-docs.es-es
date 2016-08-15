@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del conector de Twilio en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
    description="Creación y configuración del conector de Twilio o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -27,4 +27,4 @@ Se ha quitado el contenido (destinado a la versión 2014-12-01-preview de Aplica
 - [Obtener más información sobre este nuevo conector](../connectors/connectors-create-api-twilio.md)
 - Consultar [la lista completa](../connectors/apis-list.md) de los conectores que se ejecutan en la nueva versión del esquema 2015-08-01-preview de aplicaciones lógicas
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

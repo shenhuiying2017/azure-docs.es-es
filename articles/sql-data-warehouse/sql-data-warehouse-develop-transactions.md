@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transacciones en el Almacenamiento de datos SQL
@@ -56,19 +56,21 @@ Para optimizar y minimizar la cantidad de datos que se escriben en el registro, 
 ## Estado de las transacciones
 El Almacenamiento de datos SQL usa la función XACT\_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
 
-> [AZURE.NOTE] El uso de -2 por la función XACT\_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, SELECT 1/0 producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, en SQLDW esto no es así. Si se produce un error dentro de una transacción SQLDW, introducirá automáticamente el estado -2: incluidos los errores SELECT 1/0. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT\_STATE().
+> [AZURE.NOTE] El uso de -2 por la función XACT\_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, Almacenamiento de datos SQL no permite hacerlo. Si se produce un error dentro de una transacción de Almacenamiento de datos SQL, especificará automáticamente el estado 2 y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT\_STATE() cuando necesite realizar modificaciones de código.
 
-En SQL Server, puede que vea un fragmento de código con el siguiente aspecto:
+Por ejemplo, puede que vea una transacción con el siguiente aspecto en SQL Server:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,49 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Tenga en cuenta que la instrucción `SELECT` se produce antes de la instrucción `ROLLBACK`. Tenga en cuenta también que la configuración de la variable `@xact` utiliza DECLARE y no `SELECT`.
+Si deja el código como aparecía anteriormente, obtendrá el siguiente mensaje de error:
 
-En el Almacenamiento de datos SQL, el código tendría este aspecto:
+Msg 111233, Level 16, State 1, Line 1 111233; La transacción actual se ha anulado y se han revertido los cambios pendientes. Causa: una transacción en estado de solo reversión no se ha revertido explícitamente antes de la instrucción DDL, DML o SELECT.
+
+Tampoco obtendrá el resultado de las funciones ERROR\_*.
+
+En el Almacenamiento de datos SQL debe modificarse ligeramente el código:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,10 +130,18 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Observe que la reversión de la transacción debe ocurrir antes de la lectura de la información de error en el bloque `CATCH`.
+Ahora se observa el comportamiento esperado. Se administra el error en la transacción y las funciones ERROR\_* proporcionan los valores esperados.
+
+Todo lo que ha cambiado es que se tuvo que aplicar `ROLLBACK` de la transacción para leer la información de error en el bloque `CATCH`.
 
 ## Función Error\_Line()
 También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR\_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo sobre [USO DE ETIQUETAS][] para más información sobre esta característica.
@@ -129,6 +161,8 @@ Los pasos son los siguientes:
 - Transacciones no distribuidas
 - Transacciones anidadas no permitidas
 - Puntos de almacenamiento no admitidos
+- Sin transacciones con nombre
+- Sin transacciones marcadas
 - No existe compatibilidad con DDL como el elemento `CREATE TABLE` de una transacción definida por el usuario
 
 ## Pasos siguientes
@@ -148,4 +182,4 @@ Para más información acerca de la optimización de transacciones, consulte [Op
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

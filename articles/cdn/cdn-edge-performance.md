@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Análisis del rendimiento perimetral"
+	pageTitle="Análisis del rendimiento perimetral en la red CDN de Azure | Microsoft Azure"
 	description="Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure
@@ -192,4 +192,4 @@ HTTP Response Codes | Proporciona un desglose de los códigos de estado HTTP (po
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

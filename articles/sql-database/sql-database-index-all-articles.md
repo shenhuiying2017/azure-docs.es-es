@@ -189,8 +189,8 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | --: | :-- | :-- |
 | 90 | [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md) | Obtenga más información sobre las copias de seguridad integradas de Base de datos SQL que permiten revertir una Base de datos SQL de Azure a un momento dado previo o copiarla en una nueva base de datos en una región geográfica (hasta 35 días). |
 | 91 | [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md) | Obtenga información acerca de cómo la Base de datos SQL de Azure permite la continuidad del negocio en la nube y la recuperación de la base de datos, y ayuda a que las aplicaciones críticas de la nube se sigan ejecutando. |
-| 92 | [Actualización de una aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) | En esta sección se proporcionan instrucciones para evitar el tiempo de inactividad durante una actualización de aplicaciones. |
-| 93 | [Escenarios de continuidad empresarial de Base de datos SQL de Microsoft Azure](sql-database-business-continuity-scenarios.md) | Escenarios de continuidad empresarial de Base de datos SQL de Azure |
+| 92 | [Actualización de una aplicación sin tiempo de inactividad](sql-database-manage-application-rolling-upgrade.md) | En este artículo se proporcionan instrucciones para evitar el tiempo de inactividad durante una actualización de aplicaciones. |
+| 93 | [Escenarios de continuidad empresarial de Base de datos SQL de Microsoft Azure](sql-database-business-continuity.md) | Escenarios de continuidad empresarial de Base de datos SQL de Azure |
 | 94 | [Restauración de una única tabla a partir de una copia de seguridad de Base de datos SQL de Azure](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Obtenga información sobre cómo restaurar una única tabla de la copia de seguridad de Base de datos SQL de Azure. |
 | 95 | [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Obtenga información acerca de cómo diseñar soluciones de recuperación ante desastres en la nube para planificar la continuidad del negocio mediante la replicación geográfica de la copia de seguridad de datos de la aplicación con la Base de datos SQL de Azure. |
 | 96 | [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md) | Obtenga información acerca de cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Base de datos SQL de Azure. |
@@ -205,7 +205,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 105 | [Restaurar una base de datos SQL de Azure eliminada con el Portal de Azure](sql-database-restore-deleted-database-portal.md) | Restauración de una base de datos SQL de Azure eliminada (Portal de Azure). |
 | 106 | [Restauración de una Base de datos SQL de Azure eliminada mediante PowerShell](sql-database-restore-deleted-database-powershell.md) | Restauración de una Base de datos SQL de Azure eliminada (PowerShell) |
 | 107 | [Restaurar una base de datos a un momento anterior en el tiempo, restaurar una base de datos eliminada o recuperarse de una interrupción del centro de datos](sql-database-troubleshoot-backup-and-restore.md) | Aprenda a recuperar una base de datos de nube de errores e interrupciones mediante copias de seguridad y réplicas de Base de datos SQL de Azure. |
-| 108 | [Recuperación de una base de datos SQL de Azure tras un error](sql-database-user-error-recovery.md) | Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure. |
+| 108 | [Recuperación de una base de datos SQL de Azure tras un error](sql-database-business-continuity.md) | Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure. |
 | 109 | [Uso de Almacenamiento de Azure para la copia de seguridad y la restauración de SQL Server](storage-use-storage-sql-server-backup-restore.md) | Aprenda a realizar una copia de seguridad de SQL Server en Almacenamiento de Azure. Se explican las ventajas de realizar una copia de seguridad de bases de datos SQL en Almacenamiento de Azure. |
 
 
@@ -396,4 +396,4 @@ This bullet link is improperly disallowed by publishing automation due to presen
 - [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
 -->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

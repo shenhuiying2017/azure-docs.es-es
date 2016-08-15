@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2016"
-	ms.author="carlrabeler; ronitr"/>
+	ms.author="CarlRabeler; ronitr"/>
 
 # Introducción a la auditoría de bases de datos SQL
 La auditoría de Base de datos SQL de Azure realiza un seguimiento de los eventos de base de datos y escribe eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure. La auditoría está generalmente disponible para los niveles de servicio Básico, Estándar y Premium.
@@ -175,4 +175,4 @@ Existen varios cmdlets de PowerShell que puede usar para configurar la auditorí
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

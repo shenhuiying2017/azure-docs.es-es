@@ -1,7 +1,7 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector RSS permite a los usuarios publicar y recuperar elementos de fuente. También permite a los usuarios desencadenar operaciones cuando se publica un nuevo elemento en la fuente."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -132,4 +132,4 @@ Enumerar todos los elementos de fuente RSS: obtiene todos los elementos de fuent
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

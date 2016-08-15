@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/02/2016" 
 	ms.author="stbaro"/>
 
 # Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure
@@ -79,7 +79,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 
 9. Siga adelante y cree un par de tareas en la aplicación web, luego vuelva a la hoja Grupo de recursos en el Portal de Azure. Haga clic en el recurso de la cuenta de DocumentDB en la lista Recursos y luego haga clic en el **Explorador de consultas**. ![Captura de pantalla del modo de resumen con la aplicación web myotherdocumentdbwebapp resaltada](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)
 
-10. Ejecute la consulta predeterminada, "SELECT * FROM c" e inspeccione los resultados. Observe que la consulta ha recuperado la representación JSON de los elementos todo creados en el paso 7 anterior. No dude en experimentar con las consultas; por ejemplo, intente ejecutar SELECT * FROM c WHERE c.isComplete = true para devolver todos los elementos todo marcados como completos.
+10. Ejecute la consulta predeterminada, "SELECT * FROM c" e inspeccione los resultados. Observe que la consulta ha recuperado la representación JSON de los elementos todo creados en el paso 7 anterior. No dude en experimentar con las consultas; por ejemplo, intente ejecutar SELECT * FROM c WHERE c.isComplete = true para devolver todos los elementos marcados como completos.
 
 	![Captura de pantalla de las hojas del Explorador de consultas y Resultados en la que se muestran los resultados de la consulta](./media/documentdb-create-documentdb-website/image5.png)
 
@@ -94,7 +94,7 @@ Ahora implementaremos nuestra segunda plantilla. Esta plantilla es útil para mo
 
 1. En el [Portal de Azure](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas". ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment1.png)
 
-2. Seleccione el elemento de implementación de plantilla y haga clic en **Crear**. ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment2.png)
+2. Seleccione el elemento de implementación de plantilla y haga clic en **Crear** ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment2.png)
 
 3.  Haga clic en **Editar plantilla**, pegue el contenido del archivo de plantilla DocDBWebSite.json y haga clic en **Guardar**. ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/documentdb-create-documentdb-website/TemplateDeployment3.png)
 
@@ -116,7 +116,7 @@ Ahora implementaremos nuestra segunda plantilla. Esta plantilla es útil para mo
 
 7.  Cuando finalice la implementación, se abrirá la hoja Grupo de recursos. ![Captura de pantalla de la hoja Grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)
 
-8. Haga clic en el recurso de aplicación web en la lista Recursos y luego haga clic en **Configuración de la aplicación** ![Captura de pantalla del grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment9.png).
+8. Haga clic en el recurso de aplicación web en la lista Recursos y luego haga clic en **Configuración de la aplicación** ![Captura de pantalla del grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)
 
 9. Tenga en cuenta que existen valores de configuración de aplicación para el punto de conexión de DocumentDB y para cada una de las claves maestras de DocumentDB. ![Captura de pantalla de configuración de la aplicación](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)
 
@@ -141,4 +141,4 @@ Ahora implementaremos nuestra segunda plantilla. Esta plantilla es útil para mo
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

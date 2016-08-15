@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure Insights: Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights | Microsoft Azure"
-	description="Consulte cómo usar las entradas de registro de auditoría de servicio para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Insights."
+	description="Consulte cómo usar las entradas de registro de auditoría de servicio para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -102,7 +102,7 @@ Cuando hay disponible un nuevo evento, la alerta de eventos de registro de audit
 |timestamp|	Marca de tiempo cuando el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento|
 |resourceId |Identificador URI de identificador de recurso que identifica el recurso de forma única|
 |resourceGroupName|Resource-group-name del recurso afectado|
-|propiedades |Conjunto de pares <Key  Value> (es decir, el diccionario<String  String>) que incluye detalles sobre el evento|
+|propiedades |Conjunto de pares <Clave, Valor> (es decir, Dictionary<String, String>) que incluye detalles sobre el evento|
 |event|Elemento que contiene metadatos sobre el evento|
 |authorization|Captura las propiedades RBAC del evento. Normalmente incluyen "action", "role" y "scope".|
 |categoría | Categoría del evento. Los valores admitidos son Administrative, Alert, Security, ServiceHealth y Recommendation|
@@ -119,4 +119,4 @@ Cuando hay disponible un nuevo evento, la alerta de eventos de registro de audit
 |status|Cadena que describe el estado de la operación. Entre los valores habituales se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved|
 |subStatus|	Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Entre los valores de subestado comunes se incluyen OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

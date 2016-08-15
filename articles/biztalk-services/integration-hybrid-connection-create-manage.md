@@ -21,12 +21,20 @@
 
 
 ## Información general de los pasos
-1. Cree una conexión híbrida especificando el nombre de host o la dirección IP del recurso local de la red privada.
+1. Para crear una conexión híbrida, especifique el **nombre de host** o el **FQDN** del recurso local en la red privada.
 2. Vincule las Aplicaciones web de Azure o las Aplicaciones móviles de Azure a la conexión híbrida.
 3. Instale el Administrador de conexiones híbridas en el recurso local y conéctese a la conexión híbrida específica. El portal de Azure ofrece una experiencia con un solo clic para la instalación y la conexión.
 4. Administre las conexiones híbridas y sus claves de conexión.
 
 En este tema se muestran estos pasos.
+
+> [AZURE.IMPORTANT] Se puede establecer un punto de conexión híbrido en una dirección IP. Si usa una dirección IP, puede o no encontrar el recurso local en función de su cliente. La conexión híbrida depende del cliente que realiza la búsqueda de DNS. En la mayoría de los casos, el __cliente__ es el código de aplicación. Si el cliente no realiza una búsqueda de DNS (no intenta resolver la dirección IP como si fuese un nombre de dominio [x.x.x.x]), no se envía tráfico a través de la conexión híbrida.
+>
+> Por ejemplo (en pseudocódigo), defina **10.4.5.6** como host local:
+> 
+> **El siguiente escenario funciona:** `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> 
+> **El siguiente escenario no funciona:** `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 
 
 ## <a name="CreateHybridConnection"></a>Creación de una conexión híbrida
@@ -47,8 +55,8 @@ Una conexión híbrida se puede crear en el Portal de Azure mediante Aplicacione
 
 	Propiedad | Descripción
 --- | ---
-Nombre | El nombre de la conexión híbrida debe ser único y no puede ser el mismo que el servicio de BizTalk. Puede escribir cualquier nombre pero sea concreto con su finalidad. Entre los ejemplos se incluyen:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Entre los ejemplos se incluyen:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Nombre | El nombre de la conexión híbrida debe ser único y no puede ser el mismo que el servicio de BizTalk. Puede escribir cualquier nombre pero sea concreto con su finalidad. Algunos ejemplos son:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
+Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Algunos ejemplos son:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>Si usa la dirección IPv4, tenga en cuenta que su cliente o el código de aplicación podrían no resolver la dirección IP. Vea la nota importante al principio de este tema.
 Port | Escriba el número de puerto del recurso local. Por ejemplo, si utiliza Aplicaciones web, escriba los puertos 80 o 443. Si utiliza SQL Server, escriba el puerto 1433.
 
 5. Seleccione la marca de verificación para completar la configuración.
@@ -152,4 +160,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

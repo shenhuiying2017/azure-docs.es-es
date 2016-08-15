@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Entrega continua para Servicios en la nube de Azure
@@ -44,7 +44,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
 1.  Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** en Windows.
 
-    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
+    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -58,7 +58,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild1](1).
 
-4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
+4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -69,7 +69,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Especifique la ubicación para el resultado. Establezca la ruta usando la opción /p:PublishDir=*Directory*\\, incluido el separador de barra diagonal inversa final, como en el siguiente ejemplo:
+6.  Especifique la ubicación para el resultado. Establezca la ruta mediante la opción /p:PublishDir=*Directory*\\, incluido el separador de barra diagonal inversa final, como en el siguiente ejemplo:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
@@ -83,7 +83,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
 1.  En Visual Studio, en el equipo de desarrollo, en el menú Ver, elija **Team Explorer** o seleccione Ctrl+\\, Ctrl+M. En la ventana Team Explorer, expanda el nodo **Compilaciones** o elija la página **Compilaciones** y, a continuación, seleccione **Definición de nueva compilación**.
 
-    ![][0]
+    ![Opción Nueva definición de compilación][0]
 
 2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuando desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
 
@@ -95,7 +95,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
 6.  Seleccione **Argumentos de MSBuild** y establezca los argumentos adecuados de la línea de comandos de MSBuild como se describe en el paso 2 anterior. Por ejemplo, escriba **/t:Publish /p:PublishDir=\\\myserver\\drops\** para compilar un paquete y copiar los archivos del paquete en la ubicación \\\myserver\\drops\\:
 
-    ![][2]
+    ![Argumentos de MSBuild][2]
 
     **Nota:** la copia de los archivos en un recurso compartido público facilita la implementación manual de los paquetes desde su equipo de desarrollo.
 
@@ -105,7 +105,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
 En esta sección se describen los pasos para construir un script de Windows PowerShell que publicará el resultado del paquete de aplicaciones en la nube en Azure con la ayuda de parámetros opcionales. Este script puede llamarse después del paso de compilación en su automatización de compilación personalizada. También puede llamarse desde las actividades de flujo de trabajo de la Plantilla de procesos en Visual Studio TFS Team Build.
 
-1.  Instale los [cmdlets de Azure PowerShell][] \(v0.6.1 o superior). Durante la fase de instalación del cmdlet, seleccione instalar como complemento. Tenga en cuenta que esta versión oficialmente compatible reemplaza la versión anterior que se ofrece mediante CodePlex, aunque las versiones anteriores tenían la numeración 2.x.x.
+1.  Instale los [cmdlets de Azure PowerShell][] (v0.6.1 o superior). Durante la fase de instalación del cmdlet, seleccione instalar como complemento. Tenga en cuenta que esta versión oficialmente compatible reemplaza la versión anterior que se ofrece mediante CodePlex, aunque las versiones anteriores tenían la numeración 2.x.x.
 
 2.  Inicie Azure PowerShell mediante el menú Inicio o la página de inicio. Si inicia de esta manera, se cargarán los cmdlets de Azure PowerShell.
 
@@ -123,17 +123,17 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     Se muestra información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 
 6.  Asegúrese de que haya cuentas de almacenamiento y de servicio en la nube válidas creadas en su suscripción que se puedan abordar mediante el script de publicación. Se usará la cuenta de almacenamiento (almacenamiento de blobs) para cargar y almacenar temporalmente el paquete de implementación y el archivo de configuración mientras se crea la implementación.
 
-    -   Para crear un servicio en la nube nuevo, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
+    -   Para crear un servicio en la nube, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Para crear un servicio de almacenamiento nuevo, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
+    -   Para crear una nueva cuenta de almacenamiento, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
@@ -204,7 +204,7 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![Lista de argumentos][3]
 
     El archivo XAML correspondiente se parece a este:
 
@@ -256,7 +256,7 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
 
         -   PublishScriptFilePath, de tipo Cadena
 
-            ![][4]
+            ![Nuevas variables][4]
 
     4.  Si está utilizando TFS 2012 o anterior, agregue una actividad ConvertWorkspaceItem al comienzo de la nueva secuencia. Si está utilizando TFS 2013 o posterior, agregue una actividad GetLocalPath al comienzo de la nueva secuencia. En ConvertWorkspaceItem, establezca las propiedades de la manera siguiente: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. Para una actividad GetLocalPath, establezca la propiedad IncomingPath en 'PublishScriptLocation' y el resultado en 'PublishScriptFilePath'. Esta actividad convierte la ruta al script de publicación desde las ubicaciones del servidor TFS (si corresponde) hasta una ruta de disco local estándar.
 
@@ -284,7 +284,7 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
 
     El resultado final de las actividades de flujo de trabajo de publicación se verán en el diseñador de la manera siguiente:
 
-    ![][5]
+    ![Actividades de flujo de trabajo][5]
 
     El resultado final de las actividades de flujo de trabajo de publicación se verán en el archivo XAML de la manera siguiente:
 
@@ -343,7 +343,7 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![Valores de propiedad de parámetro][6]
 
 10. Guarde los cambios en la Definición de compilación.
 
@@ -573,4 +573,4 @@ Para habilitar la depuración remota cuando se usa la entrega continua, consulte
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

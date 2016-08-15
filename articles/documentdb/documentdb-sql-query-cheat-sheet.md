@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# PDF de hoja de referencia sobre SQL de DocumentDB
+# PDF de la hoja de referencia de consultas SQL de DocumentDB
 
 La **Hoja de referencia de consultas SQL de DocumentDB** lo ayuda a escribir rápidamente consultas para datos de DocumentDB ya que se muestran las consultas de base de datos comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir.
 
@@ -31,7 +31,7 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 
 ![Hoja de referencia rápida sobre consultas SQL de DocumentDB: PDF de referencia rápida para la sintaxis SQL admitida por DocumentDB - Hoja de referencia rápida sobre SQL, PDF de hoja de referencia rápida sobre SQL, referencia rápida de SQL][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## Más ayuda para la escritura de consultas SQL
@@ -39,4 +39,8 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 - Para realizar un recorrido por las opciones de consulta disponibles en DocumentDB, consulte [Consulta de DocumentDB](documentdb-sql-query.md).
 - Para obtener la documentación de referencia relacionada, consulte [Lenguaje de consulta SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+## Notas de la versión
+
+Actualizado el 29/7/2016 para incluir la parte superior.
+
+<!---HONumber=AcomDC_0803_2016-->

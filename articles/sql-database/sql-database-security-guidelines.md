@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="rickbyh"/>
 
 # Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure
@@ -50,7 +50,7 @@ Las conexiones con la Base de datos SQL que están constantemente activas requie
 Al administrar los inicios de sesión y los usuarios de la Base de datos SQL, hay restricciones.
 
 
-- Debe conectarse a la base de datos **maestra** al ejecutar las instrucciones ``CREATE/ALTER/DROP DATABASE``. - El usuario de la base de datos principal correspondiente al inicio de sesión principal de nivel de servidor no se puede alterar ni quitar. 
+- Debe conectarse a la base de datos **maestra** al ejecutar las instrucciones ``CREATE/ALTER/DROP DATABASE``. - El usuario de la base de datos principal correspondiente al inicio de sesión principal de nivel de servidor no se puede alterar ni quitar.
 - El inglés de Estados Unidos es el idioma predeterminado del inicio de sesión principal de nivel de servidor.
 - Para tener acceso a la base de datos **maestra**, cada inicio de sesión debe estar asignado a una cuenta de usuario en la base de datos **maestra**. La base de datos **maestra** no admite usuarios de base de datos independiente.
 - Solamente el inicio de sesión principal y los miembros del nivel de servidor del rol de la base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE DATABASE`` y ``DROP DATABASE``.
@@ -71,7 +71,7 @@ GO
 - Cuando se ejecuta la instrucción ``CREATE USER`` con la opción ``FOR/FROM LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
 - Cuando se ejecuta la instrucción ``ALTER USER`` con la opción ``WITH LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
 - Para ``CREATE/ALTER/DROP`` un usuario requiere el permiso ``ALTER ANY USER`` de la base de datos.
-- Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` del usuario. 
+- Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` del usuario.
 
 Para obtener más información sobre los inicios de sesión y los usuarios, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md).
 
@@ -86,4 +86,4 @@ Para obtener más información sobre los inicios de sesión y los usuarios, cons
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/02/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migración del código SQL a Almacenamiento de datos SQL
@@ -80,7 +80,7 @@ Estas son algunas de las limitaciones de las expresiones de tabla comunes en Alm
 
 Las CTE recursivas no se admiten en Almacenamiento de datos SQL. La migración de CTE recursivas puede ser bastante completa y el mejor proceso es desglosarla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula agrupar por con opciones de acumulación/cubo/agrupación][].
 
-## Funciones del sistema
+## Funciones de sistema no compatibles
 
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:
 
@@ -91,21 +91,29 @@ También hay algunas funciones del sistema que no son compatibles. Algunas de la
 - ROWCOUNT\_BIG
 - ERROR\_LINE()
 
-De nuevo, muchos de estos problemas se pueden solucionar.
+Algunos de estos problemas se pueden solucionar.
 
-Por ejemplo, el código siguiente es una solución alternativa para recuperar información de @@ROWCOUNT:
+## Solución de @@ROWCOUNT
+
+Para evitar la falta de compatibilidad para @@ROWCOUNT, cree un procedimiento almacenado que recuperará el último número de filas de sys.dm\_pdw\_request\_steps y, a continuación, ejecute `EXEC LastRowCount` después de una instrucción DML.
 
 ```sql
-SELECT  SUM(row_count) AS row_count
-FROM    sys.dm_pdw_sql_requests
-WHERE   row_count <> -1
-AND     request_id IN
-                    (   SELECT TOP 1    request_id
-                        FROM            sys.dm_pdw_exec_requests
-                        WHERE           session_id = SESSION_ID()
-                        AND             resource_class IS NOT NULL
-                        ORDER BY end_time DESC
-                    )
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
@@ -134,4 +142,4 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consu
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

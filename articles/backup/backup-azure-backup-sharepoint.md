@@ -3,8 +3,8 @@
 	description="En este artículo se incluye información general sobre la protección del Servidor de Copia de seguridad de Azure y el servidor de DPM de una granja de SharePoint en Azure."
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/04/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 
 # Realización de una copia de seguridad de una granja de SharePoint en Azure
@@ -233,4 +233,4 @@ P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original s
 - Vea [Notas de la versión de System Center 2012: Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Vea [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

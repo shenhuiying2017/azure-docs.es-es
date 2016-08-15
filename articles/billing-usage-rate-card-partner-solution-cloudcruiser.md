@@ -1,11 +1,13 @@
 <properties
    pageTitle="Integración de la API de facturación de Cloud Cruiser y Microsoft Azure | Microsoft Azure"
    description="Proporciona una perspectiva exclusiva del socio de facturación de Microsoft Azure Cloud Cruiser, sobre sus experiencias de integración de las API de facturación de Azure en su producto. Esto es especialmente útil para los clientes de Azure y de Cloud Cruiser que están interesados en usar o probar Cloud Cruiser para el paquete de Microsoft Azure."
-   services="billing"
+   services=""
    documentationCenter=""
    authors="BryanLa"
    manager="mbaldwin"
-   editor=""/>
+   editor=""
+   tags="billing"
+   />
 
 <tags
    ms.service="billing"
@@ -235,4 +237,4 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Ilustración 13 - Creación de nuevos campos para la información de etiqueta"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Ilustración 14 - Relleno de la estructura de la cuenta con la información de las búsquedas"
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

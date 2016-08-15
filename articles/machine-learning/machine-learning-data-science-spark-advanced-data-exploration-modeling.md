@@ -22,8 +22,8 @@
 
 En este tutorial se usa Spark en HDInsight para realizar exploración de datos y entrenar modelos de regresión y clasificación binaria. Para ello, se usan la validación cruzada y la optimización de hiperparámetros en una muestra del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York. Lo guía por los pasos del [proceso de la ciencia de los datos](http://aka.ms/datascienceprocess), de principio a fin, usando un clúster de Spark en HDInsight para el procesamiento y blobs de Azure para almacenar los datos y los modelos. El proceso analiza y visualiza los datos extraídos de un Blob de Almacenamiento de Azure y, después, los prepara para crear modelos predictivos. Se ha usado Python para codificar la solución y mostrar los trazados relevantes. Estos modelos se crean usando el kit de herramientas MLlib de Spark para realizar las tareas de clasificación binaria y modelado por regresión.
 
-- La tarea de **clasificación binaria** consiste en predecir si se dará propina por la carrera o no. 
-- La tarea de **regresión** consiste en predecir el importe de la propina en función de otras características de la propina. 
+- La tarea de **clasificación binaria** consiste en predecir si se dará propina por la carrera o no.
+- La tarea de **regresión** consiste en predecir el importe de la propina en función de otras características de la propina.
 
 Los pasos de modelado también contienen código que muestra cómo entrenar, evaluar y guardar cada tipo de modelo. Este tema abarca algunos aspectos que coinciden con [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Exploración y modelado de datos con Spark), aunque de forma "avanzada", ya que también usa la validación cruzada junto con el barrido de hiperparámetros para entrenar modelos de clasificación y regresión con precisión óptima.
 
@@ -35,7 +35,7 @@ Una forma habitual de realizar la optimización de hiperparámetros usada aquí 
 
 Los modelos que usamos incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
 
-- La [regresión lineal con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) es un modelo de regresión lineal que usa un método de descenso de gradiente estocástico (SGD) para la optimización y el ajuste de la escala de las características para predecir las propinas. 
+- La [regresión lineal con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) es un modelo de regresión lineal que usa un método de descenso de gradiente estocástico (SGD) para la optimización y el ajuste de la escala de las características para predecir las propinas.
 - La [regresión logística con LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) o regresión "logit" es un modelo de regresión que puede usarse cuando la variable dependiente es categórica para realizar la clasificación de los datos. LBFGS es un algoritmo de optimización cuasi Newton que aproxima el algoritmo Broyden–Fletcher Goldfarb–Shanno (BFGS) usando una cantidad limitada de memoria de proceso, y que se usa ampliamente en el aprendizaje automático.
 - Los [bosques aleatorios](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) son conjuntos de árboles de decisión. Combinan varios árboles de decisión para reducir el riesgo de sobreajuste. Los bosques aleatorios se usan para clasificación y regresión, y pueden controlar características categóricas, amplían la configuración de clasificación multiclase, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. Los bosques aleatorios son uno de los modelos de aprendizaje automático de más éxito para clasificación y regresión.
 - Los [árboles impulsados por gradiente](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Los GBT se usan para clasificación y regresión, y pueden controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
@@ -108,23 +108,23 @@ Importe las bibliotecas necesarias con el código siguiente.
 
 Los kernels de PySpark que se proporcionan con los cuadernos de Jupyter tienen un contexto preestablecido, por lo que no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con la aplicación que está desarrollando, ya que están disponibles de forma predeterminada. Estos contextos son:
 
-- sc: Para Spark 
+- sc: Para Spark
 - sqlContext: Para Hive
 
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
 - **%%local** Especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
-- **%%sql -o <variable name>** Ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
+- **%%sql -o <nombre de la variable>**: ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
  
 
-Para obtener más información sobre los kernels de cuadernos de Jupyter y las “instrucciones mágicas” predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para obtener más información sobre los kernels de cuadernos de Jupyter Notebook y las “instrucciones mágicas” predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Ingesta de datos de blob público: 
 
 Esta sección contiene el código de una serie de tareas necesarias para incorporar la muestra de datos que se va a modelar. Lea una muestra combinada del 0,1 % del archivo de carreras y tarifas de taxi (almacenado como un archivo .tsv), dé formato y limpie los datos, cree una trama de datos en memoria y almacénela en caché y, a continuación, regístrela como una tabla temporal en el contexto de SQL.
 
-El primer paso en el proceso de la ciencia de los datos es incorporar los datos que se van a analizar desde orígenes o sistemas externos donde residen, a su entorno de exploración y modelado de datos. Este entorno es Spark en este tutorial. Esta sección contiene el código para completar una serie de tareas:
+El primer paso del proceso de ciencia de datos consiste en incorporar la información que se va a analizar desde los orígenes o sistemas externos donde residen, a su entorno de exploración y modelado de datos. Este entorno es Spark en este tutorial. Esta sección contiene el código para completar una serie de tareas:
 
 - incorporar la muestra de datos que se va a modelar
 - leer el conjunto de datos de entrada (almacenado como un archivo .tsv)
@@ -205,7 +205,7 @@ Una vez incorporados los datos en Spark, el siguiente paso del proceso de la cie
 Este código y fragmentos de código siguientes utilizan instrucciones mágicas de SQL para consultar los ejemplos e instrucciones mágicas locales para trazar los datos.
 
 - **Instrucciones mágicas de SQL (`%%sql`)** El kernel PySpark de HDInsight admite consultas sencillas de HiveQL en línea en sqlContext. El argumento (-o VARIABLE\_NAME) conserva la salida de la consulta SQL como una trama de datos de Pandas en el servidor de Jupyter. Esto significa que estará disponible en el modo local.
-- La **instrucción mágica `%%local`** se utiliza para ejecutar código localmente en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utiliza la instrucción mágica `%%local` junto con la instrucción mágica `%%sql` con el parámetro -o. El parámetro -o conservaría la salida de la consulta SQL localmente y luego la instrucción mágica %%local desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
+- La **instrucción mágica `%%local`** se utiliza para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro -o. El parámetro -o conservaría la salida de la consulta SQL localmente y luego la instrucción mágica %%local desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
 
 La salida se visualizará automáticamente después de ejecutar el código.
 
@@ -218,7 +218,7 @@ Esta consulta recupera los viajes por el número de pasajeros.
 	SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Este código crea una trama de datos local a partir de la salida de la consulta y traza los datos. La instrucción mágica `%%local` crea una trama de datos local, `sqlResults`, que se puede usar para trazar con matplotlib.
+Este código crea una trama de datos local a partir de la salida de la consulta y traza los datos. La instrucción mágica `%%local` crea una trama de datos local, `sqlResults`, que puede usarse para trazar la información con matplotlib.
 
 >[AZURE.NOTE] Esta instrucción mágica de PySpark se utiliza varias veces en este tutorial. Si la cantidad de datos es grande, debe muestrear para crear una trama de datos que pueda caber en la memoria local.
 
@@ -354,7 +354,7 @@ Este código muestra cómo crear una nueva característica mediante la discretiz
 
 Esta sección muestra cómo indexar o codificar las características categóricas para la entrada en las funciones de modelado. Las funciones de modelado y predicción de MLlib requieren características con datos de entrada categóricos indexados o codificados antes de usarlos.
 
-Dependiendo del modelo, deberá indexarlos o codificarlos de maneras diferentes: Por ejemplo, los modelos de regresión logística y lineal requieren una codificación "uno de n", donde una característica con 3 categorías puede ampliarse a 3 columnas de característica, cada una de las cuales contiene 0 o 1 según la categoría de una observación. MLlib proporciona la función [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para realizar la codificación "uno de n". Este codificador asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor uno como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores numéricos, como la regresión logística, a características categóricas.
+Dependiendo del modelo, deberá indexarlos o codificarlos de maneras diferentes: Por ejemplo, los modelos de regresión logística y lineal requieren una codificación "uno de n", donde una característica con 3 categorías puede ampliarse a 3 columnas de característica, cada una de las cuales contiene 0 o 1 según la categoría de una observación. MLlib proporciona la función [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para realizar la codificación "one-hot". Este codificador asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor uno como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores numéricos, como la regresión logística, a características categóricas.
 
 Este es el código para indexar y codificar características categóricas:
 
@@ -406,7 +406,7 @@ Time taken to execute above cell: 3.14 seconds
 
 ### Creación de objetos de punto con etiqueta para la entrada en funciones de aprendizaje automático
 
-Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un tipo de datos de punto con etiqueta, y codificarlos para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos de clasificación. Los objetos de punto con etiqueta son conjuntos de datos distribuidos resistentes (RDD) con el formato de datos de entrada que necesita la mayoría de los algoritmos de aprendizaje automático de MLlib. Un [punto con etiqueta](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) es un vector local, ya sea denso o disperso, asociado con una etiqueta o respuesta.
+Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un tipo de datos de punto con etiqueta, y codificarlos para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos de clasificación. Los objetos de punto con etiqueta son conjuntos de datos distribuidos resistentes (RDD) con el formato de datos de entrada que necesita la mayoría de los algoritmos de aprendizaje automático de MLlib. Un [punto con etiqueta](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) es un vector local, denso o disperso, asociado con una etiqueta o respuesta.
 
 Este es el código para indexar y codificar las características de texto para la clasificación binaria.
 
@@ -578,7 +578,7 @@ Time taken to execute above cell: 0.13 seconds
 
 Esta sección muestra cómo usar tres modelos para la tarea de clasificación binaria para predecir si se dio propina o no en una carrera de taxi. Los modelos que se presentan son:
 
-- Regresión logística 
+- Regresión logística
 - Bosque aleatorio
 - Árboles impulsados por gradiente
 
@@ -586,12 +586,12 @@ Cada sección de código de generación del modelo se dividirá en pasos:
 
 1. Datos de **entrenamiento del modelo** con un conjunto de parámetros
 2. **Evaluación del modelo** en un conjunto de datos de prueba con métricas
-3. **Guardado del modelo** en un blob para su futuro consumo
+3. **Guardado del modelo** en un blob para utilizarse en el futuro
 
 Mostramos cómo realizar la validación cruzada (VC) con el barrido de parámetros de dos maneras:
 
-1. Con código personalizado **genérico** que se puede aplicar a cualquier algoritmo de MLlib y a cualquier conjunto de parámetros en un algoritmo. 
-1. Mediante la **función de canalización CrossValidator de pySpark**. Tenga en cuenta que aunque es útil, en nuestra experiencia, CrossValidator tiene algunas limitaciones para Spark 1.5.0: 
+1. Con código personalizado **genérico** que se puede aplicar a cualquier algoritmo de MLlib y a cualquier conjunto de parámetros en un algoritmo.
+1. Mediante la **función de canalización CrossValidator de pySpark**. Tenga en cuenta que aunque es útil, en nuestra experiencia, CrossValidator tiene algunas limitaciones para Spark 1.5.0:
 
 	- Los modelos de canalización no se pueden guardar ni conservar para usarlos en el futuro.
 	- No se puede utilizar para todos los parámetros de un modelo.
@@ -1037,7 +1037,7 @@ Estos modelos se describieron en la introducción. Cada sección de código de g
 
 1. Datos de **entrenamiento del modelo** con un conjunto de parámetros
 2. **Evaluación del modelo** en un conjunto de datos de prueba con métricas
-3. **Guardado del modelo** en un blob para su futuro consumo   
+3. **Guardado del modelo** en un blob para utilizarse en el futuro
 
 
 >NOTA DE AZURE: La validación cruzada no se utiliza con los tres modelos de regresión en esta sección, ya que esto se mostró en detalle para los modelos de regresión logística. Se proporciona un ejemplo que muestra cómo usar la validación cruzada con una red elástica para la regresión lineal en el apéndice de este tema.
@@ -1164,7 +1164,7 @@ Time taken to execute above cell: 25.98 seconds
 
 El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo de árboles impulsados por gradiente que predice el importe de las propinas en los datos de carreras de taxi de Nueva York.
 
-****Entrenamiento y evaluación**
+**Entrenamiento y evaluación**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprima la ruta de acceso a archivos de modelo que se usará en el Notebook de consumo.** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el "Notebook de consumo".
+**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1478,17 +1478,17 @@ PythonRDD[122] at RDD at PythonRDD.scala:43
 
 **SALIDA**
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-05-0316\_47\_30.096528"
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0316_47\_30.096528"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-05-0316\_51\_28.433670"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0316_51\_28.433670"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-05-0316\_50\_17.454440"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0316_50\_17.454440"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-05-0316\_51\_57.331730"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0316_51\_57.331730"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-05-0316\_50\_40.138809"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0316_50\_40.138809"
 
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-05-0316\_52\_18.827237"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52\_18.827237"
 
 ## Pasos siguientes
 
@@ -1496,4 +1496,4 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 **Consumo de modelos:** Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

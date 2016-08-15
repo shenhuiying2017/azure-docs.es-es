@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Administración de Base de datos SQL de Azure con PowerShell" 
-	description="Administración de Base de datos SQL de Azure con PowerShell." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Administración de Base de datos SQL de Azure con PowerShell | Microsoft Azure"
+	description="Administración de Base de datos SQL de Azure con PowerShell."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2016"
 	ms.author="sstein"/>
 
 # Administración de Base de datos SQL de Azure con PowerShell
@@ -33,27 +33,27 @@ Este tema le proporciona los comandos de PowerShell que le ayudarán a realizar 
 
 Cree el grupo de recursos que contendrá el servidor. Puede editar el siguiente comando para usar cualquier ubicación válida.
 
-Para una lista de ubicaciones de servidor de Base de datos SQL de Azure, ejecute el siguiente cmdlet:
+Para una lista de ubicaciones de servidor de Base de datos SQL válida, ejecute el siguiente cmdlet:
 
 	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
-Si ya dispone de un grupo de recursos, puede ir al paso siguiente para crear un servidor, o bien puede editar y ejecutar el comando siguiente para crear un nuevo grupo de recursos:
+Si ya dispone de un grupo de recursos, puede ir a la sección siguiente ("Creación de un servidor") o bien puede editar y ejecutar el comando siguiente para crear un nuevo grupo de recursos:
 
 	New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
-## Creación de un servidor 
+## Creación de un servidor
 
-Para crear un nuevo servidor V12, use el cmdlet [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Reemplace server12 por el nombre de su servidor. Este debe ser único para los servidores SQL de Azure, por lo que si el nombre del servidor ya existe, verá un error aquí. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Se mostrarán los detalles del servidor y el símbolo del sistema de PowerShell tras crear el servidor correctamente. Puede editar el comando para usar cualquier ubicación válida.
+Para crear un nuevo servidor, versión 12, use el cmdlet [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Reemplace *server12* por el nombre de su servidor. Si el nombre de servidor ya se está usando, obtendrá un mensaje de error. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Se mostrarán los detalles del servidor y el símbolo del sistema de PowerShell tras crear el servidor correctamente. Puede editar el comando para usar cualquier ubicación válida.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de usuario** y la **Contraseña**. No especifique aquí sus credenciales de Azure, sino el nombre de usuario y contraseña serán las credenciales de administrador que desea crear para el nuevo servidor.
+Al ejecutar este comando, se solicitará su nombre de usuario y contraseña. No escriba sus credenciales de Azure aquí. En su lugar, escriba el nombre de usuario y la contraseña que quiere que sean las credenciales de administrador del nuevo servidor.
 
 ## Creación de una regla de firewall del servidor
 
 Si desea crear una regla de firewall para acceder al servidor, use el comando [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el cliente.
 
-Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs** que añadirá una regla de firewall especial y permitirá todo el acceso de tráfico de Azure al servidor.
+Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs**. Esto agrega una regla de firewall especial y permite el acceso de tráfico de Azure al servidor.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -84,7 +84,7 @@ Puede eliminar una base de datos SQL con el comando [Remove-AzureRMSqlDatabase](
 También puede eliminar un servidor con el comando [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). En el siguiente ejemplo se elimina un servidor con el nombre server12.
 
 
->[AZURE.NOTE]  La operación de eliminación es asincrónica y puede tardar algún tiempo, por tanto, compruebe que la operación haya finalizado antes de realizar cualquier operación adicional que dependa de que el servidor se haya eliminado completamente (por ejemplo, la creación de un nuevo servidor con el mismo nombre).
+>[AZURE.NOTE]  La operación de eliminación es asincrónica y puede tardar tiempo. Compruebe que la operación haya finalizado antes de realizar cualquier operación adicional que dependa de que el servidor se haya eliminado completamente (por ejemplo, la creación de un nuevo servidor con el mismo nombre).
 
 
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
@@ -106,4 +106,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 
 - [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
 	description="En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -73,4 +73,4 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

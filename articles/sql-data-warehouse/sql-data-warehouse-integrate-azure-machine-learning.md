@@ -3,7 +3,7 @@
    description="Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -138,8 +138,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration.md
-[Tutorial para crear un experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
-[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Tutorial para crear un experimento]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-create-experiment/
+[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
 [Portal de Azure]: https://portal.azure.com/
 
@@ -149,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

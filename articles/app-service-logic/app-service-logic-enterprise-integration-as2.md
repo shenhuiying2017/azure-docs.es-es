@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Aprenda a crear un contrato AS2 para Enterprise Integration Pack" 
 	description="Aprenda a crear un contrato AS2 para Enterprise Integration Pack| Servicio de aplicaciones de Microsoft Azure" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -97,4 +97,4 @@ Si quiere obtener más información sobre las opciones que habilita la configura
 Ya casi hemos acabado.
 9. Seleccione el icono de **Agreements** (Contratos) de la hoja Integration Account (Cuenta de integración); verá en la lista el contrato que acaba de agregar. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

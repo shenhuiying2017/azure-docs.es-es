@@ -67,7 +67,6 @@ Haga clic en la pestaña **Configurar**.
 Desde la pestaña de configuración, puede realizar las siguientes acciones:
 
 - Suspender el acceso al área de trabajo de Aprendizaje automático haciendo clic en Denegar. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en Permitir.
-- Cambiar el propietario del área de trabajo especificando otra cuenta de Microsoft.
 
 Para administrar cuentas adicionales que dispongan de acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Iniciar sesión en estudio de aprendizaje automático** en la pestaña **PANEL** (consulte la nota anterior respecto a **Iniciar sesión en estudio de aprendizaje automático**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
 
@@ -97,4 +96,4 @@ Haga clic en la pestaña **CONFIGURAR** para modificar la descripción, controla
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

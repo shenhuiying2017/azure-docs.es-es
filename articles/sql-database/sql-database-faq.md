@@ -3,7 +3,7 @@
    description="Respuestas a las preguntas más comunes que los clientes preguntan sobre las bases de datos en la nube y Base de datos SQL de Azure, el sistema de administración de bases de datos relacionales (RDBMS) de Microsoft y bases de datos como un servicio en la nube." 
    services="sql-database" 
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor=""/>
 
@@ -89,4 +89,4 @@ La base de datos secundaria geográficamente es una réplica asincrónica y no i
 ## ¿Qué herramientas están disponibles para supervisar el retraso de replicación entre la base de datos principal y la base de datos secundaria geográficamente?
 Exponemos el retraso de replicación en tiempo real entre la base de datos principal y la base de datos secundaria geográficamente mediante una DMV. Para más información, consulte [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

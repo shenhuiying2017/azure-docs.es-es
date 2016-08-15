@@ -1,7 +1,7 @@
 <properties
    pageTitle="Diagnóstico de errores de aplicaciones lógicas | Microsoft Azure"
    description="Métodos comunes para detectar dónde se producen los errores de las aplicaciones lógicas"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -84,4 +84,4 @@ Además de supervisar las entradas, las salidas y los desencadenadores de una ej
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

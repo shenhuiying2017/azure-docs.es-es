@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Para agregar un índice no clúster a una tabla, solo es preciso especificar CLUSTERED INDEX en la cláusula WITH:
+Para agregar un índice no agrupado en una tabla, simplemente use la sintaxis siguiente:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] Cuando se utiliza CREATE INDEX, se crea un índice no agrupado de forma predeterminada. Además, solo se permite un índice no agrupado en una tabla de almacenamiento de la fila (ÍNDICE AGRUPADO o DE MONTÓN). No se permiten los índices no agrupados en la parte superior del ÍNDICE DE ALMACÉN DE COLUMNAS AGRUPADO en este momento.
+
 
 ## Optimización de índices de almacén de columnas en clúster
 
@@ -338,4 +341,4 @@ Para más información, consulte los artículos sobre [información general de t
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

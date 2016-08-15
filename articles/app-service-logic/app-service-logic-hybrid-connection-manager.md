@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso del Administrador de conexiones híbridas | Servicio de aplicaciones de Microsoft Azure" 
-	description="Instale y configure el Administrador de conexiones híbridas y conéctese a los conectores locales en Servicio de aplicaciones de Azure" 
+	pageTitle="Uso del Administrador de conexiones híbridas | Microsoft Azure" 
+	description="Instale y configure el Administrador de conexiones híbridas y conéctese a los conectores locales en Logic Apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Conexión a conectores locales en Servicio de aplicaciones de Azure mediante el Administrador de conexiones híbridas
+# Conexión a conectores locales mediante el Administrador de conexiones híbridas
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. La disponibilidad general (GA) de Logic Apps utiliza una puerta de enlace para la conectividad local. Obtenga más información sobre la nueva [puerta de enlace](app-service-logic-gateway-connection.md) y la [disponibilidad general de Logic Apps](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-Para usar un sistema local, el Servicio de aplicaciones de Azure emplea el Administrador de conexiones híbridas. Algunos conectores pueden conectar a un sistema local, como SQL Server, SAP, SharePoint, etc.
+Para usar un sistema local, Logic Apps emplea el Administrador de conexiones híbridas. Algunos conectores pueden conectar a un sistema local, como SQL Server, SAP, SharePoint, etc.
 
 El Administrador de conexiones híbridas (HCM) es un instalador de un solo clic que se instala en un servidor IIS de la red, detrás del firewall. Mediante una Retransmisión de bus de servicio de Azure, HCM autentica el sistema local con el conector de Azure.
 
@@ -87,7 +87,7 @@ Puerto del sistema local | En el sistema local, abra el puerto usado por el sist
  - En el Administrador de IIS (inetmgr), debe aparecer el sitio web ***MicrosoftAzureBizTalkHybridListener*** y estar en ejecución.
  - Este sitio web usa el ***HybridListenerAppPool*** que se ejecuta como cuenta de usuario local integrada de *NetworkService*. Este grupo de aplicaciones también debería iniciarse.
 3. En el servidor IIS, confirme que el conector está instalado y ejecutándose:
- - Se crea un sitio web para el conector del Servicio de aplicaciones. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector\_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia.
+ - Se crea un sitio web para el conector. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector\_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia.
  - Este sitio web usa su propio grupo de aplicaciones de IIS denominado ***HybridAppPoolnnn***. Este grupo de aplicaciones se ejecuta como la cuenta de usuario local integrada de *NetworkService*. Tanto este sitio web como el conjunto de aplicaciones se deben haber iniciado.
  - Busque el conector local. Por ejemplo, si el sitio web de su conector usa el puerto 6569, vaya a http://localhost:6569. Un documento predeterminado no está configurado así que se espera un `HTTP Error 403.14 - Forbidden error`.
 4. En el firewall, confirme que los puertos TCP que se muestran en este tema están abiertos.
@@ -117,9 +117,9 @@ Con los conectores del Servicio de aplicaciones de Azure, también contamos con 
 
 Ambos usan el Bus de servicio de Azure para conectarse al sistema local.
 
-¿**PREGUNTA**: al crear una aplicación de API personalizada, ¿puedo usar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectarme al entorno local?
+**PREGUNTA**: al crear una aplicación de API personalizada, ¿puedo usar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectarme al entorno local?
 
-**Respuesta**: no, en el sentido tradicional. Puede usar un conector integrado y configurar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectarse al sistema local. Luego, use este conector con su aplicación de API personalizada, mediante una aplicación lógica posiblemente. Actualmente, no puede desarrollar ni crear su propia aplicación de API híbrida (como el conector de SQL o el conector de archivos).
+**Respuesta**: no en el sentido tradicional. Puede usar un conector integrado y configurar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectarse al sistema local. Luego, use este conector con su aplicación de API personalizada, mediante una aplicación lógica posiblemente. Actualmente, no puede desarrollar ni crear su propia aplicación de API híbrida (como el conector de SQL o el conector de archivos).
 
 Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) y su Administrador de conexiones híbridas. En este escenario, se usa un servicio de BizTalk de Azure. [Conectarse a un servidor SQL Server local desde una aplicación web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) puede servir de ayuda.
 
@@ -140,4 +140,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

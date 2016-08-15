@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del Codificador de archivos sin formato de BizTalk en una aplicación lógica | Microsoft Azure" 
    description="Conector o aplicación de API del Codificador de archivos sin formato de BizTalk" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -86,4 +86,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -105,7 +105,7 @@ Por ejemplo:
 5. Calcule las unidades de solicitud necesarias según el número estimado de operaciones que se prevé ejecutar cada segundo.
 
 ##Un ejemplo de estimación de la unidad de solicitud
-Considere el siguiente documento de ~1 KB:
+Considere el siguiente documento de ~1 KB:
 
 	{
 	 "id": "08259",
@@ -155,7 +155,7 @@ Considere el siguiente documento de ~1 KB:
   	]
 	}
 
->[AZURE.NOTE]Los documentos se han minimizado en DocumentDB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
+>[AZURE.NOTE]Los documentos se han minimizado en DocumentDB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
 
 
 La siguiente tabla muestra los cargos de unidad de solicitud aproximados para las operaciones típicas de este documento (el cargo de la unidad de solicitud aproximado supone que el nivel de coherencia de la cuenta está establecido en "Sesión" y que todos los documentos se indexan automáticamente):
@@ -189,7 +189,7 @@ Selección de los 10 principales|15|150 en total|155|1275
 
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s. Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
-##Superación de los límites de rendimiento reservados
+##<a id="RequestRateTooLarge"></a>Superación de los límites de rendimiento reservados
 La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
 	HTTP Status 429
@@ -220,4 +220,4 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

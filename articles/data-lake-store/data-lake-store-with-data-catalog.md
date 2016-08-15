@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure
@@ -94,4 +94,4 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integración del Almacén de Data Lake con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

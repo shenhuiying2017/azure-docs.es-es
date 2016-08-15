@@ -537,7 +537,7 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - Ejecutar este ejemplo desde un equipo diferente. No tendrá acceso a las claves de cifrado, por lo que no tendrá acceso a los datos de texto no cifrado y no se ejecutará correctamente.
 - [Rotación y limpieza de claves](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrar los datos que ya están cifrados con Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
-- Implementar certificados de Always Encrypted en otros equipos cliente.
+- [Implementar certificados de Always Encrypted en otros equipos cliente](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (consulte la sección *Disponibilidad de los certificados para las aplicaciones y los usuarios*).
 
 
 ## Información relacionada
@@ -548,4 +548,4 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

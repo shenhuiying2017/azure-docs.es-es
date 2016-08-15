@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Adición de un firewall de aplicaciones web en el Centro de seguridad de Azure
@@ -71,4 +71,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

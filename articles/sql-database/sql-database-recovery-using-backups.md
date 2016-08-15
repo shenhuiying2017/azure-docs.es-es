@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
@@ -65,15 +65,15 @@ La restauración de una base de datos eliminada le permite restaurar una base de
 
 > [AZURE.IMPORTANT] Si elimina una instancia de servidor de Base de datos SQL de Azure, todas sus bases de datos también se eliminan y no se pueden recuperar. En estos momentos no es posible restaurar un servidor eliminado.
 
-Puede utilizar el mismo nombre de base de datos o un nuevo para la base de datos restaurada. Puede usar el [Portal de Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Puede utilizar el mismo nombre de base de datos o un nuevo para la base de datos restaurada. Puede usar el [Portal de Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Restauración de una base de datos eliminada: Portal de Azure](sql-database-restore-deleted-database-portal.md)
-- [Restauración de una base de datos eliminada: PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Restauración de bases de datos eliminadas: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Restauración geográfica
 
-Gracias a la funcionalidad de restauración geográfica, podrá restaurar una Base de datos SQL en cualquier servidor de cualquier región de Azure a partir de la última [copia de seguridad diaria automatizada](sql-database-automated-backups.md) con replicación geográfica. La funcionalidad de restauración geográfica usa una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción. Puede usar el [Portal de Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Gracias a la funcionalidad de restauración geográfica, podrá restaurar una Base de datos SQL en cualquier servidor de cualquier región de Azure a partir de la última [copia de seguridad diaria automatizada](sql-database-automated-backups.md) con replicación geográfica. La funcionalidad de restauración geográfica usa una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción. Puede usar el [Portal de Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 > [AZURE.SELECTOR]
 - [Restauración geográfica: Portal de Azure](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@ Como se dijo anteriormente, además del Portal de Azure, la recuperación de una
 
 |API|Descripción|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaura una base de datos.|
+|[REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaura una base de datos.|
 |[Obtener el estado de creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Devuelve el estado durante una operación de restauración.|
 ||||
 
@@ -122,4 +122,4 @@ Las copias de seguridad automáticas protegen las bases de datos de los errores 
 - Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

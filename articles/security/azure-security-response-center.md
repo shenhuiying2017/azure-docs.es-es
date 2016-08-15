@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Centro de respuesta de seguridad de Microsoft
@@ -40,4 +40,4 @@ Aprenda más acerca de estos programas en la página [MSRC Bug Bounty](https://t
 
 Para aprender más acerca de MSRC, visite la [página principal MSRC](https://technet.microsoft.com/library/dn440717.aspx).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -36,8 +36,8 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 
 **Versiones del marco**. Configure estas opciones si su aplicación utiliza cualquiera de estos marcos:
 
-- **.NET Framework**: configure la versión de .NET Framework. 
-- **PHP**: defina la versión de PHP, o bien seleccione **DESACTIVADO** para deshabilitar PHP. 
+- **.NET Framework**: configure la versión de .NET Framework.
+- **PHP**: defina la versión de PHP, o bien seleccione **DESACTIVADO** para deshabilitar PHP.
 - **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
 - **Python**: seleccione la versión de Python o seleccione **DESACTIVADO** para deshabilitar Python.
 
@@ -61,7 +61,7 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 
 Esta sección contiene las parejas de nombre y valor que la aplicación web cargará al inicio.
 
-- En las aplicaciones .NET, estas configuraciones se insertarán en la sección de la configuración de .NET `AppSettings` en tiempo de ejecución y reemplazará la configuración existente. 
+- En las aplicaciones .NET, estas configuraciones se insertarán en la sección de la configuración de .NET `AppSettings` en tiempo de ejecución y reemplazará la configuración existente.
 
 - Las aplicaciones PHP, Python, Java y Node pueden acceder a estas configuraciones como variables de entorno en tiempo de ejecución. En cada configuración de aplicación se crean dos variables de entorno; una con el nombre especificado en el entrada de configuración de la aplicación y otra con el prefijo APPSETTING\_. Ambas contienen el mismo valor.
 
@@ -92,7 +92,7 @@ Utilice esta zona para agregar procesadores de script personalizados para contro
 
 - **Extensión**. La extensión de archivo que se va a gestionar, por ejemplo, *.php o handler.fcgi.
 - **Ruta de acceso del procesador de script**. La ruta absoluta del procesador de script. El procesador de script procesará las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
-- **Argumentos adicionales**. Argumentos opcionales de la línea de comandos para el procesador de script 
+- **Argumentos adicionales**. Argumentos opcionales de la línea de comandos para el procesador de script
 
 
 ### Directorios y aplicaciones virtuales 
@@ -105,11 +105,11 @@ Para configurar las aplicaciones y los directorios virtuales, especifique cada d
 Para habilitar registros de diagnóstico:
 
 1. En la hoja de la aplicación web, haga clic en **Toda la configuración**.
-2. Haga clic en **Registros de diagnóstico**. 
+2. Haga clic en **Registros de diagnóstico**.
 
 Opciones para escribir registros de diagnóstico de una aplicación web que admita el registro:
 
-- **Registro de aplicaciones**. Escribe registros de aplicación en el sistema de archivos. El registro dura un período de 12 horas. 
+- **Registro de aplicaciones**. Escribe registros de aplicación en el sistema de archivos. El registro dura un período de 12 horas.
 
 **Nivel**. Cuando el registro de aplicaciones está habilitado, esta opción especifica la cantidad de información que se registrará (Error, Advertencia, Información o Detalle).
 
@@ -181,7 +181,6 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 [Escalación de una aplicación web en el Servicio de aplicaciones de Azure]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Prueba del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 
@@ -189,4 +188,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

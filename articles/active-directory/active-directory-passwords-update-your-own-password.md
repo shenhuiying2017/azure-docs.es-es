@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/02/2016"
 	ms.author="asteen"/>
 
 # Actualización de la propia contraseña
@@ -27,6 +27,10 @@ Si no está seguro de cómo administrar la contraseña de su cuenta profesional 
 * [**Problemas comunes y sus soluciones**](#common-problems-and-their-solutions)
 
 ## Registro para el restablecimiento de contraseña
+
+> [AZURE.IMPORTANT]
+**¿Por qué veo esto?** Si ha seguido un vínculo para llegar aquí, probablemente verá esto porque el administrador requiere que se registre para el restablecimiento de contraseña y acceder a la aplicación. Es posible que se le solicite información de teléfono o correo electrónico, o que tenga que configurar preguntas de seguridad. No se preocupe: no usaremos esa información para enviarle correo no deseado. El único objetivo es mantener su cuenta aún más protegida. Los pasos que aparecen a continuación deben ayudarle a alcanzar su objetivo.
+
 La forma más rápida de registrarse para el restablecimiento de contraseña es ir a http://aka.ms/ssprsetup.
 
  1. Vaya a http://aka.ms/ssprsetup.
@@ -253,4 +257,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

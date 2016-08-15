@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enterprise Integration Pack con EDIFACT | Microsoft Azure" 
 	description="Aprenda a utilizar los acuerdos EDIFACT para crear aplicaciones lógicas." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan" 
 	manager="erikre" 
@@ -178,4 +178,4 @@ Después de seleccionar **Aceptar** en la hoja abierta:
 ## Más información
 - [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

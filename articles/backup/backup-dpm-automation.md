@@ -3,8 +3,8 @@
 	description="Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager=""
+	authors="NKolli1"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="jimpark; aashishr; anuragm"/>
+	ms.author="jimpark; anuragm;trinadhk;markgal"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
@@ -138,16 +138,7 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent | 
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Participar en Microsoft Update | - | 
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
-| /ph | Dirección de host del proxy | - | 
-| /po | Número de puerto de host del proxy | - | 
-| /pu | Nombre de usuario de host del proxy | - | 
-| /pw | Contraseña del proxy | - |
+| /q | Instalación desatendida | - | | /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | | /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Participar en Microsoft Update | - | | /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | | /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | | /ph | Dirección de host del proxy | - | | /po | Número de puerto de host del proxy | - | | /pu | Nombre de usuario de host del proxy | - | | /pw | Contraseña del proxy | - |
 
 ## Registro de DPM en un almacén de Servicios de recuperación
 
@@ -262,7 +253,7 @@ La lista de servidores en los que está instalado el agente de DPM y está siend
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo estamos filtrando para el volumen *D:* que queremos configurar para la copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde que debe usar el objeto de grupo de protecciones *modifable* ```$MPG``` para realizar las incorporaciones.
+Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo estamos filtrando para el volumen *D:* que queremos configurar para la copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde usar el objeto de grupo de protecciones *modifable* ```$MPG``` para realizar las incorporaciones.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -373,4 +364,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 
 - Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

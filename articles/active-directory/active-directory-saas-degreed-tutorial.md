@@ -56,7 +56,7 @@ Para configurar la integración de Degreed en Azure AD, deberá agregar Degreed 
 
 **Para agregar Degreed desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios usan para iniciar sesión en su aplicación Degreed con el siguiente patrón: **"https://<nombreDeCompañía>.Degreed.com"**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios usan para iniciar sesión en su aplicación Degreed con el siguiente patrón: `https://degreed.com/?orgsso=<company code>`.
 
     b. Haga clic en **Siguiente**.
 
@@ -271,4 +271,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

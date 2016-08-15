@@ -3,7 +3,7 @@
    description="Sugerencias para usar Análisis de transmisiones de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -96,4 +96,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

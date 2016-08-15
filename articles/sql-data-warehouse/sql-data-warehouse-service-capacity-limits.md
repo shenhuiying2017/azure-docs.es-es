@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
@@ -29,6 +29,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Conexión de base de datos | Sesiones abiertas simultáneas | 1024<br/><br/>Se admite un máximo de 1024 conexiones activas, cada una de las cuales puede enviar solicitudes a una base de datos de Almacenamiento de datos SQL de forma simultánea. Tenga en cuenta que hay límites en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso.|
 | Conexión de base de datos | Memoria máxima para instrucciones preparadas | 20 MB |
 | [Administración de cargas de trabajo][] | N.º máximo de consultas simultáneas | 32<br/><br/> De forma predeterminada, Almacenamiento de datos SQL ejecutará un máximo de 32 consultas simultáneas y consultas que permanecen en cola.<br/><br/>El nivel de simultaneidad se puede reducir cuando se asigna a los usuarios a una clase de recurso superior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar.|
+| [Tempdb][] | Tamaño máximo de Tempdb | 399 GB por DW100. Por lo tanto, en DWU1000 el tamaño de Tempdb es de 3,99 TB |
 
 
 ## Objetos de base de datos
@@ -47,7 +48,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Índice | Índices agrupados por tabla | 1<br><br/>Se aplica a tablas de almacén de filas y de almacén de columnas.|
 | Índice | Filas de un grupo de filas de índice de almacén de columnas | 1024<br/><br/>Cada índice de almacén de columnas se implementa como varios índices de almacén de columnas. Tenga en cuenta que si inserta 1024 filas en un índice de almacén de columnas de Almacenamiento de datos SQL, las filas no irán al mismo grupo de filas.|
 | Índice | Compilaciones simultáneas de índices de almacén de columnas agrupados. | 32<br/><br/>Se aplica cuando los índices de almacén de columnas agrupados se compilan en diferentes tablas. Solo se permite una compilación de índice de almacén de columnas agrupado por tabla. Las solicitudes adicionales esperan en una cola.|
-| Índice | Tamaño de clave de índice | 900 bytes.<br/><br/>Se aplica solo a los índices de almacén de filas.<br/><br/>Si los datos existentes en las columnas no superan los 900 bytes cuando se crea el índice, pueden crearse índices en columnas varchar con un tamaño máximo de más de 900 bytes. Sin embargo, las posteriores acciones INSERT o UPDATE en las columnas que hacen que el número total supere los 900 bytes darán error.|
+| Índice | Tamaño de clave de índice | 900 bytes.<br/><br/>Se aplica solo a los índices de almacén de filas.<br/><br/>Si los datos existentes en las columnas no superan los 900 bytes cuando se crea el índice, pueden crearse índices en columnas con un tamaño máximo de más de 900 bytes. Sin embargo, las posteriores acciones INSERT o UPDATE en las columnas que hacen que el número total supere los 900 bytes darán error.|
 | Índice | Columnas de clave por índice | 16<br/><br/>Solo se aplica a los índices de almacén de filas. Los índices de almacén de columnas agrupados incluyen todas las columnas.|
 | Estadísticas | Tamaño de los valores de columna combinados | 900 bytes |
 | Estadísticas | Columnas por objeto de estadísticas | 32 |
@@ -104,10 +105,11 @@ Para obtener más información de referencia, vea [Información general de refer
 [Unidades de almacenamiento de datos (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [Información general de referencia de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-reference.md
 [Administración de cargas de trabajo]: ./sql-data-warehouse-develop-concurrency.md
+[Tempdb]: ./sql-data-warehouse-tables-temporary.md
 
 <!--MSDN references-->
 [Datos de desbordamiento de fila superiores a 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

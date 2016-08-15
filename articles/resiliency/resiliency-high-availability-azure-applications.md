@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Alta disponibilidad para aplicaciones creadas en Microsoft Azure
 
@@ -143,4 +143,4 @@ Es importante tener en cuenta que la escalabilidad del servicio en la nube afect
 
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). El siguiente artículo de esta serie es [Recuperación ante desastres para aplicaciones generadas en Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

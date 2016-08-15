@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Compartir un inquilino de Azure AD entre suscripciones de Office 365 y Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo compartir su inquilino de Azure AD de Office 365 y sus usuarios con su suscripción de Azure o viceversa."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -147,4 +147,4 @@ Para más información, consulte [Asociación de las suscripciones de Azure con 
 ##Pasos siguientes
 Hay un escenario relacionado donde adquirió las suscripciones de Azure y Office 365 por separado en el pasado y desea poder acceder al inquilino de Office 365 desde la suscripción de Azure. Para aprender cómo realizar esta tarea, consulte [Asociación del inquilino de Office 365 con una suscripción de Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

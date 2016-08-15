@@ -30,7 +30,7 @@ Para que el servicio Factoría de datos de Azure pueda conectarse a la base de d
  
 	Después de instalar al proveedor, reinicie el servicio de Host de la puerta de enlace de administración de datos en la máquina con el applet Servicios o el Administrador de configuración de puerta de enlace de administración de datos.
 
-> [AZURE.NOTE] Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+> [AZURE.NOTE] Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## Ejemplo: copia de datos de Oracle a un blob de Azure
 En este ejemplo, se muestra cómo copiar datos de una base de datos Oracle local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
@@ -505,4 +505,4 @@ XML | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

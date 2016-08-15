@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="04/07/2016"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Publicación de una aplicación en un clúster remoto con Visual Studio
@@ -107,4 +107,4 @@ Para información sobre cómo automatizar el proceso de publicación en un entor
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

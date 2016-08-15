@@ -40,7 +40,7 @@ Creará una aplicación web con el marco web de Bottle (consulte las versiones a
 
 ### Windows
 
-Si aún no tiene Python 2.7 o 3.4 instalado (32 bits), se recomienda instalar [Azure SDK para Python 2.7] o [Azure SDK para Python 3.4] mediante el instalador de plataforma web. Se instala la versión de 32 bits de Python, setuptools, pip, virtualenv, etc. (Python de 32 bits es lo que se instala en los equipos host de Azure). También puede obtener Python en [python.org].
+Si aún no tiene Python 2.7 o 3.4 instalado (32 bits), se recomienda instalar [Azure SDK para Python 2.7] o [Azure SDK para Python 3.4] mediante el instalador de plataforma web. Se instala la versión de 32 bits de Python, setuptools, pip, virtualenv, etc. (Python de 32 bits es lo que se instala en los equipos host de Azure). También puede obtener Python en [python.org].
 
 Para Git, recomendamos [Git para Windows] o [GitHub para Windows]. Si utiliza Visual Studio, puede utilizar la compatibilidad integrada con Git.
 
@@ -55,11 +55,11 @@ Debe tener Python y Git instalados, pero asegúrese de que tiene Python 2.7 o 3.
 
 El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de Azure](https://portal.azure.com).
 
-1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda. 
+1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda.
 3. En el cuadro de búsqueda, escriba "python".
 4. En los resultados de búsqueda, seleccione **Bottle** y, a continuación, haga clic en **Crear**.
 5. Configure la nueva aplicación Flask, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
-6. Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones de [Implementación continua con GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+6. Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones que se describen en [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
  
 ## Información general de la aplicación
 
@@ -131,7 +131,7 @@ En las tres secciones siguientes se describe cómo continuar con el desarrollo d
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
 Abra el archivo de la solución (.sln) que se incluye en la raíz del repositorio.
 
@@ -198,7 +198,7 @@ Vaya a la dirección URL de Azure para ver los cambios.
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -277,7 +277,7 @@ Vaya a la dirección URL de Azure para ver los cambios.
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -396,4 +396,4 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0803_2016-->

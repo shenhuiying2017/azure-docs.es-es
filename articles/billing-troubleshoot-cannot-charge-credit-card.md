@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Recibí un correo electrónico de que es posible que se interrumpan mis servicios | Microsoft Azure"
 	description="Describe cómo resolver el problema cuando no se puede realizar el cobro de su suscripción en su tarjeta de crédito."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@ Si su problema con Azure no se trata en este artículo, visite los foros de Azur
 
 Si necesita ayuda para abrir una incidencia, vea [Cómo crear una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

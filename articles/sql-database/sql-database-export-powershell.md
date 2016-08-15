@@ -1,6 +1,6 @@
-<properties 
-    pageTitle="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell" 
-    description="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell" 
+<properties
+    pageTitle="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell"
+    description="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/19/2016"
+	ms.date="08/01/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,21 +24,21 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-En este artículo se proporcionan instrucciones para archivar la base de datos SQL de Azure en un archivo BACPAC guardado en Almacenamiento de blobs de Azure usando PowerShell.
+En este artículo se proporcionan instrucciones para archivar la base de datos SQL de Azure en un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) guardado en Almacenamiento de blobs de Azure. Este artículo muestra cómo hacerlo mediante PowerShell.
 
-Cuando necesite crear un archivo de una base de datos SQL de Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión BACPAC. Este archivo BACPAC se puede guardar en el almacenamiento de blobs de Azure o en cualquier almacenamiento en una ubicación local y, luego, importarlo a Base de datos SQL de Azure o a una instalación local de SQL Server.
+Cuando necesite crear un archivo de una base de datos de SQL Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión .bacpac. El archivo BACPAC puede almacenarse posteriormente en Almacenamiento de blobs de Azure o en el almacenamiento local en una ubicación local. También se puede importar en la base de datos de SQL Azure o en una instalación de SQL Server local.
 
-***Consideraciones***
+**Consideraciones**
 
-- Para que un archivo sea transaccionalmente coherente, hay que procurar que no haya ninguna actividad de escritura durante la exportación, o bien exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de la base de datos SQL de Azure
+- Para que un archivo sea transaccionalmente coherente, debe asegurarse de que no haya ninguna actividad de escritura durante la exportación, o bien de exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de Base de datos de SQL Azure.
 - El tamaño máximo de un archivo BACPAC guardado en el almacenamiento de blobs de Azure es de 200 GB. Use la utilidad de símbolo del sistema [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para guardar archivos BACPAC de mayor tamaño en un almacenamiento local. Esta utilidad se incluye con Visual Studio y SQL Server. También puede [descargar](https://msdn.microsoft.com/library/mt204009.aspx) la versión más reciente de SQL Server Data Tools para obtener esta utilidad.
 - No se puede archivar en Almacenamiento premium de Azure usando un archivo BACPAC.
 - Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
- - Aumentar temporalmente el nivel de servicio
- - Detener toda actividad de lectura y escritura durante la exportación
+ - Aumentar temporalmente el nivel de servicio.
+ - Detener toda actividad de lectura y escritura durante la exportación.
  - Usar un índice agrupado en todas las tablas de gran tamaño. Sin índices agrupados, la exportación podría no producirse si tarda más de 6-12 horas. Esto se debe a que el servicio de exportación necesita completar el recorrido de tabla para exportar toda la tabla.
- 
-> [AZURE.NOTE] Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para más información, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+
+> [AZURE.NOTE] Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para más información, consulte [Copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -50,68 +50,80 @@ Para completar este artículo, necesitará lo siguiente:
 [AZURE.INCLUDE [Inicio de una sesión de PowerShell](../../includes/sql-database-powershell.md)]
 
 
-## Configuración de las variables para su entorno específico
 
-Hay algunas variables en las que es necesario reemplazar los valores de ejemplo por los valores específicos de la base de datos y la cuenta de almacenamiento.
-
-Reemplácelos por los valores específicos.
-
-    $ResourceGroupName = "resourceGroupName"
-    $ServerName = "servername"
-    $DatabaseName = "databasename"
-
-
-En el [Portal de Azure](https://portal.azure.com), vaya a su cuenta de almacenamiento para obtener estos valores. Para encontrar la clave de acceso principal, vaya a la hoja de su cuenta de almacenamiento y haga clic en **Toda la configuración** y, a continuación, en **Claves**.
-
-    $StorageName = "storageaccountname"
-    $StorageKeyType = "storageKeyType"
-    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
-    $StorageKey = "primaryaccesskey"
-
-
-Al ejecutar el cmdlet **Get-Credential**, se abre una ventana en la que se le pide su nombre de usuario y contraseña. Escriba el inicio de sesión de administrador y la contraseña para SQL Server (NO el nombre de usuario y la contraseña para su cuenta de Azure).
-
-    $credential = Get-Credential
 
 ## Exportación de la base de datos
 
-Este comando envía una solicitud de exportación de base de datos al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
+El cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx) envía una solicitud de base de datos de exportación al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
 > [AZURE.IMPORTANT] Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy-powershell.md) y después exportar dicha copia.
 
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorPassword $credential.Password
-    
-
-## Supervisión del progreso de la operación de exportación
-
-Después de ejecutar **New-AzureRmSqlDatabaseExport**, puede comprobar el estado de la solicitud. Cuando se ejecuta esto justo después de la solicitud, normalmente devolverá **Estado: Pendiente** o **Estado: En ejecución** para que pueda ejecutarlo varias veces hasta que vea **Estado: Completado** en la salida.
-
-Al ejecutar este comando se le solicitará una contraseña. Escriba la contraseña de administrador de su SQL server.
+     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
+       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
+       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
 
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
-    
+## Supervisar el progreso de la operación de exportación
+
+Después de ejecutar **New-AzureRmSqlDatabaseExport**, puede comprobar el estado de la solicitud ejecutando [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx). Si se ejecuta esto de inmediato después de la solicitud, se devuelve normalmente **Estado: en curso**. Cuando vea **Estado: correcto** la exportación se ha completado.
 
 
-## Exportación de un script de PowerShell de base de datos SQL
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
 
-    $ServerName = "servername"
-    $StorageName = "storageaccountname"
-    $StorageKeyType = "storageKeyType"
-    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
-    $StorageKey = "primaryaccesskey"
 
-    $credential = Get-Credential
+## Ejemplo de exportación de base de datos SQL
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey  StorageUri $StorageUri –AdministratorLogin $credential.UserName  –AdministratorPassword $credential.Password
+En el ejemplo siguiente se exporta una base de datos SQL existente a BACPAC y, a continuación, se muestra cómo comprobar el estado de la operación de exportación.
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
+Para ejecutar el ejemplo, hay algunas variables que debe reemplazar por los valores específicos de la cuenta de almacenamiento y base de datos. En el [Portal de Azure](https://portal.azure.com), vaya a la cuenta de almacenamiento para obtener el nombre de la cuenta de almacenamiento, el nombre del contenedor de blob y el valor de clave. Puede encontrar la clave haciendo clic en **Claves de acceso** en la hoja de su cuenta de almacenamiento.
+
+Reemplace `VARIABLE-VALUES` por los valores para los recursos específicos de Azure. El nombre de la base de datos es la base de datos existente que desea exportar.
+
+
+
+    $subscriptionId = "YOUR AZURE SUBSCRIPTION ID"
+
+    Login-AzureRmAccount
+    Set-AzureRmContext -SubscriptionId $subscriptionId
+
+    # Database to export
+    $DatabaseName = "DATABASE-NAME"
+    $ResourceGroupName = "RESOURCE-GROUP-NAME"
+    $ServerName = "SERVER-NAME"
+    $serverAdmin = "ADMIN-NAME"
+    $serverPassword = "ADMIN-PASSWORD" 
+    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+
+    # Generate a unique filename for the BACPAC
+    $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
+
+    # Storage account info for the BACPAC
+    $BaseStorageUri = "https://STORAGE-NAME.blob.core.windows.net/BLOB-CONTAINER-NAME/"
+    $BacpacUri = $BaseStorageUri + $bacpacFilename
+    $StorageKeytype = "StorageAccessKey"
+    $StorageKey = "YOUR STORAGE KEY"
+
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
+       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
+       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest
+
+    # Check status of the export
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+
 
 
 ## Pasos siguientes
 
 - Para obtener información sobre cómo importar una base de datos SQL de Azure con PowerShell, consulte [Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell](sql-database-import-powershell.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Recursos adicionales
+
+- [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx)
+- [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)
+
+<!---HONumber=AcomDC_0803_2016-->

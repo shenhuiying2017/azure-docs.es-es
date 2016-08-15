@@ -3,7 +3,7 @@
    description="Base de datos SQL de Microsoft Azure, migración de bases de datos, compatibilidad, Asistente para migración de Microsoft Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -45,4 +45,4 @@ Use la herramienta de CodePlex del [Asistente para migración de SQL Azure](http
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

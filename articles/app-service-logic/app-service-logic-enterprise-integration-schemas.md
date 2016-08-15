@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Información general sobre los esquemas y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Sepa cómo usar los esquemas con las Aplicaciones lógicas y Enterprise Integration Pack." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # Información sobre los esquemas y Enterprise Integration Pack  
@@ -30,7 +30,7 @@ En el Portal de Azure:
 5. Haga clic en el botón **Agregar** de la hoja Esquemas que se abre. ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Escriba un **nombre** para el esquema. Después, cargue el archivo de esquema y seleccione el icono de carpeta en el lado derecho del cuadro de texto **Esquema**. Cuando termine el proceso de carga, haga clic en el botón **Aceptar**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. Seleccione el icono de notificación de *campana* para ver el progreso del proceso de carga de esquemas. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Seleccione el icono de **Esquemas**. Con esto, se actualiza el icono y debería ver que el número de esquemas aumenta, lo que significa que se ha agregado correctamente el nuevo esquema. Cuando haya seleccionado el icono de **Esquemas**, también verá que el partner que acaba de agregar aparece en la hoja Esquemas, a la derecha. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. Seleccione el icono de **Esquemas**. Con esto, se actualiza el icono y debería ver que el número de esquemas aumenta, lo que significa que se ha agregado correctamente el nuevo esquema. Cuando haya seleccionado el icono de **Esquemas**, también verá que el esquema que acaba de agregar aparece en la hoja Esquemas, a la derecha. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## ¿Cómo se utilizan esquemas?
@@ -57,4 +57,4 @@ En el Portal de Azure:
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

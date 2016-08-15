@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,7 +26,7 @@ Las secciones de este documento le servirán para conocer los procedimientos rec
 - Una configuración de escalado automático puede tener uno o varios perfiles y cada perfil, a su vez, puede tener una o varias reglas de escalado automático.
 - Una configuración de escalado automático escala instancias *horizontalmente* aumentando las instancias y las reduce *horizontalmente* disminuyendo el número de instancias. Una configuración de escalado automático presenta unos valores máximo, mínimo y predeterminado de instancias.
 - Un trabajo de escalado automático siempre lee la métrica asociada por la que realizar la escala y comprueba si se rebasó el umbral establecido para el escalado horizontal o la reducción horizontal. En [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md) (Métricas comunes de escalado automático de Azure Insights) encontrará una lista de métricas por las que el escalado automático puede escalar.
-- Todos los umbrales se calculan en el nivel de instancia. Por ejemplo, "escalar por 1 instancia cuando el uso medio de CPU > 80 % cuando el número de instancias es 2" significa escalar horizontalmente cuando el uso medio de CPU en todas las instancias sea superior al 80 %.
+- Todos los umbrales se calculan en el nivel de instancia. Por ejemplo, "escalar por 1 instancia cuando el uso medio de CPU > 80 % cuando el número de instancias es 2" significa escalar horizontalmente cuando el uso medio de CPU en todas las instancias sea superior al 80 %.
 - Las notificaciones de error siempre se recibirán por correo electrónico. Las recibirán, concretamente, el propietario, el colaborador y los lectores del recurso de destino. Además, siempre se recibirá un correo electrónico de *recuperación* cuando el escalado automático se recupere de un error y comience a funcionar con normalidad.
 - Puede optar por recibir una notificación de acción de escalado correcta por correo electrónico y por webhooks.
 
@@ -56,7 +56,7 @@ Es recomendable tener cuidado a la hora de elegir los diferentes umbrales de esc
 - Disminuir las instancias en 1 cuando el número de subprocesos > = 600
 
 
-Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. Imaginemos que hay 2 instancias inicialmente y después aumenta el número promedio de subprocesos por instancia a 625. El escalado automático escala horizontalmente agregando una tercera instancia. Imaginemos ahora que el número promedio de subprocesos en la instancia se reduce a 575. Antes de reducir verticalmente, el escalado automático intenta evaluar cuál será el estado final si reduce horizontalmente. Por ejemplo, 575 x 3 (número de instancias actual) = 1725/2 (número final de instancias al reducir verticalmente) = 862,5 subprocesos. Esto significa que el escalado automático tendrá que volver a escalar horizontalmente de inmediato (incluso después de haber reducido horizontalmente) si el número promedio de subprocesos sigue siendo el mismo o incluso si se reduce solo una pequeña cantidad. Sin embargo, si se volviera a escalar verticalmente, todo el proceso se repetiría, dando lugar a un bucle infinito. Para evitar esta situación *inestable*, el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. Esto podría ser confuso para muchos usuarios, ya que puede dar la impresión de que el escalado automático no funciona cuando el número promedio de subprocesos es 575.
+Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. Imaginemos que hay 2 instancias inicialmente y después aumenta el número promedio de subprocesos por instancia a 625. El escalado automático escala horizontalmente agregando una tercera instancia. Imaginemos ahora que el número promedio de subprocesos en la instancia se reduce a 575. Antes de reducir verticalmente, el escalado automático intenta evaluar cuál será el estado final si reduce horizontalmente. Por ejemplo, 575 x 3 (número de instancias actual) = 1725/2 (número final de instancias al reducir verticalmente) = 862,5 subprocesos. Esto significa que el escalado automático tendrá que volver a escalar horizontalmente de inmediato (incluso después de haber reducido horizontalmente) si el número promedio de subprocesos sigue siendo el mismo o incluso si se reduce solo una pequeña cantidad. Sin embargo, si se volviera a escalar verticalmente, todo el proceso se repetiría, dando lugar a un bucle infinito. Para evitar esta situación *inestable*, el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. Esto podría ser confuso para muchos usuarios, ya que puede dar la impresión de que el escalado automático no funciona cuando el número promedio de subprocesos es 575.
 
 Este comportamiento de evaluación durante una reducción horizontal está pensado para evitar situaciones de inestabilidad. Conviene recordar este comportamiento cuando se elijan los mismos umbrales de escalado horizontal y reducción horizontal.
 
@@ -65,7 +65,7 @@ Nuestra recomendación es establecer un margen suficiente entre el escalado hori
 - Aumentar las instancias en 1 cuando el porcentaje de CPU < = 80
 - Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
 
-Veamos cómo funciona este ejemplo. Imaginemos que hay 2 instancias para empezar. Si el promedio de porcentaje de CPU entre instancias llega a 80, el escalado automático escala horizontalmente agregando una tercera instancia. Imaginemos ahora que, con el tiempo, el porcentaje de CPU cae a 60. La regla de reducción horizontal del escalado automático calcula el estado final como si fuese a reducirse horizontalmente. Por ejemplo, 60 x 3 (número de instancias actual) = 180/2 (número final de instancias al reducir verticalmente) = 90. Por tanto, el escalado automático no reduce horizontalmente porque tendría que volver a escalar horizontalmente de inmediato. En su lugar, omite la reducción vertical. Imaginemos ahora que la próxima vez que compruebe, la CPU ha seguido cayendo a 50 y vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
+Veamos cómo funciona este ejemplo. Imaginemos que hay 2 instancias para empezar. Si el promedio de porcentaje de CPU entre instancias llega a 80, el escalado automático escala horizontalmente agregando una tercera instancia. Imaginemos ahora que, con el tiempo, el porcentaje de CPU cae a 60. La regla de reducción horizontal del escalado automático calcula el estado final como si fuese a reducirse horizontalmente. Por ejemplo, 60 x 3 (número de instancias actual) = 180/2 (número final de instancias al reducir verticalmente) = 90. Por tanto, el escalado automático no reduce horizontalmente porque tendría que volver a escalar horizontalmente de inmediato. En su lugar, omite la reducción vertical. Imaginemos ahora que la próxima vez que compruebe, la CPU ha seguido cayendo a 50 y vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
 
 ### Consideraciones para establecer valores de umbral de escalado en métricas especiales
  En el caso de las métricas especiales, como la métrica longitud de cola de bus de servicio o de almacenamiento, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
@@ -106,16 +106,16 @@ Al *escalar horizontalmente*, el escalado automático se ejecutará si se cumple
  
 Para ilustrar esto, imaginemos que tiene las siguientes 4 reglas de escalado automático:
  
-- Si CPU < 30 %, reducir horizontalmente en 1
-- ​Si memoria < 50 %, reducir horizontalmente en 1
-- ​Si CPU> 75 %, escalarhorizontalmente en 1
-- ​Si memoria > 75 %, escalar horizontalmente en 1
+- Si CPU < 30 %, reducir horizontalmente en 1
+- ​Si memoria < 50 %, reducir horizontalmente en 1
+- ​Si CPU> 75 %, escalarhorizontalmente en 1
+- ​Si memoria > 75 %, escalar horizontalmente en 1
 
 Por tanto, sucederá lo siguiente:
-- Con una CPU del 76 % y una memoria del 50 %, se escalará horizontalmente.
-- Con una CPU del 50 % y una memoria del 76 %, se escalará horizontalmente.
+- Con una CPU del 76 % y una memoria del 50 %, se escalará horizontalmente.
+- Con una CPU del 50 % y una memoria del 76 %, se escalará horizontalmente.
  
-Por otro lado, con una del 25 % y una memoria del 51 %, el escalado automático **no** reducirá horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
+Por otro lado, con una del 25 % y una memoria del 51 %, el escalado automático **no** reducirá horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
 
 ### Seleccione siempre un número predeterminado de instancias seguro
 El número predeterminado de instancias es importante, ya que se trata del número de instancias al que el escalado automático ajustará el servicio cuando no haya métricas disponibles. Por tanto, seleccione un número predeterminado de instancias que sea seguro para sus cargas de trabajo.
@@ -126,4 +126,4 @@ El escalado automático notifica a los administradores y a los colaboradores del
 - No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 - Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado. Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Escenario de aplicación lógica: creación de un desencadenador de Bus de servicio de Funciones de Azure| Microsoft Azure"
    description="Uso de Funciones de Azure para crear un desencadenador de Bus de servicio para una aplicación lógica"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@ Para probar, agregue un mensaje en cola a través de una herramienta como el [Ex
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

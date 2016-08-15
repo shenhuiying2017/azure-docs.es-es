@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="08/02/2016"
 	ms.author="glenga"/>
 
 # Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
@@ -41,9 +41,7 @@ Puede crear un nuevo derecho de aplicación móvil en el [Portal de Azure]. Pued
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;9. De nuevo en la hoja _Comenzar_, en **Crear una API de tabla**, elija **C#** como el valor de **Lenguaje de back-end**.
-
-&nbsp;&nbsp;10. Haga clic en Descargar, extraiga los archivos de proyecto comprimidos en el equipo local y abra la solución en Visual Studio.
+De nuevo en la hoja _Comenzar_, en **Crear una API de tabla**, elija **C#** como el valor de **Lenguaje de back-end**. Haga clic en **Descargar**, extraiga los archivos de proyecto comprimidos en el equipo local y abra la solución en Visual Studio.
 
 ### Creación de un back-end .NET con Visual Studio 2013 y Visual Studio 2015
 
@@ -481,4 +479,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

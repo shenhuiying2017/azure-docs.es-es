@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure
 
@@ -61,4 +61,4 @@ La información se organiza en los siguientes artículos:
 
 Este artículo forma parte de una serie que se centra en la guía técnica sobre la resistencia en Azure. Si está interesado en leer otros artículos de esta serie, puede empezar por [Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure](resiliency-technical-guidance-recovery-local-failures.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

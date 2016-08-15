@@ -602,7 +602,6 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 
 [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Desarrollo e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -614,7 +613,6 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Aplicación web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
 [CLI de Azure]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -638,4 +636,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo empezar a usar las tablas temporales de Base de datos SQL de Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -199,4 +199,4 @@ Con tablas temporales con versión del sistema, la tabla de historial puede aume
 
 Para obtener información detallada sobre tablas temporales, consulte la [documentación de MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Visite Channel 9 para oír un [caso de éxito de implementación temporal de cliente real](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y ver una [demostración temporal en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

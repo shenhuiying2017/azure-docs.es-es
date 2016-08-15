@@ -1,11 +1,11 @@
 <properties
 	pageTitle="¿Por qué ha recibido una notificación de que su suscripción de Azure tiene un saldo pendiente? | Microsoft Azure"
 	description="Describe cómo realizar el pago si la suscripción de Azure tiene un saldo pendiente"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@ Para obtener instrucciones sobre cómo cambiar el método de pago de Azure, cons
 
 > [AZURE.NOTE] Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla: [¿Qué debo hacer si se cancela mi suscripción de Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

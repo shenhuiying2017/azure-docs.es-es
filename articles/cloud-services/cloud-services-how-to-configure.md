@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
 
 
@@ -86,4 +86,4 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 * [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

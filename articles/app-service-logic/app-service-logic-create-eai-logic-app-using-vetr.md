@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creación de una aplicación lógica de EAI con VETR en las aplicaciones lógicas del Servicio de aplicaciones de Azure | Microsoft Azure"
    description="Las características Validar, Codificar y Transformar de los servicios XML de BizTalk"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -118,4 +118,4 @@ Algunos temas útiles:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

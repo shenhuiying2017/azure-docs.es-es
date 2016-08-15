@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Uso del conector de Administración de socios comerciales de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure" 
    description="Creación y configuración del conector de Administración de socios comerciales de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -43,4 +43,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
