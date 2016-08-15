@@ -34,7 +34,7 @@ Creará una aplicación con el marco web de Flask (consulte las versiones altern
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo en Python 2.7)
 - Git
-- [Python Tools para Visual Studio][] (PTVS) - Nota: opcional
+- [Python Tools para Visual Studio][] \(PTVS) - Nota: opcional
 
 **Nota:** la publicación TFS no se admite actualmente para los proyectos de Python.
 

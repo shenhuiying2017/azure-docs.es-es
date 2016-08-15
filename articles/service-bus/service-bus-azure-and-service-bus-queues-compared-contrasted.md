@@ -276,7 +276,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 |Coste de transacción en cola|**0,0036 $**<br/><br/>(por cada 100 000 transacciones)|**Nivel básico**: **0,05 $**<br/><br/>(por operaciones de millones)|
 |Operaciones facturables|**Todas**|**Enviar/recibir solo**<br/><br/>(sin coste para otras operaciones)|
 |Transacciones inactivas|**Facturables**<br/><br/>(la consulta de una cola vacía se cuenta como una transacción facturable).|**Facturables**<br/><br/>(una recepción en una cola vacía se considera un mensaje facturable).|
-|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00 **|
+|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00**|
 |Costes de transferencia de datos salientes|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|
 
 ### Información adicional

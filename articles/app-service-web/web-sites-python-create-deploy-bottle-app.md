@@ -34,7 +34,7 @@ Creará una aplicación web con el marco web de Bottle (consulte las versiones a
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo en Python 2.7)
 - Git
-- [Python Tools 2.2 para Visual Studio][] (PTVS) - Nota: opcional
+- [Python Tools 2.2 para Visual Studio][] \(PTVS) - Nota: opcional
 
 **Nota:** la publicación TFS no se admite actualmente para los proyectos de Python.
 

@@ -96,11 +96,11 @@ Ha configurado la aplicación de producción. Ahora, imaginemos que recibe comen
 
 ## Investigación: instrumentar la aplicación de cliente para supervisión y métricas
 
-5. Abra *& lt; repository\_root >*\\src\\MultiChannelToDo.sln en Visual Studio.
+5. Abra *&lt; repository\_root >*\\src\\MultiChannelToDo.sln en Visual Studio.
 6. Restaure todos los paquetes de Nuget haciendo clic con el botón derecho en la solución > **Administrar paquetes de NuGet para la solución** > **Restaurar**.
 6. Haga clic con el botón derecho en **MultiChannelToDo.Web** > **Agregar Telemetría de Application Insights** > **Definir la configuración** > Cambie el grupo de recursos a ToDoApp*&lt;your\_suffix>* > **Agregar Application Insights al proyecto**.
 7. En el Portal de Azure, abra la hoja para el recurso de Application Insight **MultiChannelToDo.Web**. A continuación, en la parte de **Estado de la aplicación**, haga clic en **Obtenga información sobre cómo recopilar datos de carga de página del explorador** > Copiar código.
-7. Agregue el código de instrumentación JS copiado a *& lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, justo antes de la etiqueta `<heading>` de cierre. Debe contener la clave de instrumentación única del recurso de Application Insight.
+7. Agregue el código de instrumentación JS copiado a *&lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, justo antes de la etiqueta `<heading>` de cierre. Debe contener la clave de instrumentación única del recurso de Application Insight.
 
         <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
@@ -222,7 +222,7 @@ Como está recopilando datos sobre el comportamiento del cliente, [agregará un 
 ### Incorporación de etiquetas específicas de ranura a las métricas de la aplicación de servidor
 De nuevo, con el fin de tener una visión completa se configurará también la aplicación del lado del servidor. A diferencia de la aplicación de cliente que se instrumenta en JavaScript, las etiquetas específicas de ranura para la aplicación de servidor se instrumentan con código. NET.
 
-1. Abra *& lt; repository\_root >*\\src\\MultiChannelToDo\\Global.asax.cs. Agregue el bloque de código siguiente, justo antes de cerrar la llave del espacio de nombres.
+1. Abra *&lt; repository\_root >*\\src\\MultiChannelToDo\\Global.asax.cs. Agregue el bloque de código siguiente, justo antes de cerrar la llave del espacio de nombres.
 
 		namespace MultiChannelToDo
 		{
@@ -257,7 +257,7 @@ De nuevo, con el fin de tener una visión completa se configurará también la a
 
 ## Actualización: configurar la bifurcación de la versión beta
 
-2. Abra *& lt; repository\_root >*\\ARMTemplates\\ProdAndStagetest.json y encuentre los recursos `appsettings` (busque `"name": "appsettings"`). Hay 4 de ellos, uno para cada ranura.
+2. Abra *&lt; repository\_root >*\\ARMTemplates\\ProdAndStagetest.json y encuentre los recursos `appsettings` (busque `"name": "appsettings"`). Hay 4 de ellos, uno para cada ranura.
 
 2. Para cada recurso `appsettings`, agregue un valor de aplicación `"environment": "[parameters('slotName')]"` al final de la matriz `properties`. No olvide poner una coma al final de la línea anterior.
 
@@ -299,7 +299,7 @@ Volver a la aplicación que desea mejorar.
 
         git checkout beta
 
-2. En *& lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, encuentre la etiqueta `<li>` y agregue el atributo `style="cursor:pointer"`, como se muestra a continuación.
+2. En *&lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, encuentre la etiqueta `<li>` y agregue el atributo `style="cursor:pointer"`, como se muestra a continuación.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
 

@@ -44,7 +44,7 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 
     Se abrirá la hoja **Elementos de copia de seguridad**.
 
-2. En la hoja **Elementos de copia de seguridad**, haga clic con el botón derecho en el almacén del que quiera realizar la copia de seguridad, y haga clic en **Backup now ** (Iniciar copia de seguridad).
+2. En la hoja **Elementos de copia de seguridad**, haga clic con el botón derecho en el almacén del que quiera realizar la copia de seguridad, y haga clic en **Backup now** (Iniciar copia de seguridad).
 
     ![Icono Configuración](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 

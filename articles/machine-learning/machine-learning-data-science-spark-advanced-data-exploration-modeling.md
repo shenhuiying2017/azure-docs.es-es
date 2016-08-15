@@ -1464,7 +1464,7 @@ Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
+**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo.** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
