@@ -132,7 +132,8 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
     - **Expandir * columnas**
 
-        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo. ![Expanda Data Lake Tools for Visual Studio *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. 
+        ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Haga clic en **Expand Columns (Expandir columnas)** y la herramienta reemplazará * por los nombres de columna.
 
