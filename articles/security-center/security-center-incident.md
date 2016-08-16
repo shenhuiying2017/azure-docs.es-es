@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="08/03/2016"
    ms.author="yurid"/>
 
 # Control de incidentes de seguridad en Azure Security Center 
@@ -52,15 +52,15 @@ La información sobre esta hoja variará según la alerta. Para más informació
 - La misma alerta puede existir como parte de un incidente (si procede), así como a estar visible como alerta independiente.
 - Si se descarta un incidente, no se descartarán las alertas relacionadas.
 
-## Consulte también
+## Otras referencias
 
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
+- [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
-- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -11,7 +11,7 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 
 		info:    New mode is arm
 
-3. En caso necesario, ejecute **azure group create** para crear un grupo de recursos, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. En caso necesario, ejecute **azure group create** para crear un grupo de recursos, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -106,4 +106,4 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

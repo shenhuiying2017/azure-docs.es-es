@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
 # Emparejamiento de red virtual mediante el Portal de Azure
 
@@ -64,7 +64,7 @@ Para emparejar una red virtual según el escenario anterior por medio del Portal
 
 Hay algunas propiedades configurables para cada vínculo:
 
-|Opción|Descripción|Valor predeterminado|
+|Opción|Description|Valor predeterminado|
 |:-----|:----------|:------|
 |AllowVirtualNetworkAccess|Si el espacio de direcciones de red virtual emparejada se incluye como parte de la etiqueta Virtual\_network.|Sí|
 |AllowForwardedTraffic|Permite aceptar o rechazar el tráfico que no se origine en la red virtual emparejada.|No|
@@ -77,33 +77,33 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. En este ejemplo utilizaremos dos suscripciones A y B y dos usuarios UserA y UserB con privilegios en las suscripciones respectivamente
-2. En el portal, haga clic en Examinar y elija Redes virtuales. Haga clic en la red virtual y después en Agregar.
+3. En el portal, haga clic en Examinar y elija Redes virtuales. Haga clic en la red virtual y después en Agregar.
 
     ![Escenario 2 Examinar](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. En la hoja Agregar acceso, haga clic en Seleccionar rol y elija Colaborador de la red, haga clic en Agregar usuarios, escriba el nombre de inicio de sesión de UserB y haga clic en Aceptar.
+4. En la hoja Agregar acceso, haga clic en Seleccionar rol y elija Colaborador de la red, haga clic en Agregar usuarios, escriba el nombre de inicio de sesión de UserB y haga clic en Aceptar.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-   Esto no es un requisito; se puede establecer emparejamiento incluso si los usuarios presentan individualmente solicitudes de emparejamiento de sus redes virtuales, siempre y cuando las solicitudes coincidan. Agregar privilegios al usuario de la otra red virtual como los usuarios de la red virtual local facilita la instalación en el portal.
+    Esto no es un requisito; se puede establecer emparejamiento incluso si los usuarios presentan individualmente solicitudes de emparejamiento de sus redes virtuales, siempre y cuando las solicitudes coincidan. Agregar privilegios al usuario de la otra red virtual como los usuarios de la red virtual local facilita la instalación en el portal.
 
-4. A continuación, inicie sesión en el Portal de Azure con UserB, que es el usuario con privilegios para SuscriptionB. Siga los pasos anteriores para agregar UserA como Colaborador de la red.
+5. A continuación, inicie sesión en el Portal de Azure con UserB, que es el usuario con privilegios para SuscriptionB. Siga los pasos anteriores para agregar UserA como Colaborador de la red.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    NOTA: Puede cerrar la sesión e iniciar sesión con ambos usuarios en el explorador para asegurarse de que la autorización se habilitó correctamente.
+    NOTA: Puede cerrar e iniciar las dos sesiones del usuario en el explorador para asegurarse de que la autorización se habilita correctamente.
 
-5. Inicie sesión en el portal como UserA, vaya a la hoja VNET3, haga clic en Peering (Emparejamiento), marque la casilla "Conozco mi id. de recurso" y escriba el identificador de recurso de VNET5 en el formato siguiente.
+6. Inicie sesión en el portal como UserA, vaya a la hoja VNET3, haga clic en Peering (Emparejamiento), marque la casilla "Conozco mi id. de recurso" y escriba el identificador de recurso de VNET5 en el formato siguiente.
 
     /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
 
     ![Id. de recurso](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-6. Inicie sesión en el portal como UserB y siga el paso anterior para crear el vínculo de emparejamiento de VNET5 a VNet3.
+7. Inicie sesión en el portal como UserB y siga el paso anterior para crear el vínculo de emparejamiento de VNET5 a VNet3.
 
     ![Id. de recurso 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-7. Se establecerá el emparejamiento y cualquier máquina virtual VNet3 debería poder comunicarse con cualquier máquina virtual en VNet5
+8. Se establecerá el emparejamiento y cualquier máquina virtual VNet3 debería poder comunicarse con cualquier máquina virtual en VNet5
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -115,7 +115,7 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
     ![Emparejamiento básico](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
-3. Después de establecer el emparejamiento, puede consultar este [artículo](virtual-network-create-udr-arm-ps.md) y establecer la ruta definida por el usuario (UDR) para redirigir el tráfico de VNet1 a través de una aplicación virtual para usar sus funcionalidades. Cuando se especifica la dirección Próximo salto en la ruta, puede establecerla en la dirección IP de la aplicación virtual de la red virtual HubVNet emparejada.
+3. Después de establecer el emparejamiento, puede consultar este [artículo](virtual-network-create-udr-arm-ps.md) y establecer una ruta definida por el usuario (UDR) para redirigir el tráfico de VNet1 a través de una aplicación virtual para usar sus funcionalidades. Cuando se especifica la dirección Próximo salto en la ruta, puede establecerla en la dirección IP de la aplicación virtual de la red virtual HubVNet emparejada.
 
 ## Desemparejamiento de VNET
 
@@ -130,4 +130,4 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 4. En este estado, no se puede volver a crear el vínculo hasta que cambie el estado del vínculo de emparejamiento a iniciado. Se recomienda quitar ambos vínculos antes de volver a crear el emparejamiento de VNET.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

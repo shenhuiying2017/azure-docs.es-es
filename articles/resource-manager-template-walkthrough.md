@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Tutorial de la plantilla de Resource Manager
@@ -579,4 +579,4 @@ Para volver a implementar la plantilla, use los mismos comandos que utilizó al 
 - Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para aprender a implementar una plantilla, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

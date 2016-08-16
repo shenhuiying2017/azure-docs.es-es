@@ -3,8 +3,8 @@
 	description="Con los servicios de recuperación y Copia de seguridad de Azure puede realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores Windows, equipos cliente de Windows, servidores de System Center DPM y máquinas virtuales de Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"
 	keywords="copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad"/>
 
@@ -47,7 +47,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Agente de copia de seguridad de Azure | <p>**Sí**</p> <p>El agente de Copia de seguridad de Azure se puede implementar en cualquier VM de Windows Server que se ejecute en Azure.</p> | <p>**Sí**</p> <p>El agente de Copia de seguridad se puede implementar en cualquier máquina física o virtual de Windows Server.</p> | <p>Almacén de Copia de seguridad de Azure</p> |
 | System Center Data Protection Manager (DPM) | <p>**Sí**</p><p>Más información sobre [cómo proteger las cargas de trabajo en Azure con System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Sí**</p> <p>Más información sobre la [protección de cargas de trabajo y VM en su centro de datos](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Disco conectado localmente,</p> <p>Almacén de Copia de seguridad de Azure,</p> <p>Cinta (solo local)</p> |
 | Servidor de Copia de seguridad de Azure | <p>**Sí**</p><p>Más información sobre [cómo proteger las cargas de trabajo en Azure con el servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>**Sí**</p> <p>Más información sobre [cómo proteger las cargas de trabajo en Azure con el servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>Disco conectado localmente,</p> <p>Almacén de Copia de seguridad de Azure</p> |
-| Copia de seguridad de Azure (extensión de máquina virtual) | <p>**Sí**</p><p>Parte del tejido de Azure</p><p>Especializado en la [copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS) de Azure](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM para hacer copias de seguridad de máquinas virtuales en su centro de datos.</p> | <p>Almacén de copia de seguridad de Azure</p> |
+| Copia de seguridad de Azure (extensión de máquina virtual) | <p>**Sí**</p><p>Parte del tejido de Azure</p><p>Especializado en la [copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS) de Azure](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM para hacer copias de seguridad de máquinas virtuales en su centro de datos.</p> | <p>Almacén de Copia de seguridad de Azure</p> |
 
 ### Ventajas y limitaciones del nivel de componente
 
@@ -69,8 +69,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Compatibilidad con ARM y Linux
 
@@ -228,4 +227,4 @@ Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

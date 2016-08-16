@@ -136,4 +136,4 @@ Cuando la plantilla está lista, puede implementar los nuevos recursos con las i
 - Para más información acerca de las funciones de plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
 - Para obtener más ejemplos de cómo trabajar con Visual Studio Code, consulte [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Compilación de aplicaciones en la nube con Visual Studio Code) en la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) realizada en Connect 2015. Para ver más guías rápidas de la demo de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

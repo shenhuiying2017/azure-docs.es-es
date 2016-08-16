@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico | Microsoft Azure"
+   pageTitle="Creación de una red virtual con una conexión de puerta de enlace de VPN de sitio a sitio mediante el Portal de Azure clásico | Microsoft Azure"
    description="Cree una red virtual con una conexión de puerta de enlace de VPN S2S para configuraciones entre entornos e híbridas con el modelo de implementación clásico."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
 # Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico
@@ -25,7 +25,7 @@
 - [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. Este artículo se aplica al modelo de implementación clásico y utiliza el Portal de Azure clásico.
+Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. Este artículo se aplica al modelo de implementación clásico y utiliza el Portal de Azure clásico. Actualmente, no se puede crear una configuración de sitio a sitio completa para el modelo de implementación clásica mediante el Portal de Azure.
 
 
 **Información sobre los modelos de implementación de Azure**
@@ -47,7 +47,7 @@ Si desea conectar las redes virtuales entre sí pero no está creando una conexi
 
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no está familiarizado con la configuración de su dispositivo VPN o con los intervalos de direcciones IP en la configuración de la red local, tendrá que trabajar con alguien que pueda proporcionarle estos detalles.
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
 
 -  Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
 
@@ -73,7 +73,7 @@ Escriba la siguiente información.
 
 Especifique la siguiente información y, a continuación, haga clic en la flecha siguiente en el ángulo inferior derecho.
 
-- **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP o seleccione un servidor DNS previamente registrado del menú contextual. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual.
+- **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP o seleccione un servidor DNS previamente registrado del menú contextual. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
 - **Configurar VPN de sitio a sitio**: seleccione la casilla **Configurar una VPN de sitio a sitio**.
 - **Red local**: una red local representa la ubicación física local. Puede seleccionar una red local que haya creado previamente o puede crear una nueva. Sin embargo, si decide utilizar una red local creada anteriormente, querrá ir a la página de configuración de **Redes locales** y asegurare de que la dirección IP del dispositivo VPN (dirección IPv4 pública) para el dispositivo VPN que se utiliza para esta conexión es precisa.
 
@@ -85,7 +85,7 @@ Especifique la siguiente información y, a continuación, haga clic en la flecha
 
 - 	**Nombre**: el nombre que quiere usar para el sitio de red local.
 - 	**Dirección IP del dispositivo VPN**: se trata de la dirección IPv4 pública del dispositivo VPN local que se va a utilizar para conectarse a Azure. El dispositivo VPN no se encuentra detrás de un NAT.
-- 	**Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Aquí se especifican los intervalos de direcciones a través de las que desea que se realicen los envíos de la puerta de enlace de red virtual a su ubicación local. Si una dirección IP de destino se encuentra dentro de los intervalos que especifique aquí, se enrutará a través de la puerta de enlace de red virtual.
+- 	**Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Aquí se especifican los intervalos de direcciones a través de las que desea que se realicen los envíos de la puerta de enlace de red virtual a su ubicación local. Si una dirección IP de destino se encuentra dentro de los intervalos que especifique aquí, se enruta a través de la puerta de enlace de red virtual.
 - 	**Agregar espacio de direcciones**: si tiene varios intervalos de direcciones que desea enviar a través de la puerta de enlace de red virtual, especifique aquí cada intervalo de direcciones adicional. Puede agregar o quitar rangos más adelante en la página **Red Local**.
 
 ## Página de espacios de direcciones de la red virtual
@@ -112,4 +112,4 @@ A continuación, configurará la puerta de enlace de la red virtual con el fin d
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/) para más información.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

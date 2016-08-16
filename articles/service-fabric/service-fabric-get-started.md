@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/15/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Preparación del entorno de desarrollo
- Para compilar y ejecutar [aplicaciones de Service Fabric de Azure][1] en la máquina de desarrollo, debe instalar el motor en tiempo de ejecución, el SDK y las herramientas. También es preciso que habilite la ejecución de los scripts de Windows PowerShell que se incluyen en el SDK.
+ Para compilar y ejecutar [aplicaciones de Azure Service Fabric][1] en la máquina de desarrollo, debe instalar el motor en tiempo de ejecución, el SDK y las herramientas. También es preciso que habilite la ejecución de los scripts de Windows PowerShell que se incluyen en el SDK.
 
 ## Requisitos previos
 ### Versiones de sistemas operativos compatibles
@@ -28,7 +28,7 @@ Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] Windows 7 solo incluye de forma predeterminada Windows PowerShell 2.0. Para usar los cmdlets de PowerShell para Service Fabric, deberá instalar PowerShell 3.0 o una versión superior. Puede [descargar Windows PowerShell 5.0][powershell5-download] desde el Centro de descarga de Microsoft.
+>[AZURE.NOTE] Windows 7 solo incluye de forma predeterminada Windows PowerShell 2.0. Los cmdlets de PowerShell de Service Fabric requieren PowerShell 3.0 o superior. Puede [descargar Windows PowerShell 5.0][powershell5-download] desde el Centro de descarga de Microsoft.
 
 ## Instalar el motor en tiempo de ejecución, el SDK y las herramientas
 
@@ -41,14 +41,14 @@ El instalador de plataforma web ofrece tres configuraciones para el desarrollo d
 
 ## Habilitar la ejecución del script de PowerShell
 
-Service Fabric usa scripts de Windows PowerShell para crear un clúster de desarrollo local e implementar aplicaciones desde Visual Studio. De forma predeterminada, Windows bloqueará la ejecución de estos scripts. Para habilitarlos, debe modificar la directiva de ejecución de PowerShell. Abra PowerShell como administrador y escriba el siguiente comando:
+Service Fabric usa scripts de Windows PowerShell para crear un clúster de desarrollo local e implementar aplicaciones desde Visual Studio. De forma predeterminada, Windows bloquea la ejecución de estos scripts. Para habilitarlos, debe modificar la directiva de ejecución de PowerShell. Abra PowerShell como administrador y escriba el siguiente comando:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
 ## Pasos siguientes
-Ahora que está configurado su entorno de desarrollo, puede iniciar la creación y ejecución de aplicaciones.
+Ahora que ha terminado la configuración del entorno de desarrollo, puede empezar a compilar y ejecutar aplicaciones.
 
 - [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Introducción a la implementación y actualización de aplicaciones en un clúster local](service-fabric-get-started-with-a-local-cluster.md)
@@ -64,4 +64,4 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Vínculo de WebPI de SDK de núcleo"
 [powershell5-download]: https://www.microsoft.com/es-ES/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

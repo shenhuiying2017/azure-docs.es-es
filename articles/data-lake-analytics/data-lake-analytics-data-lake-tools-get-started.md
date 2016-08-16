@@ -1,6 +1,6 @@
 <properties
    pageTitle="Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio | Azure"
-   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL."
+   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
@@ -131,20 +131,19 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 		IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
 
     - **Expandir * columnas**
-    
-        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. 
-        ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
-        Haga clic en **Expandir columnas** y la herramienta reemplazará * por los nombres de columna.
+        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo. ![Expanda Data Lake Tools for Visual Studio *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+
+        Haga clic en **Expand Columns (Expandir columnas)** y la herramienta reemplazará * por los nombres de columna.
 
 	- **Formato automático**
 
-		Los usuarios pueden cambiar la sangría del script Scope basándose en la estructura de código que aparece en Edición -> Opciones avanzadas:
+		Los usuarios pueden cambiar la sangría del script U-SQL basándose en la estructura de código en Edición -> Opciones avanzadas:
 
-		- Dar formato al documento (CTRL+E, D): da formato a todo el documento.   
-		- Dar formato a la selección (CTRL+K, CTRL+F): da formato a la selección. Si no se ha realizado ninguna selección, este método abreviado da formato a la línea en la que se encuentra el cursor.  
+		- Dar formato al documento (CTRL+E, D): da formato a todo el documento.
+		- Dar formato a la selección (CTRL+K, CTRL+F): da formato a la selección. Si no se ha realizado ninguna selección, este método abreviado da formato a la línea en la que se encuentra el cursor.
 
-		Todas las reglas de formato se pueden configurar en Herramientas -> Opciones -> Editor de texto -> SIP -> Formato.  
+		Todas las reglas de formato se pueden configurar en Herramientas -> Opciones -> Editor de texto -> SIP -> Formato.
 	- **Sangría inteligente**
 
 		Data Lake Tools for Visual Studio puede aplicar sangría automáticamente a las expresiones al escribir scripts. Esta característica está deshabilitada de forma predeterminada; los usuarios deben activarla en U-SQL -> Opciones y configuración -> Modificadores -> Habilitar sangría inteligente.
@@ -164,16 +163,16 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     Para obtener más información, consulte [Uso del catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Compilar script**. Compruebe el resultado en el panel Salida.
-6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** desde el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** en el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
 7. Especifique el **Nombre del trabajo**, compruebe la **Cuenta de Análisis** y haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados de Data Lake Tools for Visual Studio cuando se completa el envío.
 
 	![Enviar proyecto U-SQL de Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
-8. Puede hacer clic en el botón Actualizar para ver el estado más reciente del trabajo y actualizar la pantalla. Cuando el trabajo se completa correctamente, se muestra **Gráfico del trabajo**, **Operaciones de metadatos**, **Historial de estado**, **Diagnósticos**:
+8. Puede hacer clic en el botón Actualizar para ver el estado más reciente del trabajo y actualizar la pantalla. Cuando el trabajo se completa correctamente, se muestra **Job Graph (Gráfico del trabajo)**, **Meta Data Operations (Operaciones de metadatos)**, **State History (Historial de estado)**, **Diagnostics (Diagnósticos)**:
 
 	![Gráfico de rendimiento del trabajo de Análisis de Data Lake de U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-	* Resumen del trabajo. Muestra la información de resumen del trabajo actual, por ejemplo: estado, progreso, tiempo de ejecución, nombre en tiempo de ejecución, remitente, etc.   
+	* Resumen del trabajo. Muestra la información de resumen del trabajo actual, por ejemplo: estado, progreso, tiempo de ejecución, nombre en tiempo de ejecución, remitente, etc.
 	* Detalles del trabajo. Se proporciona información detallada acerca de este trabajo, incluidos scripts, recursos y la vista de ejecución de vértices.
 	* Gráfico del trabajo. Se proporcionan cuatro gráficos para visualizar la información del trabajo: progreso, datos leídos, datos escritos, tiempo de ejecución, promedio de tiempo de ejecución por nodo, capacidad de proceso de entrada, capacidad de proceso de salida.
 	* Operaciones de metadatos. Muestra todas las operaciones de metadatos.
@@ -199,9 +198,9 @@ La reproducción del trabajo permite ver el progreso de la ejecución del trabaj
 
 **Para ver el progreso de la ejecución del trabajo**
 
-1. Haga clic en **Cargar perfil** en la esquina superior derecha. Consulte la captura de pantalla anterior.
+1. Haga clic en **Load Profile (Cargar perfil)** en la esquina superior derecha. Consulte la captura de pantalla anterior.
 2. Haga clic en el botón Reproducir, en la esquina inferior izquierda, para revisar el progreso de la ejecución del trabajo.
-3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente de la barra de progreso a posiciones específicas.
+3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente la barra de progreso a posiciones específicas.
 
 
 ###Mapa térmico
@@ -216,7 +215,7 @@ Con la experiencia de ejecución local de U-SQL en Visual Studio, puede:
 - Depurar ensamblados de C# localmente.
 - Cree, elimine y vea bases de datos locales, ensamblados, esquemas y tablas en el Explorador de servidores de la misma manera que puede hacerlo para el servicio de Análisis con Azure Data Lake.
 
-Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* que se encuentra en *C:\LocalRunRoot*. Se usará la carpeta DataRoot:
+Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* que se encuentra en *C:\\LocalRunRoot*. Se usará la carpeta DataRoot:
 
 - Almacene metadatos incluidos tablas, bases de datos, funciones TVF, etc.
 - Para un script determinado: si se hace referencia a una ruta de acceso relativa en rutas de acceso de entrada y salida, buscaremos la DataRoot (así como la ruta de acceso del script si es su entrada).
@@ -246,7 +245,7 @@ Para obtener instrucciones sobre el desarrollo de scripts de U-SQL, vea [Desarro
 
 ![Enviar proyecto U-SQL de Visual Studio localmente](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
-También puede hacer clic con el botón derecho en un script y luego hacer clic en **Run Local Plan (Ejecutar plan local)** en el menú contextual o presionar **CTRL+F5** para desencadenar la ejecución local.
+También puede hacer clic con el botón derecho en un script y luego hacer clic en **Ejecutar plan local** en el menú contextual o presionar **CTRL+F5** para desencadenar la ejecución local.
 
 ### Usar ensamblados en la ejecución local
 
@@ -261,21 +260,21 @@ Hay dos maneras de ejecutar los archivos de C# personalizados:
 
 Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio de análisis de Azure Data Lake. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
 
-**Para depurar el código local en el código subyacente del archivo.**
+**Para depurar el código local en el código subyacente del archivo**.
 1.	Establezca puntos de interrupción en el archivo de código subyacente.
 2.	Presione **F5** para depurar el script localmente.
 
 El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.
 
-**Para depurar el código local en un proyecto de C# al que se hace referencia.**
+**Para depurar el código local en un proyecto de C# al que se hace referencia**.
 1.	Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida.
 2.	Registre la dll mediante una instrucción de U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Establezca puntos de interrupción en el código de C#.
-4.	Presione **F5** para depurar el script con referencia a la dll de C# localmente.  
+4.	Presione **F5** para depurar el script con referencia a la dll de C# localmente.
 
-##Consulte también
+##Otras referencias
 
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
@@ -292,7 +291,7 @@ Para ver más temas de desarrollo:
 
 ##Ejemplo de PowerShell Appx-A para preparar el tutorial
 
-El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data Lake y los datos de origen para usted, por lo que puede ir directamente a [Desarrollar scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+El siguiente script de PowerShell prepara de forma automática una cuenta de Azure Data Lake Analytics y los datos de origen, por lo que puede ir directamente a [Desarrollar scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +361,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

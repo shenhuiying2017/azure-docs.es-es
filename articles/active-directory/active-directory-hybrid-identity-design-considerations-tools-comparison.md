@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas | Microsoft Azure"
-	description="Esta página proporcionará tablas completas con la comparación de las distintas herramientas que se pueden usar para la integración de directorios."
+	description="Esta página proporciona una tabla completa con la comparación de las distintas herramientas que se pueden usar para la integración de directorios."
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas
@@ -24,7 +24,7 @@ A lo largo de los años, las herramientas para la integración de directorios ha
 
 >[AZURE.NOTE] Azure AD Connect incorpora los componentes y la funcionalidad publicados previamente como Dirsync y Sincronización de AAD. Estas herramientas ya no se publican de manera individual, y todas las futuras mejoras se incluirán en actualizaciones de Azure AD Connect; así, siempre sabrá dónde obtener la funcionalidad más actualizada.
 >
->DirSync y Sincronización de Azure AD están en desuso. Se puede encontrar más información en [Upgrade Microsoft Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM) (Actualización de la sincronización de Microsoft Azure Active Directory (“DirSync”) y sincronización de Azure Active Directory (“Azure AD Sync”)).
+>DirSync y Sincronización de Azure AD están en desuso. Puede encontrar más información [aquí](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Utilice la clave siguiente para cada una de las tablas.
@@ -94,4 +94,4 @@ Permitir personalización avanzada para flujos de atributo | ● | ● | | ● |
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

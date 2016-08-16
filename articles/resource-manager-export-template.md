@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/28/2016"
+	ms.date="08/03/2016"
 	ms.author="tomfitz"/>
 
 # Exportación de plantillas de Azure Resource Manager desde recursos existentes
@@ -22,12 +22,12 @@ Resource Manager permite exportar una plantilla de Resource Manager a partir de 
 
 Es importante tener en cuenta que hay dos formas diferentes de exportar una plantilla:
 
-- Puede exportar la plantilla real que se utilizó para una implementación. La plantilla exportada incluye todos los parámetros y variables exactamente como se definieron en la plantilla original. Este enfoque es especialmente útil cuando se han implementado los recursos mediante el portal y ahora quiere ver cómo construir la plantilla para crear esos recursos.
-- Puede exportar una plantilla que representa el estado actual del grupo de recursos. La plantilla exportada no se basa en ninguna plantilla que se usara para la implementación. Al contrario, crea una plantilla que es una instantánea del grupo de recursos. La plantilla exportada tendrá muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Este enfoque es útil cuando se ha modificado el grupo de recursos mediante el portal o scripts y ahora debe capturar al grupo de recursos como una plantilla.
+- Puede exportar la plantilla que utilizó para una implementación. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque resulta útil cuando haya implementado recursos a través del portal. Ahora, desea ver cómo construir la plantilla para crear dichos recursos.
+- Puede exportar una plantilla que representa el estado actual del grupo de recursos. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una instantánea del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Este enfoque resulta útil cuando se ha modificado el grupo de recursos mediante el portal o scripts. Ahora, debe capturar el grupo de recursos como plantilla.
 
-En este tema se muestran ambos enfoques. En el artículo [Personalización de una plantilla de Azure Resource Manager exportada](resource-manager-customize-template.md), verá cómo tomar una plantilla que se generó a partir del estado actual del grupo de recursos y hacerla más útil para volver a implementar su solución.
+En este tema se muestran ambos métodos. En el artículo [Personalización de una plantilla de Azure Resource Manager exportada](resource-manager-customize-template.md), se muestra cómo, basándose en una plantilla que se generó a partir del estado actual del grupo de recursos, se puede mejorar su utilidad para volver a implementar su solución.
 
-En este tutorial, va a iniciar sesión en el Portal de Azure, crear una cuenta de almacenamiento por medio del portal y exportar la plantilla para esa cuenta de almacenamiento. Agregará una red virtual para modificar el grupo de recursos. Por último, exportará una nueva plantilla que representa su estado actual. Aunque este artículo se centra en una infraestructura simplificada, puede usar estos mismos pasos para exportar una plantilla para una solución más complicada.
+En este tutorial, va a iniciar sesión en el Portal de Azure, a crear una cuenta de almacenamiento y a exportar la plantilla para esa cuenta de almacenamiento. Va a agregar una red virtual para modificar el grupo de recursos. Por último, va a exportar una nueva plantilla que representa su estado actual. Aunque este artículo se centra en una infraestructura simplificada, puede usar estos mismos pasos para exportar una plantilla para una solución más complicada.
 
 ## Crear una cuenta de almacenamiento
 
@@ -43,27 +43,28 @@ Una vez finalizada la implementación, la suscripción contiene la cuenta de alm
 
 ## Exportación de la plantilla desde el historial de implementación
 
-1. Vaya a la hoja del grupo de recursos que ha creado. Observará que aparece el resultado de la última implementación. Seleccione este vínculo.
+1. Vaya a la hoja del grupo de recursos que ha creado. Observe que la hoja muestra el resultado de la última implementación. Seleccione este vínculo.
 
       ![Hoja del grupo de recursos](./media/resource-manager-export-template/resource-group-blade.png)
 
-2. Verá un historial de implementaciones para el grupo. En su caso, probablemente solo aparezca una implementación. Selecciónela.
+2. Se ve un historial de implementaciones para el grupo. En su caso, es probable que la hoja solo muestre una implementación. Selecciónela.
 
      ![última implementación](./media/resource-manager-export-template/last-deployment.png)
 
-3. Se muestra un resumen de la implementación. El resumen incluye el estado de la implementación y sus operaciones, además de los valores que proporcionó para los parámetros. Para ver la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
+3. La hoja muestra un resumen de la implementación. El resumen incluye el estado de la implementación y sus operaciones, además de los valores que proporcionó para los parámetros. Para ver la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
 
      ![Ver el resumen de la implementación](./media/resource-manager-export-template/deployment-summary.png)
 
-4. El Administrador de recursos recupera los cinco archivos siguientes para usted:
+4. Resource Manager recupera los seis archivos siguientes:
 
    1. **Plantilla**: la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
    2. **Parámetros**: un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó durante la primera implementación, pero puede cambiar cualquiera de ellos al volver a implementar la plantilla.
    3. **CLI**: un archivo de script de la interfaz de la línea de comandos (CLI) de Azure que puede usar para implementar la plantilla.
    4. **PowerShell**: un archivo de script de Azure PowerShell que puede usar para implementar la plantilla.
    5. **.NET**: una clase .NET que puede utilizar para implementar la plantilla.
+   6. **Ruby**: una clase Ruby que puede utilizar para implementar la plantilla.
 
-     Los archivos están disponibles mediante vínculos en la hoja. De forma predeterminada, la plantilla está seleccionada.
+     Los archivos están disponibles mediante vínculos en la hoja. De forma predeterminada, la hoja muestra la plantilla.
 
        ![Ver plantilla](./media/resource-manager-export-template/view-template.png)
 
@@ -111,12 +112,12 @@ Una vez finalizada la implementación, la suscripción contiene la cuenta de alm
           ]
         }
  
-Esta es la plantilla real usada para crear la cuenta de almacenamiento. Observe que contiene parámetros que le permiten implementar distintos tipos de cuentas de almacenamiento. Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md). Para ver la lista completa de funciones que puede usar en una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
+Esta plantilla es la que se usó para crear la cuenta de almacenamiento. Observe que contiene parámetros que le permiten implementar distintos tipos de cuentas de almacenamiento. Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md). Para ver la lista completa de funciones que puede usar en una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
 
 
 ## Incorporación de una red virtual
 
-La plantilla que descargó en la sección anterior representaba la infraestructura para esa implementación original, pero no incluirá los cambios que realice después de la implementación. Para ilustrar este problema, vamos a modificar el grupo de recursos agregando una red virtual por medio del portal.
+La plantilla que descargó en la sección anterior representa la infraestructura para esa implementación original. Sin embargo, no reflejará ningún cambio que realice después de la implementación. Para ilustrar este problema, vamos a modificar el grupo de recursos agregando una red virtual por medio del portal.
 
 1. En la hoja del grupo de recursos, seleccione **Agregar**.
 
@@ -130,20 +131,20 @@ La plantilla que descargó en la sección anterior representaba la infraestructu
 
       ![Establecer alerta](./media/resource-manager-export-template/create-vnet.png)
 
-3. Una vez implementada la red virtual correctamente en el grupo de recursos, vuelva a consultar el historial de implementación. Ahora verá dos implementaciones. Si no ve la segunda implementación, puede que deba cerrar la hoja del grupo de recursos y abrirla de nuevo. Seleccione la más reciente.
+3. Una vez implementada la red virtual correctamente en el grupo de recursos, vuelva a consultar el historial de implementación. Ahora se ven dos implementaciones. Si no ve la segunda, puede que deba cerrar la hoja del grupo de recursos y abrirla de nuevo. Seleccione la más reciente.
 
       ![Historial de implementación](./media/resource-manager-export-template/deployment-history.png)
 
 4. Eche un vistazo a la plantilla para esa implementación. Observe que solamente define los cambios realizados para agregar la red virtual.
 
-Por lo general, se recomienda trabajar con una plantilla que implemente toda la infraestructura de la solución en una sola operación, en lugar de tener que recordar las muchas plantillas diferentes que hay que implementar.
+Por lo general, se recomienda trabajar con una plantilla que implemente toda la infraestructura de la solución en una sola operación. Este enfoque es más confiable que tener que recordar muchas plantillas diferentes que implementar.
 
 
 ## Exportación de la plantilla desde el grupo de recursos
 
 Aunque cada implementación solo muestra los cambios que haya realizado en el grupo de recursos, puede exportar en cualquier momento una plantilla para mostrar los atributos del grupo de recursos completo.
 
-1. Para ver la plantilla de un grupo de recursos, seleccione **Exportar plantilla**.
+1. Para ver la plantilla de un grupo de recursos, seleccione **Script de automatización**.
 
       ![exportar grupo de recursos](./media/resource-manager-export-template/export-resource-group.png)
 
@@ -151,7 +152,7 @@ Aunque cada implementación solo muestra los cambios que haya realizado en el gr
 
       
 
-2. Volverá a ver los cinco archivos que puede usar para volver a implementar la solución, pero esta vez la plantilla es algo diferente. Esta plantilla solo contiene dos parámetros (uno para el nombre de la cuenta de almacenamiento y otro para el nombre de la red virtual).
+2. Se vuelven a ver los seis archivos que puede usar para volver a implementar la solución, pero esta vez la plantilla es algo diferente. Esta plantilla solo contiene dos parámetros (uno para el nombre de la cuenta de almacenamiento y otro para el nombre de la red virtual).
 
         "parameters": {
           "virtualNetworks_VNET_name": {
@@ -164,7 +165,7 @@ Aunque cada implementación solo muestra los cambios que haya realizado en el gr
           }
         },
 
-     Resource Manager no recuperó las plantillas usadas durante la implementación. En su lugar, generó una nueva plantilla basada en la configuración actual de los recursos. Por ejemplo, los valores de ubicación de la cuenta de almacenamiento y replicación se establecen en:
+     Resource Manager no recuperó las plantillas usadas durante la implementación. En su lugar, generó una nueva plantilla basada en la configuración actual de los recursos. Por ejemplo, la plantilla establece los valores de ubicación de la cuenta de almacenamiento y replicación en:
 
         "location": "northeurope",
         "tags": {},
@@ -180,19 +181,19 @@ Aunque cada implementación solo muestra los cambios que haya realizado en el gr
 
 ## Solución de problemas de exportación
 
-No todos los tipos de recursos admiten la función de exportación de plantilla. Algunos tipos de recursos en concreto no se exportan para evitar la exposición de información confidencial. Por ejemplo, si tiene una cadena de conexión en la configuración del sitio, probablemente no querrá que se muestre explícitamente en una plantilla exportada. Puede evitar este problema si agrega manualmente los recursos que faltan a la plantilla.
+No todos los tipos de recursos admiten la función de exportación de plantilla. Específicamente, Resource Manager no exporta algunos tipos de recursos para evitar que se exponga información confidencial. Por ejemplo, si tiene una cadena de conexión en la configuración del sitio, probablemente no querrá que se muestre explícitamente en una plantilla exportada. Puede evitar este problema si agrega manualmente los recursos que faltan a la plantilla.
 
-> [AZURE.NOTE] Solo encontrará problemas de exportación si exporta desde un grupo de recursos en lugar de desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Exporte solo desde un grupo de recursos si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
+> [AZURE.NOTE] Solo se encuentran problemas de exportación si se exporta desde un grupo de recursos en lugar de desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Exporte solo desde un grupo de recursos si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
 
 Por ejemplo, si exporta una plantilla para un grupo de recursos que contiene una aplicación web, una base de datos SQL y una cadena de conexión en la configuración del sitio, verá el mensaje siguiente.
 
 ![show error](./media/resource-manager-export-template/show-error.png)
 
-Al selecciona el mensaje se mostrará exactamente qué tipos de recursos no se han exportado.
+Al seleccionar el mensaje, se muestra exactamente qué tipos de recursos no se han exportado.
      
 ![show error](./media/resource-manager-export-template/show-error-details.png)
 
-Algunas soluciones comunes se muestran a continuación. Para implementar estos recursos, debe agregar parámetros a la plantilla. Para más información, consulte [Personalizar y volver a implementar una plantilla exportada](resource-manager-customize-template.md).
+En este tema se muestran las siguientes correcciones habituales. Para implementar estos recursos, debe agregar parámetros a la plantilla. Para más información, consulte [Personalización de una plantilla de Azure Resource Manager exportada](resource-manager-customize-template.md).
 
 ### Cadena de conexión
 
@@ -338,8 +339,8 @@ Agregue un tipo de recurso de conexión.
 
 ¡Enhorabuena! Ha aprendido a exportar una plantilla desde recursos creados en el portal.
 
-- En la segunda parte de este tutorial, personalizará la plantilla que acaba de descargar agregando más parámetros y la volverá a implementar mediante un script. Consulte [Personalizar y volver a implementar la plantilla exportada](resource-manager-customize-template.md).
+- En la segunda parte de este tutorial, va a personalizar la plantilla que descargó agregando más parámetros y a volver a implementarla mediante un script. Consulte [Personalización de una plantilla de Azure Resource Manager exportada](resource-manager-customize-template.md).
 - Para ver cómo exportar una plantilla mediante PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->
