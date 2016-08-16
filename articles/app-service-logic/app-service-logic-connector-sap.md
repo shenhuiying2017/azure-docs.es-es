@@ -54,18 +54,21 @@ Los conectores pueden crearse dentro de una aplicación lógica o directamente d
 
 ## Configuración la aplicación de API de conector de SAP recién creada ##
 
-Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> Nombre de la aplicación de API que acaba de crear; verá el siguiente comportamiento. La instalación está incompleta, ya que todavía no se ha establecido la conexión híbrida: ![][2]
+Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> Nombre de la aplicación de API que acaba de crear; verá el siguiente comportamiento. La instalación está incompleta, ya que todavía no se ha establecido la conexión híbrida:  
+![][2]
 
 El conector SAP requiere conectividad híbrida para conectarse a *cualquier* punto de conexión de SAP. Para establecer la conectividad híbrida, haga lo siguiente:
 
 1. Copie la cadena de conexión principal.
 2. Haga clic en el vínculo 'Descargar y configurar’.
 3. Siga el proceso de instalación que se inicia y especifique la cadena de conexión principal cuando se le pida.
-4. Una vez que se completa el proceso de instalación, se muestra un cuadro de diálogo similar al siguiente: ![][3]
+4. Una vez que se completa el proceso de instalación, se muestra un cuadro de diálogo similar al siguiente:  
+![][3]
 
 Más información sobre la [integración con un servidor SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
 
-Ahora, cuando acceda de nuevo a la aplicación de API que ha creado, verá que el estado de la conexión híbrida se muestra como "conectado": ![][4]
+Ahora, cuando acceda de nuevo a la aplicación de API que ha creado, verá que el estado de la conexión híbrida se muestra como "conectado":  
+![][4]
 
 Nota: si desea cambiar a la cadena de conexión secundaria, solo tiene que volver a realizar la configuración híbrida y proporcionar la cadena de conexión secundaria en lugar de la cadena de conexión principal.
 
@@ -73,11 +76,14 @@ Nota: si desea cambiar a la cadena de conexión secundaria, solo tiene que volve
 
 El conector de SAP solo se puede usar como una acción/paso en una aplicación lógica.
 
-Al crear o editar una aplicación lógica, elija la aplicación de API del conector de SAP que ha creado anteriormente. Con esto se mostrarán todas las acciones permitidas, entre las que podrá elegir: ![][5]
+Al crear o editar una aplicación lógica, elija la aplicación de API del conector de SAP que ha creado anteriormente. Con esto se mostrarán todas las acciones permitidas, entre las que podrá elegir:  
+![][5]
 
-Tras seleccionar una acción, se mostrará una lista de parámetros de entrada para esa acción. Proporcione los valores adecuados y haga clic en el icono de la marca: ![][6]
+Tras seleccionar una acción, se mostrará una lista de parámetros de entrada para esa acción. Proporcione los valores adecuados y haga clic en el icono de la marca:  
+![][6]
 
-La acción o paso aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas de la operación y se podrán usar como entradas en un paso posterior: ![][7]
+La acción o paso aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas de la operación y se podrán usar como entradas en un paso posterior:  
+![][7]
 
 Complete la aplicación lógica para definir el proceso de negocio y, a continuación, ejecútelo para lograr el objetivo deseado.
 
