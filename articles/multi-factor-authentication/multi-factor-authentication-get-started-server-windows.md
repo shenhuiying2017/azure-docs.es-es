@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Servidor de Autenticación de Windows y Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 
 -  Es necesario reiniciar el equipo antes de que la Azure Multi-Factor Authentication para que Terminal Services entre en vigor.
 -  Si se encuentra marcada la opción “Requerir coincidencia de usuario de Azure Multi-Factor Authentication” y usted no está en la lista de usuarios, no podrá iniciar sesión en el equipo después del reinicio.
--  Las direcciones IP de confianza dependen de si la aplicación puede proporcionar la dirección IP de cliente con la autenticación. Actualmente solo se admite Terminal Services.  
+-  Las direcciones IP de confianza dependen de si la aplicación puede proporcionar la dirección IP de cliente con la autenticación. Actualmente solo se admite Terminal Services.
 
 
 
@@ -46,7 +46,7 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 7. Haga clic en el botón Agregar...
 8. Si desea omitir una única dirección IP, seleccione IP única.
 9. Seleccione Rango de direcciones IP si desea omitir un intervalo IP completo. Ejemplo 10.63.193.1-10.63.193.100.
-10. Seleccione Subred si desea especificar un intervalo de direcciones IP mediante la notación de subred. Escriba la dirección IP inicial de la subred y seleccione la máscara de red adecuada de la lista desplegable. 
+10. Seleccione Subred si desea especificar un intervalo de direcciones IP mediante la notación de subred. Escriba la dirección IP inicial de la subred y seleccione la máscara de red adecuada de la lista desplegable.
 11. Haga clic en el botón Aceptar.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

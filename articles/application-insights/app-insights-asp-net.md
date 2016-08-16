@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/21/2016" 
+	ms.date="08/09/2016" 
 	ms.author="daviste"/>
 
 
@@ -41,14 +41,14 @@ Puede consultar otros artículos si está interesado en:
 Cuando cree un proyecto nuevo en Visual Studio, asegúrese de que Application Insights está seleccionado.
 
 
-![Crear un proyecto ASP.NET](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
+![Creación de un proyecto ASP.NET](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
 
 
 ### ....o si se trata de un proyecto existente
 
 Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y elija **Agregar telemetría de Application Insights** o **Configurar Application Insights**.
 
-![Elija Agregar Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
+![Choose Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
 * ¿Es un proyecto de ASP.NET Core? [Siga estas instrucciones para corregir unas pocas líneas de código](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
 
@@ -58,7 +58,7 @@ Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y 
 
 Ejecute la aplicación con F5 y pruébela. Abra varias páginas para generar telemetría.
 
-En Visual Studio, verá un recuento de los eventos que se han registrado.
+En Visual Studio, aparece un recuento de los eventos que se han registrado.
 
 ![En Visual Studio, el botón de Application Insights se muestra durante la depuración.](./media/app-insights-asp-net/54.png)
 
@@ -88,10 +88,22 @@ Abra el recurso de Application Insights en el [Portal de Azure](https://portal.a
 
 El portal se abrirá en una vista de los datos de telemetría desde su aplicación: ![](./media/app-insights-asp-net/66.png)
 
-* Los eventos individuales que aparecen en **Búsqueda** (1). Los datos aparecen aquí en primer lugar (y en una [transmisión de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream)). Haga clic en cualquier evento para ver sus propiedades.
+* La primera telemetría se muestra en [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream).
+* Los eventos individuales aparecen en **Búsqueda** (1). Los datos pueden tardar unos minutos en aparecer. Haga clic en cualquier evento para ver sus propiedades.
 * Las métricas agregadas aparecen en los gráficos (2). Los datos pueden tardar uno o dos minutos en aparecer aquí. Haga clic en cualquiera de los gráficos para abrir una hoja en la que encontrará más información.
 
 [Más información acerca del uso de Application Insights en el Portal de Azure](app-insights-dashboards.md).
+
+## 4\. Publicación de la aplicación
+
+Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
+
+Verá cómo sea crea la telemetría en el portal de Application Insights, donde puede supervisar las métricas, buscar la telemetría y configurar los [paneles](app-insights-dashboards.md). También puede usar el potente [lenguaje de consulta de Analytics](app-insights-analytics.md) para analizar el uso y el rendimiento o buscar eventos específicos.
+
+Puede igualmente seguir analizando la telemetría en [Visual Studio](app-insights-visual-studio.md) con herramientas como búsqueda de diagnóstico y [Tendencias](app-insights-visual-studio-trends.md).
+
+> [AZURE.NOTE] Si la aplicación envía suficiente telemetría que se acerque a las [limitaciones de peticiones](app-insights-pricing.md#limits-summary), se activará el [muestreo](app-insights-sampling.md) automático. El muestreo reduce la cantidad de datos de telemetría enviados desde su aplicación, a la vez que conserva los datos correlacionados para fines de diagnóstico.
+
 
 ##<a name="land"></a> ¿Qué hizo "Agregar Application Insights"?
 
@@ -107,9 +119,9 @@ Por tanto, el comando realizó tres operaciones:
 
 Si lo desea, puede realizar estos pasos manualmente para [ASP.NET 4](app-insights-asp-net-manual.md) o [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
-## Para actualizar a futuras versiones del SDK
+### Para actualizar a futuras versiones del SDK
 
-Para actualizar a una [nueva versión del SDK](app-insights-release-notes-dotnet.md), vuelva a abrir el Administrador de paquetes de NuGet y filtre los paquetes instalados. Seleccione Microsoft.ApplicationInsights.Web y elija Actualizar.
+Para actualizar a una [nueva versión del SDK](app-insights-release-notes-dotnet.md), vuelva a abrir el Administrador de paquetes NuGet y filtre los paquetes instalados. Seleccione Microsoft.ApplicationInsights.Web y elija Actualizar.
 
 Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copia del mismo antes de actualizar y después combine los cambios en la nueva versión.
 
@@ -120,7 +132,7 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 | | 
 |---|---
 |**[Trabajo con Application Insights en Visual Studio](app-insights-visual-studio.md)**<br/>Depuración con telemetría, búsqueda de diagnóstico, profundización en el código.|![Visual studio](./media/app-insights-asp-net/61.png)
-|**[Navegación y paneles en el portal de Application Insights](app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de telemetría. |![Visual studio](./media/app-insights-asp-net/62.png)
+|**[Trabajo con el portal de Application Insights](app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[Adición de más datos](app-insights-asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

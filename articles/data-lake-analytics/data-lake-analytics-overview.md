@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Información general de Análisis de Microsoft Azure Data Lake | Azure" 
-   description="Análisis de Data Lake es un servicio de cálculo de macrodatos de Azure que le permite usar datos para impulsar el negocio con los conocimientos adquiridos de los datos en la nube, independientemente de dónde se encuentren y de su tamaño. Análisis de Data Lake lo permite de la forma más sencilla, escalable y económica posible." 
+   description="Análisis de Data Lake es un servicio de cálculo de macrodatos de Azure que le permite usar datos para impulsar el negocio con los conocimientos adquiridos de los datos en la nube, independientemente de dónde se encuentren y de su tamaño. Análisis de Data Lake lo permite de la forma más sencilla, escalable y económica posible. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -25,7 +25,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
 
 ## Principales capacidades
 
-- **Escalado dinámico** 
+- **Escalado dinámico**
 
     Análisis de Data Lake se ideó desde cero para su escala y rendimiento en la nube. Aprovisiona recursos de forma dinámica y permite analizar terabytes o incluso exabytes de datos. Cuando el trabajo finaliza, reduce los recursos automáticamente y usted solo paga por la capacidad de procesamiento que ha utilizado. Conforme aumenta o disminuye el tamaño de los datos almacenados o la cantidad de proceso utilizado, no tiene que reescribir código. Esto le permite centrarse únicamente en su lógica de negocios y no en cómo procesar y almacenar grandes conjuntos de datos.
 
@@ -49,7 +49,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
 
     Análisis de Data Lake puede funcionar con diversos orígenes de datos de Azure, como almacenamiento de blobs de Azure y Base de datos SQL de Azure, y está especialmente optimizado para trabajar con el almacén de Azure Data Lake, proporcionando el máximo nivel de rendimiento, capacidad de proceso y ejecución en paralelo para las cargas de trabajo de macrodatos.
 
-## Consulte también
+## Otras referencias
 
 - Primeros pasos
     - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
@@ -67,6 +67,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
     - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
     - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Azure Data Lake Analytics)
 
 - Tutorial integral
     - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +78,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

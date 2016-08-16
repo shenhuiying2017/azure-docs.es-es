@@ -12,15 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="08/10/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Después de haber implementado la aplicación web, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. Application Insights enviará solicitudes web a intervalos regulares desde puntos de todo el mundo y puede alertarle si la aplicación responde lentamente o no responde en absoluto.
+Después de haber implementado la aplicación web en cualquier host, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Application Insights de Visual Studio](app-insights-overview.md) envía solicitudes web a intervalos regulares desde puntos de todo el mundo y puede alertarle si la aplicación responde lentamente o no responde en absoluto.
 
 ![Ejemplo de prueba web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,11 +37,11 @@ Puede crear hasta 10 pruebas web por recurso de aplicación.
 
 Omita este paso si ya ha [configurado un inicio de recurso de Application Insights][start] para esta aplicación y desea ver los datos de disponibilidad en el mismo lugar.
 
-Suscríbase a [Microsoft Azure](http://azure.com), vaya al [portal de Azure](https://portal.azure.com) y cree un nuevo recurso de Application Insights.
+Suscríbase a [Microsoft Azure](http://azure.com), vaya al [Portal de Azure](https://portal.azure.com) y cree un recurso de Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Se abrirá la hoja de información general para el nuevo recurso. Para encontrar esta opción en cualquier momento en el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
+Se abrirá la hoja Información general para el nuevo recurso. Para encontrar esta opción en cualquier momento en el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
 
 ### <a name="setup"></a>2. Crear una prueba web
 
@@ -64,7 +61,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
     **Respuesta HTTP**: el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.
 
-    **Coincidencia de contenido**: una cadena, como "Bienvenido". Realizaremos una prueba que tenga lugar en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
+    **Coincidencia de contenido**: una cadena, como "Bienvenido". Realizamos una prueba que tiene lugar en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
 
 
 - De forma predeterminada, se le envían **alertas** cuando hay errores en tres ubicaciones durante cinco minutos. Es probable que un error en una ubicación sea un problema de red y no un problema con su sitio. No obstante, puede cambiar el umbral a más o menos sensible, y también puede cambiar las personas a quienes se deben enviar los correos electrónicos.
@@ -82,13 +79,13 @@ Después de uno o dos minutos, haga clic en **Actualizar** en la hoja de pruebas
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Haga clic en cualquier barra del gráfico de resumen en la parte superior para obtener una vista más detallada de ese período de tiempo.
+Haga clic en cualquier barra del gráfico de resumen para obtener una vista más detallada de ese período de tiempo.
 
 Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
 
 #### Componentes de la página web
 
-Como parte de la prueba se solicitan imágenes, hojas de estilo, scripts y otros componentes estáticos de la página web que está probando.
+Como parte de la prueba, se solicitan imágenes, hojas de estilo, scripts y otros componentes estáticos de la página web que está probando.
 
 El tiempo de respuesta registrado es el tiempo necesario para que se complete la carga de todos los componentes.
 
@@ -104,7 +101,7 @@ O bien, desplácese hacia abajo y haga clic en una prueba donde vea un éxito de
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-De este modo se muestran los resultados de la prueba.
+Los resultados de esta prueba abierta.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -123,7 +120,7 @@ Haga clic en el resultado para evaluarlo en el portal y ver el motivo del error.
 También puede descargar el archivo de resultados e inspeccionarlo en Visual Studio.
 
 
-*¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado por la página. Si se produce un error en cualquiera de ellos, se notificará que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
+*¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado por la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
 
 
@@ -141,7 +138,7 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
 1. Cree un proyecto de prueba de rendimiento web.
 
-    ![En Visual Studio, cree un nuevo proyecto a partir de la plantilla de prueba de carga y rendimiento web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![En Visual Studio, cree un proyecto a partir de la plantilla de prueba de carga y rendimiento web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. Abra el archivo .webtest y empiece a grabar.
 
@@ -195,13 +192,13 @@ Suponga que está probando una herramienta que obtiene datos que dependen del ti
 
 Al ejecutar la prueba, le gustaría que EndTime fuera siempre la hora actual y que StartTime fuera 15 minutos menos.
 
-Los complementos de prueba web proporcionan la manera de hacerlo.
+Los complementos de prueba web proporcionan la manera de parametrizar los tiempos.
 
 1. Agregue un complemento de prueba de web a cada valor variable que desee. En la barra de herramientas de pruebas web, elija **Agregar complemento de prueba web**.
 
     ![Elija Agregar complemento de prueba web y seleccione un tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    En este ejemplo, vamos a utilizar dos instancias del complemento de tiempo fecha. Es una instancia para "hace 15 minutos" y otra para "ahora".
+    En este ejemplo, vamos a utilizar dos instancias del complemento de tiempo fecha. Una instancia es para "hace 15 minutos" y otra para "ahora".
 
 2. Abra las propiedades de cada complemento. Asígnele un nombre y configúrelo para utilizar la hora actual. En cada uno de ellos, establezca Añadir minutos = -15.
 
@@ -215,19 +212,19 @@ Ahora puede cargar la prueba en el portal. Utilizará los valores dinámicos en 
 
 ## Tratamiento del inicio de sesión
 
-Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión para poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
+Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión a fin de poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
 
 En todos los casos, debe crear una cuenta solo con fines de prueba. Si es posible, restrinja sus permisos para que sea de solo lectura.
 
-* Nombre de usuario y contraseña simples: solo debe registrar una prueba web de la forma habitual. Elimine las cookies en primer lugar.
-* Autenticación SAML. Para ello, puede utilizar el complemento SAML que está disponible para las pruebas web.
-* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory la proporciona.
+* Nombre de usuario y contraseña simples: registre una prueba web de la forma habitual. Elimine las cookies en primer lugar.
+* Autenticación SAML. Utilice el complemento SAML que está disponible para las pruebas web.
+* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory proporciona un inicio de sesión secreto de cliente.
 * Autenticación abierta: por ejemplo, al iniciar sesión con su cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa de secreto de cliente, por lo que es la primera táctica que hay que investigar. Si la prueba tiene que iniciar sesión con OAuth, el enfoque general es el siguiente:
  * Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación.
  * Realice dos o más inicios de sesión mediante distintas máquinas o exploradores o en intervalos largos de tiempo (para permitir que los tokens expiren).
  * Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión.
  * Grabe una prueba web con Visual Studio.
- * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intentará parametrizar la prueba, pero no parametrizará correctamente los tokens).
+ * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
 
 ## <a name="edit"></a> Modificación o deshabilitación de una prueba
@@ -244,7 +241,7 @@ Puede ejecutar una prueba de carga en el sitio web. Al igual que la prueba de di
 
 En la hoja Información general, abra **Configuración**, **Pruebas de rendimiento**. Cuando crea una prueba, se le invitará a conectarse o a crear una cuenta de Visual Studio Team Services.
 
-Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas de éxito.
+Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas de éxito.
 
 
 ## Automatización
@@ -260,7 +257,7 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 
 * *¿Se admite HTTPS?*
 
-    Actualmente, se admiten SSL 3.0 y TLS 1.0.
+    Admitimos TLS 1.1 y TLS 1.2.
 
 * *¿Existe alguna diferencia entre las "pruebas web" y las "pruebas de disponibilidad"?*
 
@@ -285,7 +282,7 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 
     Hay un límite de 100 solicitudes por prueba.
 
-    La prueba se detendrá si se ejecuta durante más de dos minutos.
+    La prueba se detiene si se ejecuta durante más de dos minutos.
 
 * *¿Cómo se puede ejecutar una prueba con certificados de cliente?*
 
@@ -312,4 +309,4 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

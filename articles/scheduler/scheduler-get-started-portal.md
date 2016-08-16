@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Introducción al Programador de Azure en el Portal de Azure
@@ -25,7 +25,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
 2.  Haga clic en **+Nuevo** > escriba _Programador_ en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador**, escriba la siguiente información:
 
@@ -33,7 +33,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
     2.  **Suscripción**: su suscripción a Azure.
 
-    3.  **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** > escriba un nombre.
+    3.  **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** y escriba un nombre.
 
 4.  Después, en **Configuración de la acción**, defina los siguientes valores:
 
@@ -43,7 +43,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
     3.  **URL:** ` http://www.microsoft.com`
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Por último, vamos a definir una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad:
 
@@ -51,11 +51,11 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
     2. **Inicio**: la fecha de hoy
 
-    3. **Repetir cada:** `12 Hours`
+    3. **Repetir cada**: `12 Hours`
 
     4. **Finalización**: dos días a partir de hoy
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Haga clic en **Crear**
 
@@ -73,7 +73,7 @@ Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga cli
 
 5.  Usuarios
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Propiedades
 
@@ -100,7 +100,7 @@ Para los tipos de acción del Bus de servicio, puede cambiar el espacio de nombr
 
 Esto le permite volver a configurar la programación, si es que desea cambiar la programación que creó en el Asistente de creación rápida.
 
-Esta es una oportunidad para crear [programaciones complejas y periodicidad avanzada en el trabajo](scheduler-advanced-complexity.md)
+Esta es una oportunidad para crear [programaciones complejas y periodicidad avanzada en el trabajo](scheduler-advanced-complexity.md).
 
 Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la fecha y hora de finalización (si el trabajo es periódico).
 
@@ -109,9 +109,9 @@ Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la f
 
 ### Historial
 
-La pestaña **Historial** muestra las métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
+La pestaña **Historial** muestra métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
 
-1.  Status
+1.  Estado
 
 2.  Detalles
 
@@ -125,16 +125,16 @@ La pestaña **Historial** muestra las métricas seleccionadas para cada ejecuci�
 
    ![][job-history]
 
-Puede hacer clic en una ejecución para ver los **Detalles del historial** incluida la respuesta completa a cada ejecución. Este cuadro de diálogo también le permite copiar la respuesta en el Portapapeles.
+Puede hacer clic en una ejecución para ver su información en **Detalles del historial**, incluida la respuesta completa a cada ejecución. Este cuadro de diálogo también le permite copiar la respuesta en el Portapapeles.
 
    ![][job-history-details]
 
 ### Usuarios
 
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso al Programador de Azure. Para aprender a utilizar la pestaña de usuarios, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
+El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso al Programador de Azure. Para aprender a usar la pestaña Usuarios, consulte [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md)
 
 
-## Consulte también
+## Otras referencias
 
  [¿Qué es Programador?](scheduler-intro.md)
 
@@ -150,7 +150,7 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 
  [Alta disponibilidad y confiabilidad del Programador](scheduler-high-availability-reliability.md)
 
- [Límites, valores predeterminados y códigos de error del Programador](scheduler-limits-defaults-errors.md)
+ [Límites, valores predeterminados y códigos de error de Programador](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida del Programador](scheduler-outbound-authentication.md)
 
@@ -182,4 +182,4 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

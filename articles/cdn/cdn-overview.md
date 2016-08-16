@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/28/2016"
+	ms.date="08/09/2016"
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
@@ -39,7 +39,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los r
 
 3. El origen devuelve el archivo al servidor perimetral, incluidos los encabezados HTTP opcionales que describen el período de vida (TTL) del archivo.
 
-4. El servidor perimetral almacena el archivo en caché y devuelve el archivo al solicitante original (Alice). El archivo permanecerá en caché en el servidor perimetral hasta que expire el TTL. Si el origen no ha especificado un TTL, el valor predeterminado será de 7 días.
+4. El servidor perimetral almacena el archivo en caché y devuelve el archivo al solicitante original (Alice). El archivo permanece en caché en el servidor perimetral hasta que expire el TTL. Si el origen no ha especificado ningún TTL, el valor predeterminado será de siete días.
 
 5. Otros usuarios adicionales (por ejemplo, Bob) pueden solicitar, a continuación, el mismo archivo mediante esa misma dirección URL y también se les puede dirigir a ese mismo POP.
 
@@ -57,6 +57,7 @@ Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**
 | Equilibrio de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Protección DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Pila dual IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrado por país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -82,4 +83,4 @@ Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [No
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/16/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication
@@ -30,12 +30,12 @@ Es posible que se configuren administradores para el Portal de usuarios y que se
 
 Los siguientes requisitos previos son obligatorios para instalar el Portal de usuarios en el mismo servidor que Servidor Azure Multi-Factor Authentication:
 
-- IIS debe estar instalado, incluido ASP.NET y Compatibilidad con la metabase de IIS 6 (para IIS 7 o posterior). 
+- IIS debe estar instalado, incluido ASP.NET y Compatibilidad con la metabase de IIS 6 (para IIS 7 o posterior).
 - El usuario que haya iniciado sesión debe tener derechos de administrador para el equipo y el dominio, si corresponde. La razón es que la cuenta necesita permisos para crear grupos de seguridad de Active Directory.
 
 ### Para implementar el Portal de usuarios para Servidor Azure Multi-Factor Authentication
 
-1. En Servidor Azure Multi-Factor Authentication: haga clic en el icono Portal de usuarios en el menú de la izquierda y después en el botón Instalar portal de usuarios. 
+1. En Servidor Azure Multi-Factor Authentication: haga clic en el icono Portal de usuarios en el menú de la izquierda y después en el botón Instalar portal de usuarios.
 1. Haga clic en Siguiente.
 1. Haga clic en Siguiente.
 1. Si el equipo está unido a un dominio y la configuración de Active Directory para proteger la comunicación entre el Portal de usuarios y el servicio Azure Multi-Factor Authentication está incompleta, se mostrará el paso de Active Directory. Haga clic en el botón Siguiente para completar la configuración de forma automática.
@@ -80,7 +80,7 @@ Si el SDK del servicio web de Azure Multi-Factor Authentication aún no está in
 Antes de instalar el Portal de usuarios en un servidor independiente, tenga en cuenta lo siguiente:
 
 - Resulta útil abrir un explorador web en un servidor web con conexión a Internet e ir a la dirección URL del SDK del servicio web que se especificó en el archivo web.config. Si el explorador puede obtener acceso al servicio web correctamente, debería solicitarle credenciales. Escriba el nombre de usuario y la contraseña que se especificaron en el archivo web.config tal y como aparecen en el archivo. Asegúrese de que no aparezca ningún error ni advertencia de certificado.
-- Si existe un proxy inverso o un firewall en el servidor web del Portal de usuarios que está realizando la descarga de SSL, puede editar el archivo web.config del Portal de usuarios y agregar la siguiente clave en la sección <appSettings> para que el Portal de usuarios pueda usar http en lugar de https. <add key="SSL_REQUIRED" value="false"/>
+- Si existe un proxy inverso o un firewall en el servidor web del Portal de usuarios que está realizando la descarga de SSL, puede editar el archivo web.config del Portal de usuarios y agregar la siguiente clave en la sección <appSettings> para que el Portal de usuarios pueda usar http en lugar de https. <add key="SSL\_REQUIRED" value="false"/>
 
 #### Para instalar el Portal de usuarios
 
@@ -89,7 +89,7 @@ Antes de instalar el Portal de usuarios en un servidor independiente, tenga en c
 3. Ejecute el archivo de instalación MultiFactorAuthenticationUserPortalSetup64 y cambie el nombre de directorio virtual y sitio si lo desea.
 4. Después de finalizar la instalación del Portal de usuarios, vaya a C:\\inetpub\\wwwroot\\MultiFactorAuth (o el directorio correspondiente según el nombre del directorio virtual) y edite el archivo web.config.
 5. Busque la clave USE\_WEB\_SERVICE\_SDK y cambie el valor de false a true. Busque las claves WEB\_SERVICE\_SDK\_AUTHENTICATION\_USERNAME y WEB\_SERVICE\_SDK\_AUTHENTICATION\_PASSWORD y establezca los valores en el nombre de usuario y la contraseña de la cuenta de servicio que pertenece al grupo de seguridad PhoneFactor Admins (consulte la sección de requisitos anterior). Asegúrese de especificar el nombre de usuario y la contraseña entre comillas al final de la línea (value=””/>). Se recomienda usar un nombre de usuario completo (por ejemplo, dominio\\nombreDeUsuario o equipo\\nombreDeUsuario).
-6. Busque la configuración pfup\_pfwssdk\_PfWsSdk y cambie el valor de "http://localhost:4898/PfWsSdk.asmx" a la dirección URL del SDK del servicio web que se ejecuta en Servidor Azure Multi-Factor Authentication (por ejemplo, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx) ). Como se usa SSL para esta conexión, debe hacer referencia el SDK del servicio web por el nombre del servidor y no por la dirección IP, ya que el certificado SSL se habrá emitido para el nombre del servidor y la dirección URL usada debe coincidir con el nombre del certificado. Si el nombre del servidor no se resuelve en una dirección IP del servidor con conexión a Internet, agregue una entrada al archivo hosts en ese servidor para asignar el nombre de Servidor Azure Multi-Factor Authentication a su dirección IP. Una vez realizados los cambios, guarde el archivo web.config.
+6. Busque la configuración pfup\_pfwssdk\_PfWsSdk y cambie el valor de "http://localhost:4898/PfWsSdk.asmx" a la dirección URL del SDK del servicio web que se ejecuta en Servidor Azure Multi-Factor Authentication (por ejemplo, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Como se usa SSL para esta conexión, debe hacer referencia el SDK del servicio web por el nombre del servidor y no por la dirección IP, ya que el certificado SSL se habrá emitido para el nombre del servidor y la dirección URL usada debe coincidir con el nombre del certificado. Si el nombre del servidor no se resuelve en una dirección IP del servidor con conexión a Internet, agregue una entrada al archivo hosts en ese servidor para asignar el nombre de Servidor Azure Multi-Factor Authentication a su dirección IP. Una vez realizados los cambios, guarde el archivo web.config.
 7. Si el sitio web donde se instaló el Portal de usuarios (por ejemplo, Sitio web predeterminado) aún no está enlazado con un certificado firmado públicamente, instale el certificado en el servidor si aún no lo está, abra el Administrador de IIS y enlace el certificado al sitio web.
 8. Abra un explorador web desde cualquier equipo y vaya a la dirección URL donde se instaló el Portal de usuarios (por ejemplo, https://www.publicwebsite.com/MultiFactorAuth ). Asegúrese de que no aparezca ningún error ni advertencia de certificado.
 
@@ -100,7 +100,7 @@ Ahora que el portal está instalado, debe configurar el servidor Azure Multi-Fac
 
 Servidor Azure Multi-Factor Authentication ofrece varias opciones para el portal de usuarios. En la tabla siguiente se proporciona una lista de estas opciones y se obtiene una explicación de para qué se usan.
 
-Configuración del portal de usuarios|Descripción|
+Configuración del portal de usuarios|Description|
 :------------- | :------------- | 
 URL del portal de usuarios| Permite especificar la dirección URL en la que se hospeda el portal.
 Autenticación principal| Permite especificar el tipo de autenticación que se usará al iniciar sesión en el portal. Autenticación de Windows, Radius o LDAP.
@@ -189,4 +189,4 @@ La autoinscripción del usuario ahora está completa y el usuario inicia sesión
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

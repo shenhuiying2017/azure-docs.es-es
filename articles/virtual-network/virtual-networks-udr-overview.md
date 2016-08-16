@@ -3,7 +3,7 @@
    description="Aprenda a utilizar rutas definidas por el usuario (UDR) y el reenvío IP para reenviar el tráfico a la red de aplicaciones virtuales de Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # ¿Qué son las rutas definidas por el usuario y el reenvío IP?
 Al agregar máquinas virtuales (VM) a una red virtual (VNet) en Azure, observará que las máquinas virtuales son capaces de comunicarse automáticamente con otras máquinas por toda la red. No es necesario que especifique una puerta de enlace, incluso si las máquinas virtuales están en subredes diferentes. Cuando existe una conexión híbrida de Azure a su centro de datos, puede aplicar esto a la comunicación de las máquinas virtuales en la red pública e incluso a su red local.
@@ -41,7 +41,7 @@ La siguiente ilustración muestra un ejemplo de las rutas definidas por el usuar
 ## Recurso de ruta
 Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento definida en cada nodo de la red física. Una tabla de enrutamiento es una colección de rutas individuales que se utiliza para decidir dónde reenviar los paquetes según la dirección IP de destino. Una ruta consta de lo siguiente:
 
-|Propiedad|Descripción|Restricciones|Consideraciones|
+|Propiedad|Description|Restricciones|Consideraciones|
 |---|---|---|---|
 | Prefijo de dirección | El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16.|Debe ser un intervalo de CIDR válidos que representan direcciones en la red Internet pública, la red virtual o el centro de datos local.|Asegúrese de que **Prefijo de dirección** no contiene la dirección de **Siguiente dirección de salto**; de lo contrario, los paquetes entrarán en un bucle que va desde el origen al próximo salto sin llegar nunca al destino. |
 | Tipo de próximo salto | El tipo de salto de Azure al que debe enviarse el paquete. | Debe ser uno de los siguientes valores: <br/> **Red virtual**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16, en la misma red virtual, la ruta de cada una de ellas en la tabla de rutas tendrá un valor de próximo salto de *Red virtual*. <br/> **Puerta de enlace de red virtual**. Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **No**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.| Considere la posibilidad de usar el tipo **No** para evitar que los paquetes vayan a un destino dado. | 
@@ -77,7 +77,7 @@ Las subredes dependen de las rutas del sistema hasta que una tabla de enrutamien
 
 Para obtener información sobre cómo crear rutas definidas por el usuario, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si quiere agregar un dispositivo virtual de firewall entre la red local y Azure, tendrá que crear una ruta definida por el usuario para las tablas de rutas de Azure que reenvíe todo el tráfico que va al espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante procedente del espacio de direcciones local se propagará a través de la puerta de enlace de VPN, o circuito ExpressRoute, directamente en el entorno de Azure, omitiendo la aplicación virtual.
+>[AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si quiere agregar un dispositivo virtual de firewall entre la red local y Azure, tendrá que crear una ruta definida por el usuario para las tablas de rutas de Azure que reenvíe todo el tráfico que va al espacio de direcciones local al dispositivo virtual. También puede agregar una ruta definida por el usuario (UDR) a GatewaySubnet para reenviar todo el tráfico local a Azure a través de la aplicación virtual. Esta es una incorporación reciente.
 
 ### Rutas BGP
 Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP propagar las rutas de la red local a Azure. Estas rutas BGP se usan de la misma forma que las rutas del sistema y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](../expressroute/expressroute-introduction.md).
@@ -94,4 +94,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes.
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md) y asociarlos a subredes.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

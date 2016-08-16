@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 
@@ -85,4 +85,4 @@ En este punto, Servidor Multi-Factor Authentication está configurado para ser u
 
 Ejecute el script \\Archivos de programa\\Multi-Factor Authentication Server\\Register-MultiFactorAuthenticationAdfsAdapter.ps1 en PowerShell para registrar el adaptador. El adaptador está registrado como WindowsAzureMultiFactorAuthentication. Debe reiniciar el servicio de AD FS para que surta efecto el registro.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

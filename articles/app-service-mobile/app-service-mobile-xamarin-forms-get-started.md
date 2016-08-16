@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="08/04/2016"
 	ms.author="glenga"/>
 
 #Creación de una aplicación Xamarin.Forms
@@ -52,14 +52,6 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 Para configurar el proyecto de servidor para que use el back-end de Node.js o. NET, siga los pasos que se indican a continuación.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## (Opcional) Prueba del proyecto de back-end de forma local
-
-Si eligió una configuración de back-end de .NET, tiene la opción de probar el back-end localmente.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
 
 ##Descarga y ejecución de la solución Xamarin.Forms
 
@@ -159,11 +151,11 @@ Encontrará el código con el que se accede al back-end de la aplicación móvil
 
 ##Pasos siguientes
 
-* [Agregar autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md): aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md): aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar Centros de notificaciones de Azure para enviar notificaciones push.
+* [Incorporación de notificaciones push a su aplicación](app-service-mobile-xamarin-forms-get-started-push.md): aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
 
-* [Habilitar la sincronización sin conexión para la aplicación](app-service-mobile-xamarin-forms-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
+* [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-xamarin-forms-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
 
 * [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md): aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin.
 
@@ -188,4 +180,4 @@ Encontrará el código con el que se accede al back-end de la aplicación móvil
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

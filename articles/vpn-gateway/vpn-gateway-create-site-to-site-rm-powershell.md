@@ -183,7 +183,7 @@ A continuación, creará la conexión VPN de sitio a sitio entre la puerta de en
 
 Pasado un momento, se establecerá la conexión.
 
-## 9\. Comprobar una conexión VPN
+## <a name="toverify"></a>Para comprobar una conexión VPN
 
 Hay varias maneras diferentes de comprobar la conexión VPN. A continuación, hablaremos de cómo realizar una comprobación básica mediante el portal de Azure usando PowerShell.
 
@@ -191,15 +191,18 @@ Hay varias maneras diferentes de comprobar la conexión VPN. A continuación, ha
 
 ## <a name="modify"></a>Para modificar los prefijos de dirección IP de una puerta de enlace de red local
 
-Si tiene que cambiar los prefijos de puerta de enlace de red local, siga las instrucciones a continuación. Se proporcionan dos conjuntos de instrucciones: El conjunto de instrucciones que debe elegir depende de si ya ha creado o no la conexión de puerta de enlace VPN.
+Si tiene que cambiar los prefijos de puerta de enlace de red local, siga las instrucciones a continuación. Se proporcionan dos conjuntos de instrucciones: Las instrucciones que elija dependen de si ya se ha creado la conexión de la puerta de enlace.
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>Para modificar la dirección IP de una puerta de enlace de red local
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Pasos siguientes
 
 - Puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-- Para más información acerca de BGP, consulte [Información acerca de BGP](vpn-gateway-bgp-overview.md) y [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
+- Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

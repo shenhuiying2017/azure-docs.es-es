@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/29/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Carga de datos con la Factoría de datos de Azure
+# Carga de datos con la Factoría de datos de Azure 
 
 > [AZURE.SELECTOR]
 - [Factoría de datos][]
@@ -240,4 +240,4 @@ En estos temas se proporciona información detallada sobre Factoría de datos de
 [Portal de Azure]: https://portal.azure.com
 [Descargue los datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

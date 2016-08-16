@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="06/22/2016"
+	ms.date="08/07/2016"
 	ms.author="juliako;anilmur"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -60,7 +60,7 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 
 Para conocer los conceptos de Servicios multimedia de Azure, consulte [Conceptos](media-services-concepts.md).
 
-Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, consulte los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AME. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) o el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php).
+Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, consulte los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AMS. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) o el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 
@@ -220,4 +220,4 @@ Para obtener más información, consulte el [Contrato de nivel de servicio (SLA)
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->
