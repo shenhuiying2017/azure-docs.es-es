@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver en máquinas virtuales de Azure: guía de implementación de DBMS
@@ -445,7 +445,7 @@ ___
 > ![Linux][Logo_Linux] Linux
 >
 > Para crear un software RAID en Linux, solo se admiten MDADM y LVM (Logical Volume Manager). Para más información, consulte los siguientes artículos:
-> * [Configuración del software RAID en Linux][virtual-machines-linux-configure-raid] (para MDADM)
+> * [Configuración del software RAID en Linux][virtual-machines-linux-configure-raid] \(para MDADM)
 > * [Configuración del LVM en una máquina virtual Linux en Azure][virtual-machines-linux-configure-lvm]
 
 
@@ -538,7 +538,7 @@ Si deseamos crear configuraciones de alta disponibilidad de implementaciones de 
 
 * Las máquinas virtuales nuevas se deben agregar a la misma red virtual de Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>).
 * Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales. 
-[comentario]: [comment]: <> (MSSedusch TODO Test if still true in ARM)
+[comentario]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### Direcciones IP
 Se recomienda encarecidamente configurar las máquinas virtuales para configuraciones de alta disponibilidad de una manera flexible. En Azure no se recomienda depender de las direcciones IP para abordar los asociados de alta disponibilidad dentro de la configuración de alta disponibilidad, a menos que se utilizan direcciones IP estáticas. Hay dos conceptos de apagado en Azure:
@@ -1358,4 +1358,4 @@ Todos los demás temas generales, como la supervisión de conjuntos de disponibi
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

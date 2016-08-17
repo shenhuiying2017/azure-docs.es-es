@@ -261,7 +261,7 @@ Para incorporar genéricamente cualquier máquina a DSC de Automatización de Az
                     RefreshFrequencyMins = $RefreshFrequencyMins 
                     RefreshMode = $RefreshMode 
                     ConfigurationMode = $ConfigurationMode 
-                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    AllowModuleOverwrite = $AllowModuleOverwrite 
                     RebootNodeIfNeeded = $RebootNodeIfNeeded 
                     ActionAfterReboot = $ActionAfterReboot 
                     ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
@@ -379,4 +379,4 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

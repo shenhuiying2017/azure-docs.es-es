@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Informes de HTTP avanzados"
+	pageTitle="Informes de HTTP avanzados en la red CDN de Azure | Microsoft Azure"
 	description="Informes de HTTP avanzados en la red CDN de Microsoft Azure Estos informes proporcionan información detallada sobre la actividad de la red CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Informes de HTTP avanzados en la red CDN de Microsoft Azure
@@ -28,11 +28,13 @@ En este documento se explican los informes de HTTP avanzados en la red CDN de Mi
 
 1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
 
-	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+	![Botón de administración de hoja de perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
 	Se abre el portal de administración de la red CDN.
 
 2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**. Haga clic en **Plataforma grande HTTP**.
+
+	![Portal de administración de la red CDN: menú Informes avanzados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	Se muestran las opciones de informe.
 
@@ -196,4 +198,4 @@ Directamente debajo del gráfico de barras, se mostrará la información siguien
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

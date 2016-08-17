@@ -13,29 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/17/2016" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de Data Management Gateway
 
 Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Factoría de datos hace que dicha integración sea perfecta con Data Management Gateway, que es un agente que se puede instalar de forma local para permitir el movimiento de datos híbridos.
 
-Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
+Para más información, consulte los artículos [Movimiento de datos entre orígenes locales y de nube con Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) y [Data Management Gateway](data-factory-data-management-gateway.md).
 
-## VERSIÓN ACTUAL (2.0.6013.1)
+## VERSIÓN ACTUAL (2.1.6040.1)
+
+- El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado.
+- El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows).
+- Admite el uso de DocumentDB como origen o destino para almacenes de datos locales
+- Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida.
+- Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.
+
+## Versiones anteriores
+
+## 2\.0.6013.1
 
 - Puede seleccionar el idioma o la referencia cultural que utilizará una puerta de enlace durante la instalación manual.
 - Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos 7 días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.
 - Mejoras de la interfaz de usuario del Administrador de configuración de puertas de enlace:
 	- Mayor visibilidad del estado de la puerta de enlace en la pestaña Inicio.
 	- Controles reorganizados y simplificados.
-- Puede copiar datos de un almacenamiento distinto de Blob de Azure en Almacenamiento de datos SQL de Azure a través de PolyBase y el blob provisional mediante la [herramienta de vista previa de copia sin código](data-factory-copy-data-wizard-tutorial.md). Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para obtener más información sobre esta característica en general.
+- Puede copiar datos de un almacenamiento distinto de Blob de Azure en Almacenamiento de datos SQL de Azure a través de PolyBase y del blob de almacenamiento provisional mediante la [herramienta de versión preliminar de copia sin código](data-factory-copy-data-wizard-tutorial.md). Para más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy).
 - Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Aprendizaje automático de Azure.
 - Mejoras en el rendimiento
 	- Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server mediante la herramienta de vista previa de copia sin código.
 
 
-## Versiones anteriores
 
 ## 1\.12.5953.1
 - Corrección de errores
@@ -161,4 +170,4 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 ### ¿Por qué intenta conectarse el Administrador de origen de datos a una puerta de enlace?
 Se trata de un diseño de seguridad en el que solo se pueden configurar los orígenes de datos locales para el acceso a la nube dentro de la red corporativa y sus credenciales no fluirán fuera del firewall corporativo. Asegúrese de que su equipo puede acceder el equipo en que está instalado la puerta de enlace.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

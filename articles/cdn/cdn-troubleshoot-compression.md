@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Red CDN: solución de problemas de compresión de archivos"
-	description="Solucione los problemas con la compresión de archivos de red CDN."
+	pageTitle="Solución de problemas de compresión de archivos en la red CDN de Azure | Microsoft Azure"
+	description="Solucione los problemas con la compresión de archivos de la red CDN de Azure."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Solución de problemas de compresión de archivos de red CDN
@@ -99,4 +99,4 @@ El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pas
 - **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la metabase de IIS](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

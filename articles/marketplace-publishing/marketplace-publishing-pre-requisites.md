@@ -13,8 +13,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="06/29/2016"
-  ms.author="hascipio; v-divte"/>
+  ms.date="08/01/2016"
+  ms.author="hascipio"/>
 
 # Requisitos previos generales para crear una oferta para Azure Marketplace
 Conozca los requisitos previos generales, centrados en procesos de negocio, que se necesitan para avanzar con el proceso de la creación de ofertas.
@@ -22,21 +22,29 @@ Conozca los requisitos previos generales, centrados en procesos de negocio, que 
 ## Asegúrese de que está registrado como vendedor con Microsoft
 Para instrucciones detalladas sobre cómo registrar una cuenta de vendedor en Microsoft, vaya a [Creación y registro de cuentas](marketplace-publishing-accounts-creation-registration.md).
 
-- Si **ya está registrado**, averigüe qué persona de la compañía es el propietario o qué credenciales se usaron para registrarse.
-- Si **no es el propietario de la cuenta de publicación**, puede hacer que el propietario de la cuenta agregue su cuenta de Microsoft como coadministrador al [portal de publicación](https://publish.windowsazure.com). En la pestaña **Publicadores**, use el vínculo **Administradores**.
-- Asegúrese de que las partes interesadas en el proceso de publicación de Azure reciban el correo electrónico que vaya a esta dirección. Se debe supervisar y responder para completar el proceso de publicación.
-- Evite asociar la cuenta a una sola persona. Si esa persona dejase la compañía, podría afectar a su capacidad para acceder a información al respecto y publicar las SKU.
+- **Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere crear una nueva oferta,** inicie sesión en el Portal de publicación con el mismo identificador de correo electrónico con el que se realizó el registro en el Centro de desarrollo. Este paso es necesario para que el Portal de publicación y el Centro de desarrollo están vinculados entre sí.
+- **Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere editar una oferta existente,** inicie sesión en el Portal de publicación con la cuenta de administrador o con una que se agregue como cuenta de coadministrador en el Portal de publicación. A continuación, se muestran los pasos para agregar una cuenta de coadministrador.
+
+## Pasos para agregar coadministradores en el Portal de publicación
+Los administradores del Portal de publicación podrán agregar como coadministradores al resto de los miembros de la compañía que estén utilizando la aplicación. **Si damos por hecho que usted es el administrador**, siga estos pasos para agregar un coadministrador.
+
+>[AZURE.NOTE] Para los nuevos usuarios, antes de agregar un coadministrador en el Portal de publicación, asegúrese de que ha creado, al menos, una aplicación en el Portal de publicación. Esto es necesario porque la pestaña **PUBLICADORES** solo se muestra después de crear, como mínimo, una aplicación en el Portal de publicación.
+
+1. Asegúrese de que el identificador de correo electrónico de coadministrador sea una cuenta Microsoft (MSA). Si no es así, regístrela como MSA haciendo clic en este [vínculo](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+2. Asegúrese de que hay, al menos, una aplicación en la cuenta de administrador antes de intentar agregar un coadministrador.
+3. Cuando realice los pasos anteriores, inicie sesión en el Portal de publicación con el identificador de correo electrónico de coadministrador y, luego, cierre de sesión.
+4. Ahora, inicie sesión en el Portal de publicación con el identificador de correo electrónico de administrador.
+5. Vaya a Publicadores -> seleccione la cuenta -> Administradores -> Agregar nuevo coadministrador (consulte la captura de pantalla siguiente).
+
+    ![dibujo](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
+
+6. Asegúrese de supervisar los identificadores de correo electrónico proporcionados en las distintas fases del proceso de publicación (por ejemplo, el Centro de desarrollo, el Portal de publicación) en las comunicaciones de Microsoft.
+7. En cuanto al registro del Centro de desarrollo, evite usar una cuenta asociada a una sola persona. Esto se recomienda para tener que dejar de depender de una persona.
+8. Si experimenta problemas con el registro en el Centro de desarrollo, cree una incidencia haciendo clic en este [vínculo](https://developer.microsoft.com/es-ES/windows/support).
 
 > [AZURE.IMPORTANT] No tiene que completar la información bancaria y fiscal de la compañía si solo va a publicar ofertas gratuitas (o de tipo traiga su propia licencia).
 
-> Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
-
-> Si tiene problemas para completar el registro como vendedor, abra una incidencia de soporte técnico, tal como se indica a continuación:
-> 1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286).
-> 2. Elija **Centro de desarrolladores**.
-> 3. Elija **Perfil de publicador**.
-> 4. Elija el método de contacto.
-
+> Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [Portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
 
 ## Adquisición de una suscripción de Azure de "pago por uso"
 Se trata de la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si no tiene una suscripción existente, inicie sesión aquí en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
@@ -47,10 +55,11 @@ Para vender sus servicios en Azure Marketplace, es necesario que se asegure de q
 
 ## Pasos siguientes
 Una vez cumplidos los requisitos previos no técnicos, nos encontramos los requisitos previos técnicos específicos de la oferta. Haga clic en el vínculo al artículo correspondiente al tipo de oferta que le gustaría crear en Azure Marketplace.
+
 - [Requisitos previos técnicos de la máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md)
 - [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## Consulte también
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

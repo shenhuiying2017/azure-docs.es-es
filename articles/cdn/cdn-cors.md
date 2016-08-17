@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Uso de la red CDN de Azure con CORS"
+	pageTitle="Uso de la red CDN de Azure con CORS | Microsoft Azure"
 	description="Descubra cómo usar la red de entrega de contenido (CDN) de Azure con el Uso compartido de recursos entre orígenes (CORS)."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Uso de la red CDN de Azure con CORS     
@@ -23,7 +23,7 @@
 CORS (Uso compartido de recursos entre orígenes) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Para reducir la posibilidad de ataques de scripts de sitios, todos los exploradores web modernos implementan una restricción de seguridad que se conoce como [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy). Esto impide que una página web llame a las API de un dominio distinto. CORS aporta un modo seguro de permitir que un dominio (el dominio de origen) llame a las API de otro dominio.
  
 ## Cómo funciona
-1.	El explorador envía la solicitud OPTIONS con un encabezado HTTP **Origin**. El valor de este encabezado es el dominio del que proviene la página primaria. Cuando una página de https://www.contoso.com intenta obtener acceso a datos de un usuario en el dominio fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com: 
+1.	El explorador envía la solicitud OPTIONS con un encabezado HTTP **Origin**. El valor de este encabezado es el dominio del que proviene la página primaria. Cuando una página de https://www.contoso.com intenta obtener acceso a datos de un usuario en el dominio fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com:
     
     `Origin: https://www.contoso.com`
  
@@ -81,4 +81,4 @@ En lugar de usar expresiones regulares, puede crear una regla aparte para cada o
 
 En los perfiles estándar de la red CDN de Azure, el único mecanismo para permitir varios orígenes sin usar el carácter comodín consiste en utilizar el [almacenamiento en caché de la cadena de consulta](cdn-query-string.md). Debe habilitar la configuración de la cadena de consulta para el punto de conexión de la red CDN y, después, utilizar una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN copiará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

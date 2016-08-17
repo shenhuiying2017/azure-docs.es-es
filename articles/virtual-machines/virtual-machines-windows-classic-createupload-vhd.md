@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Crear y cargar una imagen de Windows Server mediante Powershell | Microsoft Azure"
+	pageTitle="Creación y carga de una imagen de máquina virtual mediante Powershell | Microsoft Azure"
 	description="Aprenda a crear y cargar una imagen de Windows Server generalizada (VHD) mediante el modelo de implementación clásica y Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -104,4 +104,4 @@ Use el cmdlet [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.a
 
 Ahora puede [crear una VM personalizada](virtual-machines-windows-classic-createportal.md) mediante la imagen que cargó.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

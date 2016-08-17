@@ -1,7 +1,7 @@
 <properties
 pageTitle="OneDrive para la Empresa | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a OneDrive para la Empresa para administrar sus archivos. Puede realizar diversas acciones en archivos: carga, actualización, obtención y eliminación."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -366,4 +366,4 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,19 +1,19 @@
 <properties
-  pageTitle="Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure | Microsoft Azure"
-  description="Obtención de datos de diagnóstico de Azure en Almacenamiento de Azure y su visualización"
-  services="cloud-services"
-  documentationCenter=".net"
-  authors="rboucher"
-  manager="jwhit"
-  editor="tysonn" />
+	pageTitle="Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure | Microsoft Azure"
+	description="Obtención de datos de diagnóstico de Azure en Almacenamiento de Azure y su visualización"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor="tysonn" />
 <tags
-  ms.service="cloud-services"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="na"
-  ms.date="02/20/2016"
-  ms.author="robb" />
+	ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/01/2016"
+	ms.author="robb" />
 
 # Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure
 
@@ -85,7 +85,7 @@ Existen varias herramientas para ver los datos una vez que se transfieren al alm
 
 - El Explorador de servidores en Visual Studio: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Almacenamiento de Azure en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Almacenamiento de Azure. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- El [Explorador de almacenamiento de Azure de Neudesic](http://azurestorageexplorer.codeplex.com/) es una herramienta de interfaz gráfica de usuario útil para inspeccionar y modificar los datos en los proyectos de Almacenamiento de Azure, incluidos los registros de las aplicaciones de Azure.
+- [Explorador de almacenamiento de Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OSX y Linux.
 
 - [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) incluye Azure Diagnostics Manager, que permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure.
 
@@ -94,4 +94,4 @@ Existen varias herramientas para ver los datos una vez que se transfieren al alm
 
 [Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

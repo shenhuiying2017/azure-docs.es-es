@@ -268,7 +268,7 @@ Este paso se aplica únicamente a las aplicaciones web, no a los servicios en la
 	![][50]
 
 ## Pasos siguientes
-Para obtener más información sobre las pruebas unitarias en Visual Studio Team Services, consulte [Ejecución de pruebas unitarias en una compilación](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si usa Git, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-publish-source-control.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para obtener más información sobre las pruebas unitarias en Visual Studio Team Services, consulte [Ejecución de pruebas unitarias en una compilación](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si usa Git, consulte [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) (Uso compartido del código en Git) y [Implementación continua en el Servicio de aplicaciones de Azure](../app-service-web/app-service-continuous-deployment.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,4 +321,4 @@ Para obtener más información sobre las pruebas unitarias en Visual Studio Team
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

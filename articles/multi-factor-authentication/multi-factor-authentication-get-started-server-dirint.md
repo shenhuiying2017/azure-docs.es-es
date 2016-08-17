@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Integración de directorios entre Servidor Azure MFA y Active Directory
@@ -25,7 +25,7 @@ De forma predeterminada, Servidor Azure Multi-Factor Authentication está config
 
 ![Configuración](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
-| Característica | Descripción |
+| Característica | Description |
 | ------- | ----------- |
 | Usar Active Directory | Seleccione la opción Usar Active Directory para usar Active Directory para la importación y sincronización. Esta es la configuración predeterminada. <br>Nota: el equipo debe estar unido a un dominio y es necesario iniciar sesión con una cuenta de dominio para que la integración con Active Directory funcione correctamente. |
 | Incluir dominios de confianza | Active la casilla Incluir dominios de confianza para que el agente intente conectarse a dominios de confianza para el dominio actual, otro dominio del bosque o dominios implicados en una confianza de bosque. Si no está importando o sincronizando usuarios desde los dominios de confianza, desactive la casilla para mejorar el rendimiento. El valor predeterminado es activado. |
@@ -35,7 +35,7 @@ De forma predeterminada, Servidor Azure Multi-Factor Authentication está config
 
 En la tabla siguiente se describen las opciones de configuración LDAP.
 
-| Característica | Descripción |
+| Característica | Description |
 | ------- | ----------- |
 | Server | Escriba el nombre de host o dirección IP del servidor que ejecuta el directorio LDAP. También puede especificar un servidor de copia de seguridad separado por un punto y coma. <br>Nota: cuando el tipo de enlace es SSL, se requiere generalmente un nombre de host completo. |
 | DN base | Escriba el nombre distintivo del objeto de directorio base desde el que se iniciarán todas las consultas de directorio. Por ejemplo, dc=abc,dc=com. |
@@ -64,12 +64,12 @@ Los atributos se pueden personalizar según sea necesario para un directorio esp
 
 ![Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
-| Característica | Descripción |
+| Característica | Description |
 | ------- | ----------- |
 | Identificador único | Escriba el nombre del atributo que actúa como identificador único de los registros de contenedor, de grupo de seguridad y de usuario. En Active Directory, suele ser objectGUID. En otras implementaciones LDAP, puede ser entryUUID o similar. El valor predeterminado es objectGUID. |
 | ... Botones ... (Seleccionar atributo) | Cada campo de atributo tiene un botón "..." al lado que mostrará el cuadro de diálogo Seleccionar atributo para poder seleccionar un atributo de una lista. <br><br>Cuadro de diálogo Seleccionar atributo.<br><br>Nota: los atributos pueden especificarse manualmente y no tienen que coincidir con un atributo de la lista de atributos. |
 | Tipo de identificador único | Seleccione el tipo de atributo de identificador único. En Active Directory, el atributo objectGUID es de tipo GUID. En otras implementaciones LDAP, puede ser de tipo matriz de bytes ASCII o cadena. El valor predeterminado es GUID. <br><br>Nota: es importante establecer esto correctamente ya que se hace referencia a los elementos de sincronización por su identificador único y el tipo de identificador único se usa para buscar el objeto directamente en el directorio. El establecimiento de este valor en cadena cuando el directorio almacena realmente el valor como matriz de bytes de caracteres ASCII impedirá que la sincronización funcione correctamente. |
-| Nombre distintivo | Escriba el nombre del atributo que contiene el nombre distintivo para cada registro. En Active Directory, suele ser distinguishedName. En otras implementaciones LDAP, puede ser entryDN o similar. El valor predeterminado es distinguishedName. <br><br>Nota: si no existe un atributo que contiene únicamente el nombre distintivo, puede utilizar el atributo adspath. La parte "LDAP://<server>/" de la ruta de acceso se quitará automáticamente y dejará solo el nombre distintivo del objeto. |
+| Nombre distintivo | Escriba el nombre del atributo que contiene el nombre distintivo para cada registro. En Active Directory, suele ser distinguishedName. En otras implementaciones LDAP, puede ser entryDN o similar. El valor predeterminado es distinguishedName. <br><br>Nota: si no existe un atributo que contiene únicamente el nombre distintivo, puede utilizar el atributo adspath. La parte "LDAP://<servidor>/" de la ruta de acceso se quitará automáticamente y quedará solo el nombre distintivo del objeto. |
 | Nombre del contenedor | Escriba el nombre del atributo que contiene el nombre en un registro de contenedor. El valor de este atributo se mostrará en la jerarquía de contenedores al importar desde Active Directory o agregar elementos de sincronización. El valor predeterminado es name. <br><br>Nota: si distintos contenedores usan atributos diferentes para sus nombres, se pueden especificar varios atributos de nombres de contenedor separados por punto y coma. Se utilizará el primer atributo de nombre de contenedor que se encuentre en un objeto de contenedor para mostrar su nombre. |
 | Nombre de grupo de seguridad | Escriba el nombre del atributo que contiene el nombre en un registro de grupo de seguridad. El valor de este atributo se mostrará en la lista de grupos de seguridad al importar desde Active Directory o agregar elementos de sincronización. El valor predeterminado es name. |
 | Usuarios | Los atributos siguientes se usan para buscar, mostrar, importar y sincronizar información de usuario desde el directorio. |
@@ -78,7 +78,7 @@ Los atributos se pueden personalizar según sea necesario para un directorio esp
 | Apellidos | Escriba el nombre del atributo que contiene los apellidos en un registro de usuario. El valor predeterminado es sn. |
 | Dirección de correo electrónico | Escriba el nombre del atributo que contiene la dirección de correo electrónico en un registro de usuario. La dirección de correo electrónico se usará para enviar al usuario mensajes de correo electrónico de bienvenida y de actualización. El valor predeterminado es mail. |
 | Grupo de usuarios | Escriba el nombre del atributo que contiene el grupo de usuarios en un registro de usuario. Se pueden usar un grupo de usuarios para filtrar usuarios en el agente y en informes en el Portal de administración de Servidor Multi-Factor Authentication. |
-| Descripción | Escriba el nombre del atributo que contiene la descripción en un registro de usuario. La descripción solo se utiliza para realizar búsquedas. El valor predeterminado es description. |
+| Description | Escriba el nombre del atributo que contiene la descripción en un registro de usuario. La descripción solo se utiliza para realizar búsquedas. El valor predeterminado es description. |
 | Idioma de llamadas de voz | Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para llamadas de voz para el usuario. |
 | Idioma de texto de SMS | Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para los mensajes de texto de SMS para el usuario. |
 | Idioma de la aplicación de teléfono | Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para los mensajes de texto de la aplicación de teléfono para el usuario. |
@@ -112,7 +112,7 @@ Si se ha configurado para usar LDAP y el directorio LDAP admite el control DirSy
 
 Utilice la tabla siguiente para obtener información adicional sobre cada una de las opciones de configuración individuales en la pestaña Sincronización.
 
-| Característica | Descripción |
+| Característica | Description |
 | ------- | ----------- |
 | Habilitar sincronización con Active Directory | Cuando está activado, se iniciará el servicio Servidor Multi-Factor Authentication para realizar sondeos periódicos de los cambios para Active Directory. <br><br>Nota: se debe agregar al menos un elemento de sincronización y ejecutar Sincronizar ahora antes de que el servicio Servidor Multi-Factor Authentication empiece a procesar los cambios. |
 | Sincronizar cada | Especifique el intervalo de tiempo que el servicio Servidor Multi-Factor Authentication esperará entre el sondeo y el procesamiento de los cambios. <br><br>Nota: el intervalo especificado es el tiempo entre el inicio de cada ciclo. Si el tiempo de procesamiento de los cambios supera el intervalo, el servicio volverá a realizar un sondeo de inmediato. |
@@ -137,4 +137,4 @@ Se pueden configurar Servidores Multi-Factor Authentication adicionales para que
 
 ![Servidores Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

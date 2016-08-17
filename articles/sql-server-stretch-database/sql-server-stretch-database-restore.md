@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/01/2016"
 	ms.author="douglasl"/>
 
 # Restauración de bases de datos habilitadas para Stretch
@@ -27,8 +27,7 @@ Para obtener más información sobre la copia de seguridad, consulte [Copia de s
 ## Restauración de los datos de SQL Server
 Para recuperarse de un error de hardware o daños, restaure la base de datos de SQL Server habilitada para Stretch a partir de una copia de seguridad. Aún puede seguir utilizando los métodos de restauración de SQL Server que utiliza actualmente. Para obtener más información, consulte [Información general sobre restauración y recuperación (SQL Server)](https://msdn.microsoft.com/library/ms191253.aspx).
 
-Después de restaurar la base de datos de SQL Server, tendrá que ejecutar el procedimiento almacenado **sys.sp\_rda\_reauthorize\_db** para volver a establecer la conexión entre la base de datos de SQL Server habilitada para Stretch y la de Azure remota. Para obtener más información, consulte [Restauración de la conexión entre la base de datos de SQL Server y la de Azure remota](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
+Después de restaurar la base de datos de SQL Server, tendrá que ejecutar el procedimiento almacenado **sys.sp\_rda\_reauthorize\_db** para volver a establecer la conexión entre la base de datos de SQL Server habilitada para Stretch y la de Azure remota. Para más información, consulte [Restauración de la conexión entre la base de datos de SQL Server y la de Azure remota](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database).
 
 ## Restauración de los datos de Azure remotos
 
@@ -84,4 +83,4 @@ Para restaurar una base de datos de Azure eliminada al momento en que se suprimi
 
 [Copia de seguridad y restauración de bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

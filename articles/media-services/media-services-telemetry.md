@@ -12,20 +12,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2016"   
+	ms.date="07/27/2016"   
 	ms.author="juliako"/>
 
 # Telemetría de los Servicios multimedia de Azure con .NET
  
 ## Información general
 
-La telemetría y supervisión de los Servicios multimedia permite a los clientes de los mismos tener acceso a datos de métricas para sus servicios. La versión actual es compatible con los datos de telemetría para entidades "Channel" y "StreamingEndpoint". Puede configurar la telemetría en la granularidad de nivel de componente. Hay dos niveles de detalle "Normal" y "Detallado". La versión actual solo admite "Normal".
+La telemetría y supervisión de los Servicios multimedia permite a los clientes de los mismos tener acceso a datos de métricas para sus servicios. La versión actual es compatible con los datos de telemetría para entidades Channel y StreamingEndpoint. Puede configurar la telemetría en la granularidad de nivel de componente. Hay dos niveles de detalle "Normal" y "Detallado". La versión actual solo admite "Normal".
 
-La telemetría se escribe en una cuenta de Almacenamiento de Azure proporcionada por el cliente (la cuenta de Servicios multimedia tiene que tener adjunta una cuenta de almacenamiento). Se escribe en una tabla de Almacenamiento de Azure en la cuenta de almacenamiento especificada. El sistema de telemetría creará una tabla independiente para cada día nuevo basada en 00:00 UTC. Por ejemplo "TelemetryMetrics20160321" donde "20160321" es la fecha de la tabla creada. Habrá una tabla independiente para cada día.
+La telemetría se escribe en una tabla de almacenamiento de una cuenta de Almacenamiento de Azure proporcionada por el cliente (la cuenta de Servicios multimedia tiene que tener adjunta una cuenta de almacenamiento). El sistema de telemetría creará una tabla independiente para cada día nuevo basada en 00:00 UTC. Por ejemplo "TelemetryMetrics20160321" donde "20160321" es la fecha de la tabla creada. Habrá una tabla independiente para cada día.
 
-El sistema de telemetría no proporciona retención de datos ni eliminación automática de registros antiguos. Por ello es necesario que sea usted quien administre y elimine los registros antiguos. Tener tablas separadas para cada día facilita la eliminación de los registros antiguos. No tiene más que eliminar las tablas antiguas.
+Tenga en cuenta que el sistema de telemetría no administra la retención de datos. Puede quitar los datos antiguos de telemetría eliminando las tablas de almacenamiento.
 
-Este tema muestra cómo habilitar la telemetría de los servicios especificados de AMS y cómo consultar las métricas usando .NET.
+Puede utilizar los datos de telemetría de una de las maneras siguientes:
+
+- Leer datos directamente desde Almacenamiento de tablas de Azure (por ejemplo, mediante el SDK de almacenamiento). Para la descripción de las tablas de almacenamiento de datos de telemetría, consulte la sección sobre **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) tema.
+
+O
+
+- Aproveche la compatibilidad del SDK de .NET de Servicios multimedia para leer los datos de almacenamiento. Este tema muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Servicios Multimedia de Azure.
 
 ## Configuración de telemetría para una cuenta de Servicios multimedia
 
@@ -52,7 +58,7 @@ Para habilitar la telemetría es necesario realizar los pasos siguientes:
 
 Los datos de telemetría se crean en una tabla de Almacenamiento de Azure de la cuenta de almacenamiento que especificó al configurar la telemetría para la cuenta de Servicios multimedia. El sistema de telemetría creará una tabla independiente para cada día nuevo basada en 00:00 UTC. Por ejemplo "TelemetryMetrics20160321" donde "20160321" es la fecha de la tabla creada. Habrá una tabla independiente para cada día.
 
-Puede consultar las tablas de la siguiente información de métricas.
+Puede consultar las tablas de telemetría de la siguiente información de métricas. El ejemplo, que se muestra más adelante en este tema, muestra cómo utilizar el SDK de .NET de Servicios multimedia para consultar métricas.
 
 ### Registro StreamingEndpoint
 
@@ -94,8 +100,10 @@ Propiedad|Descripción|Valor de ejemplo
 **DiscontinuityCount**|Obtiene el recuento de discontinuidad.|0
 **LastTimestamp**|Obtiene la última marca de tiempo.|1800488800
  
-## Ejemplo de métricas de StreamingEndpoint
-		
+## Ejemplo  
+	
+El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Servicios Multimedia de Azure.
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -246,4 +254,4 @@ Consulte las rutas de aprendizaje de los Servicios multimedia de Azure para cono
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

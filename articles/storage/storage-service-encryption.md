@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="07/27/2016"
 	ms.author="robinsh"/>
 
 # Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -37,9 +37,9 @@ Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabi
 
 ##Disponibilidad
 
-Para el almacenamiento estándar, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, centro-norte de EE. UU., Sudeste Asiático, Europa Occidental y oeste de EE. UU.
+Para el almacenamiento estándar, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, centro-norte de EE. UU., Europa del Norte, centro-sur de EE. UU, Sudeste Asiático, Europa Occidental y oeste de EE. UU.
 
-Para el almacenamiento Premium, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, centro-norte de EE. UU., Sudeste Asiático, Japón Oriental y oeste de EE. UU.
+Para el almacenamiento premium, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, Japón Oriental, centro-norte de EE. UU., Europa del Norte, centro-sur de EE. UU, Sudeste Asiático y oeste de EE. UU.
 
 Actualizaremos este documento a medida que esta característica se implemente en otras regiones.
 
@@ -229,4 +229,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

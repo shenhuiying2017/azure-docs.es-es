@@ -103,7 +103,7 @@ La desventaja de la implementación desde un servicio de control de código fuen
 ###<a name="vsts"></a>Implementación continua desde un servicio de control de código fuente basado en la nube
 En el [Portal de Azure](https://portal.azure.com), puede configurar la implementación continua desde GitHub, BitBucket y Visual Studio Team Services.
 
-* [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continous-deployment.md).
+* [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md)
 
 ## <a name="localgitdeployment"></a>Implementación desde Git local
 Si el equipo de desarrollo usa un servicio de administración de código fuente (SCM) local basado en Git, puede configurarlo como un origen de implementación en Servicio de aplicaciones.
@@ -234,4 +234,4 @@ Para obtener información sobre cómo usar el control de acceso basado en roles 
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

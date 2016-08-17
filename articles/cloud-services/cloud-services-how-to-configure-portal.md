@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # Configuración de servicios en la nube
 
@@ -56,7 +53,7 @@ Desde aquí puede configurar una alerta. Mediante el cuadro desplegable **Mertic
 - Escritura de disco
 - Red interna
 - Red externa
-- Porcentaje de CPU 
+- Porcentaje de CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@ Puede que necesite volver a configurar el servicio en la nube a través del arch
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -224,7 +224,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 
 ## Pasos siguientes
 
-Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, consulte [Desarrollo y uso compartido del código de Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Team Services para publicar en Azure, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-publish-source-control.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, consulte [Develop and share your code in Git using Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) (Desarrollo y uso compartido del código de Git con Visual Studio) y para más información sobre el uso de un repositorio de Git no administrado por Visual Studio Team Services para publicar en Azure, consulte [Implementación continua en el Servicio de aplicaciones de Azure](../app-service-web/app-service-continuous-deployment.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +272,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, c
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

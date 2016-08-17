@@ -3,7 +3,7 @@
 	description="En este tema se explican las consideraciones de seguridad que hay que tener en cuenta para administrar la seguridad después de restaurar una base de datos o de conmutarla por error."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -95,4 +95,4 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 
 ## Recursos adicionales
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

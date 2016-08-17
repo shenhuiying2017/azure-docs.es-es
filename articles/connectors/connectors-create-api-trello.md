@@ -1,7 +1,7 @@
 <properties
 pageTitle="Trello | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa. Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo. Conéctese a Trello para administrar los paneles, listas y tarjetas"
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -610,4 +610,4 @@ Obtiene listas según el identificador: obtiene listas según el identificador
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -218,7 +218,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name* y el contexto *mobile&#95;service&#95;name*, respectivamente.
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio \*mobile&#95;service&#95;name* y el contexto \*mobile&#95;service&#95;name*, respectivamente.
 
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 

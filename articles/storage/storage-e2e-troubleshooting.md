@@ -340,7 +340,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro (de cliente, de servidor, de red, todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
-| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Red |
+| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124; HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
 | Aumento en PercentTimeoutError (todos) |    *StatusCode == 500 | Todos |
 | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |

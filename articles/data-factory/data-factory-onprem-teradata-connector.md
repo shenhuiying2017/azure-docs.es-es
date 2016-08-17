@@ -30,7 +30,7 @@ Factoría de datos solo admite el movimiento de datos desde Teradata a otros alm
 
 Para que Data Management Gateway se conecte a la Base de datos Teradata, es preciso instalar el [proveedor de datos .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) en el mismo sistema que Data Management Gateway.
 
-> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+> [AZURE.NOTE] Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ### Ejemplo: copia de datos de Teradata a un blob de Azure
 
@@ -311,4 +311,4 @@ Xml | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

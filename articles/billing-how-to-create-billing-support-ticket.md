@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure | Microsoft Azure"
 	description="Describe cómo crear una incidencia de soporte técnico para problemas de suscripción y facturación de Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@ También puede enviar una solicitud de soporte técnico desde el sitio web de so
 
  >[AZURE.NOTE]Solo el administrador de cuenta de Azure tiene permiso para acceder al Centro de cuentas. Para más información sobre cómo averiguar quién es el administrador de cuenta de la suscripción, consulte las [Preguntas más frecuentes](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

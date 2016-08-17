@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
@@ -80,7 +80,7 @@ Haga clic en **Agregar API al producto**.
 
 ![Add API to product][api-management-add-api]
 
-Seleccione **API Eco** y luego haga clic en **Guardar**.
+Seleccione **API Eco ** y luego haga clic en **Guardar**.
 
 ![Add Echo API][api-management-add-echo-api]
 
@@ -293,4 +293,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

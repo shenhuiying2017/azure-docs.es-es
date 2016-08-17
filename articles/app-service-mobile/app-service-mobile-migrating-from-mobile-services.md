@@ -42,7 +42,7 @@ Para más información sobre las ventajas del Servicio de aplicaciones de Azure,
 
 Antes de empezar cualquier trabajo importante en su sitio, debe [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil].
 
-Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
+Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] \(junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
 
 ## <a name="migrating-site"></a>Migración de los sitios
 
@@ -287,17 +287,17 @@ Ya no podrá usar el comando _azure mobile_ para administrar el sitio de Servici
 | mobile show _name_ | site show _name_ |
 | mobile restart _name_ | site restart _name_ |
 | mobile redeploy _name_ | site deployment redeploy _commitId_ _name_ |
-| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile config list _name_ | site appsetting list _name_ |
 | mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
-| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile domain list _name_ | site domain list _name_ |
 | mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
 | mobile domain delete _name_ | site domain delete _domain_ _name_ |
 | mobile scale show _name_ | site show _name_ |
 | mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
 | mobile appsetting list _name_ | site appsetting list _name_ |
-| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_ |
 | mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
 | mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
 
@@ -353,7 +353,7 @@ Si tiene un sitio ASP.NET, los cambios en el archivo `Web.config` no funcionará
 </configuration>
 ```
 
-Para más información, consulte la documentación [XDT Transform Samples] (Ejemplos de transformación de XDT) en GitHub.
+Para más información, consulte la documentación [XDT Transform Samples] \(Ejemplos de transformación de XDT) en GitHub.
 
 ### Los Servicios móviles migrados no se pueden agregar al Administrador de tráfico
 
@@ -390,7 +390,7 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [Portal de Azure]: https://portal.azure.com
 [Región de Azure]: https://azure.microsoft.com/regions/
 [planes del Programador de Azure]: ../scheduler/scheduler-plans-billing.md
-[implementar su sitio de forma continuada]: ../app-service-web/web-sites-publish-source-control.md
+[implementar su sitio de forma continuada]: ../app-service-web/app-service-continuous-deployment.md
 [convertir los espacios de nombres mixtos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
@@ -409,4 +409,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

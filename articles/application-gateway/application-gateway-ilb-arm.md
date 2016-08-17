@@ -3,7 +3,7 @@
    description="En esta página se proporcionan instrucciones para crear, configurar, iniciar y eliminar una puerta de enlace de aplicaciones de Azure con un equilibrador de carga interno (ILB) en el Administrador de recursos de Azure"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB) mediante el Administrador de recursos de Azure
@@ -51,9 +51,9 @@ La diferencia entre el uso del Portal de Azure clásico y el Administrador de re
 Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
 1. Creación de un grupo de recursos para el Administrador de recursos
-2. Creación de una red virtual y una subred para la puerta de enlace de aplicaciones.
+2. Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 3. Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
-4. Creación de un recurso de puerta de enlace de aplicaciones
+4. Crear un recurso de la puerta de enlace de aplicaciones
 
 
 ## Creación de un grupo de recursos para el Administrador de recursos
@@ -90,7 +90,7 @@ El Administrador de recursos de Azure requiere que todos los grupos de recursos 
 
 En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-rg" y la ubicación "West US".
 
-## Creación de una red virtual y una subred para la puerta de enlace de aplicaciones.
+## Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
 En el ejemplo siguiente se muestra cómo crear una red virtual con el Administrador de recursos:
 
@@ -237,4 +237,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

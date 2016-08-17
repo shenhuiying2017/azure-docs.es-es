@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Copia de seguridad de máquinas virtuales de Azure Resource Manager | Microsoft Azure"
-	description="Detecte, registre y realice copias de seguridad de máquinas virtuales de ARM en un almacén de Servicios de recuperación con estos procedimientos de copia de seguridad de máquinas virtuales de Azure."
+	pageTitle="Copia de seguridad de máquinas virtuales de Azure en un almacén de Servicios de recuperación | Microsoft Azure"
+	description="Detecte, registre y realice copias de seguridad de máquinas virtuales de Azure en un almacén de Servicios de recuperación con estos procedimientos de copia de seguridad de máquinas virtuales de Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="copia de seguridad de máquinas virtuales; hacer copia de seguridad de máquinas virtuales; copia de seguridad y recuperación ante desastres; copia de seguridad de arm"/>
 
@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/29/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Copia de seguridad de máquinas virtuales de Azure Resource Manager (ARM)
+# Copia de seguridad de máquinas virtuales de Azure en un almacén de Servicios de recuperación
 
 > [AZURE.SELECTOR]
-- [Back up ARM VMs to Azure](backup-azure-arm-vms.md) (Copia de seguridad de máquinas virtuales de ARM en Azure)
-- [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms.md)
+- [Copia de seguridad de VM en el almacén de Servicios de recuperación](backup-azure-arm-vms.md)
+- [Copia de seguridad de VM en el almacén de Copia de seguridad](backup-azure-vms.md)
 
-En este artículo se proporciona el procedimiento para crear una copia de seguridad de máquinas virtuales (VM) de Azure Resource Manager en un almacén de Servicios de recuperación. La mayor parte del trabajo de copia de seguridad de una máquina virtual de ARM pasa por una fase de preparación. Antes de poder realizar una copia de seguridad de una máquina virtual de Azure, o protegerla, es necesario realizar una serie de tareas que son [requisito previo](backup-azure-arm-vms-prepare.md) con el fin de preparar el entorno para la protección de las máquinas virtuales. Cuando haya realizado estas tareas, puede iniciar la operación de copia de seguridad para tomar instantáneas de la máquina virtual.
+En este artículo se proporciona el procedimiento para realizar una copia de seguridad de máquinas virtuales de Azure (con el modelo de implementación de Resource Manager o el modelo clásico) en un almacén de Servicios de recuperación. La mayor parte del trabajo de copia de seguridad de máquinas virtuales se emplea durante la preparación. Antes de poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario realizar una serie de tareas que son [requisito previo](backup-azure-arm-vms-prepare.md) con el fin de preparar el entorno para la protección de las máquinas virtuales. Cuando haya realizado estas tareas, puede iniciar la operación de copia de seguridad para tomar instantáneas de la máquina virtual.
 
->[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Este artículo es para su uso con Resource Manager y máquinas virtuales basadas en ARM. Consulte [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms.md) para más información sobre cómo trabajar con máquinas virtuales del modelo de implementación clásica.
+>[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Puede proteger máquinas virtuales implementadas mediante el modelo de Resource Manager y máquinas virtuales clásicas con almacenes de Servicios de recuperación. Consulte [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms.md) para más información sobre cómo trabajar con máquinas virtuales del modelo de implementación clásica.
 
 Para obtener más información, vea los artículos sobre cómo [planear la infraestructura de copia de seguridad de máquinas virtuales en Azure](backup-azure-vms-introduction.md) y sobre las [máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -77,4 +77,4 @@ Ahora que ha protegido su máquina virtual, consulte los siguientes artículos p
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-arm-restore-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

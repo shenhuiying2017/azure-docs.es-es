@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Cómo configurar alertas de Azure para enviar a otros sistemas"
+	pageTitle="Cómo configurar alertas de Azure para enviar a otros sistemas | Microsoft Azure"
 	description="Redistribuir alertas de Azure a otros sistemas que no sean de Azure."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,8 +33,8 @@ En la pantalla Crear/actualizar alertas en el [Portal de Azure](https://portal.a
 
 La autenticación puede ser de dos tipos:
 
-1. **Autenticación basada en token** : en este caso guardará el URI de webhook con un id. de token como **https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
-2.	**Autenticación básica**: mediante un id. de usuario y una contraseña: en este caso guardará el URI de webhook como **https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
+1. **Autenticación basada en token** : en este caso guardará el URI de webhook con un id. de token como *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
+2.	**Autenticación básica**: mediante un id. de usuario y una contraseña: en este caso guardará el URI de webhook como *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
 
 ## Esquema de carga
 
@@ -97,10 +97,10 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
 |resourceGroupName |Y | |resource-group-name del recurso afectado|
 |resourceName |Y | |resource name del recurso afectado|
 |resourceType |Y | |tipo de recurso del recurso afectado|
-|resourceId |Y | |URI de id. de recurso que identifica ese recurso de forma única|
+|resourceId |Y | |Identificador URI de identificador de recurso que identifica el recurso de forma única|
 |resourceRegion |Y | |región/ubicación del recurso que se ve afectado|
 |portalLink |Y | |vínculo directo del portal de azure a la página de resumen de recursos|
-|propiedades |N |Opcional |Es un conjunto de pares <Key  Value> (es decir, el diccionario <String  String>) que incluye detalles sobre el evento. El campo de propiedades es opcional. Un flujo de trabajo basado en aplicación lógica o interfaz de usuario personalizada, los usuarios pueden especificar clave/valores que se pueden pasar a través de la carga. La forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta).|
+|propiedades |N |Opcional |Es un conjunto de pares <Clave, Valor> (es decir, Dictionary<String, String>) que incluye detalles sobre el evento. El campo de propiedades es opcional. Un flujo de trabajo basado en aplicación lógica o interfaz de usuario personalizada, los usuarios pueden especificar clave/valores que se pueden pasar a través de la carga. La forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta).|
 
 
 >[AZURE.NOTE] No se puede usar el campo de propiedades a través del Portal. En nuestro próximo lanzamiento del SDK de Insights, puede establecer las propiedades mediante la API de la alerta.
@@ -123,4 +123,4 @@ Use las alertas de Azure para enviar mensajes a otros servicios. Use las siguien
 
 [Usar la aplicación lógica para enviar mensajes a una cola de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

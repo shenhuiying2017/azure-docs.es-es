@@ -25,7 +25,7 @@ La Factoría de datos admite la conexión al sistema de archivos local, y desde 
 > [AZURE.NOTE] 
 Además de Data Management Gateway, no es necesario instalar otros archivos binarios para la comunicación con el sistema de archivos local, y desde este.
 > 
-> Consulte [Solución de problemas de la puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver sugerencias de solución de problemas relacionadas con la conexión o la puerta de enlace.
+> Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## Recurso compartido de archivos de Linux 
 
@@ -574,4 +574,4 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

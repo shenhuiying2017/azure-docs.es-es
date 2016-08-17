@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de un emparejamiento de VNET mediante plantillas de Azure Resource Manager | Microsoft Azure"
+   pageTitle="Creación de un emparejamiento de VNET mediante plantillas de Resource Manager | Microsoft Azure"
    description="Aprenda a crear un emparejamiento de red virtual mediante las plantillas de Resource Manager."
    services="virtual-network"
    documentationCenter=""
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
 # Creación de un emparejamiento de VNET mediante plantillas de Azure Resource Manager
 
@@ -29,9 +29,9 @@ Para crear un emparejamiento de VNET mediante plantillas de Resource Manager, si
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
-Nota: El cmdlet de PowerShell para administrar el emparejamiento de VNET se suministra con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    Nota: El cmdlet de PowerShell para administrar el emparejamiento de VNET se suministra con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
-2. En la siguiente sección se muestra la definición del emparejamiento de VNET entre VNet1 y VNet2, basado en el escenario anterior. Copie el contenido que aquí se describe en un archivo y guárdelo en el archivo VNetPeeringVNet1.json.
+2. En el texto siguiente se muestra la definición de un vínculo del emparejamiento de VNET entre VNet1 y VNet2, en función del escenario anterior. Copie el contenido siguiente y guárdelo en un archivo denominado VNetPeeringVNet1.json.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -59,8 +59,7 @@ Nota: El cmdlet de PowerShell para administrar el emparejamiento de VNET se sumi
         ]
         }
     
-
-3. En la siguiente sección se muestra la definición del emparejamiento de VNET entre VNet2 y VNet1, basado en el escenario anterior. Copie el contenido que aquí se describe en un archivo y guárdelo en el archivo VNetPeeringVNet2.json.
+3. La siguiente sección muestra la definición de un vínculo de emparejamiento de VNET entre VNet2 y VNet1, en función del escenario anterior. Copie el contenido siguiente y guárdelo en un archivo denominado VNetPeeringVNet2.json.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -88,29 +87,29 @@ Nota: El cmdlet de PowerShell para administrar el emparejamiento de VNET se sumi
         ]
         }
 
-Como se muestra en plantilla anterior, hay algunas propiedades configurables en el emparejamiento de VNET:
+    Como se ve en plantilla anterior, hay algunas propiedades configurables en el emparejamiento de VNET:
 
-|Opción|Descripción|Valor predeterminado|
-|:-----|:----------|:------|
-|AllowVirtualNetworkAccess|Si el espacio de direcciones de red virtual emparejada se incluye como parte de la etiqueta Virtual\_network.|Sí|
-|AllowForwardedTraffic|Permite aceptar o rechazar el tráfico que no se origine en la red virtual emparejada.|No|
-|AllowGatewayTransit|Permite a la red virtual emparejada usar la puerta de enlace de red virtual.|No|
-|UseRemoteGateways|Se usa la puerta de enlace de la red virtual emparejada. La red virtual emparejada debe tener configurada una puerta de enlace y AllowGatewayTransit debe estar seleccionado. No se puede utilizar esta opción si tiene configurada una puerta de enlace.|No|
+    |Opción|Description|Valor predeterminado|
+    |:-----|:----------|:------|
+    |AllowVirtualNetworkAccess|Si el espacio de direcciones de una red virtual emparejada se incluye como parte de la etiqueta virtual\_network.|Sí|
+    |AllowForwardedTraffic|Si el tráfico que no parte de una red virtual emparejada se acepta o rechaza.|No|
+    |AllowGatewayTransit|Permite a la red virtual emparejada usar la puerta de enlace de la red virtual.|No|
+    |UseRemoteGateways|Se usa la puerta de enlace de la red virtual emparejada. La red virtual emparejada debe tener configurada una puerta de enlace y AllowGatewayTransit debe estar seleccionado. Esta opción no se puede utilizar si hay una puerta de enlace configurada.|No|
 
-Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anteriores. Por ejemplo, puede establecer AllowVirtualNetworkAccess en True para el vínculo de emparejamiento de VNET entre VNet1 y VNet2, y en False para el vínculo de emparejamiento de VNET de la otra dirección.
+    Cada vínculo de emparejamiento de VNET tiene el conjunto de propiedades anteriores. Por ejemplo, puede establecer AllowVirtualNetworkAccess en True para el vínculo de emparejamiento de VNET entre VNet1 y VNet2, y en False para el vínculo de emparejamiento de VNET en la otra dirección.
 
 
-4. Para implementar el archivo de plantilla, puede ejecutar el cmdlet New-AzureRmResourceGroupDeployment para crear o actualizar la implementación. Para más información sobre cómo usar las plantillas de Resource Manager, consulte este [artículo](../resource-group-template-deploy.md).
+4. Para implementar el archivo de plantilla, puede ejecutar el cmdlet New-AzureRmResourceGroupDeployment para crear o actualizar la implementación. Para más información acerca de cómo usar las plantillas de Resource Manager, consulte este [artículo](../resource-group-template-deploy.md).
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
-> [AZURE.NOTE] Reemplace el nombre del grupo de recursos y el archivo de plantilla según corresponda.
+    > [AZURE.NOTE] Reemplace el nombre del grupo de recursos y el archivo de plantilla según corresponda.
 
-Este es un ejemplo basado en el escenario anterior:
+    Este es un ejemplo basado en el escenario anterior:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet1.json -DeploymentDebugLogLevel all
 
-La salida muestra:
+    La salida muestra:
 
         DeploymentName		: VNetPeeringVNet1
         ResourceGroupName	: VNet101
@@ -124,7 +123,7 @@ La salida muestra:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
 
-La salida muestra:
+    La salida muestra:
 
         DeploymentName		: VNetPeeringVNet2
         ResourceGroupName	: VNet101
@@ -136,7 +135,7 @@ La salida muestra:
         Outputs			:
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 
-5. Cuando finalice la implementación, puede ejecutar el siguiente cmdlet para ver el estado de emparejamiento:
+5. Cuando finalice la implementación, puede ejecutar el siguiente cmdlet para ver el estado del emparejamiento:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNet1 -ResourceGroupName VNet101 -Name linktoVNet2
 
@@ -158,23 +157,23 @@ La salida muestra:
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-Después de que se establece el emparejamiento en este escenario, debería poder iniciar la conexión entre dos máquinas virtuales cualquiera de ambas redes virtuales. De forma predeterminada, AllowVirtualNetworkAccess es True y el emparejamiento de VNET aprovisionará las ACL adecuadas para permitir la comunicación entre redes virtuales. Sin embargo, puede seguir aplicando las reglas de NSG para bloquear la conectividad, por ejemplo, entre subredes o máquinas virtuales específicas para conseguir un mayor control de acceso entre dos redes virtuales. Para más información sobre la creación de reglas de NSG, consulte este [artículo](virtual-networks-create-nsg-arm-ps.md).
+	Después de que se establezca el emparejamiento en este escenario, debe poder iniciar la conexión entre dos máquinas virtuales cualesquiera de ambas redes virtuales. De manera predeterminada, el valor de AllowVirtualNetworkAccess es True y el emparejamiento de VNET aprovisionará las ACL adecuadas para permitir la comunicación entre redes virtuales. Se pueden seguir aplicando las reglas de grupo de seguridad de red (NSG) para bloquear la conectividad entre subredes o máquinas virtuales concretas para conseguir un mayor control del acceso entre dos redes virtuales. Para más información sobre la creación de reglas de NSG, consulte este [artículo](virtual-networks-create-nsg-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-Para crear el emparejamiento de VNET entre suscripciones, siga estos pasos:
+Para crear un emparejamiento de VNET entre suscripciones, siga estos pasos:
 
-1. Inicie sesión en Azure con User-A con privilegios para Subscription-A y ejecute el cmdlet:
+1. Inicie sesión en Azure con la cuenta de UserA con privilegios en la suscripción A y ejecute el siguiente cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
-Esto no es un requisito; se puede establecer emparejamiento incluso si los usuarios presentan individualmente solicitudes de emparejamiento de sus redes virtuales, siempre y cuando las solicitudes coincidan. Agregar usuarios con privilegios de la otra red virtual como usuarios de la red virtual local facilita la configuración.
+	Esto no es un requisito; se puede establecer el emparejamiento aunque los usuarios realicen individualmente solicitudes de emparejamiento de sus respectivas redes virtuales, siempre y cuando las solicitudes coincidan. La adición de usuarios con privilegios de la otra red virtual como usuarios de la red virtual local facilita la configuración.
 
-2. Inicie sesión en Azure con User-B con privilegios para Subscription-B y ejecute el cmdlet:
+2. Inicie sesión en Azure con la cuenta del UserB con privilegios para la suscripción B y ejecute el siguiente cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
 
-3. A continuación, en la sesión de User-A, ejecute el cmdlet:
+3. En la sesión de UserA, ejecute este cmdlet:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
@@ -206,11 +205,11 @@ Esto no es un requisito; se puede establecer emparejamiento incluso si los usuar
         ]
         }
    
-4. A continuación, en el inicio de sesión de User-B, ejecute el cmdlet:
+4. En la sesión de UserB, ejecute el siguiente cmdlet:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
    
-   Así es cómo se define el archivo JSON:
+	Así es cómo se define el archivo JSON:
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,11 +237,13 @@ Esto no es un requisito; se puede establecer emparejamiento incluso si los usuar
         ]
         }
  
- Después de que se establece el emparejamiento en este escenario, debería poder iniciar la conexión entre dos máquinas virtuales cualquiera de ambas redes virtuales entre diferentes suscripciones.
+ 	Después de que se establece el emparejamiento en este escenario, debería poder iniciar la conexión entre dos máquinas virtuales cualquiera de ambas redes virtuales entre diferentes suscripciones.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. En este escenario, puede implementar la misma plantilla que se indica a continuación para establecer el emparejamiento de VNET; en concreto, necesitará establecer la propiedad AllowForwardedTraffic en True, que permite que la aplicación virtual de red de la red virtual emparejada envíe y reciba tráfico. Aquí podemos ver la plantilla para crear el emparejamiento de VNET entre HubVNet y VNet1. Observe que AllowForwardedTraffic está establecido en False.
+1. En este escenario, se puede implementar la siguiente plantilla de ejemplo para establecer el emparejamiento de VNET. Es preciso establecer la propiedad AllowForwardedTraffic en True, lo que permite que la aplicación virtual de red envíe y reciba tráfico.
+
+	Esta es la plantilla para crear un emparejamiento de VNET entre HubVNet y VNet1. Observe que AllowForwardedTraffic está establecido en False.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -271,7 +272,7 @@ Esto no es un requisito; se puede establecer emparejamiento incluso si los usuar
         ]
         }
 
-2. Esta es la plantilla para crear el emparejamiento de VNET entre VNet1 y HubVnet. Observe que AllowForwardedTraffic está establecido en False.
+2. Esta es la plantilla para crear un emparejamiento de VNET entre VNet1 y HubVnet. Observe que AllowForwardedTraffic está establecido en False.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -300,6 +301,6 @@ Esto no es un requisito; se puede establecer emparejamiento incluso si los usuar
         }
 
 
-3. Después de establecer el emparejamiento, puede consultar este [artículo](virtual-network-create-udr-arm-ps.md) y establecer la ruta definida por el usuario (UDR) para redirigir el tráfico de VNet1 a través de una aplicación virtual para usar sus funcionalidades. Cuando se especifica la dirección Próximo salto en la ruta, puede establecerla en la dirección IP de la aplicación virtual de la red virtual HubVNet emparejada.
+3. Después de establecer el emparejamiento, puede consultar este [artículo](virtual-network-create-udr-arm-ps.md) para establecer rutas definidas por el usuario (UDR) para redirigir el tráfico de VNet1 a través de una aplicación virtual para usar sus funcionalidades. Cuando especifique la dirección del próximo salto en la ruta, puede establecerla en la dirección IP de la aplicación virtual del HubVNet de la red virtual emparejada.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,7 +4,7 @@
    keywords="continuidad del negocio, continuidad del negocio en la nube, recuperación de desastres de la base de datos, recuperación de la base de datos"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -31,7 +31,7 @@ Base de datos SQL realiza automáticamente una combinación de copias de segurid
 
 Puede utilizar este tipo de copia de seguridad para recuperar una base de datos después de que se produzcan diferentes eventos de interrupción tanto en su centro de datos como en otro. Con las copias de seguridad automáticas de bases de datos, el tiempo estimado de recuperación dependerá de varios factores, como el número total de bases de datos que se están recuperando a la vez en la misma región, el tamaño de estas, el tamaño del registro de transacciones y el ancho de banda de red. En la mayoría de los casos, es inferior a 12 horas. Cuando se lleva a cabo un proceso de recuperación en otra región de datos, la posible pérdida de datos solo es de 1 hora gracias al almacenamiento con redundancia geográfica de las copias de seguridad diferenciales de bases de datos que se realizan cada hora.
 
-> [AZURE.IMPORTANT] Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server o propietario de la suscripción. Consulte el artículo [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST (Transact-SQL no es compatible).
+> [AZURE.IMPORTANT] Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server o propietario de la suscripción. Consulte el artículo [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. (Transact-SQL no es compatible).
 
 Utilice las copias de seguridad automatizadas como mecanismo de recuperación y de continuidad empresarial si se cumplen los siguientes requisitos en su aplicación:
 
@@ -135,4 +135,4 @@ A veces, necesita desconectar una aplicación debido a un mantenimiento planeado
 
 Para ver una explicación de las consideraciones de diseño de las aplicaciones para bases de datos independientes y grupos elásticos, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

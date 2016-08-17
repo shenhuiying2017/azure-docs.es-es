@@ -76,11 +76,11 @@ Si el destino no era aplicable a ninguno de los prefijos Null o los prefijos VNE
 
 Si hay dos prefijos idénticos en la tabla de enrutamiento, el orden de preferencia en función del atributo "source" de las rutas es el siguiente:
 
-1.	<blank> = una ruta definida por el usuario agregada manualmente a la tabla.
+1.	<blank> = una ruta definida por el usuario agregada manualmente a la tabla
 2.	"VPNGateway" = una ruta dinámica (BGP cuando se usa con redes híbridas), agregada por un protocolo de red dinámico; estas rutas pueden cambiar con el tiempo a medida que el protocolo dinámico refleja automáticamente los cambios de red del mismo nivel.
 3.	"Default" = las rutas del sistema, la red virtual local y las entradas estáticas, tal y como se muestra en la tabla de enrutamiento anterior.
 
->[AZURE.NOTE] Hay una limitación en el uso del enrutamiento definido por el usuario (UDR) y ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Las subredes que se comunican con la puerta de enlace de Azure y que proporcionan la conexión de ExpressRoute no deben tener aplicado enrutamiento definido por el usuario. Además, la puerta de enlace de Azure no puede ser dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario. La capacidad de integrar totalmente el enrutamiento definido por el usuario y ExpressRoute se habilitará en una futura versión de Azure.
+>[AZURE.NOTE] Ahora puede usar el enrutamiento definido por usuario (UDR) con ExpressRoute e instancias de Puerta de enlace de VPN para forzar que el tráfico entrante y saliente entre locales se enrute a un dispositivo de red virtual (NVA).
 
 #### Creación de las rutas locales
 
@@ -505,7 +505,7 @@ Recuerde también que los grupos de seguridad de red están vigentes para el tr�
 4.	Si se habilitó la detección avanzada de amenazas en el firewall (este aspecto no se describe en este documento; consulte la documentación del proveedor de su dispositivo de red para ver las funcionalidades avanzadas para amenazas), podría impedirse incluso el tráfico permitido por las reglas de reenvío básicas descritas en este documento si el tráfico contiene signaturas o patrones que activen una regla de amenaza avanzada.
 
 #### (Denegado) Búsqueda de DNS de Internet en el servidor DNS
-1.	El usuario de Internet intenta buscar un registro DNS interno en DNS01 a través del servicio BackEnd001.CloudApp.Net. 
+1.	El usuario de Internet intenta buscar un registro DNS interno en DNS01 a través del servicio BackEnd001.CloudApp.Net.
 2.	Puesto que no hay ningún extremo abierto para el tráfico DNS, no pasaría por el servicio en la nube y no llegaría al servidor.
 3.	Si hubiera extremos abiertos por alguna razón, la regla de grupo de seguridad de red (bloquear Internet) en la subred front-end bloquearía este tráfico.
 4.	Por último, la ruta UDR de la subred back-end enviaría el tráfico saliente desde DNS01 al firewall como próximo salto. El firewall consideraría este tráfico asimétrico y descartaría la respuesta saliente. Por lo tanto, hay al menos tres capas independientes de defensa entre Internet e DNS01 gracias al servicio en la nube que impide el acceso no autorizado o inadecuado.
@@ -941,4 +941,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante Aplicaciones lógicas." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ Enterprise Integration Pack admite estos estándares del sector:
 - [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
 - [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

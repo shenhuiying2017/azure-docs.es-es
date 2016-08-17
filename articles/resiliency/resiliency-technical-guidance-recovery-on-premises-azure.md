@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación desde un centro de datos local a Azure
 
@@ -105,4 +105,4 @@ Para más información, consulte [Alta disponibilidad y recuperación ante desas
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie se centra en la [recuperación ante datos dañados o eliminación accidental](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -25,21 +25,25 @@ Se pueden usar [imágenes personalizadas](./devtest-lab-create-template.md) y [f
 Las imágenes personalizadas ofrecen una manera estática e inmutable de crear máquinas virtuales a partir de un entorno deseado.
 
 **Ventajas**
-- El aprovisionamiento de máquinas virtuales a partir de imágenes personalizadas es rápido, ya que nada cambia después de poner en marcha la máquina virtual desde la imagen. En otras palabras, no hay ninguna configuración que aplicar, pues la imagen personalizada es tan solo una imagen sin configuración. 
+- El aprovisionamiento de máquinas virtuales a partir de imágenes personalizadas es rápido, ya que nada cambia después de poner en marcha la máquina virtual desde la imagen. En otras palabras, no hay ninguna configuración que aplicar, pues la imagen personalizada es tan solo una imagen sin configuración.
 - Las máquinas virtuales creadas a partir de una sola imagen personalizada son idénticas.
 
 **Desventajas**
-- Si necesita actualizar algún aspecto de la imagen personalizada, hay que volver a crear la imagen.  
+- Si necesita actualizar algún aspecto de la imagen personalizada, hay que volver a crear la imagen.
 
 ## Ventajas y desventajas de las fórmulas
 Las fórmulas ofrecen una manera dinámica de crear máquinas virtuales a partir de la configuración deseada.
 
 **Ventajas**
-- Los cambios de entorno se pueden capturar sobre la marcha mediante artefactos. Por ejemplo, si quiere que una máquina virtual se instale con los bits más recientes de la canalización de entrega de versiones o desea dar de alta el código más reciente del repositorio, basta con especificar un artefacto que implemente los bits más recientes o dé de alta el código más reciente en la fórmula junto con una imagen base de destino. Siempre que se use esta fórmula para crear máquinas virtuales, se implementa o se da de alta el código o los bits más recientes en la máquina virtual. 
-- Las fórmulas pueden definir la configuración predeterminada que las imágenes personalizadas no pueden proporcionar; por ejemplo, tamaños de máquina virtual y configuración de red virtual. 
-- La configuración guardada en una fórmula se muestra como valores predeterminados, pero se puede modificar al crear la máquina virtual. 
+- Los cambios de entorno se pueden capturar sobre la marcha mediante artefactos. Por ejemplo, si quiere que una máquina virtual se instale con los bits más recientes de la canalización de entrega de versiones o desea dar de alta el código más reciente del repositorio, basta con especificar un artefacto que implemente los bits más recientes o dé de alta el código más reciente en la fórmula junto con una imagen base de destino. Siempre que se use esta fórmula para crear máquinas virtuales, se implementa o se da de alta el código o los bits más recientes en la máquina virtual.
+- Las fórmulas pueden definir la configuración predeterminada que las imágenes personalizadas no pueden proporcionar; por ejemplo, tamaños de máquina virtual y configuración de red virtual.
+- La configuración guardada en una fórmula se muestra como valores predeterminados, pero se puede modificar al crear la máquina virtual.
 
 **Desventajas**
 - La creación de una máquina virtual a partir de una fórmula puede tardar más que la creación de una máquina virtual a partir de una imagen personalizada.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Entradas blogs relacionadas
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/) (¿Imágenes personalizadas o fórmulas?)
+
+<!---HONumber=AcomDC_0803_2016-->

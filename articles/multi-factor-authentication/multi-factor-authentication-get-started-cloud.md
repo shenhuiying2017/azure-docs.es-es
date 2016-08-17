@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Azure Multi-Factor Authentication en la nube
@@ -72,7 +72,7 @@ Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure A
 		$sta = @($st)
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-El uso de PowerShell sería una opción para habilitar usuarios de forma masiva. Actualmente no hay ninguna característica de habilitación de forma masiva en el Portal de Azure y debe seleccionar cada usuario individualmente. Si tiene muchos usuarios, esto puede ser bastante trabajo. Con la creación de un script de PowerShell mediante las opciones anteriores, puede recorrer en iteración una lista de usuarios y habilitarlos. Aquí tiene un ejemplo:
+El uso de PowerShell sería una opción para habilitar usuarios de forma masiva. Actualmente no hay ninguna característica de habilitación de forma masiva en el Portal de Azure y debe seleccionar cada usuario individualmente. Si tiene muchos usuarios, esto puede ser bastante trabajo. Con la creación de un script de PowerShell mediante las opciones anteriores, puede recorrer en iteración una lista de usuarios y habilitarlos. Este es un ejemplo:
     
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -90,4 +90,4 @@ Para más información sobre los estados de usuario, consulte [User States in Az
 ## Pasos siguientes
 Ahora que ha configurado la autenticación multifactor en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

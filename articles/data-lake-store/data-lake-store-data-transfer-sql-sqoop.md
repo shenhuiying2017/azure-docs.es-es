@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Copia de datos entre Almacén de Data Lake y Base de datos SQL de Azure mediante Sqoop
@@ -33,7 +33,7 @@ Las aplicaciones de macrodatos son una opción natural para procesar datos no es
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup). 
+- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). En este artículo se supone que tiene un clúster de HDInsight Linux con acceso a Almacén de Data Lake.
 - **Base de datos de SQL Azure**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una Base de datos SQL de Azure](../sql-database/sql-database-get-started.md).
 
@@ -92,7 +92,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 
 ### Importación de datos de Base de datos SQL de Azure a Almacén de Data Lake
 
-3. Navegue al directorio donde están disponibles los paquetes de Sqoop. Normalmente, se encuentran en `/usr/hdp/<version>/sqoop/bin`. 
+3. Navegue al directorio donde están disponibles los paquetes de Sqoop. Normalmente, se encuentran en `/usr/hdp/<version>/sqoop/bin`.
 
 4. Importe datos de **Tabla1** a la cuenta de Almacén de Data Lake. Use la sintaxis siguiente:
 
@@ -120,12 +120,12 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 		-rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
 		-rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen, **Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
+	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen,** Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
 
 
 ### Exportación de datos de Almacén de Data Lake a Base de datos SQL de Azure
 
-6. Exporte los datos de la cuenta de Almacén de Data Lake a la tabla vacía, **Tabla2**, en la Base de datos SQL de Azure. Use la sintaxis siguiente.
+6. Exporte los datos de la cuenta de Data Lake Store a la tabla vacía, **Table2**, en la Base de datos SQL de Azure. Use la sintaxis siguiente.
 
 		
 		sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -135,7 +135,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 		
 		sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-6. Compruebe que los datos se han cargado en la tabla de Base de datos SQL. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio para conectarse a la Base de datos SQL de Azure y ejecute las consultas siguientes.
+6. Compruebe que los datos se han cargado en la tabla de Base de datos SQL. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio para conectarse a la Base de datos SQL de Azure y ejecute la siguiente consulta.
 
 		
 		SELECT * FROM TABLE2
@@ -156,4 +156,4 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Azure"
 	description="Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -63,4 +64,4 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

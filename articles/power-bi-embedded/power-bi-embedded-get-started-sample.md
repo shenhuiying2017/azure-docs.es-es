@@ -100,7 +100,7 @@ El ejemplo de **Microsoft Power BI Embedded** es una aplicación web de panel de
 
 El código de ejemplo de **Microsoft Power BI Embedded** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
 
-> [AZURE.NOTE] Esta sección es un resumen del código de ejemplo que muestra cómo se escribe el código. Cuando pasemos a la versión de disponibilidad general, ampliaremos la descripción del ejemplo. Para ver el ejemplo completo, cargue la solución PowerBI-embedded.sln en Visual Studio.
+> [AZURE.NOTE] Esta sección es un resumen del código de ejemplo que muestra cómo se escribe el código. Para ver el ejemplo completo, cargue la solución PowerBI-embedded.sln en Visual Studio.
 
 ### Modelo
 El ejemplo incluye las clases **ReportsViewModel** y **ReportViewModel**.
@@ -120,6 +120,15 @@ El ejemplo incluye las clases **ReportsViewModel** y **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Cadena de conexión
+La cadena de conexión debe tener el formato siguiente:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+No se podrán utilizar correctamente los atributos comunes de servidor y base de datos. Por ejemplo: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### Ver
 En la **vista** se administra la presentación de los **informes** de Power BI y de un **informe** Power BI.
@@ -158,7 +167,7 @@ Report.cshtml: establece **Model.AccessToken** y la expresión lambda para **Pow
 
 ### Controller
 
-**DashboardController.cs**: crea una clase PowerBIClient que pasa un **token de aplicación**. Se genera un token web JSON (JWT) a partir de la **clave de firma** para obtener las **credenciales**. Las **credenciales** se usan para crear una instancia de **PowerBIClient**. Cuando tenga una instancia de **PowerBIClient**, puede llamar a GetReports() y GetReportsAsync().
+**DashboardController.cs**: crea una clase PowerBIClient que pasa un **token de aplicación**. Se genera un token JSON Web Token (JWT) a partir de la **clave de firma** para obtener las **credenciales**. Las **credenciales** se usan para crear una instancia de **PowerBIClient**. Cuando tenga una instancia de **PowerBIClient**, puede llamar a GetReports() y GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 - [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

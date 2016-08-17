@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -91,4 +91,4 @@ Actualmente, el diseñador de Aplicación lógica no admite la detección de un 
 
 Puede ver un ejemplo de un desencadenador de webhook en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

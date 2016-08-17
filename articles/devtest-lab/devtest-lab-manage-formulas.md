@@ -64,12 +64,12 @@ Los siguientes pasos le guiarán a través del proceso de creación de una nueva
 
 	- **Nombre de fórmula**: escriba un nombre para la fórmula. Este valor se mostrará en la lista de imágenes base al crear la máquina virtual. El nombre se valida a medida que lo escribe y, si no es válido, un mensaje le indicará los requisitos para un nombre válido.
 	- **Descripción**: escriba una descripción significativa para la fórmula. Este valor está disponible desde el menú contextual de la fórmula al crear una máquina virtual.
-	- **Imagen**: este campo muestra el nombre de la imagen base que seleccionó en la hoja anterior. 
+	- **Imagen**: este campo muestra el nombre de la imagen base que seleccionó en la hoja anterior.
 	- **Tamaño de máquina virtual**: seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
 	- **Red virtual**: seleccione esta opción y seleccione la red virtual que desee.
 	- **Subred**: seleccione esta opción y seleccione la subred que desea.
 	- **Dirección IP pública**: si la directiva de laboratorio se establece para permitir direcciones IP públicas para la subred seleccionada, especifique si desea que la dirección IP sea pública seleccionando **Sí** o **No**. De lo contrario, se deshabilita esta opción y se selecciona como **No**.
-	- **Artefactos**: seleccione esta opción y, en la lista de artefactos, seleccione y configure los artefactos que quiere agregar a la imagen base. Tenga en cuenta que los parámetros de artefacto que son cadenas seguras no se muestran, puesto que la fórmula no guarda los valores de cadena segura. 
+	- **Artefactos**: seleccione esta opción y, en la lista de artefactos, seleccione y configure los artefactos que quiere agregar a la imagen base. Tenga en cuenta que los parámetros de artefacto que son cadenas seguras no se muestran, puesto que la fórmula no guarda los valores de cadena segura.
 
     	![Crear fórmula](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -142,7 +142,11 @@ Para eliminar una fórmula, siga estos pasos:
 
     ![Menú contextual de fórmula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
-## Pasos siguientes
-Cuando haya creado una fórmula para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio](./devtest-lab-add-vm-with-artifacts.md).
+## Entradas blogs relacionadas
 
-<!---HONumber=AcomDC_0608_2016-->
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/) (¿Imágenes personalizadas o fórmulas?)
+
+## Pasos siguientes
+Cuando haya creado una fórmula para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md).
+
+<!---HONumber=AcomDC_0803_2016-->

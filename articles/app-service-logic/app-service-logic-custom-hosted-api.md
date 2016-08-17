@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -169,4 +169,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

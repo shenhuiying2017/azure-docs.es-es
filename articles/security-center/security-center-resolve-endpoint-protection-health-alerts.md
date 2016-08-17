@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Resolución de alertas de estado de Endpoint Protection en Azure Security Center
@@ -28,7 +28,7 @@ Azure Security Center recomendará resolver las alertas de estado detectadas de 
 
 2. Se abrirá la hoja **Error de Endpoint Protection** que enumera las máquinas virtuales con errores y el número de errores en cada máquina virtual. Seleccione una máquina virtual de la lista. ![Error de Endpoint Protection][2]
 
-3. Se abrirá la hoja **Lista de errores ** de la máquina virtual seleccionada mostrando una lista de errores. Seleccione un error en la lista para obtener más información. Se abrirá una hoja con información sobre el error seleccionado. ![Lista de errores][3] ![Eventos de error][4]
+3. Se abrirá la hoja **Lista de errores** de la máquina virtual seleccionada mostrando una lista de errores. Seleccione un error en la lista para obtener más información. Se abrirá una hoja con información sobre el error seleccionado. ![Lista de errores][3] ![Eventos de error][4]
 
 ## Consulte también
 
@@ -48,4 +48,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

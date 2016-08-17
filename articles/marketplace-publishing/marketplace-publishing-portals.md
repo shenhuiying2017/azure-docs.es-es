@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="07/27/2016"
    ms.author="hascipio" />
 
 
 # Portales que necesitará
 Antes de que empiece el proceso de la publicación de una oferta, vamos a presentarle los diversos portales que necesitará. A continuación se muestra un resumen breve de los portales: Centro de desarrolladores, Portal de publicación de Azure y Portal de Azure, en el orden en que se interactúa con ellos.
 ## Centro de desarrolladores
-[http://dev.windows.com](http://dev.windows.com/registration?accountprogram=azure)
+Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 ### Descripción
 La creación de la cuenta del Centro de desarrolladores de Microsoft es una tarea que solo se realiza una vez. Asegúrese de que la compañía no tenga ya una cuenta del Centro de desarrolladores antes de intentar crear una nueva. Durante el proceso, recopilamos los datos de su cuenta bancaria, su información fiscal y la dirección de la compañía.
 
-> [AZURE.NOTE]Si solo va a publicar ofertas gratuitas (u ofertas de tipo traiga su propia licencia), no necesitamos información bancaria ni fiscal.
+> [AZURE.NOTE] Si solo va a publicar ofertas gratuitas (u ofertas de tipo traiga su propia licencia), no necesitamos información bancaria ni fiscal.
 
 ### Identidad y cuenta usadas
 Lo ideal es una lista de distribución o un grupo de seguridad (por ejemplo, azurepublishing@*partnercompany*.com). La lista de distribución o el grupo de seguridad **debe** registrarse como cuenta de Microsoft.
 
-> [AZURE.TIP]Se recomienda usar una lista de distribución o un grupo de seguridad porque que elimina la dependencia de cualquier persona aunque también se puede usar una cuenta individual.
+> [AZURE.TIP] Se recomienda usar una lista de distribución o un grupo de seguridad porque que elimina la dependencia de cualquier persona aunque también se puede usar una cuenta individual.
 
 ## Portal de publicación
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
@@ -50,4 +50,4 @@ Mientras pone en ensayo una oferta del portal de publicación, es preciso que se
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0803_2016-->

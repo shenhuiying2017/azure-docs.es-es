@@ -144,14 +144,14 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 	* **Nombre de patrón** - **clusternodes**: es solo un nombre descriptivo para el patrón.
 
-	* **Patrón de URL** - ***internal.cloudapp.net*** - Define un patrón que coincide con el nombre de dominio completo interno de los nodos del clúster.
+	* **Patrón de URL** - **\*internal.cloudapp.net\*** - Define un patrón que coincide con el nombre de dominio completo interno de los nodos del clúster.
 
 	![patrón de foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
 
     Agregue otro patrón con la siguiente información para la configuración:
 
     * __Nombre de patrón__: headnode
-    * __Patrón de URL__: *headnodehost*
+    * __Patrón de URL__: \*headnodehost\*
 
     Seleccione Aceptar para guardar este patrón.
 

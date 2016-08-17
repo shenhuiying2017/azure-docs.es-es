@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # Application Insights de Visual Studio
@@ -25,7 +25,7 @@ Funciona tanto con aplicaciones web como independientes en una amplia variedad d
 
 Application Insights está destinada al equipo de desarrollo. Con ella, puede:
 
-* [Analizar patrones de uso][knowUsers] para comprender mejor a los usuarios y mejorar continuamente la aplicación. 
+* [Analizar patrones de uso][knowUsers] para comprender mejor a los usuarios y mejorar continuamente la aplicación.
  * Recuentos de vistas de páginas, usurarios nuevos y recurrentes, ubicación geográfica, plataformas y otras estadísticas de uso principales
  * Seguimiento de las rutas de acceso de uso para evaluar el éxito de cada característica.
 * [Detecte, evalúe y diagnostique][detect] problemas de rendimiento y corríjalos antes de que se den cuenta la mayoría de los usuarios.
@@ -84,7 +84,7 @@ El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no 
 
 ## Primeros pasos
 
-1. Necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis y puede elegir el [plan de tarifa](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
+1. En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis y puede elegir el [plan de tarifa](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
 
 2. Si usa Visual Studio:
 
@@ -112,7 +112,7 @@ Si no usa Visual Studio, o si esas opciones no están disponibles para su proyec
 * Errores:
  * [Conectar](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Sugerencias
- * [Voz del usuario](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## Vídeos
@@ -144,4 +144,4 @@ Si no usa Visual Studio, o si esas opciones no están disponibles para su proyec
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0810_2016-->

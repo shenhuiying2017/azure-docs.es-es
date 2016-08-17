@@ -179,7 +179,7 @@ En esta sección se comparan las colas de Azure y las colas de Bus de servicio d
 |---|---|---|
 |Tamaño de cola máximo|**200 TB**<br/><br/>(limitado a una capacidad de cuenta de almacenamiento única)|**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional")|
 |Tamaño de mensaje máximo|**64 KB**<br/><br/>(48 KB cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento.|**256 KB** o **1 MB**<br/><br/>(incluidos el encabezado y cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md).|
-|TTL de mensaje máximo|**7 días**|**Sin límite**|
+|TTL de mensaje máximo|**7 días**|**`TimeSpan.Max`**|
 |Número máximo de colas|**Sin límite**|**10.000**<br/><br/>(por espacio de nombres de servicio, se puede aumentar)|
 |Número máximo de clientes simultáneos|**Sin límite**|**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP)|
 
@@ -204,7 +204,7 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| 
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**|
 |API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrado de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|
@@ -276,7 +276,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 |Coste de transacción en cola|**0,0036 $**<br/><br/>(por cada 100 000 transacciones)|**Nivel básico**: **0,05 $**<br/><br/>(por operaciones de millones)|
 |Operaciones facturables|**Todas**|**Enviar/recibir solo**<br/><br/>(sin coste para otras operaciones)|
 |Transacciones inactivas|**Facturables**<br/><br/>(la consulta de una cola vacía se cuenta como una transacción facturable).|**Facturables**<br/><br/>(una recepción en una cola vacía se considera un mensaje facturable).|
-|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00 **|
+|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00**|
 |Costes de transferencia de datos salientes|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|
 
 ### Información adicional
@@ -313,4 +313,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 [Portal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/22/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -98,7 +98,7 @@ Para más información, consulte [Personalizar las páginas de inicio de sesión
 ### Compatibilidad con clientes de Exchange ActiveSync 
 
 
-Hay algunas aplicaciones de Exchange ActiveSync que son compatibles con iOS 9 o posterior. Para determinar si la aplicación de correo electrónico admite esta característica, póngase en contacto con el desarrollador de la aplicación.
+En iOS 9 o posterior, se admite el cliente de correo de iOS nativo. Para todas las demás aplicaciones de Exchange ActiveSync, para determinar si se admite esta característica, póngase en contacto con el desarrollador de la aplicación.
 
 
 
@@ -278,4 +278,4 @@ La fecha establecida debe ser futura. De lo contrario, no se establece la propie
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

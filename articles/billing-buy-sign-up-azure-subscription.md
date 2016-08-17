@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Registro, adquisición, actualización o activación de una suscripción de Azure | Microsoft Azure"
 	description="Describe cómo comprar una suscripción de Azure o registrarse para obtener una"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@ Si compró créditos de **Azure bajo licencia Open** a un revendedor y obtuvo un
 
 3. Escriba la clave de producto y active la opción de contrato.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
@@ -367,4 +367,4 @@ Para ver la referencia del SDK de red CDN de Azure para Node.js, consulte el doc
 
 Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [material de referencia completo](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

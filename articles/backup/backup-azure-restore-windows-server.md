@@ -3,8 +3,8 @@
    description="Aprenda a restaurar desde Windows Server o desde el Cliente de Windows."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/10/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
@@ -29,7 +29,7 @@ En este artículo se describen los pasos necesarios para realizar dos tipos de o
 
 En ambos casos, los datos se recuperan del almacén de Servicios de recuperación de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 ## Recuperar los datos en la misma máquina
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
@@ -117,4 +117,4 @@ La terminología usada en estos pasos incluye:
 ## Pasos siguientes
 - Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

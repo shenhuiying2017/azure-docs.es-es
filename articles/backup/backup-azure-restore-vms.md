@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
 
 1. En la pantalla **Seleccionar instancia de restauración**, especifique detalles de dónde desea restaurar la máquina virtual.
 
-  - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. No admitimos la sobrescritura de máquinas virtuales existentes. 
+  - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. No admitimos la sobrescritura de máquinas virtuales existentes.
   - Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
 
         Sea cual sea el nombre del servicio en la nube que se elija, este debe ser exclusivo. Habitualmente, el nombre del servicio en la nube queda asociado a una URL de acceso público de esta forma: [cloudservice].cloudapp.net. Azure no permite crear un nuevo servicio en la nube si el nombre elegido ya está en uso. Si se decide crea un nuevo servicio en la nube, este recibirá el mismo nombre que la máquina virtual, en cuyo caso el nombre de la VM elegida deberá ser exclusivo también para poder aplicarse al servicio en la nube que se le asocie.
@@ -101,6 +101,9 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) de la máquina virtual en el Portal de Azure.
+
+## Pasos posteriores a la restauración
+Si utiliza una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloqueará después de la restauración por seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Se recomienda utilizar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
 
 ## Copia de seguridad de máquinas virtuales restauradas
 Si ha restaurado la máquina virtual en el mismo servicio en la nube con el mismo nombre con el que originalmente se hizo copia de seguridad de ella, la copia de seguridad continuará en la máquina virtual después de la restauración. Si ha restaurado la VM en un servicio en la nube diferente o ha especificado un nombre diferente para la VM restaurada, esta se trata como nueva y deberá configurar la copia de seguridad para ella.
@@ -155,4 +158,4 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

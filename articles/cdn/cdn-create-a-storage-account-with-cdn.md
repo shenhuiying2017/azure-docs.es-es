@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Uso de la red CDN | Microsoft Azure"
-	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+	pageTitle="Integración de una cuenta de almacenamiento con CDN | Microsoft Azure"
+	description="Aprenda a usar la red de entrega de contenido (CDN) de Azure para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Almacenamiento de Azure."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -33,13 +33,13 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 **Para crear una cuenta de almacenamiento para una suscripción de Azure**
 
 1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2.  En la esquina superior izquierda, seleccione **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Datos + Almacenamiento** y luego haga clic en **Cuenta de almacenamiento**. Deje la opción **Clásica** seleccionada como el modelo de implementación y luego haga clic en **Crear**.
+2.  En la esquina superior izquierda, seleccione **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Datos + Almacenamiento** y luego haga clic en **Cuenta de almacenamiento**.
 
-    Aparecerá la hoja de la **Cuenta de almacenamiento**.
+    Aparece la hoja **Crear cuenta de almacenamiento**.
 
     ![Crear una cuenta de almacenamiento][create-new-storage-account]
 
-4. En el campo **Almacenamiento**, escriba un nombre de subdominio. Esta entrada puede contener de 3 a 24 letras minúsculas y números.
+4. En el campo **Nombre**, escriba un nombre de subdominio. Esta entrada puede contener de 3 a 24 letras minúsculas y números.
 
     Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción. Para dirigir un recurso contenedor en el servicio BLOB, debería usar un URI en el siguiente formato, en el que *&lt;StorageAccountLabel&gt;* hace referencia al valor que ha escrito en **Escriba una dirección URL**:
 
@@ -49,15 +49,15 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 
 	Este valor también se utiliza como nombre de esta cuenta de almacenamiento en el portal o en el acceso a esta cuenta mediante programación.
 
-5.  Seleccione un **Plan de tarifa** o use el valor predeterminado. Para más información sobre niveles de precios, vea [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
+5. Deje los valores predeterminados para **Modelo de implementación**, **Tipo de cuenta**, **Rendimiento** y **Replicación**.
 
-6.  Seleccione o cree un **Grupo de recursos**. Para más información sobre los grupos de recursos, vea [Información general del Administrador de recursos de Azure](resource-group-overview.md#resource-groups).
+6. Seleccione la **Suscripción** con la que se usará la cuenta de almacenamiento.
 
-7. Seleccione la **Suscripción** con la que se usará la cuenta de almacenamiento.
+7. Seleccione o cree un grupo de recursos. Para más información sobre los grupos de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md#resource-groups).
 
-8.  Haga clic en **Crear**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
+8. Seleccione la ubicación para la cuenta de almacenamiento.
 
-9.  Para comprobar que la cuenta de almacenamiento se ha creado correctamente, verifique que la cuenta aparece en la lista de elementos de **Almacenamiento** con el estado **Conectado**.
+8. Haga clic en **Crear**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
 
 
 ## Paso 2: Crear un nuevo perfil de CDN
@@ -135,4 +135,4 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -94,11 +94,13 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 
 Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En tales casos, puede utilizar las opciones siguientes.
 
-* **Carga "sin conexión" de los datos**. Puede usar el [servicio Importación/Exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure; sus datos se cargarán en un blob de Almacenamiento de Azure. Después, puede usar [Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para mover datos de los blobs de Almacenamiento de Azure al Almacén de Data Lake.
+* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
+* **Carga "sin conexión" de los datos**. Si por cualquier razón no es posible utilizar Azure ExpressRoute, puede usar el [servicio Importación/Exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero a Blobs de almacenamiento de Azure. Después, puede usar [Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para mover datos de los blobs de Almacenamiento de Azure a Data Lake Store.
 
 	>[AZURE.NOTE] Al utilizar el servicio de importación y exportación, el tamaño de los archivos en los discos que se envían al centro de datos de Azure no debe ser mayor que 200 GB.
 
-* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Procesamiento de los datos almacenados en el Almacén de Data Lake
 
@@ -143,4 +145,4 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 * Puede comenzar con [Data Factory de Azure para mover datos desde el Almacén de Data Lake a Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

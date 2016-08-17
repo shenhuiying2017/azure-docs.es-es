@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del conector de Informix en el Servicio de aplicaciones de Microsoft Azure | Microsoft Azure"
    description="Uso del conector de Informix con desencadenadores y acciones de aplicación lógica"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -274,4 +274,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

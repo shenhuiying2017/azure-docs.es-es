@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con Hadoop en HDInsight con PowerShell
@@ -142,11 +142,11 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 	> [AZURE.NOTE] Si **ExitCode** es un valor distinto de 0, consulte [Solución de problemas](#troubleshooting).
 
-    En este ejemplo también se almacenarán los archivos descargados en la carpeta **example/data/WordCountOutput** en el directorio desde donde ejecuta el script.
+    En este ejemplo también se almacenarán los archivos descargados en el archivo **output.txt**, en el directorio desde el que se ejecuta el script.
 
-##Visualización de la salida
+###Visualización de la salida
 
-La salida del trabajo de MapReduce se almacena en archivos con el nombre *part-r-#####*. Abra el archivo **example/data/WordCountOutput/part-r-00000** en un editor de texto para ver las palabras y los números generados por el trabajo.
+Abra el archivo **output.txt** en un editor de texto para ver las palabras y los números generados por el trabajo.
 
 > [AZURE.NOTE] Los archivos de salida de un trabajo de MapReduce no se pueden mover. Por lo tanto, si vuelve a ejecutar este ejemplo, debe cambiar el nombre del archivo de salida.
 
@@ -183,4 +183,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

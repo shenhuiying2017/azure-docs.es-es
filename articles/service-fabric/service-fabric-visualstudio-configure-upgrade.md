@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/14/2016"
+   ms.date="07/29/2016"
    ms.author="cawa" />
 
 # Configuración de la actualización de una aplicación de Service Fabric en Visual Studio
@@ -94,4 +94,4 @@ El ejemplo siguiente muestra cómo aplicar una directiva de comprobación de est
 ## Pasos siguientes
 Para obtener más información acerca de cómo implementar una aplicación, vea [Implementación de una aplicación existente en Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

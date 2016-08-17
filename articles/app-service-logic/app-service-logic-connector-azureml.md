@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del conector de Aprendizaje automático de Azure en aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
    description="Creación y configuración del conector de Aprendizaje automático de Azure y su uso en una aplicación lógica en el Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@ Con el conector de Aprendizaje automático de Azure para aplicaciones lógicas, 
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

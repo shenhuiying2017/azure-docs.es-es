@@ -71,9 +71,9 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 |:--|:--|
 | Type=IISLog | Todos los registros de IIS. |
 | Type=IISLog EventLevelName=error | Todos los eventos de Windows con gravedad de error. |
-| Type=W3CIISLog | Measure count() by cIP | Contador de entradas de registro de IIS por dirección IP del cliente. |
-| Type=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | Contador de entradas de registro de IIS por dirección URL para el host www.contoso.com. |
-| Type=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| Total de bytes recibidos por cada equipo de IIS |
+| Type=W3CIISLog &#124; Measure count() by cIP | Contador de entradas de registro de IIS por dirección IP del cliente. |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Contador de entradas de registro de IIS por dirección URL para el host www.contoso.com. |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Total de bytes recibidos por cada equipo de IIS |
 
 ## Pasos siguientes
 

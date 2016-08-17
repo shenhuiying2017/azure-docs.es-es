@@ -3,7 +3,7 @@
    description="Obtenga más información sobre las copias de seguridad integradas de Base de datos SQL que permiten revertir una Base de datos SQL de Azure a un momento dado previo o copiarla en una nueva base de datos en una región geográfica (hasta 35 días)."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -62,4 +62,4 @@ El período de retención se determina según el nivel de servicio de la base de
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 - Para obtener una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

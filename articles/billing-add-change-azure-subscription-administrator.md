@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -114,4 +114,4 @@ Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Tran
 
 * Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asignación de roles de administrador en Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

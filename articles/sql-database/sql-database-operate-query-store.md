@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -53,7 +53,7 @@ Para garantizar un funcionamiento continuo y confiable, Base de datos SQL de Azu
 
 Base de datos SQL de Azure usa los datos recopilados para:
 
-- ***Aprender los patrones de uso sobre un gran número de bases de datos y, en consecuencia, mejorar la confiabilidad y la calidad de las características:*** el Almacén de consultas se ha mejorado con cada actualización de Base de datos SQL de Azure. 
+- ***Aprender los patrones de uso sobre un gran número de bases de datos y, en consecuencia, mejorar la confiabilidad y la calidad de las características:*** el Almacén de consultas se ha mejorado con cada actualización de Base de datos SQL de Azure.
 - ***Resolver o mitigar los problemas causados por el Almacén de consultas:*** Base de datos SQL de Azure puede detectar y mitigar los problemas que tienen un impacto sustancial sobre la carga de trabajo del cliente, con una latencia baja (menos de una hora). La mayoría de las veces, los problemas se controlan configurando el Almacén de consultas como ***DESACTIVADO*** temporalmente.
 
 De vez en cuando, las actualizaciones del Almacén de consultas introducen cambios en los valores predeterminados aplicados a configuraciones internas y pocas veces externas (orientados al cliente). En consecuencia, la experiencia de los clientes con el Almacén de consultas de Base de datos SQL de Azure puede diferir de la que tienen en entornos locales debido a las acciones automáticas realizadas por la plataforma de Azure:
@@ -93,7 +93,7 @@ Si quiere permanecer con su configuración personalizada, utilice [ALTER DATABAS
 
 Para más información, consulte los siguientes artículos:
 
-- [A flight data recorder for your database (Una caja negra para la base de datos)](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [A flight data recorder for your database (Una caja negra para la base de datos)](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
 - [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
@@ -101,4 +101,4 @@ Para más información, consulte los siguientes artículos:
 
 - [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

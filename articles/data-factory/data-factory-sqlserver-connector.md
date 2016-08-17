@@ -510,7 +510,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 	> [AZURE.IMPORTANT]
 	Consulte la sección [Consideraciones de puertos y seguridad](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para información detallada.
 	>   
-	> Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+	> Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## Columnas de identidad en la base de datos de destino
 En esta sección se proporciona un ejemplo para copiar datos de una tabla de origen sin una columna de identidad en una tabla de destino con una columna de identidad.
@@ -646,4 +646,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

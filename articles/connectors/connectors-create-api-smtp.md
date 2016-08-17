@@ -1,7 +1,7 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conexión a SMTP para envío de correo electrónico."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -112,7 +112,7 @@ El símbolo * indica que la propiedad es obligatoria.
 
 Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
 
-|Nombre|Descripción|
+|Name|Descripción|
 |---|---|
 |200|OK|
 |202|Accepted|
@@ -126,4 +126,4 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
