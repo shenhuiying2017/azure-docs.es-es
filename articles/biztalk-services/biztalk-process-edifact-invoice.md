@@ -1,7 +1,7 @@
 <properties
    pageTitle="Tutorial: Procesamiento de facturas EDIFACT mediante Servicios de BizTalk de Azure | Servicios de BizTalk de Microsoft Azure"
    description="Creación y configuración del conector de Box o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -313,4 +313,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

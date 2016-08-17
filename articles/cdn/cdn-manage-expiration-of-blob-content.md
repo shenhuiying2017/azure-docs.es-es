@@ -1,5 +1,5 @@
 <properties
- pageTitle="Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN)"
+ pageTitle="Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN) | Microsoft Azure"
  description="Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure."
  services="cdn"
  documentationCenter=".NET"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="05/11/2016"
+ ms.date="07/28/2016"
  ms.author="casoper"/>
 
 
@@ -23,7 +23,7 @@ Los bloques que obtienen el máximo beneficio del almacenamiento en caché de la
 Dispone de dos opciones para controlar el tiempo TTL.
 
 1.	No establecer valores de caché y utilizar, por tanto, el valor predeterminado de TTL de 7 días.
-2.	Establecer explícitamente la propiedad *x-ms-blob-cache-control* en una solicitud **Poner blob**, **Poner lista de bloques** o **Establecer propiedades del blob**, o usar la biblioteca administrada de Azure para establecer la propiedad [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). El establecimiento de esta propiedad establecer el valor del encabezado *Cache-Control* para el blob. El valor del encabezado o la propiedad deben especificar el valor apropiado en segundos. Por ejemplo, para establecer el período de almacenamiento en cache máximo en un año, puede especificar el encabezado de solicitud como `x-ms-blob-cache-control: public, max-age=31556926`. Para obtener detalles acerca del establecimiento de encabezados de almacenamiento en caché, vea la [especificación HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Establecer explícitamente la propiedad *x-ms-blob-cache-control* en una solicitud **Poner blob**, **Poner lista de bloques** o **Establecer propiedades del blob**, o usar la biblioteca administrada de Azure para establecer la propiedad [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). El establecimiento de esta propiedad establecer el valor del encabezado *Cache-Control* para el blob. El valor del encabezado o la propiedad deben especificar el valor apropiado en segundos. Por ejemplo, para establecer el período de almacenamiento en cache máximo en un año, puede especificar el encabezado de solicitud como `x-ms-blob-cache-control: public, max-age=31556926`. Para obtener detalles acerca del establecimiento de encabezados de almacenamiento en caché, vea la [especificación HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 Cualquier contenido que desee almacenar en caché a través de la red CDN se debe almacenar en su cuenta de almacenamiento de Azure como un blob accesible públicamente. Para obtener más detalles acerca del servicio BLOB de Azure, vea [Conceptos del servicio de blobs](https://msdn.microsoft.com/library/dd179376.aspx).
 
@@ -31,13 +31,13 @@ Hay varias formas de trabajar con el contenido del servicio de blobs:
 
 -	Usando la API administrada proporcionada por la [biblioteca de cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).
 -	Usando una herramienta de administración de almacenamiento de terceros.
--	Usando la [API de REST de servicios de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx).  
+-	Usando la [API de REST de servicios de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx).
 
 El siguiente ejemplo de código es una aplicación de consola que usa la biblioteca de cliente de Almacenamiento de Azure para crear un contenedor, establecer sus permisos para acceso público y crear un blob dentro del contenedor. También especifica explícitamente un intervalo de actualización deseado estableciendo el encabezado Cache-Control en el blob.
 
 Suponiendo que ha habilitado CDN como se muestra más arriba, CDN almacena en caché el blob que se crea. Asegúrese de especificar las credenciales de cuenta usando su propia cuenta de almacenamiento y clave de acceso:
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
@@ -98,4 +98,4 @@ Si lo desea, puede utilizar una herramienta como **wget** o Fiddler para examina
 
 [Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

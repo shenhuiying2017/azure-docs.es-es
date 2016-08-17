@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="07/05/2016"
+	ms.date="08/10/2016"
 	ms.author="carlrab"/>
 
 # Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio
@@ -92,4 +92,4 @@ Una vez determinado el nivel de servicio para el grupo, estará preparado para d
 
 Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

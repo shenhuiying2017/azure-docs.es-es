@@ -95,10 +95,10 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)| Ancho de banda de red máximo |
 |---|---|---|---|---|---|---|---|
-|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
-|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
 
 ## Serie D
 
@@ -219,8 +219,33 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 |Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo | Extremadamente alto |
 |Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo | Extremadamente alto |
 
+## Serie N
+
+Los tamaños de NC y NV también se conocen como instancias habilitadas para GPU. Se trata de máquinas virtuales especializadas que incluyen tarjetas GPU de NVIDIA, optimizadas para diferentes escenarios y casos de uso. Los tamaños de NV están optimizados y diseñados para la visualización remota, streaming, juegos, codificación y escenarios VDI mediante marcos como OpenGL y DirectX. Los tamaños de NC están más optimizados para las aplicaciones de proceso y red intensivos, algoritmos, incluidas simulaciones y aplicaciones basadas en CUDA y OpenCL.
 
 
+### Instancias de NV
+Las instancias de NV disponen de tecnología de GPU Tesla M60 de NVIDIA y NVIDIA GRID para aplicaciones aceleradas de escritorio y escritorios virtuales donde los clientes podrán visualizar sus datos o simulaciones. Los usuarios podrán visualizar sus flujos de trabajo con muchos gráficos en las instancias de NV para obtener una excelente capacidad gráfica y ejecutar además cargas de trabajo de precisión sencilla como la codificación y la representación. Tesla M60 ofrece 4096 núcleos CUDA con un diseño de GPU dual con hasta 36 secuencias de H.264 1080p.
+
+
+| Tamaño | Núcleos | GPU | Memoria | Disco |
+|------|-------|----------------|--------|-------------|
+| NV6 | 6 | 1 x NVIDIA M60 | 56 GB | 380 GB de SSD |
+| NV12 | 12 | 2 x NVIDIA M60 | 112 GB | 680 GB de SSD |
+| NV24 | 24 | 4 x NVIDIA M60 | 224 GB | 1440 GB de SSD | 
+
+
+
+### Instancias de NC
+
+Las instancias de NC disponen de tecnología Tesla K80 de NVIDIA. Los usuarios ahora pueden trabajar con datos con mayor rapidez aprovechando CUDA para las aplicaciones de exploración de energía, simulaciones de accidentes, representación de trazado de rayos, aprendizaje profundo y mucho más. Tesla K80 ofrece 4992 núcleos CUDA con un diseño de GPU dual, hasta 2,91 Teraflops de doble precisión y hasta 8,93 Teraflops de rendimiento de precisión sencilla.
+
+
+| Tamaño | Núcleos | GPU | Memoria | Disco |
+|------|-------|----------------|--------|-------------|
+| NC6 | 6 | 1 x NVIDIA K80 | 56 GB | 380 GB de SSD |
+| NC12 | 12 | 2 x NVIDIA K80 | 112 GB | 680 GB de SSD |
+| NC24 | 24 | 4 x NVIDIA K80 | 224 GB | 1440 GB de SSD |
 
 ## Notas: Standard\_A0 - A4 con CLI y PowerShell 
 
@@ -236,7 +261,7 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 
 ## Pasos siguientes
 
-- Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
+- Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

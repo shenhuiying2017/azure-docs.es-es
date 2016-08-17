@@ -267,7 +267,7 @@ Los Servicios en la nube y Service Fabric se integran con Visual Studio mediante
 
 ##Pasos siguientes
 
-Conozca más información acerca de Reliable Services de Service Fabric y las diferencias fundamentales entre los Servicios en la nube y la arquitectura de la aplicación de Service Fabric para aprender a aprovechar el conjunto completo de características de Service Fabric.
+Conozca más información sobre Reliable Services de Service Fabric y las diferencias fundamentales entre los Servicios en la nube y la arquitectura de la aplicación de Service Fabric para aprender a aprovechar el conjunto completo de características de Service Fabric.
 
  - [Introducción a Reliable Services de Service Fabric](./service-fabric-reliable-services-quick-start.md)
 
@@ -277,4 +277,4 @@ Conozca más información acerca de Reliable Services de Service Fabric y las di
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

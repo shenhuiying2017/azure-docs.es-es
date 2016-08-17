@@ -3,8 +3,8 @@
 	description="Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="jwhit"
+	authors="Nkolli1"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="jimpark; aashishr; anuragm"/>
+	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
@@ -340,4 +340,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 
 - Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

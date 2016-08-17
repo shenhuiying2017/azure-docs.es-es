@@ -119,11 +119,11 @@ La tabla siguiente proporciona búsquedas de registros de ejemplo para los regis
 |:--|:--|
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR | Alertas críticas generadas durante las últimas 24 horas |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR | Alertas de advertencia generadas durante las últimas 24 horas |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR | measure count() as Count by SourceDisplayName | Orígenes con alertas activas generadas durante las últimas 24 horas |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName | Orígenes con alertas activas generadas durante las últimas 24 horas |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed | Alertas críticas generadas durante las últimas 24 horas que todavía están activas |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed | Alertas generadas durante las últimas 24 horas que ahora están cerradas |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | measure count() as Count by AlertSeverity | Alertas generadas durante el último día agrupadas por su gravedad |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | sort RepeatCount desc | Alertas generadas durante el último día ordenadas por su valor de número de repeticiones |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity | Alertas generadas durante el último día agrupadas por su gravedad |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc | Alertas generadas durante el último día ordenadas por su valor de número de repeticiones |
 
 ## Pasos siguientes
 

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
 # Guía para crear una plantilla de solución en Azure Marketplace
@@ -32,6 +32,7 @@ Vaya a [https://publish.windowsazure.com](http://publish.windowsazure.com). Cuan
 
 ### 3\. Comienzo con topologías
 Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. Siga estos pasos para definir la oferta:
+
 - Creación de una topología: el "identificador de la topología" suele ser el nombre de la topología en la plantilla de solución. El identificador de la topología se usará en la dirección URL, tal como se muestra a continuación:
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
@@ -42,24 +43,20 @@ Una plantilla de solución es una "matriz" para todas sus topologías. Puede def
 
 ### 4\. Certificación de las versiones de topología
 Cargue un archivo zip que contiene todos los archivos necesarios para realizar el aprovisionamiento de esa versión específica de la topología. Este archivo zip debe contener lo siguiente:
+
 - Los archivos *mainTemplate.json* y *createUiDefinition.json* en su directorio raíz.
 - Las plantillas vinculadas y todos los scripts requeridos.
-
-Después de cargar el archivo zip, haga clic en **Solicitar certificación**. El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
   > [AZURE.TIP] Mientras los desarrolladores trabajan en la creación de las topologías de la plantilla de solución y en conseguir que se certifiquen, el departamento comercial, de marketing o legal de su empresa puede trabajar en el contenido de marketing y legal.
 
 ## Pasos siguientes
-Ahora que ya creó la plantilla de solución y envió el archivo zip con los archivos necesarios para la certificación, puede continuar y seguir las instrucciones de la [Guía de contenido de marketing de Marketplace](marketplace-publishing-push-to-staging.md) para preparar la oferta para pruebas en ensayo. O bien, para ver el conjunto completo de artículos de la publicación de Marketplace, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
+Ahora que ha creado la plantilla de solución y cargado el archivo .zip, siga las instrucciones de la [Guía de contenido de marketing de Marketplace](marketplace-publishing-push-to-staging.md) antes de enviar la oferta al entorno de ensayo. Para ver el conjunto completo de artículos de la publicación de Marketplace, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
 
 Es posible que también le interesen los siguientes artículos relacionados:
 
 - Imágenes de máquinas virtuales: [Acerca de las imágenes de máquina virtual en Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-
 - Extensiones de VM: [Información general del agente de máquina virtual y las extensiones de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) y [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-
 - Administrador de recursos de Azure: [Creación de plantillas de Azure ARM](../resource-group-authoring-templates.md) y [Ejemplos sencillos de plantillas de ARM](https://github.com/rjmax/ArmExamples)
-
 - Limitaciones de cuentas de almacenamiento: [Supervisión de limitaciones de cuentas de almacenamiento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) y [Almacenamiento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
@@ -67,4 +64,4 @@ Es posible que también le interesen los siguientes artículos relacionados:
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

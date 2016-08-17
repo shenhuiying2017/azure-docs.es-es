@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Azure Multi-Factor Authentication y a los Servicios de federación de Active Directory
@@ -23,8 +23,8 @@
 
 Si su organización ha federado su Active Directory local con Azure Active Directory mediante AD FS, tiene a su disposición las dos opciones siguientes para usar Multi-Factor Authentication.
 
-- Recursos de nube seguros a través del uso de Azure Multi-Factor Authentication o los Servicios de federación de Active Directory 
-- Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication 
+- Recursos de nube seguros a través del uso de Azure Multi-Factor Authentication o los Servicios de federación de Active Directory
+- Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication
 
 En la tabla siguiente se resume la experiencia de autenticación entre la protección de recursos con Azure Multi-Factor Authentication y AD FS
 
@@ -54,4 +54,4 @@ Para obtener información sobre cómo configurar Azure Multi-Factor Authenticati
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="08/05/2016"
 	ms.author="vakarand"/>
 
 
@@ -24,7 +24,7 @@ Este documento le guiará en la instalación y configuración de los agentes de 
 ## 	Requisitos
 En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect Health.
 
-| Requisito | Descripción|
+| Requisito | Description|
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. </br></br>Para más información, consulte [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md).</br>Para iniciar una evaluación gratuita de 30 días, consulte [Iniciar una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/).|
 |Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health|De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para obtener información adicional, consulte [Administración de su directorio de Azure AD](active-directory-administer.md). <br><br> El uso de control de acceso basado en rol puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte [Control de acceso basado en rol para Azure AD Connect Health](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control). </br></br>**Importante:** la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa y no puede ser una cuenta de Microsoft. Para obtener más información, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).
@@ -168,12 +168,11 @@ Con esto se iniciará un símbolo del sistema seguido de una instancia de PowerS
 
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-
 Después de iniciar sesión, PowerShell continuará. Una vez que termine, puede cerrar PowerShell y la configuración estará completa.
 
 En este punto, los servicios se iniciarán automáticamente y el agente supervisará y recopilará datos. La captura de pantalla siguiente es un ejemplo del resultado. Tenga en cuenta que si no ha cumplido todos los requisitos previos descritos en las secciones anteriores, verá advertencias en la ventana de PowerShell. Asegúrese de completar los requisitos que se describen [aquí](active-directory-aadconnect-health-agent-install.md#requirements) antes de instalar el agente.
 
-![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+![Comprobación de Azure AD Connect Health para AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
 Para comprobar que se instaló el agente, abra los servicios y busque lo siguiente:
 
@@ -183,6 +182,11 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 Estos dos servicios no se iniciarán hasta que se complete la configuración.
 
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Instalación del agente de Azure AD Connect Health para AD DS en Server Core 
+Después de instalar el archivo .exe, puede completar el proceso de registro mediante el siguiente comando de PowerShell:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP
 Puede configurar agentes de Azure AD Connect Health para trabajar con un proxy HTTP
@@ -262,4 +266,4 @@ Puede utilizar la marca - ShowResults en el comando para ver los registros detal
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

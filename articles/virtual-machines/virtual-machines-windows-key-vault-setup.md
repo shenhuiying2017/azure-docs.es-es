@@ -3,7 +3,7 @@
 	description="Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -19,11 +19,15 @@
 
 # Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica
 
 En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos del Almacén de claves. Para más información sobre el Almacén de claves, consulte [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 
-Para que un Almacén de claves se utilice con máquinas virtuales de Azure Resource Manager, la propiedad *EnabledForDeployment* del Almacén de claves se debe establecer en true. Puede hacer esto en varios clientes.
+>[AZURE.NOTE] 
+>
+>1. Para que un Almacén de claves se utilice con máquinas virtuales de Azure Resource Manager, la propiedad **EnabledForDeployment** del Almacén de claves se debe establecer en true. Puede hacer esto en varios clientes.
+>
+>2. El almacén de claves debe crearse en la misma ubicación y suscripción que la máquina virtual.
 
 ## Uso de PowerShell para configurar el Almacén de claves
 Para crear un almacén de claves usando PowerShell, consulte [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md#vault).
@@ -60,4 +64,4 @@ Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` e
 
 Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Creación de un almacén de claves).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

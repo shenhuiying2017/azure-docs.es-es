@@ -4,16 +4,16 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
 # Métricas comunes de escalado automático de Azure Insights
@@ -51,33 +51,33 @@ Puede crear una alerta para las siguientes métricas.
 
 |Nombre de métrica|	Unidad|
 |---|---|
-|\\Processor(\_Total)\\% de tiempo de procesador | PERCENT|
-|\\Processor (\_Total)\\% de tiempo privilegiado | PERCENT|
-|\\Processor (\_Total)\\% de tiempo de usuario | PERCENT|
-|\\Processor información (\_Total) \\Frecuencia de Processor | Count|
-|\\System\\Processes| Count|
-|\\Process (\_Total) \\Thread Count| Count|
-|\\Process (\_Total) \\Handle Count| Count|
-|\\Memory\\% Bytes confirmados en uso | PERCENT|
-|\\Memory\\Available Bytes| Bytes| 
-|\\Memory\\Committed bytes| Bytes|
-|\\Memory\\Commit Limit| Bytes|
-|\\Memory\\Pool paginado Bytes| Bytes|
-|\\Memory\\Pool Bytes de bloque no paginado| Bytes|
-|\\Disco físico (\_Total)\\% Time de disco| PERCENT|
-|\\Disco físico (\_Total)\\% Time de lectura de disco | PERCENT|
-|\\Disco físico (\_Total)\\% Time de escritura en disco | PERCENT|
-|\\Disco físico (\_Total)\\Transferencias de disco/s | CountPerSecond|
-|\\Disco físico (\_Total)\\Lecturas de disco/s | CountPerSecond|
-|\\Disco físico (\_Total)\\Escrituras en disco/s | CountPerSecond|
-|\\Disco físico (\_Total)\\Disk Bytes/seg. | BytesPerSecond|
-|\\Disco físico (\_Total)\\Bytes de lectura de disco/s| BytesPerSecond|
-|\\Disco físico (\_Total)\\Bytes de escritura en disco/s | BytesPerSecond|
-|\\Disco físico (\_Total)\\Avg. Longitud de la cola de disco| Count|
-|\\Disco físico(\_Total)\\Avg. Disk Read Queue Length| Count|
-|\\Disco físico(\_Total)\\Avg. Longitud de cola de escritura en disco | Count|
-|\\LogicalDisk (\_Total) \% libre Space| PERCENT|
-|\\LogicalDisk (\_Total)\\Free Megabytes| Count|
+|Procesador(\_Total)\\% Hora del procesador |Percent|
+|\\Procesador(\_Total)\\% de tiempo con privilegios |Percent|
+|\\Procesador(\_Total)\\% de tiempo de usuario |Percent|
+|\\Información del procesador(\_Total)\\Frecuencia del procesador |Recuento|
+|\\Sistema\\Procesos|	Recuento|
+|\\Proceso(\_Total)\\Número de subprocesos|	Recuento|
+|\\Proceso(\_Total)\\Número de identificadores |Recuento|
+|\\Memoria\\% de bytes confirmados en uso |Percent|
+|\\Memoria\\Bytes disponibles|	Bytes|
+|\\Memoria\\Bytes confirmados |Bytes|
+|\\Memoria\\Límite de confirmación|	Bytes|
+|\\Memoria\\Bytes de bloque paginado|	Bytes|
+|\\Memoria\\Bytes de bloque no paginado|	Bytes|
+|\\Disco físico(\_Total)\\% de tiempo de disco|	Percent|
+|\\Disco físico(\_Total)\\% de tiempo de lectura de disco|	Percent|
+|\\Disco físico(\_Total)\\% de tiempo de escritura de disco|	Percent|
+|\\Disco físico(\_Total)\\Transferencias de disco/s |CountPerSecond|
+|\\Disco físico(\_Total)\\Lecturas de disco/s |CountPerSecond|
+|\\Disco físico(\_Total)\\Escrituras de disco/s |CountPerSecond|
+|\\Disco físico(\_Total)\\Bytes de disco/s |BytesPerSecond|
+|\\Disco físico(\_Total)\\Bytes de lectura de disco/s|	BytesPerSecond|
+|\\Disco físico(\_Total)\\Bytes de escritura de disco/s |BytesPerSecond|
+|\\Disco físico(\_Total)\\Promedio Longitud de la cola de disco|	Recuento|
+|\\Disco físico(\_Total)\\Promedio Longitud de la cola de lectura de disco|	Recuento|
+|\\Disco físico(\_Total)\\Promedio Longitud de la cola de escritura de disco |Recuento|
+|\\Disco lógico(\_Total)\\% de espacio disponible|	Percent|
+|\\Disco lógico(\_Total)\\Megabytes disponibles|	Recuento|
 
 
 
@@ -139,7 +139,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 ## Métricas web comúnmente usadas (granja de servidores)
 
-También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. Su nombre de métrica **HttpQueueLength**. En la siguiente sección se muestran las métricas de granja de servidores (Aplicaciones web) disponibles.
+También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**. En la siguiente sección se muestran las métricas de granja de servidores (Aplicaciones web) disponibles.
 
 ### Métricas de Aplicaciones web
 
@@ -164,20 +164,20 @@ Puede alertar sobre estas métricas o escalar por las mismas.
 ## Métricas de almacenamiento utilizadas comúnmente
 Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral aplicado será el número de mensajes por instancia. Esto significa que si hay dos instancias y si el umbral se establece en 100, se escalará cuando el número total de mensajes de la cola sea 200. Por ejemplo, 100 mensajes por instancia.
 
-Puede configurar esto en el Portal de Azure en la hoja **Configuración**: Para los conjuntos de escalado de VM, puede actualizar la configuración Escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
+Puede configurar esto en el Portal de Azure, en la hoja **Configuración**. Para los conjuntos de escalado de VM, puede actualizar la configuración Escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
+ ```
 
 ## Métricas más usadas de Bus de servicio
 
 Puede escalar por la longitud de la cola de Bus de servicio, que es el número de mensajes de dicha cola. La longitud de cola de Bus de servicio es una métrica especial y el umbral aplicado será el número de mensajes por instancia. Esto significa que si hay dos instancias y si el umbral se establece en 100, se escalará cuando el número total de mensajes de la cola sea 200. Por ejemplo, 100 mensajes por instancia.
 
-Para los conjuntos de escala de la máquina virtual, puede actualizar la configuración Escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
+Para los conjuntos de escalado de VM, puede actualizar la configuración Escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -187,4 +187,4 @@ Para los conjuntos de escala de la máquina virtual, puede actualizar la configu
 
 >[AZURE.NOTE] Para Bus de servicio, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

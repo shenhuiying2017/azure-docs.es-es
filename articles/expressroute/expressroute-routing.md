@@ -3,8 +3,8 @@
    description="En eta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Requisitos de enrutamiento de ExpressRoute  
 
-Para conectar a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación.
+Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación.
 
-Para ver una descripción de las sesiones de enrutamiento que es preciso configurar para facilitar la conectividad, consulte el artículo [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md).
+Para ver una descripción de las sesiones de enrutamiento que es preciso configurar para facilitar la conectividad, consulte el artículo [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
 **Nota:** Microsoft no admite protocolos de redundancia de enrutador (HSRP o VRRP, por nombrar algunos) en configuraciones de alta disponibilidad. Confiamos en un par redundante de sesiones BGP por configuración entre pares para la alta disponibilidad.
 
@@ -35,18 +35,18 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
  - Debe reservar una subred /29 o dos subredes /30 para las interfaces de enrutamiento.
  - Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
  - Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
- - Si se usa una subred /29, se dividirá en dos /30 subredes. 
+ - Si se usa una subred /29, se dividirá en dos /30 subredes.
 	 - La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
 	 - Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
-	 - Para que el [contrato de nivel de servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
+	 - Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 #### Ejemplo de configuración entre pares privados
 
-Si elige usar a.b.c.d/29 para establecer la configuración entre pares, se dividirá en dos subredes /30. En el siguiente ejemplo, veremos cómo se usa la subred a.b.c.d/29.
+Si elige usar a.b.c.d/29 para establecer el emparejamiento, se dividirá en dos subredes /30. En el siguiente ejemplo, veremos cómo se usa la subred a.b.c.d/29.
 
 a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a través de las API de aprovisionamiento. Usará a.b.c.d+1 como IP VRF para el PE principal y Microsoft consumirá a.b.c.d+2 como IP VRF para el MSEE principal. Usará a.b.c.d+5 como IP VRF para el PE secundario y Microsoft usará a.b.c.d+6 como IP VRF para el MSEE secundario.
 
-Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
+Suponga que se selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
 - 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
 - 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
@@ -55,11 +55,11 @@ Considere el caso en que selecciona 192.168.100.128/29 para configurar el empare
 
 Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet y los registros de enrutamiento de Internet.
 
-- Debe usar una única subred /29 o dos subredes /30 para establecer la configuración entre pares BGP para cada configuración entre pares por circuito ExpressRoute (si tiene más de uno). 
-- Si se usa una subred /29, se dividirá en dos /30 subredes. 
+- Debe usar una única subred /29 o dos subredes /30 para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno).
+- Si se usa una subred /29, se dividirá en dos /30 subredes.
 	- La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
 	- Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
-	- Para que el [contrato de nivel de servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.
+	- Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -99,7 +99,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
  Para habilitar la conectividad con otros servicios de Azure y servicios de infraestructura, debe asegurarse de que uno de los siguientes elementos está en su lugar:
 
  - La configuración de pares públicos de Azure está habilitada para enrutar el tráfico a los extremos públicos.
- - Usa un enrutamiento definido por el usuario para permitir la conectividad a Internet a todas las subredes que requieran dicha conectividad.
+ - Se usa un enrutamiento definido por el usuario para permitir la conectividad a Internet a todas las subredes que la requieran.
 
 **Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
@@ -124,6 +124,8 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 | | Este de EE. UU. | 12076:51004 |
 | | Este de EE. UU. 2 | 12076:51005 |
 | | Oeste de EE. UU. | 12076:51006 |
+| | Oeste de EE. UU. 2 | 12076:51022 |
+| | Centro occidental de EE.UU. | 12076:51023 |
 | | Centro-Norte de EE. UU | 12076:51007 |
 | | Centro-Sur de EE. UU | 12076:51008 |
 | | Central EE. UU.: | 12076:51009 |
@@ -169,8 +171,8 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación y modificación de un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute según el modelo de implementación de Azure Resource Manager](expressroute-howto-circuit-arm.md)
-	- [Configuración del enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configuración del enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md)
-	- [Vinculación de una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
+	- [Cree un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Cree y modifique un circuito ExpressRoute mediante Azure Resource Manager](expressroute-howto-circuit-arm.md).
+	- [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
+	- [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

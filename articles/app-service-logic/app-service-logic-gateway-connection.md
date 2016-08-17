@@ -1,7 +1,7 @@
 <properties
    pageTitle="Conexión a la puerta de enlace de datos local de las Aplicaciones lógicas | Microsoft Azure"
    description="Información sobre cómo crear una conexión a la puerta de enlace de datos local desde una aplicación lógica."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -70,4 +70,4 @@ Llegado a este punto, la conexión ya debería estar configurada correctamente p
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

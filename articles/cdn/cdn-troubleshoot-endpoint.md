@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Redes CDN: Solución de problemas de puntos de conexión de redes CDN que devuelven errores 404"
-	description="Solucione problemas de los códigos de error 404 con los puntos de conexión de redes CDN."
+	pageTitle="Solución de problemas de devolución del estado 404 de puntos de conexión de la red CDN de Azure | Microsoft Azure"
+	description="Solucione problemas de los códigos de error 404 con los puntos de conexión de la red CDN de Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Solución de problemas de redes CDN que devuelven errores 404
@@ -67,7 +67,7 @@ Los otros puntos que debe comprobar aquí son los puertos **HTTP** y **HTTPS**. 
 
 Sin embargo, supongamos que la dirección URL para el archivo de origen que ha comprobado anteriormente es `http://www.contoso.com:8080/file.txt`. Tenga en cuenta el `:8080` al final del segmento de nombre de host. Indica al explorador que use el puerto `8080` para conectarse al servidor web en `www.contoso.com`, por lo que deberá escribir 8080 en el campo **Puerto HTTP**. Es importante tener en cuenta que esta configuración de puertos solo afecta a qué puerto usa el punto de conexión para recuperar la información del origen.
 
-> [AZURE.NOTE] Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md) (Detalles del comportamiento de la red CDN de Azure de Akamai).
+> [AZURE.NOTE] Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para ver una lista de los puertos de origen que no están permitidos, consulte [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Puertos de origen permitidos de la red CDN de Azure de Akamai).
   
 ### Comprobación de la configuración del punto de conexión
 
@@ -97,4 +97,4 @@ Por ejemplo, en mi punto de conexión, quiero que todos los recursos de mi cuent
 
 Pero ¿qué ocurre si no deseo utilizar la red CDN para cada ruta de acceso del origen? Supongamos que solo deseo exponer la ruta de acceso de `publicblob`. Si se escribe */publicblob* en el campo **Ruta de acceso de origen**, hará que el punto de conexión inserte */publicblob* antes de cada solicitud realizada al origen. Esto significa que la solicitud para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` realmente tomará la parte de la solicitud de la dirección URL, `/publicblob/lorem.txt`, y anexará `/publicblob` al principio. Esto producirá una solicitud para `/publicblob/publicblob/lorem.txt` desde el origen. Si no se puede resolver esa ruta de acceso en un archivo real, el origen devolverá un error 404. La dirección URL correcta para recuperar lorem.txt en este ejemplo sería realmente `https://cdndocdemo.azureedge.net/lorem.txt`. Tenga en cuenta que no incluimos la ruta de acceso */publicblob*, porque la parte de la solicitud de la dirección URL es `/lorem.txt` y el punto de conexión agrega `/publicblob`, con lo que `/publicblob/lorem.txt` es la solicitud que se pasa al origen.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

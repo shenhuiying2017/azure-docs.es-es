@@ -41,13 +41,13 @@ Existen algunas diferencias importantes entre el funcionamiento de la cadena de 
 
 - En Azure SDK 2.6 y versiones posteriores, Visual Studio usa la cadena de conexión de diagnóstico para configurar la extensión de diagnóstico con la información de la cuenta de almacenamiento adecuada durante la publicación. La cadena de conexión le permite definir las cuentas de almacenamiento diferentes para diferentes configuraciones de servicio que Visual Studio usará al publicar. Sin embargo, porque ya no está disponible el complemento de diagnóstico (después de Azure SDK 2.5), el archivo .cscfg por sí solo no puede habilitar la extensión de diagnóstico. Debe habilitar la extensión por separado a través de herramientas como Visual Studio o PowerShell.
 
-- Para simplificar el proceso de configuración de la extensión de diagnósticos con PowerShell, la salida del paquete de Visual Studio también contiene el XML de configuración pública para la extensión de diagnósticos para cada rol. Visual Studio usa la cadena de conexión de diagnósticos para rellenar la información de la cuenta de almacenamiento presente en la configuración pública. Los archivos de configuración públicas se crean en la carpeta Extensiones y siguen el patrón PaaSDiagnostics.<RoleName>.PubConfig.xml. Cualquier implementación basada en PowerShell puede usar este patrón para asignar cada configuración a un rol.
+- Para simplificar el proceso de configuración de la extensión de diagnósticos con PowerShell, la salida del paquete de Visual Studio también contiene el XML de configuración pública para la extensión de diagnósticos para cada rol. Visual Studio usa la cadena de conexión de diagnósticos para rellenar la información de la cuenta de almacenamiento presente en la configuración pública. Los archivos de configuración públicos se crean en la carpeta Extensiones y siguen el patrón PaaSDiagnostics.&lt;NombreDeRol>.PubConfig.xml. Cualquier implementación basada en PowerShell puede usar este patrón para asignar cada configuración a un rol.
 
 - El [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) también usa la cadena de conexión del archivo .cscfg para obtener acceso a los datos de diagnóstico, por lo que puede aparecer en la pestaña **Supervisión**. La cadena de conexión es necesaria para configurar el servicio para que muestre los datos de supervisión detallada en el portal.
 
 ## Migración de proyectos a Azure SDK 2.6 y versiones posteriores
 
-Al migrar de Azure SDK 2.5 a Azure SDK 2.6 o versiones posteriores, si tenía una cuenta de almacenamiento de diagnósticos especificada en el archivo .wadcfgx, permanecerá allí. Para aprovechar la flexibilidad de usar diferentes cuentas de almacenamiento para distintas configuraciones de almacenamiento, tendrá que agregar manualmente la cadena de conexión a su proyecto. Si está migrando un proyecto de Azure SDK 2.4 o versiones anteriores a Azure SDK 2.6, se conservan las cadenas de conexión de diagnóstico. Sin embargo, tenga en cuenta los cambios en cómo se tratan las cadenas de conexión en Azure SDK 2.6 tal como se especifica en la sección anterior.
+Al migrar de Azure SDK 2.5 a Azure SDK 2.6 o versiones posteriores, si tenía una cuenta de almacenamiento de diagnósticos especificada en el archivo .wadcfgx, permanecerá allí. Para aprovechar la flexibilidad de utilizar cuentas de almacenamiento diferentes para distintas configuraciones de almacenamiento, tendrá que agregar manualmente la cadena de conexión al proyecto. Si está migrando un proyecto de Azure SDK 2.4 o una versión anterior a Azure SDK 2.6, se conservarán las cadenas de conexión de diagnóstico. Sin embargo, tenga en cuenta los cambios en cómo se tratan las cadenas de conexión en Azure SDK 2.6 tal como se especifica en la sección anterior.
 
 ### Cómo determina Visual Studio la cuenta de almacenamiento de diagnósticos
 
@@ -87,7 +87,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para roles que se
 
     ![Acceso a la opción de habilitar diagnósticos](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
 
-1. Elija el botón de puntos suspensivos (...) para especificar la cuenta de almacenamiento en la que quiera guardar los datos de diagnóstico. La cuenta de almacenamiento que elija será la ubicación en la que se guarden los datos de diagnóstico.
+1. Elija el botón de puntos suspensivos (...) para especificar la cuenta de almacenamiento donde desee almacenar los datos de diagnóstico. La cuenta de almacenamiento que elija será la ubicación donde se almacenen los datos de diagnóstico.
 
     ![Especificar la cuenta de almacenamiento que se va a usar](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 
@@ -101,7 +101,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para roles que se
 
   - Si elige la opción de credenciales especificadas manualmente, se le pedirá que escriba el nombre y la clave de la cuenta de Azure que quiere usar.
 
-1. Elija el botón **Configurar** para ver el cuadro de diálogo **Configuración de diagnósticos**. Cada pestaña (excepto **General** y **Directorios de registro**) representa un origen de datos de diagnóstico que puede recopilar. La pestaña predeterminada, **General**, le ofrece las siguientes opciones de colección de datos de diagnóstico: **Solo errores**, **Toda la información** y **Plan personalizado**. La opción predeterminada **Solo errores** toma la cantidad mínima de almacenamiento porque no transfiere advertencias o mensajes de seguimiento. La opción Toda la información transfiere la mayoría de la información y, por tanto, es la opción más cara en términos de almacenamiento.
+1. Elija el botón **Configurar** para ver el cuadro de diálogo **Configuración de diagnóstico**. Cada pestaña (excepto para **General** y **Directorios de registro**) representa un origen de datos de diagnóstico que puede recopilar. La pestaña predeterminada, **General**, le ofrece las siguientes opciones de colección de datos de diagnóstico: **Solo errores**, **Toda la información** y **Plan personalizado**. La opción predeterminada **Solo errores** toma la cantidad mínima de almacenamiento porque no transfiere advertencias o mensajes de seguimiento. La opción Toda la información transfiere la mayoría de la información y, por tanto, es la opción más cara en términos de almacenamiento.
 
     ![Habilitar configuración y diagnóstico de Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 
@@ -109,7 +109,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para roles que se
 
 1. El cuadro **Cuota de disco en MB** especifica la cantidad de espacio que quiere asignar en su cuenta de almacenamiento de datos de diagnóstico. Puede cambiar el valor predeterminado si lo desea.
 
-1. En cada pestaña de datos de diagnóstico que quiere recopilar, seleccione su casilla **Habilitar la transferencia de<log type>**. Por ejemplo, si quiere recopilar registros de aplicación, seleccione la casilla **Habilitar la transferencia de registros de aplicación** en la pestaña **Registros de aplicación**. Además, especifique cualquier otra información requerida por cada tipo de datos de diagnóstico. Vea la sección **Configurar orígenes de datos de diagnósticos** más adelante en este tema para consultar la información de configuración de cada pestaña.
+1. En cada pestaña de datos de diagnóstico que quiera recopilar, seleccione su casilla **Habilitar la transferencia de <tipo de registro>**. Por ejemplo, si quiere recopilar registros de aplicación, seleccione la casilla **Habilitar la transferencia de registros de aplicación** en la pestaña **Registros de aplicación**. Además, especifique cualquier otra información requerida por cada tipo de datos de diagnóstico. Vea la sección **Configurar orígenes de datos de diagnósticos** más adelante en este tema para consultar la información de configuración de cada pestaña.
 
 1. Después de habilitar la colección de todos los datos de diagnóstico que quiera, elija el botón **Aceptar**.
 
@@ -149,7 +149,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para máquinas vi
 
 1. El cuadro **Cuota de disco en MB** especifica la cantidad de espacio que quiere asignar en su cuenta de almacenamiento de datos de diagnóstico. Puede cambiar el valor predeterminado si lo desea.
 
-1. En cada pestaña de datos de diagnóstico que quiera recopilar, seleccione su casilla **Habilitar la transferencia de <log type>**.
+1. En cada pestaña de datos de diagnóstico que quiera recopilar, seleccione su casilla **Habilitar la transferencia de <tipo de registro>**.
 
     Por ejemplo, si quiere recopilar registros de aplicación, seleccione la casilla **Habilitar la transferencia de registros de aplicación** en la pestaña **Registros de aplicación**. Además, especifique cualquier otra información requerida por cada tipo de datos de diagnóstico. Vea la sección **Configurar orígenes de datos de diagnósticos** más adelante en este tema para consultar la información de configuración de cada pestaña.
 
@@ -177,7 +177,7 @@ Si quiere capturar registros de aplicación de Windows, active la casilla **Habi
 
   ![Registros de eventos](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Si usa Azure SDK 2.6 o versiones posteriores y quiere especificar un origen de datos personalizado, escríbalo de nuevo en el cuadro de texto **<Data source name>** y luego elija el botón **Agregar** que se encuentra junto a él. El origen de datos se agrega al archivo diagnostics.cfcfg.
+Si usa Azure SDK 2.6 o versiones posteriores y quiere especificar un origen de datos personalizado, escríbalo de nuevo en el cuadro de texto **<Nombre del origen de datos>** y luego elija el botón **Agregar** que se encuentra junto a él. El origen de datos se agrega al archivo diagnostics.cfcfg.
 
 Si usa Azure SDK 2.5 y quiere especificar un origen de datos personalizado, puede agregarlo a la sección `WindowsEventLog` del archivo diagnostics.wadcfgx , como en el ejemplo siguiente.
 
@@ -357,4 +357,4 @@ En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio
 
 Para obtener más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

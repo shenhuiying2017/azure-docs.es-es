@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Información general sobre las asignaciones y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Sepa cómo usar las asignaciones con las Aplicaciones lógicas y Enterprise Integration Pack." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -58,4 +58,4 @@ Siga estos pasos para cargar una nueva asignación que reemplace una que ya exis
 - [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
 - [Más información sobre las transformaciones](./app-service-logic-enterprise-integration-transform.md "Información sobre las transformaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

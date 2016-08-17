@@ -1,11 +1,11 @@
 <properties
 	pageTitle="No puedo iniciar sesión para administrar mi suscripción de Azure | Microsoft Azure"
 	description="Describe la información de solución de problemas para algunos problemas comunes de inicio de sesión de la suscripción de Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -54,4 +54,4 @@ Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos 
 
 Trate de eliminar caché o cookies usando el modo de exploración de InPrivate de Internet Explorer y también mediante otro explorador.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

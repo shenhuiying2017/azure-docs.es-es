@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/27/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory 
@@ -116,4 +116,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

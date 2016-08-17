@@ -240,6 +240,8 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
 
+## Solución de problemas
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Pasos siguientes
 
@@ -247,4 +249,4 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 - Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 - Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

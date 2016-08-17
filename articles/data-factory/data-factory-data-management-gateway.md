@@ -196,7 +196,7 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Agentes de escucha de retransmisión de Bus de servicio sobre TCP (requiere 443 para la adquisición del token de Control de acceso) | 
-| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional sobre TCP | 
+| *.servicebus.windows.net | 9350-9354, 5671 | Retransmisión de bus de servicio opcional sobre TCP | 
 | *.core.windows.net | 443 | HTTPS | 
 | *. clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |
@@ -426,4 +426,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 ## Pasos siguientes
 - Vea el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md) para más información sobre la puerta de enlace.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

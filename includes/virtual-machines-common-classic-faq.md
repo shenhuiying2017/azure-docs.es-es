@@ -3,6 +3,14 @@
 
 En este artículo encontrará respuestas a algunas de las preguntas más comunes de los usuarios sobre las máquinas virtuales de Azure creadas con el modelo de implementación clásico.
 
+## ¿Puedo migrar mi máquina virtual creada en el modelo de implementación clásico al nuevo modelo de Resource Manager?
+
+Sí. Para obtener instrucciones sobre cómo realizar la migración, consulte:
+
+- [Migración del modelo clásico a Azure Resource Manager mediante Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+
+- [Migración del modelo clásico a Azure Resource Manager mediante la CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+
 ## ¿Qué puedo ejecutar en una máquina virtual de Azure?
 
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Puede ejecutar versiones recientes de Windows Server, así como varias distribuciones de Linux. Para obtener más información de soporte técnico, consulte:
@@ -53,7 +61,7 @@ Necesitará especificar la red a la que desea que pertenezca la máquina virtual
 
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
-- [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
+- [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.
 - [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 
@@ -138,6 +146,8 @@ Asimismo, también puede usar el Portal de Azure clásico o Azure PowerShell par
 
 Para proporcionar redundancia, coloque dos o más máquinas virtuales configuradas de manera similar en el mismo conjunto de disponibilidad. Esto ayuda a asegurarse de que haya al menos una máquina virtual esté disponible durante el mantenimiento, sea este planeado o no. Azure garantiza determinados niveles de disponibilidad de la máquina virtual para esta configuración. Para obtener más detalles, consulte [Administración de la disponibilidad de las máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
+
+
 ## Recursos adicionales
 
 [Acerca de máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
@@ -145,3 +155,5 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 [Diferentes formas de crear una máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0803_2016-->

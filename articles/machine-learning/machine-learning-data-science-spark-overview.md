@@ -37,6 +37,7 @@ Los pasos de instalación y el código proporcionados en este tutorial son para 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] Si quiere leer un tema que muestre cómo utilizar Scala en lugar de Python para completar las tareas de un proceso de ciencia de datos de un extremo a otro, consulte [Ciencia de datos mediante Scala con Spark de Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -103,18 +104,18 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en un
 
 ## Ejecución del código desde un Notebook de Jupyter en el clúster de Spark 
 
-Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de Spark en el panel y haga clic en él para entrar en la página de administración del clúster. Después haga clic en **Paneles de clúster** -> **Jupyter Notebook**, para abrir el cuaderno asociado al clúster de Spark.
+Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de Spark en el panel y haga clic en él para entrar en la página de administración del clúster. Después, haga clic en **Paneles de clúster** -> **Jupyter Notebook** para abrir el cuaderno asociado al clúster Spark.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acceder a los cuadernos de Jupyter. Simplemente reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
+También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acceder a los cuadernos de Jupyter Notebook. Simplemente reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Seleccione PySpark para ver un directorio que contiene algunos ejemplos de Notebooks previamente empaquetados que utilizan la API de PySpark. Los Notebooks que contienen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
+Seleccione PySpark para ver un directorio que contiene algunos ejemplos de cuadernos previamente empaquetados que utilizan la API de PySpark. Los cuadernos que contienen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
 
-Puede cargar los Notebooks directamente desde Github en el servidor de Notebooks de Jupyter, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** en la parte derecha de la pantalla. Se abrirá un explorador de archivos. Pegue aquí la dirección URL de Github (contenido sin procesar) del Notebook y haga clic en **Abrir**. Los Notebooks de PySpark están disponibles en las direcciones URL siguientes:
+Puede cargar los Notebooks directamente desde Github en el servidor de Notebooks de Jupyter, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** de la parte derecha de la pantalla. Se abrirá un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**. Los Notebooks de PySpark están disponibles en las direcciones URL siguientes:
 
 1.	[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
 2.	[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
@@ -122,16 +123,16 @@ Puede cargar los Notebooks directamente desde Github en el servidor de Notebooks
 
 Verá el nombre de archivo en la lista de archivos de Jupyter de nuevo con un botón **Cargar**. Haga clic en este botón **Cargar**. Ahora ya ha importado el Notebook. Repita estos pasos para cargar los Notebooks siguientes de este tutorial.
 
-> [AZURE.TIP] Puede hacer clic con el botón derecho en los vínculos siguientes en el explorador y seleccionar **Copiar vínculo** para obtener la dirección URL del contenido sin procesar de Github que puede pegar en el cuadro de diálogo de carga de explorador de archivos de Jupyter.
+> [AZURE.TIP] Puede hacer clic con el botón derecho en los vínculos siguientes en el explorador y seleccionar **Copiar vínculo** para obtener la dirección URL del contenido sin procesar de GitHub que puede pegar en el cuadro de diálogo de carga de explorador de archivos de Jupyter.
 
 Ahora puede:
 
 - Hacer clic en el Notebook para ver el código.
-- Ejecutar cada celda presionando **MAYÚS+INTRO**
-- Ejecutar todo el Notebook haciendo clic en **Celda** -> **Ejecutar**
+- Ejecutar cada celda presionando **MAYÚS+ENTRAR**.
+- Ejecutar todo el cuaderno haciendo clic en **Celda** -> **Ejecutar**.
 - Usar la visualización automática de consultas
 
-> [AZURE.TIP] El kernel de PySpark visualiza automáticamente la salida de las consultas de SQL (HiveQL). Tiene la opción de seleccionar entre diferentes tipos de visualizaciones (tabla, circular, línea, área o barra) mediante los botones del menú **Tipo** del Notebook.
+> [AZURE.TIP] El kernel de PySpark visualiza automáticamente la salida de las consultas de SQL (HiveQL). Tiene la opción de seleccionar entre diferentes tipos de visualizaciones (tabla, circular, línea, área o barra) mediante los botones del menú **Tipo** del cuaderno:
 
 ![Curva ROC de regresión logística para el enfoque genérico](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
@@ -145,4 +146,4 @@ Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuad
 
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

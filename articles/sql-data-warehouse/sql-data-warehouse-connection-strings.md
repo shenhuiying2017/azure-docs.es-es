@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Controladores](sql-data-warehouse-connection-strings.md)
 
 
-Puede conectarse a Almacenamiento de datos SQL mediante cualquiera de los siguientes protocolos de aplicación:
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para ayudarle a configurar la cadena de conexión. Solo tiene que acceder a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
+Puede conectarse al almacenamiento de datos SQL con varios protocolos de aplicación diferente como [ADO.NET][], [ODBC][], [PHP][] y [JDBC][]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para crear la cadena de conexión. Para generar la cadena de conexión mediante el Portal de Azure, vaya a la hoja de la base de datos en *Essentials* y haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 ## Cadena de conexión ADO.NET de ejemplo
 
@@ -58,6 +51,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] Considere la posibilidad de establecer el tiempo de espera de conexión en 300 segundos para permitir que la conexión sobreviva durante breves períodos de falta de disponibilidad.
+
 ## Pasos siguientes
 
 Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
@@ -75,4 +70,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

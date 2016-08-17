@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -87,4 +87,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

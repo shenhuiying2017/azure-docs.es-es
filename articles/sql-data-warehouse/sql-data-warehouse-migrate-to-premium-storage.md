@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Información de migración al Almacenamiento premium
@@ -73,8 +73,8 @@ La migración automática se llevará a cabo desde las 18:00 a las 6:00 (la hora
 | **Región** | **Fecha de inicio estimada** | **Fecha de finalización estimada** |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia Oriental | Sin determinar | Sin determinar |
-| Sudeste de Australia | Sin determinar | Sin determinar |
-| Sur de Brasil | Sin determinar | Sin determinar |
+| Sudeste de Australia | 10 de agosto de 2016 | 24 de agosto de 2016 |
+| Sur de Brasil | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Centro de Canadá | 23 de junio de 2016 | 1 de julio de 2016 |
 | Este de Canadá | 23 de junio de 2016 | 1 de julio de 2016 |
 | Central EE. UU.: | 23 de junio de 2016 | 4 de julio de 2016 |
@@ -86,10 +86,10 @@ La migración automática se llevará a cabo desde las 18:00 a las 6:00 (la hora
 | India central | 23 de junio de 2016 | 1 de julio de 2016 |
 | Sur de India | 23 de junio de 2016 | 1 de julio de 2016 |
 | India occidental | Sin determinar | Sin determinar |
-| Este de Japón | Sin determinar | Sin determinar |
+| Este de Japón | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Oeste de Japón | Sin determinar | Sin determinar |
 | Centro-Norte de EE. UU | Sin determinar | Sin determinar |
-| Europa del Norte | Sin determinar | Sin determinar |
+| Europa del Norte | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Centro-Sur de EE. UU | 23 de junio de 2016 | 2 de julio de 2016 |
 | Sudeste asiático | 23 de junio de 2016 | 1 de julio de 2016 |
 | Europa occidental | 23 de junio de 2016 | 8 de julio de 2016 |
@@ -98,13 +98,11 @@ La migración automática se llevará a cabo desde las 18:00 a las 6:00 (la hora
 ## Migración manual al Almacenamiento premium
 Si desea tener el control en los tiempos de inactividad, puede realizar los pasos siguientes para migrar un almacén de datos existente del Almacenamiento estándar al premium. Si decide realizar la migración manual, debe hacerlo antes de que se inicie la automática en dicha región para evitar riesgos de que esta última cause algún conflicto (consulte la [programación de migración automática][]).
 
-> [AZURE.NOTE] En estos momentos, el servicio Almacenamiento de datos SQL con Almacenamiento premium no dispone de redundancia geográfica. Es decir, una vez que se migre el almacén de datos al Almacenamiento premium, los datos solo residirán en la región actual. Cuando esté disponible esta característica, las copias de seguridad con redundancia geográfica transferirán el Almacenamiento de datos cada 24 horas a la [región emparejada de Azure][]; es decir, podrá realizar la restauración a partir de la copia de seguridad con redundancia geográfica en cualquier región de Azure. Una vez que la funcionalidad de copia de seguridad con redundancia geográfica esté disponible en las migraciones manuales, se anunciará en nuestro [sitio de documentación principal][]. En cambio, las migraciones automáticas no cuentan con esta limitación.
-
 ### Instrucciones de migración manual
 Si desea tener el control en los tiempos de inactividad, puede migrar manualmente el almacén de datos mediante la funcionalidad de copia de seguridad o restauración. Se espera que el componente de restauración de la migración tarde aproximadamente 1 hora por cada TB de almacenamiento en cada almacenamiento de datos. Si desea conservar el mismo nombre cuando se complete la migración, siga estos pasos de la [solución alternativa de cambio de nombre][].
 
-1.	[Pause][] el almacenamiento de datos, que realizará una copia de seguridad automática.
-2.	Lleve a cabo la [restauración][] a partir de la instantánea más reciente.
+1.	[Pause][] el almacenamiento de datos, que realizará una copia de seguridad automática
+2.	Lleve a cabo la [restauración][] a partir de la instantánea más reciente
 3.	Elimine el almacenamiento de datos existente del Almacenamiento estándar. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 > [AZURE.NOTE] Esta configuración no se transmitirá como parte de la migración:
@@ -112,18 +110,18 @@ Si desea tener el control en los tiempos de inactividad, puede migrar manualment
 >	-  Auditing at the Database level will need to be re-enabled
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
-#### Opcional: solución alternativa de cambio de nombre 
-Dos bases de datos que se encuentren en el mismo servidor lógico no pueden tener el mismo nombre. En estos momentos, Almacenamiento de datos SQL no permite cambiar nombres de almacenamientos de datos. Gracias a las instrucciones siguientes, no necesitará esta característica aún no implementada durante el proceso de migración manual. Nota: Las migraciones automáticas no cuentan con esta limitación.
+#### Opcional: pasos para cambiar el nombre durante la migración 
+Dos bases de datos que se encuentren en el mismo servidor lógico no pueden tener el mismo nombre. Almacenamiento de datos SQL ahora permite cambiar el nombre de DW.
 
 Para este ejemplo, imagine que su almacenamiento de datos del Almacenamiento estándar se denomina "miAD".
 
-1.	[Pause][] miAD, que realizará una copia de seguridad automática.
-2.	Realice una [restauración][] a partir de la instantánea más reciente de una nueva base de datos con otro nombre, como miADTemp.
-3.	Elimine miAD. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
-4.	Como miADTemp es un almacenamiento de datos que se ha creado recientemente, la copia de seguridad no estará disponible para restaurarse a partir de un periodo concreto. Se recomienda proseguir con las operaciones de miADTemp durante un par de horas y, después, continuar con los pasos 5 y 6.
-5.	[Pause][] miADTemp, que realizará una copia de seguridad automática.
-6.	Realice una [restauración][] a partir de la instantánea miADTemp más reciente de una nueva base de datos con el nombre miAD.
-7.	Elimine miADTemp. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
+1.	Cambie el nombre "MyDW" con el comando ALTER DATABASE que sigue a algo como "MyDW\_BeforeMigration". Esto eliminará todas las transacciones existentes y debe realizarse en la base de datos maestra para que sea correcta.
+```
+ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
+```
+2.	[Pause][] "MyDW\_BeforeMigration", que realizará una copia de seguridad automática
+3.	Realice una [restauración][] a partir de la instantánea más reciente de una nueva base de datos con el nombre que usó para tener (ej: "MyDW")
+4.	Elimine "MyDW\_BeforeMigration". **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 > [AZURE.NOTE] Esta configuración no se transmitirá como parte de la migración:
 > 
@@ -140,8 +138,8 @@ Si tiene problemas con el almacén de datos, [cree una incidencia de soporte té
 [programación de migración automática]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
 [cree una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[región emparejada de Azure]: ./best-practices-availability-paired-regions.md
-[sitio de documentación principal]: ./services/sql-data-warehouse.md
+[Azure paired region]: ./best-practices-availability-paired-regions.md
+[main documentation site]: ./services/sql-data-warehouse.md
 [Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [restauración]: ./sql-data-warehouse-manage-database-restore-portal.md
 [solución alternativa de cambio de nombre]: #optional-rename-workaround
@@ -150,7 +148,7 @@ Si tiene problemas con el almacén de datos, [cree una incidencia de soporte té
 
 
 <!--Other Web references-->
-[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

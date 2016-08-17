@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso de certificados con Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
 	description="Sepa cómo usar certificados con las Aplicaciones lógicas y Enterprise Integration Pack." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -73,4 +73,4 @@ Después de cargar un certificado, estará disponible para que pueda proteger lo
 - [Creación de una Aplicación lógica mediante características B2B](./app-service-logic-enterprise-integration-b2b.md)
 - [Más información sobre el Almacén de claves](../key-vault/key-vault-get-started.md "Información sobre el Almacén de claves")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

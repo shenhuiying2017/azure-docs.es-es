@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación de datos dañados o de eliminaciones accidentales
 
@@ -91,4 +91,4 @@ Para más información acerca de las características de copia de seguridad y re
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). Si busca más recursos de resistencia, recuperación ante desastres y alta disponibilidad, consulte los [recursos adicionales](./resiliency-technical-guidance.md#additional-resources) de la guía técnica sobre resistencia en Azure.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -232,7 +232,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 		                // If you want to use tags...
 						// Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
-		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+		                // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
 		                Log.i(TAG, resultString);		
@@ -726,4 +726,4 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

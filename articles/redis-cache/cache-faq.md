@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="07/29/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -28,6 +28,40 @@ Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar un
 -	Puede publicar una pregunta en el [hilo de Disqus](#comments) al final de estas preguntas más frecuentes y ponerse en contacto con el equipo de Caché de Microsoft Azure y otros miembros de la comunidad con cualquier tema que tenga relación con este artículo.
 -	Para llegar a más público, puede publicar una pregunta en el [foro de MSDN de Caché de Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) y ponerse en contacto con el equipo Caché de Microsoft Azure y otros miembros de la Comunidad.
 -	También puede enviarnos un mensaje de correo electrónico a [Comentarios externos de Caché de Microsoft Azure](mailto:azurecache@microsoft.com).
+
+## Conceptos básicos de Caché en Redis de Azure
+
+Las preguntas más frecuentes de esta sección tratan algunos de los aspectos básicos de Caché en Redis de Azure.
+
+-    [¿Qué es Caché en Redis de Azure?](#what-is-azure-redis-cache)
+-    [Introducción a Caché en Redis de Azure](#how-can-i-get-started-with-azure-redis-cache)
+
+Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuestiones sobre Caché en Redis de Azure; en una de las otras secciones de preguntas más frecuentes encontrará las respuestas.
+
+-	[¿Qué oferta y tamaño de Caché en Redis debo utilizar?](#what-redis-cache-offering-and-size-should-i-use)
+-	[¿Qué clientes de Caché en Redis puedo usar?](#what-redis-cache-clients-can-i-use)
+-	[¿Hay un emulador local para Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+
+
+### ¿Qué es Caché en Redis de Azure?
+
+Caché en Redis de Azure se basa en la popular c[aché en Redis](http://redis.io) de código abierto. Ofrece acceso a una caché en Redis segura y dedicada, administrada por Microsoft y accesible desde cualquier aplicación de Azure. Para obtener más información, consulte la página del producto [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/) en Azure.com.
+
+
+### Introducción a Caché en Redis de Azure
+
+Hay varias maneras de empezar a utilizar Caché en Redis de Azure.
+
+-    Puede consultar uno de nuestros tutoriales disponibles para [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), y [Python](cache-python-get-started.md).
+-    Puede ver el vídeo [How to Build High Performance Apps Using Microsoft Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/) (Procedimiento para compilar aplicaciones de alto rendimiento con Caché en Redis de Microsoft Azure).
+-    Puede consultar la documentación de los clientes que coincidan con el lenguaje de desarrollo de su proyecto para ver cómo usar Redis. Hay muchos clientes de Redis que pueden utilizarse con Caché en Redis de Azure. Para ver una lista de clientes de Redis, consulte [http://redis.io/clients](http://redis.io/clients).
+
+
+Si no tiene una cuenta de Azure, puede seguir estos pasos:
+
+-    [Abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure.
+-    [Activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 ## Preguntas más frecuentes de planeación
 
@@ -319,7 +353,7 @@ Las memorias caché de la misma región y suscripción comparten la misma config
 <a name="cache-timeouts"></a>
 ### ¿Por qué estoy viendo los tiempos de expiración?
 
-Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Solución de problemas de lado cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) y [Excepciones de tiempo de espera de StackExchange.Redis] (Solución de problemas de lado cliente](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Solución de problemas de lado cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) y [Excepciones de tiempo de espera de StackExchange.Redis] \(Solución de problemas de lado cliente](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
 '<-- Loc Comment: Broken link: [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(Client side troubleshooting]" should be removed. -->'
 
@@ -376,4 +410,4 @@ Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea 
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

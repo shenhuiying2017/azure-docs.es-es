@@ -24,11 +24,11 @@ En este tutorial se muestra cómo configurar un flujo de trabajo de implementaci
 
 Para habilitar la implementación continua
 
-1. Publique el contenido de la aplicación en el repositorio que se utilizará para la implementación continua. Para más información sobre cómo publicar el proyecto en estos servicios, consulte [Create a repo] (Crear un repositorio) (GitHub), [Create a repo] (Crear un repositorio) (BitBucket) y la [Introducción a VSTS].
+1. Publique el contenido de la aplicación en el repositorio que se utilizará para la implementación continua. Para más información sobre cómo publicar el proyecto en estos servicios, consulte [Create a repo] \(Crear un repositorio) (GitHub), [Create a repo] \(Crear un repositorio) (BitBucket) y la [Introducción a VSTS].
 
 2. En la hoja de su aplicación del [Portal de Azure], haga clic en **Configuración > Origen de implementación**. Haga clic en **Elegir origen** y haga clic, por ejemplo, en **GitHub**.
 
-	![](./media/app-service-continous-deployment/cd_options.png)
+	![](./media/app-service-continuous-deployment/cd_options.png)
 	
     > [AZURE.NOTE] Para configurar una cuenta de VSTS para la implementación del Servicio de aplicaciones, consulte este [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
     
@@ -36,7 +36,7 @@ Para habilitar la implementación continua
 
 4. En la hoja **Origen de implementación**, elija el proyecto y la rama desde donde se implementará. Cuando haya terminado, haga clic en **Aceptar**.
   
-	![](./media/app-service-continous-deployment/github_option.png)
+	![](./media/app-service-continuous-deployment/github_option.png)
 
 	> [AZURE.NOTE] Al habilitar la implementación continua con GitHub o BitBucket, se mostrarán tanto los proyectos públicos como privados.
 
@@ -54,7 +54,7 @@ Los pasos para insertar su solución de Visual Studio en el Servicio de aplicaci
 
 -	Utilice la opción de control de código fuente de Visual Studio para generar un archivo `.gitignore` (como en la siguiente imagen) o agregue manualmente un archivo `.gitignore` en la raíz del repositorio con contenido similar a este [ejemplo .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-    ![](./media/app-service-continous-deployment/VS_source_control.png)
+    ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
 -	Agregue el árbol de directorios de la solución entero a su repositorio, con el archivo .sln en la raíz del repositorio.
 
@@ -66,7 +66,7 @@ Para deshabilitar la implementación continua
 
 1. En la hoja de su aplicación del [Portal de Azure], haga clic en **Configuración > Origen de implementación**. A continuación, haga clic en **Desconectar** en la hoja **Implementaciones**.
 
-    ![](./media/app-service-continous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 
 2. Después de responder **Sí** al mensaje de confirmación, puede volver a la hoja de la aplicación y hacer clic en **Configuración > Origen de implementación** si quiere configurar la publicación desde otro origen.
 
@@ -80,7 +80,7 @@ Para deshabilitar la implementación continua
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-changes-existing-services/
+[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Portal de Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/es-ES/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -93,4 +93,4 @@ Para deshabilitar la implementación continua
 [Introducción a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

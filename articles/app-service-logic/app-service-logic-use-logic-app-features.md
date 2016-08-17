@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -112,4 +112,4 @@ Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un 
 <!-- Shared links -->
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

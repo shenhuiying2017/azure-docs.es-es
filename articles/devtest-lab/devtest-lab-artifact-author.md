@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
-> [AZURE.NOTE] Vea el vídeo que acompaña a este artículo sobre [cómo crear artefactos personalizados](/documentation/videos/how-to-author-custom-artifacts).
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## Información general
 Los **artefactos** se utilizan para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y otros archivos de script que se almacenan en un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre del artefacto, el comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
@@ -120,8 +120,12 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 1. Agregue el repositorio de artefactos al laboratorio: consulte el artículo [Adición de un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
+## Entradas blogs relacionadas
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Cómo solucionar errores de artefactos en Azure DevTest Labs)
+- [Join a VM to existing AD Domain using ARM template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unir una máquina virtual al dominio de AD existente mediante la plantilla ARM en Azure DevTest Labs)
+
 ## Pasos siguientes
 
 - Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

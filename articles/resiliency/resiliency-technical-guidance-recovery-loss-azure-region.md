@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región
 
@@ -106,7 +106,7 @@ La funcionalidad de [restauración geográfica](../sql-database/sql-database-rec
 
 ####Replicación geográfica activa
 
-La [Replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md) está disponible para todos los niveles de base de datos. Está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Para obtener más información, consulte el artículo sobre cómo [configurar la replicación geográfica](../sql-database/sql-database-geo-replication-portal.md) y [conmutar por error a la base de datos secundaria](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Actualización de la aplicación sin tiempo de inactividad](../sql-database/sql-database-business-continuity-application-upgrade.md) para obtener información sobre cómo diseñar e implementar aplicaciones y actualizaciones de aplicaciones sin que se produzcan tiempos de inactividad.
+La [Replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md) está disponible para todos los niveles de base de datos. Está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Para obtener más información, consulte el artículo sobre cómo [configurar la replicación geográfica](../sql-database/sql-database-geo-replication-portal.md) y [conmutar por error a la base de datos secundaria](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Actualización de la aplicación sin tiempo de inactividad](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obtener información sobre cómo diseñar e implementar aplicaciones y actualizaciones de aplicaciones sin que se produzcan tiempos de inactividad.
 
 ###SQL Server en máquinas virtuales
 
@@ -214,4 +214,4 @@ Los archivos de configuración proporcionan la manera más rápida de configurar
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie se centra en la [recuperación desde un centro de datos local a Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

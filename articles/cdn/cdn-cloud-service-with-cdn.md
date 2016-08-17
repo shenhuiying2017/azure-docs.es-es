@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure"
+	pageTitle="Integración de un servicio en la nube con la red CDN de Azure | Microsoft Azure"
 	description="Un tutorial que le enseña cómo implementar un servicio en la nube que ofrece contenido de un extremo de red CDN de Azure integrado"
 	services="cdn, cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -140,7 +140,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 ## Probar el punto de conexión de CDN
 
-Cuando el estado de publicación sea **Completado**, abra una ventana de explorador y vaya a ***http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
+Si el estado de publicación e **Completado**, abra una ventana de explorador y vaya a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -152,21 +152,21 @@ Cuando vaya a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, en 
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-De igual forma, puede acceder a cualquier URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/**, directamente desde el extremo de CDN. Por ejemplo:
+De igual forma, puede acceder a cualquier URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/**, directamente desde el punto de conexión de la red CDN. Por ejemplo:
 
 -	Un archivo .js desde la ruta /Script
 -	Cualquier archivo de contenido desde la ruta /Content
 -	Cualquier controlador/acción
 -	Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, puede hospedar el servicio en la nube entero desde **http://*&lt;cdnName>*.azureedge.net/**. Si vamos a **http://camservice.azureedge.net/**, obtenemos el resultado de la acción de Home/Index.
+De hecho, con la configuración anterior, puede hospedar todo el servicio en la nube desde **http://*&lt;cdnName>*.azureedge.net/**. Si voy a **http://camservice.azureedge.net/**, obtengo el resultado de la acción de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 Esto no significa, sin embargo, que sea siempre una buena idea (o en general una buena idea) suministrar un servicio en la nube entero a través de la red CDN de Azure. Estos son algunos de los puntos a tener en cuenta:
 
 -	Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado en este momento.
--	Si por algún motivo el extremo de CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, el servicio en la nube entero se desconecta a menos que los clientes se puedan redirigir a la URL de origen **http://*&lt;serviceName>*.cloudapp.net/**.
+-	Si por algún motivo el punto de conexión de la red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, todo el servicio en la nube se desconecta, a menos que los clientes se puedan redirigir a la URL de origen **http://*&lt;serviceName>*.cloudapp.net/**.
 -	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de caché para los archivos estáticos del servicio en la nube](#caching)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento del servicio en la nube, y frustra el propósito de una red CDN.
 
 La alternativa es determinar qué contenido servir desde CDN de Azure según el caso en el servicio en la nube. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller).
@@ -213,7 +213,7 @@ Tiene una acción `Index` sencilla que permite a los clientes especificar los su
 
 Siga los pasos anteriores para configurar esta acción de controlador:
 
-1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su nombre de red CDN.  
+1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su nombre de red CDN.
 
 		using System;
 		using System.Collections.Generic;
@@ -407,7 +407,7 @@ Esto permite depurar el código JavaScript de su entorno de desarrollo y, al mis
 
 Siga estos pasos para la integración de la unión y minificación de ASP.NET con el extremo de red CDN.
 
-1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:  
+1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{
@@ -501,7 +501,7 @@ Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá 
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto de rol web, abra *App\_Start\\BundleConfig.cs*, donde ha agregado una URL de CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx), y realice los siguientes cambios que se resaltan para agregar el mecanismo de reserva a los paquetes predeterminados:  
+1. En el proyecto de rol web, abra *App\_Start\\BundleConfig.cs*, donde ha agregado una URL de CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx), y realice los siguientes cambios que se resaltan para agregar el mecanismo de reserva a los paquetes predeterminados:
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{
@@ -619,4 +619,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 pageTitle="Aprenda a usar el conector de FTP en aplicaciones lógicas | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a un servidor FTP para administrar sus archivos. En FTP, puede realizar diversas acciones, como cargar, actualizar, obtener y eliminar archivos."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -438,4 +438,4 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0803_2016-->

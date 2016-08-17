@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
@@ -55,8 +55,8 @@ El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS 
 1. Abra el servidor Azure Multi-Factor Authentication y haga clic en el icono de autenticación RADIUS. Marque la casilla de verificación Habilitar autenticación RADIUS.
 2. En la pestaña Clientes, asegúrese de que los puertos coincidan con lo que se configura en NPS y haga clic en el botón Agregar... Agregue la dirección IP del servidor de puerta de enlace de escritorio remoto, el nombre de la aplicación (opcional) y un secreto compartido. El secreto compartido deberá ser el mismo en el servidor Azure Multi-Factor Authentication y en la puerta de enlace de escritorio remoto.
 3. Haga clic en la pestaña Destino y elija el botón de opción Servidores RADIUS.
-4. Haga clic en el botón Agregar... Escriba la dirección IP, el secreto compartido y los puertos del servidor NPS. A menos que use un NPS central, el cliente RADIUS y el destino RADIUS coincidirán. El secreto compartido debe coincidir con el configurado en la sección de cliente RADIUS del servidor NPS. 
+4. Haga clic en el botón Agregar... Escriba la dirección IP, el secreto compartido y los puertos del servidor NPS. A menos que use un NPS central, el cliente RADIUS y el destino RADIUS coincidirán. El secreto compartido debe coincidir con el configurado en la sección de cliente RADIUS del servidor NPS.
 
 ![Autenticación Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

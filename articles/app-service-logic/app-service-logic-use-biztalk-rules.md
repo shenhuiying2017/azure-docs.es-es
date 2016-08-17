@@ -1,7 +1,7 @@
 <properties
    pageTitle="Información y creación de una aplicación de API de reglas de BizTalk en la aplicación lógica | Microsoft Azure"
    description="En este tema se describen las características del conector de reglas de BizTalk y se proporcionan instrucciones sobre su uso"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -48,16 +48,15 @@ _IF_ _condition_ _THEN_ _action_
 
 Considere el siguiente ejemplo:
 
-*IF el importe es menor o igual que los fondos disponibles* 
-*THEN realizar transacción e imprimir recibo*
+*IF el importe es menor o igual que los fondos disponibles* *THEN realizar transacción e imprimir recibo*
 
 Esta regla determina si una transacción se realizará aplicando la lógica de negocios, como una comparación de dos valores monetarios, en forma de un importe de transacción y los fondos disponibles. 
 Puede usar la regla de negocios para crear, modificar e implementar reglas de negocios. Como alternativa, puede realizar las tareas anteriores mediante programación.
 
 ###Condiciones
 
-Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados. 
-En nuestro ejemplo, el predicado menos o igual que se aplica al importe y los fondos disponibles. 
+Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados.
+En nuestro ejemplo, el predicado menos o igual que se aplica al importe y los fondos disponibles.
 Esta condición siempre se evaluará como verdadera o falsa. Los predicados se pueden combinar con los operadores lógicos AND, OR y NOT para formar una expresión lógica que puede ser bastante larga, pero que siempre se evaluará como verdadera o falsa.
 
 ###Acciones
@@ -97,7 +96,7 @@ Vamos a usar ahora reglas de negocios para implementar esta lógica de negocios.
 2. Seleccione Nuevo -> Marketplace y busque *Reglas de BizTalk*.
 3. Seleccione las reglas de BizTalk de la lista de resultados. Se abre la hoja Reglas de BizTalk.
 4. Seleccione el botón *Crear*. ![Texto alternativo][3]
-1. En la nueva hoja que se abre, escriba la siguiente información:  
+1. En la nueva hoja que se abre, escriba la siguiente información:
 	1. Nombre: proporcione un nombre para su aplicación de API de reglas
 	1. Plan del Servicio de aplicaciones: seleccione o cree un nuevo plan del Servicio de aplicaciones
 	1. Nivel de precios: elija el nivel de precios en el que desea que resida esta aplicación
@@ -115,7 +114,7 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
    ![Texto alternativo][4]
 
 2\. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.
-3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -149,39 +148,39 @@ Los nombres de las múltiples definiciones creadas adoptarán de forma predeterm
 ![Texto alternativo][7]
 
 ##Creación de directivas
-Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure. 
-	1. En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas. 
-	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 
-	3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. 
-	![Texto alternativo][8] 
-	4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
+Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure.  
+	1.	En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas.  
+	2.	Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas.  
+	3.	Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene.  
+	![Texto alternativo][8]
+	4.	Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
 Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:
-1. 	And: operador condicional
-2. 	Or: operador condicional
-3. 	does\_not\_exist
-4. 	exists
-5. 	false
-6. 	is\_equal\_to
-7. 	is\_greater\_than
-8. 	is\_greater\_than\_equal\_to
-9. 	is\_in
-10. is\_less\_than
-11. is\_less\_than\_equal\_to
-12. is\_not\_in
-13. is\_not\_equal\_to
-14. mod
-15. true
+1. 	And: operador condicional  
+2. 	Or: operador condicional  
+3. 	does\_not\_exist  
+4. 	exists  
+5. 	false  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
+14. mod  
+15. true  
 
 El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. A continuación se indican las palabras clave admitidas:
-1.	equals
-2.	false
-3.	true
-4.	halt
-5.	mod
-6.	null
-7.	update
+1.	equals  
+2.	false  
+3.	true  
+4.	halt  
+5.	mod  
+6.	null  
+7.	update  
 
 Los cuadros de condición y acción proporcionan Intellisense para ayudar al autor a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. 
 ![Texto alternativo][9]
@@ -255,4 +254,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

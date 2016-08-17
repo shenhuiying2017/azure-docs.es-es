@@ -3,7 +3,7 @@
    description="Base de datos SQL de Microsoft Azure, migración de bases de datos, importación de bases de datos, importación de archivo BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 1. Abra un símbolo del sistema y cambie a un directorio que contiene la utilidad de línea de comandos sqlpackage.exe; esta utilidad se incluye con Visual Studio y SQL Server.
 2. Ejecute el siguiente comando sqlpackage.exe con los argumentos siguientes para su entorno:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:< nombre\_servidor > /tdn:< nombre\_basededatos > /tu:< nombre\_usuario > /tp:< contraseña > /sf:< archivo\_origen >
 
 	| Argumento | Descripción |
 	|---|---|
-	| < server_name > | nombre de servidor de destino |
-	| < database_name > | nombre de base de datos de destino |
-	| < user_name > | nombre de usuario en el servidor de destino |
-	| < password > | contraseña del usuario |
-	| < source_file > | nombre y ubicación del archivo BACPAC que se importa |
+	| < nombre\_servidor > | nombre de servidor de destino |
+	| <nombre\_basedatos > | nombre de base de datos de destino |
+	| <nombre\_usuario > | nombre de usuario en el servidor de destino |
+	| < contraseña > | contraseña del usuario |
+	| <archivo\_origen > | nombre y ubicación del archivo BACPAC que se importa |
 
 	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -60,4 +60,4 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

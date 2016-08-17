@@ -304,7 +304,7 @@ Si una aplicación proporciona un valor para un identificador, Servicios móvile
 El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes conjuntos:
 
 + Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1].
-+  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++  Caracteres imprimibles: **"**(0 x 0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Los identificadores "." y ".."
 
 También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` usando la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles].
@@ -586,7 +586,7 @@ En el código anterior, el atributo *listitem* especifica el identificador del d
 
 Como el origen de datos de nuestra vista es una matriz de *ToDoItem*, se realiza una subclase en nuestro adaptador desde una clase *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclase producirá una vista para cada *ToDoItem* que use el diseño de *row\_list\_to\_do*.
 
-En nuestro código definimos la clase siguiente, que es una extensión de la clase *ArrayAdapter&lt;E&gt;*:
+En nuestro código definimos la clase siguiente, que es una extensión de la clase *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -939,3 +939,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
 <!---HONumber=AcomDC_0727_2016-->
+

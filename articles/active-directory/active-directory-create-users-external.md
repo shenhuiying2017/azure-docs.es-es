@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="08/02/2016"
+	ms.author="curtand"/>
 
 # Incorporación de usuarios de otros directorios o compañías asociadas en Azure Active Directory
 
-Agregue usuarios para rellenar su directorio. En este artículo se explica cómo agregar usuarios de otros directorios o de compañías asociadas en Azure Active Directory. Para información sobre cómo agregar nuevos usuarios a su organización y cómo agregar usuarios con cuentas Microsoft, consulte [Adición o cambio de usuarios en Azure Active Directory](active-directory-create-users.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
+En este artículo se explica cómo agregar usuarios de otros directorios o de compañías asociadas en Azure Active Directory. Para información sobre cómo agregar nuevos usuarios a su organización y cómo agregar usuarios con cuentas Microsoft, consulte [Adición o cambio de usuarios en Azure Active Directory](active-directory-create-users.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
 
 ## Adición de un usuario
 
@@ -84,4 +84,4 @@ Si se elimina un usuario en su directorio principal o se cancela su cuenta de Mi
 - [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

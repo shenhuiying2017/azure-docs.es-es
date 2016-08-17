@@ -43,7 +43,7 @@ Si sabe que estas condiciones ya existen en su entorno, vaya al artículo [Copia
 - No se admite la restauración y copia de seguridad entre regiones.
 - Se admite la copia de seguridad de máquinas virtuales mediante el uso del servicio Copia de seguridad de Azure en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones compatibles). Si la región que está buscando no es compatible actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
-  - **Linux**: Consulte [la lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Otras distribuciones con la iniciativa "traiga su propio Linux" también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
+  - **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), excepto CoreOS Linux. Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 - La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Más información sobre cómo [restaurar un controlador de dominio de varios controladores de dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean con el flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -131,7 +131,7 @@ En este paso se configura el servidor proxy para la cuenta de sistema local.
      ```
      psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
      ```
-    Se abrirá la ventana de Internet Explorer.
+     Se abrirá la ventana de Internet Explorer.
 3. Vaya a Herramientas -> Opciones de Internet -> Conexiones -> Configuración de LAN.
 4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto.
 5. Cierre Internet Explorer.
@@ -238,4 +238,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo crear una red virtual usando PowerShell en ARM | Administrador de recursos."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.author="jdial"/>
 
 # Creación de una red virtual usando PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este documento describe la creación de una red virtual mediante el modelo de implementación del Administrador de recursos. También puede [crear una red virtual usando el modelo de implementación clásica](virtual-networks-create-vnet-classic-netcfg-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este documento describe la creación de una red virtual mediante el modelo de implementación del Administrador de recursos. También puede [crear una red virtual usando el modelo de implementación clásica](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -33,4 +33,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-ps-include](../../includes/virtual-networks-create-vnet-arm-ps-include.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

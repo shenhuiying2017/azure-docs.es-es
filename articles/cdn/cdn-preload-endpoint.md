@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Carga previa de activos en un punto de conexión de CDN de Azure"
+	pageTitle="Carga previa de recursos en un punto de conexión de CDN de Azure | Microsoft Azure"
 	description="Obtenga información sobre cómo precargar el contenido almacenado en caché en un punto de conexión de CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Carga previa de activos en un punto de conexión de CDN de Azure
@@ -60,4 +60,4 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 - [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
 - [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

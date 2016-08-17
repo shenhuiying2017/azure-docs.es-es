@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -148,8 +148,10 @@ Es posible aplanarlo si selecciona las propiedades que le interesan:
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Tenga en cuenta que debe utilizar una [conversión](app-insights-analytics-reference.md#casts) al tipo adecuado.
 
 ## Propiedades y medidas personalizadas
 
@@ -173,7 +175,7 @@ Para extraer estos valores en Analytics:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -267,7 +269,7 @@ Veamos solo las excepciones de las que informan los exploradores:
 
 El operador `where` acepta una expresión booleana. He aquí algunos puntos clave:
 
- * `and`, `or`: operadores booleanos
+ * `and`, `or`: Operadores booleanos
  * `==`, `<>`: igual que y no igual que
  * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
 
@@ -479,4 +481,4 @@ Use [let](./app-insights-analytics-reference.md#let-statements) para separar las
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 pageTitle="Aprenda a utilizar el conector de SFTP en las aplicaciones lógicas | Microsoft Azure"
 description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a la API de SFTP para enviar y recibir archivos. Puede realizar varias operaciones, como crear, actualizar, obtener o eliminar archivos."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -399,7 +399,7 @@ BlobMetadata
 
 Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
 
-|Nombre|Descripción|
+|Name|Descripción|
 |---|---|
 |200|OK|
 |202|Accepted|
@@ -419,4 +419,4 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

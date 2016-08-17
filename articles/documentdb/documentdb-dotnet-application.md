@@ -4,7 +4,7 @@
 	keywords="tutorial de asp.net mvc, desarrollo de aplicaciones web, aplicación web de mvc, tutorial de asp net mvc paso a paso"
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -16,7 +16,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="08/01/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 #<a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
 
@@ -591,4 +591,4 @@ Para agregar más funcionalidad a la aplicación, revise las API disponibles en 
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

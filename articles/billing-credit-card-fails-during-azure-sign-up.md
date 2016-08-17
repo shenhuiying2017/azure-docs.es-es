@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Rechazo de la tarjeta de crédito o débito al realizar la suscripción | Microsoft Azure"
 	description="Se describen algunas causas habituales de problemas que surgen al realizar la suscripción a Microsoft Azure como, por ejemplo, el rechazo de la tarjeta de crédito o débito."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="tarjeta de crédito rechazada, tarjeta de débito rechazada, se rechazó su tarjeta de crédito, la tarjeta de crédito no se acepta"/>
 
 <tags
@@ -41,4 +41,4 @@ Para usar la opción de pago con factura, debe representar a una empresa. Esta o
 
 Para iniciar el proceso de configuración de una factura, consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para obtener más información.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

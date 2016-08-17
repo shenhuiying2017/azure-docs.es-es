@@ -18,6 +18,10 @@
 
 # Copia de datos de los blobs de almacenamiento de Azure en el Almacén de Data Lake
 
+> [AZURE.SELECTOR]
+- [Uso de DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Uso de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
 Azure Data Lake Store proporciona una herramienta de línea de comandos, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar datos desde los siguientes orígenes:
 
 * Desde los blobs de Almacenamiento de Azure en Data Lake Store. No puede utilizar AdlCopy para copiar datos del Almacén de Data Lake a los blobs de Almacenamiento de Azure.
@@ -169,4 +173,4 @@ En esta sección, aprenderá a usar AdlCopy para copiar datos de un origen (en e
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

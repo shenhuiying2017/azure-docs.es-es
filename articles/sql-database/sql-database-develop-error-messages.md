@@ -33,7 +33,7 @@ En este artículo se enumeran los códigos de error de SQL de la aplicación cli
 
 ## Errores de conexión de base de datos, errores transitorios y otros errores temporales
 
-En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a la Base de datos SQL.
+En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a la Base de datos SQL. Para obtener tutoriales de introducción acerca de cómo conectarse a Base de datos de SQL Azure, consulte [Conexión a Base de datos SQL de Azure](sql-database-libraries.md).
 
 ### Errores de conexión de base de datos y errores transitorios más comunes
 
@@ -227,4 +227,4 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -27,6 +27,7 @@ Para actualizar el [Agente de Linux de Azure](https://github.com/Azure/WALinuxAg
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+<br>
 
 > [AZURE.NOTE] Si va a realizar esta tarea desde un equipo con Windows, utilice PuTTY para SSH en el equipo Linux. Para obtener más información, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-classic-log-on.md).
 
@@ -40,21 +41,33 @@ En CentOS, escriba:
 
     #sudo yum install waagent
 
-Para Oracle Linux, asegúrese de que el `Addons` repositorio está habilitado. Elija editar el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
+
+Para Oracle Linux, asegúrese de que el repositorio `Addons` está habilitado. Elija editar el archivo `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
 
 Luego, instale la versión más reciente del Agente de Linux de Azure de tipo:
+
 
     #sudo yum install WALinuxAgent
 
 Si no encuentra el repositorio de complementos, basta con agregar estas líneas al final del archivo .repo según la versión de Oracle Linux:
 
-Para las máquinas virtuales de Oracle Linux 6:
+Para las máquinas virtuales Oracle Linux 6:
 
-  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+    [ol6_addons]
+    name=Add-Ons for Oracle Linux $releasever ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+    gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+    gpgcheck=1
+    enabled=1
 
-Para las máquinas virtuales de Oracle Linux 7:
+Para las máquinas virtuales Oracle Linux 7:
 
-  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+    [ol7_addons]
+    name=Oracle Linux $releasever Add ons ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+    gpgcheck=1
+    enabled=0
 
 A continuación, escriba:
 
@@ -118,7 +131,7 @@ Abra [la versión del Agente de Linux de Azure en Github](https://github.com/Azu
 
 ### Para la versión 2.1.x, use:
 
-Es posible que necesite instalar primero el paquete `setuptools`. Consulte esto [aquí](https://pypi.python.org/pypi/setuptools). A continuación, ejecute:
+Es posible que necesite instalar primero el paquete `setuptools`. Consúltelo [aquí](https://pypi.python.org/pypi/setuptools). A continuación, ejecute:
 
     #sudo python setup.py install
 
@@ -144,6 +157,6 @@ Para CoreOS, es posible que el comando anterior no funcione.
 
 Verá que la versión del Agente de Linux de Azure se actualizó a la versión nueva.
 
-Para obtener más información sobre el Agente de Linux de Azure, consulte el archivo [Léame del Agente de Linux de Azure](https://github.com/Azure/WALinuxAgent).
+Para más información sobre el Agente de Linux de Azure, consulte el archivo [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent) (Léame del Agente de Linux de Azure).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0803_2016-->

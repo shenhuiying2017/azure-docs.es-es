@@ -3,7 +3,7 @@
     description="Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -187,4 +187,4 @@ En abril de 2017 se retirará el tipo secundario no legible y las bases de datos
 - Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -55,9 +55,9 @@ En la base de datos, defina el tipo de tabla con el mismo nombre que SqlWriterTa
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
-	    [State] [varchar](256) NOT NULL,
+	    [State] [varchar](256) NOT NULL
 	)
 
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0803_2016-->

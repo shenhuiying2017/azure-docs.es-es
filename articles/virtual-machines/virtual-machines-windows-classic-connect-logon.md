@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 
@@ -24,8 +24,9 @@ En el Portal de Azure clásico, usará el botón **Conectar** para iniciar una s
 
 ¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-classic-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](virtual-machines-windows-connect-logon.md).
+Aprenda cómo [realizar estos pasos con el nuevo Portal de Azure](virtual-machines-windows-connect-logon.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Tutorial en vídeo
 
@@ -44,7 +45,7 @@ A continuación se facilita una guía detallada en vídeo de los pasos de este t
 
 	![Iniciar sesión en la nueva máquina virtual](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 	
-> [AZURE.TIP] Si el botón Conectar no está disponible, vea las sugerencias de solución de problemas al final de este artículo.
+> [AZURE.TIP] Si el botón **Conectar** no está disponible, consulte las sugerencias de solución de problemas al final de este artículo.
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -57,4 +58,4 @@ A continuación se facilita una guía detallada en vídeo de los pasos de este t
 
 Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

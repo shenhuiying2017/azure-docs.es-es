@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Recuperación ante desastres para aplicaciones generadas en Microsoft Azure
 
@@ -305,4 +305,4 @@ Hay otras técnicas que puede usar para probar los planes de recuperación ante 
 
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). El anterior artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

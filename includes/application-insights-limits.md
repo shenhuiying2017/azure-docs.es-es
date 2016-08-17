@@ -9,14 +9,14 @@ Puntos de datos totales por mes de solicitud, evento, dependencia, seguimiento, 
 Velocidad de datos de [seguimiento y registro](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
 Velocidad de datos de [excepción](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
 Velocidad total de datos de solicitud, evento, dependencia y telemetría de vista de página | 200 dp/s | 500 dp/s
-Retención de [datos sin procesar](../articles/application-insights/app-insights-diagnostic-search.md) | 7 días
-Retención de [datos agregados](../articles/application-insights/app-insights-metrics-explorer.md) | 90 días
+Retención de datos sin procesar para [Búsqueda](../articles/application-insights/app-insights-diagnostic-search.md) y [Análisis](../articles/application-insights/app-insights-analytics.md) | 7 días
+Retención de datos agregada para [Explorador de métricas](../articles/application-insights/app-insights-metrics-explorer.md) | 90 días
 Cantidad de nombres de [propiedad](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longitud del nombre de la propiedad | 100 | 
-Longitud del valor de la propiedad | 1000 | 
+Longitud del nombre de la propiedad | 150 | 
+Longitud del valor de la propiedad | 8192 | 
 Longitud del mensaje de seguimiento y excepción | 10000 |
 Cantidad de nombres de [métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longitud del nombre de métrica | 100 | 
+Longitud del nombre de métrica | 150 | 
 [Pruebas de disponibilidad](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> Un punto de datos es un evento o valor métrico individual, con propiedades adjuntas y medidas.
@@ -27,4 +27,4 @@ Longitud del nombre de métrica | 100 |
  
 [Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

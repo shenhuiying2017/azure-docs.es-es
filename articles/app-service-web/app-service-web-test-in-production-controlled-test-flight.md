@@ -48,7 +48,9 @@ En este tutorial, obtendrá información sobre cómo reunir los escenarios sigui
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure:
+> + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/): obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
+> + Puede [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -56,7 +58,7 @@ En este tutorial, obtendrá información sobre cómo reunir los escenarios sigui
 
 >[AZURE.NOTE] El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
 >
->Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
+>Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](app-service-continuous-deployment.md#Step7). Solo tiene que hacer esto una vez.
 
 En un escenario típico de DevOps, tiene una aplicación que se ejecuta directamente en Azure y quiere realizar cambios en ella mediante publicación continua. En este escenario, se implementará en producción una plantilla que haya desarrollado y probado.
 
@@ -94,11 +96,11 @@ Ha configurado la aplicación de producción. Ahora, imaginemos que recibe comen
 
 ## Investigación: instrumentar la aplicación de cliente para supervisión y métricas
 
-5. Abra *& lt; repository\_root >*\\src\\MultiChannelToDo.sln en Visual Studio.
+5. Abra *&lt; repository\_root >*\\src\\MultiChannelToDo.sln en Visual Studio.
 6. Restaure todos los paquetes de Nuget haciendo clic con el botón derecho en la solución > **Administrar paquetes de NuGet para la solución** > **Restaurar**.
-6. Haga clic con el botón derecho en **MultiChannelToDo.Web** > **Agregar Telemetría de Application Insights** > **Definir la configuración** > Cambie el grupo de recursos a ToDoApp * & lt; your\_suffix > * > **Agregar Application Insights al proyecto**.
+6. Haga clic con el botón derecho en **MultiChannelToDo.Web** > **Agregar Telemetría de Application Insights** > **Definir la configuración** > Cambie el grupo de recursos a ToDoApp*&lt;your\_suffix>* > **Agregar Application Insights al proyecto**.
 7. En el Portal de Azure, abra la hoja para el recurso de Application Insight **MultiChannelToDo.Web**. A continuación, en la parte de **Estado de la aplicación**, haga clic en **Obtenga información sobre cómo recopilar datos de carga de página del explorador** > Copiar código.
-7. Agregue el código de instrumentación JS copiado a *& lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, justo antes de la etiqueta `<heading>` de cierre. Debe contener la clave de instrumentación única del recurso de Application Insight.
+7. Agregue el código de instrumentación JS copiado a *&lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, justo antes de la etiqueta `<heading>` de cierre. Debe contener la clave de instrumentación única del recurso de Application Insight.
 
         <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
@@ -157,7 +159,7 @@ Este podría ser un ejemplo inventado. De cualquier forma, realice una mejora en
 ### Instrumentación de la aplicación del servidor para supervisión y métricas
 Este es un tema tangencial, porque el escenario con el que se trabaja en este tutorial solo concierne a la aplicación cliente. De todas formas, para tener una visión completa se configurará también la aplicación del lado del servidor.
 
-6. Haga clic con el botón derecho en **MultiChannelToDo** > **Agregar Telemetría de Application Insights** > **Definir la configuración** > Cambie el grupo de recursos a ToDoApp * & lt; your\_suffix > * > **Agregar Application Insights al proyecto**.
+6. Haga clic con el botón derecho en **MultiChannelToDo** > **Agregar Telemetría de Application Insights** > **Definir la configuración** > Cambie el grupo de recursos a ToDoApp*&lt;your\_suffix>* > **Agregar Application Insights al proyecto**.
 12. En el Shell de Git, confirme e inserte los cambios en la bifurcación en GitHub. A continuación, espere a que los clientes actualicen el explorador.
 
         git add -A :/
@@ -220,7 +222,7 @@ Como está recopilando datos sobre el comportamiento del cliente, [agregará un 
 ### Incorporación de etiquetas específicas de ranura a las métricas de la aplicación de servidor
 De nuevo, con el fin de tener una visión completa se configurará también la aplicación del lado del servidor. A diferencia de la aplicación de cliente que se instrumenta en JavaScript, las etiquetas específicas de ranura para la aplicación de servidor se instrumentan con código. NET.
 
-1. Abra *& lt; repository\_root >*\\src\\MultiChannelToDo\\Global.asax.cs. Agregue el bloque de código siguiente, justo antes de cerrar la llave del espacio de nombres.
+1. Abra *&lt; repository\_root >*\\src\\MultiChannelToDo\\Global.asax.cs. Agregue el bloque de código siguiente, justo antes de cerrar la llave del espacio de nombres.
 
 		namespace MultiChannelToDo
 		{
@@ -255,7 +257,7 @@ De nuevo, con el fin de tener una visión completa se configurará también la a
 
 ## Actualización: configurar la bifurcación de la versión beta
 
-2. Abra *& lt; repository\_root >*\\ARMTemplates\\ProdAndStagetest.json y encuentre los recursos `appsettings` (busque `"name": "appsettings"`). Hay 4 de ellos, uno para cada ranura. 
+2. Abra *&lt; repository\_root >*\\ARMTemplates\\ProdAndStagetest.json y encuentre los recursos `appsettings` (busque `"name": "appsettings"`). Hay 4 de ellos, uno para cada ranura.
 
 2. Para cada recurso `appsettings`, agregue un valor de aplicación `"environment": "[parameters('slotName')]"` al final de la matriz `properties`. No olvide poner una coma al final de la línea anterior.
 
@@ -297,7 +299,7 @@ Volver a la aplicación que desea mejorar.
 
         git checkout beta
 
-2. En *& lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, encuentre la etiqueta `<li>` y agregue el atributo `style="cursor:pointer"`, como se muestra a continuación.
+2. En *&lt; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, encuentre la etiqueta `<li>` y agregue el atributo `style="cursor:pointer"`, como se muestra a continuación.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
 
@@ -375,4 +377,4 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0803_2016-->

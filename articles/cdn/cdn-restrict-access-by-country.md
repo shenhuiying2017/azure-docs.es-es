@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Red CDN - Restricción del acceso a contenidos por país"
-	description="Cuando un usuario solicita su contenido, de forma predeterminada, el contenido se proporciona sin tener en cuenta el lugar desde el que el usuario realizó esta solicitud. En algunos casos, puede que desee restringir el acceso al contenido por país. En este tema se explica cómo configurar la característica **Filtrado por país** para permitir o bloquear el acceso por país."
+	pageTitle="Restricción del acceso a contenido de la red CDN de Azure por país | Microsoft Azure"
+	description="Aprenda cómo restringir el acceso a su contenido de la red CDN de Azure mediante la característica Filtrado por país o región."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Restricción del acceso a contenidos por país
@@ -47,24 +47,24 @@ Filtro de ruta de acceso del directorio de ejemplo:
 
 ##Paso 3: Definir los países
 
-Seleccione los países que desee bloquear o permitir para la ruta de acceso. Para obtener más información, consulte el tema [Códigos de país](cdn-country-codes.md).
+Seleccione los países que desee bloquear o permitir para la ruta de acceso. Para más información, consulte [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Red CDN de Azure desde códigos de país de Verizon).
 
 Por ejemplo, la regla de bloqueo /Fotos/Estrasburgo/ filtrará los archivos, incluidos:
 
-	http://az123456.azureedge.net/Photos/Strasbourg/1000.jpg
-	http://az123456.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
+	http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
+	http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
 ##Códigos de país
 
-La característica **Filtrado por país** usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido. Encontrará los códigos de país en [este](cdn-country-codes.md) tema. Si especifica "EU" (Europa) o "AP" (Asia Pacífico), se bloqueará o permitirá un subconjunto de direcciones IP que tengan su origen en cualquier país de esas regiones.
+La característica **Filtrado por país** usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido. Encontrará los códigos de país en [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Red CDN de Azure desde códigos de país de Verizon). Si especifica "EU" (Europa) o "AP" (Asia Pacífico), se bloqueará o permitirá un subconjunto de direcciones IP que tengan su origen en cualquier país de esas regiones.
 
 
 ##<a id="considerations"></a>Consideraciones
 
-- Es posible que los cambios en la configuración del filtro de país tarden hasta una hora en surtir efecto.
+- Es posible que los cambios en la configuración del filtro de país tarden hasta 90 minutos en surtir efecto.
 - Esta característica no admite caracteres comodín (por ejemplo, ‘*’).
 - La configuración de filtrado de país asociada a la ruta de acceso relativa se aplicará de forma recursiva a esa ruta.
 - Solo se puede aplicar una regla a la misma ruta de acceso relativa (no se pueden crear varios filtros de país que señalen a la misma ruta de acceso relativa). Sin embargo, una carpeta puede tener varios filtros de país. Esto se debe a la naturaleza recursiva de los filtros de país. En otras palabras, se puede asignar un filtro de país diferente a una subcarpeta de una carpeta configurada previamente.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

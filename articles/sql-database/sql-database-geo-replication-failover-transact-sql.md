@@ -3,7 +3,7 @@
     description="Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
-    authors="carlrabeler" 
+    authors="CarlRabeler" 
     manager="jhubbard" 
     editor=""/>
 
@@ -102,4 +102,4 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 - Para saber cómo utilizar la replicación geográfica activa con los grupos de bases de datos elásticas, consulte [Grupos de bases de datos elásticas](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 - Para ver una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

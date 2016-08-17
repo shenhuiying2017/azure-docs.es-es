@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Análisis de patrones de uso de la red CDN"
+	pageTitle="Análisis de patrones de uso de la red CDN de Azure | Microsoft Azure"
 	description="Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Análisis de patrones de uso de la red CDN
+# Análisis de patrones de uso de la red CDN de Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@ Puede ver los patrones de uso de la red CDN mediante los siguientes informes:
 - Estados de la memoria caché
 - Frecuencia de aciertos de caché
 - Datos de IPV4/IPV6 transferidos
+
+## Acceso a los informes de HTTP avanzados
+
+1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
+
+	![Botón de administración de hoja de perfil de red CDN](./media/cdn-reports/cdn-manage-btn.png)
+
+	Se abre el portal de administración de CDN.
+
+2. Mueva el puntero sobre la pestaña **Análisis** y después sobre el control flotante **Core Reports** (Informes básicos). Haga clic en el informe que desee en el menú.
+
+	![Portal de administración de la red CDN - menú Core Reports (Informes básicos)](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## Ancho de banda
 
@@ -122,7 +135,7 @@ El informe no incluye:
 - Solicitudes de recursos cuyos encabezados indican que no se deben almacenar en caché. Por ejemplo, los encabezados Cache-Control: private, Cache-Control: no-cache o Pragma: no-cache impedirán que un recurso se almacene en caché.
 - Solicitudes de intervalo de bytes para contenido almacenado parcialmente en caché.
 
-La fórmula es: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
+La fórmula es: (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100
 
 - Seleccione el intervalo de fechas para ver datos de hoy, esta semana o este mes, etc. o especifique fechas personalizadas y haga clic en "Ir" para asegurarse de que se actualiza la selección.
 - Para exportar y descargar los datos, haga clic en el icono de hoja de Excel situado junto a "Ir".
@@ -144,4 +157,4 @@ Este informe muestra la distribución de uso de tráfico en IPV4 frente a IPV6.
 
 Los informes solo pueden generarse en los últimos 18 meses.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

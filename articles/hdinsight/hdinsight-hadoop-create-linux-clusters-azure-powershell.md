@@ -17,51 +17,50 @@
    	ms.date="07/08/2016"
    	ms.author="nitinme"/>
 
-#Crear clústeres basados en Linux en HDInsight con Azure PowerShell
+# Creación de clústeres basados en Linux en HDInsight mediante Azure PowerShell
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell, así como un script de ejemplo.
+Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Microsoft Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell. También se incluye un script de ejemplo.
 
-> [AZURE.NOTE] Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, vea [Crear un clúster de HDInsight basado en Linux con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obtener información sobre el uso de la CLI de Azure para crear un clúster.
+> [AZURE.NOTE] Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, consulte [Crear clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información sobre el uso de la CLI de Azure para crear un clúster.
 
 ## Requisitos previos
+Antes de iniciar este procedimiento, debe tener lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Azure PowerShell__
+- Azure PowerShell. Para más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para ver la lista de cmdlets de Windows PowerShell para HDInsight, consulte la [referencia de cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-    Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
-    
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-##Creación de clústeres
+## Creación de clústeres
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Los siguientes procedimientos son necesarios para crear un clúster de HDInsight con Azure PowerShell:
+Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
 
 - Creación de un grupo de recursos de Azure
 - Crear una cuenta de Almacenamiento de Azure
 - Creación de un contenedor de blobs de Azure
 - Creación de un clúster de HDInsight
 
-Los dos parámetros más importantes que debe establecer para crear clústeres de Linux son donde especifica el tipo de sistema operativo y los detalles del usuario de SSH:
+Los dos parámetros más importantes que debe establecer para crear clústeres de Linux son los que especifica el tipo de sistema operativo y los detalles del usuario de SSH:
 
 - Asegúrese de especificar el parámetro **-OSType** como **Linux**.
-- Para usar SSH para las sesiones remotas en los clústeres, puede especificar la contraseña del usuario de SSH o la clave pública SSH. Si se especifica tanto la contraseña del usuario de SSH como la clave pública SSH, se omitirá la clave. Si desea usar la clave SSH en las sesiones remotas, debe especificar una contraseña SSH en blanco cuando se le solicite. Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
-    
+- Para usar SSH para las sesiones remotas en los clústeres, puede especificar la contraseña del usuario de SSH o la clave pública SSH. Si se especifica tanto la contraseña del usuario de SSH como la clave pública SSH, se omitirá la clave. Si desea usar la clave SSH en las sesiones remotas, debe especificar una contraseña SSH en blanco cuando se le solicite. Para más información sobre el uso de SSH con HDInsight, consulte uno de los siguientes artículos:
+
     * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
     * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 El script siguiente muestra cómo crear un nuevo clúster:
 
-    $token ="<SpecifyAnUniqueString>" 
+    $token ="<SpecifyAnUniqueString>"
 
     $resourceGroupName = $token + "rg"      # Provide a Resource Group name
     $clusterName = $token
     $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
-    $defaultStorageContainerName = $token + "container" 
+    $defaultStorageContainerName = $token + "container"
     $location = "East US 2"     # Change the location if needed
     $clusterNodes = 1           # The number of nodes in the HDInsight cluster
 
@@ -87,7 +86,7 @@ El script siguiente muestra cómo crear un nuevo clúster:
 
     # Create an HDInsight cluster
     $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials" 
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
     # The location of the HDInsight cluster must be in the same data center as the Storage account.
     $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $defaultStorageAccountName | %{$_.Location}
@@ -104,11 +103,13 @@ El script siguiente muestra cómo crear un nuevo clúster:
         -ClusterType Hadoop `
         -OSType Linux `
         -Version "3.4" `
-        -SshCredential $sshCredentials 
+        -SshCredential $sshCredentials
 
-Los valores que se especifican para **$clusterCredentials** se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster. Los valores que se especifican para **$sshCredentials** se usan para crear la cuenta de usuario de SSH para el clúster. Esta cuenta se usa para iniciar una sesión remota de SSH en el clúster y ejecutar trabajos.
+Los valores que se especifican para **$clusterCredentials** se usan para crear la cuenta de usuario de Hadoop para el clúster. Use esta cuenta para conectar con el clúster.
 
-> [AZURE.IMPORTANT] En este script, debe especificar el número de nodos de trabajo que se incluirán en el clúster. Si piensa usar más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de su creación, también debe especificar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+Los valores que se especifican para **$sshCredentials** se usan para crear el usuario de SSH para el clúster. Use esta cuenta para iniciar una sesión remota de SSH en el clúster y ejecutar trabajos.
+
+> [AZURE.IMPORTANT] En este script, debe especificar el número de nodos de trabajo que se incluirán en el clúster. Si tiene pensado usar más de 32 nodos de trabajo (en el momento de crear el clúster o cambiando el tamaño del clúster después de su creación), también debe especificar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -140,37 +141,37 @@ En el siguiente ejemplo se muestra cómo agregar una cuenta de almacenamiento ad
         -SshCredential $sshCredentials `
         -Config $config
 
-##Personalización de los clústeres
+## Personalización de los clústeres
 
-- Vea [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-- Vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
-##Eliminación del clúster
+## Eliminación del clúster
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##Pasos siguientes
+## Pasos siguientes
 
-Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster:
+Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes recursos para aprender a trabajar con él.
 
-###Clústeres Hadoop
+### Clústeres Hadoop
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-###Clústeres HBase
+### Clústeres HBase
 
 * [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-###Clústeres Storm
+### Clústeres Storm
 
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-###Clústeres de Spark
+### Clústeres de Spark
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
@@ -178,4 +179,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

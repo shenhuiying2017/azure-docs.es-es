@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -47,6 +47,9 @@ En todos los tipos de conmutación por error del dispositivo, tenga en cuenta lo
 - Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos con espacio suficiente para alojar los contenedores de volúmenes seleccionados.
 - Los dispositivos que están conectados al servicio pero que no cumplen los criterios de espacio suficiente no estarán disponibles como dispositivos de destino.
 - Tras una recuperación ante desastres, durante un tiempo limitado, el rendimiento del acceso a datos puede verse afectado de forma significativa, ya que el dispositivo deberá acceder a los datos de la nube y almacenarlos localmente.
+- Cuando se realiza una conmutación por error entre los dispositivos después de una recuperación ante desastres, las instantáneas que se usan para recuperar los datos se seleccionan de la siguiente forma:
+	1.  	Identifique la directiva de copia de seguridad con el mayor número de volúmenes.
+	2.  	Seleccione la instantánea en la nube conocida más reciente para esa directiva de copia de seguridad y úsela para restaurar los datos en el dispositivo de recuperación.
 
 #### Conmutación por error del dispositivo a través de las versiones de software
 
@@ -92,7 +95,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 	
 
-		>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.** <br></br>
+		>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes sin conexión e instantáneas de nube asociadas.** <br></br>
 
 	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
 
@@ -177,4 +180,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Uso del inquilino de Office 365 con una suscripción de Azure | Microsoft Azure"
 	description="Aprenda cómo agregar un directorio de Office 365 (inquilino) a una suscripción de Azure para realizar la asociación."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -145,4 +145,4 @@ Para asociar el inquilino de Office 365 con la suscripción de Azure, siga estos
 ## Pasos siguientes
 Hay escenarios relacionados donde ya dispone de una suscripción de Office 365 y desea obtener una suscripción de Azure, pero quiere utilizar sus cuentas de usuario actuales de Office 365 para la suscripción de Azure. También es posible que ya sea suscriptor de Azure y desee obtener una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory. Para aprender cómo realizar estas tareas, consulte [Uso de una cuenta de Office 365 con una suscripción de Azure y viceversa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

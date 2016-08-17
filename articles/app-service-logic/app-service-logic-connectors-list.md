@@ -32,7 +32,7 @@ En la siguiente tabla se enumeran todos los conectores y las aplicaciones de API
 Nombre | Descripción
 --- | ---
 [Bus de servicio de Azure](app-service-logic-connector-azureservicebus.md) | Puede enviar mensajes desde los temas y las colas del Bus de servicio y recibir mensajes de suscripciones y colas del Bus de servicio.
-[Traductor de Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing para traducir texto en otro idioma.
+[Traductor de Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use Bing para traducir texto en otro idioma.
 [HTTP](app-service-logic-connector-http.md) | El agente de escucha HTTP abre un extremo que actúa como servidor HTTP y escucha las solicitudes HTTP o HTTPS entrantes. La acción HTTP no requiere una aplicación de API y se admite de forma nativa en las aplicaciones lógicas.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | El conector Office 365 puede enviar y recibir correos electrónicos, administrar su calendario y administrar sus contactos con su cuenta de Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Puede completar tareas diferentes incluidas crear, actualizar y consultar diferentes entidades de Intuit QuickBooks como clientes, artículos, facturas, etc.
@@ -80,4 +80,4 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 ## Más sobre los conectores y las aplicaciones de API
 [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md) [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -29,7 +29,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde DB2 a ot
 
 Para que la puerta de enlace de administración de datos se conecte a la base de datos DB2, a partir de la versión 2.1, Data Factory de Azure proporciona un controlador integrado compatible con DB2 (SQLAM 9, 10 y 11), incluidos DB2 para LUW (Linux, Unix y Windows), DB2 para z/OS y DB2 para i (AS/400). Por tanto, no tiene que instalar manualmente los controladores al copiar datos de DB2.
 
-> [AZURE.NOTE] Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+> [AZURE.NOTE] Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 
 ## Ejemplo: Copiar datos de DB2 a un blob de Azure
@@ -322,4 +322,4 @@ Char | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

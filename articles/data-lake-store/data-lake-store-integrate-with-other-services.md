@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Integración del Almacén de Data Lake con otros servicios de Azure
@@ -82,6 +82,6 @@ Puede registrar los datos desde Almacén de Data Lake al Catálogo de datos de A
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
-- [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)  
+- [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

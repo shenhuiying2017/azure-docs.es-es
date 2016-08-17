@@ -213,29 +213,38 @@ Instale el proveedor de Azure Site Recovery en los servidores VMM y registre los
 
 	![Ubicación de instalación](./media/site-recovery-vmm-to-vmm/provider-register.png)
 
-4. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se ejecuta en el servidor VMM a Site Recovery a través de Internet.
+9. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor. Haga clic en *Siguiente*.
 
-	- Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy** (Conectarse directamente sin un proxy).
-	- - Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings** (Conectarse con la configuración de proxy existente).
-	- Si el proxy existente requiere autenticación, o quiere utilizar un proxy personalizado para la conexión del proveedor, seleccione **Connect with custom proxy settings** (Conectarse con una configuración de proxy personalizada).
-	- Si utiliza un proxy personalizado, deberá especificar la dirección, el puerto y las credenciales.
-	- Si utiliza un servidor proxy, se deberían haber permitido ya las direcciones URL descritas en los [requisitos previos](#provider-and-agent-prerequisites).
-	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. En **Configuración**, expanda **Seguridad** > **Cuentas de ejecución** y, luego, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
+	![Registro de servidor](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
-	![Internet](./media/site-recovery-vmm-to-vmm/provider3.png)
+7. En **Conexión a Internet**, especifique cómo se conecta a Internet el proveedor que se ejecuta en el servidor VMM. Seleccione **Conectarse con la configuración de proxy existente** para usar la configuración predeterminada de conexión a Internet establecida en el servidor.
 
-4. En **Configuración de almacén**, haga clic en **Examinar** para seleccionar el archivo de clave descargado. Especifique la suscripción de Azure y el nombre del almacén.
+	![Configuración de Internet](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
-	![Registro de servidor](./media/site-recovery-vmm-to-vmm/provider-key2.png)
+	- Si desea utilizar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy.
+	- Si utiliza a un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del proxy.
+	- Las siguientes direcciones URL deben ser accesibles desde el servidor VMM y los hosts de Hyper-v
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo **Configuración**, expanda **Seguridad**, haga clic en **Cuentas de ejecución** y luego modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
-5. En **Registro** > **Ubicación para guardar el certificado**, haga clic en **Siguiente**. Un certificado para el cifrado no es pertinente en este escenario. Solo se utiliza cuando se realiza la replicación en el Almacenamiento de Azure.
 
-8. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
-9. Habilite la **sincronización de metadatos de la nube** si quiere sincronizar los metadatos de todas las nubes del servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM. Haga clic en **Siguiente** para finalizar el proceso.
+8. En **Clave de registro**, seleccione la clave que ha descargado de Azure Site Recovery y copiado en el servidor VMM.
 
-	![Registro de servidor](./media/site-recovery-vmm-to-vmm/provider-sync.png)
 
-10. Con ello, se iniciará el registro. Cuando finaliza el registro, el servidor VMM aparece en la hoja **Configuración** > **Servidores** del almacén.
+10.  La configuración de cifrado solo se usa cuando se está replicando VM de Hyper-V en nubes de VMM en Azure. Si se está replicando en un sitio secundario, no se usa.
+
+11.  En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
+12.  En **Sincronizar metadatos en la nube** seleccione si quiere sincronizar los metadatos de todas las nubes del servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM.
+
+13.  Haga clic en **Next** para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se muestra en la pestaña **Servidores VMM** de la página **Servidores** del almacén.
+ 	
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+
 11. Después de que el servidor esté disponible en la consola de Site Recovery, en **Origen** > **Preparar origen**, seleccione el servidor VMM y la nube en la que se encuentra el host Hyper-V. y, a continuación, haga clic en **Aceptar**.
 
 #### Instalación de la línea de comandos
@@ -356,7 +365,7 @@ Site Recovery proporciona una herramienta de planeamiento de capacidad basada en
 - Calcule la tasa de cambio (renovación) diaria que tendrá para las diferencias de datos replicadas. Para ayudarle a ello, puede usar la [herramienta de planeamiento de capacidad para réplicas de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
 1.	Haga clic en **Descargar** para descargar la herramienta y, luego, ejecútela. [Lea el artículo](site-recovery-capacity-planner.md) que acompaña a la herramienta.
-2.	Una vez que haya terminado, seleccione **Yes** (Sí) en **Have you run the Capacity Planner**? (¿Ha ejecutado la herramienta Capacity Planner?).
+2.	Una vez que haya terminado, seleccione **Yes** (Sí) en **Have you run the Capacity Planner**? (¿Ha ejecutado la herramienta Capacity Planner?)
 
 	![Planificación de capacidad](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -484,4 +493,4 @@ Ejecute este script de ejemplo para actualizar DNS, especificando la dirección 
 
 Después de que la implementación esté configurada y en ejecución, [aprenda más](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

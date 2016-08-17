@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso del agente de escucha HTTP y de su conector en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure "
    description="Creación y configuración del agente de escucha HTTP y el conector de acción HTTP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -89,4 +89,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
