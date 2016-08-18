@@ -281,4 +281,4 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0803_2016-->
