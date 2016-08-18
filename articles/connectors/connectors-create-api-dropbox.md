@@ -37,9 +37,11 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 En este ejemplo, vamos a utilizar el desencadenador **When a file is created** (Cuando se crea un archivo). Cuando se active este desencadenador, se invocará la acción de Dropbox **Get file content using path** (Obtener contenido del archivo mediante la ruta de acceso).
 
-1. Escriba *dropbox* en el cuadro de búsqueda del diseñador de aplicaciones lógicas y seleccione el desencadenador **Dropbox - When a file is created** (Dropbox - Cuando se cree un archivo). ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
+1. Escriba *dropbox* en el cuadro de búsqueda del diseñador de aplicaciones lógicas y seleccione el desencadenador **Dropbox - When a file is created** (Dropbox - Cuando se cree un archivo).  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. Seleccione la carpeta en la que se va a supervisar la creación de archivos. Seleccione la opción ... (marcada con un cuadro rojo) y busque la carpeta que desea seleccionar para la entrada del desencadenador. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+2. Seleccione la carpeta en la que se va a supervisar la creación de archivos. Seleccione la opción ... (marcada con un cuadro rojo) y busque la carpeta que desea seleccionar para la entrada del desencadenador.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
 ## Uso de una acción de Dropbox
 
@@ -47,15 +49,21 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 Ahora que se ha agregado el desencadenador, siga estos pasos para incorporar una acción que obtenga el contenido del nuevo archivo.
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un nuevo archivo. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un nuevo archivo.  
 
-2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+
+2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. Escriba *dropbox* para buscar las acciones relacionadas con Dropbox.
 
-4. Seleccione **Dropbox - Get file content using path** (Dropbox: obtener el contenido del archivo mediante la ruta de acceso). Esta será la acción que se ejecutará cuando se cree un nuevo archivo en la carpeta de Dropbox seleccionada. Se abre el bloque de control de acción. Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta de Dropbox. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
+4. Seleccione **Dropbox - Get file content using path** (Dropbox: obtener el contenido del archivo mediante la ruta de acceso). Esta será la acción que se ejecutará cuando se cree un nuevo archivo en la carpeta de Dropbox seleccionada. Se abre el bloque de control de acción. Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta de Dropbox.  
+ 
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
 
-5. Seleccione la opción ... (la encontrará a la derecha del control **Ruta del archivo**) y busque la ruta de archivo que desea usar. También puede utilizar el token de la **ruta de archivo** para crear más rápido la aplicación lógica. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
+5. Seleccione la opción ... (la encontrará a la derecha del control **Ruta del archivo**) y busque la ruta de archivo que desea usar. También puede utilizar el token de la **ruta de archivo** para crear más rápido la aplicación lógica.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
 6. Guarde el trabajo y cree un nuevo archivo en Dropbox para activar el flujo de trabajo.
 

@@ -39,9 +39,14 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 En este ejemplo, le enseñaremos a usar el desencadenador **FTP - When a file is added or modified** (FTP: cuando se agrega o modifica un archivo) para que, cuando se agregue o se modifique un archivo en un servidor FTP, se inicie el flujo de trabajo de una aplicación lógica. En un entorno empresarial, podría utilizar este desencadenador para supervisar los nuevos archivos que se agregan a una carpeta FTP y que representan los pedidos de los clientes. Podría utilizar una acción del conector de FTP, como **Get file content** (Obtener contenido del archivo), para obtener el contenido del archivo a fin de procesarlo y almacenarlo después en la base de datos de pedidos.
 
-1. Escriba *ftp* en el cuadro de búsqueda del diseñador de aplicaciones lógicas y seleccione el desencadenador **FTP - When a file is added or modified** (FTP: cuando se agrega o modifica un archivo). ![Imagen de desencadenador de FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) Se abrirá el control **When a file is added or modified** (Cuando se agrega o modifica un archivo). ![Imagen de desencadenador de FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
-- Seleccione la opción **...** situada a la derecha del control. Se abrirá el control de selector de carpeta. ![Imagen de desencadenador de FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)
-- Seleccione la opción **>** (flecha derecha) y busque la carpeta donde desea supervisar los archivos nuevos o modificados. Al seleccionar la carpeta, observará que esta aparece en el control **Carpeta**. ![Imagen de desencadenador de FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
+1. Escriba *ftp* en el cuadro de búsqueda del diseñador de aplicaciones lógicas y seleccione el desencadenador **FTP - When a file is added or modified** (FTP: cuando se agrega o modifica un archivo).  
+![Imagen de desencadenador de FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+Se abrirá el control **When a file is added or modified** (Cuando se agrega o modifica un archivo).  
+![Imagen de desencadenador de FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Seleccione la opción **...** situada a la derecha del control. Se abrirá el control de selector de carpeta.  
+![Imagen de desencadenador de FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Seleccione la opción **>** (flecha derecha) y busque la carpeta donde desea supervisar los archivos nuevos o modificados. Al seleccionar la carpeta, observará que esta aparece en el control **Carpeta**.  
+![Imagen de desencadenador de FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
 En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree o modifique un archivo en la carpeta FTP especificada.
@@ -57,12 +62,18 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una acción que obtendrá el contenido del archivo nuevo o modificado detectado por el desencadenador.
 
 1. Seleccione **+ Nuevo paso** para agregar la acción que obtendrá el contenido del archivo del servidor FTP.
-- Seleccione el vínculo **Add an action** (Agregar una acción). ![Imagen de acción de FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Seleccione el vínculo **Add an action** (Agregar una acción).  
+![Imagen de acción de FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 - Escriba *FTP* para buscar todas las acciones relacionadas con FTP.
-- Seleccione **FTP - Get file content** (FTP: obtener contenido del archivo). Esta será la acción que se ejecutará cuando se encuentre un archivo nuevo o modificado en la carpeta FTP. ![Imagen de acción de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png) Se abrirá el control **Get file content** (Obtener contenido del archivo). **Nota**: Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta del servidor FTP. ![Imagen de acción de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Seleccione **FTP - Get file content** (FTP: obtener contenido del archivo). Esta será la acción que se ejecutará cuando se encuentre un archivo nuevo o modificado en la carpeta FTP.  
+![Imagen de acción de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+Se abrirá el control **Get file content** (Obtener contenido del archivo). **Nota**: Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta del servidor FTP.  
+![Imagen de acción de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)  
 - Seleccione el control **Archivo** (el espacio en blanco situado bajo **ARCHIVO***). Aquí, podrá utilizar cualquiera de las propiedades del archivo nuevo o modificado detectado en el servidor FTP.
-- Seleccione la opción **Contenido del archivo**. ![Imagen de acción de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)
--  El control se actualiza, lo que indica que la acción **FTP - Get file content** (FTP: obtener contenido del archivo) obtendrá el *contenido del archivo* nuevo o modificado del servidor FTP. ![Imagen de acción de FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Seleccione la opción **Contenido del archivo**.  
+![Imagen de acción de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  El control se actualiza, lo que indica que la acción **FTP - Get file content** (FTP: obtener contenido del archivo) obtendrá el *contenido del archivo* nuevo o modificado del servidor FTP.  
+![Imagen de acción de FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)      
 - Guarde el trabajo y agregue un archivo a la carpeta FTP para comprobar el flujo de trabajo.
 
 En este punto, la aplicación lógica está configurada con un desencadenador que supervisa una carpeta de un servidor FTP e inicia el flujo de trabajo cuando se detecta un archivo nuevo o modificado en dicho servidor.
