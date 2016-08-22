@@ -27,12 +27,15 @@ Una asignación es un documento XML que define qué datos de un documento deben 
 ## ¿Por qué se utilizan las asignaciones?
 Supongamos que recibe periódicamente pedidos o facturas B2B de clientes que usen el formato de fecha AAAMMDD. Sin embargo, en su organización, las fechas se almacenan en el formato MMDDAAA. Puede usar una asignación para *transformar* el formato de fecha AAAMMDD en MMDDAAA antes de almacenar los detalles de los pedidos o las facturas en la base de datos de actividades de clientes.
 
+## ¿Cómo se crea una asignación?
+[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") for Visual Studio 2015 permite crear proyectos de integración de Biztalk. Al crear un archivo de asignación de integración, podrá asignar visualmente elementos entre dos archivos de esquema XML. Después de compilar este proyecto, se genera un documento XSLT.
+
 ## ¿Cómo se cargan asignaciones?
 En el Portal de Azure:
 1. Seleccione **Examinar**. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Escriba **integration** en el cuadro de búsqueda del filtro y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Seleccione la **cuenta integración** en la que vaya a agregar la asignación. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Seleccione el icono de **Asignaciones**. ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
+4.  Seleccione el icono de **Asignaciones** ![](./media/app-service-logic-enterprise-integration-maps/map-1.png).
 5. Haga clic en el botón **Agregar** de la hoja Asignaciones que se abre. ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
 6. Escriba un **nombre** para la asignación. Después, cargue el archivo de asignación y seleccione el icono de carpeta en el lado derecho del cuadro de texto **Asignación**. Cuando termine el proceso de carga, haga clic en el botón **Aceptar**. ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)
 7. Ahora, la asignación se agrega a la cuenta de integración. Recibirá una notificación en la pantalla que indica que el proceso de agregar el archivo de asignación se ha realizado correctamente o con errores. Cuando reciba la notificación, seleccione el icono de **Asignaciones** y verá la asignación que acaba de agregar en la hoja Asignaciones: ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)
@@ -58,4 +61,4 @@ Siga estos pasos para cargar una nueva asignación que reemplace una que ya exis
 - [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
 - [Más información sobre las transformaciones](./app-service-logic-enterprise-integration-transform.md "Información sobre las transformaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

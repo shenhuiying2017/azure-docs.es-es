@@ -14,11 +14,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/03/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+## Notas de la versión del 08/01/2016 de HDInsight
+
+Los números de versión completos de los clústeres de HDInsight basados en Linux implementados con esta versión son:
+
+|HDI |Versión del clúster de HDI |HDP |Compilación de HDP |Compilación de Ambari |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.8028416 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
+|3\.3 |3\.3.1000.0.8028416 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
+|3\.4 |3\.4.1000.0.8053402 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+
+Los números de versión completos de los clústeres de HDInsight basados en Windows implementados con esta versión son:
+
+|HDI |Versión del clúster de HDI |HDP |Compilación de HDP |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.1005.2488842 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.1005.2488842 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.1005.2488842 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.1005.2488842 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.1005.2488842 |2\.3 |2\.3.3.1-25 |
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Cambios en los clústeres de HDInsight 3.4 | Se ha cambiado el valor predeterminado de las siguientes configuraciones de Hive para mejorar el rendimiento: <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul>| Servicio | Todo| N/D|
+| Las siguientes correcciones están incluidas en esta versión: | HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933| Servicio | Todo| N/D
 
 ## Notas de la versión del 14/07/2016 de HDInsight
 
@@ -62,7 +89,7 @@ Los números de versión completos de los clústeres de HDInsight basados en Win
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | [Herramientas de HDInsight para IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) | El complemento de IntelliJ IDEA para clústeres de HDInsight Spark está integrado ahora con el Kit de herramientas de Azure para IntelliJ. Admite el SDK v2.9.1 de Azure, los SDK de Java más recientes e incluye todas las características del complemento independiente de HDInsight para IntelliJ.| Herramientas | Spark| N/D|
 | [Herramientas de HDInsight para Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) | El Kit de herramientas de Azure para Eclipse ahora es compatible con clústeres de HDInsight Spark. Habilita las siguientes características. <ul><li>Creación y escritura de una aplicación Spark de forma fácil en Scala y Java con compatibilidad con herramientas de creación de primera clase para IntelliSense, formato automático, comprobación de errores, etc.</li><li>Prueba local de la aplicación Spark.</li><li>Envío de trabajos al clúster de HDInsight Spark y recuperación de los resultados.</li><li>Inicio de sesión en Azure y acceso a todos los clústeres Spark asociados a sus suscripciones de Azure.</li><li>Navegación por todos los recursos de almacenamiento asociados del clúster de HDInsight Spark.</li></ul>| Herramientas | Spark| N/D
@@ -83,9 +110,9 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Spark en HDInsight está disponible con carácter general | Esta versión ofrece mejoras de disponibilidad, escalabilidad y productividad para el código fuente de Apache Spark en HDInsight. <ul><li>Acuerdo de SLA líder del sector con disponibilidad del 99,9 %, lo que resulta adecuado para cargas de trabajo empresariales exigentes.</li><li>Capa de almacenamiento escalable mediante Almacén de Azure Data Lake.</li><li>Herramientas de productividad en cada fase de la exploración y el desarrollo de los datos. Los cuadernos de Jupyter Notebook con el kernel Spark personalizado permiten la exploración interactiva de los datos, la integración con paneles de BI, como Power BI, Tableau y Qlik, resulta adecuada para compartir datos rápidamente y la creación continua de informes y el complemento IntelliJ es la opción en la que se puede confiar para el desarrollo y la depuración de artefactos de código a largo plazo.</li></ul>| Servicio | Spark| N/D|
+| Spark en HDInsight está disponible con carácter general | Esta versión ofrece mejoras de disponibilidad, escalabilidad y productividad para el código fuente de Apache Spark en HDInsight. <ul><li>Acuerdo de SLA líder del sector con disponibilidad del 99,9 %, lo que resulta adecuado para cargas de trabajo empresariales exigentes.</li><li>Capa de almacenamiento escalable mediante Azure Data Lake Store.</li><li>Herramientas de productividad en cada fase de la exploración y el desarrollo de los datos. Los cuadernos de Jupyter Notebook con el kernel Spark personalizado permiten la exploración interactiva de los datos, la integración con paneles de BI, como Power BI, Tableau y Qlik, resulta adecuada para compartir datos rápidamente y la creación continua de informes y el complemento IntelliJ es la opción en la que se puede confiar para el desarrollo y la depuración de artefactos de código a largo plazo.</li></ul>| Servicio | Spark| N/D|
 | Herramientas de HDInsight para IntelliJ | Se trata de un complemento IntelliJ IDEA para clústeres HDInsight Spark, y presenta las siguientes características.<ul><li>Creación y escritura de una aplicación Spark de forma fácil en Scala y Java con compatibilidad con herramientas de creación de primera clase para IntelliSense, formato automático, comprobación de errores, etc.</li><li>Prueba local de la aplicación Spark.</li><li>Envío de trabajos al clúster de HDInsight Spark y recuperación de los resultados.</li><li>Inicio de sesión en Azure y acceso a todos los clústeres Spark asociados a sus suscripciones de Azure.</li><li>Navegación por todos los recursos de almacenamiento asociados del clúster de HDInsight Spark.</li><li>Navegación por el historial de todos los trabajos e información de trabajos para el clúster de HDInsight Spark.</li><li>Depuración de los trabajos de Spark de forma remota desde su equipo de escritorio.</li></ul>| Herramientas | Spark| N/D
 
 ## Notas de la versión del 13/05/2016 de HDinsight
@@ -103,7 +130,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Actualización de la versión de Spark y otras correcciones de errores | Esta versión actualiza la versión de Spark en el clúster de HDInsight a 1.6.1 y corrige otros errores| Servicio | Spark| N/D
 
@@ -123,12 +150,12 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Problemas de actualización de la tienda de metadatos personalizada de HDI 3.4 | Si utilizó una tienda de metadatos personalizada, que se utilizó antes en una versión anterior de otro clúster de HDInsight, se produciría un error en el proceso de creación del clúster. Esto se debía a un error del script de actualización que ya se ha resuelto.| Creación de clústeres | Todo | N/D
 | Recuperación tras bloqueo de Livy | Proporciona resistencia de estado de trabajos en todos los trabajos que se envíen a través de Livy. | Confiabilidad | Spark en Linux| N/D
 | Contenido de Jupyter (alta disponibilidad) | Ofrece la posibilidad de guardar y cargar contenido de Jupyter Notebook en la cuenta de almacenamiento asociada al clúster. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Spark en Linux| N/D
-| Eliminación de hiveContext en cuadernos de Jupyter Notebook | Use la instrucción mágica `%%sql` en lugar de `%%hive`. SqlContext es equivalente a hiveContext. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar](hdinsight-apache-spark-jupyter-notebook-kernels.md)).| Cuadernos | Clústeres de Spark en Linux| N/D
+| Eliminación de hiveContext en cuadernos de Jupyter Notebook | Use la instrucción mágica `%%sql` en lugar de `%%hive`. SqlContext es equivalente a hiveContext. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Clústeres de Spark en Linux| N/D
 | Degradación de las versiones anteriores de Spark | El 31 de mayo se quitará del servicio la versión anterior 1.3.1 de Spark. | Servicio | Clústeres de Spark en Windows | N/D
 
 ## Notas de la versión del 29/03/2016 de HDinsight
@@ -147,7 +174,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Se ha agregado la versión HDInsight 3.4 y se han actualizado las versiones HDP en todos los clústeres de HDInsight | En esta versión, se ha agregado HDInsight v3.4 (basado en HDP 2.4) y se han actualizado otras versiones de HDP. Las notas de la versión HDP 2.4 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md).| Servicio | Todos los clústeres de Linux| N/D
 | HDInsight Premium | Ahora, HDInsight está disponible en dos categorías: Standard y Premium. Actualmente, HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Hadoop y Spark en Linux. Para obtener más información, visite [esta página](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servicio | Hadoop y Spark en Linux| N/D
@@ -170,7 +197,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, hemos actualizado las versiones de HDInsight para todos los clústeres de HDInsight.| Servicio | Todo| N/D
 
@@ -190,7 +217,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, hemos actualizado las versiones de HDInsight para todos los clústeres de HDInsight.| Servicio | Todo| N/D
 
@@ -209,7 +236,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, hemos actualizado las versiones de HDInsight para todos los clústeres de HDInsight.| Servicio | Todo| N/D
 
@@ -228,7 +255,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Se ha agregado la versión HDInsight 3.3 y se han actualizado las versiones HDP en todos los clústeres de HDInsight | Con esta versión, se ha agregado HDInsight v3.3 (basada en HDP 2.3) y también se han actualizado otras versiones de HDP. Las notas de la versión HDP 2.3 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md).| Servicio | Todo| N/D
 
@@ -245,7 +272,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones de HDInsight actualizadas para todos los clústeres de HDInsight y versiones HDP para clústeres de HDInsight 3.2 (Windows y Linux) | Con esta versión, se han actualizado las versiones de HDInsight y HDP | Servicio | Todo| N/D
 
@@ -263,7 +290,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight (Windows y Linux) | Con esta versión, se han actualizado las versiones de HDInsight y HDP | Servicio | Todo| N/D
 | Se han corregido los clústeres de Jupyter para Windows Spark con clústeres escritos en letras mayúsculas | Los clústeres que tenían los nombres de DNS especificados en mayúsculas tenían problemas con notebooks de Jupyter debido a una comprobación de solicitud de origen. La solución consistió en cambiar el nombre de DNS para la configuración de Jupyter a minúsculas. | Servicio | HDInsight Spark (Windows)| N/D
@@ -282,10 +309,10 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Se ha cambiado la versión de HDP predeterminada a HDP 2.2. | La versión predeterminada para los clústeres de Windows de HDInsight se cambia a HDP 2.2. HDInsight versión 3.2 (HDP 2.2) ha estado disponible con carácter general desde febrero de 2015. Este cambio solo invierte la versión del clúster predeterminada, cuando no se ha realizado una selección explícita durante el aprovisionamiento del clúster mediante el portal de Azure, los cmdlets de PowerShell o el SDK. | Servicio | Todo| N/D |
-|Cambios en el formato de nombre de máquina virtual para la implementación de múltiples clústeres de HDInsight en Linux en una red virtual única | En esta versión se agrega compatibilidad para implementar varios clústeres de Linux de HDInsight en una red virtual única. Como parte de esto, el formato de nombres de máquina virtual en el clúster ha cambiado desde headnode\*, workernode\* y zookeepernode\* a hn\*, wn\* y zk\*, respectivamente. No se recomienda tomar una dependencia directa en el formato de nombres de máquina virtual, ya que esto está sujeto a cambios. Use "hostname -f" en la máquina local o API de Ambari para determinar la lista de hosts y la asignación de componentes a hosts. Encontrará más información en [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) y [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servicio | Clústeres de HDInsight en Linux | N/D |
+|Cambios en el formato de nombre de máquina virtual para la implementación de múltiples clústeres de HDInsight en Linux en una red virtual única | En esta versión se agrega compatibilidad para implementar varios clústeres de Linux de HDInsight en una red virtual única. Como parte de esto, el formato de nombres de máquina virtual en el clúster ha cambiado desde headnode*, workernode* y zookeepernode* a hn*, wn* y zk*, respectivamente. No se recomienda tomar una dependencia directa en el formato de nombres de máquina virtual, ya que esto está sujeto a cambios. Use "hostname -f" en la máquina local o API de Ambari para determinar la lista de hosts y la asignación de componentes a hosts. Encontrará más información en [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) y [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servicio | Clústeres de HDInsight en Linux | N/D |
 | Cambios en la configuración | Para los clústeres de HDInsight 3.1, ahora están habilitadas las siguientes configuraciones: <ul><li>tez.yarn.ats.enabled y yarn.log.server.url. Esto permite al servidor de escala de tiempo de aplicación y al servidor de registro poder servir registros.</li></ul>Para los clústeres de HDInsight 3.2, se han modificado las siguientes configuraciones: <ul><li>mapreduce.fileoutputcommitter.algorithm.version se ha establecido en 2. Esto permite el uso de la versión V2 de FileOutputCommitter.</li></ul> | Servicio | Todo | N/D |
 
 
@@ -301,7 +328,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, se han actualizado las versiones de HDInsight | Servicio | Todo| N/D |
 
@@ -317,7 +344,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Corregir flujo de trabajo de creación de nueva imagen del nodo de clúster Spark | Corregido error que provocaba que los nodos de clúster Spark no se recuperaran después de crear una nueva imagen | Servicio | Spark| N/D |
 
@@ -334,7 +361,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, se han actualizado las versiones de HDInsight | Servicio | Todo| N/D |
 
@@ -352,7 +379,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 
 Esta versión contiene las siguientes actualizaciones.
 
-| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+| Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones actualizadas de HDP para clústeres de HDInsight 3.2 | Con esta versión, HDInsight 3.2 implementa HDP 2.2.6.1-0012 | Servicio | Todo | N/D |
 
@@ -373,7 +400,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -406,7 +433,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -463,7 +490,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -496,7 +523,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -526,7 +553,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -574,7 +601,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -613,7 +640,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -652,7 +679,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -684,7 +711,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -733,7 +760,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -838,7 +865,7 @@ Esta versión contiene la siguiente actualización.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA</th>
@@ -873,7 +900,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -961,7 +988,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -1015,7 +1042,7 @@ Esta versión contiene la siguiente actualización.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
 <th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
 <th>JIRA (si es aplicable)</th>
@@ -1050,7 +1077,7 @@ Esta versión contiene las siguientes actualizaciones.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1095,7 +1122,7 @@ Esta versión contiene la siguiente actualización.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1122,7 +1149,7 @@ Esta versión contiene la siguiente actualización de componente.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1154,7 +1181,7 @@ Esta versión contiene las siguientes actualizaciones de componentes.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1210,7 +1237,7 @@ Esta versión contiene las siguientes actualizaciones de componentes.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1255,7 +1282,7 @@ Esta versión contiene las nuevas características, actualizaciones de component
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1313,7 +1340,7 @@ Esta versión contiene las siguientes actualizaciones de componentes.
 <table border="1">
 <tr>
 <th>Título</th>
-<th>Descripción</th>
+<th>Description</th>
 <th>Componente</th>
 <th>Tipo de clúster</th>
 <th>JIRA (si es aplicable)</th>
@@ -1652,4 +1679,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

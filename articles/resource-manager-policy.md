@@ -90,6 +90,7 @@ Una condición evalúa si un **campo** o un **origen** cumple determinados crite
 | Contains | "contains" : "&lt;valor&gt;"|
 | En el | "in" : [ "&lt;valor1&gt;","&lt;valor2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nombre de clave&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
 ### Fields
 
@@ -129,7 +130,7 @@ A continuación se muestra la definición de un alias. Como puede ver, un alias 
 
 Actualmente, los alias admitidos son:
 
-| Nombre de alias | Descripción |
+| Nombre de alias | Description |
 | ---------- | ----------- |
 | {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis y <br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
@@ -254,7 +255,7 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
 
 ### Selección de servicio: selecciona el catálogo de servicios
 
-El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\* y Microsoft.Network/\*. Se denegará todo lo demás.
+El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/* y Microsoft.Network/*. Se denegará todo lo demás.
 
     {
       "if" : {
@@ -468,4 +469,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure
@@ -117,7 +117,7 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 -	Obtener más información acerca de la integración de Administración de API y centros de eventos
 	-	[Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
 	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope](api-management-log-to-eventhub-sample.md)	
+	-	[Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope](api-management-log-to-eventhub-sample.md)
 
 ## Ver un tutorial en vídeo
 
@@ -133,4 +133,4 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

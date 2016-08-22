@@ -51,7 +51,7 @@ El grupo de servidores front-end contiene los recursos de proceso responsables d
 
 Cada grupo de trabajo contiene recursos de proceso asignados a [Planes del Servicio de aplicaciones][AppServicePlan] que, a su vez, contienen una o más aplicaciones del Servicio de aplicaciones de Azure. Como en un entorno del Servicio de aplicaciones puede haber hasta tres grupos de trabajo distintos, tiene la flexibilidad de elegir diferentes recursos de proceso para cada grupo de trabajo.
 
-Esto le permite, por ejemplo, crear un grupo de trabajo con recursos de proceso de menor eficacia para los planes del Servicio de aplicaciones destinados a aplicaciones de prueba o desarrollo. Un segundo (o incluso tercer) grupo de trabajo podría usar recursos de proceso más eficaces en los planes del Servicio de aplicaciones que ejecuten aplicaciones de producción.
+Esto permite, por ejemplo, crear un grupo de trabajo con recursos de proceso de menor eficacia para los planes del Servicio de aplicaciones destinados a aplicaciones de prueba o desarrollo. Un segundo (o incluso tercer) grupo de trabajo podría usar recursos de proceso más eficaces en los planes del Servicio de aplicaciones que ejecuten aplicaciones de producción.
 
 Para obtener más detalles sobre la cantidad de recursos de proceso disponibles para los grupos de servidores front-end y los grupos de trabajo, consulte [Configuración de un entorno del Servicio de aplicaciones][HowToConfigureanAppServiceEnvironment].
 
@@ -108,4 +108,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

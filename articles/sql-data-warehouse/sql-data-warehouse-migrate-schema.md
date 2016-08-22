@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
@@ -23,19 +23,19 @@ Los resúmenes siguientes le ayudarán a comprender las diferencias entre SQL Se
 ### Características de tabla
 Almacenamiento de datos SQL no usa ni admite estas características:
 
-- Claves principales  
-- Claves externas  
-- Restricciones CHECK  
-- Restricciones UNIQUE  
-- Índices únicos  
-- Columnas calculadas  
-- Columnas dispersas  
-- Tipos definidos por el usuario  
-- Vistas indexadas  
-- Identidades  
-- Secuencias  
-- Desencadenadores  
-- Sinónimos  
+- Claves principales
+- Claves externas
+- Restricciones CHECK
+- Restricciones UNIQUE
+- Índices únicos
+- Columnas calculadas
+- Columnas dispersas
+- Tipos definidos por el usuario
+- Vistas indexadas
+- Identidades
+- Secuencias
+- Desencadenadores
+- Sinónimos
 
 
 ### Diferencias de tipo de datos
@@ -142,4 +142,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Más información sobre el nuevo Proveedor de recursos de red del Administrador de recursos de Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Proveedor de recursos de red
 Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
@@ -46,7 +46,7 @@ A continuación se presenta una vista conceptual de una implementación de ejemp
 
 Cada recurso contiene un conjunto común de propiedades y un conjunto de propiedades individual. Las propiedades comunes son:
 
-|Propiedad|Descripción|Valores de ejemplo|
+|Propiedad|Description|Valores de ejemplo|
 |---|---|---|
 |**name**|Nombre de recurso único. Cada tipo de recurso tiene sus propias restricciones de nomenclatura.|PIP01, VM01, NIC01|
 |**ubicación**|Región de Azure en la que reside el recurso.|westus, eastus|
@@ -264,4 +264,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

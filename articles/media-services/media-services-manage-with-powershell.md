@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/09/2016"
 	ms.author="juliako"/>
 
 
@@ -28,91 +28,473 @@
 
 ##Información general 
 
-En este artículo se muestra cómo usar los cmdlets de PowerShell para administrar las cuentas de Servicios multimedia de Azure.
+En este artículo se muestran los cmdlets de Azure PowerShell para Servicios multimedia de Azure (AMS) en el marco de trabajo de Azure Resource Manager. Los cmdlets existen en el espacio de nombres **Microsoft.Azure.Commands.Media**.
 
->[AZURE.NOTE]
-Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+## Versiones
 
-##Instalación de los cmdlets de PowerShell de Microsoft Azure
+**ApiVersion**: "2015-10-01"
+               
 
-Para instalar los cmdlets de Azure PowerShell más recientes, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+## New-AzureRmMediaService
 
-##Selección de la suscripción de Azure
+Crea un servicio multimedia.
 
-Una vez que se instala y configura los cmdlets de PowerShell, debe especificar en qué suscripción desea trabajar.
+### Sintaxis
 
-Para obtener una lista de suscripciones disponibles, ejecute el siguiente cmdlet:
+Conjunto de parámetros: StorageAccountIdParamSet
 
-	PS C:\> Get-AzureSubscription
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-A continuación, seleccione una realizando los siguientes pasos:
+Conjunto de parámetros: StorageAccountsParamSet
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
- 
-##Obtención de un nombre de cuenta de almacenamiento
+### Parámetros
 
-Servicios multimedia de Azure usa Almacenamiento de Azure para almacenar contenido multimedia. Cuando se crea una nueva cuenta de Servicios multimedia, tiene que asociarla a una cuenta de Almacenamiento. La cuenta de Almacenamiento debe pertenecer a la misma suscripción que piensa utilizar para la cuenta de Servicios multimedia.
+**-ResourceGroupName &lt;String&gt;**
 
-En este ejemplo, se utiliza una cuenta de almacenamiento existente. El cmdlet [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) obtiene cuentas de almacenamiento en la suscripción actual. Obtenga el nombre (StorageAccountName) de la cuenta de almacenamiento que desee asociar a la cuenta multimedia.
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
 
-	StorageAccountDescription : 
-	AffinityGroup             :
-	Location                  : East US
-	GeoReplicationEnabled     : True
-	GeoPrimaryLocation        : East US
-	GeoSecondaryLocation      : West US
-	Label                     : storagetest001
-	StorageAccountStatus      : Created
-	StatusOfPrimary           : Available
-	StatusOfSecondary         : Available
-	Endpoints                 : {https://storagetest001.blob.core.windows.net/,
-	                            https://storagetest001.queue.core.windows.net/,
-	                            https://storagetest001.table.core.windows.net/}
-	AccountType               : Standard_GRS
-	StorageAccountName        : storatetest001
-	OperationDescription      : Get-AzureStorageAccount
-	OperationId               : e919dd56-7691-96db-8b3c-2ceee891ae5d
-	OperationStatus           : Succeeded
+Alias | Ninguna
+---|---
+¿Necesario? | true
+¿Posición? | 0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
 
-##Creación de una nueva cuenta de Servicios multimedia
+**-AccountName &lt;String&gt;**
 
-Para crear una nueva cuenta de Servicios multimedia de Azure, use el cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) proporcionando el nombre de la cuenta de Servicios multimedia, la ubicación del centro de datos donde se creará y el nombre de la cuenta de almacenamiento.
+Especifica el nombre del servicio multimedia.
 
+Alias |Nombre
+---|---
+¿Necesario? |true
+¿Posición? |1
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |false
+¿Aceptar caracteres comodín? |false
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+**-Location &lt;String&gt;**
 
-##Obtención de cuentas de Servicios multimedia
+Especifica la ubicación del recurso del servicio multimedia.
 
-Una vez creadas una o varias cuentas de Servicios multimedia, puede enumerar la información con [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx).
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |2
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
 
-	
-	PS C:\> Get-AzureMediaServicesAccount
-	
-	AccountId		Name				State
-	---------       ----       			 -----
-	xxxxxxxxxx      amstestaccount001   Active
+**-StorageAccountId &lt;String&gt;**
 
-Si proporciona el parámetro Name, obtendrá información más detallada, incluidas las claves de cuenta.
+Especifica una cuenta de almacenamiento principal asociada con el servicio multimedia.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+- Solo se admite una cuenta de almacenamiento nueva (creada con la API de Resource Manager).
 
-##Generación de claves de acceso de Servicios multimedia de nuevo
+- La cuenta de almacenamiento debe existir y tener la misma ubicación que el servicio multimedia.
 
-Si desea actualizar la clave de acceso primaria o secundaria de Servicios multimedia, use [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Deberá proporcionar el nombre de cuenta y especificar la clave que desea volver a generar (principal o secundaria).
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |3
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+Nombre del conjunto de parámetros |StorageAccountIdParamSet
+¿Aceptar caracteres comodín?|false
 
-Especifique un modificador -Force si no desea que PowerShell realice preguntas de confirmación.
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+Especifica cuentas de almacenamiento asociadas con el servicio multimedia.
 
-##Eliminación la cuenta de Servicios multimedia
+- Solo se admite una cuenta de almacenamiento nueva (creada con la API de Resource Manager).
 
-Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, use [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
+- La cuenta de almacenamiento debe existir y tener la misma ubicación que el servicio multimedia.
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+- Solo una cuenta de almacenamiento se puede identificar como principal.
 
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |3
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+Nombre del conjunto de parámetros |StorageAccountsParamSet
+¿Aceptar caracteres comodín? |false
 
-##Rutas de aprendizaje de Servicios multimedia
+**-Tags &lt;Hashtable&gt;**
+
+Especifica una tabla hash de las etiquetas asociadas con el servicio multimedia.
+
+- Ejemplo: @{"tag1"="value1";"tag2"=:value2"}
+
+Alias |Ninguna
+---|---
+¿Necesario? |false
+¿Posición? |con nombre
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |false
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Set-AzureRmMediaService
+
+Actualiza un servicio multimedia.
+
+### Sintaxis
+
+	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Nombre
+---|---
+¿Necesario? |True
+¿Posición? |1
+Valor predeterminado |None
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |False
+
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+
+Especifica cuentas de almacenamiento asociadas con el servicio multimedia.
+
+- Solo se admite una cuenta de almacenamiento nueva (creada con la API de Resource Manager).
+
+- La cuenta de almacenamiento debe existir y tener la misma ubicación que el servicio multimedia.
+
+- Solo una cuenta de almacenamiento se puede identificar como principal.
+
+Alias |Ninguna
+---|---
+¿Necesario? |false
+¿Posición? |con nombre
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+Nombre del conjunto de parámetros |StorageAccountsParamSet
+¿Aceptar caracteres comodín? |false
+
+**-Tags &lt;Hashtable&gt;**
+
+Especifica una tabla hash de las etiquetas asociadas con este servicio multimedia.
+
+- Las etiquetas asociadas con el servicio multimedia se reemplazan por el valor que especifica el cliente.
+
+Alias |Ninguna
+---|---
+¿Necesario? |False
+¿Posición? |con nombre
+Valor predeterminado |None
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Remove-AzureRmMediaService
+
+Quita un servicio multimedia.
+
+### Sintaxis
+
+	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |2
+Valor predeterminado |None
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |False
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Get-AzureRmMediaService
+
+Obtiene todos los servicios multimedia de un grupo de recursos o un servicio multimedia con un nombre determinado.
+
+### Sintaxis
+
+ParameterSet: ResourceGroupParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+
+ParameterSet: AccountNameParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+Nombre del conjunto de parámetros |ResourceGroupParameterSet, AccountNameParameterSet
+¿Aceptar caracteres comodín? false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |1
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+Nombre del conjunto de parámetros |AccountNameParameterSet
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Get-AzureRmMediaServiceKeys
+
+Obtiene las claves de un servicio multimedia.
+
+### Sintaxis
+
+	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |1
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Set-AzureRmMediaServiceKey
+
+Regenera una clave principal o secundaria de un servicio multimedia.
+
+### Sintaxis
+
+	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |1
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-KeyType &lt;KeyType&gt;**
+
+Especifica el tipo de clave del servicio multimedia.
+
+- Principal o secundaria
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |2
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |false
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Sync-AzureRmMediaServiceStorageKeys
+
+Sincroniza las claves de cuenta de almacenamiento de una cuenta de almacenamiento asociada con el servicio multimedia.
+
+### Sintaxis
+
+	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+
+### Parámetros
+
+**-ResourceGroupName &lt;String&gt;**
+
+Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |0
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-AccountName &lt;String&gt;**
+
+Especifica el nombre del servicio multimedia.
+
+Alias |Ninguna
+---|---
+¿Necesario? |true
+¿Posición? |1
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? |true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**-StorageAccountId &lt;String&gt;**
+
+Especifica la cuenta de almacenamiento asociada con el servicio multimedia.
+
+Alias |Id
+---|---
+¿Necesario? |true
+¿Posición? |2
+Valor predeterminado |Ninguna
+¿Aceptar la entrada de la canalización? | true(ByPropertyName)
+¿Aceptar caracteres comodín? |false
+
+**&lt;CommandParameters&gt;**
+
+Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
+
+### Entradas
+
+El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
+
+### Salidas
+
+El tipo de salida es el tipo de los objetos que emite el cmdlet.
+
+## Paso siguiente 
+
+Revise las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -122,4 +504,4 @@ Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, use
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

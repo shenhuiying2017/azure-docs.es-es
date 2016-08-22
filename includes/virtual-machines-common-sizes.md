@@ -127,7 +127,7 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 |Standard\_D12\_v2 |4|28 GB|4|Temporal (SSD) =200 GB |8|8x500| Alto |
 |Standard\_D13\_v2 |8|56 GB|8|Temporal (SSD) =400 GB |16|16x500| Alto |
 |Standard\_D14\_v2 |16|112 GB|8|Temporal (SSD) =800 GB |32|32x500| Extremadamente alto |
-|Standard\_D15\_v2 |20|140 GB|10|Temporal (SSD) =1 TB |40|40 x 500| Extremadamente alto |
+|Standard\_D15\_v2 |20|140 GB|8|Temporal (SSD) =1 TB |40|40 x 500| Extremadamente alto |
 
 
 ## Serie DS*
@@ -159,7 +159,7 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | Alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | Alto |
 |Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 51 200 768 MB por segundo | Extremadamente alto |
-|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|64 000 960 MB por segundo | Extremadamente alto |
+|Standard\_DS15\_v2 |20|140 GB|8|Disco SSD local = 280 GB |40| 720|64 000 960 MB por segundo | Extremadamente alto |
 
 
 *Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
@@ -219,7 +219,7 @@ Para más información, junto con consideraciones sobre el uso de estos tamaños
 |Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo | Extremadamente alto |
 |Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo | Extremadamente alto |
 
-## Serie N
+## Serie N (versión preliminar)
 
 Los tamaños de NC y NV también se conocen como instancias habilitadas para GPU. Se trata de máquinas virtuales especializadas que incluyen tarjetas GPU de NVIDIA, optimizadas para diferentes escenarios y casos de uso. Los tamaños de NV están optimizados y diseñados para la visualización remota, streaming, juegos, codificación y escenarios VDI mediante marcos como OpenGL y DirectX. Los tamaños de NC están más optimizados para las aplicaciones de proceso y red intensivos, algoritmos, incluidas simulaciones y aplicaciones basadas en CUDA y OpenCL.
 
@@ -230,9 +230,9 @@ Las instancias de NV disponen de tecnología de GPU Tesla M60 de NVIDIA y NVIDIA
 
 | Tamaño | Núcleos | GPU | Memoria | Disco |
 |------|-------|----------------|--------|-------------|
-| NV6 | 6 | 1 x NVIDIA M60 | 56 GB | 380 GB de SSD |
-| NV12 | 12 | 2 x NVIDIA M60 | 112 GB | 680 GB de SSD |
-| NV24 | 24 | 4 x NVIDIA M60 | 224 GB | 1440 GB de SSD | 
+| Standard\_NV6 | 6 | 1 x NVIDIA M60 | 56 GB | 380 GB de SSD |
+| Standard\_NV12 | 12 | 2 x NVIDIA M60 | 112 GB | 680 GB de SSD |
+| Standard\_NV24 | 24 | 4 x NVIDIA M60 | 224 GB | 1440 GB de SSD | 
 
 
 
@@ -243,9 +243,9 @@ Las instancias de NC disponen de tecnología Tesla K80 de NVIDIA. Los usuarios a
 
 | Tamaño | Núcleos | GPU | Memoria | Disco |
 |------|-------|----------------|--------|-------------|
-| NC6 | 6 | 1 x NVIDIA K80 | 56 GB | 380 GB de SSD |
-| NC12 | 12 | 2 x NVIDIA K80 | 112 GB | 680 GB de SSD |
-| NC24 | 24 | 4 x NVIDIA K80 | 224 GB | 1440 GB de SSD |
+| Standard\_NC6 | 6 | 1 x NVIDIA K80 | 56 GB | 380 GB de SSD |
+| Standard\_NC12 | 12 | 2 x NVIDIA K80 | 112 GB | 680 GB de SSD |
+| Standard\_NC24 | 24 | 4 x NVIDIA K80 | 224 GB | 1440 GB de SSD |
 
 ## Notas: Standard\_A0 - A4 con CLI y PowerShell 
 
@@ -264,4 +264,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 - Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

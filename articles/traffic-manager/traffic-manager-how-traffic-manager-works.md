@@ -55,7 +55,7 @@ Cuando un usuario solicita la página https://partners.contoso.com/login.aspx (c
 
 1.	El cliente (PC, teléfono, etc.) realiza una consulta de DNS a "partners.contoso.com" en su servicio DNS recursivo configurado. (Un servicio DNS recursivo, a veces denominado servicio "DNS local", no hospeda los dominios DNS directamente. En su lugar, el cliente lo usa para descargar el trabajo de ponerse en contacto con los diversos servicios DNS autoritativos a través de Internet, lo cual es paso necesario para resolver un nombre DNS).
 2.	Ahora, el servicio DNS recursivo resuelve el nombre DNS "partners.contoso.com". En primer lugar, el servicio DNS recursivo busca entre los servidores DNS el dominio "contoso.com". A continuación, se pone en contacto con esos servidores DNS a fin de solicitar el registro "partners.contoso.com". Se obtiene el registro CNAME para contoso.trafficmanager.net.
-3.	El servicio DNS recursivo ahora busca los servidores DNS para el dominio "trafficmanager.net", que se proporcionan con el servicio Administrador de tráfico de Azure. Luego se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso.trafficmanager.net".
+3.	El servicio DNS recursivo ahora busca los servidores DNS para el dominio trafficmanager.net, que se proporcionan con el servicio Administrador de tráfico de Azure. Luego se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso.trafficmanager.net".
 4.	Los servidores DNS del Administrador de tráfico reciben la solicitud. En ese momento, estos eligen qué punto de conexión debe devolverse, tomando en consideración para ello lo siguiente: a. El estado habilitado o deshabilitado de cada punto de conexión (no se devuelven los puntos de conexión deshabilitados). b. El estado actual de cada punto de conexión, según lo determinado por las comprobaciones de estado del Administrador de tráfico. Para más información, consulte Acerca de la supervisión del Administrador de tráfico. c. El método de enrutamiento de tráfico elegido. Para más información, consulte Métodos de enrutamiento del Administrador de tráfico.
 5.	El punto de conexión elegido se devuelve como otro registro CNAME de DNS; en este caso, supongamos que es contoso-us.cloudapp.net.
 6.	Ahora, el servicio DNS recursivo busca los servidores DNS para el dominio "cloudapp.net". Se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso-us.cloudapp.net". Se devuelve un registro "A" de DNS que contiene la dirección IP del punto de conexión de servicio basado en Estados Unidos.
@@ -131,4 +131,4 @@ Obtenga más información sobre los [métodos de enrutamiento del tráfico](traf
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
 	description="Al planear la solución de identidad híbrida, identifique los requisitos de protección de datos de su empresa y las opciones disponibles que mejor satisfacen esos requisitos."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
 
@@ -69,7 +69,7 @@ Los datos en tránsito entre el dispositivo y el centro de datos o entre el disp
 Las normas, las leyes y los requisitos de cumplimiento normativo variarán según la industria a la que pertenezca su empresa. Las empresas de industrias muy reguladas deben solucionar los problemas de administración de identidades relacionados con los aspectos de cumplimiento. Normativas como Sarbanes-Oxley (SOX), la Ley de transferencia y responsabilidad de seguros de salud (HIPAA), la Ley de Gramm-Leach-Bliley (GLBA) y el Estándar de Seguridad de Datos para la Industria de Tarjeta de Pago (PCI DSS) son muy estrictos respecto a la identidad y el acceso. La solución de identidad híbrida que su empresa adopte debe tener las funcionalidades básicas que satisfagan los requisitos de una o varias de estas normativas. En este área, asegúrese de plantearse las siguientes cuestiones:
 
 - ¿Cumple la solución de identidad híbrida los requisitos normativos de su empresa?
-- ¿Integra la solución de identidad híbrida funcionalidades que permiten a su empresa satisfacer los requisitos de cumplimiento normativo? 
+- ¿Integra la solución de identidad híbrida funcionalidades que permiten a su empresa satisfacer los requisitos de cumplimiento normativo?
  
 >[AZURE.NOTE]
 Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
@@ -81,4 +81,4 @@ Asegúrese de anotar cada respuesta y de que comprende las razones que se escond
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/20/2016"
+ms.date="08/09/2016"
 ms.author="larryfr"/>
 
 #Eliminación de un clúster de HDInsight
@@ -48,4 +48,4 @@ Desde un símbolo del sistema, utilice el siguiente comando para eliminar el cl�
     
 Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Descripción de ILPIP (PIP) y su administración"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Información general sobre las direcciones IP públicas de nivel de instancia
 Una IP pública de nivel de instancia (ILPIP) es una dirección IP pública que se puede asignar directamente a la máquina virtual o a la instancia de rol, en lugar de a un servicio en la nube en el que reside la máquina virtual o la instancia de rol. Esta no reemplaza a la dirección VIP (IP virtual) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
@@ -129,4 +129,4 @@ También puede asociar una ILPIP a una máquina virtual mediante un archivo de c
 - Obtenga información sobre las [direcciones IP reservadas](virtual-networks-reserved-public-ip.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

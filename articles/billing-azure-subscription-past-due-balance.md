@@ -43,6 +43,6 @@ Para obtener instrucciones sobre cómo cambiar el método de pago de Azure, cons
 
 **Escenario 3**: si el aviso de la factura no se ha recibido porque el administrador de cuenta ha dejado la compañía o su rol ha cambiado, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema.
 
-> [AZURE.NOTE] Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla: [¿Qué debo hacer si se cancela mi suscripción de Azure?](billing-subscription-become-disable.md)
+> [AZURE.NOTE] Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla: [¿Qué debo hacer si se deshabilita mi suscripción de Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

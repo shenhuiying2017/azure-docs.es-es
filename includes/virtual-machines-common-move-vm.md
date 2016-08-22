@@ -1,7 +1,8 @@
 
-Este artículo le guiará en el procedimiento para mover una máquina virtual entre suscripciones. Esto puede ser útil si originalmente creó una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su empresa para seguir trabajando.
 
-> [AZURE.NOTE] Como parte de esta operación, se crean nuevos id. de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos.
+## Uso del portal para mover una máquina virtual a otra suscripción
+
+Puede mover una máquina virtual y sus recursos asociados a otra suscripción mediante el portal.
 
 1. Abra el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **Examinar** > **Máquinas virtuales** y seleccione la máquina virtual que quiere mover de la lista.
@@ -15,12 +16,20 @@ Este artículo le guiará en el procedimiento para mover una máquina virtual en
 4. Seleccione cada uno de los recursos que quiere mover. En la mayoría de los casos, debe mover todos los recursos opcionales que se muestran.
 5. Seleccione la **suscripción** adonde quiere mover la máquina virtual.
 6. Seleccione un **grupo de recursos** existente o escriba un nombre para que se cree uno nuevo.
-7. Cuando haya terminado, seleccione que comprende que se crearán nuevos id. de recursos y que se deberán usar con la máquina virtual cuando se mueva. A continuación, haga clic en **Aceptar**.
+7. Cuando haya terminado, seleccione que comprende que se crearán nuevos id. de recursos y que se deberán usar con la máquina virtual cuando se mueva. Después, haga clic en **Aceptar**.
 
+## Uso del portal para mover una máquina virtual a otro grupo de recursos
 
+Puede mover una máquina virtual y sus recursos asociados a otro grupo de recursos mediante el portal.
 
-## Pasos siguientes
+1. Abra el [Portal de Azure](https://portal.azure.com).
+2. Haga clic en **Examinar** > **Grupos de recursos** y seleccione el grupo de recursos que contiene la máquina virtual.
+3. En la hoja **Grupo de recursos**, seleccione la opción **Mover** del menú.
+	
+	![Captura de pantalla del botón Mover del menú Grupos de recursos.](./media/virtual-machines-common-move-vm/move-rg.png)
+	
+3. En la hoja **Mover recursos**, seleccione los recursos que quiere mover y, luego, escriba el nombre de un grupo de recursos existente o elija crear uno. Cuando haya terminado, seleccione que comprende que se crearán nuevos id. de recursos y que se deberán usar con la máquina virtual cuando se mueva. Después, haga clic en **Aceptar**.
+	
+	![Captura de pantalla de la hoja Mover recursos.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../articles/resource-group-move-resources.md).
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

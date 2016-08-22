@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 #Guía de seguridad de Almacenamiento de Azure
@@ -496,7 +496,7 @@ Puede ver que puede usar los registros para realizar el seguimiento de cualquier
 
 ####¿Para qué sirven todos estos campos?
 
-Este es un artículo que aparece en los siguientes recursos y que proporciona la lista de los numerosos campos de los registros (explicando además para qué se utilizan). Esta es la lista de campos en orden:
+Este es un artículo que aparece en los siguientes recursos y que proporciona la lista de los numerosos campos de los registros (explicando, además, para qué se utilizan). Esta es la lista de campos en orden:
 
 ![Instantánea de los campos de un archivo de registro](./media/storage-security-guide/image3.png)
 
@@ -516,7 +516,7 @@ Son tres los casos que nos interesan.
 
     1\.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 
-3.  El blob es privado y la clave de almacenamiento se utilizó para tener acceso a él. En este caso, el estado de la solicitud es "**Success**" y el tipo de autorización es "**authenticated**".
+3.  El blob es privado y la clave de almacenamiento se utilizó para tener acceso a él. En este caso, el estado de la solicitud es **Success** y el tipo de autorización es **authenticated**.
 
     1\.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
@@ -612,7 +612,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.
 	
-	Para más información, consulte [Microsoft Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
+	Para obtener más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
 
 2.  **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 
@@ -634,4 +634,4 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

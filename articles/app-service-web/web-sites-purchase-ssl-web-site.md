@@ -20,8 +20,8 @@
 #Compra y configuración de un certificado SSL para el Servicio de aplicaciones de Azure
 
 > [AZURE.SELECTOR]
-- [Compra de un certificado SSL para Aplicaciones web](web-sites-purchase-ssl-web-site.md)
-- [Habilitación de SSL en un dominio personalizado](web-sites-configure-ssl-certificate.md)
+- [Compra del certificado SSL en Azure](web-sites-purchase-ssl-web-site.md)
+- [Uso del certificado SSL desde cualquier lugar](web-sites-configure-ssl-certificate.md)
 
 De forma predeterminada, **[Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** ya habilita HTTPS para la aplicación web con un certificado comodín para el dominio *.azurewebsites.net. Si no tiene pensado configurar un dominio personalizado, puede aprovechar el certificado HTTPS predeterminado. Sin embargo, al igual que *[todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), no es tan seguro como usar un dominio personalizado con su propio certificado. Servicio de aplicaciones de Azure ahora proporciona una manera realmente simplificada de adquirir y administrar un certificado SSL desde el Portal de Azure sin tener que salir de dicho portal. Este artículo explica cómo comprar y configurar un certificado SSL para su **[Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 pasos sencillos.
 
@@ -146,7 +146,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
-            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
+            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones
@@ -208,4 +208,4 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

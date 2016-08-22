@@ -16,7 +16,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/08/2016" 
 	ms.author="jeffstok"
 />
 
@@ -49,7 +49,7 @@ En un nivel alto, para completar las tareas demostradas en este artículo, reali
 
 ## Carga del archivo de entrada CSV en Almacenamiento de blobs
 
-En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
+En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Windows Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
 
 1.	En Visual Studio, haga clic en **Azure** > **Almacenamiento** > **Adjuntar almacenamiento externo**. Especifique un **Nombre de cuenta** y una **Clave de cuenta**.
 
@@ -86,7 +86,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 ## Creación de un trabajo de Análisis de transmisiones que usa el modelo de Aprendizaje automático
 
 1.	Vaya al [Portal de Azure](https://manage.windowsazure.com).
-2.	Haga clic en **Nuevo** > **Servicios de datos** > **Análisis de transmisiones** > **Creación rápida**. Escriba un nombre para el trabajo en **Nombre del trabajo**, escriba la región adecuada para el trabajo en **Región**, y, a continuación, seleccione la cuenta en **Cuenta de almacenamiento de supervisión regional**.
+2.	Haga clic en **Nuevo** > ** Servicios de datos** > **Análisis de transmisiones** > **Creación rápida**. Escriba un nombre para el trabajo en **Nombre del trabajo**, escriba la región adecuada para el trabajo en **Región**, y, a continuación, seleccione la cuenta en **Cuenta de almacenamiento de supervisión regional**.
 3.	Una vez creado el trabajo, en la pestaña **Entradas**, haga clic en **Agregar una entrada**.
 
     ![Aprendizaje automático de Análisis de transmisiones, agregar entrada de Aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
@@ -114,7 +114,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
  		SELECT text, sentiment(text) as result from input  
   	)  
  
- 	Select text, result.[Score]  
+ 	Select text, result.[Scored Labels]  
  	Into output  
  	From subquery  
  ```    
@@ -145,4 +145,4 @@ También puede observar las métricas relacionadas con la función de Aprendizaj
 
     ![Aprendizaje automático de Análisis de transmisiones, vista de supervisión de Aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

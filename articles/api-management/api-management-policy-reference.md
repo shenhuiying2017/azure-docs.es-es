@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -46,16 +46,16 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
 	-	[Autenticar con certificado de cliente][]\: autenticar con un servicio de back-end mediante certificados de cliente.
--	[Directivas de almacenamiento en caché][] 
+-	[Directivas de almacenamiento en caché][]
 	-	[Obtener de caché][]\: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
 	-	[Almacenar en caché][]\: almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
 	-	[Obtener valor de caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupere un elemento almacenado en caché por clave.
 	-	[Almacenar valor en caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): almacene un elemento en la memoria caché por clave.
--	[Directivas entre dominios][] 
+-	[Directivas entre dominios][]
 	-	[Permitir llamadas entre dominios][]\: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
 	-	[CORS][]\: agrega soporte de uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
 	-	[JSONP][]\: agrega JSON con soporte de relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
--	[Directivas de transformación][] 
+-	[Directivas de transformación][]
 	-	[Convertir JSON a XML][] \: convierte el cuerpo de solicitud o respuesta de JSON a XML.
 	-	[Convertir XML a JSON][] \: convierte el cuerpo de solicitud o respuesta de XML a JSON.
 	-	[Buscar y reemplazar la cadena en el cuerpo][]\: encuentra una subcadena de solicitud o de respuesta y la reemplaza por una subcadena diferente.
@@ -119,4 +119,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

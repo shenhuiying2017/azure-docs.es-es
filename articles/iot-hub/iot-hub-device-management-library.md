@@ -3,7 +3,7 @@
  description="Biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Introducción a la biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure
 
@@ -158,7 +158,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 ### Objeto de dispositivo
 
-| Nombre de recurso | Operación remota permitida en recurso | Tipo | Intervalo y unidades | Descripción |
+| Nombre de recurso | Operación remota permitida en recurso | Tipo | Intervalo y unidades | Description |
 |-----------------|--------------------------------------|---------|-----------------|-------------|
 | Fabricante | Lectura | String | | Nombre del fabricante |
 | ModelNumber | Lectura | String | | Un identificador de modelo (cadena especificada por el fabricante) |
@@ -178,7 +178,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 ### Objeto de actualización de firmware
 
-| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Descripción |
+| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Description |
 |----------------|-----------|---------|-----------------|-------------|
 | Paquete | Escritura | Opaca | | Paquete de firmware en formato binario.<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.FirmwarePackage** |
 | PackageUri | Escritura | String | 0-255 bytes | Identificador URI desde el cual el dispositivo puede descargar el paquete de firmware.<br/>Se asigna a la API de servicio: **SystemPropertyNames.FirmwarePackageUri** |
@@ -190,7 +190,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 ### Objeto de servidor LWM2M
 
-| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Descripción |
+| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Description |
 |------------------------|------------|---------|-----------------|---------------|
 | Período mínimo predeterminado | Lectura Escritura | Entero | Segundos | El período durante el cual el dispositivo retrasa el envío de una actualización a una propiedad observada. Por ejemplo, dado un valor **DefaultMinPeriod** de 5 minutos, el dispositivo envía una actualización a una propiedad observada a lo sumo cada 5 minutos, incluso si el valor cambia con más frecuencia. Se asigna a la API de servicio: **SystemPropertyNames.DefaultMinPeriod** |
 | Período máximo predeterminado | Lectura Escritura | Entero | Segundos | El período (en segundos) en el que el dispositivo, con independencia de si cambia la propiedad observada, envía una actualización para el valor de la propiedad. Por ejemplo, dado un valor **DefaultMaxPeriod** de 6 horas, una propiedad observada envía una actualización para el valor de dicha propiedad al menos cada 6 horas, con independencia de los cambios de los recursos.<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.DefaultMaxPeriod** |
@@ -198,7 +198,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 ### Objeto de configuración
 
-| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Descripción |
+| Nombre de recurso | Operación | Tipo | Intervalo y unidades | Description |
 |---------------|------------|--------|-----------------|-------------|
 | Nombre | Lectura Escritura | String | | Identifica de manera exclusiva el nombre de la configuración del dispositivo que se va a leer o actualizar. |
 | Valor | Lectura Escritura | String | | Identifica de manera exclusiva el valor de configuración que se va a leer o actualizar. |
@@ -235,4 +235,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

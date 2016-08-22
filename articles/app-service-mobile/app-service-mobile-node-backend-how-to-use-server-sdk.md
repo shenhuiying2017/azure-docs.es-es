@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # Uso del SDK de Node.js de Aplicaciones móviles de Azure
@@ -126,13 +126,24 @@ Visual Studio 2015 requiere una extensión para desarrollar aplicaciones Node.js
 
 10. Ejecute la aplicación localmente (la API se proporcionará en http://localhost:3000) o publíquela en Azure.
 
+### <a name="create-node-backend-portal"></a>Creación de un back-end de Node.js mediante el Portal de Azure
+
+Puede crear un nuevo back-end de aplicación móvil directamente en el [Portal de Azure].
+
+Puede seguir los pasos que se muestran a continuación o crear un cliente y un servidor nuevos mediante el tutorial [Creación de una aplicación móvil](app-service-mobile-ios-get-started.md). El tutorial contiene una versión simplificada de estas instrucciones y se recomienda su lectura para proyectos de prueba de concepto.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+En la hoja _Comenzar_, que se encuentra en **Crear una API de tabla**, elija **C#** como valor de **Lenguaje de back-end**. Active la casilla **Reconozco que se sobrescribirá todo contenido de sitio** y haga clic en **Crear tabla TodoItem**.
+
+
 ### <a name="download-quickstart"></a>Descarga del proyecto de código de inicio rápido de un back-end de Node.js mediante Git
 
 Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **Inicio rápido** del portal, se crea automáticamente un nuevo proyecto de Node.js y se implementa en su sitio. Puede agregar tablas y API, así como editar archivos de código para el back-end de Node.js en el portal. Puede utilizar igualmente cualquiera de las herramientas de implementación existentes para descargar el proyecto de back-end a fin de agregar o modificar tablas y API, y publicar el proyecto de nuevo. Para obtener más información, consulte la [Guía de implementación del Servicio de aplicaciones de Azure]. El siguiente procedimiento usa un repositorio de Git para descargar el código del proyecto de inicio rápido.
 
 1. Si aún no lo ha hecho, instale Git. Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-2. Siga los pasos de [Habilitación del repositorio de aplicaciones del Servicio de aplicaciones](../app-service-web/web-sites-deploy-local-git.md#Step3) a fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
+2. Siga los pasos de [Habilitación del repositorio de aplicaciones del Servicio de aplicaciones](../app-service-web/web-sites-deploy-local-git.md#Step3) con el fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
 3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
 
@@ -166,7 +177,7 @@ Muchas aplicaciones son una combinación de aplicaciones web y móviles, y el ma
 
     var mobile = azureMobileApps({ homePage: true });
 
-Puede agregar esta configuración al archivo `azureMobile.js` si solo desea que esta opción esté disponible al desarrollar de forma local.
+Puede agregar esta configuración al archivo `azureMobile.js` si solo quiere que esta opción esté disponible al desarrollar de forma local.
 
 ## <a name="TableOperations"></a>Operaciones de tabla 
 
@@ -328,7 +339,7 @@ A continuación se muestra un archivo de ejemplo _azureMobile.js_ que implementa
 
 Se recomienda que agregue _azureMobile.js_ al archivo _.gitignore_ (o a otro archivo de omisiones de control de código fuente) para evitar que las contraseñas se almacenen en la nube. Configure siempre los valores de producción en la configuración de la aplicación dentro del [Portal de Azure].
 
-### <a name="howto-appsettings"></a>Configuración de las aplicaciones para la aplicación móvil
+### <a name="howto-appsettings"></a>Configuración de aplicaciones móviles
 
 La mayoría de las opciones de configuración del archivo _azureMobile.js_ tiene una configuración de aplicación equivalente en el [Portal de Azure]. Para configurar la aplicación en Configuración de aplicaciones, use la siguiente lista:
 
@@ -379,7 +390,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
@@ -433,7 +444,7 @@ Si la propiedad de acceso no está definida, se permite el acceso no autenticado
 
 ### <a name="howto-tables-getidentity"></a>Uso de notificaciones de autenticación con las tablas
 
-Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles por medio del objeto `context.user`. Sin embargo, se pueden recuperar mediante el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
+Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles por medio del objeto `context.user`. Sin embargo, se pueden recuperar con el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
 
 Por ejemplo, si establece la autenticación mediante una cuenta Microsoft y solicita la notificación de direcciones de correo electrónico, puede agregar la dirección de correo electrónico al registro con la información siguiente:
 
@@ -625,7 +636,7 @@ Es probable que solo quiera habilitar la compatibilidad con Swagger en las edici
 
 El punto de conexión de Swagger se ubicará en http://_yoursite_.azurewebsites.net/swagger. Puede acceder a la interfaz de usuario de Swagger a través del punto de conexión `/swagger/ui`. Tenga en cuenta que si elige pedir autenticación en la aplicación entera, Swagger produce un error en el punto de conexión /. Para obtener los mejores resultados, permita que pasen las solicitudes no autenticadas en la configuración de autenticación y autorización del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access`.
 
-También puede agregar la opción de Swagger a su archivo `azureMobile.js` si solo desea que haya compatibilidad con Swagger al desarrollar de forma local.
+También puede agregar la opción de Swagger a su archivo `azureMobile.js` si solo quiere que haya compatibilidad con Swagger al desarrollar de forma local.
 
 ## <a name="push">Notificaciones push
 
@@ -761,7 +772,7 @@ También puede especificar la autenticación en operaciones específicas:
 
 Debe usar el mismo token que se utiliza para el punto de conexión de tablas en las API personalizadas que requieren autenticación.
 
-### <a name="howto-customapi-auth"></a>Control de cargas de archivos grandes
+### <a name="howto-customapi-auth"></a>Control de cargas de archivos de gran tamaño
 
 El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cuerpo](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío. Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
 
@@ -818,7 +829,7 @@ El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a 
     api.get.access = 'authenticated';
     module.exports = api;
 
-## <a name="Debugging"></a>Depuración, tablas fáciles y API fáciles
+## <a name="Debugging"></a>Depuración, y tablas y API fáciles
 
 ### <a name="howto-diagnostic-logs"></a>Depuración, diagnóstico y solución de problemas de aplicaciones móviles de Azure
 
@@ -830,7 +841,7 @@ El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración
 
 Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico. Internamente, el SDK de Node.js de Aplicaciones móviles de Azure usa [Winston] para el registro de diagnóstico. Esto se habilita automáticamente al activar el modo de depuración o al establecer la configuración de la aplicación **MS\_DebugMode** en true en el [Portal de Azure]. Los registros generados aparecerán en los registros de diagnóstico en el [Portal de Azure].
 
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Trabajo con tablas fáciles en el Portal de Azure
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Uso de tablas fáciles en el Portal de Azure
 
 Las tablas fáciles del portal le permiten crear y trabajar con tablas directamente en el portal. Incluso puede editar las operaciones de tabla mediante el editor del Servicio de aplicaciones.
 
@@ -917,4 +928,4 @@ El Portal de Azure le permite editar los archivos de script de back-end de Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

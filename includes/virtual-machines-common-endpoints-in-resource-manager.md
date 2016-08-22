@@ -1,4 +1,4 @@
-El enfoque de los puntos de conexión de Azure funciona de forma diferente en los modelos de implementación clásico y de Resource Manager. Ahora tiene la flexibilidad necesaria para crear filtros de red que controlen el flujo de tráfico que entra y sale de las máquinas virtuales, lo que le permite crear entornos de red muy complejos que sean algo más que un sencillo punto de conexión como en el modelo de implementación Clásico. Este artículo proporciona información general acerca de los grupos de seguridad de red y explica sus diferencias con respecto a los puntos de conexión del modelo Clásico, para lo que se crean reglas de filtrado y escenarios de implementación de ejemplo.
+El enfoque de los puntos de conexión de Azure funciona de forma diferente en los modelos de implementación clásico y de Resource Manager. Ahora tiene la flexibilidad necesaria para crear filtros de red que controlen el flujo de tráfico que entra y sale de las máquinas virtuales, lo que le permite crear entornos de red complejos que sean algo más que un sencillo punto de conexión como en el modelo de implementación Clásico. En este artículo se proporciona información general sobre los grupos de seguridad de red y se explican sus diferencias con respecto a los puntos de conexión del modelo Clásico, para lo que se crean reglas de filtrado y escenarios de implementación de ejemplo.
 
 
 ## Información general acerca de las implementaciones de Resource Manager
@@ -25,15 +25,15 @@ Los grupos de seguridad de red son una nueva característica que proporciona un 
 ## Información general de los equilibradores de carga
 En el modelo de implementación Clásico, Azure realizaría automáticamente toda la traducción de direcciones de red (NAT) y el enrutamiento de puertos reenvío en un servicio en la nube. Al crear un punto de conexión, debe especificar el puerto externo que se va a exponer junto con el puerto interno al que se va a dirigir el tráfico. Por sí mismos, los grupos de seguridad de red no realizan el mismo enrutamiento de puertos ni la misma NAT.
 
-Es preciso crear una instancia de Azure Load Balancer en el grupo de recursos que permita crear reglas NAT para realizar dicho enrutamiento de puertos. Nuevamente, esto es lo suficientemente pormenorizado como para aplicarlo solo a máquinas virtuales específicas, en caso de que sea necesario. Las reglas NAT de Azure Load Balancer funcionan en conjunción con las reglas de ACL del grupo de seguridad de red para proporcionar mucha más flexibilidad y control de la que se lograba con los puntos de conexión del servicio en la nube. Consulte [Información general sobre el Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md).
+Para que pueda crear reglas NAT para realizar dicho enrutamiento de puertos, cree una instancia de Azure Load Balancer en el grupo de recursos. Nuevamente, este equilibrador de carga es lo suficientemente pormenorizado como para aplicarlo solo a máquinas virtuales específicas, en caso de que sea necesario. Las reglas NAT de Azure Load Balancer funcionan junto a las reglas de ACL del grupo de seguridad de red para proporcionar mucha más flexibilidad y control de la que se lograba con los puntos de conexión del servicio en la nube. Consulte [Información general sobre el Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md).
 
 
 ## Reglas de ACL del grupo de seguridad de red
-Las reglas de ACL permiten definir qué tráfico puede entrar y salir en una máquina virtual en función de determinados puertos, intervalos de puerto o protocolos y asignar dichas reglas a cualquier máquina virtual individual o a una subred. La siguiente captura de pantalla es un ejemplo de reglas de ACL para un servidor web común:
+Las reglas de ACL permiten definir qué tráfico puede entrar y salir en una máquina virtual en función de determinados puertos, intervalos de puerto o protocolos. Las reglas se asignan a máquinas virtuales individuales o a una subred. La siguiente captura de pantalla es un ejemplo de reglas de ACL para un servidor web común:
 
 ![Lista de reglas de ACL del grupo de seguridad de red](./media/virtual-machines-common-endpoints-in-resource-manager/example-acl-rules.png)
 
-Las reglas de ACL se aplican en función de la métrica de prioridad que especifique (cuanto mayor sea el valor, menor será la prioridad). Todos los grupos de seguridad de red tienen tres reglas predeterminadas diseñadas para controlar el flujo de tráfico de red de Azure, con un `DenyAllInbound` explícito como regla final. A las reglas de ACL predeterminadas se les da una prioridad muy baja, con el fin de que no interfieran con las reglas que se creen.
+Las reglas de ACL se aplican en función de la métrica de prioridad que especifique (cuanto mayor sea el valor, menor será la prioridad). Todos los grupos de seguridad de red tienen tres reglas predeterminadas diseñadas para controlar el flujo de tráfico de red de Azure, con un `DenyAllInbound` explícito como regla final. A las reglas de ACL predeterminadas se les da una prioridad baja, para que no interfieran con las reglas que se creen.
 
 
 ## Asignación de grupos de seguridad de red
@@ -45,28 +45,28 @@ El comportamiento del grupo de seguridad de red no cambia, independientemente de
 
 
 ## Comportamiento predeterminado de grupos de seguridad de red
-En función de la forma y el momento en que cree un grupo de seguridad de red, se pueden crear que permitan el acceso RDP en el puerto TCP 3389 (las máquinas virtuales Linux permitirán el puerto TCP 22). Estas reglas de ACL automáticas se crearán con las siguientes condiciones:
+En función de la forma y el momento en que cree un grupo de seguridad de red, se pueden crear reglas predeterminadas que permitan el acceso RDP en el puerto TCP 3389. Las máquinas virtuales Linux permiten el acceso de SSH al puerto TCP 22. Estas reglas de ACL automáticas se crean con las siguientes condiciones:
 
-- Si crea una máquina virtual Windows a través del portal y acepta la acción predeterminada para crear un nuevo grupo de seguridad de red, se creará una regla de ACL para permitir el puerto TCP 3389 (RDP).
-- Si crea una máquina virtual Linux a través del portal y acepta la acción predeterminada para crear un nuevo grupo de seguridad de red, se creará una regla de ACL para permitir el puerto TCP 22 (SSH).
+- Si crea una máquina virtual Windows a través del portal y acepta la acción predeterminada para crear un grupo de seguridad de red, se crea una regla de ACL para permitir el puerto TCP 3389 (RDP).
+- Si crea una máquina virtual Linux a través del portal y acepta la acción predeterminada para crear un grupo de seguridad de red, se crea una regla de ACL para permitir el puerto TCP 22 (SSH).
 
-Bajo cualesquiera otras condiciones estas reglas de ACL predeterminadas no se crearán. No se podrá conectar a la máquina virtual sin crear las reglas de ACL adecuadas. Aquí se incluirían las siguientes acciones comunes:
+Bajo las demás condiciones, estas reglas de ACL predeterminadas no se crean. No se podrá conectar a la máquina virtual sin crear las reglas de ACL adecuadas. Aquí se incluirían las siguientes acciones comunes:
 
 - Creación de un grupo de seguridad de red a través del portal como acción independiente de la creación de la máquina virtual.
 - Creación de un grupo de seguridad de red mediante programación a través de PowerShell, la CLI de Azure, API de REST, etc.
 - Creación de una máquina virtual y su asignación a un grupo de seguridad de red existente que aún no tenga definida la regla de ACL adecuada.
 
-En todos los casos anteriores, será preciso crear reglas de ACL para la máquina virtual, con el fin de permitir las conexiones de administración remota apropiadas.
+En todos los casos anteriores, tiene que crear reglas de ACL para la máquina virtual, con el fin de permitir las conexiones de administración remota adecuadas.
 
 
 ## Comportamiento predeterminado de una máquina virtual sin un grupo de seguridad de red
-Es posible crear una máquina virtual sin necesidad de crear un grupo de seguridad de red. En estas situaciones, es posible conectarse a la máquina mediante RDP o SSH sin necesidad de crear ninguna regla de ACL. De forma similar, si se instaló un servicio web en el puerto 80, será posible acceder automáticamente a él de forma remota. La máquina virtual tiene todos los puertos abiertos.
+Es posible crear una máquina virtual sin necesidad de crear un grupo de seguridad de red. En estas situaciones, es posible conectarse a la máquina mediante RDP o SSH sin necesidad de crear ninguna regla de ACL. De forma similar, si se ha instalado un servicio web en el puerto 80, es posible acceder automáticamente a él de forma remota. La máquina virtual tiene todos los puertos abiertos.
 
-> [AZURE.NOTE] Para poder establecer conexiones remotas, será preciso tener una dirección IP pública asignada a una máquina virtual. No tener un grupo de seguridad de red para la interfaz de red o la subred no expone la máquina virtual al tráfico externo. La acción predeterminada cuando se crea una máquina virtual a través del portal es crear una nueva dirección IP pública. En el caso de las restantes formas de crear una máquina virtual como PowerShell, la CLI de Azure o una plantilla de Resource Manager, no se creará automáticamente una dirección IP pública, a menos que se solicite explícitamente. Tenga en cuenta que la acción predeterminada a través del portal es también crear un grupo de seguridad de red, por lo que no debe terminar en una situación en que tenga una máquina virtual expuesta que no tenga filtrado de red en vigor.
+> [AZURE.NOTE] Para poder establecer conexiones remotas, será preciso tener una dirección IP pública asignada a una máquina virtual. No tener un grupo de seguridad de red para la interfaz de red o la subred no expone la máquina virtual al tráfico externo. La acción predeterminada cuando se crea una máquina virtual a través del portal es crear una nueva dirección IP pública. En el caso de las demás formas de crear una máquina virtual como PowerShell, la CLI de Azure o una plantilla de Resource Manager, no se crea automáticamente una dirección IP pública, a menos que se solicite explícitamente. La acción predeterminada a través del portal es también crear un grupo de seguridad de red, por lo que no debería terminar en una situación en que tenga una máquina virtual expuesta que no tenga filtrado de red en vigor.
 
 
 ## Descripción de las reglas NAT y los equilibradores de carga
-En el modelo de implementación Clásico, se pueden crear puntos de conexión que también realizan el enrutamiento de puertos. Cuando se crea una máquina virtual en el modelo de implementación Clásico, se crearán automáticamente reglas de ACL para RDP o SSH; sin embargo, no expondrán el puerto TCP 3389 ni el puerto TCP 22, respectivamente, al mundo exterior. En su lugar, se expondrá un valor TCP con un valor alto que se asigna al puerto interno apropiado. También puede crear sus propias reglas de ACL de forma similar, como por ejemplo, puede exponer un servidor web en el puerto TCP 4280 al mundo exterior. Todas estas reglas de ACL y asignaciones de puerto se pueden ver en la siguiente captura de pantalla del portal clásico:
+En el modelo de implementación Clásico, se pueden crear puntos de conexión que también realizan el enrutamiento de puertos. Cuando crea una máquina virtual en el modelo de implementación Clásico, se crearán automáticamente reglas de ACL para RDP o SSH. No expondrán el puerto TCP 3389 ni el puerto TCP 22 respectivamente al mundo exterior. En su lugar, se expondrá un valor TCP con un valor alto que se asigna al puerto interno apropiado. También puede crear sus propias reglas de ACL de forma similar, como por ejemplo, puede exponer un servidor web en el puerto TCP 4280 al mundo exterior. Todas estas reglas de ACL y asignaciones de puerto se pueden ver en la siguiente captura de pantalla del portal clásico:
 
 ![Enrutamiento de puertos con punto de conexión del modelo de implementación Clásico](./media/virtual-machines-common-endpoints-in-resource-manager/classic-endpoints-port-forwarding.png)
 
@@ -74,6 +74,6 @@ Con los grupos de seguridad de red, la función de enrutamiento de puertos la co
 
 ![Reglas NAT del equilibrador para el enrutamiento de puertos](./media/virtual-machines-common-endpoints-in-resource-manager/load-balancer-nat-rules.png)
 
-> [AZURE.NOTE] Cuando se implementa un equilibrador de carga, lo habitual es no asignar una dirección IP pública a la propia máquina virtual. En su lugar, el equilibrador de carga tendrá una dirección IP pública asignada. Aún así será preciso crear las reglas de ACL y el grupo de seguridad de red para definir el flujo de tráfico que entra y sale de la máquina virtual. Las reglas NAT del equilibrador de carga se usan simplemente para definir qué puertos se permiten a través del equilibrador de carga y cómo se distribuyen entre el máquinas virtuales de back-end. Por consiguiente, es preciso crear una regla NAT para que el tráfico atraviese el equilibrador de carga y, luego, crear una regla de ACL de grupo de seguridad de red para permitir que el tráfico llegue realmente a la máquina virtual.
+> [AZURE.NOTE] Cuando se implementa un equilibrador de carga, lo habitual es no asignar una dirección IP pública a la propia máquina virtual. En su lugar, el equilibrador de carga tiene una dirección IP pública asignada. Aún así será preciso crear las reglas de ACL y el grupo de seguridad de red para definir el flujo de tráfico que entra y sale de la máquina virtual. Las reglas NAT del equilibrador de carga se usan simplemente para definir qué puertos se permiten a través del equilibrador de carga y cómo se distribuyen entre el máquinas virtuales de back-end. Por consiguiente, es preciso crear una regla NAT para que el tráfico atraviese el equilibrador de carga y, luego, crear una regla de ACL de grupo de seguridad de red para permitir que el tráfico llegue realmente a la máquina virtual.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

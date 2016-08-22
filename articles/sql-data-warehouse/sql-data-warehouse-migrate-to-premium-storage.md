@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Información de migración al Almacenamiento premium
@@ -27,8 +27,8 @@ Si creó un almacenamiento de datos antes de las fechas siguientes, significa qu
 | **Región** | **Almacenamiento de datos creado antes de esta fecha** |
 | :------------------ | :-------------------------------- |
 | Australia Oriental | Almacenamiento premium no disponible todavía |
-| Sudeste de Australia | Almacenamiento premium no disponible todavía |
-| Sur de Brasil | Almacenamiento premium no disponible todavía |
+| Sudeste de Australia | 5 de agosto de 2016 |
+| Sur de Brasil | 5 de agosto de 2016 |
 | Centro de Canadá | 25 de mayo de 2016 |
 | Este de Canadá | 26 de mayo de 2016 |
 | Central EE. UU.: | 26 de mayo de 2016 |
@@ -40,10 +40,10 @@ Si creó un almacenamiento de datos antes de las fechas siguientes, significa qu
 | India central | 27 de mayo de 2016 |
 | Sur de India | 26 de mayo de 2016 |
 | India occidental | Almacenamiento premium no disponible todavía |
-| Este de Japón | Almacenamiento premium no disponible todavía |
+| Este de Japón | 5 de agosto de 2016 |
 | Oeste de Japón | Almacenamiento premium no disponible todavía |
 | Centro-Norte de EE. UU | Almacenamiento premium no disponible todavía |
-| Europa del Norte | Almacenamiento premium no disponible todavía |
+| Europa del Norte | 5 de agosto de 2016 |
 | Centro-Sur de EE. UU | 27 de mayo de 2016 |
 | Sudeste asiático | 24 de mayo de 2016 |
 | Europa occidental | 25 de mayo de 2016 |
@@ -99,7 +99,7 @@ La migración automática se llevará a cabo desde las 18:00 a las 6:00 (la hora
 Si desea tener el control en los tiempos de inactividad, puede realizar los pasos siguientes para migrar un almacén de datos existente del Almacenamiento estándar al premium. Si decide realizar la migración manual, debe hacerlo antes de que se inicie la automática en dicha región para evitar riesgos de que esta última cause algún conflicto (consulte la [programación de migración automática][]).
 
 ### Instrucciones de migración manual
-Si desea tener el control en los tiempos de inactividad, puede migrar manualmente el almacén de datos mediante la funcionalidad de copia de seguridad o restauración. Se espera que el componente de restauración de la migración tarde aproximadamente 1 hora por cada TB de almacenamiento en cada almacenamiento de datos. Si desea conservar el mismo nombre cuando se complete la migración, siga estos pasos de la [solución alternativa de cambio de nombre][].
+Si desea tener el control en los tiempos de inactividad, puede migrar manualmente el almacén de datos mediante la funcionalidad de copia de seguridad o restauración. Se espera que el componente de restauración de la migración tarde aproximadamente 1 hora por cada TB de almacenamiento en cada almacenamiento de datos. Si desea conservar el mismo nombre cuando se complete la migración, siga estos pasos para [cambiar el nombre durante la migración][].
 
 1.	[Pause][] el almacenamiento de datos, que realizará una copia de seguridad automática
 2.	Lleve a cabo la [restauración][] a partir de la instantánea más reciente
@@ -129,7 +129,35 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Pasos siguientes
-Si tiene problemas con el almacén de datos, [cree una incidencia de soporte técnico][] e indique que la posible causa es la migración al Almacenamiento premium.
+Con la migración al Almacenamiento premium, también aumentamos la cantidad de archivos de blob de base de datos en la arquitectura subyacente de Almacenamiento de datos. Si tiene algún problema de rendimiento, se recomienda recompilar los índices de almacén de columnas en clúster con el script siguiente. Con esta acción, se forzará a algunos de los datos existentes a los blobs adicionales. Si no realiza ninguna acción, los datos se redistribuirán naturalmente con el tiempo a medida que carga más datos en las tablas de Almacenamiento de datos.
+
+**Requisitos previos:**
+
+1.	Almacenamiento de datos se debe ejecutar con 1000 DWU o más (consulte el [escalado de la potencia de proceso][]).
+2.	El usuario que ejecuta el script debe tener el [rol mediumrc][] o superior.
+	1.	Para agregar un usuario a este rol, ejecute lo siguiente:
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+
+````sql
+-------------------------------------------------------------------------------
+-- Paso 1: Crear tabla para controlar la recompilación de índice.
+-- Ejecutar como usuario en mediumrc o superior.
+--------------------------------------------------------------------------------
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+ 
+--------------------------------------------------------------------------------
+-- Paso 2: Ejecutar recompilaciones de índice. Si se produce un error de script, puede volver a ejecutar lo que aparece a continuación para reiniciar donde se quedó.
+-- Ejecutar como usuario en mediumrc o superior.
+--------------------------------------------------------------------------------
+
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+go
+-------------------------------------------------------------------------------
+-- Paso 3: Limpiar la tabla que se creó en el paso 1
+--------------------------------------------------------------------------------
+drop table sql\_statements; go ````
+
+Si tiene problemas con el Almacén de datos, [cree una incidencia de soporte técnico][] e indique que la posible causa es la migración al Almacenamiento premium.
 
 <!--Image references-->
 
@@ -142,13 +170,15 @@ Si tiene problemas con el almacén de datos, [cree una incidencia de soporte té
 [main documentation site]: ./services/sql-data-warehouse.md
 [Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [restauración]: ./sql-data-warehouse-manage-database-restore-portal.md
-[solución alternativa de cambio de nombre]: #optional-rename-workaround
+[cambiar el nombre durante la migración]: #optional-steps-to-rename-during-migration
+[escalado de la potencia de proceso]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[rol mediumrc]: ./sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

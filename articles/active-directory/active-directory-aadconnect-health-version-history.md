@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2016" 
+	ms.date="08/08/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: historial de versiones
@@ -93,4 +93,4 @@ Este artículo está diseñado para ayudarle a realizar un seguimiento de las ve
 ## Pasos siguientes
 Conozca más detalles acerca de la [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

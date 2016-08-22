@@ -27,7 +27,7 @@
 - [Estadísticas][]
 - [Temporal][]
 
-Almacenamiento de datos SQL ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas][] e [índices agrupados y no agrupados descritos][]. Además, también no ofrece una opción sin índice, que también se conoce como [montón][]. En este artículo se tratan las ventajas de cada tipo de índice, así como sugerencias para obtener el máximo rendimiento de los índices. Para más información acerca de cómo crear tablas en Almacenamiento de datos SQL, consulte [create table syntax][] \(Sintaxis de CREATE TABLE).
+Almacenamiento de datos SQL ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas][] e [índices agrupados y no agrupados descritos][]. Además, también no ofrece una opción sin índice, que también se conoce como [montón][]. En este artículo se tratan las ventajas de cada tipo de índice, así como sugerencias para obtener el máximo rendimiento de los índices. Para más información acerca de cómo crear tablas en Almacenamiento de datos SQL, consulte [create table syntax][] (Sintaxis de CREATE TABLE).
 
 ## Índices de almacén de columnas en clúster
 
@@ -257,10 +257,10 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La regeneración de un índice en Almacenamiento de datos SQL es una operación que se realiza sin conexión. Para más información acerca de cómo volver a generar índices, consulte la sección ALTER INDEX REBUILD de [Columnstore Indexes Defragmentation][] \(Desfragmentación de índices de almacén de columnas) y el tema de sintaxis [ALTER INDEX][].
+La regeneración de un índice en Almacenamiento de datos SQL es una operación que se realiza sin conexión. Para más información acerca de cómo volver a generar índices, consulte la sección ALTER INDEX REBUILD de [Columnstore Indexes Defragmentation][] (Desfragmentación de índices de almacén de columnas) y el tema de sintaxis [ALTER INDEX][].
  
 ### Paso 3: comprobar que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
-Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado. Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas. Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices. si se necesita más memoria.
+Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado. Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas. Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices.
 
  
 ## Regeneración de índices con CTAS y conmutación de particiones
@@ -341,4 +341,4 @@ Para más información, consulte los artículos sobre [información general de t
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

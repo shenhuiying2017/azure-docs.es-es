@@ -3,7 +3,7 @@
    description="Obtenga información acerca de cómo crear e implementar grupos de seguridad de red en modo clásico mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Creación de grupos de seguridad de red (clásicos) en PowerShell
 
@@ -210,4 +210,4 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

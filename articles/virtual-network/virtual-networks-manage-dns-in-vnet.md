@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo agregar y quitar servidores DNS en una red virtual"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Administración de servidores DNS usados por una red virtual
 
@@ -57,12 +57,4 @@ Para editar una lista de servidores DNS mediante el uso de un archivo de configu
 
 1. Reinicie las máquinas virtuales que se encuentran en la red virtual para que puedan adquirir la nueva configuración de DNS.
 
-## Pasos siguientes
-
-[Administración de las propiedades de la red virtual](../virtual-networks-settings)
-
-[Uso de las direcciones IP públicas en una red virtual](../virtual-networks-public-ip-within-vnet)
-
-[Eliminación de una red virtual](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Aprenda a crear y configurar máquinas virtuales con varias tarjetas NIC"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Creación de una máquina virtual con varias NIC
 
@@ -25,7 +25,7 @@ Puede crear máquinas virtuales (VM) en Azure y asociar varias interfaces de red
 
 La figura anterior muestra una máquina virtual con tres NIC, cada una de ellas conectada a una subred diferente.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 - La VIP accesible desde Internet (implementaciones clásicas) solo se admite en la NIC marcada como "predeterminada". Solo hay una VIP a la IP de la NIC predeterminada.
 - En estos momentos, no se admiten direcciones IP públicas (implementaciones clásicas) de nivel de instancia (LPIP) para máquinas virtuales con varias NIC.
@@ -120,7 +120,7 @@ Necesitará cumplir los siguientes requisitos previos antes de poder ejecutar lo
 
 - Una suscripción de Azure.
 - Una red virtual configurada. Para obtener más información sobre redes virtuales, consulte [Información general sobre redes virtuales](virtual-networks-overview.md).
-- La versión más reciente de Azure PowerShell descargada e instalada. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell).
+- La versión más reciente de Azure PowerShell descargada e instalada. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
@@ -265,4 +265,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

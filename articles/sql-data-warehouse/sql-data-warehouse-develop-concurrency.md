@@ -291,7 +291,7 @@ Removed as these two are not confirmed / supported under SQLDW
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **Aumente la clase de recursos:** para agregar un usuario a un rol de administración de cargas de trabajo con privilegios elevados, use la consulta siguiente.
+4. **Aumente la clase de recursos:** para agregar un usuario a un rol de administración de cargas de trabajo con privilegios más altos, use la consulta siguiente.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
@@ -428,4 +428,4 @@ Para conocer más acerca de cómo administrar los usuarios de la base de datos y
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

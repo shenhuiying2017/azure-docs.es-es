@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Apertura de puertos y puntos de conexión
 En Azure, se abre un puerto o se crea un punto de conexión creando un filtro de red que permita el tráfico al puerto elegido de una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80.
 
 ## Comandos rápidos
-Para crear un grupo de seguridad de red y las reglas que requerirá [la CLI de Azure](../xplat-cli-install.md) en el modo de Resource Manager (`azure config mode arm`).
+Para crear un grupo de seguridad de red y las reglas, requerirá [la CLI de Azure](../xplat-cli-install.md) en el modo de Resource Manager (`azure config mode arm`).
 
 Cree el grupo de seguridad de red y escriba sus propios nombres y su propia ubicación según sea adecuado:
 
@@ -61,4 +61,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Compatibilidad de Azure Resource Manager con el Equilibrador de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

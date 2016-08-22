@@ -1,10 +1,10 @@
 <properties
    pageTitle="Arquitectura de aplicaciones en Azure | Microsoft Azure"
-   description="Este artículo le ayudará a comprender la arquitectura de aplicaciones y servicios en Azure para facilitar la integración de características de seguridad en el diseño y la implementación."
+   description=" Este artículo le ayudará a comprender la arquitectura de aplicaciones y servicios en Azure para facilitar la integración de características de seguridad en el diseño y la implementación. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Arquitectura de aplicaciones en Azure
 
-Para ayudar a proteger sus soluciones basadas en la nube en Microsoft Azure, es esencial contar con unos sólidos fundamentos en materia de arquitectura. De un buen conocimiento de la arquitectura de aplicaciones y servicios pueden sacar provecho arquitectos, diseñadores e implementadores. Estos conocimientos básicos le ayudarán a comprender todos los componentes de sus soluciones basadas en la nube y facilitarán la integración de características de seguridad en todos los aspectos del diseño y la implementación.
+Para ayudar a proteger sus soluciones basadas en la nube en Microsoft Azure, es esencial contar con unos sólidos fundamentos en materia de arquitectura. De un buen conocimiento de la arquitectura de aplicaciones y servicios pueden sacar provecho arquitectos, diseñadores e implementadores. Estos conocimientos básicos lo ayudarán a comprender todos los componentes de sus soluciones basadas en la nube y facilitarán la integración de características de seguridad en todos los aspectos del diseño y la implementación.
 
 Los siguientes recursos pueden resultarle útiles para sus investigaciones y diseños de arquitectura:
 
@@ -56,4 +56,4 @@ La plantilla también está disponible fuera del curso.
 - Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
 - Descargar los [símbolos de nube y empresariales](../architecture-overview.md#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

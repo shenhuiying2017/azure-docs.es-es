@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # Puntos de conexión clásicos en Resource Manager
@@ -22,10 +22,10 @@
 ## Pasos siguientes
 Puede leer información más detallada sobre las tecnologías aquí descritas, junto con guías de inicio rápido para el uso de grupos de seguridad de red, en los siguientes artículos:
 
-- [Allow external access to your VM](virtual-machines-windows-nsg-quickstart-portal.md) (Permitir el acceso externo a la máquina virtual)  
-- [Allow external access to your VM using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md) (Permitir el acceso externo a la máquina virtual mediante Azure PowerShell)  
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)  
-- [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)  
-- [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md) 
+- [Allow external access to your VM](virtual-machines-windows-nsg-quickstart-portal.md) (Permitir el acceso externo a la máquina virtual)
+- [Allow external access to your VM using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md) (Permitir el acceso externo a la máquina virtual mediante Azure PowerShell)
+- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+- [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
+- [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

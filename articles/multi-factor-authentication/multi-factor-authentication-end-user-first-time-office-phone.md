@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Uso del teléfono de la oficina como método de contacto con Azure Multi-Factor Authentication
@@ -25,7 +25,7 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 <ol>
 <li>Seleccione Teléfono de la oficina en la lista desplegable</li>
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
+<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
 
 
 <li>Especifique el país en la lista desplegable y escriba su número de teléfono móvil.</li>
@@ -41,7 +41,7 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 
 
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
+<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
 	description="Se proporciona información detallada sobre cómo determinar los requisitos de administración de contenido de su empresa. Normalmente, cuando un usuario tiene su propio dispositivo lo habitual es que tenga más varias credenciales que se irán alternando según la aplicación que use. Es importante distinguir qué contenido se creó con las credenciales personales frente al que se creó con las credenciales corporativas. La solución de identidad debe ser capaz de interactuar con los servicios en la nube a fin de proporcionar al usuario final una experiencia sin fisuras, y al mismo tiempo asegurar su privacidad y aumentar la protección frente a la pérdida de datos."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Determinación de los requisitos de administración de contenido para la solución de identidad híbrida
 
@@ -29,7 +29,7 @@ Diferentes controles técnicos aprovecharán la solución de identidad para prop
 En general, los requisitos de administración de contenido aprovecharán su sistema de administración de identidad en las áreas siguientes:
 
 - Privacidad: identificarán al usuario propietario de un recurso y aplicarán los controles adecuados para mantener la integridad.
-- Clasificación de datos: identificarán al usuario o grupo y el nivel de acceso a un objeto en función de su clasificación. 
+- Clasificación de datos: identificarán al usuario o grupo y el nivel de acceso a un objeto en función de su clasificación.
 - Protección contra pérdida de datos: los controles de seguridad responsables de la protección de los datos deberán interactuar con el sistema de identidad para validar la identidad del usuario a fin de evitar la pérdida de estos datos. Esto también es importante para los fines de seguimiento de auditoría.
 
 >[AZURE.NOTE]
@@ -41,7 +41,7 @@ Al planear la solución de identidad híbrida, asegúrese de que puede responder
  - En caso afirmativo, ¿podrán integrarse esos controles de seguridad con la solución de identidad híbrida que va a adoptar?
 - ¿Usa su empresa clasificación de los datos?
  - En caso afirmativo, ¿se puede integrar la solución actual con la solución de identidad híbrida que va a adoptar?
-- ¿Tiene su empresa actualmente una solución para hacer frente a la pérdida de datos? 
+- ¿Tiene su empresa actualmente una solución para hacer frente a la pérdida de datos?
  - En caso afirmativo, ¿se puede integrar la solución actual con la solución de identidad híbrida que va a adoptar?
 - ¿Necesita su empresa auditar el acceso a los recursos?
  - En caso afirmativo, ¿para qué tipo de recursos?
@@ -61,4 +61,4 @@ Asegúrese de anotar cada respuesta y de que comprende las razones que se escond
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Recepción de notificaciones de alerta para los servicios de Azure | Microsoft Azure"
 	description="Recibir una notificación cuando se cumplan las condiciones de las reglas de alerta."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Recibir notificaciones de alerta
 
@@ -33,14 +33,17 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 2. En el modo **Operaciones**, haga clic en **Reglas de alerta**.
 
 3. Haga clic en el comando **Agregar alerta**.
+
 	![Agregar alerta](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
-5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta.
+5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el periodo que Azure usa para supervisar y trazar actividades de alerta.
+
 	![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. 
+6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado.
+
 	![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Por último, puede enviar una notificación de correo electrónico a los administradores responsables.
@@ -66,4 +69,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

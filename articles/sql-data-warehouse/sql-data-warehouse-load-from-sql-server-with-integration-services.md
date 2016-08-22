@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 # Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)
@@ -61,8 +61,8 @@ Para seguir paso a paso este tutorial, necesita:
 ## Paso 1: Creación de un proyecto de Integration Services
 
 1. Inicie Visual Studio 2015.
-2. En el menú **Archivo**, seleccione **Nuevo | Proyecto**.
-3. Vaya a los tipos de proyecto **Instalado | Plantillas | Business Intelligence | Integration Services**.
+2. En el menú **Archivo**, seleccione **Nuevo| Project**.
+3. Vaya a los tipos de proyecto **Instalado| Templates | Business Intelligence | Integration Services** project types.
 4. Seleccione **Proyecto de Integration Services**. Proporcione los valores de **Nombre** y **Ubicación**, y después seleccione **Aceptar**.
 
 Se abre Visual Studio y se crea un proyecto de Integration Services (SSIS). Después, en Visual Studio se abre el diseñador para el nuevo paquete de SSIS (Package.dtsx) en el proyecto. Verá las siguientes áreas en la pantalla:
@@ -81,7 +81,7 @@ Se abre Visual Studio y se crea un proyecto de Integration Services (SSIS). Desp
 
 2. Haga doble clic en la tarea Flujo de datos para cambiar a la pestaña Flujo de datos.
 3. En la lista Otros orígenes del cuadro de herramientas, arrastre un origen de ADO.NET a la superficie de diseño. Con el adaptador de origen aún seleccionado, cambie su nombre a **Origen de SQL Server** en el panel **Propiedades**.
-4. En la lista Otros destinos del cuadro de herramientas, arrastre un destino de ADO.NET a la superficie de diseño bajo el origen de ADO.NET. Con el adaptador de destino aún seleccionado, cambie su nombre a **SQL DW destination** (Destino de SQL DW) en el panel **Propiedades**.
+4. En la lista Otros destinos del cuadro de herramientas, arrastre un destino de ADO.NET a la superficie de diseño bajo el origen de ADO.NET. Con el adaptador de destino aún seleccionado, cambie su nombre a **Destino de SQL DW** en el panel **Propiedades**.
 
     ![][09]
 
@@ -224,4 +224,4 @@ Cuando se termine de ejecutar el paquete, verá marcas de verificación verdes p
 [Visual Studio Community]: https://www.visualstudio.com/es-ES/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

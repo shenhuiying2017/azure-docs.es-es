@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/18/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 #Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: siguientes pasos
@@ -42,7 +42,7 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 - [Blog de Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 - [Blog del equipo de Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-## Consulte también
+## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

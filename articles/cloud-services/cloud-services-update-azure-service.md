@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # Actualización de un servicio en la nube
@@ -132,7 +132,7 @@ Azure proporciona flexibilidad en la administración de servicios durante una ac
 La reversión de una actualización en curso tiene los efectos siguientes en la implementación:
 
 -   Las instancias de rol que aún no se hayan actualizado a la nueva versión no se actualizan, porque esas instancias ya están ejecutando la versión de destino del servicio.
--   Las instancias de rol que ya se hayan actualizado a la nueva versión del archivo de paquete de servicio (\*.cspkg) o del archivo de configuración (\*.cscfg) (o ambos archivos), se revierten a la versión previa a la actualización de estos archivos.
+-   Las instancias de rol que ya se hayan actualizado a la nueva versión del archivo de paquete de servicio (*.cspkg) o del archivo de configuración (*.cscfg) (o ambos archivos), se revierten a la versión previa a la actualización de estos archivos.
 
 Esta funcionalidad la proporcionan las características siguientes:
 
@@ -180,8 +180,6 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 > [AZURE.NOTE] Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br> 
-[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br> 
-[Configuración de servicios en la nube](cloud-services-how-to-configure.md)<br>
+[Administración de servicios en la nube](cloud-services-how-to-manage.md) [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md) [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

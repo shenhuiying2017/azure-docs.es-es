@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/10/2016"
    ms.author="adegeo"/>
 
 # Instalación de .NET en un rol de servicio en la nube 
@@ -29,7 +29,7 @@ El proceso de instalación de .NET en el rol web y el rol de trabajo implica inc
   1. En el **Explorador de soluciones**, en **Roles** del proyecto de servicio en la nube, haga clic con el botón secundario en su rol y, a continuación, seleccione **Agregar > Nueva carpeta**. Cree una carpeta llamada *bin*.
   2. Haga clic con el botón secundario en la carpeta **bin** y seleccione **Agregar > Elemento existente**. Seleccione el instalador de .NET y agréguelo a la carpeta bin.
 - Para un rol de trabajo
-  1. Haga clic con el botón secundario en el rol y seleccione **Agregar > Elemento existente**. Seleccione el instalador de .NET y agréguelo al rol. 
+  1. Haga clic con el botón secundario en el rol y seleccione **Agregar > Elemento existente**. Seleccione el instalador de .NET y agréguelo al rol.
 
 Los archivos que se agregan de esta manera a la carpeta de contenido del rol se agregarán automáticamente al paquete de servicios en la nube y se implementarán en una ubicación coherente en la máquina virtual. Repita este proceso para todos los roles web y roles de trabajo en el servicio en la nube, de manera que todos los roles tengan una copia del instalador.
 
@@ -183,4 +183,4 @@ Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

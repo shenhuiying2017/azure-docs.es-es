@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ Nuestro servicio con estado está ahora preparado para recibir tráfico de otros
 
 1. En el proyecto ASP.NET, agregue una referencia a la biblioteca de clases que contiene la interfaz `ICounter`.
 
-2. Agregue el paquete Microsoft.ServiceFabric.Services al proyecto ASP.NET, de la misma forma que hizo anteriormente para el proyecto de biblioteca de clases. Esto le proporcionará la clase `ServiceProxy`.
+2. En el menú **Compilar**, haga clic en **Administrador de configuración**. Puede ver algo así:
 
-3. En la carpeta **Controladores**, abra la clase `ValuesController`. Tenga en cuenta que, en estos momentos, el método `Get` solo devuelve una matriz de cadenas codificadas de forma rígida de "value1" y "value2", que coincide con lo que vimos anteriormente en el explorador. Reemplace esta implementación con el siguiente código:
+    ![Administrador de configuración que muestra la biblioteca de clases como AnyCPU][vs-configuration-manager]
+
+    Tenga en cuenta que el proyecto de biblioteca de clases, **MyStatefulService.Interface**, está configurado para compilarse para cualquier CPU. Para que funcione correctamente con Service Fabric, debe asignarse expresamente en x64. Haga clic en el menú desplegable Plataforma y elija **Nuevo**; después, cree una configuración de plataforma x64.
+
+    ![Creación de una nueva plataforma para la biblioteca de clases][vs-create-platform]
+
+3. Agregue el paquete Microsoft.ServiceFabric.Services al proyecto ASP.NET, de la misma forma que hizo anteriormente para el proyecto de biblioteca de clases. Esto le proporcionará la clase `ServiceProxy`.
+
+4. En la carpeta **Controladores**, abra la clase `ValuesController`. Tenga en cuenta que, en estos momentos, el método `Get` solo devuelve una matriz de cadenas codificadas de forma rígida de value1 y value2, que coincide con lo que vimos anteriormente en el explorador. Reemplace esta implementación con el siguiente código:
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -198,7 +206,7 @@ Nuestro servicio con estado está ahora preparado para recibir tráfico de otros
 
     Una vez que se tiene el proxy, simplemente se invoca el método `GetCountAsync` y se devuelve su resultado.
 
-4. Presione F5 de nuevo para ejecutar la aplicación modificada. Como antes, Visual Studio iniciará automáticamente el explorador en la raíz del proyecto web. Agregue la ruta de acceso "api/values", debería ver el valor actual del contador devuelto.
+5. Presione F5 de nuevo para ejecutar la aplicación modificada. Como antes, Visual Studio iniciará automáticamente el explorador en la raíz del proyecto web. Agregue la ruta de acceso "api/values", debería ver el valor actual del contador devuelto.
 
     ![El valor del contador con estado aparece en el explorador][browser-aspnet-counter-value]
 
@@ -218,7 +226,7 @@ Cuando se crea un proyecto de actor, Visual Studio genera automáticamente un pr
 
 En general, puede implementar exactamente la misma aplicación de Service Fabric en un clúster de varias máquinas que en el clúster local y tener la completa seguridad de que funcionará como se espera. El motivo es que el clúster local es simplemente una configuración de cinco nodos que se consolida en una sola máquina.
 
-En cuanto a los servicios web, de todas formas, existe un matiz clave. Cuando el clúster se encuentra detrás de un equilibrador de carga, como sucede en Azure, tiene que asegurarse de que los servicios web se implementan en todos los equipos, ya que el equilibrador de carga simplemente realizará un enrutamiento del tráfico round robin en todos los equipos. Para ello, establezca `InstanceCount` para el servicio en el valor especial de "-1".
+En cuanto a los servicios web, de todas formas, existe un matiz clave. Cuando el clúster se encuentra detrás de un equilibrador de carga, como sucede en Azure, tiene que asegurarse de que los servicios web se implementan en todos los equipos, ya que el equilibrador de carga simplemente realizará un enrutamiento del tráfico round robin en todos los equipos. Para ello, establezca `InstanceCount` para el servicio en el valor especial de -1.
 
 Por el contrario, cuando se ejecuta un servicio web localmente, debe asegurarse de que solo una instancia del servicio se esté ejecutando. En caso contrario, se encontrará con problemas debido a que hay varios procesos que escuchan en la misma ruta de acceso y puerto. Como resultado, el recuento de instancias de servicio web debe establecerse en "1" para implementaciones locales.
 
@@ -240,9 +248,12 @@ Para obtener información sobre cómo configurar valores diferentes para diferen
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
+
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/es-ES/services/api-management/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

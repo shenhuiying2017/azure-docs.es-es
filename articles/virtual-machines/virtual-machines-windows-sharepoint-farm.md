@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/08/2016"
 	ms.author="josephd"/>
 
 # Creación de granjas de servidores de SharePoint
@@ -38,13 +38,13 @@ Si desea crear la granja básica de SharePoint (de tres servidores), siga estos 
 1. Haga clic [aquí](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
 2. Haga clic en **Implementar**.
 3. En el panel **Granja de SharePoint 2013 sin alta disponibilidad**, haga clic en **Crear**.
-4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 sin alta disponibilidad** y, luego, haga clic en **Crear**.
+4. Especifique la configuración en los pasos del panel **Crear granja de SharePoint 2013 sin alta disponibilidad** y, luego, haga clic en **Crear**.
 
 La granja de servidores de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con esta configuración.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-Use esta configuración de granja para probar cargas de cliente más alta y la alta disponibilidad del sitio externo de SharePoint, así como SQL Server AlwaysOn para una granja de SharePoint. También puede usar esta configuración para el desarrollo de aplicaciones de SharePoint en un entorno de alta disponibilidad.
+Use esta configuración de granja para probar cargas de cliente más altas, la alta disponibilidad del sitio externo de SharePoint y los grupos de disponibilidad AlwaysOn de SQL Server para una granja de SharePoint. También puede usar esta configuración para el desarrollo de aplicaciones de SharePoint en un entorno de alta disponibilidad.
 
 Para crear la granja de SharePoint de alta disponibilidad (de nueve servidores):
 
@@ -59,7 +59,7 @@ El Portal de Azure crea los dos tipos de granja en una red virtual que se encuen
 
 ## Granjas de servidores de SharePoint 2016
 
-Consulte [en este tema](https://technet.microsoft.com/library/mt723354.aspx) las instrucciones sobre cómo crear la siguiente granja de servidores de SharePoint 2016 de un único servidor.
+Consulte [este artículo](https://technet.microsoft.com/library/mt723354.aspx) las instrucciones sobre cómo crear la siguiente granja de servidores de SharePoint 2016 de un único servidor.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
@@ -67,10 +67,10 @@ Consulte [en este tema](https://technet.microsoft.com/library/mt723354.aspx) las
 
 Puede administrar los servidores de estas granjas a través de conexiones de Escritorio remoto. Para obtener más información, vea [Inicio de sesión en la máquina virtual](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
-En el sitio de Administración central de SharePoint, puede configurar Mis sitios, aplicaciones de SharePoint y más funcionalidad. Para obtener más información, consulte [Configuración de SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
+En el sitio de Administración central de SharePoint, puede configurar Mis sitios, aplicaciones de SharePoint y más funcionalidad. Para obtener más información, consulte [Configuración de SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## Pasos siguientes
 
-- Descubra más configuraciones de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
+- Descubra más configuraciones de [SharePoint](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

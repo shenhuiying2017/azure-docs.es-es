@@ -3,7 +3,7 @@
    description="Aprenda a crear e implementar grupos de seguridad de red en ARM mediante la CLI de Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Creación de grupos de seguridad de red en la CLI de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -101,16 +101,16 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 	Parámetros:
 
-	- **-a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
+	- **- a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
 	- **-c (o--access)**. Nivel de acceso de la regla (Denegar o Permitir).
 	- **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-	- **-r (o --direction)**. Dirección de conexión (Entrante o Saliente).
+	- **- r (o --direction)**. Dirección de conexión (Entrante o Saliente).
 	- **-y (o --priority)**. Prioridad de la regla.
 	- **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
 	- **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
 	- **-e (o --destination-address-prefix)**. Prefijo de dirección de destino en CIDR o con las etiquetas predeterminadas.
-	- **-u (o --destination-port-range)**. Puerto de destino, o intervalo de puertos.	
+	- **-u (o --destination-port-range)**. Puerto de destino, o intervalo de puertos.
 
 5. Ejecute el comando **azure network nsg rule create** para crear una regla que permita el acceso al puerto 80 (HTTP) desde Internet.
 
@@ -269,6 +269,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		data:    
 		info:    network vnet subnet set command OK
 
-<!----HONumber=AcomDC_0323_2016-->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

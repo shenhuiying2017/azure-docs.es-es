@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="08/03/2016" 
 	ms.author="tamram"/>
 
 # Uso del emulador de almacenamiento de Azure para desarrollo y pruebas
@@ -149,7 +149,7 @@ A partir de la versión 3.0, al iniciar el emulador de almacenamiento, se abrir�
 
 Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
-| Opción | Descripción | Comando | Argumentos |
+| Opción | Description | Comando | Argumentos |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Iniciar** | Inicia el emulador de almacenamiento. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** | Detiene el emulador de almacenamiento. | `AzureStorageEmulator stop` | |
@@ -247,4 +247,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo mover las máquinas virtuales y las instancias de rol a una subred diferente"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Traslado de una máquina virtual o una instancia de rol a una subred diferente
 
@@ -53,4 +53,4 @@ Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemo
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

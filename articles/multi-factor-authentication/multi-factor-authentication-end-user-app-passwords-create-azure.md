@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Creación de contraseñas de aplicación con el Portal de Azure Multi-Factor Authentication
@@ -34,4 +34,4 @@ Si utiliza la autenticación multifactor con Azure, le interesará crear contras
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

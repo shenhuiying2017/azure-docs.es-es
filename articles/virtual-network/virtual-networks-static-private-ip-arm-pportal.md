@@ -3,7 +3,7 @@
    description="Descripción de las IP privadas (DIP) y su administración en el modo ARM con el Portal de Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Establecimiento de una dirección IP privada estática en el Portal de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puedes [Administrar la dirección IP privada estática en el modelo de implementación clásica](virtual-networks-static-private-ip-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puedes [Administrar la dirección IP privada estática en el modelo de implementación clásica](virtual-networks-static-private-ip-classic-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -54,9 +54,9 @@ Para crear una VM denominada *DNS01* en la subred de *front-end* de una red virt
 
 6. En la hoja **Configuración** de teh, asegúrese de que se establecen las siguientes propiedades con los siguientes valores y, a continuación, haga clic en **Aceptar**.
 
-	-**Cuenta de almacenamiento**: *vnetstorage*
+	**Cuenta de almacenamiento**: *vnetstorage*
 	- **Red**: *TestVNet*
-	- **Subred**: *front-end*
+	- **Subred**: *FrontEnd*
 
 	![Selección de una hoja de tamaño](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -93,8 +93,8 @@ Para quitar la dirección IP privada estática de la VM creada anteriormente, si
 
 ## Pasos siguientes
 
-- Obtenga más información acerca de las [direcciones IP públicas reservadas](../virtual-networks-reserved-public-ip).
-- Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md).
+- Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Uso de un teléfono móvil como método de contacto con Azure Multi-Factor Authentication
@@ -24,7 +24,7 @@ Este artículo puede serle útil si desea usar el teléfono móvil como método 
 <ol>
 <li>Seleccione Teléfono de autenticación en la lista desplegable</li>
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
+<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)</center>
 
 
 <li>Especifique el país en la lista desplegable y escriba su número de teléfono móvil.</li>
@@ -40,9 +40,9 @@ Este artículo puede serle útil si desea usar el teléfono móvil como método 
 
 
 
-<center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
+<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
 
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

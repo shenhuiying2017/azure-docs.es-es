@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solución integral de problemas gracias a las Métricas de almacenamiento y registro de Azure, a AzCopy y al Analizador de mensajes | Microsoft Azure"
+	pageTitle="Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes | Microsoft Azure"
 	description="Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft."
 	services="storage"
 	documentationCenter="dotnet"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -145,14 +145,14 @@ Puede usar el analizador de mensajes para recopilar un seguimiento de red HTTP/H
 
 1. Instale [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie Fiddler.
-2. Seleccione **Tools | Fiddler Options** (Herramientas | Opciones de Fiddler).
+2. Seleccione **Tools (Herramientas).| Fiddler Options**.
 3. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS) están seleccionadas, tal y como se muestra aquí.
 
 ![Configurar opciones de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 En este tutorial, primero deberá recopilar y guardar un seguimiento de red en el analizador de mensajes y, luego, crear una sesión de análisis para analizar el seguimiento y los registros. Para recopilar un seguimiento de red en el analizador de mensajes:
 
-1. En el analizador de mensajes, seleccione **File | Quick Trace | Unencrypted HTTPS** (Archivo | Seguimiento rápido | HTTPS sin cifrar).
+1. En el analizador de mensajes, seleccione **File (Archivo).| Quick Trace | Unencrypted HTTPS**.
 2. El seguimiento se iniciará inmediatamente. Seleccione **Stop** (Detener) para detener el seguimiento y poder configurarlo para que solo haga el seguimiento del tráfico de almacenamiento.
 3. Seleccione **Edit** (Editar) para editar la sesión de seguimiento.
 4. Seleccione el vínculo **Configure** (Configurar) que está a la derecha del proveedor ETW **Microsoft-Pef-WebProxy**.
@@ -285,7 +285,7 @@ En la siguiente imagen puede ver los resultados de la agrupación y filtrado. Si
 
 ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode**. Para comenzar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
+Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode**. Para empezar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
 
 >[AZURE.NOTE] Si agrega una expresión al filtro que incluya entradas de registro donde el código de estado sea nulo, puede filtrar la columna **StatusCode** y ver datos de los tres registros (incluido el registro de cliente). Para crear esta expresión de filtro, use:
 >
@@ -340,20 +340,20 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro (de cliente, de servidor, de red, todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
-| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124; HTTP.Response.StatusCode == 503 | Red |
+| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError (todos) |    *StatusCode == 500 | Todos |
-| Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red |
-| Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red |
+| Aumento en PercentTimeoutError (todos) | * StatusCode == 500 | Todo |
+| Aumento de PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
+| Mensajes HTTP 403 (Prohibido) | HTTP.Response.StatusCode == 403 | Red |
+| Mensajes HTTP 404 (No encontrado) | HTTP.Response.StatusCode == 404 | Red |
+| 404 (Todo) | * StatusCode == 404 | Todo |
+| Problema de autorización de la Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red |
 | Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red |
-| 409 (todos) | *StatusCode == 409 | Todos |
-| Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red |
-| Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| 409 (Todo) | * StatusCode == 409 | Todo |
+| Valor de PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors. | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
+| Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
+| Intervalo de tiempo en los registros de servidor y red | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Servidor, red |
+| Intervalo de tiempo en registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Pasos siguientes
@@ -366,4 +366,4 @@ Para más información sobre los escenarios de solución integral de problemas e
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

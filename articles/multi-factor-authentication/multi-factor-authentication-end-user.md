@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -39,7 +39,7 @@ Una vez que haya decidido su método de comprobación, es el momento de inscribi
 
 Seleccione uno de los temas siguientes para empezar.
 
-Tema.|Descripción
+Tema.|Description
 :------------- | :------------- | 
 [Experiencia de instalación](multi-factor-authentication-end-user-first-time.md)| Describe el proceso de configuración de la autenticación multifactor por primera vez.
 [Experiencia de inicio de sesión](multi-factor-authentication-end-user-signin.md)|Muestra lo que puede esperar con el inicio de sesión usando los distintos métodos, como teléfono o aplicación.
@@ -49,4 +49,4 @@ Tema.|Descripción
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo administrar los NSG existentes con el Portal de vista previa en Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Administración de los NSG mediante el Portal de vista previa
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -37,7 +37,7 @@ Para consultar todos los NSG existentes en una suscripción, siga estos pasos.
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **Examinar >** > **Grupos de seguridad de red**.
 
-![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
+![Portal de Azure - NSG](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
 3. Compruebe la lista de NSG en la hoja **Grupos de seguridad de red**.
 
@@ -154,7 +154,7 @@ Para desasociar el NSG **NSG-FrontEnd** de la subred **FrontEnd**, siga estos pa
 
 3. En la hoja **FrontEnd**, haga clic en **Guardar**.
 
-![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
+![Portal de Azure - NSG](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
 ### Asociación de un grupo de seguridad de red a una máquina virtual
 
@@ -184,4 +184,4 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
 
 - [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

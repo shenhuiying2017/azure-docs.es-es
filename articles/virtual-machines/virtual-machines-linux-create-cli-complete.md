@@ -1,3 +1,4 @@
+
 <properties
    pageTitle="Creación de un entorno de Linux completo mediante la CLI de Azure | Microsoft Azure"
    description="Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure."
@@ -1275,4 +1276,4 @@ Es posible que quiera leer [más sobre cómo realizar implementaciones desde pla
 
 Ya está listo para empezar a trabajar con varios componentes de red y máquinas virtuales. Puede usar este entorno de ejemplo para crear la aplicación con los componentes principales aquí presentados.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

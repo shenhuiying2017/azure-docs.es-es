@@ -240,7 +240,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -557,4 +557,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 - Obtenga información sobre las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) y [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
 - Consulte la plantilla [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app (Escalado automático de un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale), en la que se define una pila LAMP para ejercer la funcionalidad de escalado automático de los conjuntos de escalas de máquina virtual.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

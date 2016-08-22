@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
@@ -49,7 +49,7 @@ Esta información se analiza y se recomienda el nivel de servicio y el nivel de 
 Según el uso de la base de datos, se pueden encontrar dos categorías de recomendaciones:+
 
 
-| Recomendación | Descripción |
+| Recomendación | Description |
 | :--- | :--- |
 | Actualizar | Actualice a un nuevo nivel. |
 | No disponible | Las bases de datos requieren una carga de trabajo mínima o aproximadamente 35 días de actividad. No hay suficientes datos para proporcionar una recomendación válida. |
@@ -96,4 +96,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->
