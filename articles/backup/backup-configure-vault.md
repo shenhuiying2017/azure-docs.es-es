@@ -226,4 +226,4 @@ Para más información sobre la copia de seguridad de máquinas virtuales u otra
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

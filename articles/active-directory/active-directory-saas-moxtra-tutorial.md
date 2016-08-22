@@ -332,7 +332,8 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de Moxtra en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Moxtra.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.<br>
+Al hacer clic en el icono de Moxtra en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Moxtra.
 
 
 ## Recursos adicionales

@@ -51,7 +51,7 @@ Algunos registradores de dominio solo permiten asignar subdominios cuando se uti
 
 ### Registro D
 
-El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como ***.contoso.com**, a una dirección IP. En el caso de un servicio en la nube de Azure, la IP virtual del servicio. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que utilice un carácter comodín, como ***.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contoso.com**.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de un Servicio en la nube de Azure, la IP virtual del servicio. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que utilice un carácter comodín, como \***.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]
 Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su servicio en la nube. La dirección IP que usa el Servicio en la nube se asigna la primera vez que se implementa en una ranura vacía (producción o ensayo). Si elimina la implementación para la ranura, Azure libera la dirección IP y a toda implementación posterior en la ranura se le podrá dar una dirección IP nueva.

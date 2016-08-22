@@ -44,15 +44,17 @@ Durante el inicio de sesión primero, se proporciona una contraseña de aplicaci
 
 Cómo usa la autenticación multifactor|Description
 :------------- | :------------- | 
-[La uso con Office 365](#creating-and-deleting-app-passwords-with-office-365)| Esto significa que tendrá que crear las contraseñas de aplicación a través del portal de Office 365.
-[No lo sé](#creating-and-deleting-app-passwords-with-myapps-portal)|Esto significa que tendrá que crear las contraseñas de aplicación a través de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[La uso con Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Esto significa que tendrá que crear las contraseñas de aplicación a través del Portal de Azure.
+<a href="#Office">Creación y eliminación de contraseñas de aplicación con Office 365</a> | Esto significa que tendrá que crear las contraseñas de aplicación a través del portal de Office 365.
+<a href="#Creación">No lo sé</a>|Esto significa que tendrá que crear las contraseñas de aplicación a través de [https://myapps.microsoft.com](https://myapps.microsoft.com)
+<a href="#Bmk">La uso con Microsoft Azure</a>| Esto significa que tendrá que crear las contraseñas de aplicación a través del Portal de Azure.
 
-## Creación y eliminación de contraseñas de aplicación con Office 365 
+<h2 id="Creacion">Creación y eliminación de contraseñas de aplicación con Office 365</h2>
 
 Si usa la autenticación multifactor con Office 365, le interesará crear y eliminar contraseñas de aplicación a través del portal de Office 365.
 
-### Creación de contraseñas de aplicación en el portal de Office 365
+<h2 id="Office">Creación y eliminación de contraseñas de aplicación con Office 365</h2> 
+
+
 --------------------------------------------------------------------------------
 
 1. Inicie sesión en el [Portal de Office 365](https://login.microsoftonline.com/).
@@ -81,12 +83,12 @@ Si usa la autenticación multifactor con Office 365, le interesará crear y elim
 9. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**. ![Cerrar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Creación y eliminación de contraseñas de aplicación con el portal de Myapps
+<h2 id="Creación">Creación y eliminación de contraseñas de aplicación con el portal de Myapps</h2>
 Si no está seguro de cómo usar la autenticación multifactor, siempre puede cambiar la configuración mediante el portal de Myapps.
 
 ### Para crear una contraseña de aplicación mediante el portal de Myapps
 
-1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. En la parte superior, seleccione el perfil.
 3. Seleccione Comprobación de seguridad adicional. ![Nube](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Esto le llevará a la página que le permitirá cambiar la configuración. ![Configuración](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -97,7 +99,7 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 
 ### Para eliminar una contraseña de aplicación mediante el portal de Myapps
 
-1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. En la parte superior, seleccione el perfil.
 3. Seleccione Comprobación de seguridad adicional. ![Nube](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Esto le llevará a la página que le permitirá cambiar la configuración. ![Configuración](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -107,7 +109,7 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 8. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**. ![Cerrar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Creación de contraseñas de aplicación en el Portal de Azure
+<h2 id="Bmk">Creación de contraseñas de aplicación en el Portal de Azure</h2>
 
 Si utiliza la autenticación multifactor con Azure, le interesará crear contraseñas de aplicación a través del Portal de Azure.
 

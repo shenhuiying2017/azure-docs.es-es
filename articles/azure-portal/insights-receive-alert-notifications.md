@@ -38,13 +38,12 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 
 4. Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
-5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el periodo que Azure usa para supervisar y trazar actividades de alerta.
+5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta.
+    ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-	![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
-
-6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado.
-
-	![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. 
+    ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
 
 7. Por último, puede enviar una notificación de correo electrónico a los administradores responsables.
 

@@ -148,7 +148,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-Este es un ejemplo de cómo establecer el tamaño del rol como [Standard\_D2](#general-purpose-d) para una instancia de rol web:
+El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2](de Uso general (D)) para una instancia de rol web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">

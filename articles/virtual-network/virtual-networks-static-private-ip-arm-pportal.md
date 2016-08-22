@@ -54,7 +54,7 @@ Para crear una VM denominada *DNS01* en la subred de *front-end* de una red virt
 
 6. En la hoja **Configuración** de teh, asegúrese de que se establecen las siguientes propiedades con los siguientes valores y, a continuación, haga clic en **Aceptar**.
 
-	**Cuenta de almacenamiento**: *vnetstorage*
+	-**Cuenta de almacenamiento**: *vnetstorage*
 	- **Red**: *TestVNet*
 	- **Subred**: *FrontEnd*
 

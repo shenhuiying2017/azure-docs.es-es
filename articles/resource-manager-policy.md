@@ -130,7 +130,7 @@ A continuación se muestra la definición de un alias. Como puede ver, un alias 
 
 Actualmente, los alias admitidos son:
 
-| Nombre de alias | Description |
+| Nombre de alias | Descripción |
 | ---------- | ----------- |
 | {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis y <br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
@@ -255,7 +255,7 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
 
 ### Selección de servicio: selecciona el catálogo de servicios
 
-El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/* y Microsoft.Network/*. Se denegará todo lo demás.
+El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\* y Microsoft.Network/\*. Se denegará todo lo demás.
 
     {
       "if" : {

@@ -181,4 +181,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
 	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->
