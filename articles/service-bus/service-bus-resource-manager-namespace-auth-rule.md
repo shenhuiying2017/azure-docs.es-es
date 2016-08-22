@@ -26,7 +26,7 @@ Para ver la plantilla completa, consulte la [Plantilla de regla de autorización
 
 >[AZURE.NOTE] Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
 >
->-    [Creación de un espacio de nombres de Bus de servicio con un grupo de consumidores y Centro de eventos](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Creación de un espacio de nombres de Centro de eventos con un grupo de consumidores y Centro de eventos](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
@@ -177,4 +177,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Plantilla de regla de autorización de Bus de servicio]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

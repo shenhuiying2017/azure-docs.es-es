@@ -3,7 +3,7 @@
    description="Aprenda a crear e implementar NSG en Azure Resource Manager mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Cómo crear NSG en el Administrador de recursos mediante PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -154,7 +154,7 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 5. Agregue las reglas creadas anteriormente a un nuevo grupo de seguridad de red denominado **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Asocie el grupo de seguridad de red creado anteriormente a la subred *Back-end*.
@@ -182,4 +182,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!------HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

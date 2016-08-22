@@ -29,7 +29,7 @@ A9 y A11 | Intel Xeon E5-2670<br/>16 núcleos a 2,6 GHz | DDR3-1600 MHz<br/>112 
 Las instancias A8 y A9 tienen dos adaptadores de red que se conectan a las siguientes redes back-end de Azure.
 
 
-Red | Descripción
+Red | Description
 -------- | -----------
 Ethernet de 10 Gbps | Se conecta a los servicios de Azure (por ejemplo, Almacenamiento de Azure y Red virtual de Azure) y a Internet.
 Back-end de 32 Gbps, compatible con RDMA | Permite una baja latencia y comunicación de aplicaciones de alto rendimiento entre las instancias de un servicio en la nube único o un conjunto de disponibilidad. Reservado solo para el tráfico MPI.
@@ -43,11 +43,11 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 * **Suscripción de Azure**: si desea implementar más de un pequeño número de instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
 
-* **Cuota de núcleos**: es posible que necesite aumentar la cuota de núcleos de su suscripción de Azure desde el valor predeterminado de 20 núcleos por suscripción (si se usa el modelo de implementación clásica) o 20 núcleos por región (si utiliza el modelo de implementación de Resource Manager). Para solicitar un aumento de cuota, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (Descripción de los límites y aumentos de Azure).
+* **Cuota de núcleos**: es posible que necesite aumentar la cuota de núcleos de su suscripción de Azure desde el valor predeterminado de 20 núcleos por suscripción (si se usa el modelo de implementación clásica) o 20 núcleos por región (si utiliza el modelo de implementación de Resource Manager). Para solicitar un aumento de cuota, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (Descripción de los límites y aumentos de Azure). (Los límites predeterminados pueden variar según la categoría de suscripción).
 
     >[AZURE.NOTE]Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure. Las cuotas de Azure son límites de crédito, no garantías de capacidad. Independientemente de la cuota, solamente se le cobrarán los núcleos que use.
 
-* **Red virtual**: no se necesita una [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) de Azure para usar instancias de proceso intensivo. Sin embargo, puede que necesite al menos una red virtual Azure basada en la nube para muchos escenarios o una conexión de sitio a sitio si necesita tener acceso a recursos locales como un servidor de licencias de aplicaciones. Necesitará crear una nueva red virtual para implementar las instancias. No se admite la adición de una máquina virtual A8, A9, A10 o A11 a una red virtual en un grupo de afinidad.
+* **Red virtual**: no se necesita una [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) de Azure para usar instancias de proceso intensivo. Sin embargo, puede que necesite al menos una red virtual Azure basada en la nube para muchos escenarios o una conexión de sitio a sitio si necesita tener acceso a recursos locales como un servidor de licencias de aplicaciones. Si necesita una, cree una nueva red virtual para implementar las instancias. No se admite la adición de una máquina virtual A8, A9, A10 o A11 a una red virtual en un grupo de afinidad.
 
 * **Servicio o conjunto de disponibilidad en la nube**: para conectarse a través de la red RDMA, las máquinas virtuales de tamaño A8 y A9 deben implementarse en el mismo servicio en la nube (si utiliza el modelo de implementación clásica) o en el mismo conjunto de disponibilidad (si utiliza el modelo de implementación de Azure Resource Manager).
 
@@ -57,4 +57,4 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 * **Espacio de direcciones de red RDMA**: la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Si planea ejecutar aplicaciones MPI en instancias A8 y A9 en una red virtual de Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

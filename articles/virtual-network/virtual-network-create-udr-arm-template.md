@@ -3,7 +3,7 @@
    description="Vea cómo controlar el enrutamiento y uso de aplicaciones virtuales en el Administrador de recursos mediante una plantilla"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Creación de enrutamientos definidos por el usuario (UDR) en el administrador de recursos mediante una plantilla
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -183,7 +183,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-3. Desde el explorador, vaya a ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, deberá copiar los valores siguientes en un archivo denominado **c:\\udr\\azuredeploy.parameters.json**.
+3. Desde el explorador, vaya a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo JSON y péguelo en un archivo nuevo en el equipo. En este escenario, deberá copiar los valores siguientes en un archivo denominado **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -396,4 +396,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 >[AZURE.TIP] Si no ve todos los recursos, ejecute el comando `azure group deployment show` para comprobar que el estado de aprovisionamiento de la implementación es *Correcto*.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

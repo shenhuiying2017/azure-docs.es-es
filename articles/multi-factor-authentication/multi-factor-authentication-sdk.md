@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Creación de Multi-Factor Authentication en aplicaciones personalizadas (SDK)
@@ -60,7 +60,7 @@ Para descargar el SDK de Azure Multi-Factor, se requiere un [proveedor de autent
 3. Haga doble clic en la instancia de Azure AD.
 4. En la parte superior, haga clic en **Configurar**.
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
-6. En la página de configuración de servicios, en la parte inferior de la pantalla, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3a.png)
+6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3a.png)
 7. De este modo se abrirá una nueva página. A la izquierda, en la parte inferior, haga clic en SDK.
 8. Seleccione el idioma que desee y haga clic en uno de los vínculos de descarga asociados.
 9. Guarde el archivo descargado.
@@ -193,4 +193,4 @@ En el siguiente código de servidor, Multi-Factor Authentication se configura y 
 	    }
 	}
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

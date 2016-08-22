@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@ Para configurar la integración de Expensify en Azure AD, deberá agregar Expens
 
 **Para agregar Expensify desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -218,9 +218,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
 ### Creación de un usuario de prueba de Expensify
 
-En esta sección, creará un usuario denominado Britta Simon en Expensify. Expensify admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
-
-No hay ningún elemento de acción para usted en esta sección. Se crea un nuevo usuario al acceder a Expensify en caso de que el usuario no exista todavía. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
+En esta sección, creará un usuario denominado Britta Simon en Expensify. Trabaje con el equipo de soporte técnico de Expensify para agregar los usuarios a la plataforma de Expensify.
 
 > [AZURE.NOTE] Si necesita crear manualmente un usuario, deberá ponerse en contacto con el equipo de soporte técnico de Expensify.
 
@@ -233,7 +231,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 **Para asignar a Britta Simon a Expensify, siga estos pasos:**
 
-1. En el Portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
 	![Asignar usuario][201]
 
@@ -283,4 +281,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

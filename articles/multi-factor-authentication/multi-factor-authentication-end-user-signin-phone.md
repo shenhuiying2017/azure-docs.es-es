@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Inicio de sesión mediante una llamada al teléfono del trabajo o a un móvil con Azure Multi-Factor Authentication
@@ -47,4 +47,4 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,11 +1,10 @@
 ### Requisitos previos
 
-- Una cuenta de [ServiceBus](https://azure.microsoft.com/services/service-bus/).
+Debe tener una cuenta de [Bus de servicio](https://azure.microsoft.com/services/service-bus/).
 
+Para poder usar su cuenta de Bus de servicio de Azure en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica del Portal de Azure.
 
-Para poder usar su cuenta de Bus de servicio de Azure en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure.
-
-Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuenta del Bus de servicio:
+Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuenta de Bus de servicio:
 
 1. Para crear una conexión al Bus de servicio, en el diseñador de Logic Apps, seleccione **Mostrar API administradas por Microsoft** en la lista desplegable y luego escriba *bus de servicio* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que desea utilizar:  
     ![Imagen 1 de conexión al Bus de servicio](./media/connectors-create-api-servicebus/servicebus-1.png)
@@ -19,4 +18,4 @@ Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuen
 3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de los pasos en la aplicación lógica:  
     ![Imagen 3 de conexión al Bus de servicio](./media/connectors-create-api-servicebus/servicebus-3.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

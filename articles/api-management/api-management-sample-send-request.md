@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 
 # Uso de servicios externos del servicio de administración de API de Azure
@@ -269,4 +269,4 @@ Para más información sobre las directivas [send-one-way-request](https://msdn.
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

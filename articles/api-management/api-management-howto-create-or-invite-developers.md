@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Administración de cuentas de usuario en Administración de API de Azure
@@ -95,7 +95,7 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -110,4 +110,4 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Configuración de plantillas de correo electrónico]: api-management-howto-configure-notifications.md#email-templates
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

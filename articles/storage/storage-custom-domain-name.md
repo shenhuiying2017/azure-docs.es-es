@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,9 @@
 
 ## Información general
 
-Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado para Almacenamiento de blobs es https://<*mystorageaccount*>.blob.core.windows.net. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento a través de ese dominio.
+Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento a través de ese dominio.
+
+>[AZURE.IMPORTANT] Almacenamiento de Azure no admite aún HTTPS con dominios personalizados. Somos conscientes de que los clientes están interesados en esta característica y estará disponible en futuras versiones.
 
 Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
 
@@ -32,7 +34,7 @@ La siguiente tabla muestra las direcciones URL de ejemplo para obtener acceso a 
 Tipo de recurso|Formatos de dirección URL
 ---|---
 Cuenta de almacenamiento|**Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net<p>**URL de dominio personalizada:** http://www.contoso.com</td>
-Blob|**Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL de dominio personalizada:**http://www.contoso.com/mycontainer/myblob
+Blob|**Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL de dominio personalizada:** http://www.contoso.com/mycontainer/myblob
 Contenedor raíz|**Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**URL de dominio personalizada:** http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob
 
 ## Registro de un dominio personalizado para la cuenta de almacenamiento
@@ -77,7 +79,7 @@ El subdominio asverify es un subdominio especial reconocido por Azure. Si antepo
 
 3.  Haga clic en la pestaña **Configure**.
 
-4.  En la parte inferior de la pantalla, haga clic en **Manage Domain** para visualizar el cuadro de diálogo **Manage Custom Domain**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME con el subdominio **asverify**.
+4.  En la parte inferior de la pantalla, haga clic en **Administrar dominio** para mostrar el cuadro de diálogo **Administrar dominio personalizado**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME con el subdominio **asverify**.
 
 5.  Inicie sesión en el sitio web del registrador DNS y vaya a la página de administración de DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 
@@ -113,7 +115,7 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 Para anular el registro de un dominio personalizado, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com). 
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 2. En el panel de navegación, haz clic en **Almacenamiento**.
 
@@ -128,4 +130,4 @@ Para anular el registro de un dominio personalizado, siga estos pasos:
 
 -   [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

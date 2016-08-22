@@ -48,7 +48,7 @@ Para iniciar un comando, llame a la API de inicio con los argumentos esperados. 
 
 Después de llamar correctamente a la API de inicio, la API GetProgress debe llamarse en un bucle hasta que la propiedad State del objeto de progreso devuelto tenga el valor Completado. Se debe volver a tratar de inicializar todas las clases [FabricTransientException][fte] y OperationCanceledException. Cuando el comando haya alcanzado un estado terminal (Completado, Error o Cancelado), la propiedad Result del objeto de progreso devuelto contendrá más información. Si el estado es Completado, Result.SelectedPartition.PartitionId incluirá el id. de partición que se seleccionó. El valor de Result.Exception será NULL. Si el estado es Error, Result.Exception incluirá la razón por la que el servicio de análisis e inserción de errores no pudo ejecutar el comando. Result.SelectedPartition.PartitionId tendrá el id. de partición que se haya seleccionado. En algunos casos, es posible que el comando no haya podido elegir correctamente una partición. En ese caso, el valor de PartitionId será 0. Si el estado es Cancelado, el valor de Result.Exception será NULL. Al igual que en el caso del estado Error, Result.SelectedPartition.PartitionId tendrá el id. de partición que se seleccionó, pero si el comando no ha podido elegir correctamente la partición, el valor será 0. Consulte también el siguiente ejemplo.
 
-En el código de ejemplo siguiente se muestra cómo iniciar un comando y, luego, comprobar su progreso para reiniciar una partición concreta.
+En el código de ejemplo siguiente se muestra cómo iniciar un comando y, luego, comprobar su progreso para provocar una pérdida de datos en una partición concreta.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@ En el ejemplo siguiente se muestra cómo utilizar PartitionSelector para elegir 
 
 Cuando un comando haya alcanzado un estado terminal, sus metadatos permanecerán en el servicio de análisis e inserción de errores durante un periodo determinado antes de que se quiten para ahorrar espacio. Si se llama a GetProgress con el argumento operationId de un comando después de que se haya quitado, devolverá una excepción FabricException con un código de error de KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/es-ES/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/es-ES/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/es-ES/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/es-ES/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/es-ES/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/es-ES/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/es-ES/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/es-ES/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/es-ES/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

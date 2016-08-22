@@ -11,7 +11,7 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="get-started-article"
+  ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="06/27/2016"
@@ -60,11 +60,11 @@ En este momento, no se puede crear una solución preconfigurada con una cuenta d
 
 ### ¿Cómo se eliminan inquilinos de AAD?
 
-Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] \(Tutorial para la eliminación de inquilinos de Azure AD).
+Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).
 
 ## Pasos siguientes
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT:
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 - [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
 - [Seguridad total de IoT][lnk-security-groundup]
@@ -82,4 +82,4 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

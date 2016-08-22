@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (T-SQL)
@@ -35,7 +35,7 @@ Esta colección de tareas usa T-SQL para:
 
 Para pausar o reanudar una base de datos, elija una de las otras opciones de plataforma en la parte superior de este artículo.
 
-Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
+Para más información, consulte [Manage compute power overview][] (Administración de la eficacia de los procesos (información general)).
 
 <a name="current-dwu-bk"></a>
 
@@ -45,7 +45,7 @@ Para ver la configuración actual de DWU para las bases de datos:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio 2015.
 2. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
-2. Seleccione en la vista de administración dinámica sys.database\_service\_objectives. Aquí tiene un ejemplo: 
+2. Seleccione en la vista de administración dinámica sys.database\_service\_objectives. Este es un ejemplo:
 
 ```
 SELECT
@@ -67,7 +67,7 @@ Para cambiar las DWU:
 
 
 1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
-2. Use la instrucción T-SQL [ALTER DATABASE][]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW. 
+2. Use la instrucción T-SQL [ALTER DATABASE][]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -97,4 +97,4 @@ Para otras tareas de administración, consulte [Información general de administ
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

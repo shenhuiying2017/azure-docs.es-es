@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
 # Comandos de la CLI de Azure en el modo de Resource Manager
 
-En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes.
+En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../resource-group-overview.md).
 
 Para comenzar, primero [instale la CLI de Azure](../xplat-cli-install.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md) mediante una cuenta profesional o educativa, o bien una identidad de cuenta de Microsoft.
 
@@ -27,7 +27,7 @@ Para las opciones y la sintaxis de comando actuales de la línea de comandos en 
 
 Se muestran parámetros opcionales entre corchetes (por ejemplo, `[parameter]`). Los demás parámetros son obligatorios.
 
-Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro `-v` ofrece un resultado detallado y el parámetro `-vv` ofrece un resultado incluso más detallado. La opción `--json` mostrará el resultado en formato JSON sin procesar.
+Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro `-v` ofrece un resultado detallado y el parámetro `-vv`, un resultado incluso más detallado. La opción `--json` mostrará el resultado en formato JSON sin procesar.
 
 ## Configuración del modo de Resource Manager
 
@@ -36,12 +36,6 @@ Use el siguiente comando para habilitar los comandos de la CLI de Azure en modo 
 	azure config mode arm
 
 >[AZURE.NOTE] Los modos Administrador de recursos de Azure y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
-
-## Enfoques imperativos y declarativos
-
-Al igual que con el [modo de administración de servicios de Azure](../virtual-machines-command-line-tools.md), el modo de Resource Manager de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
-
-Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo de recursos es un enfoque declarativo mucho más eficaz, lo que permite automatizar implementaciones complejas de (casi) cualquier número de recursos para (casi) cualquier propósito. Cuando se usen plantillas, el único comando imperativo es implementar uno. Para obtener una descripción general de las plantillas, los recursos y grupos de recursos, vea [Información general del grupo de recursos de Azure](../resource-group-overview.md).
 
 
 ## cuenta de Azure: administración de la información de la cuenta
@@ -326,7 +320,7 @@ Opciones de parámetro:
 **Comandos para administrar redes virtuales**
 
 	network vnet create [options] <resource-group> <name> <location>
-Permite crear una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
+Crea una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1056,7 +1050,7 @@ Opciones de parámetro:
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [opciones] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Quita el recurso de intervalo de grupo IP de backend de equilibrador de carga.
 
@@ -1420,7 +1414,7 @@ Opciones de parámetro:
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [opciones] <resource-group> Enumera todos los recursos IP públicos de un grupo de recursos.
+<br> network public-ip list [options] <resource-group> Enumera todos los recursos IP públicos de un grupo de recursos.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1440,7 +1434,7 @@ Opciones de parámetro:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [opciones] <resource-group> <name> Muestra las propiedades de la dirección IP pública de un recurso con IP pública de un grupo de recursos.
+<BR> network public-ip show [options] <resource-group> <name> Muestra las propiedades de la dirección IP pública de un recurso con IP pública de un grupo de recursos.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1590,7 +1584,7 @@ Opciones de parámetro:
 
 ## azure provider: comandos para administrar los registros de proveedor de recursos
 
-**Enumerar los proveedores registrados actualmente en ARM**
+**Enumerar los proveedores registrados actualmente en Resource Manager**
 
 	provider list [options]
 
@@ -1796,7 +1790,7 @@ Opciones de parámetro:
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]A partir de CLI versión 0.10, puede proporcionar un alias corto como "UbuntuLTS" o "Win2012R2Datacenter" como `image-urn` para algunas imágenes populares de Marketplace. Ejecute `azure help vm quick-create` para ver las opciones. Además, desde la versión 0.10, `azure vm quick-create` utiliza Almacenamiento premium de forma predeterminada, si está disponible en la región seleccionada.
+>[AZURE.TIP]A partir de CLI versión 0.10, puede proporcionar un alias corto como UbuntuLTS o Win2012R2Datacenter como `image-urn` para algunas imágenes populares de Marketplace. Ejecute `azure help vm quick-create` para ver las opciones. Además, desde la versión 0.10, `azure vm quick-create` utiliza Almacenamiento premium de forma predeterminada, si está disponible en la región seleccionada.
 
 **Mostrar las máquinas virtuales dentro de una cuenta**
 
@@ -1872,4 +1866,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

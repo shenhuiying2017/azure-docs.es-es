@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Pasos siguientes y cómo administrar Azure AD Connect
@@ -65,7 +65,7 @@ En la tabla siguiente se proporciona un resumen de estas tareas y una breve desc
 ![Regla de unión](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 
-Tarea adicional | Descripción
+Tarea adicional | Description
 ------------- | ------------- |
 Ver el escenario seleccionado |Permite ver la solución actual de Azure AD Connect. Incluye la configuración general, los directorios sincronizados, la configuración de sincronización, etc.
 Personalizar las opciones de sincronización | Permite cambiar la configuración actual, incluida la adición de bosques de Active Directory adicionales a la configuración o habilitar las opciones de sincronización, como usuario, grupo, dispositivo o reescritura de contraseña.
@@ -74,4 +74,4 @@ Habilitar el modo provisional | Esto permite almacenar información que se sincr
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

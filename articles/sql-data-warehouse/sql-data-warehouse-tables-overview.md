@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="08/04/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Información general de tablas en Almacenamiento de datos SQL
@@ -43,7 +43,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 
 ## Tablas distribuidas
 
-Un nuevo atributo fundamental introducido por sistemas distribuidos como Almacenamiento de datos SQL es la **columna de distribución**. La columna de distribución es mucho lo que parece. Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano. Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**. Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento. Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distributing tables in SQL Data Warehouse][Distribute] \(Distribución de tablas en Almacenamiento de datos SQL).
+Un nuevo atributo fundamental introducido por sistemas distribuidos como Almacenamiento de datos SQL es la **columna de distribución**. La columna de distribución es mucho lo que parece. Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano. Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**. Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento. Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distributing tables in SQL Data Warehouse][Distribute] (Distribución de tablas en Almacenamiento de datos SQL).
 
 ## Indexación y creación de particiones de tablas
 
@@ -55,7 +55,7 @@ Las estadísticas son muy importantes para obtener el máximo rendimiento de Alm
 
 ## Tablas temporales
 
-Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios. Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza. Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones. Consulte el artículos [Temporary tables in SQL Data Warehouse][Temporary] \(Tablas temporales en Almacenamiento de datos SQL) para más información acerca de las tablas temporales.
+Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios. Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza. Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones. Consulte el artículos [Temporary tables in SQL Data Warehouse][Temporary] (Tablas temporales en Almacenamiento de datos SQL) para más información acerca de las tablas temporales.
 
 ## Tablas externas
 
@@ -67,7 +67,7 @@ Mientras que Almacenamiento de datos SQL contiene muchas de las características
 
 | Características no admitidas |
 | --- |
-|[Propiedad IDENTITY][] \(consulte [Assigning Surrogate Key Workaround][] [Solución alternativa para la asignación de una clave suplente])|
+|[Propiedad IDENTITY][] (consulte [Assigning Surrogate Key Workaround][] [Solución alternativa para la asignación de una clave suplente])|
 |[Restricciones de tabla][] Primary Key, Foreign Key, Unique y Check|
 |[Índices únicos][]|
 |[Columnas calculadas][]|
@@ -103,6 +103,7 @@ SELECT
 , nt.[name]                                                            AS  [node_table_name]
 , ROW_NUMBER() OVER(PARTITION BY nt.[name] ORDER BY (SELECT NULL))     AS  [node_table_name_seq]
 , tp.[distribution_policy_desc]                                        AS  [distribution_policy_name]
+, c.[name]                                                             AS  [distribution_column]
 , nt.[distribution_id]                                                 AS  [distribution_id]
 , i.[type]                                                             AS  [index_type]
 , i.[type_desc]                                                        AS  [index_type_desc]
@@ -122,18 +123,32 @@ SELECT
  - ([in_row_data_page_count] 
          + [row_overflow_used_page_count]+[lob_used_page_count])       AS  [index_space_page_count]
 , nps.[row_count]                                                      AS  [row_count]
-from sys.schemas s
-join sys.tables t                                         ON s.[schema_id] = t.[schema_id]
-join sys.indexes i                                        ON  t.[object_id]  = i.[object_id]
-                                                          AND i.[index_id]   <= 1
-join sys.pdw_table_distribution_properties tp             ON t.[object_id]   = tp.[object_id]
-join sys.pdw_table_mappings tm                            ON t.[object_id]   = tm.[object_id]
-join sys.pdw_nodes_tables nt                              ON tm.[physical_name]  = nt.[name]
-join sys.dm_pdw_nodes pn                                  ON  nt.[pdw_node_id]  = pn.[pdw_node_id]
-join sys.pdw_distributions di                             ON  nt.[distribution_id]  = di.[distribution_id]
-join sys.dm_pdw_nodes_db_partition_stats nps              ON nt.[object_id]   = nps.[object_id]
-                                                          AND nt.[pdw_node_id]  = nps.[pdw_node_id]
-                                                          AND nt.[distribution_id] = nps.[distribution_id]
+from 
+    sys.schemas s
+INNER JOIN sys.tables t
+    ON s.[schema_id] = t.[schema_id]
+INNER JOIN sys.indexes i
+    ON  t.[object_id] = i.[object_id]
+    AND i.[index_id] <= 1
+INNER JOIN sys.pdw_table_distribution_properties tp
+    ON t.[object_id] = tp.[object_id]
+INNER JOIN sys.pdw_table_mappings tm
+    ON t.[object_id] = tm.[object_id]
+INNER JOIN sys.pdw_nodes_tables nt
+    ON tm.[physical_name] = nt.[name]
+INNER JOIN sys.dm_pdw_nodes pn
+    ON  nt.[pdw_node_id] = pn.[pdw_node_id]
+INNER JOIN sys.pdw_distributions di
+    ON  nt.[distribution_id] = di.[distribution_id]
+INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
+    ON nt.[object_id] = nps.[object_id]
+    AND nt.[pdw_node_id] = nps.[pdw_node_id]
+    AND nt.[distribution_id] = nps.[distribution_id]
+LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
+    ON t.[object_id] = cdp.[object_id]
+LEFT OUTER JOIN sys.columns c
+    ON cdp.[object_id] = c.[object_id]
+    AND cdp.[column_id] = c.[column_id]
 )
 , size
 AS
@@ -147,6 +162,7 @@ SELECT
 ,  [node_table_name]
 ,  [node_table_name_seq]
 ,  [distribution_policy_name]
+,  [distribution_column]
 ,  [distribution_id]
 ,  [index_type]
 ,  [index_type_desc]
@@ -184,35 +200,35 @@ FROM size
 ;
 ```
 
-Una vez que haya creado `dbo.vTableSizes`, esta vista se puede utilizar para muchas otras consultas útiles.
-
-### Resumen de espacio de base de datos
-
-```sql
-SELECT
-	database_name
-,	SUM(row_count)				as total_row_count
-,	SUM(reserved_space_MB)		as total_reserved_space_MB
-,	SUM(data_space_MB)			as total_data_space_MB
-,	SUM(index_space_MB)			as total_index_space_MB
-,	SUM(unused_space_MB)		as total_unused_space_MB
-FROM dbo.vTableSizes
-GROUP BY database_name
-;
-```
-
 ### Resumen de espacio de tabla
+
+Esta consulta devuelve las filas y el espacio por tabla. Es una consulta excelente para ver qué tablas son las más grandes y si se han distribuido por hash o round robin. Para las tablas distribuidas por hash, también se muestra la columna de distribución. En la mayoría de los casos, las tablas más grandes deben distribuirse por hash con un índice de almacén de columnas agrupados.
 
 ```sql
 SELECT 
-     two_part_name
-,    SUM(row_count)                as table_row_count
-,    SUM(reserved_space_GB)        as table_reserved_space_GB
-,    SUM(data_space_GB)            as table_data_space_GB
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+,    COUNT(distinct partition_nmbr) as nbr_partitions
+,    SUM(row_count)                 as table_row_count
+,    SUM(reserved_space_GB)         as table_reserved_space_GB
+,    SUM(data_space_GB)             as table_data_space_GB
 ,    SUM(index_space_GB)            as table_index_space_GB
-,    SUM(unused_space_GB)        as table_unused_space_GB
-FROM dbo.vTableSizes
-GROUP BY two_part_name
+,    SUM(unused_space_GB)           as table_unused_space_GB
+FROM 
+    dbo.vTableSizes
+GROUP BY 
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+ORDER BY
+    table_reserved_space_GB desc
 ;
 ```
 
@@ -224,8 +240,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY distribution_policy_name
 ;
@@ -239,8 +255,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY index_type_desc
 ;
@@ -254,8 +270,8 @@ SELECT
 ,    SUM(row_count)                as total_node_distribution_row_count
 ,    SUM(reserved_space_MB)        as total_node_distribution_reserved_space_MB
 ,    SUM(data_space_MB)            as total_node_distribution_data_space_MB
-,    SUM(index_space_MB)            as total_node_distribution_index_space_MB
-,    SUM(unused_space_MB)        as total_node_distribution_unused_space_MB
+,    SUM(index_space_MB)           as total_node_distribution_index_space_MB
+,    SUM(unused_space_MB)          as total_node_distribution_unused_space_MB
 FROM dbo.vTableSizes
 GROUP BY     distribution_id
 ORDER BY    distribution_id
@@ -264,7 +280,7 @@ ORDER BY    distribution_id
 
 ## Pasos siguientes
 
-Para más información, consulte los artículos sobre [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones en una tabla][Partition], [mantenimiento de estadísticas de tablas][Statistics] y [tablas temporales][Temporary]. Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
+Para obtener más información, consulte los artículos sobre [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones en una tabla][Partition], [mantenimiento de estadísticas de tablas][Statistics] y [tablas temporales][Temporary]. Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
@@ -302,4 +318,4 @@ Para más información, consulte los artículos sobre [tipos de datos de tabla][
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

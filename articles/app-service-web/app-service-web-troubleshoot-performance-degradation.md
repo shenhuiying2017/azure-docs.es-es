@@ -1,4 +1,13 @@
-<properties pageTitle="Rendimiento reducido de aplicaciones web en el Servicio de aplicaciones | Microsoft Azure" description="Este artículo le ayuda a solucionar los problemas de rendimiento reducido de aplicaciones web en el Servicio de aplicaciones de Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="rendimiento de aplicaciones web, ralentizar aplicación, aplicación lenta"/>
+<properties
+	pageTitle="Rendimiento de aplicaciones web lento en Servicio de aplicaciones | Microsoft Azure"
+	description="Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del Servicio de aplicaciones de Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="rendimiento de aplicaciones web, aplicación lenta, aplicaciones lentas"/>
 
 <tags
 	ms.service="app-service-web"
@@ -11,7 +20,7 @@
 
 # Solucionar los problemas de rendimiento reducido de aplicaciones web en el Servicio de aplicaciones de Azure
 
-Este artículo le ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -51,7 +60,7 @@ Esta opción le permite averiguar si la aplicación tiene problemas. En la hoja 
 Algunas de las métricas que podría querer supervisar para su aplicación web son:
 
 -	Espacio de trabajo de memoria promedio
--	Tiempo de respuesta promedio
+-	Tiempo medio de respuesta
 -	Tiempo de CPU
 -	Espacio de trabajo de memoria
 -	Solicitudes
@@ -178,4 +187,4 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube
@@ -64,7 +64,7 @@ Con esto se eliminan todas las contraseñas de aplicación que ha creado un usua
 4. En la parte superior, haga clic en Usuarios.
 5. En la parte inferior de la página, haga clic en Admin. Multi-Factor Auth. Con esto se abrirá la página de Multi-Factor Authentication.
 6. Busque el usuario que desea administrar y active la casilla situada junto a su nombre. Puede que necesite cambiar la vista en la parte superior.
-7. Se abrirá el vínculo **Administrar configuración de usuario** a la derecha. Haga clic en él. 
+7. Se abrirá el vínculo **Administrar configuración de usuario** a la derecha. Haga clic en él.
 8. Active la casilla **Eliminar todas las contraseñas de aplicación existentes generadas por los usuarios seleccionados**. ![Eliminar contraseñas de aplicación](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png).
 10. Haga clic en Guardar.
 10. Haga clic en Cerrar.
@@ -86,4 +86,4 @@ Los administradores tienen la capacidad de restablecer Multi-Factor Authenticati
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

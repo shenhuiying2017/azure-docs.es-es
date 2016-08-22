@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="08/08/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL
 
 Muchas tareas de administración de Almacenamiento de datos SQL se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST. A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en Almacenamiento de datos SQL. Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)][].
 
-> [AZURE.NOTE]  Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0.3 o superior. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
+> [AZURE.NOTE]  Para usar Azure PowerShell con Almacenamiento de datos SQL, es necesaria la versión 1.0.3 o posterior de Azure PowerShell. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
 ## Introducción a los cmdlets de Azure PowerShell
 
-1. Abra Windows PowerShell. 
+1. Abra Windows PowerShell.
 2. En el símbolo del sistema de PowerShell, ejecute estos comandos para iniciar sesión en Azure Resource Manager y seleccione su suscripción.
 
     ```PowerShell
@@ -74,7 +74,7 @@ Estos cmdlets de PowerShell se usan con frecuencia con Almacenamiento de datos S
 - [Get-AzureRmSqlDatabaseRestorePoints][]
 - [New-AzureRmSqlDatabase][]
 - [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
+- [Restore-AzureRmSqlDatabase][]
 - [Resume-AzureRmSqlDatabase][]
 - [Select-AzureRmSubscription][]
 - [Set-AzureRmSqlDatabase][]
@@ -86,7 +86,7 @@ Para obtener más ejemplos de PowerShell, consulte:
 - [Creación de Almacenamiento de datos SQL con PowerShell][]
 - [Restauración de base de datos][]
 
-Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] \(Cmdlets de Base de datos SQL de Azure). Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
+Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] (Cmdlets de Base de datos SQL de Azure). Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
 
 <!--Image references-->
 
@@ -114,4 +114,4 @@ Para ver una lista de todas las tareas que se pueden automatizar con PowerShell,
 <!--Other Web references-->
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

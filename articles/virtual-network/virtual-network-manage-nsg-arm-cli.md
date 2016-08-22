@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo administrar NSG existentes con la CLI de Azure en Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Administración de NSG mediante la CLI de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -322,7 +322,7 @@ Resultado esperado:
 Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para eliminar un NSG, siga estos pasos.
 
 1. Para comprobar los recursos asociados a un NSG, ejecute `azure network nsg show` tal como aparece en [Consultar las asociaciones de NSG](#View-NSGs-associations).
-2. Si el NSG está asociado a alguna NIC, ejecute `azure network nic set` tal como aparece en [Desasociar un NSG de una NIC](#Dissociate-an-NSG-from-a-NIC) para cada NIC. 
+2. Si el NSG está asociado a alguna NIC, ejecute `azure network nic set` tal como aparece en [Desasociar un NSG de una NIC](#Dissociate-an-NSG-from-a-NIC) para cada NIC.
 3. Si el NSG está asociado a alguna subred, ejecute `azure network vnet subnet set` tal como aparece en [Desasociar un NSG de una subred](#Dissociate-an-NSG-from-a-subnet) para cada subred.
 4. Para eliminar el NSG, ejecute el comando `azure network nsg delete` como se muestra a continuación.
 
@@ -339,4 +339,4 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
 
 - [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

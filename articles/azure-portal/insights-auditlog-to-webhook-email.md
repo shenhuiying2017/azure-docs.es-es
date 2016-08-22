@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -89,7 +89,7 @@ Cuando hay disponible un nuevo evento, la alerta de eventos de registro de audit
 }
 ```
 
-|Nombre del elemento|	Descripción|
+|Nombre del elemento|	Description|
 |---|---|
 |status |Establecido siempre en "activado"|
 |contexto|Contexto del evento|
@@ -119,4 +119,4 @@ Cuando hay disponible un nuevo evento, la alerta de eventos de registro de audit
 |status|Cadena que describe el estado de la operación. Entre los valores habituales se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved|
 |subStatus|	Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Entre los valores de subestado comunes se incluyen OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Escalado manual o automático del número de instancias | Microsoft Azure"
 	description="Aprenda a escalar los servicios de Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Escalación del recuento de instancias de forma manual o automática
 
@@ -136,4 +136,4 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

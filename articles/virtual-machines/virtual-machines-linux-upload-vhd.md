@@ -201,7 +201,7 @@ Dentro del proveedor `Microsoft.Compute/virtualMachines` de la plantilla, tendr�
           }
 ```
 
-Puede usar [esta plantilla existente para crear una máquina virtual desde una imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) o leer más sobre la [creación de sus propias plantillas de Azure Resource Manager](../resource-group-authoring templates.md).
+Puede usar [esta plantilla existente para crear una máquina virtual desde una imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) o leer más sobre la [creación de sus propias plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
 
 Una vez que tenga configurada una plantilla, cree las máquinas virtuales con el comando `azure group deployment create`. Especifique el URI de la plantilla JSON con el parámetro `--template-uri`:
 
@@ -221,4 +221,4 @@ azure group deployment create --resource-group TestTemplateRG
 ## Pasos siguientes
 Después de haber preparado y cargado el disco virtual personalizado, puede leer más sobre el [uso de Resource Manager y plantillas](../resource-group-overview.md). También es posible que quiera [agregar un disco de datos](virtual-machines-linux-add-disk.md) a las nuevas máquinas virtuales. Si tiene aplicaciones que se ejecutan en las máquinas virtuales a las que necesite tener acceso, asegúrese de [abrir puertos y puntos de conexión](virtual-machines-linux-nsg-quickstart.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

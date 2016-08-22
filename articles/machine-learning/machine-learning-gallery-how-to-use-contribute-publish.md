@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
-	ms.author="chhavib;cgronlun;garye"/>
+	ms.date="08/09/2016"
+	ms.author="roopalik;garye"/>
 
 
 # Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence
@@ -25,31 +25,53 @@ La Galería de Cortana Intelligence es un sitio administrado por la comunidad cu
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Ventajas
-Comience a usar la galería para disfrutar de estas ventajas:
+## ¿Qué se puede encontrar en la Galería?
 
-- Descubrir soluciones interesantes
-- Aprender de otros usuarios
+La Galería de Cortana Intelligence contiene una variedad de recursos que puede usar para desarrollar sus propias soluciones de análisis.
 
-Inicie sesión con su cuenta Microsoft para disfrutar de ventajas adicionales como las siguientes:
+- **[Experiments](https://gallery.cortanaintelligence.com/experiments)**: la Galería contiene una gran variedad de experimentos que se han desarrollado en Estudio de aprendizaje automático de Azure. Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
 
-- Descargar experimentos en el área de trabajo de Estudio de aprendizaje automático
-- Contribuir con sus experimentos y colecciones de análisis predictivo y presentarlos
+- **[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)**: los cuadernos de Jupyter Notebook incluyen código, visualizaciones de datos y documentación en un único lienzo interactivo. Los cuadernos de notas en la Galería proporcionan tutoriales y explicaciones detalladas de las técnicas y las soluciones avanzadas de aprendizaje automático.
 
-## Descubrir y aprender
+- **[API de Aprendizaje automático](https://gallery.cortanaintelligence.com/machineLearningAPIs)**: una solución desarrollada en Aprendizaje automático de Azure que se puede iniciar como un servicio web para que otros puedan acceder al modelo de análisis a través de un conjunto de API de REST. En la Galería hay disponible una variedad de estas soluciones, como un motor de recomendación de productos o una solución de reconocimiento de voz y de cara basada en la nube.
+
+-  **[Plantillas de solución](https://gallery.cortanaintelligence.com/solutionTemplates)**: una plantilla de solución proporciona un punto de partida para crear rápidamente una solución de extremo a extremo completa para un problema específico del sector. Estas plantillas incluyen documentación completa y todas las herramientas que necesita para poder avanzar en su propia solución.
+
+- **[Tutoriales](https://gallery.cortanaintelligence.com/tutorials)**: hay disponibles tutoriales que le guiarán a través de los conceptos y las tecnologías del aprendizaje automático, o que describen métodos avanzados para solucionar diversos problemas de aprendizaje automático.
+
+Estos recursos básicos de la Galería pueden agruparse lógicamente en un par de formas diferentes:
+
+- **[Colecciones](https://gallery.cortanaintelligence.com/collections)**: una colección permite agrupar experimentos, API, y otros elementos de la galería que se refieren a una solución o un concepto específico.
+
+- **[Soluciones específicas del sector](https://gallery.cortanaintelligence.com/industries)**: la sección de los sectores industriales de la Galería reúne varios recursos que son específicos del sector industrial correspondiente, tales como minorista, fabricación, banca y asistencia sanitaria.
+
+Por último, **[Competiciones](https://gallery.cortanaintelligence.com/competitions)** proporcionan una oportunidad interesante de competir con la comunidad de científicos de datos para solucionar problemas complejos con Cortana Intelligence Suite.
+  
+## ¿Cómo se puede usar la Galería?
+
+Cualquier persona puede examinar y buscar las soluciones en la Galería y aprender de otros. Si inicia sesión con su cuenta de Microsoft, también puede descargar experimentos en su propia área de trabajo de Estudio de aprendizaje automático y puede aportar sus propias soluciones a la Galería.
+
+### Descubrir y aprender
+
 Busque y examine los diferentes tipos de soluciones con las que contribuyó Microsoft y la comunidad de análisis avanzado. Úselas para comenzar a resolver sus propios problemas de análisis de datos.
 
 Podrá encontrar fácilmente en la Galería soluciones conocidas y recientemente publicadas, o buscar por nombre, etiquetas, algoritmos y otros atributos. Vea las contribuciones de un determinado autor haciendo clic en su nombre en cualquiera de los iconos.
 
+Haga clic en **Browse all** (Examinar todo) en el encabezado de la galería y, a continuación, seleccione los criterios para refinar la búsqueda a la izquierda de la página y escriba los términos de búsqueda en la parte superior.
+
 Puede comentar, dar opiniones o formular preguntas en la sección de comentarios que se encuentra en cada página de la solución. Incluso puede compartir una solución de interés con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico vínculos a estas soluciones para invitar a otros usuarios a ver las páginas.
 
-## Descargar experimentos
-La Galería de Cortana Intelligence permite copiar fácilmente experimentos de análisis predictivo en el área de trabajo de Estudio de aprendizaje automático con un solo clic y comenzar a usarlos inmediatamente con la finalidad que desee. Si no inició sesión aún mientras explora, se le pedirá que lo haga con su cuenta Microsoft antes de que el experimento se copie en el área de trabajo.
+### Descargar experimentos
 
-## Contribuciones
-Cuando inicia sesión se convierte en miembro de la comunidad de la Galería, lo que le permite contribuir con sus propios experimentos y colecciones y así otros pueden beneficiarse de las soluciones que descubrió.
+La Galería de Cortana Intelligence permite copiar fácilmente experimentos de análisis predictivo en el área de trabajo de Estudio de aprendizaje automático con un solo clic, y comenzar a personalizarlos y usarlos inmediatamente con la finalidad que desee. Si no inició sesión aún mientras explora, se le pedirá que lo haga con su cuenta Microsoft antes de que el experimento se copie en el área de trabajo.
 
-### Contribuir con experimentos
+### Contribuir con experimentos y colecciones
+
+En el momento en que inicia sesión se convierten en un miembro de la comunidad de la Galería. Esto le permite contribuir con sus propios experimentos y colecciones, para que así otros puedan beneficiarse de las soluciones que haya descubierto.
+
+Consulte más adelante la sección [Sugerencias para la publicación y presentación de documentación de calidad](#suggestions-for-publishing-and-for-quality-documentation), para más información y sugerencias sobre cómo crear una contribución de calidad para la Galería.
+
+#### Contribuir con experimentos
 
 Un *experimento* es un lienzo en Estudio de aprendizaje automático que le permite crear un modelo de análisis predictivo mediante la conexión de datos conjuntamente con varios módulos analíticos. Puede probar diferentes ideas, realizar pruebas y finalmente publicar el modelo como un servicio web en Azure. Para ver un ejemplo de creación de un experimento simple, consulte [Tutorial de aprendizaje automático: Creación de su primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md). Si lo que quiere es un tutorial más completo sobre la creación de una solución de análisis predictivo, consulte [Tutorial: Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md).
 
@@ -59,7 +81,9 @@ Siga estos pasos para contribuir con un experimento a la Galería de Cortana Int
 - Cree el experimento y ejecútelo.
 - Cuando esté preparado para publicar el experimento en la Galería, haga clic en **Publicar en la galería** debajo del lienzo de experimentos.
 
-### Contribuir con colecciones
+Consulte más adelante la sección [Proceso para la publicación de los experimentos de Aprendizaje automático de Azure](#process-for-publishing-azure-ml-experiments) para más información y sugerencias sobre realizar una contribución con un experimento.
+
+#### Contribuir con colecciones
 
 Una *colección* es una lista de elementos relacionados de la Galería de Cortana Intelligence que se agrupan para que se usen, compartan o tomen como referencia más tarde. La colección puede contener elementos de su propiedad o elementos con los que contribuyó a la comunidad.
 
@@ -72,7 +96,7 @@ Siga estos pasos para crear una colección y contribuir con ella a la Galería d
 - Haga clic en **Nueva colección**.
 - Asigne un nombre a la colección, un breve resumen, una descripción y algunas etiquetas que ayuden a los usuarios a encontrarla.
 - Agregar una imagen para identificar la colección.
-- Haga clic en **Crear**.
+- Haga clic en **Crear**
 
 Con ello, la colección pasa a formar parte de la Galería de Cortana Intelligence.
 
@@ -83,6 +107,46 @@ Puede cambiar el resumen, la descripción o las etiquetas de la colección; para
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 -->
+
+## Sugerencias para la publicación y presentación de documentación de calidad
+
+- Aunque se puede suponer que los posibles lectores tienen ya experiencia sobre la ciencia de datos, sigue siendo de gran ayuda simplificar el lenguaje y explicar las cosas en detalle siempre que sea posible.
+- No todos los lectores estarán familiarizados con Cortana Intelligence Suite, dado que es un producto relativamente nuevo; por ello, proporcione suficiente información y explicaciones paso a paso para ayudar a estos lectores desplazarse por su trabajo.
+- Los elementos visuales, incluidos los gráficos y las capturas de pantalla de datos, pueden ser muy útiles para los lectores a la hora de interpretar y utilizar de la manera correcta el contenido que haya creado. Consulte [esta colección](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) para más información sobre cómo incluir imágenes en su documentación.
+- Si el conjunto de datos forma parte del experimento y no se importa a través de un módulo lector, es parte de su experimento y se publica en la Galería. Por ello, asegúrese de que el conjunto de datos que va a publicar cuenta con las condiciones de licencia que permiten que cualquiera pueda usarlo de manera compartida y descargarlo. Las contribuciones a la Galería están sujetas a los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/) de Azure.
+
+## Proceso para la publicación de los experimentos de Aprendizaje automático de Azure
+
+Cuando esté listo para publicar en la galería, siga los cinco pasos a continuación.
+
+1. Rellene los campos de título y las etiquetas. Mantenga un lenguaje descriptivo, resaltando las técnicas usadas o el problema real que se ha resuelto, por ejemplo, "Clasificación binaria: análisis de opinión en Twitter". ![Rellene los campos de título y etiqueta al publicar](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
+
+2. Escriba un resumen de lo que abarca el contenido. Describa brevemente el problema que se ha resuelto y cómo se abordó.
+
+3. Utilice el cuadro de descripción detallada paso a paso a través de las diferentes partes del experimento. Algunos temas útiles para incluir aquí son:
+	- Captura de pantalla del gráfico del experimento.
+	- Orígenes de datos y explicación.
+	- Procesamiento de datos.
+	- Diseño de características.
+	- Descripción del modelo.
+	- Resultados y evaluación del rendimiento del modelo.
+
+	Puede usar Markdown para dar formato según sea necesario. Haga clic en el icono de vista previa para ver el aspecto tendrá todo cuando se publique. Los ejemplos de esta colección muestran qué incluir y cómo organizar la información.
+
+	> [AZURE.TIP] El cuadro proporcionado para el cuadro de edición y vista previa de Markdown es bastante pequeño. Se recomienda que escriba la documentación en un editor de Markdown y pegue el documento completo en el cuadro de texto. Después de haber publicado el experimento, puede usar en Markdown las herramientas estándar basadas en web para la edición y vista previa, y para realizar las correcciones y ajustes necesarios.
+
+4. Cargar una imagen en miniatura para un elemento de la galería. Aparecerá en la parte superior de la página del artículo y en el icono de elemento al explorar la galería. Puede elegir una imagen de su equipo o seleccionar una de las imágenes en existencia.
+
+5. Elija si desea publicar el contenido públicamente o prefiere que solo sea accesibles para personas con el vínculo.
+
+	> [AZURE.TIP] Si desea asegurarse de que la documentación tiene un aspecto correcto antes de su lanzamiento público, puede publicarla como fuera de lista y después cambiarla a pública en la página del artículo.
+
+Y con esto, ha terminado.
+
+Ahora puede ver el experimento en la galería y compartir el vínculo con otros usuarios. Si ha publicado con carácter público, el experimento se mostrará en los resultados de exploración y búsqueda en la Galería. También puede editar la documentación en la página del elemento cada vez que haya iniciado sesión.
+
+> [AZURE.TIP] Para hacer cambios en el experimento que ha publicado, vaya al experimento en Estudio de aprendizaje automático de Azure, realice los cambios y vuelva a publicar. De forma predeterminada, se actualizará el contenido existente publicado y no se creará uno nuevo.
+
 
 ## Queremos saber de usted.
 Queremos que la galería sea por y para nuestros usuarios. Use el emoticono que aparece a la derecha para indicarnos qué le gusta y qué no le gusta de la galería.
@@ -136,4 +200,4 @@ La representación de la descripción enriquecida no está disponible para todos
 
 **[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

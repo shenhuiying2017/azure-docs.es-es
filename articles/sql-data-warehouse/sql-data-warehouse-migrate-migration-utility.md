@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Descargar la utilidad de migración][]
 
-La Utilidad de migración de Almacenamiento de datos es una herramienta diseñada para migrar el esquema y los datos de SQL Server y Base de datos de SQL Azure a Almacenamiento de datos SQL de Azure. Durante la migración del esquema, la herramienta asigna automáticamente el esquema correspondiente del origen al destino. Una vez migrado el esquema, a los usuarios también se les ofrece la opción de mover datos a través de scripts generados automáticamente.
+La Utilidad de migración de Almacenamiento de datos es una herramienta diseñada para migrar el esquema y los datos de SQL Server y Base de datos de SQL Azure a Almacenamiento de datos SQL de Azure. Durante la migración del esquema, la herramienta asigna automáticamente el esquema correspondiente del origen al destino. Después de migrar el esquema, las herramientas proporcionan la opción para mover datos con scripts generados automáticamente.
 
 Además de migración de datos y el esquema, esta herramienta ofrece a los usuarios la opción de generar informes de compatibilidad que resumen las incompatibilidades entre las instancias de origen y de destino que podrían impedir la migración optimizada.
 
@@ -65,4 +65,4 @@ Ahora que migró algunos datos, aprenda a [desarrollarlos][].
 <!--Other Web references--> 
 [Descargar la utilidad de migración]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Obtenga información acerca de la configuración de una red virtual para usar direcciones IP públicas"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Espacio de direcciones IP públicas en una red virtual (VNet)
 
@@ -45,6 +45,6 @@ Hay algunos intervalos de direcciones IP que no están permitidos:
 
 ## Pasos siguientes
 
-[Administración de servidores DNS usados por una red virtual](../virtual-networks-manage-dns-in-vnet)
+[Administración de servidores DNS usados por una red virtual](virtual-networks-manage-dns-in-vnet.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

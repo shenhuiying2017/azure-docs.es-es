@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # Disponibilidad de los servicios de Service Fabric
@@ -50,4 +50,4 @@ Para información sobre los conceptos de Service Fabric, vea lo siguiente:
 
 - [Definición y administración del estado](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

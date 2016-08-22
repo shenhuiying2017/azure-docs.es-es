@@ -3,7 +3,7 @@
 	description="Encontrará ejemplos de Node.js en github sobre tareas comunes en DocumentDB, por ejemplo, operaciones CRUD para documentos JSON en bases de datos NoSQL." 
 	keywords="ejemplos de Node.js"
 	services="documentdb" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="nodejs"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 
 # Ejemplos de Node.js de DocumentDB
@@ -28,7 +28,7 @@
 
 En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) se incluyen soluciones de ejemplo que realizan operaciones CRUD y otras comunes en recursos de Azure DocumentDB. Este artículo ofrece:
 
-- Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de Node.js. 
+- Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de Node.js.
 - Vínculos al contenido de referencia de la API relacionada.
 
 **Requisitos previos**
@@ -36,9 +36,9 @@ En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/a
 1. Para usar estos ejemplos de Node.js, necesita una cuenta de Azure:
     - Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
    - Puede [activar los beneficios de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-2. También necesita el [SDK de Node.js](documentdb-sdk-node.md). 
+2. También necesita el [SDK de Node.js](documentdb-sdk-node.md).
 
-    > [AZURE.NOTE] Cada ejemplo es independiente, se configura por sí mismo y se limpia solo a continuación. Por lo tanto, los ejemplos emiten varias llamadas a [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). Cada vez que esto ocurre, se cobra a la suscripción una hora de uso de acuerdo con el nivel de rendimiento de la colección que se va a crear.
+    > [AZURE.NOTE] Cada ejemplo es independiente, es decir, se configura a sí mismo y posteriormente se limpia solo. Por lo tanto, los ejemplos emiten varias llamadas a [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). Cada vez que esto ocurre, se cobra a la suscripción una hora de uso de acuerdo con el nivel de rendimiento de la colección que se va a crear.
 
 ## Ejemplos de base de datos
 
@@ -60,11 +60,11 @@ Tarea | Referencia de API
 --- | ---
 [Creación de una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L97-L118) | [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)
 [Leer una lista de todas las colecciones en una base de datos](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L120-L130) | [DocumentClient.listCollections](http://azure.github.io/azure-documentdb-node/DocumentClient.html#listCollections)
-[Obtención de una colección por \_self](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L132-L141) | [DocumentClient.readCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readCollection)
-[Obtención de una colección por identificador](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L143-L156) | [DocumentClient.readCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readCollection)
-[Obtención del nivel de rendimiento de una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L158-L186) | [DocumentQueryable.queryOffers](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryOffers)
-[Cambio del nivel de rendimiento de una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L188-L202) | [DocumentClient.replaceOffer](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceOffer)
-[Eliminación de un colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) | [DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection)
+[Obtener una colección por \_self](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L132-L141) | [DocumentClient.readCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readCollection)
+[Obtener una colección por identificador](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L143-L156) | [DocumentClient.readCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readCollection)
+[Obtener el nivel de rendimiento de una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L158-L186) | [DocumentQueryable.queryOffers](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryOffers)
+[Cambiar el nivel de rendimiento de una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L188-L202) | [DocumentClient.replaceOffer](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceOffer)
+[Eliminar una colección](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) | [DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection)
 
 ## Ejemplos de documento
 
@@ -120,4 +120,4 @@ Tarea | Referencia de API
 
 Para obtener más información sobre la creación de particiones de datos en DocumentDB, consulte [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

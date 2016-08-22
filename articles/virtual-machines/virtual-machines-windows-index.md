@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica
 
 
-Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales Windows en el modelo de implementación clásica.
+Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Azure basadas en Windows en el modelo de implementación clásica.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -89,8 +89,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 ## Manage
 
 [Administración de las máquinas virtuales con Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Comandos equivalentes del Administrador de recursos y de Administración de servicios para las tareas de máquina virtual con la interfaz de la línea de comandos de Azure](virtual-machines-windows-cli-manage.md)
 	
 [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Aplicación de revisión automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## Referencia
 [Comandos de la CLI de Azure en el modo de Service Management](../virtual-machines-command-line-tools.md)
 
@@ -178,7 +179,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Service Management API de .NET](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Documentación de referencia de los cmdlets de PowerShell para Azure Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
 
 ## Solución de problemas
 
@@ -192,4 +192,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

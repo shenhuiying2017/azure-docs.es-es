@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Informes en Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ Azure Multi-Factor Authentication proporciona varios tipos de informes que usted
 
 Acceda a los informes a través del Portal de administración de Azure
 
-Nombre| Descripción
+Nombre| Description
 :------------- | :------------- | 
 Uso | Los informes de uso muestran información sobre el uso general, resúmenes y detalles de usuario.
 Estado del servidor|Este informe muestra el estado de los Servidores Multi-Factor Authentication asociados a su cuenta.
@@ -49,4 +49,4 @@ En cola|Enumera los informes en cola para su procesamiento y su estado. Cuando e
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

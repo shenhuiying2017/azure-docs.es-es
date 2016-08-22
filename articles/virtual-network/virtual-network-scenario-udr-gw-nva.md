@@ -3,8 +3,8 @@
    description="Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
-   manager="christb"
+   authors="jimdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/05/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Escenario de aplicación virtual
 
@@ -39,7 +39,7 @@ La solución siguiente usa aplicaciones virtuales de firewall para implementar u
 Puede implementar el entorno que se explicó anteriormente en Azure con distintas características que actualmente están disponibles, como se indica a continuación.
 
 - **Red virtual**. Una red virtual de Azure actúa de manera similar a una red local y se puede segmentar en una o más subredes para ofrecer el aislamiento del tráfico y la separación de proceso.
-- **Aplicación virtual**. Varios socios proporcionan aplicaciones virtuales en Azure Marketplace que se pueden usar para los tres firewalls anteriormente descritos. 
+- **Aplicación virtual**. Varios socios proporcionan aplicaciones virtuales en Azure Marketplace que se pueden usar para los tres firewalls anteriormente descritos.
 - **Rutas definidas por el usuario (UDR)**. Las tablas de ruta pueden contener UDR que las redes de Azure usan para controlar el flujo de paquetes dentro de una red virtual. Estas tablas de ruta se pueden aplicar a las subredes. Una de las características más nuevas de Azure es la capacidad de aplicar una tabla de ruta a la subred GatewaySubnet, lo que ofrece la posibilidad de reenviar todo el tráfico entrante a la red virtual de Azure desde una conexión híbrida a una aplicación virtual.
 - **Reenvío IP**. De manera predeterminada, el motor de redes de Azure reenvía paquetes a las tarjetas de interfaz de red (NIC) virtuales solo si la dirección IP de destino del paquete coincide con la dirección IP de la NIC. Por lo tanto, si una UDR define que un paquete se debe enviar a una aplicación virtual determinada, el motor de redes de Azure descartaría ese paquete. Para asegurarse de que el paquete se entregue a una máquina virtual (en este caso, una aplicación virtual) que no es el destino real del paquete, debe habilitar Reenvío IP para la aplicación virtual.
 - **Grupos de seguridad de red (NSG)**. El siguiente ejemplo no usa los NSG, pero puede usarlos en las subredes o las tarjetas NIC de esta solución para filtrar adicionalmente el tráfico que entra y sale de esas subredes y NIC.
@@ -49,9 +49,9 @@ Puede implementar el entorno que se explicó anteriormente en Azure con distinta
 
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
-- Dos grupos de recursos que no aparecen en el diagrama. 
+- Dos grupos de recursos que no aparecen en el diagrama.
 	- **ONPREMRG**. Contiene todos los recursos que se necesitan para simular una red local.
-	- **AZURERG**. Contiene todos los recursos que se necesitan para el entorno de red virtual de Azure. 
+	- **AZURERG**. Contiene todos los recursos que se necesitan para el entorno de red virtual de Azure.
 - Una red virtual llamada **onpremvnet** que se usa para simular un centro de datos local segmentado como se muestra a continuación.
 	- **onpremsn1**. Subred que contiene una máquina virtual donde se ejecuta Ubuntu para simular un servidor local.
 	- **onpremsn2**. Subred que contiene una máquina virtual donde se ejecuta Ubuntu para simular el equipo local que usa un administrador.
@@ -61,8 +61,8 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 	- **azsn2**. Subred de front-end que hospeda una máquina virtual que se ejecuta como servidor web al que se tendrá acceso desde Internet.
 	- **azsn3**. Subred de back-end que hospeda una máquina virtual que ejecuta un servidor de aplicaciones back-end al que tendrá acceso el servidor web de front-end.
 	- **azsn4**. Subred de administración que se usa exclusivamente para brindar acceso de administración a todas las aplicaciones virtuales de firewall. Esta subred solo contiene una tarjeta NIC para cada aplicación virtual de firewall que se usa en la solución.
-	- **GatewaySubnet**. Subred de conexión híbrida de Azure que se requiere para que ExpressRoute y Puerta de enlace de VPN proporcionen conectividad entre redes virtuales de Azure y otras redes. 
-- Hay 3 aplicaciones virtuales de firewall en la red **azurevnet**. 
+	- **GatewaySubnet**. Subred de conexión híbrida de Azure que se requiere para que ExpressRoute y Puerta de enlace de VPN proporcionen conectividad entre redes virtuales de Azure y otras redes.
+- Hay 3 aplicaciones virtuales de firewall en la red **azurevnet**.
 	- **AZF1**. Firewall externo expuesto a la red pública de Internet mediante un recurso de dirección IP pública en Azure. Debe asegurarse de tener una plantilla proveniente de Marketplace, o bien directamente desde el proveedor de aplicaciones, que aprovisione una aplicación virtual de 3 NIC.
 	- **AZF2**. Firewall interno que se usa para controlar el tráfico entre **azsn2** y **azsn3**. También es una aplicación virtual de 3 NIC.
 	- **AZF3**. Firewall de administración al que los administradores tienen acceso desde el centro de datos local y que está conectado a una subred de administración que se usa para administrar todas las aplicaciones de firewall. Puede encontrar plantillas de aplicaciones virtuales de 2 NIC en Marketplace, o bien solicitar una directamente al proveedor de aplicaciones.
@@ -115,7 +115,7 @@ UDR y Reenvío de IP son características que se pueden usar en conjunto para pe
 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP de la máquina virtual. Esta es una opción de configuración de Azure, no de la configuración del sistema operativo invitado. De todos modos, la aplicación virtual debe ejecutar algún tipo de aplicación para controlar el tráfico entrante y enrutarlo como corresponda.
 
-Visite [¿Qué son las rutas definidas por el usuario y el reenvío IP?](./virtual-networks-udr-overview/#ip-forwarding) para más información sobre el reenvío IP.
+Visite [¿Qué son las rutas definidas por el usuario y el reenvío IP?](./virtual-networks-udr-overview.md#ip-forwarding) para obtener más información sobre el reenvío IP.
 
 Como ejemplo, imagine que tiene una red virtual de Azure con la siguiente configuración:
 
@@ -178,4 +178,4 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 4.	Aprovisione el túnel de **onpremvnet** a **azurevnet**.
 5.	Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

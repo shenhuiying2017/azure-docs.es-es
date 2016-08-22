@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Aprovisionamiento de Linux Data Science Virtual Machine 
-
 
 Linux Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azure preinstalada y configurada con una colección de herramientas que se usan habitualmente para realizar el análisis de datos y el aprendizaje automático. Los principales componentes de software que se incluyen son:
 
@@ -31,16 +30,16 @@ Linux Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azu
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): Software de aprendizaje profundo de Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y el aprendizaje activo e interactivo
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): Herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
-    - [Rattle](http://rattle.togaware.com/) (sigla de la forma inglesa “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): Herramienta que facilita la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R. 
+    - [Rattle](http://rattle.togaware.com/) (sigla de la forma inglesa “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): Herramienta que facilita la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R.
 - Azure SDK en Java, Python, node.js, Ruby, PHP
 - Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
 - Editores y herramientas de desarrollo (Eclipse, Emacs, gedit, vi)
 
 La ciencia de datos implica la iteración de una secuencia de tareas:
 
-- buscar, cargar y preprocesar datos 
-- compilar y probar modelos 
-- implementar los modelos para su consumo en aplicaciones inteligentes 
+- buscar, cargar y preprocesar datos
+- compilar y probar modelos
+- implementar los modelos para su consumo en aplicaciones inteligentes
 
 No es raro que los científicos de datos usen diversas herramientas para realizar estas tareas. Puede llevar bastante tiempo encontrar las versiones del software adecuadas y, después, descargarlas, compilarlas e instalarlas.
 
@@ -65,12 +64,13 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
 2.	 Haga clic en el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Las secciones siguientes proporcionan las **entradas** para cada uno de los **5 pasos** (enumerados a la derecha de la ilustración anterior) en el asistente que se usó para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
+
   **a. Básico**:
 
    - **Nombre**: nombre del servidor de ciencia de datos que está creando.
    - **Nombre de usuario**: Identificador de acceso de la primera cuenta.
    - **Contraseña**: Contraseña de la primera cuenta (puede usar una clave pública SSH en lugar de una contraseña).
-   - **Suscripción**: Si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina. Nota: Debe tener privilegios de creación de recursos en esta suscripción. 
+   - **Suscripción**: Si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina. Nota: Debe tener privilegios de creación de recursos en esta suscripción.
    - **Grupo de recursos**: puede crear uno nuevo o usar un grupo ya existente
    - **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red
 
@@ -90,7 +90,7 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
 
   **e. Comprar**:
 
-   - Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
+   - Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño**.
 
 
 El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
@@ -106,33 +106,18 @@ Una vez creada la VM, puede iniciar sesión en ella mediante SSH con las credenc
 
 La VM de Linux ya está provista del servidor X2Go y está preparada para aceptar conexiones de cliente. Para conectarse al escritorio gráfico de la VM de Linux, debe hacer lo siguiente en el cliente.
 
-1. Descargue e instale el cliente X2Go para su plataforma de cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Ejecute el cliente X2Go y seleccione "*Nueva sesión*". Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración: 
+1. Descargue e instale el cliente X2Go para su plataforma de cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+2. Ejecute el cliente X2Go y seleccione "*Nueva sesión*". Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración:
     * **Pestaña Sesión**:
         - **Host**: Nombre de host o dirección IP de Linux Data Science VM.
         - **Usuario**: Nombre de usuario de inicio de sesión en la VM de Linux.
         - **Puerto SSH**: Déjelo en 22, el valor predeterminado.
         - **Tipo de sesión**: Cambie el valor a XFCE. Nota: Actualmente, la VM de Linux solo admite el escritorio XFCE.
-    * **Pestaña Multimedia**: Puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas. 
-    * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM. 
+    * **Pestaña Multimedia**: Puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
+    * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
 
 Una vez que inicie sesión en la VM mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, estará preparado para empezar a usar las herramientas que están instaladas y configuradas en la VM. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 
-## Creación de una contraseña segura en el servidor Jupyter Notebook 
-
-Ejecute el siguiente comando desde la línea de comandos en Data Science Virtual Machine a fin de crear su propia contraseña segura para el servidor Jupyter Notebook instalado en la máquina.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-Escriba una contraseña segura cuando se le solicite.
-
-Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno ubicado en: **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***. Deberá editar este archivo como el **usuario raíz**.
-
-Solo debe reemplazar el valor de hash existente que se encuentra entre comillas. Deben conservarse las comillas y el prefijo ***sha1:*** del valor del parámetro.
-
-Por último, debe detener y reiniciar el servicio Jupyter que está instalado en la carpeta /etc/init.d/jupyter.
-
->[AZURE.NOTE] Si no se acepta la nueva contraseña después de reiniciar Jupyter o si tiene problemas para detenerlo, pruebe a reiniciar la máquina virtual.
 
 ## Herramientas instaladas en Linux Data Science Virtual Machine
 
@@ -163,12 +148,19 @@ Python 3.5 se instalará en */anaconda/envs/py35/bin*
 
 A continuación, para invocar la sesión interactiva de Python, escriba ***python*** en el shell. Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir el comando ***spyder*** para iniciar el IDE de Python.
 
-### Jupyter Notebook
-La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se ha configurado previamente un servidor Jupyter Notebook con kernels de Python 2, Python 3 y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el explorador y tener acceso al servidor Notebook. Si se encuentra en la VM a través de SSH o del cliente X2Go, también puede visitar [https://localhost:9999/](https://localhost:9999/) para acceder al servidor de Jupyter Notebook.
+### Jupyter Notebook 
+
+La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con su nombre de usuario y contraseña de Linux local.
+
+Se ha configurado previamente el servidor Jupyter Notebook con kernels de Python 2, Python 3 y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el explorador y tener acceso al servidor Notebook. Si se encuentra en la VM a través de SSH o del cliente X2go, también puede visitar [https://localhost:8000/](https://localhost:8000/) para acceder al servidor de Jupyter Notebook.
 
 >[AZURE.NOTE] Continúe aunque aparezca una advertencia de certificado.
 
-Puede acceder al servidor de Jupyter Notebook desde cualquier host. Solo tiene que escribir "https://<Nombre DNS o dirección IP de la VM>:9999/". Hemos empaquetado algunos cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página de inicio del cuaderno después de que se autentique en Jupyter Notebook con la contraseña que haya credo anteriormente. Puede crear un nuevo cuaderno seleccionando "Nuevo" y, después, el kernel de lenguaje. Si no ve el botón "Nuevo", haga clic en el icono de Jupyter en la parte superior izquierda para ir a la página principal del servidor de Notebook.
+Puede acceder al servidor de Jupyter Notebook desde cualquier host. Solo tiene que escribir "https://<Nombre DNS o dirección IP de la VM>:8000/".
+
+>[AZURE.NOTE] El puerto 8000 se abre en el firewall de forma predeterminada cuando se aprovisiona la VM.
+
+Hemos empaquetado algunos cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página de inicio del cuaderno después de que se autentique en Jupyter Notebook con el nombre de usuario y la contraseña de Linux local. Puede crear un nuevo cuaderno seleccionando "Nuevo" y, después, el kernel de lenguaje. Si no ve el botón "Nuevo", haga clic en el icono de Jupyter en la parte superior izquierda para ir a la página principal del servidor de Notebook.
 
 
 ### IDE y editores 
@@ -216,27 +208,24 @@ Puede encontrar más información en [Conexión con sqlcmd](https://msdn.microso
 
 Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 
-- En R, el paquete **RODBC** o el paquete **dplyr** le permiten consultar o ejecutar instrucciones SQL en el servidor de bases de datos. 
-- En Python, la biblioteca **pyodbc** proporciona acceso a la base de datos con ODBC como la capa subyacente.  
+- En R, el paquete **RODBC** o el paquete **dplyr** le permiten consultar o ejecutar instrucciones SQL en el servidor de bases de datos.
+- En Python, la biblioteca **pyodbc** proporciona acceso a la base de datos con ODBC como la capa subyacente.
 
 Para acceder a **Postgres**:
 
-- desde Phyton: use la biblioteca **psycopg2**. 
+- desde Python: use la biblioteca **psycopg2**.
 - desde R: use el paquete **RPostgreSQL**.
 
 
 ### Herramientas de Azure 
 En la VM se instalan las siguientes herramientas de Azure:
 
-- **Interfaz de la línea de comandos de Azure**: Con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para obtener más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools.md).
-- **Explorador de almacenamiento de Microsoft Azure**: El Explorador de almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de almacenamiento de Azure y para cargar o descargar datos hacia y desde los blobs de Azure. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo ***StorageExplorer***. Necesita tener la sesión iniciada desde un cliente X2Go o tener la configuración de reenvío de X11. 
-- **Bibliotecas de Azure**: A continuación se indican algunas de las bibliotecas que se han instalado y que, por lo tanto, están disponibles:
-
-- **Python**: Las bibliotecas relacionadas con Azure en Python que están instaladas son ***azure***, ***azureml***, ***pydocumentdb*** y ***pyodbc***. Las tres primeras bibliotecas le permiten ontener acceso a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a Microsoft SQL Server, Base de datos SQL de Azure y Azure SQL DataWarehouse desde Python mediante una interfaz ODBC. Escriba ***pip list*** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en el entorno de Python 2.7 y 3.5.
-
-- **R**: Las bibliotecas relacionadas con Azure en R que están instaladas son ***AzureML*** y ***RODBC***.
-
-- **Java**: La lista de bibliotecas de Java para Azure se puede encontrar en el directorio ***/dsvm/sdk/AzureSDKJava*** de la VM. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.
+- **Interfaz de la línea de comandos de Azure**: con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools.md).
+- **Explorador de almacenamiento de Microsoft Azure**: Explorador de almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de almacenamiento de Azure y para cargar o descargar datos hacia y desde los blobs de Azure. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo ***StorageExplorer***. Necesita tener la sesión iniciada desde un cliente X2Go o tener la configuración de reenvío de X11.
+- **Bibliotecas de Azure**: a continuación se indican algunas de las bibliotecas que se han instalado y que, por lo tanto, están disponibles:
+- **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son ***azure***, ***azureml***, ***pydocumentdb*** y ***pyodbc***. Las tres primeras bibliotecas le permiten ontener acceso a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a Microsoft SQL Server, Base de datos SQL de Azure y Azure SQL DataWarehouse desde Python mediante una interfaz ODBC. Escriba ***pip list*** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en el entorno de Python 2.7 y 3.5.
+- **R**: las bibliotecas relacionadas con Azure en R que están instaladas son ***AzureML*** y ***RODBC***.
+- **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio ***/dsvm/sdk/AzureSDKJava*** de la VM. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.
 
 Puede acceder al [Portal de Azure](https://portal.azure.com) desde el explorador Firefox instalado previamente. En el Portal de Azure, puede crear, administrar y supervisar los recursos de Azure.
 
@@ -248,8 +237,8 @@ Una vez que inicie sesión en el Estudio de aprendizaje automático de Azure, te
 
 También puede crear los modelos en R o en Python en la VM y, después, implementarlos en la producción en Aprendizaje automático de Azure. Hemos instalado bibliotecas en R y en Python para habilitar esta funcionalidad.
 
-- La biblioteca en R se denomina ***AzureML***. 
-- En Python, se denomina ***azureml***. 
+- La biblioteca en R se denomina ***AzureML***.
+- En Python, se denomina ***azureml***.
 
 Para obtener información sobre cómo implementar modelos en R y en Python en Aprendizaje automático de Azure, consulte la sección *Compilación de modelos mediante R y Python, y hacer que estén operativos mediante Aprendizaje automático de Azure* de [Diez cosas que puede hacer en Data Science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
  
@@ -259,11 +248,11 @@ Para obtener información sobre cómo implementar modelos en R y en Python en Ap
 
 La VM incluye algunas herramientas o algoritmos de aprendizaje automático que se han precompilado y preinstalado de forma local. Entre ellos se incluyen los siguientes:
 
-* **CNTK** (Computational Network Toolkit, Kit de herramientas de red computacional de Microsoft Research): Kit de herramientas de aprendizaje profundo
-* **Vowpal Wabbit**: Algoritmo de aprendizaje rápido en línea
-* **xgboost**: Herramienta que proporciona los algoritmos de árbol ampliados y optimizados
+* **CNTK** (Computational Network Toolkit, Kit de herramientas de red computacional de Microsoft Research): kit de herramientas de aprendizaje profundo
+* **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea
+* **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados
 * **Python**: Anaconda Python integra algoritmos de ML con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas que ejecuten la instalación de pip.
-* **R**: Hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando: 
+* **R**: hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando:
 
 		install.packages(<lib name>)
 
@@ -334,14 +323,14 @@ Para ejecutar Rattle, debe estar en una sesión de inicio de sesión de escritor
 	library(rattle)
 	rattle()
 	
-A continuación, se abrirá una interfaz gráfica con un conjunto de pestañas. Aquí tiene los pasos de inicio rápido en Rattle para usar un conjunto de datos de meteorología de ejemplo y crear un modelo. En algunos de los pasos siguientes, se le solicitará que instale y cargue automáticamente cualquier paquete de R necesario que todavía no esté en el sistema. **Nota**: Es posible que vea un aviso del sistema en la ventana de la consola de R con la opción de instalar los paquetes en su biblioteca personal si no tiene acceso para instalarlos en el directorio del sistema (valor predeterminado). Si ve estos avisos, responda "y".
+A continuación, se abrirá una interfaz gráfica con un conjunto de pestañas. Aquí tiene los pasos de inicio rápido en Rattle para usar un conjunto de datos de meteorología de ejemplo y crear un modelo. En algunos de los pasos siguientes, se le solicitará que instale y cargue automáticamente cualquier paquete de R necesario que todavía no esté en el sistema. **NOTA**: Es posible que vea un aviso del sistema en la ventana de la consola de R con la opción de instalar los paquetes en su biblioteca personal si no tiene acceso para instalarlos en el directorio del sistema (valor predeterminado). Si ve estos avisos, responda "y".
 
 1. Haga clic en Execute (Ejecutar).
 2. Aparecerá un cuadro de diálogo que le preguntará si quiere usar el conjunto de datos de meteorología de ejemplo. Haga clic en Yes (Sí) para cargar el ejemplo.
 3. Haga clic en la pestaña Model (Modelo).
 4. Haga clic en Execute (Ejecutar) para crear un árbol de decisión.
-5. Haga clic en Draw (Dibujar) para mostrar el árbol de decisión. 
-6. Haga clic en el botón de opción Forest (Bosque) y haga clic en Execute (Ejecutar) para crear un bosque aleatorio. 
+5. Haga clic en Draw (Dibujar) para mostrar el árbol de decisión.
+6. Haga clic en el botón de opción Forest (Bosque) y haga clic en Execute (Ejecutar) para crear un bosque aleatorio.
 7. Haga clic en la pestaña Evaluate (Evaluar).
 8. Haga clic en el botón de opción Risk (Riesgo) y haga clic en Execute (Ejecutar) para mostrar dos trazados de rendimiento de riesgo (acumulativo).
 9. Haga clic en la pestaña Log (Registro) para mostrar el código de R generado para las operaciones anteriores (Nota: Existe un error en la versión actual de Rattle; inserte "#" delante de "Export this log..." [Exporte este registro...] en el texto del registro).
@@ -353,8 +342,8 @@ Puede salir de Rattle y R. Ahora puede modificar el script de R generado o usarl
 ## Pasos siguientes
 Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 
-* Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la VM.  
-* Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite. 
+* Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la VM.
+* Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -29,7 +29,7 @@ En este tema se muestra cómo usar el SDK del servidor back-end de .NET en escen
 
 La documentación de referencia del SDK del servidor se encuentra aquí: [Referencia de .NET de Aplicaciones móviles de Azure](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>Creación de un back-end de .NET para la aplicación móvil
+## <a name="create-app"></a>Creación de un back-end de aplicación móvil .NET
 
 Si va a iniciar un nuevo proyecto, puede crear una aplicación del Servicio de aplicaciones mediante el [Portal de Azure] o Visual Studio. Esta sección le ayudará a usar una de estas opciones para crear un nuevo back-end de aplicación móvil que hospeda una API sencilla de lista de tareas. Puede ejecutar el proyecto localmente o publicarlo en la aplicación móvil del Servicio de aplicaciones basada en la nube.
 
@@ -37,9 +37,11 @@ Si va a agregar funciones de movilidad a un proyecto existente, vea la sección 
 
 ### Creación de un back-end .NET mediante el Portal de Azure
 
-Puede crear un nuevo derecho de aplicación móvil en el [Portal de Azure]. Puede seguir los pasos que se muestran a continuación o crear un cliente y un servidor nuevos mediante el tutorial [Creación de una aplicación móvil](app-service-mobile-ios-get-started.md).
+Puede crear un nuevo back-end de aplicación móvil directamente en el [Portal de Azure].
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+Puede seguir los pasos que se muestran a continuación o crear un cliente y un servidor nuevos mediante el tutorial [Creación de una aplicación móvil](app-service-mobile-ios-get-started.md). El tutorial contiene una versión simplificada de estas instrucciones y se recomienda su lectura para proyectos de prueba de concepto (solo puede crear un back-end de Node.js).
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 De nuevo en la hoja _Comenzar_, en **Crear una API de tabla**, elija **C#** como el valor de **Lenguaje de back-end**. Haga clic en **Descargar**, extraiga los archivos de proyecto comprimidos en el equipo local y abra la solución en Visual Studio.
 
@@ -158,7 +160,7 @@ En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-##<a name="define-table-controller"></a> Cómo definir un controlador de tabla
+##<a name="define-table-controller"></a> Definición de un controlador de tabla
 
 Un controlador de tabla proporciona acceso a datos de entidad en un almacén de datos basado en tabla, como la base de datos SQL o el almacenamiento de tablas de Azure. Los controladores de tabla se heredan de la clase genérica **TableController**, en la que el tipo genérico es una entidad del modelo que representa el esquema de tabla, de la siguiente manera:
 
@@ -419,7 +421,7 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) (Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
+Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para obtener más información, consulte [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) (Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
 ## Procedimientos: Depuración y solución de problemas del SDK de .NET Server
 
@@ -479,4 +481,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

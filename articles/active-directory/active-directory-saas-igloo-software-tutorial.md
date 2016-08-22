@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/16/2016" 
+    ms.date="08/05/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Igloo Software
@@ -128,7 +128,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     1.  En **Creación de usuario al inicio de sesión** seleccione **Crear un nuevo usuario en el sitio cuando inicia sesión**.
     2.  En **Sign in Settings** (Configuración de inicio de sesión), seleccione **Use SAML button on "Sign in" screen** (Usar botón SAML en la pantalla "Iniciar sesión").
-    3.  Haga clic en **Guardar**.
+    3.  Haga clic en **Save**.
 
 12. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -138,7 +138,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 No hay ningún elemento de acción para que configure el aprovisionamiento de usuarios para Igloo Software. Cuando un usuario asignado intenta iniciar sesión en Igloo Software desde el Panel de acceso, Igloo Software comprueba si el usuario existe. Si no hay cuentas de usuario disponibles, Igloo Software crea una automáticamente.
 ##Asignación de usuarios
   
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 ###Para asignar usuarios a Igloo Software, lleve a cabo los siguientes pasos:
 
@@ -152,6 +152,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -192,7 +192,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 -   [Se produjo una operación fuera de banda en una máquina virtual y no se realizó la conmutación por error.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Test Failover
     -   [No se pudo iniciar la conmutación por error ya que la conmutación por error de prueba está en curso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
--   <span style="color:green;">NUEVO</span> La conmutación por error agota el tiempo con 'PreFailoverWorkflow task WaitForScriptExecutionTask timed out' debido a la configuración en el grupo de seguridad de red asociado a la máquina virtual o la subred a la que pertenece el equipo. Consulte ['PreFailoverWorkflow task WaitForScriptExecutionTask timed out'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para más información.
+-   <span style="color:green;">NUEVO</span> La conmutación por error agota el tiempo con PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout debido a la configuración en el grupo de seguridad de red asociado a la máquina virtual o la subred a la que pertenece el equipo. Consulte [PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para obtener más información.
 
 
 ### Servidor de configuración, Servidor de proceso y Destino principal
@@ -202,4 +202,4 @@ Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (M
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 -   Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. [Uso del documento de solución de problemas para RDP en la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

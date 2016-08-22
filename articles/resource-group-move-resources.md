@@ -54,6 +54,7 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - DocumentDB
 - Clústeres de HDInsight
 - Almacén de claves
+- Servicios multimedia
 - Mobile Engagement
 - Centros de notificaciones
 - Visión operativa
@@ -61,10 +62,10 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Programador
 - Search
 - Almacenamiento
-- Almacenamiento (clásico), consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
+- Almacenamiento (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
 - Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
 - Máquinas virtuales
-- Máquinas virtuales (clásico), consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
+- Máquinas virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
 - Redes virtuales
 
 ## Servicios no compatibles con el traslado
@@ -75,7 +76,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 - Application Insights
 - ExpressRoute
 - Conjuntos de escalado de máquinas virtuales
-- Redes virtuales (clásico) (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
 - Puerta de enlace de VPN
 
 ## Limitaciones del Servicio de aplicaciones
@@ -272,4 +273,4 @@ Con el cuerpo de solicitud:
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

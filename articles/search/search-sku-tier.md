@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/25/2016"
+	ms.date="08/08/2016"
 	ms.author="heidist"/>
 
 # Selección de SKU o plan de tarifa de Búsqueda de Azure
@@ -51,10 +51,10 @@ Nivel:|Escenarios principales
 ----|-----------------
 **Gratis**|Un servicio compartido gratuito utilizado para cargas de trabajo de evaluación o investigación reducidas. Dado que se comparte con otros suscriptores, la indexación y el rendimiento de las consultas variará en función de quién más esté utilizando el servicio. La capacidad es pequeña (50 MB o tres índices con hasta 10.000 documentos cada uno).
 **Básica**|Cargas de trabajo de producción reducidas en hardware específico. Se trata de un nivel de alta disponibilidad. La capacidad es hasta tres réplicas y una partición (2 GB).
-Estándar 1 (**S1**)|Admite combinaciones flexibles de particiones (12) y réplicas (12). Se utiliza para cargas de trabajo de producción normales en hardware específico. Puede asignar particiones y réplicas en combinaciones que admitan un máximo de 36 unidades de búsqueda facturables. En este nivel, las particiones son de 25 GB cada una y QPS es aproximadamente de 15 consultas por segundo.
-Estándar 2 (**S2**)|Ejecuta cargas de trabajo de producción mayores con las mismas 36 unidades de búsqueda que S1, pero con réplicas y particiones de más tamaño. En este nivel, las particiones tienen 100 GB y QPS es aproximadamente de 60 consultas por segundo.
-Estándar 3 (**S3**) (versión preliminar)|Ejecuta cargas de trabajo de producción proporcionalmente mayores en los sistemas finales superiores con configuraciones de hasta 12 particiones o 12 réplicas en 36 unidades de búsqueda. En este nivel, las particiones son de 200 GB cada una y QPS tiene más de 60 consultas por segundo. S3 está en versión preliminar y está disponible en una tasa inicial.
-Estándar 3 de alta densidad (**S3 HD**) (versión preliminar)|Un gran número de índices más pequeños. Hay una sola partición, de 200 GB. QPS tiene más de 60 consultas por segundo. S3 está en versión preliminar y está disponible en una tasa inicial.
+**S1**|Estándar 1 admite combinaciones flexibles de particiones (12) y réplicas (12). Se utiliza para cargas de trabajo de producción normales en hardware específico. Puede asignar particiones y réplicas en combinaciones que admitan un máximo de 36 unidades de búsqueda facturables. En este nivel, las particiones son de 25 GB cada una y QPS es aproximadamente de 15 consultas por segundo.
+**S2**|Estándar 2 ejecuta cargas de trabajo de producción mayores con las mismas 36 unidades de búsqueda que S1, pero con réplicas y particiones de más tamaño. En este nivel, las particiones tienen 100 GB y QPS es aproximadamente de 60 consultas por segundo.
+**S3** (versión preliminar)|Estándar 3 ejecuta cargas de trabajo de producción proporcionalmente mayores en los sistemas finales superiores con configuraciones de hasta 12 particiones o 12 réplicas en 36 unidades de búsqueda. En este nivel, las particiones son de 200 GB cada una y QPS tiene más de 60 consultas por segundo. S3 está en versión preliminar y está disponible en una tasa inicial.
+**S3 HD** (versión preliminar)|Estándar 3 de alta densidad está diseñado para un gran número de índices más pequeños. Hay una sola partición, de 200 GB. QPS tiene más de 60 consultas por segundo. S3 está en versión preliminar y está disponible en una tasa inicial.
 
 > [AZURE.NOTE] Los valores máximos de réplicas y particiones se facturan como unidades de búsqueda (un máximo de 36 unidades por servicio), que impone un límite real inferior al valor nominal del máximo. Por ejemplo, para usar el máximo de 12 réplicas, podría tener, como máximo, 3 particiones (12 * 3 = 36 unidades). De forma similar, para utilizar la cantidad máxima de particiones, reduzca el número de réplicas a 3. Consulte [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md) para ver un gráfico de las combinaciones que pueden realizarse.
 
@@ -101,4 +101,4 @@ Una vez que sepa qué SKU se ajusta a sus requisitos, consulte cuáles son los s
 - [Creación de un servicio Búsqueda de Azure mediante el Portal de Azure](search-create-service-portal.md)
 - [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

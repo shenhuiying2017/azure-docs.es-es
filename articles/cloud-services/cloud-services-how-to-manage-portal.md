@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="08/02/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,15 +23,15 @@
 - [Portal de Azure](cloud-services-how-to-manage-portal.md)
 - [Portal de Azure clásico](cloud-services-how-to-manage.md)
 
+El servicio en la nube se administra en el área **Servicios en la nube (clásico)** del Portal de Azure. En este artículo se describen algunas acciones comunes que se deben realizar al administrar servicios en la nube; por ejemplo, actualizar, eliminar, escalar y promover una implementación de ensayo a producción.
 
-En el área **Servicios en la nube** del Portal de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
-
+Para obtener más información sobre cómo escalar un servicio en la nube, haga clic [aquí](cloud-services-how-to-scale-portal.md).
 
 ## Actualización del rol de servicio en la nube o implementación
 
-Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en la hoja del servicio en la nube. Puede actualizar un solo rol o todos los roles. Necesitará cargar un paquete de servicio nuevo y el archivo de configuración de servicio.
+Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en la hoja del servicio en la nube. Puede actualizar un solo rol o todos los roles. Para ello, puede cargar un nuevo paquete de servicio o un archivo de configuración de servicio.
 
-1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Actualizar**.
 
@@ -43,11 +43,11 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 
 4. **Opcionalmente** puede actualizar la etiqueta de implementación y la cuenta de almacenamiento.
 
-5. Si cualquier de los roles de servicio solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe.
+5. Si uno de los roles solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe.
 
-	Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza.
+	Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Con dos instancias de rol, una máquina virtual procesará las solicitudes de cliente mientras la otra se actualiza.
 
-6. Compruebe **Iniciar implementación** si desea que la actualización se aplica que cuando termine la carga del paquete.
+6. Active **Iniciar implementación** si quiere que la actualización se aplique cuando termine de cargarse el paquete.
 
 7. Haga clic en **Aceptar** para iniciar la actualización del servicio.
 
@@ -55,11 +55,11 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 
 ## Intercambio de implementaciones para pasar un servicio en la nube de ensayo a producción
 
-Use **Intercambiar** para pasar una implementación de ensayo de un servicio en la nube a producción Cuando decide implementar una nueva versión de un servicio en la nube, puede ensayar y probar la nueva versión en su entorno de ensayo del servicio en la nube mientras los clientes usan la versión actual en la producción. Cuando esté listo para promover la nueva versión de la producción, puede usar **Intercambiar** para cambiar las direcciones URL que dirigen a las dos implementaciones.
+Cuando decida implementar una nueva versión de un servicio en la nube, puede colocar en etapa y probar la nueva versión en su entorno de ensayo del servicio en la nube. Use **Intercambiar** para cambiar las direcciones URL que dirigen a las dos implementaciones y promover una nueva versión a producción.
 
 Puede intercambiar implementaciones desde la página **Servicios en la nube** o el panel.
 
-1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Intercambiar**.
 
@@ -73,21 +73,21 @@ Puede intercambiar implementaciones desde la página **Servicios en la nube** o 
 
 	El intercambio de implementaciones ocurre rápidamente porque lo único que cambia son las direcciones IP virtuales (VIP) de las implementaciones.
 
-	Para ahorrar en los costes de proceso, puede eliminar la implementación en el entorno de ensayo cuando esté seguro de que la nueva implementación de producción se realiza según lo esperado.
+	Para ahorrar en los costos de proceso, puede eliminar la implementación de ensayo después de comprobar que la implementación de producción funcione según lo previsto.
 
 ## Vinculación de un recurso a un servicio en la nube
 
-El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, debe implementar recursos adicionales en el mismo grupo de recursos que está usando el servicio en la nube.
+El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, implemente más recursos en el mismo grupo de recursos que está usando el servicio en la nube.
 
 ## Eliminación de implementaciones y un servicio en la nube
 
 Antes de que pueda eliminar un servicio en la nube, debe eliminar cada implementación existente.
 
-Para ahorrar en los costes de proceso, puede eliminar la implementación de ensayo después de verificar que la implementación de la producción esté funcionando según lo esperado. Se le cobrarán los costes de proceso de las instancias de rol aunque un servicio en la nube no esté funcionando.
+Para ahorrar en los costos de proceso, puede eliminar la implementación de ensayo después de comprobar que la implementación de producción funcione según lo previsto. Se le facturarán los costos de proceso de las instancias de rol implementadas que se detengan.
 
 Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube.
 
-1. En el [Portal de Azure][], seleccione el servicio en la nube que desee eliminar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Eliminar**.
 
@@ -102,7 +102,7 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 5. Para eliminar el servicio en la nube, haga clic en **Eliminar servicio en la nube**. Luego, haga clic en **Sí** en la solicitud de confirmación.
 
 > [AZURE.NOTE]
-Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte [este](cloud-services-how-to-monitor.md) artículo.
+Cuando se elimina un servicio en la nube y se configura una supervisión detallada, debe eliminar manualmente los datos de la cuenta de almacenamiento. Para obtener información sobre dónde buscar las tablas métricas, consulte [este](cloud-services-how-to-monitor.md) artículo.
 
 [Portal de Azure]: https://portal.azure.com
 
@@ -113,4 +113,4 @@ Si se configura una supervisión detallada para su servicio en la nube, Azure no
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

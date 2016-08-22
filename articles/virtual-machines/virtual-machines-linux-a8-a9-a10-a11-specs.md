@@ -1,5 +1,5 @@
 <properties
- pageTitle="Acerca de las instancias A8 - A11 y Linux | Microsoft Azure"
+ pageTitle="Acerca de los tamaños de máquina virtual A8, A9, A10 y A11 con Linux | Microsoft Azure"
  description="Obtenga información general y algunas consideraciones sobre el uso de los tamaños de proceso intensivo A8, A9, A10 y A11 para las máquinas virtuales de Linux."
  services="virtual-machines-linux"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # Sobre las instancias de proceso intensivo A8, A9, A10 y A11 
@@ -32,7 +32,7 @@ En un servicio en la nube o conjunto de disponibilidad individuales, los clúste
 
 * **MPI**: Biblioteca MPI Intel 5.x
 
-    >[AZURE.NOTE] Intel MPI 5.1.3.181 ya está instalado en las imágenes de HPC basadas en CentOS HPC de Marketplace. Para utilizar Intel MPI en máquinas virtuales HPC de SLES 12, debe instalarlo por separado.
+    >[AZURE.NOTE] Intel MPI 5.1 ya está instalado en las imágenes de HPC basadas en CentOS HPC de Marketplace. Para utilizar Intel MPI en máquinas virtuales HPC de SLES 12, debe instalarlo por separado.
 
 En la actualidad, los controladores Azure Linux RDMA solo se instalan al implementar imágenes HPC de SLES 12 y HPC de CentOS con RDMA habilitado desde Azure Marketplace. Los controladores no se pueden instalar en otras máquinas virtuales con Linux que se implementen.
 
@@ -114,4 +114,4 @@ done
 
 * Para empezar a implementar y usar las instancias A8 y A9 con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

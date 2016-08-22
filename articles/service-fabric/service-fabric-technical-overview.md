@@ -90,4 +90,4 @@ Para más información acerca de Service Fabric:
 - [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

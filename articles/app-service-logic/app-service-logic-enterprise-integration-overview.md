@@ -19,7 +19,7 @@
 # Información general sobre Enterprise Integration Pack
 
 ## ¿Qué es Enterprise Integration Pack?
-Enterprise Integration Pack es la solución en la nube de Microsoft para posibilitar sin problemas comunicaciones de negocio a negocio (B2B). El paquete utiliza protocolos estándar del sector, entre ellos [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) y EDIFACT (próximamente), con el objetivo de intercambiar mensajes entre socios comerciales. Si se desea, los mensajes pueden protegerse mediante cifrado y firmas digitales.
+Enterprise Integration Pack es la solución en la nube de Microsoft para posibilitar sin problemas comunicaciones de negocio a negocio (B2B). El paquete utiliza protocolos estándar del sector, entre ellos [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) y [EDIFACT](./app-service-logic-enterprise-integration-edifact.md), con el objetivo de intercambiar mensajes entre asociados comerciales. Si se desea, los mensajes pueden protegerse mediante cifrado y firmas digitales.
 
 El paquete permite a las organizaciones que utilizan distintos protocolos y formatos intercambiar mensajes electrónicamente transformando los diferentes formatos en uno que puedan interpretar y procesar los sistemas de las dos organizaciones.
 
@@ -33,7 +33,7 @@ Desde el punto de vista de su arquitectura, Enterprise Integration Pack se basa 
 - También puede utilizar las Funciones de Azure.
 
 ## ¿Cómo se puede empezar a disfrutar de Enterprise Integration Pack?
-Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el diseñador de Aplicaciones lógicas en el **Portal de Azure**.
+Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el diseñador de Logic Apps en el **Portal de Azure**.
 
 A continuación, se muestra un resumen de los pasos que hay que llevar a cabo para crear aplicaciones en el Portal de Azure: ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
@@ -61,4 +61,4 @@ Enterprise Integration Pack admite estos estándares del sector:
 - [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
 - [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/25/2016"
-    ms.author="v-darmi"/>
+    ms.date="08/09/2016"
+    ms.author="darrmi"/>
 
 # Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
 
@@ -76,7 +76,7 @@ Hay algunas cosas específicas que merece la pena mencionar acerca de esta expre
 Para garantizar que nuestros mensajes se entregan a los consumidores en orden y aprovechar la capacidad de distribución de carga de las particiones, elegí enviar mensajes de solicitud de HTTP a una partición y los mensajes de respuesta de HTTP a una segunda partición. Esto garantiza una distribución equilibrada de la carga y podemos garantizar que se consumirán todas las solicitudes en orden y todas las respuestas se consumirán en orden. Es posible que una respuesta se consuma antes de la solicitud correspondiente, pero como esto no es un problema porque tenemos un mecanismo diferente para correlacionar las solicitudes a las respuestas y sabemos que las solicitudes van siempre antes las respuestas.
 
 ### Cargas de HTTP
-Después de crear el `requestLine` comprobamos si se debe truncar el cuerpo de la solicitud. El cuerpo de la solicitud se trunca a solo 1024. Esto podría aumentarse; sin embargo, los mensajes individuales del Centro de eventos están limitados a 256 KB, por lo que es probable que algunos cuerpos de los mensajes HTTP no quepan en un único mensaje. Al realizar el registro y análisis, una cantidad significativa de información puede derivarse simplemente de la línea de solicitud de HTTP y los encabezados. Además, muchas solicitudes de API devuelven solo cuerpos pequeños, por lo que la pérdida de valor de la información debido al truncamiento de cuerpos grandes es bastante mínima en comparación con la reducción de los costos de almacenamiento, transferencia y transformación para mantener todo el contenido del cuerpo. Una nota final acerca del procesamiento del cuerpo es que necesitamos pasar `true` al método As<string>() porque leemos el contenido del cuerpo, pero también queríamos que la API de back-end pudiera leer el cuerpo. Al pasar true a este método, hacemos que el cuerpo se almacene en la búfer para que se pueda leer una segunda vez. Es importante tenerlo en cuenta si tiene una API que carga archivos muy grandes o usa el sondeo largo. En estos casos, es mejor evitar totalmente la lectura del cuerpo.
+Después de crear el `requestLine` comprobamos si se debe truncar el cuerpo de la solicitud. El cuerpo de la solicitud se trunca a solo 1024. Esto podría aumentarse; sin embargo, los mensajes individuales del Centro de eventos están limitados a 256 KB, por lo que es probable que algunos cuerpos de los mensajes HTTP no quepan en un único mensaje. Al realizar el registro y análisis, una cantidad significativa de información puede derivarse simplemente de la línea de solicitud de HTTP y los encabezados. Además, muchas solicitudes de API devuelven solo cuerpos pequeños, por lo que la pérdida de valor de la información debido al truncamiento de cuerpos grandes es bastante mínima en comparación con la reducción de los costos de almacenamiento, transferencia y transformación para mantener todo el contenido del cuerpo. Una nota final sobre el procesamiento del cuerpo es que necesitamos pasar `true` al método As<string>() porque leemos el contenido del cuerpo, pero también queríamos que la API de back-end pudiera leer el cuerpo. Al pasar true a este método, hacemos que el cuerpo se almacene en la búfer para que se pueda leer una segunda vez. Es importante tenerlo en cuenta si tiene una API que carga archivos muy grandes o usa el sondeo largo. En estos casos, es mejor evitar totalmente la lectura del cuerpo.
 
 ### Encabezados HTTP
 Los encabezados HTTP pueden transferirse simplemente al formato del mensaje con un formato simple de par clave/valor. Hemos decidido eliminar ciertos campos de seguridad confidenciales para evitar la pérdida innecesaria de información de credenciales. No es probable que se usen claves de API y otras credenciales para los análisis. Si deseamos realizar el análisis en el usuario y el producto específico que usan, podíamos obtenerlo desde el objeto `context` y agregarlo al mensaje.
@@ -268,4 +268,4 @@ El servicio de Administración de API de Azure proporciona un lugar ideal para c
 	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

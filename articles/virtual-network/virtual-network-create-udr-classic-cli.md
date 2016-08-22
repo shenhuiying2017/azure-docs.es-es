@@ -3,7 +3,7 @@
    description="Aprenda cómo controlar el enrutamiento en redes virtuales mediante la CLI de Azure en el modelo de implementación clásico"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante la CLI de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [controlar el enrutamiento y el uso de aplicaciones virtuales en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación clásico. También puede [controlar el enrutamiento y el uso de aplicaciones virtuales en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -112,4 +112,4 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 
 		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

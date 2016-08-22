@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -27,7 +27,7 @@ Para acceder al Portal de administración de MFA a través de un Proveedor de Mu
 Para acceder al Portal de administración de MFA a través de la página Configuración del servicio de MFA, inicie sesión en el Portal de Azure como administrador y seleccione la opción Active Directory. Haga clic en el directorio y, a continuación, haga clic en la pestaña **Configurar**. En la sección de autenticación multifactor, seleccione **Administrar configuración del servicio**. En la parte inferior de la página Configuración del servicio MFA, haga clic en el vínculo **Ir al portal**.
 
 
-Característica| Descripción| ¿Qué se va a tratar?
+Característica| Description| ¿Qué se va a tratar?
 :------------- | :------------- | :------------- | 
 [Alerta de fraude](#fraud-alert)|Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de obtener acceso a sus recursos.|Cómo realizar la instalación y configuración y cómo informar sobre fraudes
 [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor.|Cómo instalar y configurar una omisión por única vez
@@ -358,7 +358,7 @@ Sin embargo, como los usuarios pueden recordar MFA para los dispositivos de conf
 ## Métodos de verificación seleccionables
 Ahora es posible elegir los métodos de autenticación que están disponibles para los usuarios cuando se usa la Azure Multi-Factor Authentication. Esta característica anteriormente solo estaba disponible en la versión de servidor local. La tabla siguiente proporciona una breve descripción de los distintos métodos de autenticación que se pueden habilitar o deshabilitar para los usuarios.
 
-Método|Descripción
+Método|Description
 :------------- | :------------- | 
 [Llamada al teléfono](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Hace una llamada de voz automática al teléfono de autenticación. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. Este número de teléfono no se sincronizará con Active Directory local.
 [Mensaje de texto al teléfono](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envía un mensaje de texto que contiene un código de verificación para el usuario. Se le pide al usuario que o bien conteste al mensaje de texto con el código de comprobación o que escriba el código de verificación en la interfaz de inicio de sesión.
@@ -376,4 +376,4 @@ Método|Descripción
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

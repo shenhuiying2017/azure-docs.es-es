@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -184,21 +184,10 @@ ExpressRoute Premium es la colección de características que se enumera a conti
  - Conectividad con los servicios de Office 365 y CRM Online.
 
 ### ¿Cuántas redes virtuales puedo vincular a un circuito ExpressRoute si habilito ExpressRoute Premium?
-La tabla siguiente proporciona los límites ampliados para el número de redes virtuales que se pueden vincular a un circuito ExpressRoute. El límite predeterminado es de 10.
+La tabla siguiente muestran los límites de ExpressRoute y el número de redes virtuales por circuito de ExpressRoute.
 
-**Límites para circuitos**
 
-| **Tamaño del circuito** | **Número de vínculos de red virtual para la configuración predeterminada** | **Número de vínculos de red virtual con ExpressRoute Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | 10 |
-| 100 Mbps | 10 | 20 | |
-| 200 Mbps | 10 | 25 |
-| 500 Mbps | 10 | 40 |
-| 1 Gbps | 10 | 50 |
-| 2 Gbps | 10 | 60 |
-| 5 Gbps | 10 | 75 |
-| 10 Gbps | 10 | 100 |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### ¿Cómo habilito ExpressRoute Premium?
@@ -251,4 +240,4 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 ### ¿Se puede acceder a Dynamics AX Online a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

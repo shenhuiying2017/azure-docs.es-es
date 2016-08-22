@@ -68,7 +68,7 @@ En el ejemplo de la parte inferior, la carga máxima en un nodo es 10, mientras 
 Tenga en cuenta que el objetivo explícito no es estar por debajo del umbral de equilibrio; los umbrales de equilibrio son solo el *desencadenador* que indica Cluster Resource Manager de Service Fabric que examine el clúster para determinar qué mejoras puede realizar.
 
 ## Umbrales de actividad
-En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga total en el clúster es baja. Esto puede ser debido simplemente a la hora del día o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera pasarse el tiempo equilibrando ya que tampoco hay mucho que ganar; gastará recursos de red y de procesos para que las cosas funcionen. Existe otro control dentro del Administrador de recursos, conocido como Umbral de actividad, que le permite especificar algún límite inferior para la actividad: si ningún nodo tiene al menos esta carga, el equilibrio no se desencadenará incluso si se cumple el umbral de equilibrio. Como ejemplo, supongamos que tenemos informes con los siguientes totales de consumo en estos nodos. Supongamos también que conservamos nuestro umbral de equilibrio de 3, pero ahora también tenemos un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo satisface el umbral mínimo de actividad, por lo que dejamos que las cosas sigan su curso. En el ejemplo de abajo, el Nodo1 supera con creces el umbral de actividad, así que no se realizará ningún equilibrio.
+En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga total en el clúster es baja. Esto puede ser debido simplemente a la hora del día o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera pasarse el tiempo equilibrando ya que tampoco hay mucho que ganar; gastará recursos de red y de procesos para que las cosas funcionen. Existe otro control dentro de Azure Resource Manager, conocido como Umbral de actividad, que le permite especificar algún límite inferior para la actividad: si ningún nodo tiene esta carga, el equilibrio no se desencadenará incluso si se cumple el umbral de equilibrio. Como ejemplo, supongamos que tenemos informes con los siguientes totales de consumo en estos nodos. Supongamos también que conservamos nuestro umbral de equilibrio de 3, pero ahora también tenemos un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo satisface el umbral mínimo de actividad, por lo que dejamos que las cosas sigan su curso. En el ejemplo de abajo, el Nodo1 supera con creces el umbral de actividad, así que no se realizará ningún equilibrio.
 
 ![Ejemplo de umbral de actividad][Image3]
 
@@ -81,6 +81,8 @@ ClusterManifest.xml
       <Parameter Name="Memory" Value="1536"/>
     </Section>
 ```
+
+Observe que los umbrales de equilibrio y actividad están vinculados a la métrica; el equilibrio solo se desencadenará si se superan los umbrales de equilibrio y actividad de la misma métrica. Por lo tanto, si se superan el umbral de equilibrio de la memoria y el umbral de actividad de la CPU, el equilibrio no se activará siempre que no se superan los umbrales restantes (umbral de equilibrio de la CPU y umbral de actividad de la memoria).
 
 ## Equilibrio conjunto de los servicios
 Algo interesante que se debe advertir es que tanto si el clúster está desequilibrado como si no, se trata de una decisión que engloba al clúster entero, pero la forma en que vamos a solucionarlo es moviendo las réplicas e instancias de servicio individuales. Tiene sentido, ¿no? Si la memoria se acumula en un nodo, varias réplicas o instancias podrían estar contribuyendo a ello, así que puede que sea necesario mover todas las réplicas e instancias que usan la métrica desequilibrada afectada.
@@ -98,8 +100,8 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 ![Equilibrio conjunto de los servicios][Image5]
 
 ## Pasos siguientes
-- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
-- El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
+- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para obtener más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+- El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para obtener más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
 - El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md).
 
 
@@ -109,4 +111,4 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

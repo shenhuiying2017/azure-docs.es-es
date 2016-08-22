@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/03/2016"
 	ms.author="guybo"/>
 
 # Autoescala vertical con conjuntos de escalado de máquinas virtuales
@@ -37,27 +37,20 @@ Puede configurar el escalado vertical para que se desencadene en función de las
 3. Agregue un webhook al Runbook.
 4. Agregue una alerta a su conjunto de escalado de máquinas virtuales mediante una notificación de webhook.
 
-> [AZURE.NOTE] La autoescala vertical solo se puede realizar en determinados intervalos de tamaños de máquina virtual. Puede elegir escalar entre los siguientes pares de tamaños:
+> [AZURE.NOTE] La autoescala vertical solo se puede realizar en determinados intervalos de tamaños de máquina virtual. Compare las especificaciones de cada tamaño antes de decidir si escalar de una a otra (un número alto no siempre indica un mayor tamaño de máquina virtual). Puede elegir escalar entre los siguientes pares de tamaños:
 
 >| Pares de escalado de tamaños de VM | |
 |---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| Standard\_D1 | Standard\_D4 |
-| Standard\_D11 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_A0 | Standard\_A11 |
+| Standard\_D1 | Standard\_D14 |
+| Standard\_DS1 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D15v2 |
 | Standard\_G1 | Standard\_G5 |
 | Standard\_GS1 | Standard\_GS5 |
 
 ## Creación de una cuenta de Automatización de Azure con funciones de ejecución
 
-Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Automatización de Azure](https://azure.microsoft.com/services/automation/) presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los Runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
+Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Automatización de Azure](https://azure.microsoft.com/services/automation/) presentó la característica Cuenta de ejecución, que facilita la configuración de la entidad de servicio para ejecutar los cuadernos automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -127,4 +120,4 @@ En este artículo se mostraron ejemplos sencillos de escalado vertical. Con esto
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

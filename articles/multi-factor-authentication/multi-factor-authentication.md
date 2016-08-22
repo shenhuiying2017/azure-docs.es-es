@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # ¿Qué es Azure Multi-Factor Authentication?
@@ -43,7 +43,7 @@ Hoy en día, ahora más que nunca, las personas están cada vez más conectadas.
 
 Azure Multi-Factor Authentication es una solución fácil de usar, escalable y confiable que proporciona un segundo método de autenticación para que los usuarios siempre estén protegidos.
 
-![Fácil de usar](./media/multi-factor-authentication/simple.png)| ![Escalabilidad](./media/multi-factor-authentication/scalable.png)| ![Siempre protegido](./media/multi-factor-authentication/protected.png)|![Confiable](./media/multi-factor-authentication/reliable.png)
+![Fácil de usar](./media/multi-factor-authentication/simple.png)| ![Escalable](./media/multi-factor-authentication/scalable.png)| ![Siempre protegido](./media/multi-factor-authentication/protected.png)|![Confiable](./media/multi-factor-authentication/reliable.png)
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Fácil de usar**|**Escalable**|**Siempre protegido**|**Confiable**
 
@@ -209,4 +209,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

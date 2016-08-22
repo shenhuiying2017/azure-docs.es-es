@@ -7,7 +7,7 @@
    ms.tgt_pltfrm=""
    ms.workload="infrastructure"
    ms.date="05/12/2015"
-   ms.author="josephd" />
+   ms.author="rasquill" />
 
 ## Configuración de PowerShell
 
@@ -71,11 +71,11 @@ Recibirá el siguiente tipo de información:
 	CurrentStorageAccountName : 
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Puede establecer la suscripción actual de Azure ejecutando estos comandos en el símbolo del sistema de Azure PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto.
+Puede establecer la suscripción actual de Azure ejecutando estos comandos en el símbolo del sistema de Azure PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Para obtener más información acerca de las cuentas y suscripciones de Azure, vea [Conexión a su suscripción](powershell-install-configure.md#Connect).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->
