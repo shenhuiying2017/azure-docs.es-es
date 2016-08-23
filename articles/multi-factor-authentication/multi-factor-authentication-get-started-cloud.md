@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Azure Multi-Factor Authentication en la nube
@@ -46,7 +46,7 @@ Utilice el procedimiento siguiente para habilitar MFA para los usuarios.
 2.  En la parte izquierda, haga clic en **Active Directory**.
 3.  En **Directorio**, haga clic en el directorio para el usuario que desea habilitar. ![Hacer clic en Directorio](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  En la parte superior, haga clic en **Usuarios**.
-5.  En la parte inferior de la página, haga clic en **Admin. Multi-Factor Auth.** ![Hacer clic en Directorio](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+5.  En la parte inferior de la página, haga clic en **Admin. Multi-Factor Auth**. ![Hacer clic en Directorio](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  De este modo se abrirá una nueva pestaña del explorador. Busque el usuario que desea habilitar para la autenticación multifactor. Puede que necesite cambiar la vista en la parte superior. Asegúrese de que el estado es **deshabilitado.** ![Habilitar usuario](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  Coloque una **marca de comprobación** en el cuadro junto a su nombre.
 7.  A la derecha, haga clic en **Habilitar**. ![Habilitar usuario](./media/multi-factor-authentication-get-started-cloud/user1.png)
@@ -90,4 +90,4 @@ Para más información sobre los estados de usuario, consulte [User States in Az
 ## Pasos siguientes
 Ahora que ha configurado la autenticación multifactor en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

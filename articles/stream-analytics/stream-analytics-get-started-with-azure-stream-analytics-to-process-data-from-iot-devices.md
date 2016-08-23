@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Introducción a Análisis de transmisiones de Azure para el procesamiento de datos desde dispositivos de IoT | Análisis de transmisiones"
 	description="Flujos de datos y SensorTags de IoT con análisis de transmisiones y procesamiento de datos en tiempo real"
+    keywords="solución de IoT, introducción a IoT"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"
 />
 
@@ -25,7 +26,7 @@ En este tutorial, aprenderá a crear una lógica de procesamiento de transmision
 ## Requisitos previos
 
 -   [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
--   Archivos de datos y consultas de ejemplo que se pueden descargar desde [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
+-   Archivos de datos y consultas de ejemplo que se pueden descargar desde [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Escenario
 
@@ -75,7 +76,7 @@ La forma más sencilla de una consulta es una consulta de paso a través, la que
 
 ![Consulta de trabajo de archivo](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-Ahora, descargue el archivo de datos de ejemplo de [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) en una ubicación de su equipo. Copie y pegue la consulta del archivo **PassThrough.txt**. Haga clic en el botón Test (Probar) que aparece abajo y seleccione el archivo de datos denominado **HelloWorldASA-InputStream.json** en la ubicación de la descarga.
+Ahora, descargue el archivo de datos de ejemplo de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) en una ubicación de su equipo. Copie y pegue la consulta del archivo **PassThrough.txt**. Haga clic en el botón Test (Probar) que aparece abajo y seleccione el archivo de datos denominado **HelloWorldASA-InputStream.json** en la ubicación de la descarga.
 
 ![Botón Test (Probar) de Análisis de transmisiones](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -119,4 +120,4 @@ Aquí vamos a usar **LEFT OUTER JOIN** en el mismo flujo de datos (autocombinaci
 
 El objetivo de este tutorial es mostrar cómo escribir diferentes consultas en el lenguaje de consulta de Análisis de transmisiones y ver los resultados en el explorador. Sin embargo, se trata solo de una introducción. Es mucho más lo que puede hacer con Análisis de transmisiones. Análisis de transmisiones admite una gran variedad de entradas y salidas, e incluso puede sacar provecho de las funciones de Aprendizaje automático de Azure, lo que hace que sea una herramienta sólida para el análisis de flujos de datos. Para empezar a buscar más información acerca de Análisis de transmisiones, utilice nuestro [mapa de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Además, para más información acerca de cómo escribir consultas, lea el artículo [Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones](./stream-analytics-stream-analytics-query-patterns.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

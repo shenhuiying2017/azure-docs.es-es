@@ -79,10 +79,10 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Interxion** | Compatible | Compatible | Ámsterdam, Londres, París |
 | **Jisc** | Próximamente | Próximamente | Londres+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Compatible | Compatible | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, Nueva York, Seattle, Singapur, Sidney, Washington DC |
+| **Megaport** | Compatible | Compatible | Dallas, Hong Kong, Las Vegas, Los Ángeles, Melbourne, Nueva York, Seattle, Singapur, Sidney, Washington DC |
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
-| **NTT Communications** | Compatible | Compatible | Londres, Osaka, Tokio |
+| **NTT Communications** | Compatible | Compatible | Londres, Los Ángeles, Osaka, Tokio |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
 | **PCCW Global Limited** | Compatible | Compatible | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | Compatible | Singapur |
@@ -106,7 +106,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Próximamente | Chicago, Nueva York +, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Chicago, Nueva York +, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
 
 #### China
@@ -171,4 +171,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

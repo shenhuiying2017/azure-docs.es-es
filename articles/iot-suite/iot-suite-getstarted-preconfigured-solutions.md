@@ -14,20 +14,20 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Tutorial: Introducción a las soluciones preconfiguradas
 
 ## Introducción
 
-Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios de negocio de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Esto le permite analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
+Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios de negocio de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Puede utilizar la solución para analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
 
-Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También guía por las características básicas de la solución preconfigurada de supervisión remota. Puede acceder a muchas de estas características a través del panel de soluciones que se implementa junto con la solución preconfigurada:
+Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También le guía por las características básicas de la solución de supervisión remota. Puede acceder a muchas de estas características a través del panel de soluciones que se implementa junto con la solución preconfigurada:
 
 ![Panel de la solución preconfigurada de supervisión remota][img-dashboard]
 
-Para completar este tutorial, deberá tener una suscripción de Azure activa.
+Para completar este tutorial, deberá tener una suscripción activa de Azure.
 
 > [AZURE.NOTE]  En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
 
@@ -105,7 +105,7 @@ Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la s
 
     ![Establecer nuevos detalles de los dispositivos en el panel][img-addnew]
     
-    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
+    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información acerca de cómo conectar dispositivos físicos a la solución, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connect-rm].
 
 4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
 
@@ -147,7 +147,7 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
 
 1.  Vuelva a navegar hasta la lista de dispositivos.
 
-2.  Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Agregar regla** para agregar una regla nueva al dispositivo.
+2.  Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Agregar regla** para agregar una regla al dispositivo.
 
 3. Cree una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
 
@@ -193,7 +193,7 @@ Al implementar una solución preconfigurada, el proceso de implementación crea 
 
 ![Solución preconfigurada en el portal de Azure][img-portal]
 
-Para ver la configuración de cada recurso, selecciónelo en la lista de recursos del grupo de recursos. La captura de pantalla anterior muestra la configuración del Centro de IoT usada en la solución preconfigurada.
+Para ver la configuración de cada recurso, selecciónelo en la lista de recursos del grupo de recursos.
 
 También puede ver el código fuente de la solución preconfigurada. El código fuente de la solución preconfigurada de supervisión remota está en el repositorio de GitHub [azure-iot-remote-monitoring][lnk-rmgithub]\:
 
@@ -201,7 +201,7 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 - La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
 - La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla los datos de telemetría entrantes.
 
-Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] \(esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
+Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]. Este sitio le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando creó la solución preconfigurada.
 
 > [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
 
@@ -249,4 +249,4 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -22,14 +22,15 @@
 - [Uso del Editor de Data Factory.](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
-En este tutorial, utilizará el Asistente para copia de Data Factory para crear una canalización con una actividad de copia en una factoría de datos. En primer lugar, cree una factoría de datos mediante el Portal de Azure y luego use el Asistente para copia para crear servicios vinculados, conjuntos de datos y una canalización de Data Factory con una actividad de copia que copia datos de un Almacenamiento de blobs de Azure a una Base de datos SQL de Azure.
+En este tutorial, utilizará el Asistente para copia de Data Factory para crear una canalización con una actividad de copia en una factoría de datos. En primer lugar, cree una factoría de datos mediante el Portal de Azure y luego use el Asistente para copia para crear servicios vinculados, conjuntos de datos y una canalización de Data Factory con una actividad de copia que copia datos de un Almacenamiento de blobs de Azure en una Base de datos SQL de Azure.
 
 > [AZURE.IMPORTANT] Antes de realizar este tutorial, lea el artículo de [información general](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y realice los pasos de requisitos previos.
 
 ## Creación de Data Factory
-En este paso, utilice el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
+En este paso, utilizará el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
 
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com), haga clic en **+ NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
 
@@ -49,14 +50,14 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 7. En la hoja **Nueva factoría de datos**, observe que está seleccionada la opción **Agregar al Panel de inicio**.
 8. Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
 
-	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre del generador de datos "ADFTutorialDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre del generador de datos "ADFTutorialDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema[Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
 	 
 	![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
 	
 	> [AZURE.NOTE] El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
-10. Una vez completada la creación, verá la hoja **FACTORÍA DE DATOS** como se muestra a continuación:
+10. Una vez completada la creación, puede ver la hoja **DATA FACTORY** como se muestra a continuación.
 
     ![Página principal de Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -84,7 +85,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 6. En la página **Elegir el archivo o la carpeta de entrada**:
 	1. Navegue hasta la carpeta **adftutorial**.
 	2. Seleccione **emp.txt** y haga clic en **Elegir**.
-	3. Haga clic en **Siguiente**.
+	3. Haga clic en **Next**.
 
 	![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 7. En la página **Configuración de formato de archivo**, seleccione los valores **predeterminados** y haga clic en **Siguiente**.
@@ -96,12 +97,12 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	2. Confirme que en **Método de selección de servidor y base de datos** se ha seleccionado la opción **De suscripciones de Azure**.
 	3. Seleccione **Nombre de servidor** y **Base de datos**.
 	4. En **Nombre de usuario** y **Contraseña**, escriba los valores pertinentes.
-	5. Haga clic en **Siguiente**.
+	5. Haga clic en **Next**.
 9. En la página **Asignación de tabla**, seleccione **emp** en la lista desplegable del campo **Destino** y haga clic en **flecha abajo** (opcional) para ver el esquema y obtener una vista previa de los datos.
 
 	![Herramienta de copia: Asignación de tabla](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. En la página **Asignación de esquema**, haga clic en **Siguiente**.
-11. Revise la información de la página **Resumen** y haga clic en **Finalizar**. Se crearán dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia).
+11. Revise la información de la página **Resumen** y haga clic en **Finalizar**. Se crean dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia).
 12. En la página **Implementación correcta**, haga clic en **Haga clic aquí para supervisar canalización de copia**.
 
 	![Herramienta de copia: Implementación correcta](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
@@ -111,12 +112,12 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
  
 
 ## Otras referencias
-| Tema. | Descripción |
+| Tema. | Description |
 | :---- | :---- |
 | [Actividades de movimiento de datos](data-factory-data-movement-activities.md) | En este artículo se proporciona información detallada sobre la actividad de copia que se usa en el tutorial. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) | En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
-| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. |
-| [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayudará a comprender los conjuntos de datos en Factoría de datos de Azure.
+| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Data Factory de Azure y cómo aprovecharlas para construir flujos de trabajo completos controlados por datos para su escenario o negocio. |
+| [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

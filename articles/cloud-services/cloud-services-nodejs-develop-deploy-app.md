@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
@@ -22,7 +22,7 @@
 - [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 - [.NET](cloud-services-dotnet-get-started.md)
 
-En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal. Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar los roles de forma fiable.
+En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal. Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
 
 Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales].
 
@@ -93,7 +93,7 @@ Este código es básicamente el mismo que el ejemplo "Hola a todos" del sitio we
 
 ### Descarga de la configuración de publicación de Azure
 
-Con el fin de implementar su aplicación en Azure, debe descargar primero la configuración de publicación para su suscripción de Azure.
+Para implementar una aplicación en Azure, en primer lugar es preciso descargar la configuración de publicación de la suscripción de Azure.
 
 1.  Ejecute el siguiente cmdlet de PowerShell de Azure:
 
@@ -169,7 +169,7 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 
 	![Estado del comando Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información acerca de la eliminación de una cuenta de almacenamiento, consulte [Eliminación de una cuenta de almacenamiento desde una suscripción de Azure].
+	> [AZURE.NOTE] La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información acerca de la eliminación de una cuenta de almacenamiento, consulte [Eliminar una cuenta de almacenamiento de una suscripción de Microsoft Azure].
 
 ## Pasos siguientes
 
@@ -183,7 +183,7 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 [SDK de Azure para .NET 2.7]: http://www.microsoft.com/es-ES/download/details.aspx?id=48178
 [Conecte PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Eliminación de una cuenta de almacenamiento desde una suscripción de Azure]: ../storage/how-to-manage-a-storage-account.md
+[Eliminar una cuenta de almacenamiento de una suscripción de Microsoft Azure]: ../storage/how-to-manage-a-storage-account.md
 [Información general de la creación de un servicio hospedado para Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro para desarrolladores de Node.js]: https://azure.microsoft.com/develop/nodejs/
 
@@ -198,4 +198,4 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

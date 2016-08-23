@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Tutorial de la solución preconfigurada de mantenimiento predictivo
 
 ## Introducción
 
-La solución preconfigurada de mantenimiento predictivo del Conjunto aplicaciones de IoT es una solución de un extremo a otro para un escenario empresarial, que predice el punto en el que es probable que se produzca un error. Puede aprovechar esta solución preconfigurada de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios críticos del Conjunto de aplicaciones de IoT de Azure, incluida un área de trabajo de [Aprendizaje automático de Azure][lnk_machine_learning], con experimentos para predecir la vida útil restante (RUL) de un motor de avión basándose en un conjunto de datos de ejemplo público. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar este tipo de solución de IoT a fin de satisfacer sus requisitos empresariales específicos.
+La solución preconfigurada de mantenimiento predictivo del Conjunto aplicaciones de IoT es una solución de un extremo a otro para un escenario empresarial, que predice el punto en el que es probable que se produzca un error. Puede utilizar esta solución preconfigurada de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios clave de Conjunto de aplicaciones de IoT de Azure, incluido un área de trabajo de [Azure Machine Learning][lnk_machine_learning]. Esta área de trabajo contiene experimentos, basados en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
 
 ## Arquitectura lógica
 
@@ -33,21 +33,21 @@ Los elementos de color azul son servicios de Azure que se aprovisionen en la ubi
 
 Algunos recursos no están disponibles en las regiones donde se ha aprovisionado la solución preconfigurada. Los elementos de color naranja del diagrama representan los servicios de Azure aprovisionados en la región más cercana disponible (Centro y sur de EE. UU., Oeste de Europa y Sudeste de Asia ) en función de la región seleccionada.
 
-El elemento verde es un dispositivo simulado que representa un motor de avión. Puede obtener más información acerca de estos dispositivos simulados a continuación.
+El elemento verde es un dispositivo simulado que representa un motor de avión. Puede obtener más información acerca de estos dispositivos simulados en la sección siguiente.
 
 Los elementos de color gris representan los componentes que implementan capacidades de *administración de dispositivos*. La versión actual de la solución preconfigurada de mantenimiento predictivo no aprovisiona estos recursos. Para obtener más información acerca de la administración de dispositivos, consulte el [Tutorial de la solución preconfigurada de supervisión remota][lnk-remote-monitoring].
 
 ## Dispositivos simulados
 
-En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 que proporcionan los datos necesarios para el modelo de Aprendizaje automático a fin de calcular la vida útil restante de dicho motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría al Centro de IoT:
+En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 que proporcionan los datos necesarios para el modelo de Aprendizaje automático a fin de calcular la vida útil restante (RUL) de dicho motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría al Centro de IoT:
 
-*Recuento de ciclos*. Un ciclo representa un vuelo completado con una longitud variable entre 2-10 horas en el que se capturan datos de telemetría cada media hora durante la realización del vuelo.
+*Recuento de ciclos*. Un ciclo representa un vuelo completado con una longitud variable entre 2-10 horas en el que se capturan datos de telemetría cada media hora durante el vuelo.
 
 *Telemetría*. Existen cuatro sensores que representan atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores representan la telemetría suficiente para obtener resultados útiles del modelo de Aprendizaje automático en lo referente a la vida útil restante. Este modelo se crea a partir de un conjunto de datos público que incluye datos de sensor de un motor real. Para obtener más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
 
 Los dispositivos simulados pueden controlar los siguientes comandos enviados desde un Centro de IoT:
 
-| Comando | Descripción |
+| Comando | Description |
 |---------|-------------|
 | StartTelemetry | Controla el estado de la simulación.<br/>Inicia el envío de telemetría del dispositivo. |
 | StopTelemetry | Controla el estado de la simulación.<br/>Detiene el envío de telemetría del dispositivo. |
@@ -60,7 +60,7 @@ Centro de IoT proporciona la confirmación de los comandos del dispositivo.
 
 ## Procesador de eventos
 
-El **procesador de eventos** toma los valores medios del sensor de un ciclo completado y los pasa a una API que expone el modelo entrenado de Aprendizaje automático para calcular la vida útil restante de un motor.
+El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Pasa esos valores a una API que muestra el modelo entrenado de Aprendizaje automático para calcular la vida útil restante de un motor.
 
 ## Aprendizaje automático de Azure
 
@@ -79,11 +79,11 @@ Esta página de la aplicación web utiliza controles de Power BI JavaScript (con
 
 ### Observación del comportamiento de la solución en la nube
 
-Puede ver los recursos aprovisionados consultando el Portal de Azure y desplazándose luego al grupo de recursos con el nombre de la solución elegida.
+En el Portal de Azure, desplácese al grupo de recursos con el nombre de la solución elegida para poder ver los recursos aprovisionados.
 
 ![][img-resource-group]
 
-Al aprovisionar la solución preconfigurada, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Aprendizaje automático. También puede navegar a esta área de trabajo desde la página [azureiotsuite.com][lnk-azureiotsuite] de la solución de aprovisionamiento cuando se encuentra en el estado **Listo**.
+Al aprovisionar la solución preconfigurada, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Aprendizaje automático. También puede navegar al área de trabajo de Machine Learning desde la página [azureiotsuite.com][lnk-azureiotsuite] de la solución de aprovisionamiento cuando se encuentra en el estado **Listo**.
 
 ![][img-machine-learning]
 
@@ -95,7 +95,7 @@ Haga clic en **Iniciar simulación** para iniciar la simulación en que la que v
 
 ![][img-simulation-running]
 
-Cuando la vida útil restante sea inferior a 160 (un umbral arbitrario elegido para fines de demostración), el portal de la solución muestra un símbolo de advertencia junto a la presentación de la vida útil restante y colorea de amarillo el motor del avión de la imagen. Observará que los valores de la vida útil restante presentan una tendencia descendente en general pero tienden a rebotar hacia arriba y hacia abajo. Esto es consecuencia de las longitudes del ciclo que varían y de la precisión del modelo.
+Si la vida útil restante es inferior a 160 (un umbral arbitrario elegido para fines de demostración), el portal de la solución muestra un símbolo de advertencia junto a la presentación de la vida útil restante y resalta en amarillo el motor del avión. Observe cómo los valores de la vida útil restante presentan una tendencia descendente en general pero tienden a rebotar hacia arriba y hacia abajo. Este comportamiento es consecuencia de las longitudes del ciclo que varían y de la precisión del modelo.
 
 ![][img-simulation-warning]
 
@@ -111,7 +111,7 @@ Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, 
 
 La entrada de blog de TechNet [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Conjunto de aplicaciones de IoT: Mantenimiento predictivo interno) proporciona información adicional sobre la solución de mantenimiento predictivo preconfigurada.
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT:
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 - [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
 - [Seguridad total de IoT][lnk-security-groundup]
@@ -133,4 +133,4 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->
