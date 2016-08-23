@@ -3,7 +3,7 @@
 	description="Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Plan para el ciclo de vida de identidad híbrida 
 
@@ -33,19 +33,19 @@ Para definir las tareas de administración de identidad híbrida, debe entender 
 
 Al definir esos requisitos, asegúrese de que al menos puede contestar a las siguientes preguntas.
 
-- Opciones de aprovisionamiento: 
+- Opciones de aprovisionamiento:
  - ¿Admite la solución de identidad híbrida un sistema sólido de aprovisionamiento y administración de acceso a las cuentas?
  - ¿Cómo se administrarán los usuarios, los grupos y las contraseñas?
- - ¿Responde adecuadamente la administración del ciclo de vida de las identidades? 
+ - ¿Responde adecuadamente la administración del ciclo de vida de las identidades?
       - ¿Cuánto tiempo tarda la suspensión de la cuenta de actualización de contraseña?
       
 - Administración de licencias:
  - ¿Se ocupa la solución de identidad híbrida de la administración de licencias?
      - En caso afirmativo, ¿qué funcionalidades están disponibles?
-- ¿Controla la solución la administración de licencias basada en grupos? 
-      - En caso afirmativo, ¿se le puede asignar un grupo de seguridad? 
-       - En caso afirmativo, ¿asignará el directorio en la nube licencias a todos los miembros del grupo automáticamente? 
-        - En caso de que un usuario se agregue posteriormente al grupo o se elimina de este, ¿se asignará una licencia automáticamente o se eliminará según corresponda? 
+- ¿Controla la solución la administración de licencias basada en grupos?
+      - En caso afirmativo, ¿se le puede asignar un grupo de seguridad?
+       - En caso afirmativo, ¿asignará el directorio en la nube licencias a todos los miembros del grupo automáticamente?
+        - En caso de que un usuario se agregue posteriormente al grupo o se elimina de este, ¿se asignará una licencia automáticamente o se eliminará según corresponda?
 
 - Integración con otros proveedores de identidades de terceros:
 - ¿Se puede integrar esta solución híbrida con proveedores de identidades de terceros para implementar el inicio de sesión único?
@@ -64,4 +64,4 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

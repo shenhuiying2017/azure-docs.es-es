@@ -42,8 +42,10 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 En este ejemplo, se mostraré cómo usar el desencadenador **When a new tweet is posted** (Cuando se publica un nuevo tweet) para buscar #Seattle y, si se encuentra #Seattle, actualizar un archivo en Dropbox con el texto del tweet. En un ejemplo de la empresa, puede buscar el nombre de su compañía y actualizar una base de datos SQL con el texto del tweet.
 
-1. Escriba *twitter* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Twitter - When a new tweet is posted** (Twitter - Cuando se publica un nuevo tweet) ![Imagen de desencadenador de Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)
-- Escriba *#Seattle* en el control **Search Text** (Buscar texto) ![Imagen de desencadenador de Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)
+1. Escriba *twitter* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Twitter - When a new tweet is posted** (Twitter - Cuando se publica un nuevo tweet)  
+![Imagen de desencadenador de Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
+- Escriba *#Seattle* en el control **Search Text** (Buscar texto)  
+![Imagen de desencadenador de Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)  
 
 En este punto, la aplicación lógica se ha configurado con un desencadenador que iniciará una ejecución de los otros desencadenadores y acciones en el flujo de trabajo.
 
@@ -52,14 +54,24 @@ En este punto, la aplicación lógica se ha configurado con un desencadenador qu
 ## Agregar una condición
 Puesto que solo estamos interesados en tweets de usuarios con más de 50 seguidores, primero se debe agregar a la aplicación lógica una condición que confirme el número de seguidores.
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se encuentre #Seattle en un nuevo tweet ![Imagen de acción de Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)
-- Seleccione el vínculo **Add a condition** (Agregar una condición). ![Imagen de condición de Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png) Se abrirá el control **Condition** (Condición) donde puede comprobar las condiciones como *is equal to* (es igual a), *is less than* (es menor que), *is greater than* (es mayor que), *contains* (contiene), etc. ![Imagen de condición de Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)
-- Seleccione el control **Choose a value** (Elegir un valor). En este control, puede seleccionar una o varias de las propiedades de cualquier acción o desencadenador anterior como el valor cuya condición se evaluará como true o false. ![Imagen de condición de Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)
-- Seleccione **...** para expandir la lista de propiedades y ver todas las propiedades que están disponibles. ![Imagen de condición de Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)
-- Seleccione la propiedad **Followers count** (Número de seguidores). ![Imagen de condición de Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)
-- Observe que la propiedad de número de seguidores ahora está en el control de valor. ![Imagen de condición de Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)
-- Seleccione **is greater than** (es mayor que) de la lista de operadores. ![Imagen de condición de Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)
-- Escriba 50 como el operando para el operador *is greater than* (es mayor que). Se agrega la condición. Guarde su trabajo mediante el vínculo **Save** (Guardar) en el menú superior. ![Imagen de condición de Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)
+1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se encuentre #Seattle en un nuevo tweet  
+![Imagen de acción de Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Seleccione el vínculo **Add a condition** (Agregar una condición).  
+![Imagen de condición de Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+Se abrirá el control **Condition** (Condición) donde puede comprobar las condiciones como *is equal to* (es igual a), *is less than* (es menor que), *is greater than* (es mayor que), *contains* (contiene), etc.  
+![Imagen de condición de Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- Seleccione el control **Choose a value** (Elegir un valor). En este control, puede seleccionar una o varias de las propiedades de cualquier acción o desencadenador anterior como el valor cuya condición se evaluará como true o false.  
+![Imagen de condición de Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- Seleccione **...** para expandir la lista de propiedades y ver todas las propiedades que están disponibles.  
+![Imagen de condición de Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- Seleccione la propiedad **Followers count** (Número de seguidores).  
+![Imagen de condición de Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- Observe que la propiedad de número de seguidores ahora está en el control de valor.  
+![Imagen de condición de Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- Seleccione **is greater than** (es mayor que) de la lista de operadores.  
+![Imagen de condición de Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- Escriba 50 como el operando para el operador *is greater than* (es mayor que). Se agrega la condición. Guarde su trabajo mediante el vínculo **Save** (Guardar) en el menú superior.  
+![Imagen de condición de Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
 ## Uso de una acción de Twitter
 
@@ -69,12 +81,16 @@ Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una ac
 
 En el paso siguiente, agregará una acción de Twitter que publicará un tweet utilizando algunas de las propiedades de cada tweet publicado por un usuario que tenga más de 50 seguidores.
 
-1. Seleccione **Add an action** (Agregar una acción). Esto abre el control de búsqueda, donde puede buscar otras acciones y desencadenadores. ![Imagen de condición de Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)
-- Escriba *twitter* en el cuadro de búsqueda, a continuación, seleccione la acción **Twitter - Post a tweet** (Twitter - Publicar un tweet). Se abrirá el control **Post a tweet** (Publicar un tweet) donde especificará todos los detalles para el tweet publicado. ![Imagen de acción de Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)
-- Seleccione el control **Tweet text** (Texto del tweet). Todos los resultados de las acciones y desencadenadores anteriores de la aplicación lógica ya están visibles. Puede seleccionar cualquiera de ellos y usarlos como parte del texto del tweet del nuevo tweet. ![Imagen de acción de Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)
+1. Seleccione **Add an action** (Agregar una acción). Esto abre el control de búsqueda, donde puede buscar otras acciones y desencadenadores.  
+![Imagen de condición de Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- Escriba *twitter* en el cuadro de búsqueda, a continuación, seleccione la acción **Twitter - Post a tweet** (Twitter - Publicar un tweet). Se abrirá el control **Post a tweet** (Publicar un tweet) donde especificará todos los detalles para el tweet publicado.  
+![Imagen de acción de Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- Seleccione el control **Tweet text** (Texto del tweet). Todos los resultados de las acciones y desencadenadores anteriores de la aplicación lógica ya están visibles. Puede seleccionar cualquiera de ellos y usarlos como parte del texto del tweet del nuevo tweet.  
+![Imagen de acción de Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)  
 - Seleccione **User name** (Nombre de usuario).
 - Vaya a *says:* (dice:) en el control del texto del tweet. Hágalo justo después del nombre de usuario.
-- Seleccione *Tweet text* (Texto del tweet). ![Imagen de acción de Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)
+- Seleccione *Tweet text* (Texto del tweet).  
+![Imagen de acción de Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)  
 - Guarde el trabajo y envíe un tweet con el hashtag #Seattle para activar el flujo de trabajo.
 
 ## Detalles técnicos

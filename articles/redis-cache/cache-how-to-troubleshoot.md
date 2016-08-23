@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Solución de problemas de Caché en Redis de Azure
@@ -47,7 +47,7 @@ La presión de memoria en el equipo cliente genera todo tipo de problemas de ren
 
 #### Medición 
 
-1.	Supervise el uso de memoria en el equipo para asegurarse de que no exceda la memoria disponible. 
+1.	Supervise el uso de memoria en el equipo para asegurarse de que no exceda la memoria disponible.
 2.	Supervise el contador de rendimiento `Page Faults/Sec`. La mayoría de los sistemas tendrá algunos errores de página, incluso durante el funcionamiento normal; por tanto, vigile los picos en este contador de rendimiento de errores de página que corresponden a tiempos de espera agotados.
 
 #### Resolución
@@ -164,8 +164,8 @@ Esta sección describe problemas que se producen debido a una condición en el s
 
 La presión de memoria en el servidor genera todo tipo de problemas de rendimiento que pueden retrasar el procesamiento de solicitudes. Cuando se alcanza la presión de memoria, normalmente el sistema tiene que paginar los datos de la memoria física a la memoria virtual que está en el disco. Estos *errores de página* hacen que el sistema se ralentice considerablemente. Hay varias causas posibles de esta presión de memoria:
 
-1.	Ha llenado totalmente la memoria caché con datos. 
-2.	Redis está viendo una fragmentación de memoria alta; normalmente debida al almacenamiento de objetos grandes (Redis está optimizado para objetos pequeños; consulte [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (¿Cuál es el intervalo de tamaño de valor ideal para redis? ¿100 KB es demasiado grande?) para ver detalles. 
+1.	Ha llenado totalmente la memoria caché con datos.
+2.	Redis está viendo una fragmentación de memoria alta; normalmente debida al almacenamiento de objetos grandes (Redis está optimizado para objetos pequeños; consulte [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (¿Cuál es el intervalo de tamaño de valor ideal para redis? ¿100 KB es demasiado grande?) para ver detalles.
 
 #### Medición
 
@@ -264,7 +264,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 4. Si hay solicitudes que dependen de las limitaciones de ancho de banda en el servidor o el cliente, tardarán más en completarse y generarán tiempos de espera agotados. Para ver si el tiempo de espera agotado se debe al ancho de banda de red del servidor, consulte [Ancho de banda del lado servidor agotado](#server-side-bandwidth-exceeded). Para ver si el tiempo de espera agotado se debe al ancho de banda de red del cliente, consulte [Ancho de banda del lado cliente agotado](#client-side-bandwidth-exceeded).
 
 6. ¿la CPU está limitada en el servidor o en el cliente?
-	-	Compruebe si la CPU le está limitando en el cliente, lo que podría hacer que la solicitud no se pueda procesar en el intervalo `synctimeout` y causar un tiempo de espera agotado. Cambiar a un tamaño de cliente mayor o distribuir la carga puede ayudar a controlarlo. 
+	-	Compruebe si la CPU le está limitando en el cliente, lo que podría hacer que la solicitud no se pueda procesar en el intervalo `synctimeout` y causar un tiempo de espera agotado. Cambiar a un tamaño de cliente mayor o distribuir la carga puede ayudar a controlarlo.
 	-	Compruebe si la CPU le está limitando en el servidor mediante la supervisión de la [métrica de rendimiento de caché](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `CPU`. Las solicitudes entrantes mientras Redis está limitado por la CPU pueden provocar que dichas solicitudes agoten el tiempo de espera. Para solucionar este problema, puede distribuir la carga entre varias particiones en una memoria caché premium o actualizar a un tamaño o plan de tarifa mayor. Para más información, consulte [Ancho de banda del lado servidor agotado](#server-side-bandwidth-exceeded).
 
 7. ¿Hay comandos que tardan mucho tiempo en procesarse en el servidor? Los comandos que tardan mucho tiempo en procesarse en el servidor de Redis pueden hacer que se agote el tiempo de espera. Algunos ejemplos de comandos que tardan mucho en ejecutarse son `mget` con un gran número de claves, `keys *` o scripts de LUA mal escritos. Puede conectarse a la instancia de Caché en Redis de Azure con el cliente redis-cli o utilizar la [consola de Redis](cache-configure.md#redis-console) y ejecutar el comando [SlowLog](http://redis.io/commands/slowlog) para ver si hay solicitudes que tardan más de lo esperado. El servidor de Redis y StackExchange.Redis están optimizados para muchas solicitudes pequeñas, en lugar de menos solicitudes de gran tamaño. Dividir los datos en fragmentos menores puede mejorar las cosas aquí.
@@ -280,18 +280,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 11. Si está utilizando `RedisSessionStateprovider`, asegúrese de que haber configurado correctamente el tiempo de espera de reintentos. `retrytimeoutInMilliseconds` debe ser mayor que `operationTimeoutinMilliseonds`; de lo contrario, no se producirá ningún reintento. En el siguiente ejemplo, `retrytimeoutInMilliseconds` se establece en 3000. Para más información, consulte [Proveedor de estado de sesión de ASP.NET para Caché en Redis de Azure](cache-aspnet-session-state-provider.md) y [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Uso de los parámetros de configuración del proveedor de estado de sesión y el proveedor de caché de resultados).
 
 
-	<add
-	  name="AFRedisCacheSessionStateProvider"
-	  type="Microsoft.Web.Redis.RedisSessionStateProvider"
-	  host="enbwcache.redis.cache.windows.net"
-	  port="6380"
-	  accessKey="…"
-	  ssl="true"
-	  databaseId="0"
-	  applicationName="AFRedisCacheSessionState"
-	  connectionTimeoutInMilliseconds = "5000"
-	  operationTimeoutInMilliseconds = "1000"
-	  retryTimeoutInMilliseconds="3000" />
+	<add name="AFRedisCacheSessionStateProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="enbwcache.redis.cache.windows.net" port="6380" accessKey="…" ssl="true" databaseId="0" applicationName="AFRedisCacheSessionState" connectionTimeoutInMilliseconds = "5000" operationTimeoutInMilliseconds = "1000" retryTimeoutInMilliseconds="3000" />
 
 
 12. Compruebe el uso de la memoria en el servidor de Caché en Redis de Azure mediante la [supervisión](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) de `Used Memory RSS` y `Used Memory`. Si hay una directiva de expulsión implementada, Redis empieza a expulsar las claves cuando `Used_Memory` alcanza el tamaño de la memoria caché. Idealmente, `Used Memory RSS` solo debe ser ligeramente mayor que `Used memory`. Una gran diferencia significa que no hay fragmentación de memoria (interna o externa). Cuando `Used Memory RSS` es menor que `Used Memory`, significa que el sistema operativo ha intercambiado parte de la memoria caché. Si esto ocurre, que puede esperar latencias importantes. Dado que Redis no tiene control sobre cómo se asignan sus asignaciones a páginas de memoria, a menudo, un parámetro `Used Memory RSS` alto suele ser el resultado de un pico de uso de memoria. Cuando Redis libera la memoria, la memoria se devuelve al asignador, y el asignador puede devolver la memoria al sistema o no hacerlo. Puede haber una discrepancia entre el valor de `Used Memory` y el consumo de memoria comunicado por el sistema operativo. Esto puede deberse al hecho de que Redis ha usado y liberado la memoria, pero no la ha devuelto al sistema. Puede realizar los pasos siguientes para ayudar a mitigar los problemas de memoria.
@@ -299,7 +288,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
     -	Establecer tiempos de expiración de las claves para que los valores antiguos se expulsen de forma proactiva.
     -	Supervisar la métrica de la memoria caché `used_memory_rss`. Cuando este valor se aproxima al tamaño de la memoria caché, es probable que empiece a ver problemas de rendimiento. Distribuir los datos entre varias particiones si utiliza una caché premium, o actualizar a un tamaño de caché mayor.
 
-    Para más información, consulte [Presión de memoria en el servidor](#memory-pressure-on-the-server).
+    Para obtener más información, consulte [Presión de memoria en el servidor](#memory-pressure-on-the-server).
 
 ## Información adicional
 
@@ -308,4 +297,4 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 -	[¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
 -	[Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

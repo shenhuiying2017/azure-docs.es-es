@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introducción a Azure | Microsoft Azure"
+	pageTitle="Introducción a Microsoft Azure | Microsoft Azure"
 	description="¿Es un usuario nuevo de Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
+	authors="rboucher"
+	manager=""
 	editor=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 # Introducción a Microsoft Azure
 
-Microsoft Azure es la plataforma de aplicaciones de Microsoft para la nube pública. El objetivo de este artículo es proporcionarle los cimientos para entender los conceptos básicos de Azure, incluso si no sabe nada de la [informática en la nube](https://azure.microsoft.com/overview/what-is-cloud-computing/).
+Microsoft Azure es la plataforma de aplicaciones de Microsoft para la nube pública. El objetivo de este artículo es proporcionarle los cimientos para entender los conceptos básicos de Azure, incluso si no sabe nada de la informática en la nube.
 
 **Cómo leer este artículo**
 
@@ -55,7 +55,7 @@ Estas tecnologías se pueden usar por separado o combinarlas como sea necesario 
 
 ![Máquinas virtuales de Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Ilustración: Máquinas virtuales de Azure ofrece un control total sobre las instancias de máquina virtual en la nube.*
 
-La posibilidad de crear una máquina virtual a petición, ya sea a partir de una imagen estándar o de una que suministre el usuario, puede resultar muy útil. Esta técnica, conocida comúnmente como Infraestructura como servicio ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)), es lo que proporciona Máquinas virtuales de Azure. La ilustración 2 muestra una combinación de cómo se ejecuta una máquina virtual y cómo crear una desde un disco duro virtual (VHD).
+La posibilidad de crear una máquina virtual a petición, ya sea a partir de una imagen estándar o de una que suministre el usuario, puede resultar muy útil. Este enfoque, conocido comúnmente como Infraestructura como servicio (IaaS), es lo que proporciona Máquinas virtuales de Azure. En la ilustración 2 se muestra una combinación de cómo se ejecuta una máquina virtual y cómo crear una desde un disco duro virtual (VHD).
 
 Para crear una VM, es necesario especificar qué VHD se va a utilizar y el tamaño de la VM. Luego, se paga por el tiempo que se ejecuta la VM. Se le cobra por minuto y solo mientras esté en ejecución, aunque hay un cargo mínimo de almacenamiento por mantener el VHD disponible. Azure ofrece una galería de VHD en existencias (llamados "imágenes") que contienen un sistema operativo de arranque desde el que se puede iniciar. Entre ellos se incluyen opciones de Microsoft y sus asociados, como Windows Server y Linux, SQL Server, Oracle y muchos más. Sin embargo, puede crear usted mismo VHD e imágenes y cargarlos personalmente. Puede incluso cargar VHD que contengan únicamente datos y luego obtener acceso a ellos desde sus máquinas virtuales en ejecución.
 
@@ -168,7 +168,7 @@ Una aplicación que almacena vídeo, archivos masivos u otra información de tip
 
 *Ilustración: Importación y exportación de Azure ofrece la posibilidad de enviar una unidad de disco duro física a o desde Azure para la importación o exportación de datos masivos más rápida y barata.*
 
-Es posible que alguna vez desee trasladar una gran cantidad de datos a Azure. Esto tomaría mucho tiempo, quizá días, y utilizaría mucho ancho de banda. En estos casos, puede utilizar Importación/Exportación de Azure, que le permite enviar unidades de disco duro SATA de 3.5" cifradas por Bitlocker directamente a centros de datos de Azure, donde Microsoft transferirá los datos al almacenamiento de blobs en su lugar. Una vez completada la carga, Microsoft le devuelve las unidades. También puede solicitar que se exporten grandes cantidades de datos desde el Almacenamiento de blobs a unidades de disco duro y que se le envíen de vuelta por correo.
+Es posible que alguna vez desee trasladar una gran cantidad de datos a Azure. Esto tomaría mucho tiempo, quizá días, y utilizaría mucho ancho de banda. En estos casos, puede utilizar Importación/Exportación de Azure, que permite enviar unidades de disco duro SATA de 3.5" cifradas por Bitlocker directamente a centros de datos de Azure, donde Microsoft transferirá automáticamente los datos al almacenamiento de blobs. Una vez completada la carga, Microsoft le devuelve las unidades. También puede solicitar que se exporten grandes cantidades de datos desde el Almacenamiento de blobs a unidades de disco duro y que se le envíen de vuelta por correo.
 
 **Escenarios para la importación y exportación**
 
@@ -202,7 +202,7 @@ En la actualidad, Azure se ejecuta en muchos centros de datos repartidos por tod
 ### Red virtual
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*Ilustración: Las redes virtuales ofrecen una red privada en la nube para permitir que diferentes servicios se comuniquen entre sí, o con recursos locales si configura una conexión VPN (una conexión entre locales).*
+*Ilustración: las redes virtuales ofrecen una red privada en la nube para permitir que diferentes servicios se comuniquen entre sí, o con recursos locales si configura una conexión VPN (una conexión entre locales).*
 
 
 Una manera útil de usar la nube pública es considerarla una extensión de su propio centro de datos.
@@ -229,7 +229,7 @@ Para obtener más información sobre ExpressRoute, consulte [ Información gener
 
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
 
-*Ilustración: El Administrador de tráfico de Azure permite enrutar el tráfico global a su servicio en función de reglas inteligentes.*
+*Ilustración: el Administrador de tráfico de Azure permite enrutar el tráfico global a su servicio en función de reglas inteligentes.*
 
 Si su aplicación de Azure se va a ejecutar en varios centros de datos, puede utilizar el Administrador de tráfico de Azure para enrutar las solicitudes de los usuarios de forma inteligente entre instancias de la aplicación. También puede enrutar tráfico a servicios que no se ejecuten en Azure siempre y cuando se pueda obtener acceso a ellos desde Internet.
 
@@ -363,7 +363,7 @@ Si bien es cierto que puede crear el back-end de una aplicación móvil mediante
 
 ![Aplicaciones móviles](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
 
-*Ilustración: Aplicaciones móviles ofrece una funcionalidad habitualmente requerida por aplicaciones que interactúan con dispositivos móviles.*
+*Ilustración: Aplicaciones móviles ofrece una funcionalidad que requieren habitualmente las aplicaciones que interactúan con dispositivos móviles.*
 
 Aplicaciones móviles de Azure ofrece muchas funciones útiles que le permitirán ahorrar tiempo al generar un back-end para una aplicación móvil. Le permite realizar sencillas tareas de aprovisionamiento y administración de los datos almacenados en una Base de datos SQL. Con código del lado servidor puede utilizar fácilmente opciones adicionales de almacenamiento de datos como almacenamiento de blobs o MongoDB. Aplicaciones móviles brinda soporte para las notificaciones, aunque en algunos casos puede usar también para ello los Centros de notificaciones (como se describe a continuación). El servicio tiene además una API de REST a la que su aplicación móvil puede llamar para que realice el trabajo. Aplicaciones móviles ofrece también la posibilidad de autenticar usuarios a través de Microsoft y Active Directory, así como otros conocidos proveedores de identidades como Facebook, Twitter y Google.
 
@@ -380,7 +380,7 @@ Dado que Azure ya admite la escala masiva, puede controlar el tráfico a medida 
 
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
 
-*Ilustración: Los Centros de notificaciones ofrecen una funcionalidad que requieren habitualmente las aplicaciones que interactúan con dispositivos móviles.*
+*Ilustración: los Centros de notificaciones ofrecen una funcionalidad que requieren habitualmente las aplicaciones que interactúan con dispositivos móviles.*
 
 Aunque puede escribir código para crear notificaciones en Aplicaciones móviles de Azure, los Centros de notificaciones están optimizados para difundir millones de notificaciones push en pocos minutos. No tiene que precuparse por detalles como el operador de telefonía móvil o el fabricante del dispositivo. Puede dirigirse a individuos o millones de usuarios con una sola llamada de API.
 
@@ -430,7 +430,7 @@ Con independencia de lo que esté haciendo, con frecuencia el código necesita i
 
 Su concepto es sencillo: una aplicación coloca un mensaje en una cola y al final otra aplicación lee ese mensaje. Si su aplicación solo necesita este sencillo servicio, las colas de Azure podrían ser la mejor opción.
 
-Debido a la manera en que ha crecido Azure con el tiempo, Colas de Almacenamiento de Azure y Colas de Bus de servicio ofrecen servicios similares de puesta en cola. Los motivos que pueden llevarle a utilizar uno u otro se explican en el documento bastante técnico [Colas de Bus de servicio y colas de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx). En la mayoría de escenarios, cualquiera de los dos funcionará.
+Debido a la manera en que ha crecido Azure con el tiempo, Colas de Almacenamiento de Azure y Colas de Bus de servicio ofrecen servicios similares de puesta en cola. Los motivos que pueden llevarle a usar uno u otro se explican en el documento bastante técnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Colas de Service Bus y Colas de Azure: comparación y diferencias"). En la mayoría de escenarios, cualquiera de los dos funcionará.
 
 **Escenarios de Colas**
 
@@ -468,7 +468,7 @@ Bus de servicio ofrece un mecanismo de publicación y suscripción denominado Te
 
 **Escenarios de temas y suscripciones del Bus de servicio**
 
-Si está con alguna configuración en la que existen muchos mensajes que son importantes, pero varios sistemas situados por debajo en la línea de comunicación necesitan escuchar solo diferentes subconjuntos de esas comunicaciones, Temas y Suscripciones de Bus de servicio son una buena opción.
+Si está con alguna configuración en la que hay muchos mensajes que son importantes, pero varios sistemas situados por debajo en la línea de comunicación necesitan escuchar solo diferentes subconjuntos de esas comunicaciones, Temas y Suscripciones de Bus de servicio son una buena opción.
 
 
 ### Servicios de BizTalk
@@ -528,7 +528,7 @@ Azure cuenta con varias tecnologías diferentes de caché que han cambiado con e
 Por ejemplo, una aplicación que lee repetidamente un catálogo de productos podría beneficiarse del uso de este tipo de almacenamiento en caché, dado que los datos que necesita estarán disponibles más rápidamente. La tecnología también admite el bloqueo, de forma que se puede utilizar con datos de lectura/escritura y de solo lectura. Y las aplicaciones de ASP.NET pueden usar el servicio para almacenar datos de sesión con un simple cambio de la configuración.
 
 ### Red de entrega de contenido
-![Red CDN de Azure](./media/fundamentals-introduction-to-azure/CDNIntroNew.png) **Ilustración: Las copias de un blob se pueden almacenar en caché en sitios de todo el mundo.**
+![Red CDN de Azure](./media/fundamentals-introduction-to-azure/CDNIntroNew.png) **Ilustración: las copias de un blob se pueden almacenar en caché en sitios de todo el mundo.**
 
 Supongamos que necesita almacenar datos de blob a los que van a tener acceso usuarios de todo el mundo. Puede ser un vídeo del último partido de la Copa del Mundo, por ejemplo, o actualizaciones de controladores o un conocido libro electrónico. Almacenar una copia de los datos en varios centros de datos de Azure puede ayudar, pero si hay muchos usuarios, es probable que no sea suficiente. Para conseguir un mejor rendimiento, puede utilizar el servicio CDN de Azure.
 
@@ -591,7 +591,7 @@ El surgimiento del software como servicio está transformando el modo en que cre
 
 ![Comercio de Azure](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png) **Ilustración: Azure Marketplace y la Tienda de Azure le permiten buscar y comprar aplicaciones y conjuntos de datos comerciales de Azure y usarlos como parte de las aplicaciones de Azure.**
 
-La diferencia entre los dos es que Marketplace se encuentra fuera del Portal de administración de Azure, mientras que a la Tienda se puede tener acceso desde el portal. Los potenciales clientes pueden buscar para encontrar aplicaciones de Azure que satisfagan sus necesidades. Los clientes también pueden buscar en cualquiera de ellos conjuntos de datos comerciales, como datos demográficos, datos financieros, datos geográficos y muchos más. Y, si encuentran algo que les guste, pueden tener acceso a ello desde el proveedor, directamente a través de las ubicaciones web de Marketplace o de la Tienda o, en algunos casos, desde el Portal de administración. Las aplicaciones pueden utilizar también la API de Búsqueda de Bing a través de Marketplace, que les proporciona acceso a los resultados de las búsquedas web.
+La diferencia entre los dos es que Marketplace se encuentra fuera del Portal de administración de Azure, mientras que a la Tienda se puede tener acceso desde el portal. Los clientes potenciales pueden buscar para encontrar aplicaciones de Azure que satisfagan sus necesidades. Los clientes también pueden buscar en cualquiera de ellos conjuntos de datos comerciales, como datos demográficos, datos financieros, datos geográficos y muchos más. Y, si encuentran algo que les guste, pueden tener acceso a ello desde el proveedor, directamente a través de las ubicaciones web de Marketplace o de la Tienda o, en algunos casos, desde el Portal de administración. Las aplicaciones pueden utilizar también la API de Búsqueda de Bing a través de Marketplace, que les proporciona acceso a los resultados de las búsquedas web.
 
 
 **Escenarios de Comercio**
@@ -606,4 +606,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

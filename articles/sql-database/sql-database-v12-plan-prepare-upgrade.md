@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/01/2016"
 	ms.author="genemi"/>
 
 
@@ -167,7 +167,7 @@ Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [C
 La base de datos V11 sigue estando disponible para el acceso a los datos durante la actualización a V12. Sin embargo, existen algunas limitaciones que deben considerarse.
 
 
-| Limitación | Descripción |
+| Limitación | Description |
 | :--- | :--- |
 | Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tienen bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium<br/><br/> La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que actualmente se encuentra en proceso de realizar una actualización desde V11. |
@@ -177,7 +177,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 ### Limitación *después de* la actualización a V12
 
 
-| Limitación | Descripción |
+| Limitación | Description |
 | :--- | :--- |
 | No se puede revertir a V11 | Después de una actualización local, el resultado no se puede revertir o deshacer. |
 | Nivel Web o Business | Cuando se inicia la actualización, el servidor para la nueva base de datos V12 ya no puede reconocer ni aceptar el nivel de servicio Web o Business. |
@@ -256,4 +256,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

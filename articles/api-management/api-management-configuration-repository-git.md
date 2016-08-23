@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -152,7 +152,7 @@ Para obtener información acerca de cómo realizar esta operación mediante la A
 
 Los archivos y carpetas del repositorio local de Git contienen la información de configuración acerca de la instancia de servicio.
 
-| Elemento | Descripción |
+| Elemento | Description |
 |-------------------------   |--------------------------------------------------------------------------------------------|
 | carpeta raíz de la administración de API | Contiene la configuración de nivel superior para la instancia de servicio |
 | carpeta de API | Contiene la configuración para las API de la instancia de servicio |
@@ -297,4 +297,4 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

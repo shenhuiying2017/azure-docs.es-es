@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -163,4 +163,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 - [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md)
 - [Exploradores de almacenamiento de Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

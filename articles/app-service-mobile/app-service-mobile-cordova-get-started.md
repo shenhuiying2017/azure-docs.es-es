@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Creación de una aplicación de Apache Cordova
@@ -32,8 +32,8 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Un equipo con [Visual Studio Community 2015] o versiones posteriores.
-* [Herramientas de Visual Studio para Apache Cordova].
+* Un equipo con [Visual Studio Community 2015], o cualquier versión posterior.
+* [Visual Studio Tools para Apache Cordova].
 * Una [cuenta de Azure activa](https://azure.microsoft.com/pricing/free-trial/).
 
 También puede omitir Visual Studio y utilizar la línea de comandos de Apache Cordova directamente. Esto resulta útil si realiza el tutorial en un equipo Mac. Este tutorial no aborda la compilación de aplicaciones de cliente de Apache Cordova con la línea de comandos.
@@ -75,7 +75,7 @@ Obtenga información sobre cómo usar los SDK.
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Herramientas de Visual Studio para Apache Cordova]: https://www.visualstudio.com/es-ES/features/cordova-vs.aspx
+[Visual Studio Tools para Apache Cordova]: https://www.visualstudio.com/es-ES/features/cordova-vs.aspx
 [Agregar autenticación]: app-service-mobile-cordova-get-started-users.md
 [Agregar notificaciones push]: app-service-mobile-cordova-get-started-push.md
 [Autenticación]: app-service-mobile-auth.md
@@ -84,4 +84,4 @@ Obtenga información sobre cómo usar los SDK.
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

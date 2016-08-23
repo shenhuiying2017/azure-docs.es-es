@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Ejecución de cualquier aplicación de Windows en cualquier dispositivo con Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Puede ejecutar una aplicación de Windows en cualquier lugar, en cualquier dispositivo, ahora mismo, en serio: simplemente usando Azure RemoteApp. Ya se trate de una aplicación personalizada desarrollada hace 10 años o una aplicación de Office, los usuarios ya no estarán atados a un sistema operativo específico (como Windows XP) para esas pocas aplicaciones.
 
@@ -61,7 +64,7 @@ Si se ha desplazado fuera del nodo Azure RemoteApp mientras se creaba la colecci
 ![Una nueva colección en la nube de RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. En la pestaña **Publicación**, haga clic en **Publicar** en la parte inferior de la pantalla y, a continuación, haga clic en **Publicar programas del menú Inicio**.
 ![Publicación de un programa de RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
-4. Seleccione las aplicaciones que desea publicar en la lista. Para los fines de este tutorial, elegimos Access. Haga clic en **Completo**. Espere a que las aplicaciones finalicen la publicación.
+4. Seleccione las aplicaciones que desea publicar en la lista. Para los fines de este tutorial, elegimos Access. Haga clic en **Complete**. Espere a que las aplicaciones finalicen la publicación.
 ![Publicación de Access en RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
@@ -80,7 +83,7 @@ Algunas aplicaciones necesitan configuración adicional después de implementarl
 La primera parte la tiene que hacer usted como administrador. Luego, tenemos algunos pasos que deben seguir los usuarios.
 
 1. Comience por publicar la interfaz de línea de comandos (cmd.exe). En la pestaña **Publicación**, seleccione **cmd**, y, a continuación, haga clic en **Publicar > Publicar programa con ruta de acceso**.
-2. Escriba el nombre de la aplicación y la ruta de acceso. Para nuestros fines actuales, utilice "Explorador de archivos" como nombre y "%SYSTEMDRIVE%\windows\explorer.exe" como ruta de acceso.
+2. Escriba el nombre de la aplicación y la ruta de acceso. Para nuestros fines actuales, utilice "Explorador de archivos" como nombre y "%SYSTEMDRIVE%\\windows\\explorer.exe" como ruta de acceso.
 ![Publique el archivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Ahora tiene que crear una [cuenta de almacenamiento](../storage/storage-create-storage-account.md) de Azure. Hemos llamado a la nuestra "accessstorage", así que elija un nombre que sea significativo para usted. (Para citar erróneamente a Highlander, solo puede haber una con el nombre "accessstorage")
 ![Nuestra cuenta de almacenamiento de Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
@@ -121,4 +124,4 @@ Ahora que ha aprendido a crear una colección, intente crear una [colección que
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

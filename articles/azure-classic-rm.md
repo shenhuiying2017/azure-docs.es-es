@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modos de implementación Administrador de recursos y Clásico (administración de servicios) | Azure"
+   pageTitle="Modos de implementación de Resource Manager y administración de servicios (clásica) | Microsoft Azure"
    description="Comprenda las diferencias entre los modelos de implementación Administrador de recursos y Clásico."
    services="virtual-network"
    documentationCenter=""
@@ -23,7 +23,7 @@ La plataforma Azure está en transición. Si está familiarizado con Azure o lo 
 
 Todos los recursos de Azure admiten uno o los dos modelos de implementación siguientes:
 
-- **Administrador de recursos:** se trata del modelo de implementación más reciente para recursos de Azure. La mayoría de los recursos más recientes ya son compatibles con este modelo de implementación y, a la larga, todos los recursos lo serán.   
+- **Administrador de recursos:** se trata del modelo de implementación más reciente para recursos de Azure. La mayoría de los recursos más recientes ya son compatibles con este modelo de implementación y, a la larga, todos los recursos lo serán.
  
 - **Clásico:** este modelo es compatible con la mayoría de los recursos de Azure existentes hoy en día. Los nuevos recursos que se agreguen a Azure no serán compatibles con este modelo.
 
@@ -33,10 +33,10 @@ La documentación sobre cada recurso de Azure describe detalladamente los modelo
 
 Es importante por los motivos siguientes:
 
-- Las características de la plataforma Azure que se usan son diferentes en estos dos modelos. Por ejemplo, los recursos creados con el modelo de implementación Administrador de recursos (o simplemente, Administrador de recursos) pueden generarse a partir de [plantillas del Administrador de recursos de Azure](resource-group-overview.md/#template-deployment), mientras que los recursos creados con el modelo de implementación Clásico, no.
-- Las características o los comportamientos de cada uno de los recursos de Azure pueden ser diferentes en los dos modelos o solo existir en uno de los modelos. Por ejemplo, el tráfico de equilibrio de carga entre máquinas virtuales creadas con el modelo de implementación Clásico está *implícito* porque las máquinas virtuales son miembros de un servicio en la nube de Azure y la carga se equilibra automáticamente entre máquinas virtuales dentro de un servicio en la nube. Las máquinas virtuales creadas con el Administrador de recursos no son miembros de un servicio en la nube, por lo que debe crearse *explícitamente* un recurso de equilibrador de carga de Azure aparte para el tráfico de equilibrio de carga entre varias máquinas virtuales.  
+- Las características de la plataforma Azure que se usan son diferentes en estos dos modelos. Por ejemplo, los recursos creados con el modelo de implementación Administrador de recursos (o simplemente, Administrador de recursos) pueden generarse a partir de [plantillas del Administrador de recursos de Azure](resource-group-overview.md#template-deployment), mientras que los recursos creados con el modelo de implementación Clásico, no.
+- Las características o los comportamientos de cada uno de los recursos de Azure pueden ser diferentes en los dos modelos o solo existir en uno de los modelos. Por ejemplo, el tráfico de equilibrio de carga entre máquinas virtuales creadas con el modelo de implementación Clásico está *implícito* porque las máquinas virtuales son miembros de un servicio en la nube de Azure y la carga se equilibra automáticamente entre máquinas virtuales dentro de un servicio en la nube. Las máquinas virtuales creadas con el Administrador de recursos no son miembros de un servicio en la nube, por lo que debe crearse *explícitamente* un recurso de equilibrador de carga de Azure aparte para el tráfico de equilibrio de carga entre varias máquinas virtuales.
 - La forma de crear, configurar y administrar los recursos de Azure es diferente entre estos dos modelos.
-- Los recursos creados con un modelo de implementación no necesariamente pueden interoperar con los recursos creados mediante otro modelo de implementación. Por ejemplo, las máquinas virtuales de Azure creadas con un modelo de implementación solo pueden conectarse a redes virtuales de Azure creadas con el mismo modelo de implementación.    
+- Los recursos creados con un modelo de implementación no necesariamente pueden interoperar con los recursos creados mediante otro modelo de implementación. Por ejemplo, las máquinas virtuales de Azure creadas con un modelo de implementación solo pueden conectarse a redes virtuales de Azure creadas con el mismo modelo de implementación.
 
 En cada uno de los modelos de implementación existe una interfaz de programación de aplicaciones (API) subyacente para cada recurso. Hay una [API del Administrador de recursos](https://msdn.microsoft.com/library/azure/dn948464.aspx) para el modelo de implementación Administrador de recursos y una [API de administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx) para el modelo de implementación Clásico. Los desarrolladores pueden escribir código para interactuar con estas API *directamente*.
 
@@ -47,8 +47,8 @@ En las secciones siguientes se explica cómo se configuran los recursos de Azure
 ## Portales
 Azure tiene dos portales:
 
-- **[Portal de Azure](https://manage.windowsazure.com):** si lleva tiempo usando Azure, ya utiliza este portal. Sirve para crear y configurar recursos de Azure anteriores que admiten el modelo de implementación Clásico. No se puede usar para crear o configurar recursos que solo admiten el Administrador de recursos. 
-- **[Portal de vista previa de Azure](https://azure.microsoft.com/overview/preview-portal/):** si usa un recurso de Azure más reciente, es probable que ya utilice este portal. Sirve para crear y configurar algunos recursos de Azure. Con el tiempo, podrá crear y configurar todos los recursos de Azure con él. En el caso de algunos recursos que admitan ambos modelos de implementación, puede usarse este portal para crear y configurar un recurso con cualquier modelo de implementación. 
+- **[Portal de Azure](https://manage.windowsazure.com):** si lleva tiempo usando Azure, ya utiliza este portal. Sirve para crear y configurar recursos de Azure anteriores que admiten el modelo de implementación Clásico. No se puede usar para crear o configurar recursos que solo admiten el Administrador de recursos.
+- **[Portal de vista previa de Azure](https://azure.microsoft.com/overview/preview-portal/):** si usa un recurso de Azure más reciente, es probable que ya utilice este portal. Sirve para crear y configurar algunos recursos de Azure. Con el tiempo, podrá crear y configurar todos los recursos de Azure con él. En el caso de algunos recursos que admitan ambos modelos de implementación, puede usarse este portal para crear y configurar un recurso con cualquier modelo de implementación.
 
 Algunos recursos y características solo se pueden crear y configurar en un portal o en el otro. Algunos recursos o características (todavía) no se pueden crear ni configurar en ninguno de los portales, solo pueden configurarse con PowerShell, la CLI o ambos. La documentación sobre cada recurso de Azure describe detalladamente el método con el que se puede crear.
 
@@ -67,4 +67,4 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 - Obtenga más información sobre el [Administrador de recursos de Azure](resource-group-overview.md).
 - Aprenda a [diseñar plantillas](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

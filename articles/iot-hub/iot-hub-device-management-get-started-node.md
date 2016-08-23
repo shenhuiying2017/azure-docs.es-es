@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/11/2016"
  ms.author="juanpere"/>
 
 # Introducción a la administración de dispositivos de Centro de IoT de Azure con node.js (versión preliminar)
@@ -23,7 +23,7 @@
 ## Introducción
 Para comenzar con la administración de dispositivos en un Centro de IoT de Azure, primero debe crear un Centro de IoT de Azure, abastecerlo de dispositivos, iniciar varios dispositivos simulados y ver estos dispositivos en la interfaz de usuario de ejemplo de administración de dispositivos. Este tutorial le guiará a través de estos pasos.
 
-> [AZURE.NOTE]  Debe crear un nuevo Centro de IoT para habilitar las funcionalidades de administración de dispositivos, aunque ya disponga de un Centro de IoT existente, puesto que los Centros de IoT existentes aún no pueden administrar dispositivos. Una vez que la administración de dispositivos esté completamente operativa, todos los Centros de IoT existentes se actualizarán con las funcionalidades de administración de dispositivos.
+> [AZURE.NOTE]  Debe crear un nuevo Centro de IoT para habilitar las funcionalidades de administración de dispositivos, aunque ya disponga de uno, puesto que los Centros de IoT existentes aún no pueden administrar estas funcionalidades. Una vez que la administración de dispositivos esté completamente operativa, todos los Centros de IoT existentes se actualizarán con las funcionalidades de administración de dispositivos.
 
 ## Requisitos previos
 
@@ -57,16 +57,14 @@ Debe crear un Centro de IoT con la administración de dispositivos habilitada pa
   -   En el cuadro **Nombre**, escriba un nombre para identificar el Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
   -   Seleccione un **Plan de tarifa y escalado**. Este tutorial no requiere ningún nivel determinado.
   -   En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure].
-  -   Active la casilla **Enable Device Management** (Habilitar la administración de dispositivos).
+  -   Active la casilla **Enable Device Management** (Habilitar la administración de dispositivos). Si no selecciona la casilla **Habilitar Administración de dispositivos**, los ejemplos no funcionarán. Si selecciona **Habilitar Administración de dispositivos**, se creará una vista previa del Centro de IoT que solo se admite en la zona este de Estados Unidos, Europa del Norte y Asia Oriental y que no está pensada para escenarios de producción. No puede migrar dispositivos dentro y fuera de los centros habilitados de administración de dispositivos.
   -   En **Ubicación**, seleccione la ubicación para hospedar su Centro de IoT. La administración de dispositivos del Centro de IoT solo está disponible en el este de EE. UU., Europa del Norte y Asia Oriental. En el futuro, estará disponible en todas las regiones.
-
-  > [AZURE.NOTE]  Si no activa la casilla **Enable Device Management** (Habilitar la administración de dispositivos), los ejemplos no funcionarán.
 
 4.  Cuando haya elegido las opciones de configuración del Centro de IoT, haga clic en **Crear**. Azure puede tardar unos minutos en crear el Centro de IoT. Para comprobar el estado, puede supervisar el progreso en el **Panel de inicio** o en el panel de **notificaciones**.
 
 	![][img-monitor]
 
-5.  Cuando haya creado el Centro de IoT, abra la hoja del nuevo Centro de IoT, tome nota del **nombre de host** y, después, haga clic en el icono de **llave**.
+5.  Cuando haya creado el Centro de IoT, abra la hoja del nuevo Centro de IoT, tome nota del **nombre de host** y, después, haga clic en **Directivas de acceso compartido**.
 
 	![][img-keys]
 
@@ -76,7 +74,7 @@ Debe crear un Centro de IoT con la administración de dispositivos habilitada pa
 
 	![][img-connection]
 
-Ya ha creado un Centro de IoT con la administración de dispositivos habilitada. Necesitará la cadena de conexión para completar el resto de este tutorial.
+Ya ha creado un Centro de IoT con la administración de dispositivos habilitada. Necesita la cadena de conexión para completar el resto de este tutorial.
 
 ## Compilación de ejemplos y aprovisionamiento de dispositivos en el Centro de IoT
 
@@ -117,7 +115,7 @@ El script hace lo siguiente:
 
 ## Inicio de los dispositivos simulados
 
-Ahora que los dispositivos se han agregado al registro de dispositivos, puede iniciar los dispositivos simulados. Para cada identidad de dispositivo proporcionada al Centro de IoT de Azure se debe iniciar un dispositivo simulado.
+Ahora que los dispositivos se han agregado al registro de dispositivos, puede iniciar los dispositivos simulados. Debe iniciar un dispositivo simulado para cada identidad de dispositivo aprovisionada en el Centro de IoT de Azure.
 
 Con el shell, desplácese al directorio **azure-iot-sdks/node/service/samples** y ejecute:
 
@@ -129,9 +127,9 @@ Este script produce los comandos que se deben ejecutar para iniciar **iotdm\_sim
 
 La aplicación **iotdm\_simple\_sample** se compila a partir de la biblioteca del cliente de administración de dispositivos del Centro de IoT de Azure para C, que permite la creación de dispositivos IoT que pueden administrarse mediante el Centro de IoT de Azure. Los fabricantes de los dispositivos pueden usar esta biblioteca para informar de propiedades de los dispositivos e implementar las acciones de ejecución que necesitan los trabajos de dispositivo. Esta biblioteca es un componente que se ofrece como parte del SDK de Centro de IoT de Azure de código abierto.
 
-Al ejecutar **simulate.sh**, verá la transmisión de datos en la ventana de salida. Esta salida muestra el tráfico entrante y saliente, así como las instrucciones de **printf** de las funciones de devolución de llamada específicas de la aplicación. Esto le permite ver el tráfico entrante y saliente junto, además de cómo la aplicación de ejemplo maneja los paquetes descodificados. Cuando el dispositivo se conecta al Centro de IoT, el servicio comienza automáticamente a observar los recursos del dispositivo. Después, la biblioteca del cliente de DM del Centro de IoT invoca las devoluciones de llamada del dispositivo para recuperar los valores más recientes del dispositivo.
+Al ejecutar **simulate.sh**, verá la transmisión de datos en la ventana de salida. Esta salida muestra el tráfico entrante y saliente, así como las instrucciones de **printf** de las funciones de devolución de llamada específicas de la aplicación. Esta salida le permite ver el tráfico entrante y saliente y ver cómo la aplicación de ejemplo maneja los paquetes descodificados. Cuando el dispositivo se conecta al Centro de IoT, el servicio comienza automáticamente a observar los recursos del dispositivo. Después, la biblioteca del cliente de DM del Centro de IoT invoca las devoluciones de llamada del dispositivo para recuperar los valores más recientes del dispositivo.
 
-A continuación se muestra la salida de la aplicación de prueba **iotdm\_simple\_sample**. En la parte superior, verá el mensaje **REGISTRADO**, que muestra el dispositivo con identificador **Device11 7ce4a850** conectándose al Centro de IoT.
+A continuación se muestra la salida de la aplicación de ejemplo **iotdm\_simple\_sample**. En la parte superior, verá el mensaje **REGISTRADO**, que muestra el dispositivo con identificador **Device11-7ce4a850** conectándose al Centro de IoT.
 
 > [AZURE.NOTE]  Para que el resultado sea menos detallado, genere y ejecute la configuración de venta directa.
 
@@ -147,7 +145,7 @@ Para recuperar, compilar y ejecutar la interfaz de usuario de ejemplo de adminis
 
 1. Abra un shell.
 
-2. Confirme que ha instalado Node.js 6.1.0, o una versión superior, según la sección de requisitos previos, escriba `node --version`.
+2. Confirme que ha instalado Node.js 6.1.0 o una versión superior, según la sección de requisitos previos, escribiendo `node --version`.
 
 3. Clone el repositorio de GitHub de la interfaz de usuario de administración de dispositivos de IoT de Azure mediante la ejecución del siguiente comando en el shell:
 
@@ -204,4 +202,4 @@ Para aprender más sobre las características de administración de dispositivos
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

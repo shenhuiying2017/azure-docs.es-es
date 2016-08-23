@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Habilitación del acceso externo a la máquina virtual mediante el Portal de Azure
@@ -63,4 +63,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

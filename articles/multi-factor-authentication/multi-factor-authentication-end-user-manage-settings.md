@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Problemas con Azure Multi-Factor Authentication
@@ -47,7 +47,7 @@ Cuando se comunique con el soporte técnico, se recomienda que incluya la inform
  
 ![Id. de correlación](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **Id. de usuario**: cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
+ - **Id. de usuario**: ¿cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
  - **Información sobre el usuario**: si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube. ¿El usuario tiene asignada una licencia de Azure AD Premium, Enterprise Mobility o Azure AD Básico? ¿El usuario utiliza Office 365? etc.
 
 Incluir esta información nos ayudará a solucionar el problema lo antes posible.
@@ -73,7 +73,7 @@ Si no configuró un número de teléfono de autenticación secundario, deberá p
 ## Deseo cambiar mi número de teléfono
 Según cómo use la autenticación multifactor, existen algunos lugares donde puede cambiar ajustes como su número de teléfono. Use la tabla que aparece a continuación para elegir la opción más conveniente.
 
-Cómo usa la autenticación multifactor|Descripción
+Cómo usa la autenticación multifactor|Description
 :------------- | :------------- | 
 [La uso con Office 365](#changing-your-settings-with-office-365)| Esto significa que tendrá que cambiar la configuración a través del portal de Office 365.
 [No lo sé](#changing-your-settings-with-the-myapps-portal)|Esto significa que deberá iniciar sesión en [http://myapps.microsoft.com](http://myapps.microsoft.com) y cambiar aquí su configuración.
@@ -101,7 +101,7 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 
 #### Cambio de la configuración en el Portal de Myapps
 
-1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).	
+1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. En la parte superior, seleccione el perfil.
 3. Seleccione Comprobación de seguridad adicional. ![MyApps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Esto le llevará a la página que le permitirá cambiar la configuración.
@@ -145,7 +145,7 @@ En primer lugar, debe asegurarse de lo siguiente:
 
 - Si ha seleccionado recibir una llamada de teléfono en su teléfono móvil, asegúrese de que tiene una señal de móvil adecuada. La disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios.
 - Si eligió recibir códigos de comprobación por mensaje de texto en su teléfono móvil, asegúrese de que su dispositivo y su plan de servicio admitan la entrega de mensajes de texto. La disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios. Además, asegúrese de contar con una señal de celular adecuada cuando intenta recibir estos códigos.
-- Si eligió recibir una comprobación a través de la aplicación móvil, asegúrese de tener una señal de celular considerable. Además, recuerde que la disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios. 
+- Si eligió recibir una comprobación a través de la aplicación móvil, asegúrese de tener una señal de celular considerable. Además, recuerde que la disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios.
 
 Si tiene un smartphone, le recomendamos usar la [aplicación Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
 
@@ -172,4 +172,4 @@ Además, puede ponerse en contacto con el administrador o con la persona que con
 
 Por último, asegúrese de dejar algunos comentarios detallados en esta página para que podemos actualizarla y continuar mejorándola proporcionando más información.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web de Java en el Servicio de aplicaciones de Azure
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo crear una [aplicación web de Java en el Servi
 
 > [AZURE.NOTE] Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio] o bien [registrarse para obtener una evaluación gratuita].
 >
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones]. Ahí puede crear de forma inmediata una aplicación web de inicio de corta duración en el Servicio de aplicaciones; no se requiere ninguna tarjeta de crédito y no se establece ningún compromiso.
+> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones]. Ahí puede crear de forma inmediata una aplicación web de inicio de corta duración en el Servicio de aplicaciones; no se requiere ninguna tarjeta de crédito y no se establece ningún compromiso.
 
 ## Opciones de la aplicación Java
 
@@ -44,7 +44,7 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
 	
 	* Su aplicación Java requiere una versión de Tomcat o Jetty que no es directamente compatible con el Servicio de aplicaciones o que no se proporciona en la galería.
 	* La aplicación Java toma las solicitudes HTTP y no se implementa como un WAR en un contenedor web ya existente.
-	* Desea configurar el contenedor web desde el principio. 
+	* Desea configurar el contenedor web desde el principio.
 	* Quiere usar una versión de Java que no es compatible con el Servicio de aplicaciones y desea cargarla.
 
 	En todos estos casos, puede crear una aplicación mediante el Portal de Azure y después proporcionar los archivos en tiempo de ejecución adecuados manualmente. En este caso, los archivos se deducirán de las cuotas de espacio de almacenamiento para su plan del Servicio de aplicaciones. Para obtener más información, consulte [Carga de una aplicación web de Java personalizada en Azure].
@@ -91,7 +91,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 
 	![Versiones de contenedor web][versions]
 
-13. Haga clic en **Guardar**.
+13. Haga clic en **Save**.
 
 	En unos momentos, su aplicación web estará basada en Java y configurada para usar el contenedor web seleccionado.
 
@@ -172,7 +172,7 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 [Portal de Azure]: https://portal.azure.com/
 [activar los beneficios de suscripción a Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[prueba gratuita del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prueba del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
 [aplicación web de Java en el Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro de desarrolladores de Java]: /develop/java/
 [Uso del Portal de Azure para administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
@@ -192,4 +192,4 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

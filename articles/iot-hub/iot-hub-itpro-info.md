@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Configuración y administración del acceso al Centro de IoT
@@ -24,7 +24,7 @@ En este artículo se ofrece información que ayuda a los profesionales de TI a c
 
 Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante una variedad de protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
 
-| Protocolo | Puertos |
+| Protocol | Puertos |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
@@ -59,4 +59,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

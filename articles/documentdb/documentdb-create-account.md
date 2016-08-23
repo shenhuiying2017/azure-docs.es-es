@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Creación de una cuenta de DocumentDB mediante el Portal de Azure
@@ -25,8 +25,8 @@
 
 Para generar una base de datos con Microsoft Azure DocumentDB, debe:
 
-- Tener una cuenta de Azure. Si no tiene una, puede obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/free). 
-- Crear una cuenta de DocumentDB.  
+- Tener una cuenta de Azure. Si no tiene una, puede obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/free).
+- Crear una cuenta de DocumentDB.
 
 Puede crear una cuenta de DocumentDB con el Portal de Azure, las plantillas de Azure Resource Manager o la interfaz de línea de comandos (CLI) de Azure. En este artículo se muestra cómo crear una cuenta de base de datos con el Portal de Azure. Para crear una cuenta con Administrador de recursos de Azure o CLI de Azure, consulte [Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI](documentdb-automation-resource-manager-cli.md).
 
@@ -53,4 +53,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 -	[Ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modelo de recursos y conceptos de DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

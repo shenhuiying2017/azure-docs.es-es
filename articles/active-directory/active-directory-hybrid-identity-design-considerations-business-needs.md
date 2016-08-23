@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/02/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de identidad para la solución de identidad híbrida
@@ -40,7 +40,7 @@ Para identificar las necesidades de su empresa asegúrese de que considera las r
 ## Análisis de la infraestructura de identidad local
 Ahora que ya tiene una idea con respecto a los requisitos empresariales de su compañía, tiene que evaluar su infraestructura de identidad local. Esta evaluación es importante para definir los requisitos técnicos con el fin de integrar la solución de identidad actual para el sistema de administración de identidades de nube. Asegúrese de responder a las siguientes preguntas:
 
-- ¿Qué soluciones de autenticación y autorización usa su empresa localmente? 
+- ¿Qué soluciones de autenticación y autorización usa su empresa localmente?
 - ¿Su empresa tiene actualmente servicios locales de sincronización?
 - ¿Su empresa usa proveedores de identidades (IdP) de terceros?
 
@@ -72,7 +72,7 @@ A continuación, tiene que evaluar los requisitos de integración de identidades
 - ¿La organización tiene un dominio personalizado?
     1. ¿Es dicho dominio público y fácilmente comprobable a través de DNS?
     1. Si no es así, ¿tiene un dominio público que puede usarse para registrar un UPN alternativo en AD?
-- ¿Son los identificadores de usuario coherentes para la representación en la nube? 
+- ¿Son los identificadores de usuario coherentes para la representación en la nube?
 - ¿Tiene la organización aplicaciones que requieren la integración con servicios en la nube?
 - ¿Tiene la organización varios dominios y en todos ellos se usará la autenticación estándar o federada?
 
@@ -98,7 +98,7 @@ Asegúrese de anotar cada respuesta y de que comprende las razones que se escond
 ## Pasos siguientes
 [Determinación de los requisitos de sincronización de directorios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## Consulte también
+## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

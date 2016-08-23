@@ -19,7 +19,9 @@
 
 # Creación de una máquina virtual con Linux en Azure mediante la CLI
 
-En este artículo se muestra cómo implementar rápidamente una máquina virtual de Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual con una infraestructura básica que la rodea y que se puede usar para crear un prototipo o probar un concepto rápidamente (puede considerarse la forma más rápida para acceder a un shell de Bash de Linux). Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md), la sesión iniciada en (`azure login`) y en modo de Resource Manager (`azure config mode arm`). Puede implementar rápidamente una máquina virtual de Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
+> [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
+
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual rodeada de una infraestructura básica que se puede usar para crear un prototipo o probar un concepto con gran rapidez (puede considerarse la forma más rápida de acceder a un shell de Bash de Linux). Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y haber iniciado sesión en [la CLI de Azure](../xplat-cli-install.md) (`azure login`) en modo de Resource Manager (`azure config mode arm`). También puede implementar rápidamente una máquina virtual Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumen rápido de comandos
 
@@ -35,7 +37,7 @@ Si se usa el mismo comando que arriba, a continuación se muestra cada aviso, ju
 
 ## Uso de un alias ImageURN
 
-El comando `quick-create` de la CLI de Azure tiene alias asignados a las distribuciones de SO más comunes. La siguiente tabla enumera los alias de distribución (desde la versión 0.10 de la CLI de Azure) Todas las implementaciones con `quick-create` utilizan de manera predeterminada máquinas virtuales que con almacenamiento SSD, lo que ofrece una experiencia de alto rendimiento.
+El comando `quick-create` de la CLI de Azure tiene alias asignados a las distribuciones de SO más habituales. La siguiente tabla enumera los alias de distribución (desde la versión 0.10 de la CLI de Azure) Todas las implementaciones con `quick-create` utilizan de manera predeterminada máquinas virtuales con almacenamiento SSD, lo que ofrece una experiencia de alto rendimiento.
 
 | Alias | Publicador | Oferta | SKU | Versión |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -49,7 +51,7 @@ El comando `quick-create` de la CLI de Azure tiene alias asignados a las distrib
 
 
 
-Para la opción **ImageURN** (`-Q`) utilizaremos `RHEL` para implementar una máquina virtual con Red Hat Enterprise Linux 7.2. (Estos siete alias representan una pequeña parte del sistema operativo disponible en Azure; busque más imágenes en Marketplace mediante la [búsqueda de una imagen](virtual-machines-linux-cli-ps-findimage.md), o bien [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md).)
+Para la opción **ImageURN** (`-Q`) utilizaremos `RHEL` para implementar una máquina virtual con Red Hat Enterprise Linux 7.2. (Estos siete alias representan una pequeña parte del sistema operativo disponible en Azure; [busque más imágenes](virtual-machines-linux-cli-ps-findimage.md) en Marketplace o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)).
 
 En el siguiente tutorial de comandos, reemplace los avisos por valores de su propio entorno. Estamos usando valores de "ejemplo".
 
@@ -166,9 +168,9 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 El comando `azure vm quick-create` es la forma más rápida de implementar una máquina virtual para poder iniciar sesión en un shell de Bash y empezar a trabajar. `vm quick-create` no proporcionará las ventajas adicionales de un entorno complejo. Para implementar una máquina virtual de Linux personalizada para su infraestructura, puede seguir cualquiera de los artículos que se indican a continuación.
 
 - [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md)
-- [Creación de un entorno personalizado para una máquina virtual con Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md).
+- [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md).
 - [Creación de una VM de Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

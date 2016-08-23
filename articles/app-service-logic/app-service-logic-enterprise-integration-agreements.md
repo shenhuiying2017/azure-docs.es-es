@@ -30,7 +30,7 @@ Integración de Enterprise admite tres estándares de transporte/protocolo:
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (próximamente)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Por qué usar contratos
 Algunas de las ventajas comunes del uso de contratos son las siguientes:
@@ -65,4 +65,4 @@ Puede eliminar cualquier contrato siguiendo estos pasos desde dentro de la cuent
 ## Pasos siguientes
 - [Creación de un contrato AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

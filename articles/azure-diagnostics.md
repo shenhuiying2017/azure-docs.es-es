@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información general de Diagnósticos de Azure"
+	pageTitle="Información general de Diagnósticos de Microsoft Azure | Microsoft Azure"
 	description="Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric"
 	services="multiple"
 	documentationCenter=".net"
@@ -26,7 +26,7 @@ Diagnósticos de Azure es la funcionalidad de Azure que habilita la recopilació
 
 Diagnósticos de Azure puede recopilar los tipos de datos siguientes:
 
-Origen de datos|Descripción
+Origen de datos|Description
 ---|---
 Contadores de rendimiento | Sistema operativo y contadores de rendimiento personalizados
 Registros de aplicación | Seguimiento de mensajes escritos por la aplicación
@@ -81,4 +81,4 @@ Empiece por el artículo [Supervisión y diagnóstico de servicios en una config
 - Aprenda a [redirigir la información de diagnóstico de Azure a Application Insights](./azure-diagnostics-configure-applicationinsights.md).
 - Si tiene problemas al iniciar los diagnósticos o al buscar datos en las tablas de Almacenamiento de Azure, consulte [Azure Diagnostics Troubleshooting](./azure-diagnostics-troubleshooting.md) (Solución de problemas de Diagnósticos de Azure).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

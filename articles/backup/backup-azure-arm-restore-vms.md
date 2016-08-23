@@ -5,7 +5,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="restaurar copias de seguridad; cómo restaurar; punto de recuperación;"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -26,7 +26,7 @@
 - [Restauración de máquinas virtuales en el Portal de Azure](backup-azure-arm-restore-vms.md)
 
 
-Proteja sus datos con el servicio Copia de seguridad tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Servicios de recuperación. Cuando es necesario reparar o volver a generar una máquina virtual, puede restaurar la máquina virtual desde cualquiera de los puntos de recuperación guardados. Cuando se restaura un punto de recuperación, se devuelve o se revierte la máquina virtual al estado cuando se tomó el punto de recuperación. En este artículo se explica cómo restaurar una máquina virtual.
+Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Servicios de recuperación. Cuando es necesario reparar o volver a generar una máquina virtual, puede restaurar la máquina virtual desde cualquiera de los puntos de recuperación guardados. Cuando se restaura un punto de recuperación, se devuelve o se revierte la máquina virtual al estado cuando se tomó el punto de recuperación. En este artículo se explica cómo restaurar una máquina virtual.
 
 > [AZURE.NOTE] Azure tiene dos modelos de implementación para crear y trabajar con recursos: [Administrador de recursos e implementación clásica](../resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
 
@@ -72,12 +72,12 @@ Proteja sus datos con el servicio Copia de seguridad tomando instantáneas de su
 
     ![hoja de restauración](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    De forma predeterminada, el cuadro de diálogo muestra todos los puntos de restauración de los últimos 30 días. Utilice el **filtro** de la parte superior de la hoja para modificar el intervalo de tiempo de los puntos de restauración mostrados. De forma predeterminada, se muestran los puntos de restauración de toda la coherencia. Modifique el filtro **Todos los puntos de restauración** para seleccionar una coherencia específica de puntos de restauración. Para más información sobre cada tipo de punto de restauración, consulte la explicación de [Coherencia de datos](./backup-azure-vms-introduction.md#data-consistency).
+    De forma predeterminada, el cuadro de diálogo muestra todos los puntos de restauración de los últimos 30 días. Utilice el **filtro** para modificar el intervalo de tiempo de los puntos de restauración mostrados. De forma predeterminada, se muestran los puntos de restauración de toda la coherencia. Modifique el filtro **Todos los puntos de restauración** para seleccionar una coherencia específica de puntos de restauración. Para más información sobre cada tipo de punto de restauración, consulte la explicación de [Coherencia de datos](./backup-azure-vms-introduction.md#data-consistency).
     - En la lista **Coherencia del punto de restauración**, elija:
         - Puntos de restauración coherentes frente a bloqueos
         - Puntos de restauración coherentes con la aplicación
         - Puntos de restauración coherentes con el sistema de archivos
-        - Todos los puntos de restauración.  
+        - Todos los puntos de restauración.
 
 8. Elija un punto de restauración y haga clic en **Aceptar**.
 
@@ -102,13 +102,13 @@ Ahora que ha seleccionado el punto de restauración, elija una configuración pa
     ![el asistente para configuración de recuperación está establecido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 2. En la hoja **Restore configuration** (Configuración de restauración), escriba o seleccione valores para cada uno de los siguientes campos:
-    - **Nombre de la máquina virtual**: especifique un nombre para la máquina virtual. El nombre debe ser único para el grupo de recursos (para una máquina virtual de ARM) o para el servicio en la nube (para una máquina virtual clásica). No se admite reemplazar la máquina virtual si ya existe en la suscripción...
+    - **Nombre de la máquina virtual**: especifique un nombre para la máquina virtual. El nombre debe ser único para el grupo de recursos (para una máquina virtual implementada mediante Resource Manager) o para el servicio en la nube (para una máquina virtual clásica). No puede reemplazar la máquina virtual si ya existe en la suscripción.
     - **Grupo de recursos**: use un grupo de recursos existente o cree uno. Si va a restaurar una máquina virtual clásica, utilice este campo para especificar el nombre de un nuevo servicio en la nube. Al crear un nuevo servicio en la nube o grupo de recursos, el nombre debe ser globalmente único. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública; por ejemplo, [cloudservice].cloudapp.net. Si intenta utilizar un nombre para el servicio en la nube o grupo de recursos de nube que ya se ha utilizado, Azure asigna el servicio en la nube o grupo de recursos al mismo nombre que la máquina virtual. Azure muestra servicios en la nube o grupos de recursos y máquinas virtuales no asociados a ningún grupo de afinidad. Para más información, consulte [Migración de grupos de afinidad a una red virtual regional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-    - **Red virtual**: seleccione la red virtual (VNET) al crear la máquina virtual. El campo proporciona todas las redes virtuales asociadas a la suscripción. El grupo de recursos de la máquina virtual se muestra entre paréntesis. 
+    - **Red virtual**: seleccione la red virtual (VNET) al crear la máquina virtual. El campo proporciona todas las redes virtuales asociadas a la suscripción. El grupo de recursos de la máquina virtual se muestra entre paréntesis.
     - **Subred**: si la red virtual tiene subredes, la primera subred se selecciona de forma predeterminada. Si hay subredes adicionales, seleccione la subred deseada.
-    - **Cuenta de almacenamiento**: se abre la lista de cuentas de almacenamiento de la misma ubicación que el almacén de Servicios de recuperación. Al elegir una cuenta de almacenamiento, debe elegir en cuentas que comparten la misma ubicación que el almacén de Servicios de recuperación. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Servicios de recuperación, debe crear uno antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se menciona entre paréntesis. 
-    
-    > [AZURE.NOTE] Debe seleccionar una red virtual al restaurar una máquina virtual de ARM. Una red virtual es opcional para una máquina virtual clásica.
+    - **Cuenta de almacenamiento**: este menú muestra la lista de cuentas de almacenamiento de la misma ubicación que el almacén de Servicios de recuperación. Al elegir una cuenta de almacenamiento, seleccione una cuenta que comparta la misma ubicación que el almacén de Servicios de recuperación. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Servicios de recuperación, debe crear uno antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se menciona entre paréntesis.
+
+    > [AZURE.NOTE] Si va a restaurar una máquina virtual implementada mediante Resource Manager, debe identificar una red virtual (VNET). Una red virtual es opcional para una máquina virtual clásica.
 
 3. En la hoja **Restore configuration** (Configuración de restauración), haga clic en **Aceptar** para finalizar la configuración de restauración.
 
@@ -157,7 +157,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
 	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted/)
 	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -167,4 +167,4 @@ Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de 
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/09/2016"
 	ms.author="spelluru"/>
 
 
@@ -54,7 +54,7 @@ A continuación se indican los pasos típicos sugeridos para optimizar el rendim
 3. **Expanda la configuración a todos los datos** Una vez que esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición del conjunto de datos y el período activo de la canalización para incluir todos los datos en la imagen.
 
 ## Referencia de rendimiento
-> [AZURE.IMPORTANT] **Aviso de declinación de responsabilidades:** los datos siguientes se publicaron únicamente con fines de orientación y planificación general. Se da por hecho que el ancho de banda, el hardware, la configuración, etc. son de los mejores de su clase. Use esto solo como referencia. La capacidad de proceso del movimiento de datos que observe se verá afectada por diversas variables. Consulte las secciones siguientes para obtener información acerca de cómo optimizar y lograr un mejor rendimiento para sus necesidades de movimiento de datos. Estos datos se actualizará a medida que se agreguen características y mejoras del rendimiento.
+> [AZURE.IMPORTANT] **Aviso de declinación de responsabilidades**: los datos siguientes se publicaron únicamente con fines de orientación y planeación general. Se da por hecho que el ancho de banda, el hardware, la configuración, etc., son de los mejores de su clase. Use esto solo como referencia. La capacidad de proceso del movimiento de datos que observe se verá afectada por diversas variables. Consulte las secciones siguientes para obtener información acerca de cómo optimizar y lograr un mejor rendimiento para sus necesidades de movimiento de datos. Estos datos se actualizará a medida que se agreguen características y mejoras del rendimiento.
 
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
@@ -83,11 +83,11 @@ Puntos a tener en cuenta:
 ## Copia paralela
 Una de las maneras de mejorar el rendimiento de una operación de copia y de reducir el tiempo de la transferencia de datos es leer los datos en el origen o escribir los datos en el destino **en paralelo dentro de una ejecución de la actividad de copia**.
  
-Tenga en cuenta que esta configuración es diferente de la propiedad de **simultaneidad** en la definición de actividad. La propiedad de simultaneidad determina el número de **ejecuciones simultáneas de la actividad de copia** que se ejecutan a la vez en tiempo de ejecución para procesar los datos las diferentes ventanas de actividad (1-2 a.m., 2-3 a.m., 3-4 a.m., etc.). Esto es realmente útil al realizar una carga histórica. Sin embargo, la funcionalidad de copia en paralelo que se describe aquí se aplica a una **única ejecución de la actividad**.
+Tenga en cuenta que esta configuración es diferente de la propiedad de **simultaneidad** en la definición de actividad. La propiedad de simultaneidad determina el número de **ejecuciones simultáneas de la actividad de copia** que se ejecutan a la vez en tiempo de ejecución para procesar los datos de los diferentes periodos de actividad (01:00-02:00, 02:00-03:00, 03:00-04:00, etc.). Esto es realmente útil al realizar una carga histórica. Sin embargo, la funcionalidad de copia en paralelo que se describe aquí se aplica a una **única ejecución de la actividad**.
 
 Echemos un vistazo a un **escenario de ejemplo**: considere el ejemplo siguiente donde hay varios segmentos del pasado que deben procesarse. El servicio Data Factory ejecuta una instancia de la actividad de copia (ejecución de actividad) para cada segmento.
 
-- segmento de datos de la primera ventana de actividad (1 a.m. a 2 a.m.) == > ejecución de actividad 1
+- segmento de datos del primer periodo de actividad (01:00-02:00) == > ejecución de actividad 1
 - segmento de datos de la segunda ventana de actividad (2 a.m. a 3 a.m.) == > ejecución de actividad 2
 - segmento de datos de la segunda ventana de actividad (3 a.m. a 4 a.m.) == > ejecución de actividad 3
 - etc.
@@ -130,7 +130,7 @@ Tenga en cuenta lo siguiente:
 
 - Para copiar datos entre almacenes basados en archivos, se produce el paralelismo en el nivel de archivo; en otras palabras, no hay fragmentación dentro de un único archivo. El número real de copias paralelas utilizado para la operación de copia en tiempo de ejecución no será mayor que el número de archivos disponibles. Si el comportamiento de copia es la propiedad mergeFile, no se podrá aprovechar el paralelismo.
 - Al especificar un valor para la propiedad parallelCopies, tenga en cuenta el aumento de carga que aportará a los almacenes de datos de origen y de receptor, así como a la puerta de enlace si es una copia híbrida, especialmente cuando hay varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o la puerta de enlace están sobrecargados con la carga, disminuya el valor de la propiedad parallelCopies para aliviar la carga.
-- Cuando se copian datos desde almacenes no basados en archivos en almacenes basados en archivos, se omitirá la propiedad parallelCopies incluso si se especifica y no se aprovecha en este caso ningún paralelismo.
+- Cuando se copian datos desde almacenes no basados en archivos en otros sí basados en archivos, se omitirá la propiedad parallelCopies aunque se especifique, y no se utilizaría ningún paralelismo.
 
 > [AZURE.NOTE] Para sacar partido a la característica parallelCopies al realizar una copia híbrida, debe utilizar Data Management Gateway, versión superior o igual a 1.11.
 
@@ -193,7 +193,7 @@ En este momento, no se pueden copiar datos entre dos almacenes locales, aunque e
 ### Configuración
 Puede configurar el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en un almacenamiento de blobs de Azure antes de cargarlos en un almacén de datos de destino. Cuando el valor de enableStaging se establece en True, debe determinar otras propiedades que aparecen en la tabla siguiente. Además, tiene que crear un servicio vinculado de Almacenamiento de Azure o de SAS de Almacenamiento de Azure como almacenamiento provisional si aún no tiene ninguno.
 
-Propiedad | Descripción | Valor predeterminado | Obligatorio
+Propiedad | Description | Valor predeterminado | Obligatorio
 --------- | ----------- | ------------ | --------
 enableStaging | Especifique si desea copiar los datos a través de un almacén provisional. | False | No
 linkedServiceName | Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que hace referencia al almacenamiento de Azure que se usará como almacén provisional. <br/><br/> Tenga en cuenta que no se puede usar un almacenamiento de Azure con SAS (firma de acceso compartido) para cargar datos en Almacenamiento de datos SQL de Azure a través de PolyBase. Sí que se puede utilizar en el resto de los casos. | N/D | Sí, cuando el valor de enableStaging es True. 
@@ -252,7 +252,7 @@ Si va a copiar datos de **Almacenamiento de blobs de Azure** a **Almacenamiento 
 ### Almacenes de datos relacionales
 *(Incluye Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, Base de datos de SQL Server, Base de datos de Oracle, Base de datos MySQL, Base de datos DB2, Base de datos de Teradata, Base de datos de Sybase, Base de datos de PostgreSQL)*
 
-- **Patrón de datos**: el esquema de la tabla afecta a la capacidad de proceso de la copia. Para copiar la misma cantidad de datos, un tamaño de fila grande proporcionará un mejor rendimiento que un tamaño de fila pequeño porque la base de datos recupera de forma más eficiente menos lotes de datos que contienen un menor número de filas.
+- **Patrón de datos**: el esquema de la tabla afecta a la capacidad de proceso de la copia. Para copiar la misma cantidad de datos, un tamaño de fila grande proporcionará un mejor rendimiento que un tamaño de fila pequeño, ya que la base de datos recupera de forma más eficaz menos lotes de datos que contienen un menor número de filas.
 - **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
 - Además, para el escenario de **bases de datos relacionales locales**, como SQL Server y Oracle, en el que el uso de **Data Management Gateway** es necesario, consulte la sección [Consideraciones sobre la puerta de enlace](#considerations-on-data-management-gateway).
 
@@ -283,7 +283,7 @@ Si va a copiar datos de **Almacenamiento de blobs de Azure** a **Almacenamiento 
 	- Si configura la propiedad "sqlWriterCleanupScript", para cada actividad de copia que se ejecute, el servicio desencadenará primero el script y luego usará la API de copia masiva para insertar los datos. Por ejemplo, para sobrescribir toda la tabla con los datos más recientes, puede especificar un script para eliminar primero todos los registros antes de realizar la carga masiva de los nuevos datos desde el origen.
 - **Patrón de datos y tamaño de lote**:
 	- el esquema de la tabla afectará a la capacidad de proceso de la copia. Para copiar la misma cantidad de datos, un tamaño de fila grande proporcionará un mejor rendimiento que un tamaño de fila pequeño porque la base de datos puede confirmar de forma más eficiente menos lotes de datos.
-	- La actividad de copia inserta datos en una serie de lotes, en la que el número de filas incluidas en un lote se pueden establecer usando la propiedad "writeBatchSize". Si los datos tienen filas de tamaño pequeño, puede establecer la propiedad "writeBatchSize" con un valor superior para beneficiarse de una sobrecarga menor de los lotes y aumentar la capacidad de proceso. Si el tamaño de fila de los datos es grande, tenga cuidado al aumentar el valor de writeBatchSize: un valor grande puede producir un error de copia debido a la sobrecarga de la base de datos.
+	- La actividad de copia inserta datos en una serie de lotes, en la que el número de filas incluidas en un lote se pueden establecer usando la propiedad "writeBatchSize". Si los datos tienen filas de un tamaño reducido, puede establecer la propiedad writeBatchSize en un valor superior para beneficiarse de una sobrecarga menor de los lotes y aumentar el rendimiento. Si el tamaño de fila de los datos es grande, tenga cuidado al aumentar el valor de writeBatchSize: un valor grande puede producir un error de copia debido a la sobrecarga de la base de datos.
 - Además, para el escenario de **bases de datos relacionales locales**, como SQL Server y Oracle, en el que el uso de **Data Management Gateway** es necesario, consulte la sección [Consideraciones sobre la puerta de enlace](#considerations-on-data-management-gateway).
 
 
@@ -309,7 +309,7 @@ La serialización y deserialización pueden ocurrir cuando el conjunto de datos 
 **Formato de archivo:** la elección del formato de archivo puede afectar al rendimiento de la copia. Por ejemplo, Avro es un formato binario compacto que almacena metadatos con datos y es ampliamente admitido en el ecosistema de Hadoop para procesamiento y consulta. Sin embargo, Avro es más costoso para serialización o deserialización, lo que resulta en una menor capacidad de proceso de copia en comparación con el formato de texto. La elección del formato de archivo que se va a usar en el flujo de procesamiento debe realizarse de manera holística, empezando por la forma en que los datos se almacenan en los almacenes de datos de origen o se extraen de los sistemas externos, el mejor formato de almacenamiento, procesamiento analítico y consultas, y en qué formato se deben exportar los datos a los repositorios de datos para las herramientas de informes y visualización. A veces, un formato de archivo que no es óptimo para el rendimiento de lectura y escritura puede terminar siendo adecuado si se tiene en cuenta el proceso analítico general.
 
 ## Consideraciones sobre la compresión
-Cuando el conjunto de datos de entrada o de salida es un archivo, puede configurar la actividad de copia para realizar la compresión y descompresión a medida que se escriben los datos en el destino. Al habilitar la compresión, se equilibra entre E/S y CPU: la compresión de los datos costará recursos de proceso adicionales de costo pero, a cambio, reducirá la E/S de red y el almacenamiento lo que, dependiendo de los datos, podría suponer una mejora en la capacidad de proceso general de la copia.
+Cuando el conjunto de datos de entrada o de salida es un archivo, puede configurar la actividad de copia para realizar la compresión y descompresión a medida que se escriben los datos en el destino. Al habilitar la compresión, se establece un equilibrio entre E/S y CPU: la compresión de los datos costará recursos de proceso adicionales, pero, a cambio, reducirá la E/S de red y el almacenamiento lo que, en función de los datos, podría suponer una mejora en el rendimiento general de la copia.
 
 **Códec:** se admiten los tipos de compresión GZIP, BZIP2 y Deflate. HDInsight de Azure pueden consumir los tres tipos para procesamiento. Cada códec de compresión tiene su característica particular. Por ejemplo, BZIP2 tiene la menor capacidad de proceso de la copia pero obtendrá el mejor rendimiento para las consultas Hive porque se puede dividir para procesamiento; GZIP proporciona la opción más equilibrada y el que se usa con mayor frecuencia. Debe elegir el códec más adecuado para su escenario de principio a fin.
 
@@ -327,7 +327,7 @@ Para ver las recomendaciones de configuración de la puerta de enlace, consulte 
 
 **Entorno de la máquina de puerta de enlace:** recomendamos usar un equipo dedicado para hospedar Data Management Gateway. Use herramientas como Monitor de rendimiento para examinar el uso de CPU, memoria y ancho de banda durante una operación de copia en la máquina de puerta de enlace. Cambie a un equipo con más capacidad si la CPU, la memoria o el ancho de banda de red se convierten en un cuello de botella.
 
-**Ejecuciones de actividades de copia simultáneas:** una única instancia de Data Management Gateway puede atender varias ejecuciones de actividades de copia al mismo tiempo; es decir, una puerta de enlace puede ejecutar varios trabajos de copia al mismo tiempo (el número de trabajos simultáneos se calcula en función de la configuración de hardware de la máquina de puerta de enlace). Los trabajos de copia adicional se ponen en la cola hasta que la puerta de enlace los selecciona o hasta que se agota el tiempo del trabajo, lo que ocurra primero. Para evitar la contención de recursos en la puerta de enlace, puede organizar por fases la programación de sus actividades para reducir la cantidad de trabajos de copia que hay en cola a la vez, o considere la posibilidad de dividir la carga entre varias puertas de enlace.
+**Ejecuciones de actividades de copia simultáneas:** una única instancia de Data Management Gateway puede atender varias ejecuciones de actividades de copia al mismo tiempo; es decir, una puerta de enlace puede ejecutar varios trabajos de copia al mismo tiempo (el número de trabajos simultáneos se calcula en función de la configuración de hardware de la máquina de puerta de enlace). Los trabajos de copia adicional se ponen en la cola hasta que la puerta de enlace los selecciona o hasta que se agota el tiempo del trabajo, lo que ocurra primero. Para evitar la contención de recursos en la puerta de enlace, puede organizar por fases la programación de sus actividades para reducir la cantidad de trabajos de copia que hay en cola a la vez, o bien considere la posibilidad de dividir la carga entre varias puertas de enlace.
 
 
 ## Otras consideraciones
@@ -336,7 +336,7 @@ Si el tamaño de los datos que se van a copiar es bastante grande, puede ajustar
 Tenga cuidado con el número de conjuntos de datos y actividades de copia que llegan al mismo almacén de datos en un momento dado. Un gran número de trabajos de copia simultáneos puede limitar un almacén de datos y provocar una disminución del rendimiento, reintentos internos del trabajo de copia y, en algunos casos, errores de ejecución.
 
 ## Caso práctico: copia de una instancia de SQL Server local a Blob de Azure
-**Escenario:** se crea una canalización para copiar los datos de una instancia de SQL Server local a Blob de Azure en formato CSV. Para acelerar la copia, se especifica que los archivos CSV se deben comprimir en formato BZIP2.
+**Escenario**: se crea una canalización para copiar los datos de una instancia de SQL Server local a Blob de Azure en formato CSV. Para acelerar la copia, se especifica que los archivos CSV se deben comprimir en formato BZIP2.
 
 **Análisis y pruebas:** se observa que la capacidad de proceso de la actividad de copia es inferior a 2 MB/s, mucho menor que los valores de referencia de rendimiento.
 
@@ -354,11 +354,11 @@ Uno o varios de los siguientes factores podrían ser el cuello de botella del re
 
 1.	**Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 2.	**Data Management Gateway:**
-	1.	**LAN:** la puerta de enlace está lejos de SQL Server con una conexión de ancho de banda bajo
+	1.	**LAN**: la puerta de enlace está lejos de SQL Server con una conexión de ancho de banda bajo.
 	2.	La **carga en la máquina de puerta de enlace** ha alcanzado su límite para llevar a cabo lo siguiente:
 		1.	**Serialización:** la serialización del flujo de datos a CSV tiene una capacidad de proceso baja
 		2.	**Compresión:** se eligió el códec de compresión lenta (por ejemplo, BZIP2 que es de 2,8 MB/s con Core i7)
-	3.	**WAN:** bajo ancho de banda entre la red corporativa y Azure (por ejemplo, T1=1544 kbps, T2=6312 kbps)
+	3.	**WAN**: bajo ancho de banda entre la red corporativa y Azure (por ejemplo, T1 = 1544 kbps, T2 = 6312 kbps).
 4.	**Receptor:** Blob de Azure tiene una capacidad de proceso baja (aunque es bastante improbable porque su SLA garantiza un mínimo de 60 MB/s).
 
 En este caso, la compresión de datos BZIP2 podría estar ralentizando toda la canalización. Cambiar a un códec de compresión GZIP podría aliviar este cuello de botella.
@@ -392,4 +392,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

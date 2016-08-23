@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"   
+	ms.date="08/11/2016"   
 	ms.author="robmcm"/>
 
 #Uso de Servicios multimedia con Java
@@ -22,7 +22,7 @@
 
 ##Configuración de una cuenta de Azure para Servicios multimedia
 
-Para configurar su cuenta de Servicios multimedia, use el Portal de Azure clásico. Consulte el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md). Después de crear la cuenta en el Portal de Azure clásico, estará listo para configurar el equipo para el desarrollo de Servicios multimedia.
+Para configurar su cuenta de Servicios multimedia, use el Portal de Azure clásico. Vea el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md). Después de crear la cuenta en el Portal de Azure clásico, estará listo para configurar el equipo para el desarrollo de Servicios multimedia.
 
 ##Configuración para el desarrollo de Servicios multimedia
 
@@ -30,7 +30,7 @@ Esta sección contiene los requisitos previos generales para el desarrollo de Se
 
 ###Requisitos previos
 
--   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md).
+-   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Vea el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md).
 -   Las bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][].
 
 ##Uso de Servicios multimedia con Java
@@ -276,4 +276,4 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

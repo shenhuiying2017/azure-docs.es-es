@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Este artículo tratará cómo implementar Office 365 en cualquier dispositivo de su empresa. Los usuarios pueden obtener las mismas capacidades y experiencia de interfaz de usuario en Android, Apple y Windows.
 
@@ -27,7 +30,7 @@ Para conseguirlo, usaremos Azure RemoteApp hospedando Office 365 en máquinas v
 
 En primer lugar, tras crear una cuenta de Azure, navegue hasta **RemoteApp** haciendo clic en el vínculo situado a la izquierda. ![Visualización de RemoteApp de Azure en el Portal de Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-Continúe haciendo clic en **Nuevo** en la parte inferior y en "Creación rápida" para crear así una colección. Proporcione un nombre, la región, la suscripción, el plan y la imagen "Office Proffesional 2013" que proporcionamos. ![Cuadro de diálogo Crear](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
+Continúe haciendo clic en **Nuevo** en la parte inferior y en "Creación rápida" para crear así una colección. Facilite un nombre, la región, la suscripción, el plan y la imagen "Office Professional 2013" que proporcionamos. ![Cuadro de diálogo Crear](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
 Una vez que finalice el formulario, debería comenzar el proceso de creación de la colección. Esto puede tardar hasta una hora aproximadamente.
 
@@ -63,4 +66,4 @@ Al hacer clic en cualquiera de las aplicaciones, esta debe iniciarse en la máqu
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

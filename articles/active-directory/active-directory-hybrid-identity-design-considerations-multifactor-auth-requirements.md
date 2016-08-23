@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de autenticación multifactor para la solución de identidad híbrida
@@ -25,7 +25,7 @@ Si no está familiarizado con MFA y cómo funciona, se recomienda encarecidament
 
 Asegúrese de responder a las siguientes preguntas:
 
-- ¿Intenta su empresa proteger aplicaciones de Microsoft? 
+- ¿Intenta su empresa proteger aplicaciones de Microsoft?
 - ¿Cómo se publican estas aplicaciones?
 - ¿Proporciona su empresa acceso remoto para permitir a los empleados el acceso a aplicaciones locales?
 
@@ -38,7 +38,7 @@ En caso afirmativo, ¿qué tipo de acceso remoto? También debe evaluar dónde s
 Una vez que comprenda estos requisitos, es importante evaluar también los requisitos del usuario de autenticación multifactor. Esta evaluación es importante porque definirá los requisitos para implementar la autenticación multifactor. Asegúrese de responder a las siguientes preguntas:
 
 - ¿Están los usuarios familiarizados con la autenticación multifactor?
-- ¿Algunos usuarios deben proporcionar autenticación adicional?  
+- ¿Algunos usuarios deben proporcionar autenticación adicional?
  - En caso afirmativo, ¿siempre, cuando proceden de redes externas o cuando acceden a aplicaciones específicas, o en otras condiciones?
 - ¿Necesitarán los usuarios entrenamiento sobre cómo configurar e implementar la autenticación multifactor?
 - ¿Cuáles son los principales escenarios en los que su empresa quiere habilitar la autenticación multifactor para sus usuarios?
@@ -55,7 +55,7 @@ Después de responder a las preguntas anteriores, podrá comprender si la autent
 [Definición de una estrategia de adopción de identidad híbrida](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 
-## Consulte también
+## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
@@ -261,4 +261,4 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

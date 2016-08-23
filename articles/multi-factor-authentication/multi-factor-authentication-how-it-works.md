@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 #Cómo funciona Azure Multi-Factor Authentication
@@ -26,7 +26,7 @@ La seguridad de la autenticación mediante varias fases se basa en el enfoque po
 
 Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona seguridad adicional al requerir una segunda forma de autenticación y ofrece autenticación segura a través de una gama de opciones de comprobación sencillas:
 
-- llamada de teléfono 
+- llamada de teléfono
 - mensaje de texto
 - notificación de aplicación móvil, que permite a los usuarios elegir el método que prefieran
 - código de comprobación de la aplicación móvil
@@ -39,7 +39,7 @@ Para obtener información adicional sobre cómo funciona, vea el vídeo siguient
 ##Métodos disponibles para la autenticación multifactor
 Cuando un usuario inicia sesión, se envía una comprobación adicional al usuario. Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
 
-Método de comprobación | Descripción 
+Método de comprobación | Description 
 ------------- | ------------- |
 Llamada de teléfono | Se realiza una llamada al smartphone del usuario para solicitarle que compruebe que ha iniciado sesión presionando el signo #. Esto completará el proceso de comprobación. Esta opción es configurable y puede cambiarse por un código que especifique.
 Mensaje de texto | Se enviará un mensaje de texto al smartphone del usuario con un código de 6 dígitos. Escriba este código para completar el proceso de comprobación.
@@ -50,7 +50,7 @@ Código de comprobación con la aplicación móvil | Se enviará un código de c
 ##Versiones disponibles de Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication está disponible en tres versiones diferentes. En la tabla siguiente se describe cada una de ellas con más detalle.
 
-Versión | Descripción 
+Versión | Description 
 ------------- | ------------- |
 Multi-Factor Authentication para Office 365 | Esta versión funciona exclusivamente con aplicaciones de Office 365 y se administra desde el portal de Office 365. De este modo, los administradores pueden proteger ahora sus recursos de Office 365 con la autenticación multifactor. Esta versión incluye una suscripción a Office 365.
 Multi-Factor Authentication para administradores de Azure | La misma subred de capacidades Multi-Factor Authentication para Office 365 estará disponible sin que suponga ningún coste para los administradores de Azure. Las cuentas administrativas de la suscripción de Azure pueden obtener ahora una protección adicional mediante la habilitación de esta funcionalidad de autenticación a través de varias fases. Por lo tanto, un administrador que desee obtener acceso al portal de Azure para crear una VM o un sitio web, o administrar almacenamiento, servicios móviles o cualquier otro servicio de Azure, puede agregar la autenticación mediante varias fases a su cuenta de administrador.
@@ -66,18 +66,18 @@ Aplicación móvil como segundo factor|* | * | *
 Llamada de teléfono como segundo factor|* | * | *
 SMS como segundo factor|* | * | *
 Contraseñas de aplicación para clientes que no admiten MFA|* | * | *
-Control de administración sobre los métodos de autenticación| *| *| * 
-Modo PIN| | | * 
-Alerta de fraude| | | * 
-Informes MFA| | | * 
-Omisión por única vez| | | * 
-Saludos personalizados para llamadas telefónicas| | | * 
-Personalización de identificador de autor de llamada para llamadas telefónicas| | | * 
-Confirmación de evento| | | * 
-Direcciones IP de confianza| | | * 
-Suspender MFA para dispositivos recordados (versión preliminar)| | | * 
-SDK MFA| | | * 
-MFA para aplicaciones locales que usan servidor MFA| | | *
+Control de administración sobre los métodos de autenticación| *| *| *
+Modo de PIN| | | *
+Alerta de fraude| | | *
+Informes de MFA| | | *
+Omisión por única vez| | | *
+Saludos personalizados para las llamadas de teléfono| | | *
+Personalización del identificador de llamada para llamadas telefónicas| | | *
+Confirmación de evento| | | *
+IP de confianza| | | *
+Suspender MFA para dispositivos recordados (vista previa pública)| | | *
+SDK de MFA| | | *
+MFA para aplicaciones locales mediante servidor MFA| | | *
 
 
 ##Cómo conseguir Azure Multi-Factor Authentication
@@ -102,4 +102,4 @@ Elija el modelo por puesto o según el consumo que mejor funcione para su organi
 
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

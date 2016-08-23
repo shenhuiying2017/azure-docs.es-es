@@ -3,7 +3,7 @@
 	description="Definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # Definición de una estrategia de protección de datos para soluciones de identidad híbrida
@@ -155,4 +155,4 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

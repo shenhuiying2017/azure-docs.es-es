@@ -3,7 +3,7 @@
    description="Información acerca de direcciones IP públicas y privadas en Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management" />
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Direcciones IP (clásica) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -139,7 +139,7 @@ La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azur
 ||Límite predeterminado|Límite máximo|
 |---|---|---|
 |Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico|
-|Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico|
+|Direcciones IP públicas reservadas|20 ||póngase en contacto con el soporte técnico|
 |VIP pública por implementación (servicio en la nube)|5|póngase en contacto con el soporte técnico|
 |VIP privada (ILB) por implementación (servicio en la nube)|1|1|
 
@@ -166,4 +166,4 @@ A continuación, se muestra una comparación de las características de direccio
 ## Pasos siguientes
 - [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

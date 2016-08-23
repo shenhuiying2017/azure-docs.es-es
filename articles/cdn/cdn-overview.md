@@ -64,7 +64,7 @@ Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**
 | [Purga rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Análisis esencial](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [Administración mediante API de REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Administración a través de [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Estadísticas en tiempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -75,7 +75,7 @@ Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**
 
 Para empezar a trabajar con la red CDN, consulte [Uso de CDN de Azure](./cdn-create-new-endpoint.md).
 
-Si es un cliente de red de entrega de contenido existente, ahora puede administrar sus puntos de conexión de red de entrega de contenido a través del [Portal de Microsoft Azure](https://portal.azure.com).
+Si es un cliente de red de entrega de contenido existente, ahora puede administrar sus puntos de conexión de red de entrega de contenido a través del [Portal de Microsoft Azure](https://portal.azure.com) o con [PowerShell](cdn-manage-powershell.md).
 
 Para ver la red CDN en acción, consulte el [vídeo sobre nuestra sesión de Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
@@ -83,4 +83,4 @@ Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [No
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

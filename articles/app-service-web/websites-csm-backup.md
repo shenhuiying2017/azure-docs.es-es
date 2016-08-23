@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones
 
@@ -23,17 +23,17 @@
 
 Se puede realizar una copia de seguridad de las [aplicaciones del Servicio de aplicaciones](https://azure.microsoft.com/services/app-service/web/) como blobs en Almacenamiento de Azure. La copia de seguridad también puede contener las bases de datos de la aplicación. Si la aplicación se ha eliminado accidentalmente alguna vez o si necesita revertirse a una versión anterior, es posible restaurarla desde cualquier copia de seguridad anterior. Las copias de seguridad se pueden realizar en cualquier momento a petición o se pueden programar a intervalos adecuados.
 
-En este artículo se explicará cómo realizar copias de seguridad y restauraciones de una aplicación con solicitudes de API de RESTful. Si desea crear y administrar copias de seguridad de aplicaciones gráficamente mediante el Portal de Azure, consulte [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
+En este artículo se explica cómo realizar copias de seguridad y restauraciones de una aplicación con solicitudes de API de RESTful. Si desea crear y administrar copias de seguridad de aplicaciones gráficamente mediante el Portal de Azure, consulte [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
 ## Introducción
-Para enviar solicitudes de REST, necesitará saber el **nombre**, **grupo de recursos** e **identificador de suscripción** de la aplicación. Para encontrar esta información, puede hacer clic en la aplicación, en la hoja **Servicio de aplicaciones** del [Portal de Azure](https://portal.azure.com). Para ver los ejemplos de este artículo, vamos a configurar el sitio web **backuprestoreapiexamples.azurewebsites.net**. Se almacena en el grupo de recursos Default-Web-WestUS y se ejecuta en una suscripción con el identificador 00001111-2222-3333-4444-555566667777.
+Para enviar solicitudes de REST, necesita saber el **nombre**, **grupo de recursos** e **identificador de suscripción** de la aplicación. Para encontrar esta información, puede hacer clic en la aplicación, en la hoja **Servicio de aplicaciones** del [Portal de Azure](https://portal.azure.com). Para ver los ejemplos de este artículo, vamos a configurar el sitio web **backuprestoreapiexamples.azurewebsites.net**. Se almacena en el grupo de recursos Default-Web-WestUS y se ejecuta en una suscripción con el identificador 00001111-2222-3333-4444-555566667777.
 
 ![Información del sitio web de ejemplo][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
 ## Copia de seguridad y restauración de API de REST
-Ahora, vamos a describir varios ejemplos de cómo usar la API de REST para la copia de seguridad y la restauración de una aplicación. Cada ejemplo incluye una dirección URL y un cuerpo de solicitud HTTP. La dirección URL de ejemplo contendrá marcadores de posición entre llaves, por ejemplo, {id.-suscripción}. Debe reemplazarlos por la información correspondiente a su aplicación. Como referencia, proporcionamos una explicación de cada marcador de posición que aparece en las direcciones URL de ejemplo.
+Ahora, vamos a describir varios ejemplos de cómo usar la API de REST para la copia de seguridad y la restauración de una aplicación. Cada ejemplo incluye una dirección URL y un cuerpo de solicitud HTTP. La dirección URL de ejemplo contiene marcadores de posición entre llaves, por ejemplo, {id.-suscripción}. Reemplace los marcadores de posición por la información correspondiente a su aplicación. Como referencia, proporcionamos una explicación de cada marcador de posición que aparece en las direcciones URL de ejemplo.
 
 * subscription-id: identificador de la suscripción de Azure que contiene la aplicación.
 * resource-group-name: nombre del grupo de recursos que contiene la aplicación.
@@ -48,7 +48,7 @@ Para realizar una copia de seguridad de una aplicación de inmediato, envíe una
 
 Este es el aspecto de la dirección URL al utilizar nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-Debe proporcionar un objeto JSON en el cuerpo de la solicitud para especificar qué cuenta de almacenamiento se usa para almacenar la copia de seguridad. El objeto JSON debe tener una propiedad denominada **storageAccountUrl**, que contiene una [URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md), que concede acceso de escritura al contenedor de Almacenamiento de Azure que contendrá el blob de copia de seguridad. Si desea hacer una copia de seguridad de las bases de datos, debe proporcionar igualmente una lista con los nombres, tipos y cadenas de conexión de las bases de datos de las que va a realizar una copia de seguridad.
+Proporcione un objeto JSON en el cuerpo de la solicitud para especificar qué cuenta de almacenamiento se usa para almacenar la copia de seguridad. El objeto JSON debe tener una propiedad denominada **storageAccountUrl**, que contiene una [URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md), que concede acceso de escritura al contenedor de Almacenamiento de Azure que contiene el blob de copia de seguridad. Si desea hacer una copia de seguridad de las bases de datos, debe proporcionar igualmente una lista con los nombres, tipos y cadenas de conexión de las bases de datos de las que va a realizar una copia de seguridad.
 
 ```
 {
@@ -66,7 +66,7 @@ Debe proporcionar un objeto JSON en el cuerpo de la solicitud para especificar q
 }
 ```
 
-Se iniciará de inmediato una copia de seguridad de la aplicación al recibir la solicitud. El proceso de copia de seguridad puede tardar mucho tiempo en completarse. La respuesta HTTP contendrá un identificador que puede usar en otra solicitud para ver el estado de la copia de seguridad. Este es un ejemplo del cuerpo de la respuesta HTTP a nuestra solicitud de copia de seguridad.
+Se inicia de inmediato una copia de seguridad de la aplicación al recibir la solicitud. El proceso de copia de seguridad puede tardar mucho tiempo en completarse. La respuesta HTTP contiene un identificador que puede usar en otra solicitud para ver el estado de la copia de seguridad. Este es un ejemplo del cuerpo de la respuesta HTTP a nuestra solicitud de copia de seguridad.
 
 ```
 {
@@ -127,9 +127,9 @@ El cuerpo de la solicitud debe tener un objeto JSON que especifique la configura
 }
 ```
 
-En este ejemplo se configura la ejecución de una copia de seguridad automática de la aplicación cada 7 días. Los parámetros **frequencyInterval** y **frequencyUnit** determinan con qué frecuencia se realizan las copias de seguridad. Los valores válidos para **frequencyUnit** son **hora** y **día**. Por ejemplo, para hacer una copia de seguridad de una aplicación cada 12 horas, establezca frequencyInterval en 12 y frequencyUnit en hora.
+En este ejemplo se configura la ejecución de una copia de seguridad automática de la aplicación cada siete días. Los parámetros **frequencyInterval** y **frequencyUnit** determinan con qué frecuencia se realizan las copias de seguridad. Los valores válidos para **frequencyUnit** son **hora** y **día**. Por ejemplo, para hacer una copia de seguridad de una aplicación cada 12 horas, establezca frequencyInterval en 12 y frequencyUnit en hora.
 
-Las copias de seguridad anteriores se quitarán automáticamente de la cuenta de almacenamiento. Puede controlar la antigüedad de las copias de seguridad mediante la configuración del parámetro **retentionPeriodInDays**. Si desea tener siempre al menos una copia de seguridad guardada, independientemente de su antigüedad, establezca **keepAtLeastOneBackup** en true.
+Las copias de seguridad anteriores se quitan automáticamente de la cuenta de almacenamiento. Puede controlar la antigüedad de las copias de seguridad mediante la configuración del parámetro **retentionPeriodInDays**. Si desea tener siempre al menos una copia de seguridad guardada, independientemente de su antigüedad, establezca **keepAtLeastOneBackup** en true.
 
 ### Obtención de la programación de copias de seguridad automáticas
 Para obtener una configuración de copia de seguridad de una aplicación, envíe una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
@@ -144,7 +144,7 @@ Para ver el estado de una copia de seguridad específica, envíe una solicitud G
 
 Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
-El cuerpo de respuesta contendrá un objeto JSON similar a este ejemplo.
+El cuerpo de respuesta contiene un objeto JSON similar a este ejemplo.
 
 ```
 {
@@ -229,9 +229,9 @@ En el cuerpo de la solicitud, envíe un objeto JSON que contiene la nueva direcc
 }
 ```
 
->[AZURE.NOTE] Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si desea ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior e incluya solo un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contendrá toda la información de la copia de seguridad, incluida su dirección URL de SAS.
+>[AZURE.NOTE] Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si quiere ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior. Incluya un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contiene toda la información de la copia de seguridad, incluida su dirección URL de SAS.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

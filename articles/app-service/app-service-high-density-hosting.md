@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"/>
 
-#Hospedaje de alta densidad en el Servicio de aplicaciones de Azure#
+# Hospedaje de alta densidad en el Servicio de aplicaciones de Azure#
 
-##Descripción de escalado de la aplicación##
+## Descripción de escalado de la aplicación##
 
 Cuando se utilice el Servicio de aplicaciones, la aplicación se desacoplará de la capacidad que se le ha asignado por dos conceptos:
  
@@ -32,14 +32,14 @@ Esto significa que la plataforma ofrece flexibilidad para aislar una sola aplica
 
 Sin embargo, cuando varias aplicaciones comparten un **Plan del servicio de aplicaciones**, una instancia de esa aplicación se ejecutará en cada instancia de ese **Plan del servicio de aplicaciones**.
 
-##Per App scaling (Escalado por aplicación)##
+## Per App scaling (Escalado por aplicación)##
 **Per App scaling** (Escalado por aplicación) es una característica que se puede habilitar en el nivel **Plan del servicio de aplicaciones** y usar después por aplicación.
 
 **Per App Scaling** (Escalado por aplicación) permite escalar una aplicación independientemente del **Plan del servicio de aplicaciones** que se use para hospedarlo. De este modo, un **Plan del servicio de aplicaciones** puede configurarse para proporcionar 10 instancias, pero se puede establecer una aplicación para escalar a 5 solo de ellos.
 
 La plantilla ARM siguiente creará un **Plan del servicio de aplicaciones** escalado a 10 instancias y una aplicación configurada para usar **Per App scaling** (Escalado por aplicación) y escalada solo a 5 instancias.
 
-Para ello, el Plan del servicio de aplicaciones establece la propiedad de escalado por sitio en true (`"perSiteScaling": true`) y la aplicación establece el número de trabajadores que se utilice en 1 `"properties": { "numberOfWorkers": "1" }`
+Para ello, el Plan del servicio de aplicaciones establece la propiedad de **escalado por sitio** en True (`"perSiteScaling": true`) y la aplicación establece el **número de trabajadores** que se utilice en 1 `"properties": { "numberOfWorkers": "1" }`
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -87,7 +87,7 @@ Para ello, el Plan del servicio de aplicaciones establece la propiedad de escala
     }
 
 
-##Configuración recomendada para el hospedaje de alta densidad##
+## Configuración recomendada para el hospedaje de alta densidad
 
 **Per App scaling** (Escalado por aplicación) es una característica que está habilitada en ambas regiones públicas de Azure, así como en Entornos del Servicio de aplicaciones; sin embargo, la estrategia recomendada es utilizar Entornos del Servicio de aplicaciones para aprovechar sus características avanzadas y los grupos de mayor capacidad.
 
@@ -103,4 +103,4 @@ Siga los pasos indicados a continuación como guía para configurar el **Hospeda
 
 1. El número de trabajadores se puede configurar por separado por cada sitio para conceder recursos adicionales si es necesario. Por ejemplo, en un sitio de gran uso se puede establecer *numberOfWorkers* en *3* para tener más capacidad de procesamiento para esa aplicación, mientras que en los sitios de poco uso se puede establecer *numberOfWorkers* en *1*.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

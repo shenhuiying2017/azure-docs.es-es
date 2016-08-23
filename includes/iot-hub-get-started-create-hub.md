@@ -21,7 +21,7 @@ Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los s
 
     ![Estado del nuevo Centro de IoT][3]
 
-5. Cuando se haya creado correctamente el Centro de IoT, haga clic en el icono Nuevo para que el Centro de IoT del portal abra la hoja para el nuevo Centro de IoT. Anote el **nombre de host** y haga clic en el icono **Claves**.
+5. Cuando se haya creado correctamente el Centro de IoT, haga clic en el icono Nuevo para que el Centro de IoT del portal abra la hoja para el nuevo Centro de IoT. Anote el **nombre de host** y haga clic en **Directivas de acceso compartido**.
 
     ![Nueva hoja del Centro de IoT][4]
 
@@ -43,4 +43,4 @@ Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los s
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

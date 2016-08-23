@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar Namely con Azure Active D
 
 La integración de Namely con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Namely. 
+- Puede controlar en Azure AD quién tiene acceso a Namely.
 - Puede permitir que los usuarios inicien sesión automáticamente en Namely (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -43,7 +43,7 @@ Para configurar la integración de Azure AD con Namely, se necesitan los siguien
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
@@ -51,7 +51,7 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Namely desde la galería 
+1. Adición de Namely desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de Namely en Azure AD, es preciso agregar Namely
 
 **Para agregar Namely desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -122,9 +122,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_04.png)
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Namely (p. ej.: **https://fabrikam.Namely.com/*)).
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Namely (p. ej.: *https://fabrikam.Namely.com/*).
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
  
  
 4. En la página **Configurar inicio de sesión único en Namely**, siga estos pasos:
@@ -133,7 +133,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Namely como administrador.
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -327,4 +327,4 @@ Al hacer clic en el icono de Namely en el panel de acceso, debería iniciar sesi
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

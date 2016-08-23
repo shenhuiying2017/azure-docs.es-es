@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Arquitectura de aplicaciones en Microsoft Azure" 
+	pageTitle="Arquitectura de aplicaciones en Microsoft Azure | Microsoft Azure" 
 	description="Información general de arquitectura que cubre patrones de diseño habituales." 
 	services="" 
 	documentationCenter="" 
@@ -38,9 +38,9 @@ Microsoft publica un conjunto de [proyectos de arquitectura](http://aka.ms/azblu
 
 Cada proyecto incluye:
 
-- Un archivo plano **2D basado en Visio** 2003 que puede descargar y modificar 
+- Un archivo plano **2D basado en Visio** 2003 que puede descargar y modificar
 - Un archivo **PDF en perspectiva 3D** para presentar el proyecto a un público menos técnico
-- Un **vídeo** que le guía a través de la versión 3D. 
+- Un **vídeo** que le guía a través de la versión 3D.
 
 Los proyectos usan el [conjunto de símbolos de nube y empresariales](#symbol-and-icon-sets).
 
@@ -54,9 +54,9 @@ Las versiones 3D de los [Proyectos de arquitectura de Microsoft](http://aka.ms/a
 
 La plantilla también está disponible fuera del curso.
 
-- [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer   
+- [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer
 - Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
-- Descargue los [símbolos empresariales y de la nube](#drawing-symbol-and-icon-sets) para usarlos con la plantilla 3D. 
+- Descargue los [símbolos empresariales y de la nube](#drawing-symbol-and-icon-sets) para usarlos con la plantilla 3D.
 
 Envíenos un correo electrónico a [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) si tiene preguntas específicas no respondidas en los materiales de entrenamiento o para proporcionarnos sus comentarios. La facilidad de uso es uno de los objetivos principales de la plantilla; háganos saber lo que está bien y qué le causa problemas.
 
@@ -85,4 +85,4 @@ Microsoft publica varios pósteres e infografías relacionados con la arquitectu
 
 ![Infografías de arquitectura de Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/02/2016"
+	ms.date="08/03/2016"
 	ms.author="marsma"/>
 
 # Administración de cuotas y cuentas de Lote de Azure con la biblioteca .NET de Administración de Lote
@@ -34,22 +34,23 @@ Puede reducir la sobrecarga de mantenimiento en las aplicaciones de Lote de Azur
 
 ## Creación y eliminación de cuentas de Lote
 
-Como se mencionó anteriormente, una de las principales características de la API de .Administración de Lote es la creación y eliminación de cuentas de Lote en una región de Azure. Para ello, usará [BatchManagementClient.Accounts.CreateAsync][net_create] y [DeleteAsync][net_delete], o sus contrapartidas sincrónicas.
+Como se mencionó anteriormente, una de las principales características de la API de .Administración de Lote es la creación y eliminación de cuentas de Lote en una región de Azure. Para ello, usará [BatchManagementClient.Account.CreateAsync][net_create] y [DeleteAsync][net_delete], o sus contrapartidas sincrónicas.
 
 El fragmento de código siguiente crea una cuenta, obtiene la cuenta recién creada del servicio Lote y la elimina. En este y en otros fragmentos de código de este artículo, `batchManagementClient` es una instancia totalmente inicializada de [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
-AccountResource account = getResponse.Resource;
+AccountResource account = await batchManagementClient.Account.GetAsync(
+	"MyResourceGroup",
+	"mynewaccount");
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
 > [AZURE.NOTE] Las aplicaciones que usan la biblioteca .NET de Administración de Lote y su clase BatchManagementClient requieren acceso de **administrador de servicio** o **coadministrador** a la suscripción que posee la cuenta de Lote que se va a administrar. Para más información, consulte la sección "[Azure Active Directory](#azure-active-directory)" a continuación y el código de ejemplo [AccountManagement][acct_mgmt_sample].
@@ -60,15 +61,21 @@ Obtenga las claves de las cuentas principal y secundaria de cualquier cuenta de 
 
 ```csharp
 // Get and print the primary and secondary keys
-BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "mybatchaccount");
-Console.WriteLine("Primary key:   {0}", accountKeys.PrimaryKey);
-Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
+BatchAccountListKeyResult accountKeys =
+	await batchManagementClient.Account.ListKeysAsync(
+		"MyResourceGroup",
+		"mybatchaccount");
+Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
+Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
-BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
-	"MyResourceGroup",
-	"mybatchaccount",
-	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
+BatchAccountRegenerateKeyResponse newKeys =
+	await batchManagementClient.Account.RegenerateKeyAsync(
+		"MyResourceGroup",
+		"mybatchaccount",
+		new BatchAccountRegenerateKeyParameters() {
+			KeyName = AccountKeyType.Primary
+			});
 ```
 
 > [AZURE.TIP] Puede crear un flujo de trabajo de conexión simplificada para las aplicaciones de administración. En primer lugar, obtenga una clave de cuenta para la cuenta de Lote que desea administrar con [ListKeysAsync][net_list_keys]. Después, use esta clave al inicializar la clase [BatchSharedKeyCredentials][net_sharedkeycred] de la biblioteca de .NET de Lote, que se usa al inicializar [BatchClient][net_batch_client].
@@ -85,9 +92,12 @@ En el siguiente fragmento de código, primero se usa [BatchManagementClient.Acco
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
-BatchAccountListResponse listResponse = await batchManagementClient.Accounts.ListAsync(new AccountListParameters());
+BatchAccountListResponse listResponse =
+		await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
-Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}", creds.SubscriptionId, accounts.Count);
+Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
+	creds.SubscriptionId,
+	accounts.Count);
 
 // Get a count of all accounts within the target region
 string region = "westus";
@@ -110,7 +120,8 @@ Antes de aumentar los recursos de proceso en la solución de Lote, puede realiza
 
 ```csharp
 // First obtain the Batch account
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
+BatchAccountGetResponse getResponse =
+	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
@@ -123,13 +134,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Biblioteca .NET de Administración de Lote, Azure AD y Administrador de recursos
 
-Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] \(Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
+Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] (Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
 
 ### Azure Active Directory
 
 El propio Azure usa Azure Active Directory (AAD) para la autenticación de sus clientes, administradores de servicios y usuarios de la organización. En el contexto de .NET de Administración de Lote, se utilizará para autenticar un administrador o coadminstrator de suscripciones. Esto permitirá que, después, la biblioteca de administración consulte el servicio Lote y realice las operaciones que se describen en este artículo.
 
-En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] \(ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
+En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] (ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
 
 ### Resource Manager
 
@@ -137,7 +148,7 @@ Al crear cuentas de Lote con la biblioteca .NET de Administración de Lote, lo h
 
 ## Proyecto de ejemplo en GitHub
 
-Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] \(ADAL) de Azure, que requiere ambos clientes.
+Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] (ADAL) de Azure, que requiere ambos clientes.
 
 Para ejecutar correctamente la aplicación de ejemplo, primero debe registrarla en Azure AD desde el Portal de Azure. Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../active-directory/active-directory-integrating-applications.md#adding-an-application) en [Integración de aplicaciones con Azure Active Directory][aad_integrate] para registrar la aplicación de ejemplo dentro de su propia cuenta predeterminada. Seleccione **Aplicación de cliente nativo** para el tipo de aplicación, y puede especificar cualquier URI válido (como `http://myaccountmanagementsample`) para el **URI de redireccionamiento** (no es necesario que sea un punto de conexión real).
 
@@ -202,4 +213,4 @@ Antes de eliminar el grupo de recursos y la cuenta de Lote recién creados, pued
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

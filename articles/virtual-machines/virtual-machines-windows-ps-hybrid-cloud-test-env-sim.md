@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/08/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
 
-Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure para las pruebas con dos redes virtuales de Azure independientes. Use esta configuración como alternativa a la [configuración de un entorno de nube híbrida para hacer pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) cuando no tenga conexión directa a Internet ni una dirección IP pública disponible. Aquí está la configuración resultante.
+Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure mediante dos redes virtuales de Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
-Esto simula un entorno de producción de nube híbrida. Consta de:
+Esto simula un entorno de producción en la nube híbrida y consta de los siguientes elementos:
 
 - Una red local simulada y simplificada hospedada en una red virtual de Azure (la red virtual TestLab).
 - Una red virtual simulada entre locales hospedada en Azure (TestVNET).
@@ -42,17 +42,17 @@ Existen cuatro fases principales para configurar este entorno de prueba de nube 
 3.	Creación de la conexión VPN de red virtual a red virtual.
 4.	Configuración de DC2.
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Esta configuración requiere una suscripción de Azure. Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este coste se factura en su suscripción de prueba gratuita, de MSDN o de pago. Una puerta de enlace de VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure. Para minimizar los costos, hay que crear el entorno de prueba y realizar las pruebas y demostraciones necesarias lo más rápido posible.
+>[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este costo se factura en su suscripción de pago o MSDN. Una puerta de enlace de VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure. Para minimizar los costos, hay que crear el entorno de prueba y realizar las pruebas y demostraciones necesarias lo más rápido posible.
 
 ## Fase 1: configuración de la red virtual TestLab
 
-Use las instrucciones que encontrará en el [Entorno de prueba de la configuración base](virtual-machines-windows-test-config-env.md) para configurar los equipos DC1, APP1 y CLIENT1 en una red virtual de Azure denominada TestLab.
+Use las instrucciones que encontrará en el tema [Entorno de prueba de la configuración base](https://technet.microsoft.com/library/mt771177.aspx) para configurar los equipos DC1, APP1 y CLIENT1 de una red virtual de Azure denominada "TestLab".
 
 Después, inicie un símbolo del sistema de Azure PowerShell.
 
-> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores.
 
 Inicie sesión en su cuenta.
 
@@ -62,12 +62,12 @@ Obtenga el nombre de la suscripción con el comando siguiente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
+Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica de la fase 1. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
-A continuación, agregue una subred de puerta de enlace a la red virtual TestLab de la configuración básica, que se utilizará para hospedar la puerta de enlace de Azure.
+Después, agregue una subred de puerta de enlace a la red virtual TestLab de la configuración básica, que se utilizará para hospedar la puerta de enlace de Azure.
 
 	$rgName="<name of your resource group that you used for your TestLab virtual network>"
 	$locName="<Azure location name where you placed the TestLab virtual network, such as West US>"
@@ -88,14 +88,14 @@ A continuación, cree la puerta de enlace.
 
 Tenga en cuenta que las puertas de enlace nuevas pueden tardar 20 minutos o más en crearse.
 
-Desde el Portal de Azure en el equipo local, conéctese a DC1 con las credenciales CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
+Desde el Portal de Azure en el equipo local, conéctese a DC1 con las credenciales CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con DC1.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
 	New-ADReplicationSubnet -Name "10.0.0.0/8" -Site "TestLab"
 	New-ADReplicationSubnet -Name "192.168.0.0/16" -Site "TestVNET"
 
-Esta es su configuración actual.
+Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
  
@@ -103,7 +103,7 @@ Esta es su configuración actual.
 
 En primer lugar, cree la red virtual TestVNET y protéjala con un grupo de seguridad de red.
 
-	$rgName="<name of your resource group that you used for your TestLab virtual network>"
+	$rgName="<name of the resource group that you used for your TestLab virtual network>"
 	$locName="<Azure location name where you placed the TestLab virtual network, such as West US>"
 	$locShortName="<Azure location name from $locName in all lowercase letters with spaces removed. Example:  westus>"
 	$testSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "TestSubnet" -AddressPrefix 192.168.0.0/24
@@ -123,7 +123,7 @@ A continuación, solicite una dirección IP pública que se asignará a la puert
 	$gwipconfig=New-AzureRmVirtualNetworkGatewayIpConfig -Name "TestVNET_GWConfig" -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 	New-AzureRmVirtualNetworkGateway -Name "TestVNET_GW" -ResourceGroupName $rgName -Location $locName -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-Esta es su configuración actual.
+Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
  
@@ -131,7 +131,7 @@ Esta es su configuración actual.
 
 En primer lugar, solicite una clave previamente compartida aleatoria criptográficamente segura de 32 caracteres al administrador de red o de seguridad. Como alternativa, use la información que encontrará en [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creación de una cadena aleatoria para una clave previamente compartida IPsec) para obtener una clave previamente compartida.
 
-A continuación, use estos comandos para crear la conexión VPN de sitio a sitio, que puede tardar algún tiempo en crearse.
+Después, use estos comandos para crear la conexión VPN de sitio a sitio, que puede tardar algún tiempo en crearse.
 
 	$sharedKey="<pre-shared key value>"
 	$gwTestLab=Get-AzureRmVirtualNetworkGateway -Name TestLab_GW -ResourceGroupName $rgName
@@ -139,19 +139,19 @@ A continuación, use estos comandos para crear la conexión VPN de sitio a sitio
 	New-AzureRmVirtualNetworkGatewayConnection -Name TestLab_to_TestVNET -ResourceGroupName $rgName -VirtualNetworkGateway1 $gwTestLab -VirtualNetworkGateway2 $gwTestVNET -Location $locName -ConnectionType Vnet2Vnet -SharedKey $sharedKey
 	New-AzureRmVirtualNetworkGatewayConnection -Name TestVNET_to_TestLab -ResourceGroupName $rgName -VirtualNetworkGateway1 $gwTestVNET -VirtualNetworkGateway2 $gwTestLab -Location $locName -ConnectionType Vnet2Vnet -SharedKey $sharedKey
 
-Después de unos minutos, se debe establecer la conexión. Tenga en cuenta que en este momento, las puertas de enlace y las conexiones creadas con el Administrador de recursos de Azure no son visibles en el Portal de Azure.
+Después de unos minutos, se debe establecer la conexión.
 
-Esta es su configuración actual.
+Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
  
 ## Fase 4: configuración de DC2
 
-En primer lugar, cree una máquina virtual de Azure de DC2. Ejecute estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
+Primero, cree una máquina virtual para DC2. Ejecute estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
-	$saName="<your storage account name for the base configuration>"
+	$saName="<the storage account name for the base configuration>"
 	$vnet=Get-AzureRMVirtualNetwork -Name TestVNET -ResourceGroupName $rgName
 	$pip=New-AzureRMPublicIpAddress -Name DC2-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name DC2-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.0.4
@@ -167,7 +167,7 @@ En primer lugar, cree una máquina virtual de Azure de DC2. Ejecute estos comand
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC2-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-A continuación, inicie sesión en la nueva máquina virtual de DC2 desde el portal de Azure.
+Después, inicie sesión en la nueva máquina virtual de DC2 desde el Portal de Azure.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en DC2, ejecute estos comandos.
 
@@ -176,7 +176,7 @@ A continuación, configure una regla del Firewall de Windows para permitir el tr
 
 El comando de ping debería devolver cuatro respuestas correctas desde la dirección IP 10.0.0.4. Esto es una prueba de tráfico a través de la conexión de red virtual a red virtual.
 
-A continuación, agregue el disco de datos adicional como un nuevo volumen con la letra de unidad F:.
+Después, agregue el disco de datos adicional en DC2 como un nuevo volumen con la letra de unidad F:.
 
 1.	En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y, a continuación, haga clic en **Discos**.
 2.	En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** (con la **partición** establecida en **Desconocida**).
@@ -201,9 +201,9 @@ Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe confi
 1.	En el panel izquierdo del Portal de Azure, haga clic en el icono de las redes virtuales y elija **TestVNET**.
 2.	En la pestaña **Configuración**, haga clic en **Servidores DNS**.
 3.	En **Servidor DNS principal**, escriba **192.168.0.4** para sustituir el valor 10.0.0.4.
-4.	Haga clic en **Guardar**.
+4.	Haga clic en **Save**.
 
-Esta es su configuración actual.
+Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
  
@@ -211,6 +211,6 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 ## Paso siguiente
 
-- Configure una [granja de servidores de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
+- Configuración de una [aplicación de línea de negocio web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) en este entorno
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

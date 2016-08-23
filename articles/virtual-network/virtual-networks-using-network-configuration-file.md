@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Configuración de una red virtual con un archivo de configuración de red" 
-	description="Instrucciones para exportar e importar un archivo de configuración de red en el Portal de administración de Azure para crear o modificar redes virtuales." 
+	description="Instrucciones para exportar e importar un archivo de configuración de red en el Portal de administración de Azure para crear o modificar redes virtuales. " 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="telmosampaio" 
+	authors="jimdial" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
 	ms.date="03/15/2016"
-	ms.author="telmos"/>
+	ms.author="jdial"/>
 
 # Configuración de una red virtual con un archivo de configuración de red
 
@@ -36,8 +36,8 @@ Puede importar y exportar las opciones de configuración de una red contenidas e
 Al exportar, todos los ajustes de las redes virtuales en su suscripción se escribirán en un archivo .xml.
 
 1. Inicie sesión en el **Portal de administración**.
-2. En el Portal de administración, en la parte inferior de la página **Redes**, haga clic en **Exportar**. 
-3. En la ventana **Exportar configuración de red**, compruebe que seleccionó la suscripción cuya configuración de red desee exportar. A continuación, haga clic en la marca de verificación de la esquina inferior derecha. 
+2. En el Portal de administración, en la parte inferior de la página **Redes**, haga clic en **Exportar**.
+3. En la ventana **Exportar configuración de red**, compruebe que seleccionó la suscripción cuya configuración de red desee exportar. A continuación, haga clic en la marca de verificación de la esquina inferior derecha.
 4. Cuando se le solicite, guarde el archivo *NetworkConfig.xml* en la ubicación que prefiera.
 
 
@@ -46,6 +46,6 @@ Al exportar, todos los ajustes de las redes virtuales en su suscripción se escr
 1. En el **Portal de administración**, en el panel de navegación de la parte inferior izquierda, haga clic en **Nuevo**.
 2. Haga clic en **Servicios de red** -> **Red virtual** -> **Importar configuración**.
 3. En la página **Importación del archivo de configuración de red**, busque el archivo de configuración de red y, a continuación, haga clic en la flecha **Siguiente**.
-4. En la página **Creando su red**, verá información en pantalla que muestra las secciones de la configuración de red que cambiarán o se crearán. Si está de acuerdo con los cambios, haga clic en la marca de verificación para continuar con la actualización o la creación de la red virtual. 
+4. En la página **Creando su red**, verá información en pantalla que muestra las secciones de la configuración de red que cambiarán o se crearán. Si está de acuerdo con los cambios, haga clic en la marca de verificación para continuar con la actualización o la creación de la red virtual.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

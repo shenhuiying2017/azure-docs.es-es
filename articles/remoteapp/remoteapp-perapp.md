@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publicación de aplicaciones para usuarios individuales en una colección de Azure RemoteApp (versión preliminar)
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 En este artículo se explica cómo publicar aplicaciones para usuarios individuales en una colección de Azure RemoteApp. Esta es una nueva funcionalidad de Azure RemoteApp, actualmente en estado de "versión preliminar privada" disponible solo para seleccionar usuarios pioneros con fines de evaluación.
 
@@ -43,7 +46,7 @@ Ahora, esto es posible en Azure RemoteApp: actualmente solo como una caracterís
 
 Para probar la nueva funcionalidad de la versión preliminar, debe usar los cmdlets de Azure PowerShell. Actualmente no se puede usar el Portal de administración de Azure para habilitar el modo de publicación de nueva aplicación.
 
-En primer lugar, asegúrese de que tiene el [módulo de Azure PowerShell](../powershell-install-configure.md) instalado.
+En primer lugar, asegúrese de tener el [módulo de Azure PowerShell](../powershell-install-configure.md) instalado.
 
 A continuación, inicie la consola de PowerShell en modo de administrador y ejecute el siguiente cmdlet:
 
@@ -80,7 +83,7 @@ Ejecute el siguiente cmdlet:
 
 Este cmdlet permite enumerar todos los usuarios que pueden ver la aplicación.
 
-Nota: Puede ver los alias de la aplicación (denominados "appAlias" en la sintaxis anterior) mediante la ejecución de Get-AzureRemoteAppProgram -CollectionName<collectionName>.
+Nota: Puede ver los alias de la aplicación (denominados "appAlias" en la sintaxis anterior) mediante la ejecución de Get-AzureRemoteAppProgram -CollectionNam <nombreDeColección>.
 
 ## Cómo asignar una aplicación a un usuario
 
@@ -102,4 +105,4 @@ Agradecemos sus comentarios y sugerencias sobre esta característica de la versi
 ## ¿No ha tenido la oportunidad de probar la característica en la versión preliminar?
 Si no ha participado aún en la versión preliminar, use esta [encuesta](http://www.instant.ly/s/AY83p) para solicitar acceso.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -61,7 +61,7 @@ Para las máquinas virtuales más recientes creadas con Resource Manager (conjun
       }
     ]
 ```
-|Campo |¿Obligatorio?|	Descripción|
+|Campo |¿Obligatorio?|	Description|
 |---|---|---|
 |operación |yes |el valor debe ser "Scale"|
 |sendToSubscriptionAdministrator |yes |el valor debe ser "true" o "false"|
@@ -108,7 +108,7 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 ```
 
 
-|Campo |¿Obligatorio?|	Descripción|
+|Campo |¿Obligatorio?|	Description|
 |---|---|---|
 |status |yes |Estado que indica que se ha generado una acción de escalado automático.|
 |operación|	yes |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente".|
@@ -127,4 +127,4 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 |newCapacity|	Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso.|
 |Propiedades|	No|	Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta).|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

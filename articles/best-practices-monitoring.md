@@ -664,4 +664,4 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 - [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

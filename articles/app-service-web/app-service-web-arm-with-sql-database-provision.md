@@ -183,7 +183,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
             "[variables('sqlserverName')]"
           ],
           "location": "[resourceGroup().location]",
-          "name": "AllowAllWindowsAzureIps",
+          "name": "AllowAllAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
             "startIpAddress": "0.0.0.0"
@@ -475,4 +475,4 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

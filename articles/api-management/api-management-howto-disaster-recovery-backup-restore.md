@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
@@ -97,7 +97,7 @@ Reemplace `{application id}` y `{redirect uri}` mediante el **Id. de cliente** y
 
 Una vez que se especifican los valores, el ejemplo de código debe devolver un token similar al ejemplo siguiente.
 
-![Se necesita el cifrado de tokens][api-management-arm-token]
+![SWT][api-management-arm-token]
 
 Antes de llamar a las operaciones de copia de seguridad y restauración descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 
@@ -131,8 +131,8 @@ La creación de una copia de seguridad es una operación de larga duración que 
 **Nota**:
 
 - El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
-* Mientras se crea la copia de seguridad, **no realice ninguna operación de administración del servicio** (por ejemplo, una actualización o degradación de SKU o un cambio de nombre de dominio). 
-* La restauración de una **copia de seguridad se garantiza solo durante 7 días** a partir del momento en que esta se crea. 
+* Mientras se crea la copia de seguridad, **no realice ninguna operación de administración del servicio** (por ejemplo, una actualización o degradación de SKU o un cambio de nombre de dominio).
+* La restauración de una **copia de seguridad se garantiza solo durante 7 días** a partir del momento en que esta se crea.
 * Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Administración de API de Azure][] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 * La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda crear las copias de seguridad de forma periódica y también a petición tras realizar cambios importantes en el servicio Administración de API.
 * Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) mientras se está realizando la copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
@@ -169,7 +169,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 ## Pasos siguientes
 Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del proceso de copia de seguridad y restauración.
 
--	[Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+-	[Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 	-	Gracias a Gisela por su colaboración en este artículo.
 -	[Azure API Management: Backing Up and Restoring Configuration (Administración de API de Azure: copia de seguridad y restauración de la configuración)](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	El enfoque detallado por Stuart no coincide con la orientación oficial, pero es muy interesante.
@@ -191,4 +191,4 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

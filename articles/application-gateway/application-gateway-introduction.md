@@ -3,7 +3,7 @@
    description="Esta página proporciona información general sobre el servicio Puerta de enlace de aplicaciones para equilibrio de carga de nivel 7, incluidos los tamaños de puerta de enlace, el equilibrio de carga HTTP, la afinidad de sesión basada en cookies y la descarga SSL."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
-   ms.author="joaoma"/>
+   ms.date="08/10/2016"
+   ms.author="gwallace"/>
 
 # Introducción a Puerta de enlace de aplicaciones
 
@@ -26,21 +26,24 @@ Puerta de enlace de aplicaciones actualmente admite la entrega de aplicación de
 - Equilibrio de carga HTTP
 - Afinidad de sesión basada en cookies
 - [Descarga de Capa de sockets seguros (SSL)](application-gateway-ssl-arm.md)
-- [Enrutamiento de contenido basado en direcciones URL](application-gateway-url-route-overview.md) 
+- [Enrutamiento de contenido basado en direcciones URL](application-gateway-url-route-overview.md)
+- [Enrutamiento multisitio](application-gateway-multi-site-overview.md)
 
 ## Equilibrio de carga de nivel 7 HTTP
 
-Azure ofrece equilibrio de carga de nivel 4 a través del equilibrador de carga de Azure operativo en el nivel de transporte (TCP/UDP), y la carga de todo el tráfico de red entrante se equilibra en el servicio Puerta de enlace de aplicaciones. La Puerta de enlace de aplicaciones aplicará las reglas de enrutamiento al tráfico HTTP, ofreciendo un equilibrio de carga de nivel 7 (HTTP). Cuando se crea una puerta de enlace de aplicaciones, un punto de conexión (VIP) se asocia y usa como dirección IP pública para el tráfico de red de entrada.
+Azure ofrece equilibrio de carga de nivel 4 a través de la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP), y la carga de todo el tráfico de red entrante se equilibra en el servicio Puerta de enlace de aplicaciones. La Puerta de enlace de aplicaciones aplica las reglas de enrutamiento al tráfico HTTP, ofreciendo un equilibrio de carga de nivel 7 (HTTP). Cuando se crea una puerta de enlace de aplicaciones, un punto de conexión (VIP) se asocia y usa como dirección IP pública para el tráfico de red de entrada.
 
-La Puerta de enlace de aplicaciones enrutará el tráfico HTTP en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube, una aplicación web o una dirección IP externa.
+La Puerta de enlace de aplicaciones enruta el tráfico HTTP en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube, una aplicación web o una dirección IP externa.
 
 El equilibrio de carga de nivel 7 HTTP es útil para:
 
-- Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual de back-end. Ejemplos de esto serían las aplicaciones de carro de la compra y los servidores de correo web.
+- Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual back-end. Ejemplos de estas aplicaciones serían las aplicaciones de carro de la compra y los servidores de correo web.
 - Aplicaciones que desean liberar a las granjas de servidores web de la sobrecarga de terminación SSL.
 - Aplicaciones, como la red de entrega de contenido, que requieren que varias solicitudes HTTP en la misma conexión TCP de ejecución prolongada se enruten a servidores backend diferentes o su carga se equilibre entre estos.
 
- 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+
+
 ## Tamaños e instancias de puerta de enlace
 
 Puerta de enlace de aplicaciones actualmente se ofrece en tres tamaños: pequeño, mediano y grande. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
@@ -52,16 +55,20 @@ En la tabla siguiente se muestra un promedio de rendimiento para cada instancia 
 
 | Respuesta de la página de back-end | Pequeña | Mediano | Grande|
 |---|---|---|---|
-| 6K | 7,5 Mbps | 13 Mbps | 50 Mbps |
-|100 k | 35 Mbps | 100 Mbps| 200 Mbps |
+| 6000 | 7,5 Mbps | 13 Mbps | 50 Mbps |
+|100 000 | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE] Se trata de una guía aproximada para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página.
+>[AZURE.NOTE] Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página.
 
 
 ## Supervisión del estado
 
 La puerta de enlace de aplicaciones de Azure supervisa el estado de las instancias de back-end automáticamente. Para obtener más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
+
+
+
+
 
 ## Configuración y administración
 
@@ -70,8 +77,8 @@ Puede crear y administrar una puerta de enlace de aplicaciones mediante las API 
 
 ## Pasos siguientes
 
-Ahora que ya conoce cómo funciona Puerta de enlace de aplicaciones, puede [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway.md) o bien puede [crear una descarga de SSL de Puerta de enlace de aplicaciones](application-gateway-ssl.md) para equilibrar la carga de las conexiones HTTPS.
+Ahora que ya conoce cómo funciona Puerta de enlace de aplicaciones, puede [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md) o bien puede [crear una descarga de SSL de Puerta de enlace de aplicaciones](application-gateway-ssl-arm.md) para equilibrar la carga de las conexiones HTTPS.
 
 Para aprender a crear una puerta de enlace de aplicaciones mediante el enrutamiento de contenido basado en direcciones URL, vaya a [Creación de una puerta de enlace de aplicaciones mediante enrutamiento basado en direcciones URL](application-gateway-create-url-route-arm-ps.md) para obtener más información.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

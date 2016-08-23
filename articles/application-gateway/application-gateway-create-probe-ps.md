@@ -3,7 +3,7 @@
    description="Aprenda a crear un sondeo personalizado para Puerta de enlace de aplicaciones mediante PowerShell en el Administrador de recursos"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,10 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
+
+> [AZURE.SELECTOR]
+- [Portal de Azure](application-gateway-create-probe-portal.md)
+- [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -40,7 +47,7 @@ Compruebe las suscripciones para la cuenta.
 
 		get-AzureRmSubscription
 
-Se le pedirá que se autentique con sus credenciales.<BR>
+Se le solicita que se autentique con sus credenciales.<BR>
 
 ### Paso 3
 
@@ -56,9 +63,9 @@ Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usen el mismo grupo de recursos.
+El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
-En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "Oeste de EE. UU.".
+En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
 
 ## Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
@@ -87,7 +94,7 @@ Asigne una variable de subred en los pasos siguientes para crear una puerta de e
 ## Creación de una dirección IP pública para la configuración del front-end
 
 
-Cree un recurso IP público "publicIP01" en el grupo de recursos "appgw-rg" para la región Oeste de EE. UU..
+Cree un recurso IP público "publicIP01" en el grupo de recursos "appgw-rg" para la región West US.
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
@@ -99,7 +106,7 @@ Debe configurar todos los elementos de configuración antes de crear la puerta d
 
 ### Paso 1
 
-Cree una configuración de IP de puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia Puerta de enlace de aplicaciones, esta elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP del back-end. Tenga en cuenta que cada instancia tomará una dirección IP.
+Cree una configuración de IP de puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -107,7 +114,7 @@ Cree una configuración de IP de puerta de enlace de aplicaciones denominada "ga
 ### Paso 2
 
 
-Configure el grupo de direcciones IP del back-end denominado "pool01" con las direcciones IP "134.170.185.46,134.170.188.221,134.170.185.50". Serán las direcciones IP que reciban el tráfico de red procedente del punto de conexión de la IP del front-end. Deberá reemplazar las direcciones IP anteriores para agregar sus propios extremos de direcciones IP de la aplicación.
+Configure el grupo de direcciones IP del back-end denominado "pool01" con las direcciones IP "134.170.185.46,134.170.188.221,134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -121,7 +128,7 @@ Los parámetros utilizados son:
 
 - **-Interval**: configura las comprobaciones de intervalo de sondeo en segundos.
 - **-Timeout**: define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.
-- **-Hostname y -path**: dirección URL completa que Puerta de enlace de aplicaciones invoca para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para "http://contoso.com/path/custompath.htm" de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
+- **-Hostname y -path**: dirección URL completa que Puerta de enlace de aplicaciones invoca para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para http://contoso.com/path/custompath.htm de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
 - **-UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.
 
 <BR>
@@ -238,4 +245,4 @@ Guarde la configuración en la puerta de enlace de aplicaciones mediante **Set-A
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

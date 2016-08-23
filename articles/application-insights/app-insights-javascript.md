@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas web
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Obtenga información sobre el rendimiento y la utilización de su página web o aplicación. Agregue Application Insights de Visual Studio en el script de la página y obtendrá tiempos de carga de página y llamadas AJAX, recuentos y detalles sobre excepciones del explorador y errores de AJAX, así como recuentos de usuarios y sesiones. Todos estos datos se pueden segmentar por página, sistema operativo del cliente y versión del explorador, geolocalización y otras dimensiones. También puede establecer alertas sobre recuentos de errores o sobre cargas de página lentas.
+Obtenga información sobre el rendimiento y la utilización de su página web o aplicación. Si agrega Application Insights de Visual Studio al script de la página, obtendrá los intervalos de carga de la página y de las llamadas AJAX, recuentos y detalles sobre las excepciones del explorador y los errores de AJAX, así como usuarios y recuentos de sesiones. Todos estos datos se pueden segmentar por página, sistema operativo del cliente y versión del explorador, geolocalización y otras dimensiones. También puede establecer alertas sobre recuentos de errores o sobre cargas de página lentas.
 
 Puede utilizar Application Insights con cualquier página web, solo tiene que agregar un pequeño fragmento de JavaScript. Si su servicio web es [Java](app-insights-java-get-started.md) o [ASP.NET](app-insights-asp-net.md), puede integrar datos de telemetría desde el servidor y los clientes.
 
-Necesitará una suscripción a [Microsoft Azure](https://azure.com). Si su equipo tiene una suscripción organizativa, pida al propietario que agregue su cuenta de Microsoft. Hay un plan de tarifas gratuito, por lo que el desarrollo y utilización a pequeña escala no cuestan nada.
+Necesita una suscripción a [Microsoft Azure](https://azure.com). Si su equipo tiene una suscripción organizativa, pida al propietario que le agregue su cuenta de Microsoft. Hay un plan de tarifas gratuito, por lo que el desarrollo y utilización a pequeña escala no cuestan nada.
 
 
 ## Configuración de Application Insights para su página Web
 
-Es posible que ya la tenga. Si la aplicación es un nuevo proyecto de ASP.NET y decidió agregar Application Insights en el cuadro de diálogo Nuevo proyecto en Visual Studio, el script ya se habrá agregado y estará configurado.
+En primer lugar, ¿necesita agregar Application Insights a sus páginas web? Es posible que ya lo haya hecho. Si eligió agregar Application Insights a su aplicación web en el cuadro de diálogo Nuevo proyecto de Visual Studio, el script se agregó a continuación. En ese caso, no es necesario hacer nada más.
 
 De lo contrario, deberá agregar un fragmento de código en las páginas web, como se indica a continuación.
 
@@ -39,7 +39,7 @@ El recurso de Application Insights es donde se muestran los datos sobre el rendi
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tendrá un recurso:
+Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tiene un recurso:
 
 ![Seleccione Examinar, Servicios para desarrolladores, Application Insights.](./media/app-insights-javascript/01-find.png)
 
@@ -71,7 +71,7 @@ El script contiene la clave de instrumentación que dirige los datos al recurso 
 
 ## Configuración detallada
 
-Hay varios [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que puede establecer, aunque en la mayoría de los casos, no es necesario. Por ejemplo, puede deshabilitar o limitar el número de llamadas Ajax notificadas por vista de página (para reducir el tráfico); o bien, puede establecer el modo de depuración para hacer que la telemetría se desplace rápidamente por la canalización sin que se procese por lotes.
+Hay varios [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que puede establecer, aunque en la mayoría de los casos, no es necesario. Por ejemplo, puede deshabilitar o limitar el número de llamadas Ajax notificadas por vista de página (para reducir el tráfico). O bien, puede establecer el modo de depuración para que los datos de telemetría se muevan rápidamente a través de la canalización sin que se procese por lotes.
 
 Para establecer estos parámetros, busque esta línea en el fragmento de código y agregue más elementos delimitados por comas a continuación:
 
@@ -120,7 +120,7 @@ Abra la hoja de exploradores para mostrar los datos de rendimiento agregados de 
 
 *¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas](app-insights-troubleshoot-faq.md).*
 
-La hoja de exploradores es una [hoja del Explorador de métricas](app-insights-metrics-explorer.md) con filtros y selecciones de gráfico predefinidos. Puede editar el intervalo de tiempo, los filtros y la configuración de gráfico si lo desea y guardar el resultado como favorito. Haga clic en **Restaurar valores predeterminados** para volver a la configuración original de la hoja.
+La hoja Exploradores es una [hoja del Explorador de métricas](app-insights-metrics-explorer.md) con filtros y selecciones de gráfico preestablecidos. Si lo desea, puede editar el intervalo de tiempo, los filtros y la configuración de los gráficos y guardar el resultado como favorito. Haga clic en **Restaurar valores predeterminados** para volver a la configuración original de la hoja.
 
 ## Rendimiento de carga de la página
 
@@ -130,7 +130,7 @@ El gráfico divide el tiempo total de carga de las páginas en los [intervalos e
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-Tenga en cuenta que el tiempo de *conexión de red* es a menudo más bajo de lo que cabría esperar, porque es una media de todas las solicitudes del explorador al servidor. Muchas de las solicitudes individuales tienen un tiempo de conexión de 0 porque ya hay una conexión activa con el servidor.
+Tenga en cuenta que el tiempo de *conexión de red* suele ser menor de lo esperable, ya que es una media de todas las solicitudes del explorador al servidor. Muchas de las solicitudes individuales tienen un tiempo de conexión de 0 porque ya hay una conexión activa con el servidor.
 
 ### ¿La carga es lenta?
 
@@ -146,14 +146,14 @@ Observe que el recuento de vistas de página y la desviación estándar. Si el n
 
 ![](./media/app-insights-javascript/35.png)
 
-Haga clic en `...` para obtener una lista completa de las propiedades para ese evento o inspeccionar las llamadas Ajax y los eventos relacionados. Las llamadas Ajax lentas afectan al tiempo total de carga de la página si son sincrónicas. Entre los eventos relacionados se incluyen las solicitudes del servidor para la misma dirección URL (si ha configurado Application Insights en el servidor web).
+Haga clic en `...` para obtener una lista completa de las propiedades del evento, o bien inspeccione las llamadas Ajax y los eventos relacionados. Las llamadas Ajax lentas afectan al tiempo total de carga de la página si son sincrónicas. Entre los eventos relacionados se incluyen las solicitudes del servidor para la misma dirección URL (si ha configurado Application Insights en el servidor web).
 
 
 **Evolución del rendimiento de la página en el tiempo.** De nuevo en la hoja de exploradores, cambie la cuadrícula de tiempo de carga de la vista de página en un gráfico de líneas para ver si hay picos en momentos concretos:
 
 ![Haga clic en el encabezado de la cuadrícula y seleccione un nuevo tipo de gráfico](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentación mediante otras dimensiones.** ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Agrupar por**.
+**Segmentación mediante otras dimensiones.** ¿Puede que las páginas sean más lentas a la hora de cargarse en un determinado explorador, sistema operativo del cliente o ubicación del usuario? Agregue un nuevo gráfico y experimente con la dimensión **Group-by** (Agrupar por).
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -175,17 +175,17 @@ y cuadrículas detalladas más abajo:
 Haga clic en cualquier fila para obtener detalles concretos.
 
 
-> [AZURE.NOTE] Si elimina el filtro de exploradores en la hoja, tanto el servidor como las dependencias AJAX se incluirán en estos gráficos. Haga clic en Restaurar valores predeterminados para volver a configurar el filtro.
+> [AZURE.NOTE] Si elimina el filtro Exploradores de la hoja, tanto el servidor como las dependencias AJAX se incluirán en estos gráficos. Haga clic en Restaurar valores predeterminados para volver a configurar el filtro.
 
-**Si desea profundizar en las llamadas Ajax erróneas**, desplácese hacia abajo hasta la cuadrícula de errores de Dependencia y, a continuación, haga clic en una fila para ver las instancias concretas.
+**Para profundizar en las llamadas Ajax con errores**, desplácese hacia abajo hasta la cuadrícula de errores de Dependencia y haga clic en cualquiera de las filas para ver las instancias concretas.
 
 ![](./media/app-insights-javascript/37.png)
 
-Haga clic en `...` para obtener la telemetría completa para una llamada Ajax.
+Haga clic en `...` para obtener la telemetría completa de una llamada Ajax.
 
 ### ¿No se han notificado llamadas Ajax?
 
-Las llamadas AJAX incluyen todas las llamadas HTTP realizadas desde el script de la página web. Si no se han notificado, compruebe que el fragmento de código no establezca los [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView`.
+Las llamadas AJAX incluyen todas las llamadas HTTP realizadas desde el script de la página web. Si no se han notificado, compruebe que el fragmento de código no establece los [parámetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView`.
 
 ## Excepciones de explorador
 
@@ -193,7 +193,7 @@ En la hoja de exploradores, hay un gráfico de resumen de excepciones y una cuad
 
 ![](./media/app-insights-javascript/39.png)
 
-Si no se han notificado las excepciones de explorador, compruebe que el fragmento de código no establezca el [parámetro](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
+Si no ve que se hayan notificado las excepciones del explorador, compruebe que el fragmento de código no establezca el [parámetro](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## Inspección de eventos de vista de página individuales
 
@@ -205,17 +205,17 @@ En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
 Seleccione el evento que desea ver con mayor detalle. En la página de detalles, haga clic en "..." para ver aún más detalles.
 
-> [AZURE.NOTE] Si usa [Buscar](app-insights-diagnostic-search.md), tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
+> [AZURE.NOTE] Si usa [Buscar](app-insights-diagnostic-search.md), tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de".
 
-> [Más información sobre Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
+También puede usar el potente [lenguaje de consulta de Analytics](app-insights-analytics-tour.md) para buscar vistas de página.
 
 ### Propiedades de la vista de página
 
-* **Duración de vista de página** 
+* **Duración de vista de página**
 
  * De forma predeterminada, el tiempo necesario para cargar la página, desde la solicitud del cliente hasta la carga completa (incluidos los archivos auxiliares, aunque no las tareas asincrónicas, como las llamadas de Ajax).
- * Si establece `overridePageViewDuration` en la [configuración de la página](#detailed-configuration), el intervalo entre la solicitud de cliente y la ejecución del primer método `trackPageView`. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente.
- * Si se ha establecido `overridePageViewDuration` y se proporciona un argumento de duración en la llamada `trackPageView()`, se usará en su lugar el valor del argumento. 
+ * Si establece `overridePageViewDuration` en la [configuración de la página](#detailed-configuration), el intervalo entre la solicitud del cliente y la ejecución del primer `trackPageView`. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente.
+ * Si se ha establecido `overridePageViewDuration` y se proporciona un argumento de duración en la llamada a `trackPageView()`, se usará el valor del argumento.
 
 
 ## Recuentos de página personalizados
@@ -226,7 +226,7 @@ Inserte una llamada de JavaScript como esta en el lugar adecuado del código de 
 
     appInsights.trackPageView(myPageName);
 
-El nombre de página puede contener los mismos caracteres que una URL, aunque se ignorarán los elementos situados tras "#" o "?".
+El nombre de la página puede contener los mismos caracteres que una dirección URL, aunque se ignorará todo aquello que haya después de "#" o "?".
 
 
 
@@ -249,4 +249,4 @@ El nombre de página puede contener los mismos caracteres que una URL, aunque se
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

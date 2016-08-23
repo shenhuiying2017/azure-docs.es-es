@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
@@ -26,7 +26,7 @@
 Dependiendo de cómo inicie sesión y use la autenticación multifactor, su experiencia será distinta. En esta sección se proporcionará información sobre qué esperar al iniciar sesión. Elija el caso que mejor describa lo que hace:
 
 
-¿Qué hace normalmente?|Descripción
+¿Qué hace normalmente?|Description
 :------------- | :------------- | 
 <a href="#1">Inicio de sesión con el teléfono de la oficina o con un móvil</a> | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
 <a href="#2">Inicio de sesión con la aplicación móvil mediante la notificación</a> | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
@@ -90,6 +90,7 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 <h2 id="4">Inicio de sesión con un método alternativo</h2>
 
+
 En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.
 
 ### Para iniciar sesión con un método alternativo
@@ -103,4 +104,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

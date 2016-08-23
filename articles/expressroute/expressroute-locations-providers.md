@@ -68,8 +68,8 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Dublín** | Colt |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications y Verizon |
 | **Londres** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon y Vodafone |
-| **Las Vegas** | Level 3 Communications+ y Megaport+
-| **Los Ángeles** | CoreSite, Equinix, Megaport y Zayo Group |
+| **Las Vegas** | Level 3 Communications+ y Megaport
+| **Los Ángeles** | CoreSite, Equinix, Megaport, NTT y Zayo Group |
 | **Melbourne** | Equinix, Megaport, NEXTDC y Telstra Corporation |
 | **Nueva York** | Equinix, Megaport y Zayo Group |
 | **Montreal** | Cologix+ |
@@ -156,4 +156,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

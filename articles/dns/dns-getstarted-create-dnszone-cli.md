@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creación de una zona DNS de Azure con CLI
@@ -109,7 +109,7 @@ Al crear una zona DNS, también se crean los siguientes registros DNS:
 
 - Los registros de servidor de nombres (NS) autoritativo. Estos muestran qué servidores de nombres hospedan la zona. DNS de Azure usa un grupo de servidores de nombres, por lo que se pueden asignar diferentes servidores de nombres a zonas distintas en DNS de Azure. Consulte [Delegación de un dominio a DNS de Azure](dns-domain-delegation.md) para obtener más información.
 
-Para ver estos registros, use `azure network dns-record-set show`.<BR> *Uso: presentación del conjunto de registros de dns de red <resource-group> <dns-zone-name> <name> <type>*
+Para ver estos registros, use `azure network dns-record-set show`.<BR> *Uso: network dns record-set show <grupo de recursos><nombre de zona dns><nombre><tipo>*
 
 
 En el ejemplo siguiente, al ejecutar el comando con el grupo de recursos *myresourcegroup*, el nombre del conjunto de registros *"@"* (para un registro raíz) y el tipo *SOA* se produce el siguiente resultado:
@@ -157,7 +157,7 @@ Puede probar su zona DNS con herramientas DNS, como nslookup, DIG o el cmdlet de
 
 Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, deberá dirigir la consulta de DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando "azure network dns-record-set show" mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
 
-En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los servidores de nombres asignados para la zona DNS. La consulta tiene que señalar a un servidor de nombres para el que se usó *@<name server for the zone>* y el nombre de zona con DIG.
+En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los servidores de nombres asignados para la zona DNS. La consulta tiene que señalar a un servidor de nombres para el que se usó *@<servidor de nombres para la zona>* y el nombre de zona con DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
@@ -185,4 +185,4 @@ En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los
 
 Después de crear una zona DNS, cree [conjuntos de registros y registros](dns-getstarted-create-recordset-cli.md) para iniciar la resolución de nombres para el dominio de Internet.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

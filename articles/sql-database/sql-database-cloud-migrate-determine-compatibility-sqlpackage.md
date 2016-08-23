@@ -37,10 +37,10 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 	| Argumento | Descripción |
 	|---|---|
 	| < nombre\_servidor > | nombre de servidor de origen |
-	| <nombre\_basedatos > | nombre de base de datos de origen |
-	| <archivo\_destino > | nombre y ubicación del archivo BACPAC |
-	| <nombre\_esquema.nombre\_tabla > | tablas para las que se enviarán datos al archivo de destino |
-	| <archivo\_salida > | nombre y ubicación del archivo de salida con los errores, si existen |
+	| < nombre\_basedatos > | nombre de base de datos de origen |
+	| < archivo\_destino > | nombre y ubicación del archivo BACPAC |
+	| < nombre\_esquema.nombre\_tabla > | tablas para las que se enviarán datos al archivo de destino |
+	| < archivo\_salida > | nombre y ubicación del archivo de salida con los errores, si existen |
 
 	La razón para el argumento /p:TableName es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a la Base de datos SQL de Azure V12, en lugar de exportar los datos desde todas las tablas. Lamentablemente, el argumento de exportación para sqlpackage.exe no admite no extraer ninguna tabla, por lo que necesitará especificar una única tabla pequeña. El < archivo\_salida > contendrá el informe de los errores. La cadena "> 2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
 

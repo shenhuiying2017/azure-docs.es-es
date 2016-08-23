@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
@@ -128,7 +128,7 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 
 Una vez ejecutado el script, debería tener una carpeta de destino local que incluye el archivo de imagen descargado. La siguiente captura de pantalla le muestra un ejemplo del resultado:
 
-![de blobs][Image3]
+![blobs][Image3]
 
 
 > [AZURE.NOTE] La sección "Introducción de 5 minutos a Almacenamiento de Azure y PowerShell" le proporcionará una breve introducción sobre cómo usar Azure PowerShell con Almacenamiento de Azure. Para obtener información detallada e instrucciones, le recomendamos que lea las secciones siguientes.
@@ -590,7 +590,7 @@ En el siguiente ejemplo le mostraremos cómo agregar un mensaje a una cola. Prim
 
 
 #### Cómo extraer el siguiente mensaje de la cola
-El código quita un mensaje de una cola en dos pasos. Cuando llama al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar también al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **DeleteMessage** justo después de que se haya procesado el mensaje.
+El código quita un mensaje de una cola en dos pasos. Cuando llama al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar también al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **DeleteMessage** justo después de que se haya procesado el mensaje.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -752,4 +752,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

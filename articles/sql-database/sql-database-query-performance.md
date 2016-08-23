@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/05/2016"
+   ms.date="08/09/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight de Base de datos SQL de Azure
@@ -28,7 +28,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 ## Requisitos previos
 
 - Query Performance Insight solo está disponible con Base de datos de SQL Azure V12.
-- Query Performance Insight requiere que el [almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) se ejecuta en la base de datos. El portal le pedirá que active el almacén de consultas si no se está ejecutando todavía.
+- Query Performance Insight requiere que el [almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) se ejecuta en la base de datos. Si Almacén de consultas no está en ejecución, el portal le pedirá que lo active.
 
  
 ## Permisos
@@ -51,7 +51,7 @@ Query Performance Insight es fácil de usar:
 
     ![panel de rendimiento](./media/sql-database-query-performance/performance.png)
 
-> [AZURE.NOTE] Para proporcionar información sobre el rendimiento de las consultas, es preciso que Almacén de consultas para Base de datos SQL capture un par de horas de datos. Si la base de datos no tiene actividad o Almacén de consultas no estuvo activo durante un período determinado, los gráficos estará vacíos al mostrar dicho período. Puede habilitar el almacén de consulta en cualquier momento si no se está ejecutando.
+> [AZURE.NOTE] Para proporcionar información sobre el rendimiento de las consultas, es preciso que Almacén de consultas para Base de datos SQL capture un par de horas de datos. Si la base de datos no tiene actividad o Almacén de consultas no estuvo activo durante un período determinado, los gráficos están vacíos al mostrar dicho período. Si Almacén de consultas no está en ejecución, puede habilitarlo en cualquier momento.
 
 
 
@@ -59,13 +59,13 @@ Query Performance Insight es fácil de usar:
 
 En el [portal](http://portal.azure.com), realice estas acciones:
 
-1. Vaya a una base de datos SQL y haga clic en **Toda la configuración** > **Rendimiento** > **Consultas**.
+1. Vaya a una base de datos SQL y haga clic en **Configuración** > **Rendimiento** > **Consultas**.
 
     ![Query Performance Insight][1]
 
     Se abre la vista de las principales consultas y aparece la lista de las consultas principales que más CPU consumen.
 
-1. Para más detalles, haga clic alrededor del gráfico.<br>La línea superior muestra el porcentaje general de DTU de la base de datos, mientras que las barras muestran el porcentaje de CPU consumido por las consultas seleccionadas durante el intervalo seleccionado (por ejemplo, si se selecciona **Semana anterior**, cada barra representa un día).
+1. Haga clic alrededor del gráfico para obtener detalles.<br>La línea superior muestra el porcentaje de DTU total de la base de datos. Las barras muestran el porcentaje de CPU que consumen las consultas seleccionadas durante el intervalo seleccionado (por ejemplo, si se seleccionó **La semana pasada**, cada barra representa un día).
 
     ![principales consultas][2]
 
@@ -110,7 +110,7 @@ Durante el uso de información de rendimiento de consultas, puede que encuentre 
 - “El almacén de consultas de esta base de datos está en modo de solo lectura y no va a recopilar información de rendimiento”.
 - "Los parámetros del almacén de consultas no se establecen de manera óptima para la información de rendimiento de consultas".
 
-Estos mensajes suelen aparecer cuando el almacén de consultas no puede recopilar datos nuevos. Para solucionar este problema tiene dos opciones:
+Estos mensajes suelen aparecer cuando el almacén de consultas no puede recopilar datos nuevos. Para resolver estos problemas, tiene dos opciones:
 
 -	Cambiar la directiva de retención y captura del almacén de consultas
 -	Aumentar el tamaño del almacén de consultas
@@ -120,12 +120,12 @@ Estos mensajes suelen aparecer cuando el almacén de consultas no puede recopila
 
 Hay dos tipos de directivas de retención:
 
-- Basada en tamaño: si se establece en AUTO, los datos se borrarán automáticamente cuando el tamaño casi haya alcanzado el tamaño máximo.
-- Basada en tiempo: de forma predeterminada, estableceremos esta opción en 30 días, lo que significa que, si el almacén de consultas se queda sin espacio, eliminará la información de consulta anterior a los 30 días.
+- Basada en tamaño: si se establece en AUTO, los datos se borran automáticamente cuando el tamaño casi alcanzó el tamaño máximo.
+- Basada en tiempo: si Almacén de consultas se queda sin espacio, elimina la información de consultas anterior a la configuración predeterminada de 30 días.
 
 La directiva de capturas se podría establecer como:
 
-- **Todas**: captura todas las consultas. Esta es la opción predeterminada.
+- **Todas**: captura todas las consultas. **Todas** es la opción predeterminada.
 - **Automática**: se ignoran las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificantes. Los umbrales para la duración del tiempo de ejecución y de compilación y para el recuento de ejecuciones se determinan internamente.
 - **Ninguna**: el almacén de consultas deja de capturar consultas nuevas.
 	
@@ -140,26 +140,26 @@ Se recomienda establecer todas las directivas en AUTO y la directiva de limpieza
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Aumentar el tamaño del almacén de consultas. Esto puede realizarse mediante la conexión a una base de datos y la emisión de la consulta siguiente:
+Conéctese a una base de datos y emita la siguiente consulta para aumentar el tamaño de Almacén de consultas:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Borrar el almacén de consultas. Tenga en cuenta que esto eliminará toda la información actual del almacén de consultas:
+Borrar el almacén de consultas. Elimina toda la información actual de Almacén de consultas:
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## Resumen
 
-Query Performance Insight le ayuda a comprender el impacto de la carga de trabajo de las consultas y su relación con el consumo de recursos de base de datos. Con esta característica, conocerá las consultas que más consumen e identificará fácilmente las que deben corregirse antes de que conviertan en un problema.
+Query Performance Insight le ayuda a comprender el impacto de la carga de trabajo de las consultas y su relación con el consumo de recursos de base de datos. Con esta característica, conoce las consultas que más consumen e identifica fácilmente las que deben corregirse antes de que conviertan en un problema.
 
 
 
 
 ## Pasos siguientes
 
-Para recomendaciones adicionales para mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de índices de Base de datos SQL](sql-database-advisor.md) en la hoja **Información de rendimiento de consultas**.
+Para recomendaciones adicionales sobre cómo mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de índices de Base de datos SQL](sql-database-advisor.md) en la hoja **Información de rendimiento de consultas**.
 
 ![Asesor de rendimiento](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ Para recomendaciones adicionales para mejorar el rendimiento de la base de datos
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -77,7 +77,7 @@ El almacenamiento en caché puede mejorar considerablemente el rendimiento, la e
 
 Por ejemplo, una base de datos puede admitir un número limitado de conexiones simultáneas. La recuperación de datos de una caché compartida, sin embargo, en lugar de la base de datos subyacente, permite que una aplicación cliente acceda a estos datos incluso si el número de conexiones disponibles está actualmente agotado. Además, si la base de datos deja de estar disponible, es posible que las aplicaciones cliente continúen usando los datos contenidos en la caché.
 
-Considere la posibilidad de almacenar en caché los datos que se leen con frecuencia pero que se modifican con poca frecuencia (por ejemplo, los datos que tienen una proporción de operaciones de lectura más alta que de escritura). Sin embargo, no se recomienda usar la caché como almacén autoritativo de la información crítica. En su lugar, asegúrese de que todos los cambios que la aplicación no puede permitirse perder siempre se guarden en un almacén de datos persistente. De esta manera, si la caché no está disponible, su aplicación podrá continuar funcionando usando el almacén de datos y no perderá información importante.
+Considere la posibilidad de almacenar en caché los datos que se leen con frecuencia, pero que se modifican con poca frecuencia (por ejemplo, los datos que tienen una proporción de operaciones de lectura más alta que de escritura). Sin embargo, no se recomienda usar la caché como almacén autoritativo de la información crítica. En su lugar, asegúrese de que todos los cambios que la aplicación no puede permitirse perder siempre se guarden en un almacén de datos persistente. De esta manera, si la caché no está disponible, su aplicación podrá continuar funcionando usando el almacén de datos y no perderá información importante.
 
 ### Determinar cómo almacenar en caché los datos de forma efectiva
 
@@ -210,7 +210,7 @@ Caché en Redis de Azure es una solución de almacenamiento en caché de alto re
 
 ### Características de Redis
 
- Redis es más que un simple servidor de caché. Proporciona una base de datos en memoria distribuida con un conjunto extenso de comandos que admite muchos escenarios comunes. Estos métodos se describen más adelante en este documento, en la sección Uso del almacenamiento en caché de Redis. En esta sección se resumen algunas de las características principales que ofrece Redis.
+ Redis es más que un simple servidor de caché. Proporciona una base de datos en memoria distribuida con un conjunto extenso de comandos que admite muchos escenarios comunes. Estos métodos se describen más adelante en este documento, en la sección Uso del almacenamiento en caché de Redis. En esta sección se resumen algunas de las características clave que ofrece Redis.
 
 ### Redis como base de datos en memoria
 
@@ -268,7 +268,7 @@ Para más información, visite la página [Redis Security](http://redis.io/topic
 
 ### Uso de la caché en Redis de Azure
 
-La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
+La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el portal de administración de Azure, también puede configurar la directiva de expulsión de la caché y controlar el acceso a la caché agregando usuarios a los roles ofrecidos: Propietario, Colaborador, Lector. Estos roles definen las operaciones que los miembros pueden realizar. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -300,7 +300,7 @@ De forma similar, el proveedor de caché de resultados para caché en Redis de A
 
 Caché en Redis de Azure proporciona acceso a servidores de Redis que se hospedan en un centro de datos de Azure. Actúa como una fachada que ofrece control de acceso y seguridad. Puede aprovisionar una caché mediante el Portal de Azure.
 
-En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
+En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el Portal de Azure, también puede configurar la directiva de expulsión de la caché y agregar usuarios a los roles proporcionados con el fin de controlar el acceso. Estos roles, que definen las operaciones que pueden realizar los miembros, incluyen Propietario, Colaborador y Lector. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -333,7 +333,7 @@ De igual forma, el proveedor de caché de resultados para Caché en Redis de Azu
 
 ## Creación de una caché en Redis personalizada
 
-Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
+Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
 
 Este es un proceso potencialmente complejo ya que podría tener que crear varias máquinas virtuales para que actúen como nodos maestros y subordinados si desea implementar la replicación. Además, si desea crear un clúster, necesita varios servidores maestros y subordinados. Una topología mínima de replicación en clúster que proporciona un alto grado de disponibilidad y escalabilidad consta de seis máquinas virtuales como mínimo organizadas en tres pares de servidores maestro/subordinado (un clúster debe contener al menos tres nodos maestros).
 
@@ -897,11 +897,12 @@ Hay varios puntos que deben comprender acerca del mecanismo de publicación o su
 - Varios suscriptores pueden suscribirse al mismo canal y todos recibirán los mensajes publicados en ese canal.
 - Los suscriptores solo reciben mensajes que se han publicado después de haberse suscrito. Los canales no se almacenan en búfer y cuando se publica un mensaje, la infraestructura de Redis envía el mensaje a cada suscriptor y luego lo elimina.
 - De forma predeterminada, los suscriptores reciben los mensajes en el orden en que se envían. En un sistema muy activo, con un gran número de mensajes y muchos suscriptores y publicadores, la entrega secuencial garantizada de mensajes puede ralentizar el rendimiento del sistema. Si cada mensaje es independiente y el orden es irrelevante, puede habilitar el procesamiento simultáneo por el sistema de Redis, lo que puede ayudar a mejorar la capacidad de respuesta. Puede conseguir esto en un cliente de StackExchange si establece el valor de PreserveAsyncOrder de la conexión usada por el suscriptor en false:
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  redisHostConnection.PreserveAsyncOrder = false;
-  ISubscriber subscriber = redisHostConnection.GetSubscriber();
-  ```
+
+```csharp
+ConnectionMultiplexer redisHostConnection = ...;
+redisHostConnection.PreserveAsyncOrder = false;
+ISubscriber subscriber = redisHostConnection.GetSubscriber();
+```
 
 ## Orientación y patrones relacionados
 
@@ -934,4 +935,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) (Transacciones en Redis) del repositorio de StackExchange.Redis.
 - La [guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

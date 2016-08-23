@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/12/2016"
+ms.date="08/08/2016"
 ms.author="eugenesh" />
 
 # Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure
@@ -21,23 +21,41 @@ En este artículo se explica cómo usar Búsqueda de Azure para indexar document
 
 > [AZURE.IMPORTANT] Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 
+## Formatos de documento admitidos
+
+El indexador de blob puede extraer texto de los siguientes formatos de documento:
+
+- PDF
+- Formatos de Microsoft Office: DOC/DOCX XLSX, XLS y PPTX/PPT, MSG (correos electrónicos de Outlook)
+- HTML
+- XML
+- ZIP
+- EML
+- Texto sin formato
+- JSON (consulte [Indexación de blobs JSON ](search-howto-index-json-blobs.md) para más información)
+- CSV (consulte [Indexación de blobs CSV ](search-howto-index-csv-blobs.md) para más información)
+
 ## Configuración de la indexación de blob
 
 Para instalar y configurar un indexador de Almacenamiento de blobs de Azure, puede usar la API de REST de Búsqueda de Azure para crear y administrar **indexadores** y **orígenes de datos**, como se describe en [este artículo](https://msdn.microsoft.com/library/azure/dn946891.aspx). En el futuro, se agregará la indexación de blobs para el SDK de .NET de Búsqueda de Azure y el Portal de Azure.
 
-Un origen de datos especifica los datos que se deben indexar, las credenciales necesarias para obtener acceso a los mismos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficiente (filas nuevas, modificadas o eliminadas). Un origen de datos se define como un recurso independiente para que puedan usarlo múltiples indexadores.
+Para configurar un indexador, siga estos tres pasos: cree un origen de datos, cree un índice y configure el indexador.
 
-Un indexador es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino.
+### Paso 1: Creación de un origen de datos
 
-Para configurar la indexación de blobs, haga lo siguiente:
+Un origen de datos especifica los datos que se deben indexar, las credenciales necesarias para obtener acceso a los mismos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficiente (filas nuevas, modificadas o eliminadas). Varios indexadores pueden usar el mismo origen de datos en la misma suscripción.
 
-1. Cree un origen de datos de tipo `azureblob` que hace referencia a un contenedor (y de forma opcional, a una carpeta en ese contenedor) en una cuenta de almacenamiento de Azure.
-	- Pase la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`. Puede obtener la cadena de conexión desde el Portal de Azure: vaya a la hoja o las claves de la cuenta de almacenamiento que quiera y utilice el valor Cadena de conexión principal o Cadena de conexión secundaria.
-	- Especifique un nombre de contenedor. Opcionalmente, también puede incluir una carpeta mediante el parámetro `query`.
-2. Cree un índice de búsqueda con un campo `content` que permite búsquedas.
-3. Cree el indexador mediante la conexión del origen de datos con el índice de destino.
+Para realizar la indexación de blobs, el origen de datos debe tener las siguientes propiedades obligatorias:
 
-### Creación de un origen de datos
+- **name** es el nombre único del origen de datos dentro del servicio de búsqueda.
+
+- **type** debe ser `azureblob`.
+
+- **credentials** proporciona la cadena de conexión de cuenta de almacenamiento como el parámetro `credentials.connectionString`. Puede obtener la cadena de conexión desde el Portal de Azure: vaya a la hoja de la cuenta de almacenamiento deseada > **Configuración** > **Claves** y use el valor "Cadena de conexión principal" o "Cadena de conexión secundaria". Debido a que la cadena de conexión está enlazada a una cuenta de almacenamiento, especificar la cadena de conexión identifica de manera implícita la cuenta de almacenamiento que proporciona los datos.
+
+- **container** especifica un contenedor en la cuenta de almacenamiento. De manera predeterminada, se pueden recuperar todos los blobs dentro del contenedor. Si solo desea indexar blobs en un directorio virtual determinado, puede especificar ese directorio. Para ello, use el parámetro opcional **query**.
+
+El ejemplo siguiente muestra una definición de origen de datos:
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -47,12 +65,16 @@ Para configurar la indexación de blobs, haga lo siguiente:
 	    "name" : "blob-datasource",
 	    "type" : "azureblob",
 	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 	}   
 
-Para obtener más información sobre la API de creación de origen de datos, consulte [Crear origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Para más información sobre la API de creación de origen de datos, consulte [Crear origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Creación de índice 
+### Paso 2: Creación de un índice 
+
+El índice especifica los campos de un documento, los atributos y otras construcciones que conforman la experiencia de búsqueda.
+
+Para realizar la indexación de blobs, asegúrese de que el índice tiene un campo `content` que permite búsqueda para almacenar el blob.
 
 	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
 	Content-Type: application/json
@@ -66,11 +88,11 @@ Para obtener más información sobre la API de creación de origen de datos, con
   		]
 	}
 
-Para obtener más información sobre la API de creación de índice, consulte [Create Index](https://msdn.microsoft.com/library/dn798941.aspx) (Crear índice).
+Para más información sobre la API de creación de índice, consulte [Crear índice](https://msdn.microsoft.com/library/dn798941.aspx).
 
-### Creación de un indexador 
+### Paso 3: Creación de un indexador 
 
-Por último, cree un indexador que haga referencia al origen de datos y un índice de destino. Por ejemplo:
+Un indexador conecta los orígenes de datos con los índices de búsqueda de destino y proporciona información de programación para que pueda automatizar la actualización de datos. Una vez que se crean el índice y el origen de datos, resulta relativamente simple crear un indexador que haga referencia al origen de datos y a un índice de destino. Por ejemplo:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -85,21 +107,8 @@ Por último, cree un indexador que haga referencia al origen de datos y un índi
 
 Este indizador se ejecutará cada dos horas (el intervalo de programación se establece en PT2H). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de 5 minutos. La programación es opcional: si se omite, el indizador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.
 
-Para obtener más información sobre la API Create Indexer, consulte [Crear indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Para más información sobre la API de creación de indexador, consulte [Crear indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-
-## Formatos de documento admitidos
-
-El indexador de blob puede extraer texto de los siguientes formatos de documento:
-
-- PDF
-- Formatos de Microsoft Office: DOC/DOCX XLSX, XLS y PPTX/PPT, MSG (correos electrónicos de Outlook)
-- HTML
-- XML
-- ZIP
-- EML
-- Texto sin formato
-- JSON (consulte [Indexación de blobs JSON ](search-howto-index-json-blobs.md) para obtener más información)
 
 ## Proceso de extracción de documentos
 
@@ -217,7 +226,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información.
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para más información.
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -294,4 +303,4 @@ Si precisa extraer todos los metadatos, pero omitir la extracción de contenido 
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

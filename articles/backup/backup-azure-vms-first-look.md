@@ -60,7 +60,7 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 
     Si no sabe en qué región está la máquina virtual, cierre el asistente y haga clic en **Máquinas virtuales** en la lista de servicios de Azure. La columna ubicación proporciona el nombre de la región. Si tiene máquinas virtuales en varias regiones, cree un almacén de copia de seguridad en cada una de ellas.
 
-6. Si no hay ningún cuadro de diálogo **Suscripción** en el asistente, vaya al paso siguiente. Si trabaja con varias suscripciones, seleccione una suscripción para asociarla con el nuevo almacén de copia de seguridad.
+6. Si no hay ningún cuadro de diálogo **Suscripción** en el asistente, vaya al paso siguiente. Si trabaja con varias suscripciones, seleccione una de ellas para asociarla con el nuevo almacén de copia de seguridad.
 
     ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
@@ -87,7 +87,7 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
 ## Paso 2: detección y registro de máquinas virtuales de Azure
-Antes de registrar la máquina virtual con un almacén, ejecute el proceso de detección para identificar nuevas máquinas virtuales. Este proceso devuelve una lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
+Antes de registrar la máquina virtual con un almacén, ejecute el proceso de detección para identificar nuevas máquinas virtuales. Este proceso devuelve una lista de las máquinas virtuales incluidas en la suscripción, junto con información adicional; por ejemplo, el nombre del servicio en la nube y la región.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/)
 
@@ -137,7 +137,7 @@ Antes de registrar la máquina virtual con un almacén, ejecute el proceso de de
 
 ## Paso 3: instalación del agente de máquina virtual en la máquina virtual
 
-El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Puede ir directamente a la [protección de las máquinas virtuales](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Puede ir directamente a la sección sobre [protección de máquinas virtuales](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Si la máquina virtual se migra desde un centro de datos local, es probable que no tenga instalado el agente de máquina virtual. Debe instalar al agente de máquina virtual en la máquina virtual antes de continuar con su protección. Para más información sobre cómo instalar el agente de máquina virtual, consulte la [sección Agente de máquina virtual del artículo Copia de seguridad de máquinas virtuales](backup-azure-vms-prepare.md#vm-agent).
 
@@ -213,4 +213,4 @@ Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos q
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

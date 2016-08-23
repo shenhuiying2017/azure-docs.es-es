@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción a Azure Active Directory Premium"
-	description="Tema que explica cómo suscribirse a Azure Active Directory Premium Edition mediante el sitio web de Licencias por Volumen."
+	description="Tema que explica cómo suscribirse a la edición Azure Active Directory Premium desde el sitio web de licencias por volumen."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Introducción a Azure Active Directory Premium
@@ -29,7 +29,7 @@ Para suscribirse a Active Directory Premium, cuenta con varias opciones:
 **Licencias por Volumen de Microsoft**: Azure Active Directory Premium está disponible a través de un [contrato Enterprise de Microsoft](https://www.microsoft.com/es-ES/licensing/licensing-programs/enterprise.aspx) (250 licencias o más) o el programa [Open License](https://www.microsoft.com/es-ES/licensing/licensing-programs/open-license.aspx) (entre 5 y 250 licencias).
 
 
-En este tema se muestra cómo empezar a trabajar con Azure Active Directory Premium cuando lo ha adquirido a través del programa Licencias por Volumen. Si aún no conoce las diferentes ediciones de Azure Active Directory, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+En este tema se muestra cómo empezar a trabajar con Azure Active Directory Premium cuando se ha adquirido a través del programa de licencias por volumen. Si aún no conoce las diferentes ediciones de Azure Active Directory, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 > [AZURE.NOTE]
 Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
@@ -82,7 +82,7 @@ Si intenta activar el acceso a Azure Active Directory antes de recibir el correo
 
 Vuelva a intentarlo en unos minutos una vez que haya recibido el correo electrónico.
 
-Los nuevos administradores de su suscripción también pueden activar su acceso al Portal de Azure clásico a través de este vínculo.
+Los nuevos administradores de la suscripción también pueden activar su acceso al Portal de Azure clásico a través de este vínculo.
 
 
 
@@ -107,7 +107,7 @@ En este caso, el acceso a Azure se limita a Azure Active Directory.
 
 ![Funcionalidades de Azure][7]
 
-Es posible que ya haya obtenido acceso a Azure previamente. Además, puede actualizar su acceso a Azure Active Directory a acceso de Azure completo mediante la activación de suscripciones de Azure adicionales. En estos casos, el Portal de Azure clásico tiene más funcionalidades.
+Es posible que ya haya obtenido acceso a Azure previamente; además, puede actualizar su acceso a Azure Active Directory al acceso de Azure completo mediante la activación de suscripciones de Azure adicionales. En estos casos, el Portal de Azure clásico tiene más funcionalidades.
 
 ![Funcionalidades de Azure][8]
 
@@ -160,4 +160,4 @@ La disponibilidad de servicios y características de un servicio en la nube de M
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

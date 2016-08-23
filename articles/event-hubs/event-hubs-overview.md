@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Información general de los Centros de eventos de Azure
@@ -21,9 +21,9 @@ Muchas soluciones modernas están destinadas a ofrecer experiencias de cliente a
 
 ![Centros de eventos](./media/event-hubs-overview/IC759856.png)
 
-Centros de eventos de Azure es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta. Este servicio, que se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones. Centros de eventos ofrece un flujo de mensajes que controla la capacidad y, aunque un Centro de eventos es una entidad similar a los temas y las colas, tiene características que son muy diferentes de la mensajería empresarial tradicional. Los escenarios de mensajería empresarial normalmente requieren un número de capacidades sofisticadas, como la secuenciación, las colas de mensajes fallidos, la compatibilidad con las transacciones y las garantías de entrega segura, mientras que la preocupación principal sobre el consumo de eventos es el alto procesamiento y la flexibilidad de procesamiento de los flujos de eventos. Por lo tanto, las capacidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. En este sentido, los Centros de eventos no implementan algunas de las capacidades de mensajería que están disponibles para los temas. Si necesita esas capacidades, los temas siguen siendo la opción óptima.
+Centros de eventos de Azure es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta. Este servicio, que se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones. Centros de eventos ofrece un flujo de mensajes que controla la funcionalidad y, aunque un Centro de eventos es una entidad similar a los temas y las colas, tiene características que son muy diferentes de la mensajería empresarial tradicional. Los escenarios de mensajería empresarial normalmente requieren funcionalidades sofisticadas, como la secuenciación, las colas de mensajes fallidos, la compatibilidad con las transacciones y las garantías de entrega segura, mientras que la preocupación principal sobre el consumo de eventos es el alto procesamiento y la flexibilidad de procesamiento de los flujos de eventos. Por lo tanto, las funcionalidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. En este sentido, los Centros de eventos no implementan algunas de las funcionalidades de mensajería que están disponibles para los temas. Si necesita esas funcionalidades, los temas siguen siendo la opción óptima.
 
-Un Centro de eventos se crea en el nivel de espacio de nombres en el Bus de servicio, de forma similar a las colas y los temas. Centros de eventos usa HTTP y AMQP como sus interfaces API principales. En el diagrama siguiente se muestra la relación entre los Centros de eventos y el Bus de servicio.
+Un Centro de eventos se crea en el nivel de espacio de nombres de Centro de eventos, de forma similar a las colas y los temas de Bus de Servicio. Centros de eventos usa HTTP y AMQP como sus interfaces API principales. En el diagrama siguiente se muestra la relación entre los Centros de eventos y el Bus de servicio.
 
 ![Centros de eventos](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Las particiones retienen datos durante un tiempo de retención configurado que s
 
 El número de particiones se especifica en el momento de la creación del centro de eventos y debe ser entre 2 y 32 (el valor predeterminado es 4). Las particiones son un mecanismo de organización de datos y están más relacionadas con el grado de paralelismo de bajada necesario para consumir las aplicaciones que con el procesamiento de los Centros de eventos. Esto hace que la elección del número de particiones en un Centro de eventos esté directamente relacionada con el número de lectores simultáneos que se espera que tengan. Tras la creación del Centro de eventos, el recuento de particiones no es modificable; debe considerar este número en función de la escala esperada a largo plazo. Puede aumentar el límite de 32 particiones si se pone en contacto con el equipo del Bus de servicio de Azure.
 
-Aunque las particiones son identificables y se pueden enviar directamente a ellas, normalmente es preferible evitar el envío de datos a particiones concretas. En su lugar, puede usar construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publisher) y [Directiva del publicador](#capacity-and-security).
+Aunque las particiones son identificables y se pueden enviar directamente a ellas, es preferible evitar el envío de datos a particiones concretas. En su lugar, puede usar construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publisher) y [Directiva del publicador](#capacity-and-security).
 
 En el contexto de los Centros de eventos, los mensajes se conocen como *datos de eventos*. Los datos de eventos contienen el cuerpo del evento, un contenedor de propiedades definido por el usuario y diversos metadatos sobre el evento, como su desplazamiento en la partición y su número en el flujo de la secuencia. Las particiones se rellenan con una secuencia de datos de eventos.
 
@@ -118,25 +118,25 @@ Después de abrir una sesión de AMQP 1.0 y el vínculo de una partición espec�
 
 ![Centros de eventos](./media/event-hubs-overview/IC759862.png)
 
-Es responsabilidad del usuario la administración de este desplazamiento de la manera que mejor habilite la administración del progreso en el procesamiento del flujo.
+Es su responsabilidad la administración de este desplazamiento de la manera que mejor habilite la administración del progreso en el procesamiento del flujo.
 
 ## Capacidad y seguridad
 
-Centros de eventos es una arquitectura paralela altamente escalable para la entrada de flujos. Por tanto, hay varios aspectos clave que se deben tener en cuenta al ajustar el tamaño y realizar el escalado de una solución basada en Centros de eventos. El primero de estos controles de capacidad son las *unidades de procesamiento*, que se describen en la sección siguiente.
+Centros de eventos es una arquitectura paralela altamente escalable para la entrada de flujos. Por tanto, hay varios aspectos clave que se deben tener en cuenta al ajustar el tamaño y realizar el escalado de una solución basada en Centros de eventos. El primero de estos controles de capacidad se denomina *unidades de procesamiento*, y se describe en la sección siguiente.
 
 ### Unidades de procesamiento
 
 La capacidad de procesamiento de los Centros de eventos se controla mediante unidades de procesamiento. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Una unidad de procesamiento individual incluye lo siguiente:
 
-- Entrada: hasta 1 MB por segundo o 1000 eventos por segundo.
+- Entrada: hasta 1 MB por segundo o 1000 eventos por segundo.
 
-- Salida: hasta 2 MB por segundo.
+- Salida: hasta 2 MB por segundo.
 
 La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del [Portal de Azure clásico][]. También puede cambiar esta configuración mediante las API de Azure.
 
-Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres del Bus de servicio y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
+Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Centros de eventos y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
 
-Las unidades de procesamiento se aprovisionan en base al mejor esfuerzo y puede que no siempre estén disponibles para su compra inmediata. Si necesita una capacidad específica, se recomienda que adquiera esas unidades de procesamiento con antelación. Si necesita más de 20 unidades de procesamiento, puede ponerse en contacto con el soporte técnico del Bus de servicio para comprar más unidades de procesamiento por bloques de 20, hasta un total de 100 unidades de procesamiento iniciales. A partir de ahí, también puede adquirir bloques de 100 unidades de procesamiento.
+Las unidades de procesamiento se aprovisionan en base al mejor esfuerzo y puede que no siempre estén disponibles para su compra inmediata. Si necesita una capacidad específica, se recomienda que adquiera esas unidades de procesamiento con antelación. Si necesita más de 20 unidades de procesamiento, puede ponerse en contacto con el soporte técnico de Azure para comprar más unidades de procesamiento por bloques de 20, hasta un total de 100 unidades de procesamiento iniciales. A partir de ahí, también puede adquirir bloques de 100 unidades de procesamiento.
 
 Se recomienda que equilibre cuidadosamente las particiones y las unidades de procesamiento para lograr una escalabilidad óptima con los Centros de eventos. Una sola partición tiene una escala máxima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un Centro de eventos.
 
@@ -168,4 +168,4 @@ Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar c
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

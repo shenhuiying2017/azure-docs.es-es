@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -23,7 +23,7 @@
 Azure AD Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. Puede elegir entre varias maneras de habilitar esta opción.
 
 ## Elección de un método de inicio de sesión de usuario
-Para la mayoría de las organizaciones que simplemente desean habilitar el inicio de sesión de usuarios en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de contraseña predeterminada. Sin embargo, algunas organizaciones tienen razones concretas para usar una opción de inicio de sesión federado, como AD FS. Entre ellas se incluyen las siguientes:
+Para la mayoría de las organizaciones que simplemente desean habilitar el inicio de sesión de usuarios en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de contraseña predeterminada. Sin embargo, algunas organizaciones tienen razones concretas para usar una opción de inicio de sesión federado, como AD FS. Entre ellos se incluyen los siguientes:
 
 - Su organización ya tiene implementado AD FS o un proveedor de federación de terceros.
 - La directiva de seguridad prohíbe la sincronización de los valores hash de contraseña en la nube.
@@ -107,7 +107,7 @@ Para la información a continuación, supongamos que estamos interesados en el s
 ###### Configuración rápida / Sincronización de contraseñas
 | Estado | Efecto en la experiencia de usuario sobre el inicio de sesión de Azure |
 |:-------------:|:----------------------------------------|
-| Not added (Sin agregar) | En este caso no se ha agregado ningún dominio personalizado para "contoso.com" en el directorio de Azure AD. Los usuarios que tienen el UPN local con el sufijo @contoso.com, no podrán usar su UPN local para iniciar sesión en Azure. En su lugar, tendrán que utilizar un UPN nuevo que les proporcionará Azure AD, agregando el sufijo para el directorio predeterminado de Azure AD. Por ejemplo, si la sincronización de los usuarios es con el directorio de Azure AD "azurecontoso.onmicrosoft.com", al usuario local user@contoso.com se le dará un UPN user@azurecontoso.onmicrosoft.com|
+| Not added (Sin agregar) | En este caso no se ha agregado ningún dominio personalizado para "contoso.com" en el directorio de Azure AD. Los usuarios que tienen el UPN local con el sufijo @contoso.com, no podrán usar su UPN local para iniciar sesión en Azure. En su lugar, tendrán que utilizar un UPN nuevo que les proporcionará Azure AD, agregando el sufijo para el directorio predeterminado de Azure AD. Por ejemplo, si la sincronización de los usuarios es con el directorio de Azure AD azurecontoso.onmicrosoft.com, al usuario local user@contoso.com se le dará un UPN user@azurecontoso.onmicrosoft.com|
 | Not verified (Sin comprobar) | En este caso tenemos un dominio personalizado de "contoso.com" agregado en el directorio de Azure AD pero que no se ha comprobado. Si continúa con la sincronización de los usuarios sin comprobar el dominio, Azure AD asignará a los usuarios un UPN nuevo igual que lo hizo en el escenario "Sin agregar".|
 | Verified | En este caso, tenemos un dominio personalizado de "contoso.com" que ya está agregado y comprobado en Azure AD para el sufijo UPN. Los usuarios podrán utilizar su nombre principal de usuario local, por ejemplo, user@contoso.com, para iniciar sesión en Azure una vez que se hayan sincronizado con Azure AD|
 
@@ -118,7 +118,7 @@ Si seleccionó la opción de inicio de sesión de usuario como "Federación con 
 
 | Estado | Efecto en la experiencia de usuario sobre el inicio de sesión de Azure |
 |:-------------:|:----------------------------------------|
-| Not added (Sin agregar) | En este caso Azure AD Connect no pudo encontrar un dominio personalizado coincidente para el sufijo UPN "contoso.com" en el directorio de Azure AD. Tiene que agregar un dominio personalizado "contoso.com" si los usuarios necesitan iniciar sesión usando AD FS con su UPN local como user@contoso.com.|
+| Not added (Sin agregar) | En este caso Azure AD Connect no pudo encontrar un dominio personalizado coincidente para el sufijo UPN "contoso.com" en el directorio de Azure AD. Tiene que agregar un dominio personalizado "contoso.com" si los usuarios necesitan iniciar sesión usando AD FS con su UPN local como user@contoso.com..|
 | Not verified (Sin comprobar) | En este caso, Azure AD Connect le indicará los detalles sobre cómo puede comprobar el dominio en una etapa posterior|
 | Verified | En este caso puede proseguir con la configuración sin realizar ninguna acción|  
 
@@ -136,11 +136,11 @@ En la página **Inicio de sesión de usuario**, seleccione **Sincronización de 
 
 ![Conectarse a Azure](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
->[AZURE.NOTE] Si el cambio a sincronización de contraseña es solo temporal seleccione **No convertir las cuentas de usuario**. Si no selecciona esta opción se realizará la conversión de cada usuario a federado lo que puede llevar bastante tiempo.
+>[AZURE.NOTE] Si el cambio a sincronización de contraseña es solo temporal seleccione **No convertir las cuentas de usuario**. Si no selecciona esta opción se realizará la conversión de cada usuario a federado lo que puede llevar varias horas.
   
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 Más información sobre el tema [Azure AD Connect: Conceptos de diseño](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

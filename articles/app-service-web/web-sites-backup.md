@@ -40,7 +40,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 * La característica Copia de seguridad y restauración requiere que el plan Servicio de aplicaciones tenga el nivel **estándar** o superior. Para obtener más información sobre cómo escalar el plan Servicio de aplicaciones para usar un nivel superior, vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el nivel **premium** permite realizar un mayor número de copias de seguridad diarias que el nivel **estándar**.
 * Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
-* Puede realizar una copia de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Obtendrá un error si el tamaño de la copia de seguridad supera este límite.
+* Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Obtendrá un error si el tamaño de la copia de seguridad supera este límite.
 
 <a name="manualbackup"></a>
 ## Crear una copia de seguridad manual
@@ -176,4 +176,4 @@ Para obtener información sobre cómo restaurar una aplicación desde una copia 
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

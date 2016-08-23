@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 
@@ -60,4 +60,4 @@ Para configurar el cliente RADIUS, siga las siguientes instrucciones:
 - Use el mismo secreto compartido que se configuró anteriormente.
 - Configure el tiempo de espera RADIUS en entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la autenticación multifactor, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

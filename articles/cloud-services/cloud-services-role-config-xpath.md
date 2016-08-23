@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
+ms.date="08/10/2016" 
 ms.author="adegeo"/>
 
 # Exponer los valores de configuración de rol como una variable de entorno con XPath
@@ -189,4 +189,4 @@ Cree un paquete [ServicePackage.cspkg](cloud-services-model-and-package.md#servi
 
 Habilite [Escritorio remoto](cloud-services-role-enable-remote-desktop.md) para un rol.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

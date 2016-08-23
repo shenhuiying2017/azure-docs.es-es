@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # Actualización de un servicio en la nube
@@ -180,8 +180,8 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 > [AZURE.NOTE] Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br> 
-[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br> 
-[Configuración de servicios en la nube](cloud-services-how-to-configure.md)<br>
+[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br>
+[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br>
+[Configuración de servicios en la nube](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

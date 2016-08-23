@@ -124,8 +124,8 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 | | Este de EE. UU. | 12076:51004 |
 | | Este de EE. UU. 2 | 12076:51005 |
 | | Oeste de EE. UU. | 12076:51006 |
-| | Oeste de EE. UU. 2 | 12076:51022 |
-| | Centro occidental de EE.UU. | 12076:51023 |
+| | Oeste de EE. UU. 2 | 12076:51026 |
+| | Centro occidental de EE.UU. | 12076:51027 |
 | | Centro-Norte de EE. UU | 12076:51007 |
 | | Centro-Sur de EE. UU | 12076:51008 |
 | | Central EE. UU.: | 12076:51009 |
@@ -175,4 +175,4 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 	- [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
 	- [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

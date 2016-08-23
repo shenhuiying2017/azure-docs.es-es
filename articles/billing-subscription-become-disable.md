@@ -36,7 +36,7 @@ A continuación se indica cómo puede quitar el límite de gasto:
 
 4. Si ve el mensaje *La suscripción alcanzó un límite de gastos y se deshabilitó para evitar cargos*, haga clic en él.
 	
-	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área **Estado de la suscripción**.
+	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área ** Estado de la suscripción**.
 	
 5. Seleccione una de las siguientes opciones que sea adecuada para usted:
 
@@ -60,7 +60,7 @@ Para solucionar este problema, use uno de los métodos siguientes:
 
 ## Procedimiento de rehabilitación de la suscripción
 
-Para rehabilitar una suscripción, debe crear una incidencia de soporte técnico: inicie sesión en el [Portal de Azure](https://portal.azure.com/), seleccione **Ayuda y soporte técnico**>**Nueva solicitud de soporte técnico**.
+Para rehabilitar una suscripción deshabilitada, debe crear una incidencia de soporte técnico: inicie sesión en el [Portal de Azure](https://portal.azure.com/), seleccione **Ayuda y soporte técnico**>**Nueva solicitud de soporte técnico**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -71,4 +71,4 @@ Si no puede acceder al portal, envíe la solicitud de soporte técnico desde el 
 
 Para más información, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: Programador
@@ -59,6 +59,13 @@ Puede cambiar algunos de estos valores con `Set-ADSyncScheduler`. Se pueden modi
 - MaintenanceEnabled
 
 La configuración del programador se almacena en Azure AD. Si tiene un servidor de almacenamiento provisional, cualquier cambio realizado en el servidor principal también afectará este servidor (a excepción de IsStagingModeEnabled).
+
+### CustomizedSyncCycleInterval
+Sintaxis: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d: días; HH: horas; mm: minutos; ss: segundos
+
+Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` cambiará el programador para ejecutarse cada 3 horas.
+
+Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` cambiará el programador para ejecutarse a diario.
 
 ## Inicio del programador
 De forma predeterminada, el programador se ejecutará cada 30 minutos. En algunos casos puede querer ejecutar un ciclo de sincronización entre los ciclos programados o debe ejecutar un tipo diferente.
@@ -144,4 +151,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->
