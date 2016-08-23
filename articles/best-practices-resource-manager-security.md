@@ -23,7 +23,7 @@ Al mirar los aspectos de seguridad de las plantillas del Administrador de recurs
 
 En este tema se supone que está familiarizado con el control de acceso basado en rol (RBAC) del Administrador de recursos de Azure. Para más información, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-Este tema forma parte de un artículo más extenso. Si quiere leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] \(Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tema forma parte de un artículo más extenso. Si quiere leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf). (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) 
 
 ## Secretos y certificados
 
