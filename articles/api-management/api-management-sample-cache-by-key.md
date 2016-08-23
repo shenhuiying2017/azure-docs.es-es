@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 # Almacenamiento en caché personalizado en Administración de API de Azure
 El servicio Administración de API de Azure integra compatibilidad para [el almacenamiento en caché de respuestas HTTP](api-management-howto-cache.md) mediante el uso de la dirección URL como clave. La clave se puede modificar por los encabezados de solicitud con las propiedades `vary-by`. Esto es útil para almacenar en caché las respuestas HTTP completas (también conocidas como representaciones), pero a veces resulta útil almacenar en caché solo una parte de una representación. Las nuevas directivas [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) proporcionan la capacidad de almacenar y recuperar fragmentos arbitrarios de datos desde las definiciones de directiva. Esta capacidad también agrega valor a la directiva [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) previamente introducida porque ahora se puede almacenar en caché las respuestas desde servicios externos.
@@ -245,4 +245,4 @@ La libertad de utilizar la caché de Administración de API de Azure para almace
 ## Pasos siguientes
 Envíenos sus comentarios sobre este tema en la conversación Disqus si hay otros escenarios en los que estas directivas se hayan habilitado para usted, o si existen escenarios que le gustaría conseguir pero que actualmente no cree posibles.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

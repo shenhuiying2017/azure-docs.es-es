@@ -102,8 +102,8 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Más información sobre AS2 para integración empresarial."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Más información sobre X12 para integración empresarial."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Más información sobre archivo plano para integración empresarial."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Más información sobre validación XML para integración empresarial."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Más información sobre validación XML para integración empresarial."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Más información sobre transformaciones para integración empresarial."
 [httpdoc]: ./connectors-native-http.md "Conector HTTP para realizar llamadas HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Acciones de solicitud y respuesta."
@@ -183,4 +183,4 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

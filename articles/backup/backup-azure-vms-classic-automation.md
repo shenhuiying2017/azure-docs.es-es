@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,27 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="markgal;trinadhk;jimpark" />
 
 
 # Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [Resource Manager](backup-azure-vms-automation.md)
 - [Clásico](backup-azure-vms-classic-automation.md)
 
-En este artículo se muestra cómo usar Azure PowerShell para realizar y recuperar copias de seguridad de máquinas virtuales IaaS de Azure.
+En este artículo se muestra cómo usar Azure PowerShell para realizar copias de seguridad de máquinas virtuales de Azure y recuperarlas. Azure tiene dos modelos de implementación diferentes para crear recursos y utilizarlos: Resource Manager y clásica. En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 ## Conceptos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Vea [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure.
+En este artículo se ofrece información específica de los cmdlets de PowerShell que se usan para realizar copias de seguridad de máquinas virtuales. Para ver una introducción a la protección de máquinas virtuales de Azure, consulte [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](backup-azure-vms-introduction.md).
 
-> [AZURE.WARNING] Antes de empezar, asegúrese de que se tratan los aspectos fundamentales sobre los [requisitos previos](backup-azure-vms-prepare.md) necesarios para trabajar con Copia de seguridad de Azure y las [limitaciones](backup-azure-vms-prepare.md#limitations) de la solución actual de copia de seguridad de máquina virtual.
+> [AZURE.NOTE] Antes de comenzar, lea los [requisitos previos](backup-azure-vms-prepare.md) necesarios para utilizar Copia de seguridad de Azure y las [limitaciones](backup-azure-vms-prepare.md#limitations) de la solución actual de copia de seguridad de máquina virtual.
 
-Para usar PowerShell de forma eficaz, es preciso conocer la jerarquía de objetos y desde dónde empezar.
+Para usar PowerShell de forma eficaz, hay que conocer la jerarquía de objetos y el punto de partida.
 
 ![Jerarquía de objetos](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
 
@@ -87,7 +86,7 @@ Las siguientes tareas de instalación y registro se pueden automatizar con Power
 
 > [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
 
-Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureRmBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
 ```
 PS C:\> New-AzureRmResourceGroup –Name “test-rg” –Location “West US”
@@ -123,7 +122,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [AZURE.NOTE] La zona horaria del campo BackupTime en PowerShell es UTC. Sin embargo, cuando el tiempo de copia de seguridad se muestra en el Portal de Azure, la zona horaria estará alineada al sistema local, junto con la diferencia horaria con UTC.
 
-Una directiva de copia de seguridad está asociada con al menos una directiva de retención. La directiva de retención define el tiempo que los puntos de recuperación se conservan en Azure Backup. El cmdlet **New-AzureRmBackupRetentionPolicy** crea objetos de PowerShell que contienen información de la directiva de retención. Estos objetos de directiva de retención se usan como entradas al cmdlet *New-AzureRmBackupProtectionPolicy*, o bien directamente con el cmdlet *Enable-AzureRmBackupProtection*.
+Una directiva de copia de seguridad está asociada con al menos una directiva de retención. La directiva de retención define el tiempo que los puntos de recuperación se conservan en Azure Backup. El cmdlet **New-AzureRmBackupRetentionPolicy** crea objetos de PowerShell que contienen información de la directiva de retención. Estos objetos de directiva de retención se usan como entradas al cmdlet *New-AzureRmBackupProtectionPolicy*, o bien directamente con *Enable-AzureRmBackupProtection*.
 
 Una directiva de copia de seguridad define cuándo y con qué frecuencia se realiza la copia de seguridad de un elemento. El cmdlet **New-AzureRmBackupProtectionPolicy** crea un objeto de PowerShell que contiene información de la directiva de copia de seguridad. La directiva de copia de seguridad se usa como entrada al cmdlet *Enable-AzureRmBackupProtection*.
 
@@ -144,7 +143,7 @@ PS C:\> Get-AzureRmBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Copia de seguridad inicial
-La programación de copia de seguridad se encargará de realizar la copia inicial completa del elemento y la copia incremental en las copias de seguridad posteriores. Sin embargo, si desea forzar que la copia de seguridad inicial se realice en un momento determinado o incluso inmediatamente, use el cmdlet **Backup-AzureRmBackupItem**:
+La programación de copia de seguridad se encargará de realizar la copia inicial completa del elemento y la copia incremental en las copias de seguridad posteriores. Sin embargo, si quiere forzar que la copia de seguridad inicial se realice en un momento determinado o incluso inmediatamente, use el cmdlet **Backup-AzureRmBackupItem**:
 
 ```
 PS C:\> $container = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -Name "testvm"
@@ -185,7 +184,7 @@ Para restaurar los datos de una copia de seguridad, es preciso identificar el el
 
 ### Selección de la máquina virtual
 
-Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad adecuada, es preciso que empiece en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la VM, use el cmdlet **Get-AzureRmBackupContainer** y canalícelo al cmdlet **Get-AzureRmBackupItem**.
+Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad adecuada, es preciso que empiece en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la máquina virtual, use el cmdlet **Get-AzureRmBackupContainer** y canalícelo al cmdlet **Get-AzureRmBackupItem**.
 
 ```
 PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRmBackupItem
@@ -193,7 +192,7 @@ PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type Azure
 
 ### Elección de un punto de recuperación
 
-Ahora puede enumerar todos los puntos de recuperación del elemento de copia de seguridad con el cmdlet **Get-AzureRmBackupRecoveryPoint** y elegir el punto de recuperación para la restauración. Normalmente los usuarios eligen el punto *AppConsistent* más reciente de la lista.
+Ahora puede enumerar todos los puntos de recuperación del elemento de copia de seguridad con el cmdlet **Get-AzureRmBackupRecoveryPoint** y elegir el punto de recuperación para realizar la restauración. Normalmente los usuarios eligen el punto *AppConsistent* más reciente de la lista.
 
 ```
 PS C:\> $rp =  Get-AzureRmBackupRecoveryPoint -Item $backupitem
@@ -221,7 +220,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-Los detalles de la operación de restauración se pueden obtener con el cmdlet **Get-AzureRmBackupJobDetails** una vez finalizado el trabajo de restauración. La propiedad *ErrorDetails* tendrá la información necesaria para volver a compilar la máquina virtual.
+Los detalles de la operación de restauración se pueden obtener con el cmdlet **Get-AzureRmBackupJobDetails** cuando finalice el trabajo de restauración. La propiedad *ErrorDetails* tendrá la información necesaria para volver a compilar la máquina virtual.
 
 ```
 PS C:\> $restorejob = Get-AzureRmBackupJob -Job $restorejob
@@ -340,10 +339,10 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Si desea agregar funcionalidades gráficas a esta salida del informe, lea la información de la publicación del blog de TechNet [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Gráficos con PowerShell).
+Si quiere agregar funcionalidades gráficas a esta salida del informe, lea la información de la publicación del blog de TechNet [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Gráficos con PowerShell).
 
 ## Pasos siguientes
 
-Si prefiere usar PowerShell para atraer a los recursos de Azure, consulte el artículo de PowerShell para proteger Windows Server, [Implementación y administración de copias de seguridad en Azure para Windows Server](./backup-client-automation-classic.md). También hay un artículo de PowerShell para administrar las copias de seguridad DPM, [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](./backup-dpm-automation-classic.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager, así como las implementaciones clásicas.
+Si prefiere usar PowerShell para interactuar con los recursos de Azure, consulte el artículo de PowerShell sobre cómo proteger Windows Server llamado [Implementación y administración de copias de seguridad en Azure para Windows Server](./backup-client-automation-classic.md). También hay un artículo de PowerShell sobre cómo administrar las copias de seguridad DPM: [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](./backup-dpm-automation-classic.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager, así como las implementaciones clásicas.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

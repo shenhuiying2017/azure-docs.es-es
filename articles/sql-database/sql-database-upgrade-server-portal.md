@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-La versión V12 de la Base de datos SQL es la versión más reciente, por lo que le recomendamos que realice esta actualización para la Base de datos SQL V12. La versión V12 de la Base de datos SQL le ofrece muchas más [ventajas con respecto a la versión anterior](sql-database-v12-whats-new.md), entre las que se incluyen:
+La versión 12 de Base de datos SQL es la más reciente, por lo que le recomendamos que actualice los servidores existentes a esta versión de Base de datos SQL. La versión V12 de la Base de datos SQL le ofrece muchas más [ventajas con respecto a la versión anterior](sql-database-v12-whats-new.md), entre las que se incluyen:
 
 - Compatibilidad mejorada con SQL Server.
 - Rendimiento de tipo Premium mejorado y nuevos niveles de rendimiento.
@@ -53,10 +53,12 @@ Después de realizar la actualización a V12, las [Recomendaciones sobre el nive
 
 ## Iniciar la actualización
 
-1. En el [Portal de Azure](https://portal.azure.com/), vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor deseado.
-2. Seleccione **Última actualización de la Base de datos SQL** y, a continuación, seleccione **Actualizar este servidor**.
+1. En el [Portal de Azure](https://portal.azure.com/), vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor (versión 2.0) que quiera actualizar.
+2. Seleccione **Última actualización de la Base de datos SQL** y, después, seleccione **Actualizar este servidor**.
 
       ![actualizar el servidor][1]
+
+3. El proceso de actualización de un servidor a la última actualización de Base de datos SQL es permanente e irreversible. Para confirmar la actualización, escriba el nombre del servidor y haga clic en **Aceptar**.
 
 ## Actualización de todas las bases de datos de tipo Web y Business
 
@@ -102,7 +104,7 @@ En el [Portal de Azure](https://portal.azure.com/), acceda al servidor V12 y hag
 
 O bien
 
-Si ve un mensaje que le indica **Haga clic aquí para ver los grupos de bases de datos elásticas recomendados de este servidor**, haga clic en él para así crear fácilmente un grupo que esté optimizado para las bases de datos del servidor. Para más detalles, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
+Si ve un mensaje que le indica **Haga clic aquí para ver los grupos de bases de datos elásticas recomendados de este servidor**, haga clic en él para así crear fácilmente un grupo que esté optimizado para las bases de datos del servidor. Para ver más detalles, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
 ![Adición de un grupo a un servidor][7]
 
@@ -117,7 +119,7 @@ Después de la actualización, supervise la base de datos de forma activa para a
 Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas: [Configuración del tamaño, administración y supervisión de grupos de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
+**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -167,4 +169,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

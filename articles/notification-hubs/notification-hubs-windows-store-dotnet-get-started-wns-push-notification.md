@@ -102,7 +102,7 @@ Para enviar notificaciones push a las aplicaciones de la UWP, debe asociar su ap
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p>Seleccione la opción <b>Notification Services</b> y la opción <b>Windows (WNS)</b>. A continuación, escriba la contraseña del <b>secreto de aplicación</b> en el campo <b>Clave de seguridad</b>. Escriba el valor del <b>SID del paquete</b> obtenido de WNS en la sección anterior y, a continuación, haga clic en <b>Guardar</b>.</p>
 </li>
 </ol>
@@ -110,7 +110,7 @@ Para enviar notificaciones push a las aplicaciones de la UWP, debe asociar su ap
 &emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 
-Su Centro de notificaciones está ahora configurado para funcionar con WNS y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones.
+Su centro de notificaciones está ahora configurado para funcionar con WNS y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones.
 
 ##Conexión de la aplicación al Centro de notificaciones
 
@@ -200,7 +200,7 @@ Para enviar notificaciones con una aplicación de consola .NET, siga estos pasos
 
    	![][13]
 
-	Esta acción agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada.
+	Esto agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada.
 
 2. En Visual Studio, haga clic en **Herramientas**, en **Administrador de paquetes de NuGet** y, después, haga clic en **Consola del administrador de paquetes**.
 
@@ -244,7 +244,7 @@ Para enviar notificaciones con una aplicación de consola .NET, siga estos pasos
 
 	Debería recibir una notificación del sistema en todos los dispositivos registrados. Si hace clic o toca el banner de notificaciones se carga la aplicación.
 
-Puede encontrar todas las cargas compatibles en los temas de [catálogo de notificaciones del sistema], [catálogo de iconos] e [información general sobre distintivos] de MSDN.
+Puede encontrar todas las cargas compatibles en los temas de [catálogo de notificaciones del sistema], el [catálogo de iconos] y la [información general de distintivos] (en inglés).
 
 ##Pasos siguientes
 
@@ -273,6 +273,6 @@ Para más información general sobre los Centros de notificaciones, consulte [Gu
 
 [catálogo de notificaciones del sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[información general de distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

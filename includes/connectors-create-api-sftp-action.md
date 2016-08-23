@@ -10,14 +10,21 @@ Para configurar esta acción, deberá proporcionar la siguiente información. Ob
 
 Para comenzar, vamos a agregar la acción para extraer los archivos si la condición definida anteriormente se evalúa como *True*.
 
-1. Seleccione **Add an action** (Agregar una acción). ![Imagen 6 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-6.png)
-- Seleccione la acción **SFTP - Extract folder** (SFTP: extraer carpeta). ![Imagen 7 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-7.png)
-- Seleccione **Source archive file path** (Ruta de acceso del archivo de origen). ![Imagen 9 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-9.png)
-- Seleccione el token **File path** (Ruta de acceso del archivo). Esto indica que se utilizará la ruta de acceso del archivo que encontró el desencadenador como la ruta de acceso del archivo de almacenamiento. ![Imagen 10 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-10.png)
-- Seleccione **Destination folder path** (Ruta de acceso de la carpeta de destino). ![Imagen 11 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-11.png)
+1. Seleccione **Add an action** (Agregar una acción).  
+![Imagen 6 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-6.png)  
+- Seleccione la acción **SFTP - Extract folder** (SFTP: extraer carpeta).  
+![Imagen 7 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-7.png)  
+- Seleccione **Source archive file path** (Ruta de acceso del archivo de origen).  
+![Imagen 9 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-9.png)  
+- Seleccione el token **File path** (Ruta de acceso del archivo). Esto indica que se utilizará la ruta de acceso del archivo que encontró el desencadenador como la ruta de acceso del archivo de almacenamiento.  
+![Imagen 10 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-10.png)  
+- Seleccione **Destination folder path** (Ruta de acceso de la carpeta de destino).  
+![Imagen 11 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-11.png)  
 - Seleccione el token **File path** (Ruta de acceso del archivo). Esto indica que se utilizará la ruta de acceso del archivo que encontró el desencadenador como la ruta de acceso de destino de los archivos extraídos.
-- Escriba *\\ExtractedFile* en el control **Destination folder path** (Ruta de acceso de la carpeta de destino). Haga esto justo después del token File path (Ruta de acceso del archivo) del control Destination folder path (Ruta de acceso de la carpeta de destino). ![Imagen 12 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-12.png)
-- Escriba *True* en el control **Overwrite?* (¿Sobrescribir?) para indicar que los archivos existentes se deben sobrescribir si tienen el mismo nombre que lo archivos extraídos. ![Imagen 13 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-13.png)
+- Escriba *\\ExtractedFile* en el control **Destination folder path** (Ruta de acceso de la carpeta de destino). Haga esto justo después del token File path (Ruta de acceso del archivo) del control Destination folder path (Ruta de acceso de la carpeta de destino).  
+![Imagen 12 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-12.png)  
+- Escriba *True* en el control **Overwrite?* (¿Sobrescribir?) para indicar que los archivos existentes se deben sobrescribir si tienen el mismo nombre que lo archivos extraídos.  
+![Imagen 13 de condición de acción de SFTP](./media/connectors-create-api-sftp/condition-13.png)  
 - Guarde los cambios en el flujo de trabajo.
 
 <!---HONumber=AcomDC_0727_2016-->

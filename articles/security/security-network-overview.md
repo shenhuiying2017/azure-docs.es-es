@@ -1,10 +1,10 @@
 <properties
    pageTitle="Información general sobre la seguridad de red de Azure | Microsoft Azure"
-   description="Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas."
+   description=" Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Azure Network Security Overview (Información general sobre Azure Network Security)
@@ -265,4 +265,4 @@ Más información:
 
 - [Introducción al Centro de seguridad de Azure](../security-center/security-center-intro.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

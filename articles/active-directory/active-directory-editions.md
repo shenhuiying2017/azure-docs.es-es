@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="08/10/2016"
 	ms.author="markvi"/>
 
 # Ediciones de Azure Active Directory
@@ -51,13 +51,6 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 ##Comparación de características generalmente disponibles
 
 > [AZURE.NOTE] Para obtener una vista diferente de estos datos, consulte las [funcionalidades de Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
-
-| | Azure AD Free | Azure AD Basic | Azure AD Premium |
-| ---                      | :-:           | :-:            | :-:              |
-| Características comunes | ![Comprobar][12] | ![Comprobar][12] | ![Comprobar][12] |
-| Características de la edición Basic | | ![Comprobar][12] | ![Comprobar][12] |
-| Características de la edición Premium | | | ![Comprobar][12] |
-
 
 
 
@@ -122,7 +115,7 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 ## Características comunes
 #### Objetos de directorio 
 
-**Tipo:** Características comunes
+**Tipo:** características comunes
 
 La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada del servicio de directorio que está representada por un nombre completo único. Un ejemplo de objeto sería una entrada de usuario empleada para la autenticación. Si necesita sobrepasar la cuota predeterminada, póngase en contacto con el servicio de soporte técnico. El límite de 500 000 objetos no es aplicable a Office 365, Microsoft Intune ni ningún otro servicio en línea de pago de Microsoft que se base en Azure Active Directory para los servicios de directorio.
 
@@ -137,7 +130,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Administración de usuarios y grupos (agregar/actualizar/eliminar)/aprovisionamiento basado en el usuario, registro de dispositivos
 
-**Tipo:** Características comunes
+**Tipo:** características comunes
 
 **Disponibilidad:**
 
@@ -167,7 +160,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 1. Con las ediciones Gratis y Básico de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
 
-2. Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md).
+2. Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para obtener más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Más detalles:**
 
@@ -366,7 +359,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Puesto que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, siempre que un servidor ejecute una copia válida y con licencia de Windows Server, Microsoft Identity Manager podrá instalarse y usarse en ese servidor. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
 
-**Tipo:** características de la edición Premium
+**Tipo:** Características de la edición Premium
 
 
 **Disponibilidad:**
@@ -381,7 +374,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 #### Cloud App Discovery 
 
-**Tipo:** características de la edición Premium
+**Tipo:** Características de la edición Premium
 
 
 **Disponibilidad:**
@@ -497,4 +490,4 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

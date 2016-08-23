@@ -35,7 +35,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Introducción
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 3 | authentication | [Autenticación a Almacenamiento de datos SQL de Azure](sql-data-warehouse-authentication.md) | Autenticación de Azure Active Directory (AAD) y SQL Server a Almacenamiento de datos SQL de Azure |
 | 4 | best-practices | [Procedimientos recomendados para Almacenamiento de datos SQL de Azure](sql-data-warehouse-best-practices.md) | Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Almacenamiento de datos SQL de Azure. Esto le ayudará a tener éxito. |
@@ -47,7 +47,6 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 10 | get-started-create-support-ticket | [Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL](sql-data-warehouse-get-started-create-support-ticket.md) | Creación de una incidencia de soporte técnico en Almacenamiento de datos SQL de Azure. |
 | 11 | get-started-load-with-azure-data-factory | [Carga de datos con la Factoría de datos de Azure](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Más información sobre Factoría de datos de Azure |
 | 12 | get-started-load-with-polybase | [Carga de datos con PolyBase en Almacenamiento de datos SQL](sql-data-warehouse-get-started-load-with-polybase.md) | Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos. |
-| 13 | get-started-new-server | [Creación de un servidor lógico nuevo](sql-data-warehouse-get-started-new-server.md) | Aprenda a crear un almacenamiento de datos SQL de Azure en el Portal de Azure |
 | 14 | get-started-provision | [Creación de una instancia de Almacenamiento de datos SQL de Azure](sql-data-warehouse-get-started-provision.md) | Aprenda a crear un almacenamiento de datos SQL de Azure en el Portal de Azure |
 | 15 | get-started-provision-powershell | [Creación de Almacenamiento de datos SQL con Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Creación de Almacenamiento de datos SQL con Powershell |
 | 16 | get-started-visualize-with-power-bi | [Visualización de datos con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualización de datos de Almacenamiento de datos SQL con Power BI |
@@ -57,11 +56,11 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Desarrollo
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 18 | develop-best-practices-transactions | [Optimización de transacciones para Almacenamiento de datos SQL](sql-data-warehouse-develop-best-practices-transactions.md) | Guía de procedimientos recomendados sobre la escritura de actualizaciones de transacciones eficientes en Almacenamiento de datos SQL de Azure |
 | 19 | develop-concurrency | [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL](sql-data-warehouse-develop-concurrency.md) | Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
-| 20 | develop-ctas | [Create Table As Select (CTAS) en Almacenamiento de datos SQL](sql-data-warehouse-develop-ctas.md) | Sugerencias para la codificación con la instrucción Create table as select (CTAS) en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
+| 20 | | develop-ctas | [Create Table As Select (CTAS) en Almacenamiento de datos SQL](sql-data-warehouse-develop-ctas.md) | Sugerencias para la codificación con la instrucción Create table as select (CTAS) en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 21 | develop-dynamic-sql | [SQL dinámico en Almacenamiento de datos SQL](sql-data-warehouse-develop-dynamic-sql.md) | Sugerencias para usar SQL dinámico en Almacenamiento de datos SQL Azure para desarrollar soluciones. |
 | 22 | develop-group-by-options | [Opciones de Group by en Almacenamiento de datos SQL](sql-data-warehouse-develop-group-by-options.md) | Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 23 | develop-label | [Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL](sql-data-warehouse-develop-label.md) | Sugerencias para usar etiquetas para instrumentar las consultas en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
@@ -96,7 +95,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Tablas e índices
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 43 | tables-data-types | [Tipos de datos de las tablas en el Almacenamiento de datos SQL](sql-data-warehouse-tables-data-types.md) | Introducción a los tipos de datos de Almacenamiento de datos SQL de Azure. |
 | 44 | tables-distribute | [Distribución de tablas en Almacenamiento de datos SQL](sql-data-warehouse-tables-distribute.md) | Introducción a la distribución de tablas en Almacenamiento de datos SQL de Azure. |
@@ -110,7 +109,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Integrate
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 50 | integrate-azure-data-factory | [Uso de Factoría de datos de Azure con Almacenamiento de datos SQL](sql-data-warehouse-integrate-azure-data-factory.md) | Sugerencias para usar Factoría de datos de Azure (ADF) con Almacenamiento de datos SQL para el desarrollo de soluciones. |
 | 51 | integrate-azure-machine-learning | [Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL](sql-data-warehouse-integrate-azure-machine-learning.md) | Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
@@ -122,7 +121,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Carga
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 55 | load-from-azure-blob-storage-with-data-factory | [Carga de datos del Almacenamiento de blobs de Azure en Almacenamiento de datos SQL de Azure (Data Factory de Azure)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) | Más información sobre Factoría de datos de Azure |
 | 56 | load-from-azure-blob-storage-with-polybase | [Load data from Azure blob storage into SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) | Aprenda a usar PolyBase para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Cargue algunas tablas de datos públicos en el esquema Contoso Retail Data Warehouse. |
@@ -139,7 +138,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Migrar
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 65 | migrate-code | [Migración del código SQL a Almacenamiento de datos SQL](sql-data-warehouse-migrate-code.md) | Sugerencias para migrar el código SQL a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones. |
 | 66 | migrate-data | [Migración de los datos](sql-data-warehouse-migrate-data.md) | Sugerencias para migrar los datos a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones. |
@@ -151,7 +150,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Asociados
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 70 | partner-business-intelligence | [Partners de inteligencia empresarial de Almacenamiento de datos SQL](sql-data-warehouse-partner-business-intelligence.md) | Enumera los asociados externos con soluciones que funcionan con Almacenamiento de datos SQL. |
 | 71 | partner-data-integration | [Socios de integración de datos de Almacenamiento de datos SQL](sql-data-warehouse-partner-data-integration.md) | Enumera los asociados externos con soluciones que funcionan con Almacenamiento de datos SQL. |
@@ -161,7 +160,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Referencia
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 73 | overview-reference | [Temas de referencia de Almacenamiento de datos SQL](sql-data-warehouse-overview-reference.md) | Vínculos al contenido de referencia de Almacenamiento de datos SQL. |
 | 74 | reference-powershell-cmdlets | [Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL](sql-data-warehouse-reference-powershell-cmdlets.md) | Busque los principales cmdlets de PowerShell para Almacenamiento de datos SQL de Azure, incluidos aquellos para pausar y reanudar una base de datos. |
@@ -173,7 +172,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Seguridad
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 78 | auditing-downlevel-clients | [Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría](sql-data-warehouse-auditing-downlevel-clients.md) | Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos. |
 | 79 | auditing-overview | [Auditoría en Almacenamiento de datos SQL de Azure](sql-data-warehouse-auditing-overview.md) | Introducción a la auditoría en Almacenamiento de datos SQL de Azure |
@@ -185,7 +184,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 ## Varios
 
-| &nbsp; | Url-Id | Título | Descripción |
+| &nbsp; | Url-Id | Título | Description |
 | --: | :-- | :-- | :-- |
 | 83 | install-visual-studio | [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](sql-data-warehouse-install-visual-studio.md) | Instalación de herramientas de desarrollo de Visual Studio y SQL Server Data Tools (SSDT) para Almacenamiento de datos SQL de Azure |
 | 84 | migrate-to-premium-storage | [Información de migración al Almacenamiento premium](sql-data-warehouse-migrate-to-premium-storage.md) | Instrucciones para migrar un almacenamiento de datos SQL existente a almacenamiento premium |
@@ -193,4 +192,4 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 86 | service-capacity-limits | [Límites de capacidad de Almacenamiento de datos SQL](sql-data-warehouse-service-capacity-limits.md) | Valores máximos para las conexiones, bases de datos, tablas y consultas de Almacenamiento de datos SQL. |
 | 87 | troubleshoot | [Solución de problemas de Almacenamiento de datos SQL de Azure](sql-data-warehouse-troubleshoot.md) | Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure. |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -41,7 +41,7 @@ Este artículo le ayudará a vincular redes virtuales a circuitos ExpressRoute d
 	- Asegúrese de que el emparejamiento privado de Azure está configurado y el emparejamiento BGP entre la red y Microsoft está activo para habilitar la conectividad de extremo a extremo.
     - Debe crear y aprovisionar totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para [configurar una red virtual en ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute. Todos los circuitos ExpressRoute deben estar en la misma región geopolítica. Puede vincular un mayor número de redes virtuales en el circuito ExpressRoute si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute. Todas las redes virtuales deben estar en la misma región geopolítica. Puede vincular un mayor número de redes virtuales en el circuito ExpressRoute, o redes virtuales que se encuentren en otras regiones geopolíticas, si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
 
 ## Conexión de una red virtual en la misma suscripción a un circuito
 
@@ -157,4 +157,4 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

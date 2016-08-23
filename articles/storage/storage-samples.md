@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="06/01/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram" />
 
 # Ejemplos de Almacenamiento de Azure
@@ -68,7 +68,7 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 * [Introducción a las tablas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Introducción a las colas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## Consulte también
+## Otras referencias
 
 ### Recursos de .NET
 
@@ -90,4 +90,4 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 - [Código fuente de la biblioteca de cliente de almacenamiento de C++](https://github.com/Azure/azure-storage-cpp)
 - [Referencia a la biblioteca de clientes de C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

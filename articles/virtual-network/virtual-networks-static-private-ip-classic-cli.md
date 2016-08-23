@@ -3,7 +3,7 @@
    description="Descripción de las IP privadas estáticas (DIP) y su administración en el modo clásico con la CLI"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Configuración de una dirección IP privada estática (clásica) en la CLI de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [administrar la dirección IP privada estática en el modelo de implementación del Administrador de recursos](virtual-networks-static-private-ip-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación clásico. También puede [administrar la dirección IP privada estática en el modelo de implementación del Administrador de recursos](virtual-networks-static-private-ip-arm-cli.md).
 
 En los siguientes comandos de la CLI de Azure de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
 
@@ -63,12 +63,12 @@ Para crear una nueva VM denominada *DNS01* en un nuevo servicio en la nube denom
 
 	- **-l (o --location)**. La región de Azure donde se creará la VM. En este escenario, *centralus*.
 	- **-n (o --vm-name)**. Nombre de la VM que se va a crear.
-	- **-w (o --virtual-network-name)**. Nombre de la red virtual donde se creará la VM. 
+	- **-w (o --virtual-network-name)**. Nombre de la red virtual donde se creará la VM.
 	- **-S (o --static-ip)**. Dirección IP privada estática para la VM.
 	- **TestService**. Nombre del servicio en la nube en el que se creó la VM.
 	- **bd507d3a70934695bc2128e3e5a255ba\_\_RightImage-Windows-2012R2-x64-v14.2**. Imagen utilizada para crear la VM.
 	- **adminuser**. Administrador local para la VM de Windows.
-	- ****AdminP@ssw0rd**. Contraseña del administrador local para la VM de Windows.
+	- **AdminP@ssw0rd**. Contraseña del administrador local para la VM de Windows.
 
 ## Recuperación de la información de la dirección IP privada estática para una VM
 Para ver la información de la dirección IP privada estática para la VM creada con el script anterior, ejecute el comando de la CLI de Azure y observe el valor para *Network StaticIP*:
@@ -115,4 +115,4 @@ Resultado esperado:
 - Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

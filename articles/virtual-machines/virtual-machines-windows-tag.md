@@ -43,7 +43,7 @@ Si la máquina virtual ya contiene etiquetas, verá todas ellas en el recurso:
 
 Si desea agregar etiquetas a través de PowerShell, puede usar el comando `Set-AzureRmResource`. Tenga en cuenta que si actualiza las etiquetas a través de PowerShell, se actualizan todas ellas en conjunto. Por tanto, si va a agregar una etiqueta a un recurso que ya tiene etiquetas, tendrá que incluir todas las etiquetas que desea colocar en el recurso. A continuación se muestra un ejemplo de cómo agregar etiquetas adicionales a un recurso mediante los cmdlets de PowerShell.
 
-Este primer cmdlet define todas las etiquetas colocadas en *MyTestVM* con la variable *tags*, para lo que emplea las funciones `Get-AzureRmResource` y `Tags`.
+Este primer cmdlet establece todas las etiquetas colocadas en *MyTestVM* en la variable *tags*, para lo que emplea las propiedades `Get-AzureRmResource` y `Tags`.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -64,7 +64,7 @@ El segundo comando muestra las etiquetas de la variable especificada.
 
 El tercer comando agrega una etiqueta adicional a la variable *tags*. Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags*.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
 El cuarto comando establece todas las etiquetas definidas en la variable *tags* en el recurso especificado. En este caso, es MyTestVM.
 
@@ -103,4 +103,4 @@ Para más información sobre el etiquetado a través de PowerShell, consulte los
 [Comprender la factura de Microsoft Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

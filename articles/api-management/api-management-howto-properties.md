@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -24,10 +24,10 @@ En Administración de API, las directivas constituyen una eficaz funcionalidad d
 Cada instancia del servicio de Administración de API tiene una colección de propiedades de pares clave-valor que son globales para la instancia del servicio. Estas propiedades se pueden utilizar para administrar los valores constantes de la cadena en todas las directivas y la configuración de API. Cada propiedad tiene también los siguientes atributos.
 
 
-| Atributo | Tipo | Descripción |
+| Atributo | Tipo | Description |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Nombre | cadena | El nombre de la propiedad. Puede contener solo letras, dígitos, puntos, guiones o caracteres de subrayado. |
-| Valor | cadena | El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
+| Nombre | string | El nombre de la propiedad. Puede contener solo letras, dígitos, puntos, guiones o caracteres de subrayado. |
+| Valor | string | El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
 | Secret | boolean | Determina si el valor es secreto y si se debe cifrar. |
 | Etiquetas | matriz de cadena | Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
 
@@ -149,4 +149,4 @@ Para filtrar la lista de propiedades por valores de etiqueta, escriba una o vari
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

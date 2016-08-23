@@ -26,7 +26,7 @@ Puede entrenar el modelo una vez usando una versión combinada de todos los conj
 
 Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en Aprendizaje automático de Azure cada uno de los cuales representando una ubicación única. Además de ser una tarea abrumadora, también parece bastante ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
 
-Afortunadamente, podemos lograrlo mediante la [API para volver a entrenar de Aprendizaje automático de Azure](machine-learning-retrain-models-programmatically.md) y automatizando la tarea con [PowerShell de Aprendizaje automático de Azure](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
+Afortunadamente, podemos lograrlo mediante la [API para volver a entrenar de Aprendizaje automático de Azure](machine-learning-retrain-models-programmatically.md) y automatizando la tarea con [PowerShell de Aprendizaje automático de Azure](machine-learning-powershell-module.md).
 
 > [AZURE.NOTE] Para que nuestro ejemplo se ejecute más rápido, reduciremos el número de ubicaciones de 1000 a 10. Pero se aplican los mismos principios y procedimientos a 1000 ubicaciones. La única diferencia es que si desea entrenar con 1000 conjuntos de datos, probablemente piense en ejecutar los siguientes scripts de PowerShell en paralelo. Cómo hacerlo queda fuera del ámbito de este artículo, pero puede encontrar ejemplos de subprocesamiento múltiple de PowerShell en Internet.
 
@@ -161,4 +161,4 @@ Este es el listado del código fuente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

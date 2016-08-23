@@ -24,7 +24,7 @@ Este documento describe cómo usar las funcionalidades de alerta de seguridad de
 
 ## ¿Qué es un incidente de seguridad?
 
-En Security Center, un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con los patrones de la [cadena de eliminación](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Los incidentes aparecen en el icono y en la hoja [Alertas de seguridad](security-center-managing-and-responding-alerts.md). El incidente mostrará la lista de alertas relacionadas, lo que permite obtener más información sobre cada repetición.
+En Security Center, un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con patrones de [cadenas de eliminación](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Los incidentes aparecen en el icono y en la hoja [Alertas de seguridad](security-center-managing-and-responding-alerts.md). El incidente mostrará la lista de alertas relacionadas, lo que permite obtener más información sobre cada repetición.
 
 ## Administración de incidentes de seguridad
 
@@ -34,7 +34,7 @@ Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguri
 
     ![Icono Alertas de seguridad en Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Haga clic en este icono para expandirlo y, si se detecta un incidente de seguridad, aparecerá en el gráfico de alertas de seguridad, tal como se muestra en esta imagen.
+2.  Haga clic en este icono para expandirlo y, si se detecta un incidente de seguridad, aparecerá en el gráfico de alertas de seguridad, tal como se muestra a continuación.
 
     ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig2.png)
 
@@ -42,7 +42,7 @@ Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguri
 
 	![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	En la hoja **Security incident detected** (Incidente de seguridad detectado) verá más detalles sobre este incidente de seguridad, como una descripción completa del incidente, la gravedad (que en este caso es alta), el estado actual del incidente (en este caso sigue siendo *activo*), el recurso atacado (en este caso *VM1*), los pasos de corrección y, en la parte inferior, verá las alertas que se incluyeron en este incidente. Para más información sobre cada alerta, solo tiene que hacer clic en ella y se abrirá otra hoja, tal como se muestra a continuación.
+4. 	En la hoja encontrará más detalles sobre este incidente de seguridad, como su descripción completa, su gravedad (en este caso alta), su estado actual (en este caso aún *activo*, lo que implica que el usuario no ha realizado acción alguna para *descartarlo* - lo que se puede hacer haciendo clic con el botón derecho en el incidente en la hoja **Alertas de seguridad**), el recurso asociado (en este caso *VM1*) y los pasos de corrección del incidente. Además, en el panel inferior tiene las alertas que se incluyeron en este incidente. Para más información sobre cada alerta, solo tiene que hacer clic en ella y se abrirá otra hoja, tal como se muestra a continuación:
 
 	![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig4.png)
 
@@ -63,4 +63,4 @@ En este documento, aprendió a usar la funcionalidad de incidente de seguridad e
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Estados de usuario en Azure Multi-Factor Authentication
 
 Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguientes tres estados:
 
-Estado | Descripción |Aplicaciones que no son de explorador afectadas| Notas 
+Estado | Description |Aplicaciones que no son de explorador afectadas| Notas 
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | Estado predeterminado para un nuevo usuario no inscrito en la autenticación multifactor.|No|El usuario no está utilizando la autenticación multifactor.
 Enabled |El usuario está inscrito en la autenticación multifactor.|No. Continúa funcionando hasta que se complete el proceso de registro.|El usuario está habilitado pero no ha completado el proceso de registro. Se le pedirá que complete el proceso en el inicio de sesión siguiente.
@@ -63,4 +63,4 @@ El estado del usuario cambia según se haya configurado o no para MFA y si el us
 8.  Se le pedirá que confirme esto. Haga clic en **Sí**. ![Deshabilitar usuario](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  A continuación, verá que la operación se realizó correctamente. Haga clic en **Cerrar.** ![Deshabilitar usuario](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

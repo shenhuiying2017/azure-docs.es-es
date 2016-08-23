@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/10/2016"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -33,6 +33,16 @@ Las instrucciones de este tutorial se aplican a dispositivos físicos y virtuale
 
 En un escenario de recuperación ante desastres, el dispositivo principal deja de funcionar. En esta situación, puede mover los datos en la nube asociados al dispositivo con error a otro dispositivo usando el dispositivo primario como *origen* y especificando otro dispositivo como *destino*. Puede seleccionar uno o varios contenedores de volúmenes para migrar al dispositivo de destino. Este proceso se conoce como *conmutación por error*. Durante la conmutación por error, los contenedores de volúmenes del dispositivo de origen cambian la propiedad y se transfieren al dispositivo de destino.
 
+Normalmente, tras una recuperación ante desastres, se utiliza la copia de seguridad más reciente para restaurar los datos al dispositivo de destino. Sin embargo, si hay varias directivas de copia de seguridad para el mismo volumen, se detecta la directiva de copia de seguridad con el mayor número de volúmenes y la copia de seguridad más reciente de esa directiva se usa para restaurar los datos en el dispositivo de destino.
+
+Por ejemplo, si hay dos directivas de copia de seguridad (un valor predeterminado y uno personalizado) *defaultPol*, *customPol* con los detalles siguientes:
+
+- *defaultPol*: un volumen, *vol1*; se ejecuta diariamente a las 22:30.
+- *customPol*: cuatro volúmenes, *vol1*, *vol2*, *vol3* y *vol4*; se ejecuta diariamente a las 22:0.
+
+En este caso, se usará *customPol*, ya que es la que tiene más volúmenes, y establecemos prioridad para la coherencia de bloqueos. La copia de seguridad más reciente de esta directiva se usa para restaurar los datos.
+
+
 ## Consideraciones para la conmutación por error del dispositivo
 
 En caso de desastre, puede elegir conmutar por error el dispositivo StorSimple:
@@ -47,9 +57,6 @@ En todos los tipos de conmutación por error del dispositivo, tenga en cuenta lo
 - Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos con espacio suficiente para alojar los contenedores de volúmenes seleccionados.
 - Los dispositivos que están conectados al servicio pero que no cumplen los criterios de espacio suficiente no estarán disponibles como dispositivos de destino.
 - Tras una recuperación ante desastres, durante un tiempo limitado, el rendimiento del acceso a datos puede verse afectado de forma significativa, ya que el dispositivo deberá acceder a los datos de la nube y almacenarlos localmente.
-- Cuando se realiza una conmutación por error entre los dispositivos después de una recuperación ante desastres, las instantáneas que se usan para recuperar los datos se seleccionan de la siguiente forma:
-	1.  	Identifique la directiva de copia de seguridad con el mayor número de volúmenes.
-	2.  	Seleccione la instantánea en la nube conocida más reciente para esa directiva de copia de seguridad y úsela para restaurar los datos en el dispositivo de recuperación.
 
 #### Conmutación por error del dispositivo a través de las versiones de software
 
@@ -57,7 +64,7 @@ Un servicio del administrador de StorSimple en una implementación puede tener v
 
 Utilice la tabla siguiente para determinar si puede conmutar por error a otro dispositivo que ejecuta una versión diferente de software y el comportamiento de los tipos de volumen durante la recuperación ante desastres.
 
-| Conmutación por error a partir de | Permitida para dispositivo físico | Permitida para dispositivo virtual |
+| Conmutación por error desde | Permitida para dispositivo físico | Permitida para dispositivo virtual |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | Update 2 a versión anterior a Update 1 (lanzamiento, 0.1, 0.2, 0.3) | No | No |
 | Update 2 a Update 1 (1, 1.1, 1.2) | Sí <br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes siempre se realiza en capas. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
@@ -92,10 +99,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 
 1. En el asistente que se abre, en **Elegir el contenedor de volúmenes para la conmutación por error**:
 
-	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
-	
-
-		>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes sin conexión e instantáneas de nube asociadas.** <br></br>
+	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error. **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
 	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
 
@@ -149,9 +153,9 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 													
 	a. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-	>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
+	**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
-	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
+	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. **En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.**
 	
 
 1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
@@ -180,4 +184,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

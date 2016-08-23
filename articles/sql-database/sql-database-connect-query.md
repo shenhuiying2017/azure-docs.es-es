@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -43,7 +43,7 @@ Para conectarse a una base de datos SQL con Visual Studio, necesita:
 - Visual Studio 2013, actualización 4 o posterior. Microsoft ahora ofrece Visual Studio Community *gratis*.
  - [Visual Studio Community, descarga](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Más opciones para Visual Studio gratis](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - O bien, deje que el [paso](#InstallVSForFree) posterior de este tema describa la forma en que el [Portal de Azure](https://portal.azure.com/) le guía en la instalación de Visual Studio.
+ - O bien, consulte el [paso](#InstallVSForFree) siguiente de este tema, que describe cómo el [Portal de Azure](https://portal.azure.com/) le guía en la instalación de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -82,7 +82,7 @@ Si necesita instalar Visual Studio, puede:
 
 9. Después de instalar Visual Studio, en la hoja **Abrir en Visual Studio**, haga clic en el botón **Abrir en Visual Studio**. Se abre Visual Studio.
 
-10. Para aprovechar su panel **Explorador de objetos de SQL Server**, Visual Studio le pedirá que rellene los campos de las cadenas de conexión en un cuadro de diálogo.
+10. Visual Studio le pedirá que rellene los campos de cadena de conexión en un cuadro de diálogo.
  - Elija **Autenticación de SQL Server**, no **Autenticación de Windows**.
  - No olvide especificar su base de datos **AdventureWorksLT** (**Opciones** > **Propiedades de conexión** en el cuadro de diálogo).
 
@@ -93,7 +93,7 @@ Si necesita instalar Visual Studio, puede:
 
 Después de conectarse al servidor lógico, puede conectarse a una base de datos y ejecutar una consulta de ejemplo.
 
-1. En el **Explorador de objetos**, acceda a una base de datos del servidor en la que tenga permiso (como la base de datos de ejemplo **AdventureWorks**).
+1. En el **Explorador de objetos**, acceda a una base de datos del servidor a la que tenga permiso (como la base de datos de ejemplo **AdventureWorks**).
 2. Haga clic con el botón derecho en la base de datos y seleccione **Nueva consulta**.
 
 	![Nueva consulta. Conexión a servidor de Base de datos SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
@@ -121,4 +121,4 @@ Después de conectarse al servidor lógico, puede conectarse a una base de datos
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

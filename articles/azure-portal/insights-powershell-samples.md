@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -148,13 +148,13 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 |Ubicación (Location) de esta regla de alerta|	Este de EE. UU.|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|Nombre de la métrica (MetricName) de la alerta que se crea|	\\Disco físico(\_Total)\\Escrituras en disco/s. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo obtener los nombres exactos de las métricas|
-|operator|	GreaterThan|
-|Valor de umbral (número por segundo para esta métrica)|	1|
-|WindowSize (formato hh:mm:ss)|	00:05:00|
-|aggregator (estadística de la métrica que, en este caso, usa el recuento medio)|	Media|
-|mensajes de correo electrónico personalizados (matriz de cadenas)|'foo@example.com','bar@example.com'|
-|enviar correo electrónico a los propietarios, colaboradores y lectores|	-SendToServiceOwners|
+|Nombre de la métrica (MetricName) de la alerta que se crea|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` siguiente sobre cómo recuperar los nombres de métrica exactos|
+|Operador (Operator)| GreaterThan|
+|Valor de umbral (Threshold) (recuento o segundos de esta métrica)| 1|
+|WindowSize (formato hh:mm:ss)| 00:05:00|
+|Agregador (estadísticas de la métrica que, en este caso, usa el recuento Average)| Average|
+|Correos electrónicos personalizadas (matriz de cadena)|'foo@example.com','bar@example.com'|
+|Envío de mensajes de correo electrónico a propietarios, colaboradores y lectores| -SendToServiceOwners|
 
 Creación de una acción de correo electrónico
 
@@ -384,4 +384,4 @@ Habilitación de la configuración de diagnóstico con retención para una categ
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

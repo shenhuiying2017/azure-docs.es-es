@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/08/2016"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -123,7 +123,6 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 |---|---|---|---|
 | Imagen de máquina virtual | No | Sí | No|
 | Servicio de desarrolladores | Sí | Sí | Sí |
-| Servicio de datos | Sí | No | No |
 
 ### 2\.1. Establecimiento de los precios de máquina virtual
 En estos momentos, existen los **3 tipos de modelos de facturación** siguientes para las máquinas virtuales:
@@ -135,12 +134,12 @@ En estos momentos, existen los **3 tipos de modelos de facturación** siguientes
 - **Prueba gratuita**: se trata de otro tipo de modelo por hora. Al cliente no se le cobra el costo de software durante los primeros 30 días (gratis) después de implementar la máquina virtual. Cuando transcurra este periodo, se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual.
 - **Traiga su propia licencia (BYOL)**: los publicadores administran las licencias del software que se ejecuta en la máquina virtual.
 
-**Importante**: Cuando una oferta o SKU se muestre en Azure Marketplace, no podrá cambiar los campos que se indican a continuación:
+**Importante**: Cuando una oferta o SKU se muestre en Azure Marketplace, no podrá cambiar los campos que se indican a continuación.
 
-- **Pricing Change of listed SKU(s)** (Cambio de precios de las SKU activas)
-- **Billing Model Change of listed SKU(s)** (Cambio del modelo de facturación de las SKU activas)
-- **Removal of billing regions of listed SKU(s)** (Eliminación de las regiones de facturación de las SKU activas)
-- **Changing the data disk count of listed SKU(s)** (Cambio del número de discos de datos de las SKU activas)
+- **Pricing Change of listed SKU(s) (Cambio de precios de las SKU activas)**
+- **Billing Model Change of listed SKU(s) (Cambio del modelo de facturación de las SKU activas)**
+- **Removal of billing regions of listed SKU(s) (Eliminación de las regiones de facturación de las SKU activas)**
+- **Changing the data disk count of listed SKU(s) (Cambio del número de discos de datos de las SKU activas)**
 - **Offer Identifier** (Identificador de oferta): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> Imágenes de VM -> Offer Identifier (Identificador de oferta)
 - **SKU Identifier** (Identificador de SKU): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña SKUs (SKU) -> Offer Identifier (Identificador de oferta)
 - **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -> Máquinas virtuales -> pestaña Walkthrough (Tutorial) -> Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -> Publisher Namespace (Espacio de nombres de publicador) -> Espacio de nombres
@@ -160,7 +159,7 @@ Siga los pasos indicados a continuación para configurar el modelo de precios po
 1.	Inicie sesión en el [Portal de publicación](https://publish.windowsazure.com).
 2.	Vaya a la pestaña **MÁQUINAS VIRTUALES** y seleccione la oferta.
 3.	En el menú del lado izquierdo, haga clic en la pestaña **SKUs** (SKU).
-4.	Asegúrese de que la SKU está marcada como Hourly Billing Model (Modelo de facturación por hora). Haga clic en el botón **EDITAR** para revertir el modelo de facturación. Se mostrará una ventana. Desactive la casilla de verificación Billing and licensing is done externally from Azure (aka Bring Your Own License) (La facturación y las licencias no se administran en Azure [Traiga su propia licencia]) y guarde los cambios.
+4.	Asegúrese de que la SKU está marcada como Hourly Billing Model (Modelo de facturación por hora). En caso contrario, haga clic en el botón **EDITAR** para revertir el modelo de facturación. Se mostrará una ventana. Desactive la casilla de verificación Billing and licensing is done externally from Azure (aka Bring Your Own License) (La facturación y las licencias no se administran en Azure [Traiga su propia licencia]) y guarde los cambios.
 5.	Si quiere habilitar el modelo Prueba gratuita durante los primeros 30 días después de la implementación de SKU, seleccione la opción Un mes en la pregunta Is a free trial available? (¿Hay disponible una evaluación gratuita?) De lo contrario, seleccione la opción No Trial (Sin evaluación). Ahora, siga los pasos indicados a continuación.
 6.	En el menú del lado izquierdo, haga clic en la pestaña **PRECIOS**.
 7.	Seleccione la región base.
@@ -193,7 +192,7 @@ Siga los pasos indicados a continuación para configurar el modelo de precios po
 Siga los pasos indicados a continuación para configurar el modelo de precios BYOL en sus SKU:
 
 1.	Inicie sesión en el [Portal de publicación](https://publish.windowsazure.com).
-2.	Vaya a la pestaña **MÁQUINAS VIRTUALES** y seleccione la oferta.
+2.	Vaya a la pestaña **VIRTUAL MACHINES** (MÁQUINAS VIRTUALES) y seleccione su oferta.
 3.	En el menú del lado izquierdo, haga clic en la pestaña **SKUs** (SKU).
 4.	Asegúrese de que la SKU esté marcada como Bring your own license SKU (SKU Traiga su propia licencia). En caso contrario, haga clic en el botón EDITAR para revertir el modelo de facturación. Se mostrará una ventana. Active la casilla de verificación Billing and licensing is done externally from Azure (aka Bring Your Own License) (La facturación y las licencias no se administran en Azure [Traiga su propia licencia]) y guarde los cambios.
 
@@ -278,4 +277,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

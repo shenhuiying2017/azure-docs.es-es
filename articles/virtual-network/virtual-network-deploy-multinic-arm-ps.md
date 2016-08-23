@@ -3,7 +3,7 @@
    description="Aprenda a implementar máquinas virtuales con varias NIC mediante PowerShell en el Administrador de recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Implementación de máquinas virtuales con varias NIC mediante PowerShell
 
@@ -47,7 +47,7 @@ Las máquinas virtuales back-end dependen de la creación de los recursos mencio
 
 - **Cuenta de almacenamiento de discos de datos**. Para mejorar el rendimiento, los discos de datos en los servidores de base de datos usarán la tecnología de unidad de estado sólido (SSD), que requiere una cuenta de almacenamiento Premium. Asegúrese de que la ubicación de Azure que implementa admita el almacenamiento Premium.
 - **NIC**. Cada VM tendrá dos NIC, una para el acceso de la base de datos y otra para la administración.
-- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento.  
+- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento.
 
 ### Paso 1: inicio del script
 
@@ -309,4 +309,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

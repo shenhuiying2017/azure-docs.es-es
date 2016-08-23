@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Análisis de almacenamiento
@@ -80,7 +80,7 @@ Cada registro se escribirá en el formato siguiente:
 
 En la tabla siguiente se describe cada atributo del nombre del registro:
 
-| Atributo | Descripción |
+| Atributo | Description |
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | <service-name> | El nombre del servicio de almacenamiento. Por ejemplo: blob, tabla o cola |
 | AAAA | El año de cuatro dígitos para el registro. Por ejemplo: 2011 |
@@ -103,7 +103,7 @@ Cuando se registra una solicitud de almacenamiento, el nombre del registro resul
 ### Metadatos del registro
 Todos los blobs del registro se almacenan con metadatos que se pueden utilizar para identificar los datos de registro que contiene el blob. La tabla siguiente describe cada atributo de metadatos.
 
-| Atributo | Descripción |
+| Atributo | Description |
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | LogType | Describe si el registro contiene información relacionada con las operaciones de lectura, escritura o eliminación. Este valor puede incluir un tipo o una combinación de los tres, separados por comas. Ejemplo 1: escritura; Ejemplo 2: lectura, escritura; Ejemplo 3: lectura, escritura, eliminación. |
 | StartTime | La primera hora de una entrada en el registro, en el formato YYYY-MM-DDThh:mm:ssZ. Por ejemplo: 2011-07-31T18:21:46Z. |
@@ -180,7 +180,7 @@ El análisis de almacenamiento lo habilita el propietario de la cuenta de almace
 
 Son facturables las acciones siguientes realizadas por el análisis de almacenamiento:
 
-- Solicitudes para crear blobs para el registro 
+- Solicitudes para crear blobs para el registro
 
 - Solicitudes para crear entidades de tabla para las métricas
 
@@ -206,6 +206,6 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 ### Métricas del análisis de almacenamiento
 - [Acerca de las métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx)
-- [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
+- [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

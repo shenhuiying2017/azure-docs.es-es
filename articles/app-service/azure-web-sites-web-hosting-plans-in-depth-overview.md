@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"/>
 
-#Introducción detallada sobre los planes del Servicio de aplicaciones de Azure#
+# Introducción detallada sobre los planes del Servicio de aplicaciones de Azure#
 
-Un plan del **Servicio de aplicaciones** representa un conjunto de características y capacidades que puede compartir entre múltiples aplicaciones del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714), incluidas las aplicaciones web, aplicaciones móviles, aplicaciones lógicas o aplicaciones de API. Estos planes admiten 5 niveles de precios (**Gratis**, **Compartido**, **Básico**, **Estándar** y **Premium**), donde cada uno de ellos tiene sus propias funcionalidades y capacidad. Las aplicaciones de una misma suscripción y ubicación geográfica pueden compartir un plan. Todas las aplicaciones que comparten un plan pueden aprovechar todas las capacidades y características definidas por el nivel de dicho plan. Todas las aplicaciones asociadas a un plan dado se ejecutan en los recursos definidos por dicho plan. Por ejemplo, si el plan está configurado para usar dos instancias "pequeñas" en el nivel de servicio estándar, todas las aplicaciones asociadas a este plan se ejecutarán en ambas instancias con la funcionalidad de dicho nivel de servicio. Las instancias del plan en las que se ejecutan las aplicaciones están totalmente administradas y tienen una alta disponibilidad.
+Un plan del **Servicio de aplicaciones** representa un conjunto de características y capacidades que puede compartir entre múltiples aplicaciones del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714), incluidas las aplicaciones web, aplicaciones móviles, aplicaciones lógicas o aplicaciones de API. Estos planes admiten 5 niveles de precios (**Gratis**, **Compartido**, **Básico**, **Estándar** y **Premium**), donde cada uno de ellos tiene sus propias funcionalidades y capacidad. Las aplicaciones de una misma suscripción y ubicación geográfica pueden compartir un plan. Todas las aplicaciones que comparten un plan pueden aprovechar todas las capacidades y características definidas por el nivel de dicho plan. Todas las aplicaciones asociadas a un plan dado se ejecutan en los recursos definidos por dicho plan.
+
+Por ejemplo, si el plan está configurado para usar dos instancias "pequeñas" en el nivel de servicio estándar, todas las aplicaciones asociadas a este plan se ejecutarán en ambas instancias con la funcionalidad de dicho nivel de servicio. Las instancias del plan en las que se ejecutan las aplicaciones están totalmente administradas y tienen una alta disponibilidad.
 
 En este artículo exploraremos las características clave, como el nivel y la escala de un plan del Servicio de aplicaciones y el papel que juegan mientras administra sus aplicaciones.
 
-##Aplicaciones y planes del Servicio de aplicaciones
+## Aplicaciones y planes del Servicio de aplicaciones
 
 Una aplicación del Servicio de aplicaciones se puede asociar a un solo plan de dicho servicio en un momento determinado.
 
@@ -35,13 +37,13 @@ Al tener varios planes en un solo grupo de recursos, también puede definir una 
 
 ## Creación de un nuevo plan del Servicio de aplicaciones frente al uso de un plan existente
 
-Al crear una nueva aplicación, debe pensar en crear un nuevo grupo de recursos cuando dicha aplicación representa un proyecto nuevo. En este caso, crear un nuevo grupo de recursos, un plan y una aplicación es la elección correcta.
+Al crear una nueva aplicación, considere la posibilidad de generar un nuevo grupo de recursos. Por otro lado, si la aplicación que está a punto de crear es un componente de otra aplicación más grande, esta aplicación debería crearse dentro del grupo de recursos asignado a dicha aplicación de mayor tamaño.
 
-Si la aplicación que está a punto de crear es un componente de otra aplicación más grande, esta aplicación web debería crearse dentro del grupo de recursos asignado a dicha aplicación de mayor tamaño.
+Independientemente de que la nueva aplicación sea totalmente nueva o bien sea parte de otra más grande, puede aprovechar un plan existente del Servicio de aplicaciones para hospedarla o crear uno nuevo. Es más bien una cuestión de capacidad y de la carga esperada.
 
-Independientemente de que la nueva aplicación sea totalmente nueva o bien sea parte de otra más grande, puede aprovechar un plan existente del Servicio de aplicaciones para hospedarla o crear uno nuevo. Es más bien una cuestión de capacidad y de la carga esperada. Si la nueva aplicación va a utilizar muchos recursos y sus factores de escala son distintos a los del resto de aplicaciones hospedadas en un plan existente, se recomienda aislarla en su propio plan.
+Si la nueva aplicación va a utilizar muchos recursos y sus factores de escala son distintos a los del resto de aplicaciones hospedadas en un plan existente, se recomienda aislarla en su propio plan.
 
-La creación de un nuevo plan permite asignar un nuevo conjunto de recursos para la aplicación web y le proporciona un mayor control sobre la asignación de recursos, ya que cada plan obtiene su propio conjunto de instancias.
+La creación de un nuevo plan permite asignar un nuevo conjunto de recursos para la aplicación y proporciona un mayor control sobre la asignación de recursos, ya que cada plan obtiene su propio conjunto de instancias.
  
 Al tener capacidad para mover aplicaciones entre los planes, también puede cambiar la forma en que los recursos se asignan en la aplicación de mayor tamaño.
  
@@ -51,13 +53,13 @@ Por último, si desea crear una nueva aplicación en otra región distinta y dic
 
 Puede crear un **plan del Servicio de aplicaciones** vacío desde la experiencia de exploración del **plan del Servicio de aplicaciones** o como parte de la creación de la aplicación.
 
-Para ello, en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), haga clic en **NUEVO**, seleccione **Web y móvil** y luego elija **Aplicaciones web**, **Aplicaciones móviles**, **Aplicaciones lógicas** o **Aplicaciones de API**. ![][createWebApp]
+En el [Portal de Azure](https://portal.azure.com), haga clic en **NUEVO**, seleccione **Web y móvil** y luego elija **Aplicaciones web**, **Aplicaciones móviles**, **Aplicaciones de API** o **Function App**. ![][createWebApp]
 
 A continuación, puede seleccionar o crear el plan del Servicio de aplicaciones para la nueva aplicación.
   
  ![][createASP]
 
-Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **+ Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y seleccione una **ubicación** adecuada. Haga clic en el **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**.
+Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **[+] Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y seleccione una **ubicación** adecuada. Haga clic en el **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**.
  
 ## Cambio de una aplicación a un plan del Servicio de aplicaciones diferente
 
@@ -78,7 +80,7 @@ Si desea mover la aplicación a una región diferente, una alternativa es clonar
  
 Encontrará la opción **Clonar aplicación** en el menú **Herramientas**.
 
-La clonación tiene algunas limitaciones, como puede ver [aquí](../app-service-web/app-service-web-app-cloning-portal.md)
+La clonación tiene algunas limitaciones, como puede ver [aquí](../app-service-web/app-service-web-app-cloning-portal.md).
 
 ## Escalación de un plan del Servicio de aplicaciones
 
@@ -92,13 +94,13 @@ Puede cambiar el plan de tarifa y el tamaño de la instancia haciendo clic en el
  
  ![][pricingtier]
 
-##Resumen
+## Resumen
 
 Los planes del Servicio de aplicaciones representan un conjunto de características y capacidades que puede compartir entre las aplicaciones. Los planes del Servicio de aplicaciones proporcionan la flexibilidad necesaria para asignar aplicaciones específicas a un conjunto de recursos determinado y optimizar aún más el uso de los recursos de Azure. De esta forma, si desea ahorrar gastos en el entorno de prueba, puede compartir un plan entre varias aplicaciones. Asimismo, puede escalarlo entre varias regiones y planes para maximizar el rendimiento del entorno de producción.
 
 ## Lo que ha cambiado
 
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
    
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
@@ -107,4 +109,4 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

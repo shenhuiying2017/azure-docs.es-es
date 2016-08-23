@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Referencia para Analytics
 
-[Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 > [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) si su aplicación aún no envía datos a Application Insights.
 
@@ -1423,7 +1423,7 @@ En Analytics, verá un grupo de eventos así parecido al siguiente:
 `opCount` | `latency`| significado
 ---|---|---
 8 | 10 | = 8 operaciones en la ubicación 10 ms
-6 | 20 | = 6 operaciones en la ubicación 20 ms.
+6 | 20 | | = 6 operaciones en la ubicación 20 ms.
 3 | 30 | = 3 operaciones en la ubicación 30 ms
 1 | 40 | = 1 operación en la ubicación 40 ms
 
@@ -2085,7 +2085,7 @@ Alias `timespan()`.
 El resultado entero representa el número de semana mediante el estándar ISO 8601. El primer día de la semana es el domingo y la primera semana del año es la semana que contiene el primer jueves de ese año (los últimos días de un año, por tanto, pueden contener algunos de los días de la semana 1 del año siguiente, o bien los días de la primera parte de la semana 52 o 53 del año anterior).
 
 
-## Cadena
+## String
 
 [countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
@@ -2116,7 +2116,7 @@ h"hello"
 
 ### Comparaciones de cadenas
 
-Operador|Descripción|Distingue mayúsculas de minúsculas|Ejemplo real
+Operador|Description|Distingue mayúsculas de minúsculas|Ejemplo real
 ---|---|---|---
 `==`|Equals |Sí| `"aBc" == "aBc"`
 `<>` `!=`|No es igual a|Sí| `"abc" <> "ABC"`
@@ -2124,16 +2124,18 @@ Operador|Descripción|Distingue mayúsculas de minúsculas|Ejemplo real
 `!~`|No es igual a |No| `"aBc" !~ "xyz"`
 `has`|El lado derecho (RHS) es un término completo en el lado izquierdo (LHS)|No| `"North America" has "america"`
 `!has`|RHS no es un término completo en LHS|No|`"North America" !has "amer"` 
-`hasprefix`|RHS es un prefijo de término en LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS no es un prefijo de término en LHS|No|`"North America" !hasprefix "mer"`
-`contains` | RHS ocurre como una subsecuencia de LHS|No| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS es un prefijo de un término en LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS no es un prefijo de ningún término en LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS es un sufijo de un término en LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS no es un sufijo de ningún término en LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS ocurre como una subcadena de LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS no ocurre en LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS ocurre como una subsecuencia de LHS|Sí| `"FabriKam" contains "Kam"`
+`containscs` | RHS ocurre como una subcadena de LHS|Sí| `"FabriKam" contains "Kam"`
 `!containscs`| RHS no ocurre en LHS|Sí| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS es una subsecuencia inicial de LHS|No|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS no es una subsecuencia inicial de LHS.|No|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS es una subsecuencia terminal de LHS.|No|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS no es una subsecuencia terminal de LHS.|No|`"Fabrikam" !endswith "ka"`
+`startswith`|RHS es una subcadena inicial de LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS no es una subcadena inicial de LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS es una subcadena terminal de LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS no es una subcadena terminal de LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contiene una coincidencia para RHS|Sí| `"Fabrikam" matches regex "b.*k"`
 `in`|Igual a cualquiera de los elementos|Sí|`"abc" in ("123", "345", "abc")`
 `!in`|No es igual a ninguno de los elementos|Sí|`"bc" !in ("123", "345", "abc")`
@@ -2160,9 +2162,9 @@ Cuenta las apariciones de una subcadena en una cadena. Las coincidencias de cade
 
 **Argumentos**
 
-* *text*: una cadena.
-* *search*: la cadena sin formato o la expresión regular que coincide con *text*.
-* *kind*: `"normal"|"regex"` el valor predeterminado es `normal`.
+* *text*: Una cadena.
+* *search*: La cadena sin formato o la expresión regular que coincide con *text*.
+* *kind*: el valor predeterminado de `"normal"|"regex"` es `normal`.
 
 **Devoluciones**
 
@@ -2194,10 +2196,10 @@ Obtenga una coincidencia para una [expresión regular](#regular-expressions) a p
 
 **Argumentos**
 
-* *regex*: una [expresión regular](#regular-expressions).
-* *captureGroup*: una constante `int` positiva que indica el grupo de capturas que se va a extraer. 0 significa toda la coincidencia; 1, el valor que coincide con el primer elemento "("paréntesis")" de la expresión regular; 2 o más, los posteriores paréntesis.
-* *text*: un valor de `string` que se buscará.
-* *typeLiteral*: un literal de tipo opcional (por ejemplo, `typeof(long)`). Si se proporciona, la subcadena extraída se convierte a este tipo.
+* *regex*: Una [expresión regular](#regular-expressions).
+* *captureGroup*: Una constante `int` positiva que indica el grupo de capturas que se va a extraer. 0 significa toda la coincidencia; 1, el valor que coincide con el primer elemento "("paréntesis")" de la expresión regular; 2 o más, los posteriores paréntesis.
+* *text*: Un valor de `string` que se buscará.
+* *typeLiteral*: Un literal de tipo opcional (por ejemplo, `typeof(long)`). Si se proporciona, la subcadena extraída se convierte a este tipo.
 
 **Devoluciones**
 
@@ -2270,9 +2272,9 @@ Reemplace todas las coincidencias de expresiones regulares por otra cadena.
 
 **Argumentos**
 
-* *regex*: la [expresión regular](https://github.com/google/re2/wiki/Syntax) para buscar *text*. Puede contener grupos de captura entre "("paréntesis")".
-* *rewrite*: la expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de capturas, `\2` y así sucesivamente para los grupos de capturas posteriores.
-* *text*: una cadena.
+* *regex*: La [expresión regular](https://github.com/google/re2/wiki/Syntax) para buscar *text*. Puede contener grupos de captura entre "("paréntesis")".
+* *rewrite*: La expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de capturas, `\2` y así sucesivamente para los grupos de capturas posteriores.
+* *text*: Una cadena.
 
 **Devoluciones**
 
@@ -2313,9 +2315,9 @@ Divide una cadena determinada según un delimitador especificado y devuelve una 
 
 **Argumentos**
 
-* *source*: la cadena de origen que se va a dividir según el delimitador especificado.
-* *delimiter*: el delimitador que se usará para dividir la cadena de origen.
-* *requestedIndex*: un índice de base cero opcional `int`. Si se proporciona, la matriz de cadenas devuelta contendrá la subcadena solicitada, si existe.
+* *source*: La cadena de origen que se va a dividir según el delimitador especificado.
+* *delimiter*: El delimitador que se usará para dividir la cadena de origen.
+* *requestedIndex*: Un índice de base cero opcional `int`. Si se proporciona, la matriz de cadenas devuelta contendrá la subcadena solicitada, si existe.
 
 **Devoluciones**
 
@@ -2358,9 +2360,9 @@ Extraiga una subcadena de una cadena de origen determinada a partir de un índic
 
 **Argumentos**
 
-* *source*: la cadena de origen de la que se tomará la subcadena.
-* *startingIndex*: la posición del carácter inicial basado en cero de la subcadena solicitada.
-* *length*: un parámetro opcional que puede usarse para especificar el número de caracteres de la subcadena solicitado.
+* *source*: La cadena de origen de la que se tomará la subcadena.
+* *startingIndex*: La posición del carácter inicial basado en cero de la subcadena solicitada.
+* *length*: Un parámetro opcional que puede usarse para especificar el número de caracteres de la subcadena solicitado.
 
 **Devoluciones**
 
@@ -2402,7 +2404,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-insights-analytics-reference/310.png)
 
-**Indexing**: matrices y objetos de índice, igual que en JavaScript:
+**Indexing**: Matrices y objetos de índice, igual que en JavaScript:
 
     exceptions | take 1
     | extend 
@@ -2411,7 +2413,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 * Sin embargo, use `arraylength` y otras funciones de Analytics (no ".length").
 
-**Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
+**Casting**: En algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
 
     exceptions 
     | summarize count() 
@@ -2421,12 +2423,12 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Literals**: para crear un objeto explícito de matriz o contenedor de propiedades, escríbalo como una cadena JSON y conviértalo:
+**Literals**: Para crear un objeto explícito de matriz o contenedor de propiedades, escríbalo como una cadena JSON y conviértalo:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
 
-**mvexpand**: para separar las propiedades de un objeto en filas independientes, use mvexpand:
+**mvexpand**: Para separar las propiedades de un objeto en filas independientes, use mvexpand:
 
     exceptions | take 1 
     | mvexpand details[0].parsedStack[0]
@@ -2435,7 +2437,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 ![](./media/app-insights-analytics-reference/410.png)
 
 
-**treepath**: para buscar todas las rutas de acceso en un objeto complejo:
+**treepath**: Para buscar todas las rutas de acceso en un objeto complejo:
 
     exceptions | take 1 | project timestamp, details 
     | extend path = treepath(details) 
@@ -2444,7 +2446,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-insights-analytics-reference/420.png)
 
-**buildschema**: para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
+**buildschema**: Para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
 
     exceptions | summarize buildschema(details)
 
@@ -2479,10 +2481,10 @@ Observe que `indexer` se utiliza para marcar el punto en el que debe utilizar un
 
 Para crear un literal dinámico, use `parsejson` (alias `todynamic`) con un argumento de cadena de JSON:
 
-* `parsejson('[43, 21, 65]')`: una matriz de números.
+* `parsejson('[43, 21, 65]')`: Una matriz de números.
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
-* `parsejson('21')`: un valor único de tipo dinámico que contiene un número.
-* `parsejson('"21"')`: un valor único de tipo dinámico que contiene una cadena.
+* `parsejson('21')`: Un valor único de tipo dinámico que contiene un número.
+* `parsejson('"21"')`: Un valor único de tipo dinámico que contiene una cadena.
 
 Tenga en cuenta que, a diferencia de JavaScript, JSON exige el uso de comillas dobles (`"`) en torno a las cadenas. Por lo tanto, generalmente es más fácil citar literales de cadena codificados en JSON con comillas simples (`'`).
 
@@ -2534,7 +2536,7 @@ El número de elementos de una matriz dinámica.
 
 **Argumentos**
 
-* *array:* un valor de `dynamic`.
+* *array:* Un valor de `dynamic`.
 
 **Devoluciones**
 
@@ -2616,7 +2618,7 @@ Interpreta `string` como un [valor JSON](http://json.org/) y devuelve el valor c
 
 **Argumentos**
 
-* *json*: un documento JSON.
+* *json*: Un documento JSON.
 
 **Devoluciones**
 
@@ -2651,9 +2653,9 @@ La función `range()` (que no se debe confundir con el operador `range`) genera 
 
 **Argumentos**
 
-* *start*: el valor del primer elemento de la matriz resultante.
-* *stop*: el valor del último elemento de la matriz resultante, o el valor mínimo que sea mayor que el último elemento de la matriz resultante y dentro de un entero múltiplo de *step* desde *start*.
-* *step*: la diferencia entre dos elementos consecutivos de la matriz.
+* *start*: El valor del primer elemento de la matriz resultante.
+* *stop*: El valor del último elemento de la matriz resultante, o el valor mínimo que sea mayor que el último elemento de la matriz resultante y dentro de un entero múltiplo de *step* desde *start*.
+* *step*: La diferencia entre dos elementos consecutivos de la matriz.
 
 **Ejemplos**
 
@@ -2722,4 +2724,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

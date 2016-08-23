@@ -1,5 +1,12 @@
-<properties pageTitle="Recursos de variables en Automatización de Azure | Microsoft Azure" description="Los recursos de variables son valores que están disponibles para todos los runbooks y las configuraciones de DSC en Automatización de Azure. En este artículo, se explican los detalles de las variables y cómo trabajar con ellas en la creación gráfica y textual." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
-<tags  
+<properties 
+   pageTitle="Recursos de variables en Automatización de Azure | Microsoft Azure"
+   description="Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Automatización de Azure. En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
+   services="automation"
+   documentationCenter=""
+   authors="mgoedtel"
+   manager="jwhit"
+   editor="tysonn" />
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
@@ -34,7 +41,7 @@ Puede almacenar varios valores en una única variable mediante la creación de u
 
 Los cmdlets de la tabla siguiente se usan para crear y administrar variables de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en los runbooks de Automatización y las configuraciones de DSC.
 
-|Cmdlets|Descripción|
+|Cmdlets|Description|
 |:---|:---|
 |[Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx)|Recupera el valor de una variable existente.|
 |[New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)|Crea una nueva variable y establece su valor.|
@@ -43,7 +50,7 @@ Los cmdlets de la tabla siguiente se usan para crear y administrar variables de 
 
 Las actividades de flujo de trabajo en la tabla siguiente se usan para acceder a las variables de Automatización en un runbook. Solo están disponibles para su uso en un runbook o una configuración de DSC y no se incluyen como parte del módulo Azure PowerShell.
 
-|Actividades de flujo de trabajo|Descripción|
+|Actividades de flujo de trabajo|Description|
 |:---|:---|
 |Get-AutomationVariable|Recupera el valor de una variable existente.|
 |Set-AutomationVariable|Establece el valor de una variable existente.|
@@ -178,7 +185,7 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 
 ## Pasos siguientes
 
-- Para más información sobre cómo conectar actividades en la creación gráfica, consulte [Vínculos y flujo de trabajo en Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md#links-and-workflow)
-- Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md) 
+- Para obtener más información sobre cómo conectar actividades en la creación gráfica, consulte [Vínculos y flujo de trabajo en Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md#links-and-workflow)
+- Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

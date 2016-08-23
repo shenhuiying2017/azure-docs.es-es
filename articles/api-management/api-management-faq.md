@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Administración de API de Azure
@@ -150,4 +150,4 @@ Sí. Siga estos pasos:
 
 Si está utilizando el Administrador de credenciales de GIT o intenta clonar el repositorio mediante Visual Studio, puede que se tope con un problema conocido con el cuadro de diálogo de credenciales de Windows que limita la longitud de la contraseña a solo 127 caracteres y, por tanto, trunca la contraseña que nosotros generamos. Estamos trabajando para acortar la contraseña. Por ahora, use GIT Bash para la clonación.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -163,4 +163,4 @@ Si ha configurado la granja de servidores de AD FS o la relación de confianza d
 
 Para más información, consulte la sección [Reparación de la confianza](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

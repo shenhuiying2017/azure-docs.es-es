@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Uso de una aplicación móvil como método de contacto con Azure Multi-Factor Authentication
@@ -31,7 +31,7 @@ La aplicación Azure Authenticator está disponible para [Windows Phone](http://
 ![Configuración](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Seleccione Notificación o Contraseña de un solo uso y haga clic en Configurar.
-- En el teléfono que tenga instalada la aplicación Azure Authenticator, inicie la aplicación y haga clic en Digitalizar código de barras. Para agregar una cuenta que ya tenga MFA de Azure o una cuenta de terceros, vea <a href="#Agregar">Agregar una cuenta manualmente</a>.
+- En el teléfono que tenga instalada la aplicación Azure Authenticator, inicie la aplicación y haga clic en Digitalizar código de barras. Para agregar una cuenta que ya tenga MFA de Azure o una cuenta de terceros, vea [Agregar una cuenta manualmente](#adding-an-account-manually).
 
 ![Configuración](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -73,4 +73,4 @@ Si está usando una cuenta de terceros con la aplicación móvil, escriba el nom
 >[AZURE.NOTE]Si ve "Agregar cuenta profesional", esto es para Unión al área de trabajo y no para la autenticación multifactor. Puede pasar esto por alto.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

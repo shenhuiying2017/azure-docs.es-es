@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
-El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza dicha aplicación a una nueva versión, y todo ello desde Windows PowerShell.
+El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza la aplicación a una nueva versión, y todo ello desde Windows PowerShell.
 
 > [AZURE.NOTE] En este artículo se asume que ya [configuró un entorno de desarrollo](service-fabric-get-started.md).
 
@@ -39,7 +39,7 @@ El SDK proporciona dos maneras de configurar un clúster local: un script de Win
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-    La instalación del clúster tardará unos minutos. Una vez finalizada la instalación, debería ver la salida de aspecto similar al siguiente:
+    La instalación del clúster tardará unos instantes. Una vez finalizada la instalación, debería ver una salida similar a esta:
 
     ![Salida de instalación de clúster][cluster-setup-success]
 
@@ -59,14 +59,14 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
-3. Cree un directorio para almacenar la aplicación que va a descargar e implementar, como por ejemplo C:\\ServiceFabric.
+3. Cree un directorio para almacenar la aplicación que va a descargar e implementar, por ejemplo, C:\\ServiceFabric.
 
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
 
-4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó. Nota: El explorador Microsoft Edge guardará el archivo con una extensión *.zip*. Deberá cambiar la extensión del archivo a *.sfpkg*.
+4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó. Nota: el explorador Microsoft Edge guarda el archivo con extensión *.zip*. Debe cambiar la extensión del archivo a *.sfpkg*.
 
 5. Conecte con el clúster local:
 
@@ -74,7 +74,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Invoque el comando de implementación del SDK para crear una aplicación nueva, y especifique un nombre y una ruta de acceso al paquete de aplicación.
+6. Cree una nueva aplicación mediante el comando de implementación del SDK, con un nombre y una ruta de acceso al paquete de aplicación.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,7 +84,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
 
     ![Implementación de una aplicación en el clúster local][deploy-app-to-local-cluster]
 
-7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/índex.html](http://localhost:8081/wordcount/index.html). Puede ver algo así:
+7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/índex.html](http://localhost:8081/wordcount/index.html). Debería ver lo siguiente:
 
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
 
@@ -113,7 +113,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 
     ![Enumeración de servicios de la aplicación en PowerShell][ps-getsfsvc]
 
-    Tenga en cuenta que la aplicación consta de dos servicios: el front-end web y el servicio con estado que administra las palabras.
+    La aplicación consta de dos servicios: el front-end web y el servicio con estado que administra las palabras.
 
 3. Por último, eche un vistazo a la lista de particiones de WordCountService:
 
@@ -123,7 +123,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 
     ![Ver las particiones de servicio en PowerShell][ps-getsfpartitions]
 
-    El conjunto de comandos que acaba de usar, al igual que todos los comandos de PowerShell de Service Fabric, está disponibles para cualquier clúster al que se pueda conectar, tanto local como remoto.
+    El conjunto de comandos que ha usado, al igual que todos los comandos de PowerShell de Service Fabric, están disponibles para cualquier clúster al que se pueda conectar, tanto local como remoto.
 
     Si desea interactuar con el clúster de una forma más visual, puede usar la herramienta Explorador de Service Fabric basada en web, para lo que debe navegar a [http://localhost:19080/Explorer](http://localhost:19080/Explorer) en el explorador.
 
@@ -134,7 +134,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 ## Actualizar una aplicación
 Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Vamos realizar una actualización simple de la aplicación WordCount.
 
-La nueva versión de la aplicación ahora contará solo las palabras que comiencen por una vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
+La nueva versión de la aplicación ahora contará solo las palabras que comiencen por vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
 
 1. [Descargue el paquete de WordCount v2](http://aka.ms/servicefabric-wordcountappv2) a la misma ubicación en que descargó el paquete de v1.
 
@@ -144,7 +144,7 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
-    Debería ver el resultado de PowerShell, cuyo aspecto similar al siguiente, al comenzar la actualización.
+    Al comenzar la actualización, debería ver la salida en PowerShell, cuyo aspecto es similar al siguiente.
 
     ![Progreso de la actualización en PowerShell][ps-appupgradeprogress]
 
@@ -154,7 +154,7 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 
     Mientras se realiza la actualización en cada dominio, se realizan comprobaciones de mantenimiento para asegurarse de que la aplicación se comporta correctamente.
 
-4. Si vuelve a ejecutar la consulta anterior en el conjunto de servicios incluidos en la aplicación fabric:/WordCount, observará que aunque la versión de WordCountService cambió, la versión de WordCountWebService no lo hizo:
+4. Si vuelve a ejecutar la consulta anterior en el conjunto de servicios de la aplicación fabric:/WordCount, observará que cambió la versión de WordCountService, pero no la de WordCountWebService:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -170,19 +170,19 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 
 ## Limpiar
 
-Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten. Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
+Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten. Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar aplicaciones y el clúster:
 
-1. Para quitar una aplicación individual y todos sus datos, ejecute lo siguiente:
+1. Para quitar una aplicación particular y todos sus datos, ejecute lo siguiente:
 
     ```powershell
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
 
-    También puede usar la acción **Eliminar aplicación** de Service Fabric Explorer con el menú **ACCIONES** o el menú contextual en la vista de lista de aplicaciones del panel izquierdo.
+    También puede eliminar la aplicación del menú **ACCIONES** de Service Fabric Explorer o del menú contextual en la vista de lista de aplicaciones del panel izquierdo.
 
     ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
 
-2. Después de eliminar la aplicación del clúster, puede anular el registro de las versiones 1.0.0 y 2.0.0 del tipo de aplicación WordCount. De este modo, los paquetes de la aplicación, incluido el código y la configuración, se quitarán del almacén de imágenes del clúster.
+2. Después de eliminar la aplicación del clúster, puede anular el registro de las versiones 1.0.0 y 2.0.0 del tipo de aplicación WordCount. La eliminación quita del almacén de imágenes del clúster los paquetes de la aplicación, incluido el código y la configuración.
 
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -193,12 +193,12 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 
 3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 
-4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
+4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Quite el clúster local solo si no tiene intención utilizarlo durante algún tiempo o si necesita reclamar recursos.
 
 ## Pasos siguientes
 - Tras la implementación y actualización de algunas aplicaciones pregeneradas, puede [intentar compilar la suya propia en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Todas las acciones realizadas en el clúster local en este artículo se pueden realizar también en un [clúster de Azure](service-fabric-cluster-creation-via-portal.md).
-- La actualización realizada en este artículo era muy básica. Consulte la [documentación de actualización](service-fabric-application-upgrade.md) para más información acerca de la eficacia y flexibilidad de las actualizaciones de Service Fabric.
+- La actualización realizada en este artículo era básica. Consulte la [documentación de actualización](service-fabric-application-upgrade.md) para más información acerca de la eficacia y flexibilidad de las actualizaciones de Service Fabric.
 
 <!-- Images -->
 
@@ -218,4 +218,4 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

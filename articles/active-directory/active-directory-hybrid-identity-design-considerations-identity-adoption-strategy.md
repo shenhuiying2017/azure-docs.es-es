@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -37,7 +37,7 @@ Los escenarios definidos en la ilustración anterior son:
 
 - **Identidades en la nube**: identidades que existen únicamente en la nube. En el caso de Azure AD, residirían específicamente en su directorio de Azure AD.
 - **Sincronizada**: identidades que existen localmente y en la nube. Con Azure AD Connect, los usuarios se crean o se conectan con las cuentas de Azure AD existentes. El hash de la contraseña del usuario se sincroniza desde el entorno local a la nube en lo que se denomina un hash de contraseña. Cuando se usa sincronizado, lo único que debe tenerse en cuenta es que si hay algún usuario deshabilitado en el entorno local, pueden pasar hasta tres horas hasta que el estado de dicha cuenta se muestre en Azure AD. Esto se debe al intervalo de tiempo de la sincronización.
-- **Federada**: estas identidades existen tanto localmente como en la nube. Con Azure AD Connect, los usuarios se crean o se conectan con las cuentas de Azure AD existentes.  
+- **Federada**: estas identidades existen tanto localmente como en la nube. Con Azure AD Connect, los usuarios se crean o se conectan con las cuentas de Azure AD existentes.
  
 >[AZURE.NOTE]
 Para obtener más información sobre las opciones de sincronización, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
@@ -145,7 +145,7 @@ Para realizar esta operación, es preciso que se den los siguientes factores:
 - Un dominio DNS solo se puede registrar en un único directorio de Azure AD, con el fin de que los UPN de los usuarios del entorno local de AD deban usar también espacios de nombres independientes.
 - Los usuarios de una instancia de Azure AD solo podrán ver los usuarios de su instancia. No podrán ver los usuarios de las restantes instancias
 - Solo uno de los directorios de Azure AD puede habilitar la implementación híbrida de Exchange con el entorno local de Active Directory.
-- La exclusividad mutua también se aplica a la reescritura. Esto hace que algunas de las características de la reescritura no sean compatibles con esta topología, ya que estas asumen una única configuración local. Esto incluye:
+- La exclusividad mutua también se aplica a la reescritura. Esto hace que algunas de las características de la reescritura no sean compatibles con esta topología, ya que estas asumen una única configuración local. En ella se incluye:
  - Reescritura de grupos con la configuración predeterminada
  - Reescritura de dispositivos
 
@@ -153,8 +153,8 @@ Para realizar esta operación, es preciso que se den los siguientes factores:
 Tenga en cuenta que los siguientes elementos no se admiten y no deben elegirse como implementación:
 
 - No se admite tener varios servidores de sincronización de Azure AD Connect conectados al mismo directorio de Azure AD, aunque estén configurados para sincronizar conjuntos de objetos mutuamente excluyentes.
-- No se admite la sincronización del mismo usuario con varios directorios de Azure AD. 
-- Tampoco se admite realizar un cambio de configuración para que los usuarios de un directorio de Azure AD aparezcan como contactos en otro directorio de Azure AD. 
+- No se admite la sincronización del mismo usuario con varios directorios de Azure AD.
+- Tampoco se admite realizar un cambio de configuración para que los usuarios de un directorio de Azure AD aparezcan como contactos en otro directorio de Azure AD.
 - Asimismo, no se admite la modificación de Azure AD Connect Sync para conectarse a varios directorios de Azure AD.
 - Los directorios de Azure AD están aislados por diseño. No se admite el cambio de la configuración de Azure AD Connect Sync para leer datos de otro directorio de Azure AD en un intento por crear una GAL común y unificada entre los directorios. Tampoco se admite la exportación de usuarios como contactos a otro directorio AD local mediante Azure AD Connect Sync.
 
@@ -197,7 +197,7 @@ También debe asegurarse de que la opción de diseño de Multi-Factor Authentica
 ##Pasos siguientes
 [Determinación de los requisitos de protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## Consulte también
+## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

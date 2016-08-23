@@ -3,8 +3,8 @@
 	description="Cree una copia de seguridad de los servidores o clientes de Windows en Azure mediante la creación de un almacén de copia de seguridad, la descarga de credenciales, la instalación del agente de copia de seguridad y la realización de una copia de seguridad inicial de sus archivos y carpetas."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;"/>
 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Copia de seguridad desde Windows Server o un cliente de Windows en Azure con Copia de seguridad de Azure mediante el modelo de implementación de Resource Manager
+# Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](backup-configure-vault.md)
@@ -25,9 +25,10 @@
 
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+
 ![Pasos del proceso de copia de seguridad](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 ## Antes de comenzar
 Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
@@ -50,7 +51,7 @@ Un almacén de Servicios de recuperación es una entidad que almacena todas las 
 
     ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-configure-vault/rs-vault-menu.png)
 
-    Se abre la hoja del almacén de Servicios de recuperación, que le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
+    Se abre la hoja del almacén de Servicios de recuperación, donde se le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
     ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
@@ -58,7 +59,7 @@ Un almacén de Servicios de recuperación es una entidad que almacena todas las 
 
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o en **Nuevo** para crear uno. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md)
+6. Haga clic en **Grupo de recursos** para ver la lista de grupos de recursos disponibles o haga clic en **Nuevo** para crear uno. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad. Si elige una región geográfica cercana a su ubicación, puede reducir la latencia de red al crear una copia de seguridad en Azure.
 
@@ -158,7 +159,7 @@ Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad
 
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
 
-6. Haga clic en **Siguiente**.
+6. Haga clic en **Next**.
 
 7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copias de seguridad** y haga clic en **Siguiente**.
 
@@ -225,4 +226,4 @@ Para más información sobre la copia de seguridad de máquinas virtuales u otra
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!----HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0810_2016-->

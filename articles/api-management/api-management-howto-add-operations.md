@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
@@ -57,7 +57,7 @@ Los usuarios que llamen a la operación usarán el formato `/customers?customeri
 
 **Nombre para mostrar** y **Descripción** ofrecen una descripción de la operación y se usan para proporcionar documentación a los desarrolladores que usen esta API en el portal para desarrolladores.
 
-![Descripción][api-management-description]
+![Description][api-management-description]
 
 La descripción de la operación se puede especificar como texto sin formato o HTML en el cuadro de texto **Descripción**.
 
@@ -86,9 +86,9 @@ Para agregar un nuevo parámetro de consulta, haga clic en **Agregar parámetro 
 -	**Descripción**: breve descripción del parámetro (opcional).
 -	**Tipo**: tipo de parámetro, seleccionado en la lista desplegable.
 -	**Valores**: valores que se pueden asignar a este parámetro. Uno de los valores se puede marcar como predeterminado (opcional).
--	**Obligatorio**: convierte el parámetro en obligatorio al activar la casilla. 
+-	**Obligatorio**: convierte el parámetro en obligatorio al activar la casilla.
 
-![Request parameters][api-management-request-parameters]
+![Parámetros de la solicitud][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Cuerpo de la solicitud
 
@@ -168,4 +168,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

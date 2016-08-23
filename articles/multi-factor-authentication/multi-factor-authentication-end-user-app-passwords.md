@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -42,7 +42,7 @@ Una vez que tenga una contraseña de aplicación, utilícela en lugar de la cont
 ## Creación y eliminación de contraseñas de aplicación
 Durante el inicio de sesión primero, se proporciona una contraseña de aplicación que puede utilizar. Además, también puede crear y eliminar contraseñas de aplicación más adelante. La forma de hacerlo depende de cómo use la autenticación multifactor. Elija la opción que le sea más aplicable.
 
-Cómo usa la autenticación multifactor|Descripción
+Cómo usa la autenticación multifactor|Description
 :------------- | :------------- | 
 <a href="#Office">Creación y eliminación de contraseñas de aplicación con Office 365</a> | Esto significa que tendrá que crear las contraseñas de aplicación a través del portal de Office 365.
 <a href="#Creación">No lo sé</a>|Esto significa que tendrá que crear las contraseñas de aplicación a través de [https://myapps.microsoft.com](https://myapps.microsoft.com)
@@ -53,6 +53,8 @@ Cómo usa la autenticación multifactor|Descripción
 Si usa la autenticación multifactor con Office 365, le interesará crear y eliminar contraseñas de aplicación a través del portal de Office 365.
 
 <h2 id="Office">Creación y eliminación de contraseñas de aplicación con Office 365</h2> 
+
+
 --------------------------------------------------------------------------------
 
 1. Inicie sesión en el [Portal de Office 365](https://login.microsoftonline.com/).
@@ -129,4 +131,4 @@ Si utiliza la autenticación multifactor con Azure, le interesará crear contras
 5. Para confirmar la eliminación, haga clic en **Sí**.
 6. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**. ![Cerrar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

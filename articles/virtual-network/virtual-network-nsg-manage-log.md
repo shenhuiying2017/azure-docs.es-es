@@ -3,7 +3,7 @@
    description="Aprenda a habilitar contadores, eventos y registros operativos para grupos de seguridad de red"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Análisis del registro para grupos de seguridad de red (NSG)
 
@@ -118,4 +118,4 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="En esta página se proporciona información general sobre el enrutamiento de contenido basado en URL de la puerta de enlace de aplicaciones, la configuración de UrlPathMap y la regla PathBasedRouting."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="04/05/2016"
+   ms.author="gwallace"/>
 
 # Información general del enrutamiento basado en URL
 
@@ -86,4 +86,4 @@ RequestRoutingRule de tipo PathBasedRouting se usa para enlazar un agente de esc
 
 Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](application-gateway-create-url-route-arm-ps.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creación de conjuntos de registros y registros de DNS con CLI
@@ -38,7 +38,7 @@ Para crear un conjunto de registros en el vértice de la zona (en este caso, "co
 
 Para crear un conjunto de registros, use `azure network dns record-set create`. Especifique el grupo de recursos, el nombre de zona, el nombre relativo del conjunto de registros, el tipo de registro y el período de vida. Si no se define el parámetro `--ttl`, el valor predeterminado es 4 (en segundos). Después de completar este paso, tendrá un conjunto de registros "www" vacío.
 
-*Uso: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Uso: network dns record-set create <grupo de recursos><nombre de zona dns><nombre><tipo> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
@@ -50,7 +50,7 @@ Los parámetros para agregar registros a un conjunto de registros varían según
 
 Puede agregar registros *A* de IPv4 al conjunto de registros "www" con el comando siguiente:
 
-*Uso: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Uso: network dns record-set add-record <grupo de recursos><nombre de zona dns><nombre del conjunto de registrso><tipo>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
@@ -62,8 +62,8 @@ Los ejemplos siguientes muestran cómo crear un conjunto de registros de cada ti
 
 ## Pasos siguientes
 
-Para administrar los registros y los conjuntos de registros, consulte [Administración de registros y conjuntos de registros DNS mediante el Portal de Azure](dns-operations-recordsets-portal.md).
+Para administrar los registros y los conjuntos de registros, consulte [Administración de registros y conjuntos de registros DNS mediante la CLI](dns-operations-recordsets-portal.md).
 
 Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

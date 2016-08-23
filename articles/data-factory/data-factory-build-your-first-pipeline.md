@@ -66,7 +66,7 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1.	**Suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
 
-2.	**Almacenamiento de Azure**: usará una cuenta de Almacenamiento de Azure para almacenar los datos de este tutorial. Si no dispone de una cuenta de Almacenamiento de Azure, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+2.	**Almacenamiento de Azure**: usará una cuenta de Almacenamiento de Azure para almacenar los datos de este tutorial. Si no dispone de una cuenta de Almacenamiento de Azure, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## Carga de archivos en Almacenamiento de Azure para el tutorial
 Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure con los archivos necesarios para el tutorial.
@@ -195,7 +195,7 @@ Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
 	1. Descargue la [versión más reciente de **AzCopy**](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
-	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema.
+	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
@@ -227,4 +227,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

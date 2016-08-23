@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
+	ms.date="08/16/2016"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Python
@@ -25,7 +25,7 @@
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
-En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando Python.
+En este tema se explica cómo comenzar a usar Caché en Redis de Azure mediante Python.
 
 
 ## Requisitos previos
@@ -68,4 +68,4 @@ Reemplace `<name>` por el nombre de la memoria caché y `key` por la clave de ac
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

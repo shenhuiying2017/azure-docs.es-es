@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introducción al Explorador de almacenamiento (versión preliminar) | Microsoft Azure"
 	description="Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/30/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Introducción al Explorador de almacenamiento (versión preliminar)
 
 ## Información general 
 
-La versión preliminar del Explorador de almacenamiento de Microsoft Azure es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OSX y Linux. En este artículo aprenderá las diferentes maneras de conectarse a sus cuentas de Almacenamiento de Azure y de administrarlas.
+La versión preliminar del Explorador de almacenamiento de Microsoft Azure es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OS X y Linux. En este artículo aprenderá las diferentes maneras de conectarse a sus cuentas de Almacenamiento de Azure y de administrarlas.
 
 ![Explorador de almacenamiento de Microsoft Azure (versión preliminar)][15]
 
@@ -30,13 +30,13 @@ La versión preliminar del Explorador de almacenamiento de Microsoft Azure es un
 
 ## Conexión a una cuenta de almacenamiento o servicio
 
-El Explorador de almacenamiento (versión preliminar) proporciona innumerables formas de conectar con las cuentas de almacenamiento. Esto incluye la conexión a cuentas de almacenamiento asociadas a las suscripciones de Azure, la conexión a cuentas de almacenamiento y servicios compartidas desde otras suscripciones de Azure, e incluso la conexión y administración del almacenamiento local mediante el Emulador de almacenamiento de Azure:
+El Explorador de almacenamiento (versión preliminar) proporciona innumerables formas de conectar con las cuentas de almacenamiento. Esto incluye la conexión a cuentas de almacenamiento asociadas a las suscripciones de Azure, la conexión a cuentas de almacenamiento y servicios compartidos desde otras suscripciones de Azure e incluso la conexión al almacenamiento local y su administración mediante el Emulador de almacenamiento de Azure:
 
-- [Conexión a una suscripción de Azure](#connect-to-an-azure-subscription): administre recursos de almacenamiento que pertenecen a su suscripción de Azure.
+- [Conexión a una suscripción de Azure](#connect-to-an-azure-subscription): administre recursos de almacenamiento que pertenezcan a su suscripción de Azure.
 - [Trabajo con el almacenamiento de desarrollo local](#work-with-local-development-storage): administre el almacenamiento local mediante el Emulador de almacenamiento de Azure.
 - [Conexión a almacenamiento externo](#attach-or-detach-an-external-storage-account): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure utilizando el nombre de cuenta y la clave de la cuenta de almacenamiento.
-- [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas): administre los recursos de almacenamiento que pertenecen a otra suscripción de Azure mediante una SAS.
-- [Conexión de servicio mediante SAS](#attach-service-using-sas): administre un servicio de almacenamiento específico (contenedor de blobs, cola o tabla) que pertenezca a otra suscripción de Azure usando una SAS.
+- [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure mediante una SAS.
+- [Conexión de servicio mediante SAS](#attach-service-using-sas): administre un servicio de almacenamiento específico (contenedor de blobs, cola o tabla) que pertenezca a otra suscripción de Azure mediante una SAS.
 
 ## Conexión a una suscripción de Azure
 
@@ -50,7 +50,7 @@ El Explorador de almacenamiento (versión preliminar) proporciona innumerables f
 
 	![Agregar una cuenta][1]
 
-1. Una vez que haya iniciado sesión correctamente con una cuenta de Microsoft, el panel izquierdo se llenará con las suscripciones de Azure asociadas a esa cuenta. Elija las suscripciones de Azure con las que desea trabajar y seleccione **Aplicar**. (Al seleccionar **Todas las suscripciones** se alterna entre la selección de todas o ninguna de las suscripciones de Azure que aparecen enumeradas).
+1. Una vez que haya iniciado sesión correctamente con una cuenta de Microsoft, el panel izquierdo se llenará con las suscripciones de Azure asociadas a esa cuenta. Elija las suscripciones de Azure con las que desea trabajar y seleccione **Aplicar**. (Al seleccionar **Todas las suscripciones**, se alterna entre todas o ninguna de las suscripciones de Azure que aparecen).
 
 	![Selección de suscripciones de Azure][3]
 
@@ -132,7 +132,7 @@ Para la asociación a una cuenta de almacenamiento externo, necesitará el nombr
 
 Una [SAS (firma de acceso compartido)](storage/storage-dotnet-shared-access-signature-part-1.md) proporciona al administrador de una suscripción de Azure la posibilidad de conceder acceso a una cuenta de almacenamiento de forma temporal, sin tener que proporcionar sus credenciales de suscripción de Azure.
 
-Para ilustrar este punto, supongamos que el Usuario A es el administrador de una suscripción de Azure que desea permitir al Usuario B el acceso a una cuenta de almacenamiento durante un tiempo limitado con determinados permisos:
+Para ilustrar este punto, supongamos que el Usuario A es administrador de una suscripción de Azure que desea permitir al Usuario B el acceso a una cuenta de almacenamiento durante un tiempo limitado con determinados permisos:
 
 1. El Usuario A genera una SAS (que consiste en una cadena de conexión para la cuenta de almacenamiento) durante un período de tiempo específico y con los permisos deseados.
 1. El Usuario A comparte la SAS con la persona que desea tener acceso a la cuenta de almacenamiento (en nuestro ejemplo el Usuario B).
@@ -168,7 +168,7 @@ Para ilustrar este punto, supongamos que el Usuario A es el administrador de una
 
 ## Conexión de servicio mediante SAS
 
-La sección [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas) muestra cómo un administrador de suscripciones de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación (y uso compartido) de una SAS para la cuenta de almacenamiento. De forma similar, se puede generar una SAS para un servicio específico (contenedor de blobs, cola o tabla) dentro de una cuenta de almacenamiento.
+La sección [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas) muestra cómo un administrador de suscripciones de Azure puede conceder acceso temporal a una cuenta de almacenamiento al generar (y compartir) una SAS para la cuenta de almacenamiento. De forma similar, se puede generar una SAS para un servicio específico (contenedor de blobs, cola o tabla) dentro de una cuenta de almacenamiento.
 
 ### Generación de una SAS para el servicio que se desea compartir
 
@@ -229,4 +229,4 @@ Para borrar la búsqueda, seleccione el botón **x** en el cuadro de búsqueda.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

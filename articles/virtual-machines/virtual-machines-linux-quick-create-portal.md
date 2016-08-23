@@ -21,7 +21,9 @@
 
 # Creación de una máquina virtual de Linux en Azure mediante el Portal
 
-En este artículo se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com/) para crear una máquina virtual de Linux rápidamente. Los únicos requisitos son [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) y [archivos de clave pública y privada SSH](virtual-machines-linux-mac-create-ssh-keys.md).
+> [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
+
+En este artículo se muestra cómo usar el [Portal de Azure](https://portal.azure.com/) para crear una máquina virtual Linux rápidamente. Los únicos requisitos son [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) y [archivos de clave pública y privada SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
 > [AZURE.NOTE] Si decide usar una contraseña para proteger el acceso a la máquina virtual, debe tener más de 12 caracteres y al menos una mayúscula, una minúscula, un carácter especial y un número.
 
@@ -30,7 +32,7 @@ En este artículo se muestra cómo utilizar el [Portal de Azure](https://portal.
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Haga clic en **Máquinas virtuales** en **Marketplace** y luego en **Ubuntu Server 14.04 LTS** en la lista de imágenes **Aplicaciones destacadas**. En la parte inferior, compruebe que el modelo de implementación es `Resource Manager` y haga clic en **Crear**.
+2. Haga clic en **Máquinas virtuales** en **Marketplace** y luego en **Ubuntu Server 14.04 LTS** en la lista de imágenes **Aplicaciones destacadas**. En la parte inferior, compruebe que el modelo de implementación sea `Resource Manager` y haga clic en **Crear**.
 
     ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
@@ -38,22 +40,22 @@ En este artículo se muestra cómo utilizar el [Portal de Azure](https://portal.
     - un nombre para la máquina virtual;
     - un nombre de usuario para el usuario administrador;
     - el tipo de autenticación, que debe ser **Clave pública SSH**;
-    - la clave pública SSH como una cadena (de forma predeterminada, desde el directorio `~/.ssh/`);
+    - la clave pública SSH como cadena (de forma predeterminada, desde el directorio `~/.ssh/`);
     - un nombre de grupo de recursos (para crear un nuevo grupo de implementación) o seleccione un grupo existente;
 
     y haga clic en **Aceptar** para continuar y elegir el tamaño de la máquina virtual; debe ser similar a lo siguiente:
 
     ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-4. Elija el tamaño **DS1**, que instala Ubuntu en un SSD Premium y haga clic en **Seleccionar** para configurar los valores.
+4. Elija el tamaño **DS1**, que instala Ubuntu en una SSD Premium y haga clic en **Seleccionar** para configurar los valores.
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. En **Configuración**, deje los valores predeterminados de Almacenamiento y Red y haga clic en **Aceptar** para ver el resumen. Observe que el tipo de disco se ha establecido en Premium (SSD) al elegir DS1; la **S** indica SSD.
+5. En **Configuración**, deje los valores predeterminados de Almacenamiento y Red, y haga clic en **Aceptar** para ver el resumen. Observe que el tipo de disco se ha establecido en Premium (SSD) al elegir DS1; la **S** indica SSD.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-6. Confirme la configuración de la nueva máquina virtual de Ubuntu y haga clic en **Aceptar**.
+6. Confirme la configuración de la nueva máquina virtual con Ubuntu y haga clic en **Aceptar**.
 
     ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
@@ -81,4 +83,4 @@ Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fine
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

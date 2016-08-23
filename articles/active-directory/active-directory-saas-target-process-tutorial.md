@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar TargetProcess con Azure A
 
 Integrar TargetProcess con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a TargetProcess. 
+- Puede controlar en Azure AD quién tiene acceso a TargetProcess.
 - Puede permitir que los usuarios inicien sesión automáticamente en TargetProcess (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory clásico.
 
@@ -43,7 +43,7 @@ Para configurar la integración de Azure AD con TargetProcess, necesita los sigu
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
@@ -51,7 +51,7 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de TargetProcess desde la galería 
+1. Incorporación de TargetProcess desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de TargetProcess en Azure AD, deberá agregar Ta
 
 **Para agregar TargetProcess desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -103,7 +103,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con TargetProce
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación TargetProcess. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación TargetProcess. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 Para configurar el inicio de sesión único para TargetProcess, se necesita un dominio registrado. Si no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico de TargetProcess a través de [support@flatterfiles.com](mailto:support@flatterfiles.com).
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único para TargetProcess, se necesita un d
 	![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación TargetProcess (p. ej.: **https://fabrikam.TargetProcess.com/*)).
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación TargetProcess (p. ej.: *https://fabrikam.TargetProcess.com/*).
 
     b. Haga clic en **Siguiente**.
  
@@ -302,4 +302,4 @@ Al hacer clic en el icono de TargetProcess en el panel de acceso, debería inici
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

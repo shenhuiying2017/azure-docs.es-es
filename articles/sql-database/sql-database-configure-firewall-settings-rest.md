@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/15/2016"
+	ms.date="08/09/2016"
 	ms.author="sstein"/>
 
 
@@ -35,33 +35,34 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 
 
 ## Administración de reglas de firewall de nivel de servidor a través de la API de REST
-1. La administración de reglas de firewall a través de la API de REST debe autenticarse. Para obtener información, vea Autenticar solicitudes de administración del servicio.
+1. La administración de reglas de firewall a través de la API de REST debe autenticarse. Para obtener más información, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](../resource-manager-api-authentication.md).
 2. Las reglas de nivel de servidor se pueden crear, actualizar o eliminar mediante la API de REST
 
-	Para crear o actualizar una regla de firewall de nivel de servidor, ejecute el método POST mediante lo siguiente:
+	Para crear o actualizar una regla de firewall de nivel de servidor, ejecute el método PUT mediante lo siguiente:
  
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 	
 	Cuerpo de la solicitud
 
-		<ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
-		  <Name>ContosoFirewallRule</Name>
-		  <StartIPAddress>192.168.1.4</StartIPAddress>
-		  <EndIPAddress>192.168.1.10</EndIPAddress>
-		</ServiceResource>
+		{
+         "properties": { 
+            "startIpAddress": "{start-ip-address}", 
+            "endIpAddress": "{end-ip-address}
+            }
+        } 
  
 
 	Para quitar una regla de firewall de nivel de servidor existente, ejecute el método DELETE mediante lo siguiente:
 	 
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## Administración de reglas de firewall mediante la API de REST de administración del servicio
+## Administración de reglas de firewall mediante la API de REST
 
-* [Crear regla de firewall](https://msdn.microsoft.com/library/azure/dn505712.aspx)
-* [Eliminar regla de firewall](https://msdn.microsoft.com/library/azure/dn505706.aspx)
-* [Obtener regla de firewall.](https://msdn.microsoft.com/library/azure/dn505698.aspx)
-* [Enumerar reglas de firewall](https://msdn.microsoft.com/library/azure/dn505715.aspx)
+* [Crear o actualizar regla de firewall](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [Eliminar regla de firewall](https://msdn.microsoft.com/library/azure/mt445502.aspx)
+* [Obtener regla de firewall.](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [Enumerar todas las reglas de firewall](https://msdn.microsoft.com/library/azure/mt604478.aspx)
  
 ## Pasos siguientes
 
@@ -72,7 +73,7 @@ Si desea consultar artículos sobre cómo crear reglas de firewall de nivel de s
 - [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
 - [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell](sql-database-configure-firewall-settings-powershell.md)
 
-Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber cómo acceder a las bases de datos, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
 
 ## Recursos adicionales
@@ -87,4 +88,4 @@ Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

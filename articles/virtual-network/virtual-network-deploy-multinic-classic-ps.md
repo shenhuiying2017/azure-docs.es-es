@@ -3,7 +3,7 @@
    description="Aprenda a implementar máquinas virtuales con varias NIC mediante PowerShell en el modelo de implementación clásico"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Implementar máquinas virtuales con varias NIC (clásica) mediante PowerShell
 
@@ -171,4 +171,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

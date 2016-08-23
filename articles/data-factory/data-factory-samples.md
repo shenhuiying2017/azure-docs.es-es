@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: ejemplos
@@ -21,7 +21,7 @@
 ## Ejemplos en GitHub
 El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\\JSON contiene fragmentos de JSON para escenarios comunes.
 
-| Muestra | Descripción |
+| Muestra | Description |
 | :----- | :---------- | 
 | [Tutorial de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | Este ejemplo ofrece un tutorial exhaustivo para el procesamiento de archivos de registro mediante Data Factory de Azure a fin de convertir los datos de los archivos de registro en información útil. <br/><br/>En este tutorial, la canalización de Data Factory recopila registros de muestra, procesa y enriquece los datos de los registros con datos de referencia, y transforma los datos para evaluar la eficacia de una campaña de marketing lanzada recientemente. |
 | [Muestras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | Esta muestra ofrece ejemplos de JSON para escenarios comunes. | 
@@ -117,4 +117,4 @@ Debe tener lo siguiente instalado en el equipo:
 
 Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para obtener más información sobre cómo usar Visual Studio para crear entidades de Data Factory y publicarlas en Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

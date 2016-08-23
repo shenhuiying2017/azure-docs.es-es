@@ -45,9 +45,9 @@ Necesitará el nombre de cuenta y la clave de cuenta de su cuenta de almacenamie
 1. Inicie sesión en el [Portal de Azure][azure-portal].
 2. Haga clic en el centro **EXAMINAR** de la izquierda y seleccione **Cuentas de almacenamiento**.
 3. En la hoja **Cuentas de almacenamiento**, seleccione la **cuenta de almacenamiento de Azure** que desea usar en este tutorial.
-4. En la hoja **ALMACENAMIENTO**, haga clic en la ventana **CLAVES**.
-5. En la hoja **Administrar claves**, haga clic en el botón **copiar** (imagen) que se encuentra junto al cuadro de texto **NOMBRE DE CUENTA DE ALMACENAMIENTO** y guárdelo y péguelo en algún lugar (por ejemplo: en un archivo de texto).
-6. Repita el paso anterior para copiar o anotar la **CLAVE DE ACCESO PRIMARIA**.
+4. Seleccione **Claves de acceso** en **CONFIGURACIÓN**.
+5.  Haga clic en el botón **copiar** (imagen) que se encuentra junto al cuadro de texto **Nombre de cuenta de almacenamiento** y guárdelo y péguelo en algún lugar (por ejemplo: en un archivo de texto).
+6. Repita el paso anterior para copiar o anotar la **clave 1**.
 7. Haga clic en **X** para cerrar todas las hojas.
 
 ## Recopilación de nombres de usuario, bases de datos y servidores SQL Server
@@ -92,7 +92,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. Tenga en cuenta que en este artículo se usa el [Portal de Azure](http://manage.windowsazure.com) en lugar del [Portal de Azure clásico](https://portal.azure.com) con el fin de configurar el firewall para un servidor SQL de Azure.
+	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. Tenga en cuenta que en este artículo se usa el [Portal de Azure](http://manage.windowsazure.com) en lugar del [Portal de Azure clásico](https://portal.azure.com) para configurar el firewall para un servidor SQL de Azure.
 
 	**Si tiene instalado Visual Studio 2013 en el equipo:** en el [Portal de Azure](https://portal.azure.com), haga clic en el concentrador **EXAMINAR** a la izquierda, en **Servidores SQL**, seleccione su base de datos y haga clic en el botón **Abrir en Visual Studio** en la barra de herramientas para conectarse a su servidor SQL de Azure y ejecutar el script. Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su equipo (dirección IP). Consulte el artículo anterior para conocer los pasos para configurar el firewall para el servidor SQL de Azure.
 
@@ -116,4 +116,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

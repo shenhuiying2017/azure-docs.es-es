@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Información general de las características de Lote para desarrolladores
@@ -161,7 +161,7 @@ Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas r
 
 ### Prioridad del trabajo
 
-Puede asignar una prioridad a los trabajos que cree en Lote. El servicio Lote usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] \(REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] \(.NET de Lote).
+Puede asignar una prioridad a los trabajos que cree en Lote. El servicio Lote usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] (REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] (.NET de Lote).
 
 Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad mayor en una cuenta no tiene precedencia de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente.
 
@@ -268,13 +268,13 @@ Consulte [Task dependencies in Azure Batch](batch-task-dependencies.md) (Depende
 
 Cada tarea que se ejecuta dentro de un trabajo de Lote tiene acceso a variables de entorno establecidas por el servicio Lote (definidas por el servicio tal y como se describe en la siguiente tabla), así como a variables de entorno personalizadas que puede establecer para sus tareas. Las aplicaciones y los scripts ejecutados por las tareas en los nodos tienen acceso a estas variables de entorno durante la ejecución.
 
-Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] \(API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de Lote.
+Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] (API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de Lote.
 
-La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] \(REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] (REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
 Las siguientes variables de entorno son establecidas por el servicio Lote y están disponibles para que las tareas accedan a ellas:
 
-| Nombre de la variable de entorno | Descripción |
+| Nombre de la variable de entorno | Description |
 |---------------------------------|--------------------------------------------------------------------------|
 | `AZ_BATCH_ACCOUNT_NAME` | El nombre de la cuenta a la que pertenece la tarea. |
 | `AZ_BATCH_JOB_ID` | El identificador de la cuenta a la que pertenece la tarea. |
@@ -357,7 +357,7 @@ Para obtener más información sobre cómo escalar automáticamente una aplicaci
 
 Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Almacenamiento de Azure][azure_storage]. Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
-Use la operación [Agregar un certificado a la cuenta][rest_add_cert] \(REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
+Use la operación [Agregar un certificado a la cuenta][rest_add_cert] (REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] (.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
 
 ## Control de errores
 
@@ -432,6 +432,11 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 - Recorra paso a paso una aplicación de Lote de ejemplo en [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
 
+- Descargue y compile el proyecto de ejemplo [Batch Explorer][github_batchexplorer] para usarlo mientras desarrolla sus soluciones de Lote. Mediante Batch Explorer puede realizar lo siguiente y mucho más:
+  - Supervisar y manipular grupos, trabajos y tareas dentro de su cuenta de Lote
+  - Descargar `stdout.txt`, `stderr.txt`, y otros archivos de los nodos
+  - Crear usuarios en los nodos y descargar archivos RDP para el inicio de sesión remoto.
+
 - Aprenda a [crear grupos de nodos de proceso de Linux](batch-linux-nodes.md).
 
 - Visite el [foro de Lote de Azure][batch_forum] en MSDN. El foro es un buen lugar donde plantear preguntas tanto si está aprendiendo como si tiene experiencia en el uso de Lote.
@@ -444,7 +449,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
@@ -487,4 +492,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

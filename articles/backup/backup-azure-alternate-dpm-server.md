@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/08/2016"
 	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Recuperación de datos de otro servidor DPM en el almacén de copia de seguridad
@@ -82,7 +82,7 @@ Para recuperar datos de otro servidor DPM:
     ![Borrar DPM externo](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## Solución de mensajes de error
-|N.º |	Mensaje de error |	Pasos para solucionar problemas |
+|Nº |	Mensaje de error |	Pasos para solucionar problemas |
 | :-------------: |:-------------| :-----|
 |1\.|		Este servidor no está registrado en el almacén especificado por las credenciales del almacén.|	**Causa:** Este error aparece cuando el archivo de credenciales del almacén seleccionado no pertenece al almacén de copia de seguridad asociado al servidor DPM en el que se intenta la recuperación. <br> **Resolución:** Descargue el archivo de credenciales del almacén del almacén de copia de seguridad en el que está registrado el servidor DPM.|
 |2\.|		Los datos recuperables no están disponibles o el servidor seleccionado no es un servidor DPM.|	**Causa:** No hay ningún otro servidor DPM con DPM 2012 R2 UR7 registrado en el almacén de copia de seguridad, los servidores DPM con DPM 2012 R2 UR7 aún no han cargado los metadatos o el servidor seleccionado no es el servidor DPM (también llamado Windows Server o cliente Windows). <br> **Resolución:** Si hay otros servidores DPM registrados en el almacén de copia de seguridad, asegúrese de que SCDPM 2012 R2 UR7 y el agente de Copia de seguridad de Azure más reciente están instalados. <br>Si hay otros servidores DPM registrados en el almacén de copia de seguridad con DPM 2012 R2 UR7, espere un día después de la instalación de UR7 para iniciar el proceso de recuperación. La tarea nocturna cargará los metadatos para las copias de seguridad protegidas anteriormente en la nube. Los datos estarán disponibles para la recuperación.|
@@ -103,4 +103,4 @@ Para recuperar datos de otro servidor DPM:
 ## Pasos siguientes:
 [Preguntas más frecuentes sobre Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

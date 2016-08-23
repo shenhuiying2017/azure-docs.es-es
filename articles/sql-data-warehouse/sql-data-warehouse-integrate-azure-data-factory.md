@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Uso de Factoría de datos de Azure con Almacenamiento de datos SQL
@@ -50,4 +50,4 @@ Para obtener información general sobre la integración, consulte [Información 
 <!--Other Web references-->
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

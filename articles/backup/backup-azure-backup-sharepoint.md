@@ -207,7 +207,7 @@ En el ejemplo siguiente, *el elemento de recuperación de SharePoint* se elimin�
 
     ![Protección de SharePoint con DPM10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
-    Aparece la ventana de estado **Volver a catalogar la nube **.
+    Aparece la ventana de estado **Volver a catalogar la nube**.
 
     ![Protección de SharePoint con DPM11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 

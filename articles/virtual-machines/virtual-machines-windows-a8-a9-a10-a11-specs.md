@@ -1,5 +1,5 @@
 <properties
- pageTitle="Acerca de las instancias de entre A8 y A11 con Windows | Microsoft Azure"
+ pageTitle="Acerca de los tamaños de máquina virtual A8, A9, A10 y A11 y Windows | Microsoft Azure"
  description="Obtenga información general y consideraciones sobre el uso de las instancias de proceso intensivo A8, A9, A10 y A11 de Azure para servicios en la nube y máquinas virtuales Windows."
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/26/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # Sobre las instancias de proceso intensivo A8, A9, A10 y A11
@@ -28,7 +28,7 @@ Aquí se proporciona información general y algunas consideraciones sobre el uso
 
 En un único servicio en la nube, conjunto de disponibilidad o grupo de Lote de Azure, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones de la MPI de Windows que usan la interfaz Microsoft Network Direct para comunicarse entre instancias.
 
-Consulte la siguiente tabla para más información acerca de los requisitos previos para que las aplicaciones de MPI tengan acceso a la red RDMA en las máquinas virtuales de Windows, en los servicios en la nube y en los grupos de Lote de Azure de las instancias A8 o A9. Para ver escenarios de implementación típicos, consulte [Configuración de un clúster de Windows RDMA con HPC Pack e instancias de A8 y A9 para ejecutar aplicaciones de MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) y [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](../batch/batch-mpi.md).
+A continuación, se muestran requisitos previos para que las aplicaciones de MPI tengan acceso a la red RDMA en las máquinas virtuales Windows, en los servicios en la nube y en los grupos de Lote de Azure de las instancias A8 o A9. Para ver escenarios de implementación típicos, consulte [Configuración de un clúster de Windows RDMA con HPC Pack e instancias de A8 y A9 para ejecutar aplicaciones de MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) y [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](../batch/batch-mpi.md).
 
 
 Requisito previo | Máquinas virtuales | Servicios en la nube o grupo de Lote 
@@ -58,4 +58,4 @@ Para obtener más información y listas de comprobación para usar instancias de
 
 * Para más información sobre el uso de instancias A8 y A9 para ejecutar aplicaciones MPI con Lote de Azure, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](../batch/batch-mpi.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

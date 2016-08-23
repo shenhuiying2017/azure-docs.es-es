@@ -5,7 +5,7 @@
    description="Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -17,7 +17,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="gwallace" />
 
 # Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -38,7 +38,7 @@ El sondeo predeterminado solo examina http://127.0.0.1:<port> para determinar el
 
 ### Configuración de sondeo de estado predeterminado
 
-|Propiedad de sondeo | Valor | Descripción|
+|Propiedad de sondeo | Valor | Description|
 |---|---|---|
 | Dirección URL de sondeo| http://127.0.0.1/ | Ruta de acceso URL |
 | Intervalo | 30 | Intervalo de sondeo en segundos |
@@ -53,18 +53,18 @@ Los sondeos personalizados permiten un control más específico sobre la supervi
 
 ### Configuración de sondeo de estado personalizado
 
-|Propiedad de sondeo| Descripción|
+|Propiedad de sondeo| Description|
 |---|---|
 | Nombre | Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocolo | Protocolo usado para enviar el sondeo. HTTP es el único protocolo válido. |
+| Protocol | Protocolo usado para enviar el sondeo. HTTP es el único protocolo válido. |
 | Host | Nombre de host para enviar el sondeo. |
-| Ruta de acceso | Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. El sondeo se envía a <protocol>://<host>:<port><path> |
+| Ruta de acceso | Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a <protocolo> ://<host>:< puerto><ruta de acceso>. |
 | Intervalo | Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos.|
 | Tiempo de espera | Tiempo de espera del sondeo en segundos. El sondeo se marca como error si no se recibe una respuesta válida dentro de este período de tiempo de espera. |
 | Umbral incorrecto | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 ## Pasos siguientes
 
-Como ya ha aprendido sobre la supervisión de estado de la puerta de enlace de aplicaciones, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) para el Administrador de recursos de Azure o un [sondeo de estado personalizado](application-gateway-create-probe-classic-ps.md) para el modelo de implementación clásica de Azure.
+Como ya ha aprendido sobre la supervisión de estado de la puerta de enlace de aplicaciones, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) para Azure Resource Manager o un [sondeo de estado personalizado](application-gateway-create-probe-classic-ps.md) para el modelo de implementación clásica de Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0810_2016-->

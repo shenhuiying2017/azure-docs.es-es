@@ -3,8 +3,8 @@
    description="En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
+   authors="georgewallace"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
 Puerta de enlace de aplicaciones de Azure puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
@@ -28,7 +29,7 @@ Puerta de enlace de aplicaciones de Azure puede configurarse para terminar la se
 
 1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](https://azure.microsoft.com/downloads/).
 2. Compruebe que tiene una red virtual de trabajo con una subred válida. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
-3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
+3. Los servidores que configure para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
 Para configurar la descarga SSL en una puerta de enlace de aplicaciones, realice los pasos siguientes en el orden mostrado:
 
@@ -40,9 +41,9 @@ Para configurar la descarga SSL en una puerta de enlace de aplicaciones, realice
 6. [Comprobación del estado de la puerta de enlace](#verify-the-gateway-status)
 
 
-## Creación de una nueva puerta de enlace de aplicaciones
+## Creación de una puerta de enlace de aplicaciones
 
-Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
+Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. La facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
 
@@ -104,6 +105,7 @@ Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
+>[AZURE.NOTE] La contraseña del certificado debe tener entre 4 y 12 caracteres, letras o números. No se aceptan caracteres especiales.
 
 ## Configuración de la puerta de enlace
 
@@ -112,16 +114,16 @@ Una configuración de puerta de enlace de aplicaciones consta de varios valores.
 Los valores son:
 
 - **Grupo de servidores back-end**: lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
-- **Configuración del grupo de servidores back-end**: cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+- **Configuración del grupo de servidores back-end**: cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end**: este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-- **Agente de escucha**: el agente de escucha tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
+- **Agente de escucha**: tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
+- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
 
 **Notas de configuración adicionales**
 
-Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). El elemento **SslCert** debe agregarse al elemento **HttpListener** con el valor establecido en el mismo nombre que se usa en la carga de la sección de certificados SSL anterior. El puerto front-end debe actualizarse a 443.
+Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). El elemento **SslCert** debe agregarse al elemento **HttpListener** con el valor establecido en el mismo nombre que se usa en la carga de la sección de certificados SSL anterior. El puerto front-end debe actualizarse al 443.
 
-**Para habilitar la afinidad basada en cookies**: se puede configurar una Puerta de enlace de aplicaciones para asegurarse de que una solicitud de una sesión de cliente siempre se dirige a la misma máquina virtual en la granja de servidores web. Para ello es necesario inyectar una cookie de sesión que permite a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies**: se puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para ello, es preciso inyectar una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
 
 
 
@@ -191,7 +193,7 @@ A continuación, establecerá la puerta de enlace de aplicaciones. Puede usar el
 
 ## Inicio de la puerta de enlace
 
-Una vez configurada la puerta de enlace, use el cmdlet **Start-AzureApplicationGateway** para iniciarla. La facturación de una puerta de enlace de aplicaciones comienza después de que se haya iniciado correctamente.
+Una vez configurada la puerta de enlace, utilice el cmdlet **Start-AzureApplicationGateway** para iniciarla. La facturación de una puerta de enlace de aplicaciones comienza después de que se haya iniciado correctamente.
 
 
 **Nota:** el cmdlet **Start-AzureApplicationGateway** puede tardar hasta 15 o 20 minutos en finalizar.
@@ -208,7 +210,7 @@ Una vez configurada la puerta de enlace, use el cmdlet **Start-AzureApplicationG
 
 ## Comprobación del estado de la puerta de enlace
 
-Use el cmdlet **Get-AzureApplicationGateway** para comprobar el estado de la puerta de enlace. Si **Start-AzureApplicationGateway** se realizó correctamente en el paso anterior, *State* debería ser Running y *VirtualIPs* y *DnsName* deben tener entradas válidas.
+Utilice el cmdlet **Get-AzureApplicationGateway** para comprobar el estado de la puerta de enlace. Si **Start-AzureApplicationGateway** se realizó correctamente en el paso anterior, *State* debería ser Running y *VirtualIPs* y *DnsName* deben tener entradas válidas.
 
 Este ejemplo muestra una puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico.
 
@@ -233,4 +235,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0810_2016-->

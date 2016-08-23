@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="08/10/2016"
 	ms.author="adegeo"/>
 
 
@@ -165,4 +165,4 @@ Si se configura una supervisión detallada para su servicio en la nube, Azure no
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

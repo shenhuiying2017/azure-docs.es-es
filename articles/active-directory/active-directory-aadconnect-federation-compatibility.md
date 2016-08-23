@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Lista de compatibilidad de federación de Azure AD
@@ -37,7 +37,7 @@ Para obtener información sobre cómo obtener el proveedor de identidades de ter
 - [Servicios de federación de servidores de identidad virtual de Optimal IDM](#optimal-idm-virtual-identity-server-federation-services)
 - [PingFederate 6.11](#pingfederate-611)
 - [PingFederate 7.2](#pingfederate-72)
-- [PingFederate 8.x](#pingfederate-8.x)
+- [PingFederate 8.x](#pingfederate-8x)
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
@@ -339,4 +339,4 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 Para más información, consulte [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-) (Inicio de sesión único de AuthAnvil).
 
-<!-----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

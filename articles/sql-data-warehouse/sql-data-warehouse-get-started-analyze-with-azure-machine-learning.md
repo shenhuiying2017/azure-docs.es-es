@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Este tutorial usa Aprendizaje automático de Azure para crear un aprendizaje automático predictivo con los datos almacenados en Almacenamiento de datos SQL de Azure. En concreto, crearemos una campaña de marketing dirigida para Adventure Works, una tienda de bicicletas, mediante la predicción de la probabilidad que existe de que un cliente compre una bicicleta.
 
@@ -132,7 +132,7 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 <!--Article references-->
 [Estudio de aprendizaje automático de Microsoft Azure]: https://studio.azureml.net/
 [Introducción al aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-load-sample-databases.md
+[cargar manualmente los datos de ejemplo]: sql-data-warehouse-load-sample-databases.md
 [Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

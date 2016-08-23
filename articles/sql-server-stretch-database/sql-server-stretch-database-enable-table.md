@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Habilitación de Stretch Database para una tabla
@@ -28,6 +28,8 @@ Para configurar una tabla para Stretch Database, seleccione **Stretch | Habilita
 
 **Permisos**. La habilitación de Stretch Database en una base de datos o una tabla requiere permisos db\_owner. La habilitación de Stretch Database en una tabla también requiere permisos ALTER en la tabla.
 
+ >   [AZURE.NOTE] Posteriormente, al deshabilitar Stretch Database, no olvide que si lo hace en una tabla o una base de datos, no se elimina el objeto remoto. Si quiere eliminar la tabla remota o la base de datos remota, debe hacerlo mediante el Portal de administración de Azure. Los objetos remotos seguirán generando costos de Azure hasta que se eliminan manualmente.
+ 
 ## <a name="EnableWizardTable"></a>Uso del asistente para habilitar Stretch Database en una tabla
 **Inicio del asistente**
 
@@ -45,9 +47,9 @@ Confirme que se muestra y se selecciona la tabla que desea habilitar.
 
 Puede migrar una tabla entera o especificar una función de filtro sencillo en el Asistente. Si quiere usar un tipo diferente de función de filtro para seleccionar las filas que se migrarán, realice una de las siguientes acciones.
 
--   Salga del asistente y ejecute la instrucción ALTER TABLE a fin de habilitar Stretch para la tabla y especificar una función de filtro.
+-   Salga del asistente y ejecute la instrucción ALTER TABLE para habilitar Stretch en la tabla y especificar una función de filtro.
 
--   Ejecute la instrucción ALTER TABLE para especificar una función tras salir del Asistente. Si desea conocer los pasos necesarios, consulte [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz) (Adición de una función de filtro después de ejecutar el Asistente).
+-   Ejecute la instrucción ALTER TABLE para especificar una función tras salir del Asistente. Para conocer los pasos necesarios, consulte [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz) (Adición de una función de filtro después de ejecutar el asistente).
 
 La sintaxis de ALTER TABLE se describe más adelante en este tema.
 
@@ -95,7 +97,7 @@ ALTER TABLE <table name>
  GO
 ```
 
-Para más información, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Para obtener más información, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 ### Creación de una nueva tabla con Stretch Database habilitado
 Para crear una nueva tabla con Stretch Database habilitado, ejecute el comando CREATE TABLE.
@@ -124,13 +126,13 @@ CREATE TABLE <table name>
 GO  
 ```
 
-Para más información, consulte [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
+Para obtener más información, consulte [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
 
 
-## Consulte también
+## Otras referencias
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

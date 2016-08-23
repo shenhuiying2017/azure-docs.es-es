@@ -46,14 +46,14 @@ Para ver el estado de sus soluciones de asociados:
 
 3. Vuelva a la hoja **F5-WAF2** y seleccione **Link app** (Vincular aplicación). Se abre la hoja **Link Applications** (Vincular aplicaciones). Aquí puede conectar recursos a la solución de asociados. ![Vinculación de recursos a soluciones de asociados][5]
 
-## Consulte también
+## Otras referencias
 En este documento, se ha presentado el icono **Partner Solutions** (Soluciones de asociados) de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 - [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que lo ayudan a proteger los recursos de Azure.
 - [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->
@@ -63,4 +63,4 @@ En este documento, se ha presentado el icono **Partner Solutions** (Soluciones d
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

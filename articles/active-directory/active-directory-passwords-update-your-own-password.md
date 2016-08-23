@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/05/2016"
 	ms.author="asteen"/>
 
 # Actualización de la propia contraseña
@@ -47,7 +47,7 @@ La forma más rápida de registrarse para el restablecimiento de contraseña es 
 
     ![][014]
 
- 6. Una vez que llega el código, escríbalo en el cuadro de entrada y haga clic en "comprobar".
+ 6. Una vez que llega el código, escríbalo en el cuadro de entrada y haga clic en Comprobar.
  7. Cuando vea **gracias**, ya está. Ahora puede usar su registro para el restablecimiento de contraseña en cualquier momento en https://passwordreset.microsoftonline.com.
 
     ![][015]
@@ -71,7 +71,7 @@ Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o
  2. Haga clic en la pestaña **Perfil**.
  3. Haga clic en el icono **Cambiar mi contraseña** en el lado derecho de la pantalla.
  4. Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
- 5. Haga clic en **Guardar**.
+ 5. Haga clic en **Enviar**.
 
  ¿Surge un problema al cambiar la contraseña? Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
@@ -80,14 +80,16 @@ Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o
 
 Para restablecer la contraseña de su cuenta profesional o educativa desde cualquier pantalla de inicio de sesión con una de estas cuentas, siga estos pasos.
 
- >[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
+>[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
+>
+> Si el administrador ha habilitado para usted esta característica, primero debe registrarse antes de utilizarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
 
 
  1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos "¿No se puede tener acceso a su cuenta?" u "¿Olvidó su contraseña?", o vaya a https://passwordreset.microsoftonline.com directamente.
 
     ![][001]
 
- 2. En la página "¿Quién eres?", escriba su identificador de la cuenta profesional o educativa y pase la prueba del captcha para demostrar que no es un robot.
+ 2. En la página ¿Quién eres?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
 
     ![][002]
 
@@ -127,14 +129,16 @@ Para restablecer la contraseña de su cuenta profesional o educativa desde cualq
 ## Desbloqueo de la cuenta
 Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio de sesión de cualquier cuenta educativa o profesional. **Nota: Solo podrá desbloquear la cuenta si se ha bloqueado de forma local.**
 
- >[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
+>[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
+>
+> Si el administrador ha habilitado para usted esta característica, primero debe registrarse antes de utilizarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
 
 
  1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos "¿No se puede tener acceso a su cuenta?" u "¿Olvidó su contraseña?", o vaya a https://passwordreset.microsoftonline.com directamente.
 
     ![][001]
 
- 2. En la página "¿Quién eres?", escriba su identificador de la cuenta profesional o educativa y pase la prueba del captcha para demostrar que no es un robot.
+ 2. En la página ¿Quién eres?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
 
     ![][002]
 
@@ -160,7 +164,7 @@ Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio d
 
     ![][005]
 
- 9. Es posible que el administrador solicite un segundo paso de verificación, en cuyo caso repita el paso 4 con una opción diferente seleccionada.
+ 9. Es posible que el administrador solicite un segundo paso de verificación, en cuyo caso debe repetir el paso 4 con una opción diferente seleccionada.
 
  11. Cuando vea la página de que todo ha ido bien, está preparado para comenzar. La cuenta local se ha desbloqueado y ahora puede iniciar sesión una vez más.
 
@@ -257,4 +261,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

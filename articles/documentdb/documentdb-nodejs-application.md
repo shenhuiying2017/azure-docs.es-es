@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/18/2016" 
+	ms.date="08/15/2016" 
 	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante DocumentDB
@@ -165,11 +165,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -183,7 +179,9 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
+    > [AZURE.TIP] createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada.
+    >
+    > Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
 		
 3. Guarde y cierre el archivo **docdbUtils.js**.
 
@@ -570,4 +568,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

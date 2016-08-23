@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure
@@ -29,7 +29,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 -	Todos los servicios de Almacenamiento de Azure (blobs, tablas, colas y archivos)
 -	Blobs
 -	Tablas
--	Colas  
+-	Colas
 
 |¡Listo!|	Ámbito|	Categoría|	Pregunta
 |----|------|-----------|-----------
@@ -90,7 +90,7 @@ Cada uno de los servicios de Almacenamiento de Azure tiene objetivos de escalabi
 
 -	[Ancho de banda de blob y solicitudes por segundo](#subheading16)
 -	[Entidades de tabla por segundo](#subheading24)
--	[Mensajes de cola por segundo](#subheading39)  
+-	[Mensajes de cola por segundo](#subheading39)
 
 ####<a name="sub1bandwidth"></a>Objetivo de escalabilidad de ancho de banda para todos los servicios
 En el momento de escribir estas líneas, los objetivos de ancho de banda en EE. UU. para una cuenta de almacenamiento con redundancia geográfica (GRS) son 10 gigabits por segundo (Gbps) para entrada (datos enviados a la cuenta de almacenamiento) y 20 Gbps para salida (datos enviados desde la cuenta de almacenamiento). Para una cuenta de almacenamiento con redundancia local (LRS), los límites son mayores: 20 Gbps para entrada y 30 Gbps para salida. Los límites de ancho de banda internacionales pueden ser menores y puede encontrarlos en nuestra [página de objetivos de escalabilidad](http://msdn.microsoft.com/library/azure/dn249410.aspx). Para obtener más información acerca de las opciones de redundancia de almacenamiento, consulte los vínculos de [Recursos útiles](#sub1useful) que se indican a continuación.
@@ -101,21 +101,21 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 -	Reconsidere la carga de trabajo que hace que su aplicación se aproxime al objetivo de escalabilidad o lo supere. ¿Puede designarla de forma diferente para que use menos ancho de banda o capacidad, o menos transacciones?
 -	Si una aplicación debe superar uno de los objetivos de escalabilidad, debe crear varias cuentas de almacenamiento y particionar los datos de su aplicación entre dichas cuentas. Si usa este patrón, entonces debe asegurarse de designar la aplicación de forma que pueda agregar más cuentas de almacenamiento en el futuro para equilibrio de carga. En el momento escribir estas líneas, cada suscripción de Azure puede tener hasta 100 cuentas de almacenamiento. Las cuentas de almacenamiento tampoco tienen ningún costo que no sea el de su uso en términos de datos almacenados, transacciones realizadas o datos transferidos.
 -	Si su aplicación alcanza los objetivos de ancho de banda, plantéese comprimir los datos contenidos en el cliente para reducir el ancho de banda requerido para enviar los datos al servicio de almacenamiento. Tenga en cuenta que aunque esto puede ahorrar ancho de banda y mejorar el rendimiento de la red, también puede tener algunos impactos negativos. Debe evaluar el impacto de rendimiento de todo esto debido a los requisitos de procesamiento adicionales para comprimir y descomprimir datos en el cliente. Además, el almacenamiento de datos comprimidos puede dificultar la solución de problemas porque podría ser más complejo ver datos almacenados usando herramientas estándar.
--	Si su aplicación alcanza los objetivos de escalabilidad, asegúrese de usar un retroceso exponencial para reintentos (consulte [Reintentos](#subheading14)). Es mejor asegurarse de que nunca se aproxima a los objetivos de escalabilidad (usando uno de los métodos anteriores), pero esto garantizará que la aplicación no sigue realizando reintentos rápidamente, empeorando la limitación.  
+-	Si su aplicación alcanza los objetivos de escalabilidad, asegúrese de usar un retroceso exponencial para reintentos (consulte [Reintentos](#subheading14)). Es mejor asegurarse de que nunca se aproxima a los objetivos de escalabilidad (usando uno de los métodos anteriores), pero esto garantizará que la aplicación no sigue realizando reintentos rápidamente, empeorando la limitación.
 
 ####Recursos útiles
 Los siguientes vínculos proporcionan detalles adicionales sobre objetivos de escalabilidad:
 -	Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener información sobre los objetivos de escalabilidad.
 -	Consulte [Replicación de almacenamiento de Azure](storage-redundancy.md) y la entrada de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opciones de redundancia de Almacenamiento de Azure y almacenamiento con redundancia geográfica con acceso de lectura) para obtener información sobre las opciones de redundancia de almacenamiento.
--	Para obtener información actual sobre los precios de los servicios de Azure, consulte [Precios de Azure](https://azure.microsoft.com/pricing/overview/).  
+-	Para obtener información actual sobre los precios de los servicios de Azure, consulte [Precios de Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###<a name="subheading47"></a>Convención de nomenclatura de particiones
 Almacenamiento de Azure usa un esquema de particiones basado en intervalo para escalar y equilibrar la carga del sistema. La clave de partición se usa para particionar datos en intervalos con una carga equilibrada en el sistema. Esto significa que convenciones de nomenclatura como la ordenación léxica (p. ej., msftpayroll, msftperformance, msftemployees, etc.) o el uso de marcas de tiempo (log20160101, log20160102, log20160102, etc.) se prestarán a las particiones potencialmente colocadas en el mismo servidor de particiones, hasta que una operación de equilibrio de carga las divida en intervalos más pequeños. Por ejemplo, un servidor único puede atender a todos los blobs de un contenedor hasta que la carga de estos requiera un reequilibrado adicional de los intervalos de partición. De forma similar, un servidor único puede atender a un grupo de cuentas ligeramente cargadas con sus nombres organizados en orden léxico hasta que la carga de una o de todas ellas requiera su división en varios servidores de particiones. Cada una de las operaciones de equilibrio de carga puede afectar a la latencia de las llamadas de almacenamiento realizadas durante la operación. La escalabilidad de un servidor de particiones único limita la capacidad del sistema para controlar una ráfaga súbita de tráfico a una partición hasta que la operación de equilibrio de carga se inicie y reequilibre el intervalo de claves de partición.
 
 Puede seguir algunas prácticas recomendadas para reducir la frecuencia de dichas operaciones.
 
--	Examine estrechamente la convención de nomenclatura que usa para las cuentas, contenedores, blobs, tablas y colas. Considere la posibilidad de prefijar nombres de cuenta con un hash de 3 dígitos con la función hash que mejor se adapte a sus necesidades.  
--	Si organiza sus datos mediante marcas de tiempo o identificadores numéricos, debe asegurarse de no usar patrones de tráfico Solo anexar (o Solo anteponer). Estos patrones no son adecuados para un sistema de creación de particiones basado en intervalo y podrían dar lugar a todo el tráfico que se dirige a una sola partición e impide un eficaz equilibrio de carga del sistema. Por ejemplo, si tiene operaciones diarias que usan un objeto blob con una marca de tiempo como aaaammdd, todo el tráfico de esa operación diaria se dirige a un solo objeto atendido por un solo servidor de particiones. Compruebe si los límites por blob y por partición cubren sus necesidades y considere la posibilidad de dividir esta operación en varios blobs según sea necesario. De forma similar, si almacena datos de series temporales en sus tablas, todo el tráfico podría dirigirse a la última parte del espacio de nombres clave. Si tiene que usar marcas de tiempo o identificadores numéricos, prefíjelos con un hash de 3 dígitos o, en el caso de las marcas de tiempo, prefije la parte referente a los segundos de la hora como, por ejemplo, ssaaaammdd. Si se realizan operaciones de enumeración y consulta de manera habitual, elija una función hash que limite su número de consultas. En otros casos, un prefijo aleatorio puede ser suficiente.  
+-	Examine estrechamente la convención de nomenclatura que usa para las cuentas, contenedores, blobs, tablas y colas. Considere la posibilidad de prefijar nombres de cuenta con un hash de 3 dígitos con la función hash que mejor se adapte a sus necesidades.
+-	Si organiza sus datos mediante marcas de tiempo o identificadores numéricos, debe asegurarse de no usar patrones de tráfico Solo anexar (o Solo anteponer). Estos patrones no son adecuados para un sistema de creación de particiones basado en intervalo y podrían dar lugar a todo el tráfico que se dirige a una sola partición e impide un eficaz equilibrio de carga del sistema. Por ejemplo, si tiene operaciones diarias que usan un objeto blob con una marca de tiempo como aaaammdd, todo el tráfico de esa operación diaria se dirige a un solo objeto atendido por un solo servidor de particiones. Compruebe si los límites por blob y por partición cubren sus necesidades y considere la posibilidad de dividir esta operación en varios blobs según sea necesario. De forma similar, si almacena datos de series temporales en sus tablas, todo el tráfico podría dirigirse a la última parte del espacio de nombres clave. Si tiene que usar marcas de tiempo o identificadores numéricos, prefíjelos con un hash de 3 dígitos o, en el caso de las marcas de tiempo, prefije la parte referente a los segundos de la hora como, por ejemplo, ssaaaammdd. Si se realizan operaciones de enumeración y consulta de manera habitual, elija una función hash que limite su número de consultas. En otros casos, un prefijo aleatorio puede ser suficiente.
 -	Para obtener información adicional sobre el esquema de particiones usado en Almacenamiento de Azure, lea el documento de SOSP [aquí](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ###Redes
@@ -239,7 +239,7 @@ Tenga en cuenta que las copias dentro de la misma cuenta de almacenamiento, por 
 Para obtener más información, consulte [Copia de blobs](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Uso de AzCopy
-El equipo de Almacenamiento de Azure ha lanzado “AzCopy”, una herramienta de línea de comandos diseñada para ayudarle a transferir muchos blobs a, desde y entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia. Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Para obtener más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
+El equipo de Almacenamiento de Azure ha lanzado AzCopy, una herramienta de línea de comandos diseñada para ayudarlo a transferir muchos blobs a, desde y entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia. Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Para obtener más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Servicio de importación y exportación de Azure
 Para volúmenes muy grandes de datos (más de 1 TB), Almacenamiento de Azure ofrece el servicio Importación/Exportación, que permite realizar operaciones de carga y descarga desde el almacenamiento de blobs enviando unidades de disco duro. Puede poner sus datos en una unidad de disco duro y enviarla a Microsoft para cargarlos o enviar una unidad de disco duro vacía a Microsoft para descargar datos. Para obtener más información, consulte [Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs](storage-import-export-service.md). Esto puede ser mucho más eficiente que cargar y descargar este volumen de datos a través de la red.
@@ -298,18 +298,18 @@ La forma de representar los datos y realizar consultas en los mismos es el facto
 
 -	Diseño de tablas
 -	Consultas eficientes
--	Actualizaciones de datos eficientes  
+-	Actualizaciones de datos eficientes
 
 ####<a name="subheading27"></a>Tablas y particiones
 Las tablas se dividen en dos particiones. Cada entidad almacenada en una partición comparte la misma clave de partición y tiene una clave de fila única para identificarla dentro de esa partición. Las particiones proporcionan ventajas pero también presentan limitaciones de escalabilidad.
 
 -	Ventajas: puede actualizar entidades de la misma partición en una sola transacción por lotes atómica que contenga hasta 100 operaciones de almacenamiento independientes (límite de tamaño total de 4 MB). Suponiendo que se recupera el mismo número de entidades, también puede consultar datos dentro de una sola partición más eficientemente que los datos que se extienden por particiones (siga leyendo para conocer más recomendaciones sobre la consulta de datos de tabla).
--	Limite de escalabilidad: no se puede realizar el equilibrio de carga en el acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad para una partición de tabla individual es inferior al del servicio Tabla como un todo.  
+-	Limite de escalabilidad: no se puede realizar el equilibrio de carga en el acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad para una partición de tabla individual es inferior al del servicio Tabla como un todo.
 
 Debido a estas características de tablas y particiones, debe adoptar los siguientes principios de diseño:
 
 -	Los datos que su aplicación cliente actualiza o consulta frecuentemente en la misma unidad lógica de trabajo se deben ubicar en la misma partición. Esto puede ser porque la aplicación agrega escrituras o porque desea aprovechar las operaciones por lotes atómicas. Asimismo, los datos de una sola partición pueden ser consultados de forma más eficiente en una sola consulta que los datos que se encuentran repartidos por particiones.
--	Los datos que la aplicación cliente no inserta, actualiza o consulta en la misma unidad lógica de trabajo (una consulta o actualización por lotes) se deben encontrar en particiones independientes. Una nota importante es que no hay límite en el número de claves de partición en una sola tabla, por lo que tener millones de claves de partición no es un problema y no afectará al rendimiento. Por ejemplo, si la aplicación es un sitio web conocido con inicio de sesión de usuario, el uso del identificador de usuario como clave de partición podría ser una buena elección.  
+-	Los datos que la aplicación cliente no inserta, actualiza o consulta en la misma unidad lógica de trabajo (una consulta o actualización por lotes) se deben encontrar en particiones independientes. Una nota importante es que no hay límite en el número de claves de partición en una sola tabla, por lo que tener millones de claves de partición no es un problema y no afectará al rendimiento. Por ejemplo, si la aplicación es un sitio web conocido con inicio de sesión de usuario, el uso del identificador de usuario como clave de partición podría ser una buena elección.
 
 ####Particiones calientes
 Una partición caliente es aquella que recibe un porcentaje desproporcionado de tráfico en una cuenta y no se puede realizar un equilibrio de carga en ella porque es una sola partición. En general, las particiones calientes se crean de una de dos formas:
@@ -399,9 +399,9 @@ Para obtener más información, consulte [Cambio del contenido de un mensaje en 
 Debe usar colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:
 
 -	Puede usar colas para crear trabajos pendientes para el procesamiento y aliviar las cargas de la aplicación. Por ejemplo, podría poner en cola solicitudes de usuarios para realizar un trabajo que requiere muchos recursos de procesador, como, por ejemplo, cambiar el tamaño de las imágenes cargadas.
--	Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.  
+-	Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.
 
 ##Conclusión
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

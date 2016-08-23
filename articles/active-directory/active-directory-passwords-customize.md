@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
@@ -851,7 +851,7 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
                   <li class="unordered">
 												Si se establece en Sí, cada vez que un usuario o un administrador restablece su propia contraseña, recibe una notificación que indica que se ha restablecido su contraseña.<br><br></li>
                   <li class="unordered">
-												Esta notificación se envía por correo electrónico a las direcciones principal y alternativa (o de autenticación) del usuario que restablezca su contraseña.<br><br></li>
+												Esta notificación se envía por correo electrónico al nombre principal del usuario y a las direcciones principal y alternativa (o de autenticación) del usuario que restablezca su contraseña.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -875,4 +875,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

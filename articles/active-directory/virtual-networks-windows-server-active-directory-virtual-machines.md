@@ -34,7 +34,7 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 
 - [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
 - [Instalación de una réplica del Controlador de dominio de Active Directory en Redes virtuales de Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
-- [Configuración de un entorno de nube híbrida para pruebas](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
+- [Configuración de un entorno de nube híbrida para pruebas](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
 ## Recursos adicionales
@@ -42,4 +42,4 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

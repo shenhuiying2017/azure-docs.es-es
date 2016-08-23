@@ -620,7 +620,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 	- **PackageLinkedService** se establece en **AzureStorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. Este artículo se asume que usa la misma cuenta de Almacenamiento de Azure.
 	- **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
 	- La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
-	- La propiedad linkedServiceName de la actividad personalizada apunta a **HDInsightLinkedService**, que indica a Factoría de datos de Azure que la actividad personalizada debe ejecutarse en un clúster de HDInsight de Azure.
+	- La propiedad linkedServiceName de la actividad personalizada apunta a **AzureBatchLinkedService**, que indica a Data Factory de Azure que la actividad personalizada debe ejecutarse en Lote de Azure.
 	- La propiedad **isPaused** propiedad se establece en **false** de forma predeterminada. La canalización se ejecuta inmediatamente en este ejemplo, ya que los segmentos se inician en el pasado. Esta propiedad se puede establecer en true para pausar la canalización y se puede volver a establecer en false para reiniciarla.
 	- Hay una diferencia de **cinco** horas entre la hora de **inicio** y las horas de **finalización** y los segmentos se producen cada hora, por lo que la canalización produce cinco segmentos.
 
@@ -894,4 +894,4 @@ Muestra | Qué hace la actividad personalizada
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
