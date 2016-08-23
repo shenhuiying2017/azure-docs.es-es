@@ -85,7 +85,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
-7.	Cuando finalice el script, vuelva a examinar la dirección del front-end (http://ToDoApp*&lt;your_suffix>*master.azurewebsites.net/) para ver la ejecución de la aplicación en producción.
+7.	Cuando finalice el script, vuelva a examinar la dirección del front-end (http://ToDoApp *&lt;your_suffix>* master.azurewebsites.net/) para ver la ejecución de la aplicación en producción.
 5.	Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y observe lo que se crea.
 
 	Podrá ver dos aplicaciones web en el mismo grupo de recursos, una con el sufijo `Api` en el nombre. Si observa la vista de grupo de recursos, también verá el servidor y Base de datos SQL, el plan de Servicio de aplicaciones y las ranuras de ensayo para las aplicaciones web. Examine los distintos recursos y compárelos con *&lt;raíz\_repositorio>*\\ARMTemplates\\ProdAndStage.json para ver cómo están configurados en la plantilla.
@@ -305,7 +305,7 @@ Volver a la aplicación que desea mejorar.
 
 3. confirme e inserte en Azure.
 
-4. Compruebe que el cambio se refleja en la ranura de la versión beta, vaya a http://todoapp*&lt;your_suffix> *-beta.azurewebsites.net/. Si aún no ve el cambio, actualice el explorador para obtener el nuevo código de javascript.
+4. Compruebe que el cambio se refleja en la ranura de la versión beta, vaya a http://todoapp *&lt;your_suffix>* -beta.azurewebsites.net/. Si aún no ve el cambio, actualice el explorador para obtener el nuevo código de javascript.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
@@ -326,7 +326,7 @@ En esta sección, enrutará el tráfico a la aplicación beta. Por motivos de cl
 
   La propiedad `ReroutePercentage=50` especifica que el 50 % del tráfico de producción se enrutará a la URL de la aplicación beta (especificada por la propiedad `ActionHostName`).
 
-2. Ahora, vaya a http://ToDoApp*&lt;your_suffix> *. azurewebsites.net. El 50 % del tráfico debería ahora redirigirse a la ranura de la versión beta.
+2. Ahora, vaya a http://ToDoApp *&lt;your_suffix>* .azurewebsites.net. El 50 % del tráfico debería ahora redirigirse a la ranura de la versión beta.
 
 3. En el recurso de Application Insights, filtre las métricas por entorno = "beta".
 
@@ -355,7 +355,7 @@ Ahora ya está listo para mover la actualización a producción. Lo bueno es que
         git merge beta
         git push origin master
 
-2. Espere unos minutos para que el nuevo código se implemente en la ranura de ensayo, a continuación, inicie http://ToDoApp*&lt;your_suffix> *-staging.azurewebsites.net para comprobar que la nueva actualización está preparada en la ranura de ensayo. Recuerde que la rama de la bifurcación principal está vinculado a la ranura de ensayo de la aplicación.
+2. Espere unos minutos para que el nuevo código se implemente en la ranura de ensayo, a continuación, inicie http://ToDoApp *&lt;your_suffix>* -staging.azurewebsites.net para comprobar que la nueva actualización está preparada en la ranura de ensayo. Recuerde que la rama de la bifurcación principal está vinculado a la ranura de ensayo de la aplicación.
 
 3. Ahora, cambie la ranura de ensayo a producción
 
