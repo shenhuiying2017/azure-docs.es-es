@@ -65,7 +65,8 @@ Los parámetros necesarios para este cmdlet son los siguientes:
 - **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
 - **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL.
 
-Para más información sobre las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)][] [Creación de base de datos (Almacenamiento de datos SQL de Azure)]. Para ver la referencia de comandos, consulte [New-AzureRmSqlDatabase][]
+Para más información sobre las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)][] [Creación de base de datos (Almacenamiento de datos SQL de Azure)].
+Para ver la referencia de comandos, consulte [New-AzureRmSqlDatabase][]
 
 ## Pasos siguientes
 

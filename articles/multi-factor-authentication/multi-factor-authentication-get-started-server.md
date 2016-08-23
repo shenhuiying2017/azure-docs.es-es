@@ -55,7 +55,8 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
 3. Haga doble clic en la instancia de Azure AD.
 4. En la parte superior, haga clic en **Configurar.** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
-6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. 
+![Descargar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. De este modo se abrirá una nueva página. Haga clic en **Descargas**.
 8. Encima de **Generar credenciales de activación**, haga clic en **Descargar**.
 9. Guarde el archivo descargado.
@@ -68,7 +69,7 @@ Una vez descargado el servidor, puede instalarlo y configurarlo. Asegúrese de q
 
 
 
-Requisitos del Servidor Azure Multi-Factor Authentication|Description|
+Requisitos del Servidor Azure Multi-Factor Authentication|Descripción|
 :------------- | :------------- | 
 Hardware|<li>200 MB de espacio en disco duro</li><li>procesador compatible x32 o x64</li><li>1 GB o más de RAM</li>
 Software|<li>Windows Server 2008 o superior si el host es un sistema operativo de servidor</li><li>Windows 7 o superior si el host es un sistema operativo cliente</li><li>Microsoft .NET 4.0 Framework</li><li>ISS 7.0 o superior si instala el SDK del servicio web o del Portal de usuarios</li>
@@ -106,7 +107,8 @@ Subred IP|Máscara de red|Rango de direcciones IP
 1. Haga doble clic en el archivo ejecutable. Esto comenzará la instalación.
 2. En la pantalla Seleccionar carpeta de instalación, asegúrese de que la carpeta sea correcta y haga clic en Siguiente.
 3. Una vez completada la instalación, haga clic en Finalizar. Se inicia al asistente de configuración.
-4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. Se cerrará al Asistente y se iniciará el servidor. ![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. Se cerrará al Asistente y se iniciará el servidor. 
+![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. De vuelta en la página desde la que hemos descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
 

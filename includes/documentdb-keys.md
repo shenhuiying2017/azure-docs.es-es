@@ -1,4 +1,4 @@
-       Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
+       Ahora, vaya a la hoja de claves de su cuenta de DocumentDB, dado que utilizaremos estos valores en la aplicación web que crearemos a continuación.
 
        ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
 
