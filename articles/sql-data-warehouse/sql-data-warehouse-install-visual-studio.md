@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
@@ -42,18 +42,18 @@ Si no hay ninguna actualización, debería tener la última versión instalada. 
 
 ## Pasos siguientes
 
-Ahora que tiene la versión más reciente de SSDT, está listo para [conectarse][] a su instancia de Almacenamiento de datos SQL.
+Ahora que tiene la versión más reciente de SSDT, ya puede [conectarse][] a su instancia de Almacenamiento de datos SQL.
 
 <!--Anchors-->
 
 <!--Image references-->
 
 <!--Articles-->
-[conectarse]: ./sql-data-warehouse-get-started-connect.md
+[conectarse]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Descargue Visual Studio 2015]: https://www.visualstudio.com/downloads/
 [Instalar Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Descargar las últimas herramientas de datos SQL Server]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

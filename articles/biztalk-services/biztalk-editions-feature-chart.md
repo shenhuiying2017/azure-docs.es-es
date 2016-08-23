@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -54,7 +54,7 @@ En la tabla siguiente se muestran las diferencias.
         <th>Free (Vista previa)</th>
         <th>Developer</th>
         <th>Básica</th>
-        <th>Standard</th>
+        <th>Estándar</th>
         <th>Premium</th>
 </tr>
 
@@ -259,4 +259,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de Azure, vaya a [Crea
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

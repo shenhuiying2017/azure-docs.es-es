@@ -29,13 +29,15 @@
 
 En este tutorial, aprenderá a usar el Portal de Azure para:
 
-- Crear un servidor lógico de base de datos SQL para hospedar bases de datos SQL
+- Crear un servidor lógico de base de datos SQL para hospedar bases de datos SQL.
 - Crear una base de datos SQL sin datos, con datos de ejemplo o con datos de una copia de seguridad de Base de datos SQL.
 - Crear una regla de firewall de nivel de servidor para una única dirección IP o un intervalo de direcciones IP.
 
 Utilice estos vínculos para realizar estas mismas tareas con [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Inicio de sesión](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Creación de un servidor lógico de Base de datos SQL](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -54,11 +56,11 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 - Si desea mover las bases de datos de SQL Server locales a Azure, consulte [Migrar una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
 
-- Si desea cargar algunos datos en una nueva tabla desde un archivo CSV mediante BCP, consulte el artículo sobre la [carga de datos en una Base de datos SQL desde un archivo CSV con BCP](sql-database-load-from-csv-with-bcp.md).
+- Si desea cargar datos en una tabla nueva desde un archivo CSV mediante BCP, consulte el artículo sobre la [carga de datos en una Base de datos SQL desde un archivo CSV con BCP](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Recursos adicionales
 
 [¿Qué es Base de datos SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

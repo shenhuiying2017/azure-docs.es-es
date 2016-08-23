@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 
 Creación de Servicios de BizTalk de Azure en el Portal de Azure | Microsoft Azure
 
-> [AZURE.TIP] Para iniciar sesión en el Portal de Azure, necesita una suscripción a Azure y una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Consulte [Evaluación gratuita de Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [AZURE.TIP] Para iniciar sesión en el Portal de Azure, se necesita una suscripción a Azure y una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Consulte [Evaluación gratuita de Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 ## Crear un Servicio de BizTalk
 En función de la edición que elija, puede que no estén disponibles todos los valores del Servicios de BizTalk.
@@ -121,10 +121,10 @@ Según el estado del servicio de BizTalk, hay algunas operaciones que no se pued
 -  [Obtención del espacio de nombres de control de acceso](#ACS)
 
 #### <a name="InstallCert"></a>Instalación del certificado en un equipo local
-Como parte del aprovisionamiento del Servicio de BizTalk, se crea un certificado autofirmado y se asocia a su suscripción del Servicios de BizTalk. Debe descargar este certificado e instalarlo en equipos desde los que implemente aplicaciones del Servicio de BizTalk o envíe mensajes a un extremo del Servicio de BizTalk.
+Como parte del aprovisionamiento del Servicio de BizTalk, se crea un certificado autofirmado y se asocia a su suscripción del Servicio de BizTalk. Debe descargar este certificado e instalarlo en equipos desde los que implemente aplicaciones del Servicio de BizTalk o envíe mensajes a un extremo del Servicio de BizTalk.
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Seleccione **SERVICIOS DE BIZTALK** en el panel de navegación que se encuentra a la izquierda y, a continuación, seleccione su suscripción al Servicio de BizTalk.
+2. Seleccione **SERVICIOS DE BIZTALK** en el panel de navegación que se encuentra a la izquierda y, luego, seleccione su suscripción al Servicio de BizTalk.
 3. Seleccione la pestaña **Panel**.
 4. Seleccione **Descargar certificado SSL**. ![Modificar certificado SSL][QuickGlance]
 5. Haga doble clic en el certificado y ejecute el asistente para instalar el certificado. Asegúrese de instalar el certificado en el almacén **Entidades de certificación raíz de confianza**.
@@ -145,13 +145,13 @@ El certificado autofirmado que se crea automáticamente al crear Servicios de Bi
 
 Cuando implementa un proyecto de servicio de BizTalk desde Visual Studio, debe escribir este espacio de nombres del servicio de control de acceso. El espacio de nombres Control de acceso se crea automáticamente para el Servicio de BizTalk.
 
-Los valores de control de acceso se pueden utilizar con cualquier aplicación. Una vez que se crean los Servicios de BizTalk de Azure, el espacio de nombres del servicio de control de acceso controla la autenticación con su implementación del servicio de BizTalk. Si desea cambiar la suscripción o administrar el espacio de nombres, seleccione **ACTIVE DIRECTORY** en el panel de navegación que se encuentra a la izquierda y, a continuación, seleccione el espacio de nombres. La barra de tareas muestra sus opciones.
+Los valores de control de acceso se pueden utilizar con cualquier aplicación. Una vez que se crean los Servicios de BizTalk de Azure, el espacio de nombres del servicio de control de acceso controla la autenticación con su implementación del servicio de BizTalk. Si desea cambiar la suscripción o administrar el espacio de nombres, seleccione **ACTIVE DIRECTORY** en el panel de navegación que se encuentra a la izquierda y, luego, seleccione el espacio de nombres. La barra de tareas muestra sus opciones.
 
 Haga clic en **Administrar** para abrir el Portal de administración del sistema de control de acceso. En el Portal de administración del control de acceso, el servicio de BizTalk usa **Identidades de servicio**: ![Identidades de servicio de ACS en el Portal de administración del sistema de control de acceso][ACSServiceIdentities]
 
 La identidad de servicio del control de acceso es un conjunto de credenciales que permiten que las aplicaciones o los clientes se autentiquen directamente con el control de acceso.
 
-> [AZURE.IMPORTANT] El servicio de BizTalk utiliza el valor **Owner** para la identidad de servicio predeterminada y el valor **Password**. Si usa el valor de Symmetric Key en lugar del valor de Password, puede producirse el siguiente error:<br/><br/>*No se pudo conectar a la cuenta del servicio de administración de Control de acceso con las credenciales especificadas*
+> [AZURE.IMPORTANT] El servicio de BizTalk utiliza el valor **Owner** para la identidad de servicio predeterminada y el valor **Password**. Si usa el valor de Symmetric Key, en lugar del valor de Password, puede aparecer el siguiente error:<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials* (No se pudo conectar a la cuenta del servicio Administración de control de acceso con las credenciales especificadas)
 
 [Administración del espacio de nombres ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) muestra algunas directrices y recomendaciones.
 
@@ -167,9 +167,9 @@ Estos requisitos no se aplican a la versión gratuita.
 <td>Suscripción de Azure</td>
 <td>La suscripción determina quién puede iniciar sesión en el Portal de Azure. El titular de la cuenta crea la suscripción en <a HREF="https://account.windowsazure.com/Subscriptions"> Suscripciones de Azure</a>.
 <br/><br/>
-La cuenta de Azure puede tener varias suscripciones y la puede administrar alguien que tenga permisos. Por ejemplo, el titular de la cuenta de Azure crea una suscripción llamada <em>BizTalkServiceSubscription</em> y concede acceso a la misma a los administradores de BizTalk dentro de su empresa (por ejemplo, ContosoBTSAdmins@live.com). En este escenario, los administradores de BizTalk inician sesión en el Portal de Azure y tienen derechos de administrador en todos los servicios hospedados en la suscripción, incluidos Servicios de BizTalk de Azure. Los administradores de BizTalk no son los titulares de la cuenta de Azure y, por lo tanto, no tienen acceso a información de facturación alguna.
+La cuenta de Azure puede tener varias suscripciones y la puede administrar alguien que tenga permisos. Por ejemplo, el titular de la cuenta de Azure crea una suscripción llamada <em>BizTalkServiceSubscription</em> y concede acceso a la misma a los administradores de BizTalk dentro de su empresa (por ejemplo, ContosoBTSAdmins@live.com). En este escenario, los administradores de BizTalk inician sesión en el Portal de Azure y tienen permisos totales de administrador en todos los servicios hospedados en la suscripción, incluidos Servicios de BizTalk de Azure. Los administradores de BizTalk no son los titulares de la cuenta de Azure y, por lo tanto, no tienen acceso a información de facturación alguna.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Administrar cuentas, suscripciones y roles administrativos en el Portal de Azure</a> ofrece más información.
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Administrar cuentas, suscripciones y roles administrativos en el Portal de Azure</a> ofrece más información al respecto.
 </td>
 </tr>
 <tr>
@@ -254,7 +254,7 @@ Las conexiones híbridas se usan para conectar un sitio web de Azure o un servic
 
 Ahora que se crea un servicio de BizTalk, familiarícese con [Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md). Su servicio de BizTalk está listo para las aplicaciones. Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Consulte también
+## Otras referencias
 - [Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md)<br/>
 - [Servicios de BizTalk: gráfico del estado](biztalk-service-state-chart.md)<br/>
 - [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)<br/>
@@ -271,4 +271,4 @@ Ahora que se crea un servicio de BizTalk, familiarícese con [Servicios de BizTa
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

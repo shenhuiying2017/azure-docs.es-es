@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB
@@ -57,7 +57,7 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Paso 2: Configuración de la solución de Visual Studio
+## <a id="SetupVS"></a> Paso 2: Configuración de la solución de Visual Studio
 
 1. Abra **Visual Studio 2015** en el equipo.
 2. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.
@@ -69,7 +69,7 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir algo de código. Puede buscar un proyecto con código completo de este tutorial en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Paso 3: Conexión a una cuenta de DocumentDB
+## <a id="Connect"></a> Paso 3: Conexión a una cuenta de DocumentDB
 
 En primer lugar, agregue estas referencias al principio de la aplicación de C#, en el archivo Program.cs:
 
@@ -96,9 +96,9 @@ Ahora, agregue estas dos constantes y la variable de *cliente* debajo de la clas
 
 Seguidamente, diríjase al [Portal de Azure](https://portal.azure.com) para recuperar el identificador URI y la clave principal. El identificador URI y la clave principal de DocumentDB son necesarios para que la aplicación sepa a dónde debe conectarse y para que DocumentDB confíe en la conexión de la aplicación.
 
-En el Portal de Azure, navegue a la cuenta de DocumentDB que se creó en el paso 1.
+En el Portal de Azure, navegue a la cuenta de DocumentDB que se creó en el paso 1 y, a continuación, haga clic en **Claves**.
 
-Haga clic en el icono de las **llaves** de la barra de **Essentials**. Copie el identificador URI y reemplace *<el identificador URI del punto de conexión>* por el identificador URI copiado en el programa. Copie la clave principal y reemplace *<la clave>* por la clave copiada en el programa.
+Copie el identificador URI y reemplace *<el identificador URI del punto de conexión>* por el identificador URI copiado en el programa. Copie la clave principal y reemplace *<la clave>* por la clave copiada en el programa.
 
 ![Captura de pantalla del Portal de Azure usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves.][keys]
 
@@ -200,7 +200,7 @@ Presione **F5** para ejecutar la aplicación.
 
 ¡Enhorabuena! Ha creado correctamente una base de datos de DocumentDB.
 
-##<a id="CreateColl"></a>Paso 5: Creación de una colección  
+## <a id="CreateColl"></a>Paso 5: Creación de una colección  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -255,7 +255,7 @@ Presione **F5** para ejecutar la aplicación.
 
 ¡Enhorabuena! Ha creado correctamente una colección de documentos de DocumentDB.
 
-##<a id="CreateDoc"></a>Paso 6: Creación de documentos JSON
+## <a id="CreateDoc"></a>Paso 6: Creación de documentos JSON
 Un [documento](documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). Ahora podemos insertar uno o varios documentos. Si ya dispone de datos que desea almacenar en la base de datos, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB.
 
 En primer lugar, es preciso crear una clase denominada **Family** que represente los objetos almacenados en DocumentDB en este ejemplo. También se crearan las subclases denominadas **Parent**, **Child**, **Pet** y **Address** que se utilizan dentro de **Family**. Tenga en cuenta que los documentos deben tener una propiedad de **Id** serializada como **id** en JSON. Para agregar estas clases, agregue las siguientes subclases internas después del método **GetStartedDemo**.
@@ -443,7 +443,7 @@ Copie y pegue el método **ExecuteSimpleQuery** debajo del método **CreateFamil
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -612,4 +612,4 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

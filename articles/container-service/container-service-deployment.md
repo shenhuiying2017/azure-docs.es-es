@@ -20,7 +20,7 @@
 
 # Implementación de un clúster del servicio Contenedor de Azure
 
-El servicio Contenedor de Azure proporciona una rápida implementación de agrupación en clústeres de contenedor de código abierto y soluciones de orquestación populares. El servicio Contenedor de Azure permite implementar clústeres de DC/OS y Docker Swarm con plantillas de Azure Resource Manager o con el Portal de Azure. Estos clústeres se implementan mediante conjuntos de escalado de máquinas virtuales de Azure, y aprovechan las posibilidades que ofrecen las funciones de red y almacenamiento de Azure. Para obtener acceso al servicio Contenedor de Azure, necesita una suscripción de Azure. Si no tiene una, puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+El servicio Contenedor de Azure proporciona una rápida implementación de agrupación en clústeres de contenedor de código abierto y soluciones de orquestación populares. El servicio Contenedor de Azure permite implementar clústeres de DC/OS y Docker Swarm con plantillas de Azure Resource Manager o con el Portal de Azure. Estos clústeres se implementan mediante Conjuntos de escala de máquinas virtuales de Azure y sacan provecho de las posibilidades que ofrecen las funciones de red y almacenamiento de Azure. Para acceder a Azure Container Service, se necesita una suscripción de Azure. Si no tiene una, puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Este documento le guiará por la implementación de un clúster del servicio Contenedor de Azure mediante el [Portal de Azure](#creating-a-service-using-the-azure-portal), la [interfaz de línea de comandos (CLI) de Azure](#creating-a-service-using-the-azure-cli) y el [módulo Azure PowerShell](#creating-a-service-using-powershell).
 
@@ -40,7 +40,7 @@ Escriba la siguiente información:
 - **Suscripción**: seleccione una suscripción de Azure.
 - **Grupo de recursos**: seleccione un grupo de recursos existente o cree uno nuevo.
 - **Ubicación**: seleccione una región de Azure para la implementación del servicio Contenedor de Azure.
-- **Clave pública SSH**: agregue la clave pública que se utilizará para la autenticación en las máquinas virtuales del servicio Contenedor de Azure. Es importante que la clave no tenga saltos de línea y que incluya el prefijo 'ssh-rsa' y el sufijo 'username@domain'. Debería ser algo similar a: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obtener instrucciones acerca de cómo crear claves de Secure Shell (SSH), consulte los artículos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) y [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Clave pública SSH**: agregue la clave pública que se utilizará para la autenticación en las máquinas virtuales del servicio Contenedor de Azure. Es importante que la clave no tenga saltos de línea y que incluya el prefijo 'ssh-rsa' y el sufijo 'username@domain'. Debería ser similar a lo siguiente: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obtener instrucciones acerca de cómo crear claves de Secure Shell (SSH), consulte los artículos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) y [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Haga clic en **Aceptar** cuando esté listo para continuar.
 
@@ -57,10 +57,10 @@ Haga clic en **Aceptar** cuando esté listo para continuar.
 
 Escriba la siguiente información:
 
-- **Número de patrones**: el número de patrones en el clúster.
-- **Número de agentes**: para Docker Swarm este será el número inicial de agentes en el conjunto de escalas del agente. En el caso de DC/OS, se trata del número inicial de agentes en un conjunto de escalas privadas. Además, se crea un conjunto de escalas públicas que contiene un número predeterminado de agentes. El número de agentes en este conjunto de escalas públicas se determina por el número de patrones que se han creado en el clúster, un agente público para un patrón y dos agentes públicos para tres o cinco patrones.
-- **Tamaño de la máquina virtual del agente**: el tamaño de las máquinas virtuales de los agentes.
-- **Prefijo de DNS**: un nombre único en el mundo que se utilizará para prefijar las partes clave de los nombres de dominio completos del servicio.
+- **Master count** (Número de patrones): el número de patrones en el clúster.
+- **Agent count** (Número de agentes): en el caso de Docker Swarm, será el número inicial de agentes en el conjunto de escalas del agente. En el caso de DC/OS, se trata del número inicial de agentes en un conjunto de escalas privadas. Además, se crea un conjunto de escalas públicas que contiene un número predeterminado de agentes. El número de agentes en este conjunto de escalas públicas se determina por el número de patrones que se han creado en el clúster, un agente público para un patrón y dos agentes públicos para tres o cinco patrones.
+- **Agent virtual machine size** (Tamaño de máquina virtual de agente): el tamaño de las máquinas virtuales de los agentes.
+- **DNS prefix** (Prefijo de DNS): un nombre único en el mundo que se utilizará para prefijar las partes clave de los nombres de dominio completos del servicio.
 
 Haga clic en **Aceptar** cuando esté listo para continuar.
 
@@ -82,7 +82,7 @@ Una vez finalizada la implementación, el clúster del servicio Contenedor de Az
 
 ## Creación de un servicio con la CLI de Azure
 
-Para crear una instancia del servicio Contenedor de Azure mediante la línea de comandos, necesita una suscripción de Azure. Si no tiene una, puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). También tiene que haber instalado y configurado la CLI de Azure.
+Para crear una instancia de Azure Container Service mediante la línea de comandos, necesita una suscripción de Azure. Si no tiene ninguna, puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). También es preciso que la CLI de Azure esté [instalada](../xplat-cli-install.md) y [configurada](../xplat-cli-connect.md).
 
 Seleccione una de las siguientes plantillas de GitHub para implementar un clúster de DC/OS o Docker Swarm. Observe que ambas plantillas son iguales, a excepción de la selección predeterminada del orquestador.
 
@@ -108,9 +108,9 @@ azure config mode arm
 
 Cree un clúster del grupo de recursos de Azure y el servicio Contenedor con el comando siguiente, en el que:
 
-- **RESOURCE\_GROUP**: es el nombre del grupo de recursos que quiere usar para este servicio.
-- **LOCATION** es la región de Azure donde se creará la implementación del grupo de recursos y el servicio Contenedor de Azure.
-- **TEMPLATE\_URI** es la ubicación del archivo de implementación. Tenga en cuenta que este tiene que ser el archivo Raw, no un puntero a la interfaz de usuario de GitHub. Para encontrar esta dirección URL seleccione el archivo azuredeploy.json en GitHub y haga clic en el botón **Raw**.
+- **RESOURCE\_GROUP** es el nombre del grupo de recursos que desea usar para este servicio.
+- **LOCATION** es la región de Azure en la que se creará la implementación del grupo de recursos y de Azure Container Service.
+- **TEMPLATE\_URI** es la ubicación del archivo de implementación. Tenga en cuenta que este tiene que ser el archivo Raw, no un puntero a la interfaz de usuario de GitHub. Para encontrar esta dirección URL seleccione el archivo azuredeploy.json en GitHub y haga clic en el botón **Raw** (Sin formato).
 
 > [AZURE.NOTE] Al ejecutar este comando, el shell solicitará los valores de los parámetros de implementación.
 
@@ -122,7 +122,7 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 
 ### Suministro de los parámetros de plantilla
 
-Esta versión del comando requiere que el usuario defina los parámetros de forma interactiva. Si desea proporcionar parámetros, tales como una cadena con el formato JSON, puede hacerlo con el modificador `-p`. Por ejemplo:
+Esta versión del comando requiere que el usuario defina los parámetros de forma interactiva. Si desea proporcionar parámetros, como una cadena con formato JSON, puede hacerlo con el modificador `-p`. Por ejemplo:
 
  ```bash
  # sample deployment
@@ -138,18 +138,18 @@ También puede proporcionar un archivo de parámetros con formato JSON mediante 
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
  ```
 
-Para ver un archivo de parámetros de ejemplo llamado `azuredeploy.parameters.json`, búsquelo con las plantillas del servicio Contenedor de Azure en GitHub.
+Para ver un archivo de parámetros de ejemplo llamado `azuredeploy.parameters.json`, búsquelo con las plantillas de Azure Container Service en GitHub.
 
 ## Creación de un servicio con PowerShell
 
-También puede implementar un clúster del servicio Contenedor de Azure con PowerShell. Este documento se basa en la versión 1.0 del [módulo Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
+También puede implementar un clúster del servicio Contenedor de Azure con PowerShell. Este documento se basa en la versión 1.0 del [módulo de Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
 Seleccione una de las siguientes plantillas para implementar un clúster de DC/OS o Docker Swarm. Observe que ambas plantillas son iguales, a excepción de la selección predeterminada del orquestador.
 
 * [Plantilla de DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Plantilla Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Antes de crear un clúster en su suscripción de Azure, compruebe que la sesión de PowerShell se ha iniciado en Azure. Puede hacer esto con el comando `Get-AzureRMSubscription`:
+Antes de crear un clúster en su suscripción de Azure, compruebe que la sesión de PowerShell se ha iniciado en Azure. Para ello, puede usar el comando `Get-AzureRMSubscription`:
 
 ```powershell
 Get-AzureRmSubscription
@@ -161,13 +161,13 @@ Si tiene que iniciar sesión en Azure, use el comando `Login-AzureRMAccount`:
 Login-AzureRmAccount
 ```
 
-Si va a implementar en un nuevo grupo de recursos, primero tiene que crear el grupo de recursos. Para crear un nuevo grupo de recursos, use el comando `New-AzureRmResourceGroup`, especificando un nombre y una región de destino para este grupo:
+Si va a implementar en un nuevo grupo de recursos, primero tiene que crear el grupo de recursos. Para crear un nuevo grupo de recursos, use el comando `New-AzureRmResourceGroup` y especifique un nombre y una región de destino para dicho grupo:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
-Después de crear un grupo de recursos, puede crear el clúster con el comando siguiente. El identificador URI de la plantilla que desee se especificará para el parámetro `-TemplateUri`. Al ejecutar este comando, PowerShell solicitará los valores de los parámetros de implementación.
+Después de crear un grupo de recursos, puede crear el clúster con el comando siguiente. El identificador URI de la plantilla deseada se especificará para el parámetro `-TemplateUri`. Al ejecutar este comando, PowerShell solicitará los valores de los parámetros de implementación.
 
 ```powershell
 # sample deployment
@@ -195,4 +195,4 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 - [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 - [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

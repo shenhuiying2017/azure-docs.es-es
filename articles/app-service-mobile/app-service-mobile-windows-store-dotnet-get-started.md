@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de una aplicación para Plataforma universal de Windows (UWP) en aplicaciones móviles del Servicio de aplicaciones de Azure | Microsoft Azure"
+	pageTitle="Creación de una Plataforma universal de Windows (UWP) que se use en Aplicaciones móviles | Microsoft Azure"
 	description="Siga este tutorial para aprender a usar back-ends de aplicación móvil de Azure para el desarrollo de aplicaciones para Plataforma universal de Windows (UWP) en C#, Visual Basic o JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Creación de una aplicación para Windows
@@ -78,11 +78,11 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 ##Pasos siguientes
 
-* [Agregar autenticación a la aplicación](app-service-mobile-windows-store-dotnet-get-started-users.md): aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de autenticación a la aplicación](app-service-mobile-windows-store-dotnet-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](app-service-mobile-windows-store-dotnet-get-started-push.md) Aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
+* [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md): aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
 
-* [Habilitar la sincronización sin conexión para la aplicación](app-service-mobile-windows-store-dotnet-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
+* [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-windows-store-dotnet-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -91,4 +91,4 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

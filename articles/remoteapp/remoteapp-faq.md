@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/25/2016" 
+	ms.date="08/15/2016" 
 	ms.author="elizapo"/>
 
 # Preguntas más frecuentes sobre Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene alguna otra? Visite los [Foros de RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) y pregúntenos lo que quiera saber o deje un comentario abajo.
 
 ## ¿No encuentra lo que busca? ¿Tiene alguna pregunta que no hayamos respondido?
@@ -33,7 +37,7 @@ Si no puede encontrar la información que necesita o tiene alguna pregunta adici
 - **¿Puedo probar este servicio de forma gratuita?** Sí. Hay una versión de prueba gratuita durante 30 días. Tras la finalización de la prueba, puede realizar la transición a una cuenta de pago (que puede usar en producción) o dejar de usar el servicio. Para comenzar una evaluación gratuita, vaya a [portal.azure.com](http://portal.azure.com) y cree una instancia de RemoteApp. Con la versión de prueba gratuita, puede crear dos instancias de RemoteApp con 10 usuarios por instancia. Recuerde que esta versión de prueba solo tiene una duración de 30 días.
 ## Detalles de la suscripción de Azure RemoteApp ##
 
-- **¿Cuáles son los límites de servicio?** Puede obtener más información sobre la configuración predeterminada y los límites de servicios de Azure RemoteApp en [Límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md). Indíquenos si tiene otras preguntas.
+- **¿Cuáles son los límites de servicio?** Puede aprender más sobre la configuración predeterminada y los límites de servicio de Azure RemoteApp en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md). Indíquenos si tiene otras preguntas.
 - **¿Cuántos usuarios es necesario tener?** Hay un mínimo de 20 usuarios. Permítame que me repita para que quede más claro: el valor mínimo es 20. Se le facturarán 20.
 - **¿Cuánto cuesta RemoteApp?** Consulte [Detalles de precios de RemoteApp de Azure](https://azure.microsoft.com/pricing/details/remoteapp/).
 - **¿Un tipo de colección cuesta más que otro?** Sí, puede que sí, según los requisitos de la colección. Una colección híbrida requiere una conexión desde Azure RemoteApp hasta la red local. Si utiliza una ruta de red virtual (VNET) o una ExpressRoute existente, no se genera ningún costo adicional. Pero si usa una red virtual de Azure nueva y una puerta de enlace o una ExpressRoute, se le cobrará por la [puerta de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) o por la [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Este costo (detallado en los vínculos) se suma a los costos mensuales de Azure RemoteApp.
@@ -88,7 +92,7 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 
 - **¿Qué versión de Windows Server es compatible con el host de sesión de Escritorio remoto (RDSH)?** Windows Server 2012 R2.
 
-##Soporte y comentarios
+## Soporte y comentarios
 
 
 - **¿Cuál es el plan de soporte técnico para RemoteApp?** Se ofrecen de forma gratuita los servicios de asistencia para facturación y administración de suscripciones. El soporte técnico está disponible a través de los [planes de servicio de Azure](https://azure.microsoft.com/support/plans/). También puede obtener soporte técnico gratuito de la comunidad a través de nuestro [foro de discusión de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp).
@@ -115,6 +119,6 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 
  
 ### Permítanos ayudarle 
-¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
+¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->
