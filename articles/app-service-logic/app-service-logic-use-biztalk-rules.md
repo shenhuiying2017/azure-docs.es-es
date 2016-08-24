@@ -156,7 +156,8 @@ Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es
 	4.	Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
-Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:
+Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). 
+El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:  
 1. 	And: operador condicional  
 2. 	Or: operador condicional  
 3. 	does\_not\_exist  
@@ -173,7 +174,7 @@ Una regla es una colección de declaraciones de condición y acción. Las accion
 14. mod  
 15. true  
 
-El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. A continuación se indican las palabras clave admitidas:
+El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. A continuación se indican las palabras clave admitidas:  
 1.	equals  
 2.	false  
 3.	true  
@@ -186,8 +187,8 @@ Los cuadros de condición y acción proporcionan Intellisense para ayudar al aut
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:
-   1.	update <definición de vocabulario>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:  
+   1.	update <definición de vocabulario>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
 ##Habilitación/deshabilitación de reglas
