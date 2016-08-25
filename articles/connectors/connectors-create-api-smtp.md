@@ -37,13 +37,17 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto). Este desencadenador se activará al crear un objeto de Salesforce. En nuestro ejemplo, vamos a configurarlo para que cada vez que se crea un cliente potencial en Salesforce, se produzca una acción *Enviar correo electrónico* a través del conector de SMTP con una notificación sobre el cliente potencial que se está creando.
 
-1. Escriba *salesforce* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto). ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)
+1. Escriba *salesforce* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto).  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. Se muestra el control **When an object is created** (Cuando se crea un objeto). ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)
+2. Se muestra el control **When an object is created** (Cuando se crea un objeto).  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un cliente potencial en Salesforce. ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)
+3. Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un cliente potencial en Salesforce.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. Se ha creado el desencadenador. ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)
+4. Se ha creado el desencadenador.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## Uso de una acción de SMTP
 
@@ -51,15 +55,19 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 Ahora que se ha agregado el desencadenador, siga estos pasos para agregar una acción de SMTP que se produzca cuando se crea un cliente potencial en Salesforce.
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un cliente potencial. ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)
+1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un cliente potencial.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)
+2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
 3. Escriba *smtp* para buscar todas las acciones relacionadas con SMTP.
 
-4. Seleccione **SMTP - Send Email** (SMTP - Enviar correo electrónico) como la acción que se realizará cuando se crea el cliente potencial. Se abre el bloque de control de acción. Tendrá que establecer la conexión de SMTP en el bloque de diseñador si no lo ha hecho previamente. ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)
+4. Seleccione **SMTP - Send Email** (SMTP - Enviar correo electrónico) como la acción que se realizará cuando se crea el cliente potencial. Se abre el bloque de control de acción. Tendrá que establecer la conexión de SMTP en el bloque de diseñador si no lo ha hecho previamente.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
-5. Indique la información de correo electrónico que desee en el bloque **SMTP - Send Email** (SMTP - Enviar correo electrónico). ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)
+5. Indique la información de correo electrónico que desee en el bloque **SMTP - Send Email** (SMTP - Enviar correo electrónico).  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
 6. Guarde el trabajo para activar el flujo de trabajo.
 
