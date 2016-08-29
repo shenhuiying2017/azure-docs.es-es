@@ -243,7 +243,7 @@ No hay ningún elemento de acción para usted en esta sección.
 
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a QuickHelp.
 
-![Asignar usuario][200]
+	![Asignar usuario][200]
 
 **Para asignar a Britta Simon a QuickHelp, realice los pasos siguientes:**
 

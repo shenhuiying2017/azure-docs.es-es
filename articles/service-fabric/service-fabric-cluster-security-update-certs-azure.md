@@ -40,15 +40,15 @@ A diferencia del flujo de trabajo de creación de clúster, aquí no se tienen e
 
 Haga clic en **Certificado**. Se inicia una implementación y se mostrará una barra de estado azul en la hoja de seguridad del clúster.
 
-![Screen shot of certificate thumbprints in the portal][SecurityConfigurations\_02]
+![Screen shot of certificate thumbprints in the portal][SecurityConfigurations_02]
 
 Cuando la implementación finalice correctamente, podrá usar tanto el certificado principal como el secundario para realizar operaciones de administración en el clúster.
 
-![Screen shot of certificate deployment in progress][SecurityConfigurations\_03]
+![Screen shot of certificate deployment in progress][SecurityConfigurations_03]
 
 Esta captura de pantalla muestra el aspecto de la hoja de seguridad una vez completada la implementación.
 
-![Screen shot of certificate thumbprints after deployment][SecurityConfigurations\_08]
+![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_08]
 
 
 Ahora puede usar el nuevo certificado recién agregado para conectarse y realizar operaciones en el clúster.

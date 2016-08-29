@@ -34,15 +34,15 @@ Este tema incluye los pasos necesarios para recuperar el nombre y la clave de em
 ## Nombre y clave de emisor del servicio de control de acceso
 Los siguientes elementos usan el nombre y la clave de emisor del servicio de control de acceso:
 
-- Su aplicación del servicio de BizTalk de Azure creada en Visual Studio: para implementar correctamente la aplicación del servicio de BizTalk de Visual Studio en Azure, debe escribir el nombre y la clave de emisor del servicio de control de acceso.
+- Su aplicación del servicio de BizTalk de Azure creada en Visual Studio: para implementar correctamente la aplicación del servicio de BizTalk de Visual Studio en Azure, debe escribir el nombre y la clave de emisor del servicio de control de acceso. 
 - Portal de Servicios de BizTalk de Azure: al crear un servicio de BizTalk Service y abrir el Portal de Servicios de BizTalk, el nombre del emisor de control de acceso y la clave de emisor se registran automáticamente para las implementaciones con los mismos valores de control de acceso.
 
 ### Copia y pegado del nombre y la clave de emisor de control de acceso
 
 1. Inicie sesión en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. En el panel de navegación izquierdo, seleccione **Servicios de BizTalk**.
-3. Seleccione su servicio de BizTalk.
-4. Seleccione **Información de conexión** en la barra de tareas. El espacio de nombres del servicio de control de acceso, el emisor predeterminado (nombre de emisario) y la clave predeterminada (clave de emisor) se incluyen y se pueden copiar y pegar.
+3. Seleccione su servicio de BizTalk. 
+4. Seleccione **Información de conexión** en la barra de tareas. El espacio de nombres del servicio de control de acceso, el emisor predeterminado (nombre de emisario) y la clave predeterminada (clave de emisor) se incluyen y se pueden copiar y pegar.  
 
 En resumen: Nombre de emisor = Emisor predeterminad Clave de emisor = Clave predeterminada
 
@@ -53,7 +53,7 @@ También puede seleccionar **Abrir Portal de administración de AC**S para obten
 2. En el panel de navegación izquierdo, seleccione **Servicios de BizTalk**.
 3. Seleccione su servicio de BizTalk.
 4. Seleccione el botón Información de conexión y **Abrir Portal de administración de ACS**.
-5. En el Portal, debajo de **Configuración del servicio**, seleccione **Identidades del servicio**. De este modo, se muestra su identidad de servicio, que es el valor del nombre de emisor del servicio de control de acceso. Seleccione el vínculo de su identidad de servicio para ver la contraseña, que es el valor de la clave de emisor. Sus valores se pueden copiar.<br/><br/> Por ejemplo, en **Identidades del servicio**, podrá ver "owner". "Owner" es el nombre de emisor de su servicio de control de acceso. Cuando haga clic en el vínculo "owner", verá **Password**. Cuando haga clic en el vínculo "Password", verá el valor. Este valor de Password es su clave de emisor del servicio de control de acceso.
+5. En el Portal, debajo de **Configuración del servicio**, seleccione **Identidades del servicio**. De este modo, se muestra su identidad de servicio, que es el valor del nombre de emisor del servicio de control de acceso. Seleccione el vínculo de su identidad de servicio para ver la contraseña, que es el valor de la clave de emisor. Sus valores se pueden copiar.<br/><br/> Por ejemplo, en **Identidades del servicio**, podrá ver "owner". "Owner" es el nombre de emisor de su servicio de control de acceso. Cuando haga clic en el vínculo "owner", verá **Password**. Cuando haga clic en el vínculo "Password", verá el valor. Este valor de Password es su clave de emisor del servicio de control de acceso.  
 
 En resumen: Nombre de emisor = Nombre de identidad de servicio Clave de emisor = Valor de contraseña
 
@@ -69,9 +69,11 @@ Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor del bu
 
 1. Inicie sesión en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. En el panel de navegación izquierdo, haga clic en **Bus de servicio**.
-3. Seleccione su espacio de nombres. Seleccione **Información de conexión** en la barra de tareas. De este modo se muestra el **Emisor predeterminado** (nombre de emisor) y la **Clave predeterminada** (clave de emisor). Sus valores se pueden copiar.
+3. Seleccione su espacio de nombres. Seleccione **Información de conexión** en la barra de tareas. De este modo se muestra el **Emisor predeterminado** (nombre de emisor) y la **Clave predeterminada** (clave de emisor). Sus valores se pueden copiar.  
 
-En resumen: Nombre de emisor = Emisor predeterminad Clave de emisor = Clave predeterminada
+En resumen:  
+Nombre de emisor = Emisor predeterminad  
+Clave de emisor = Clave predeterminada
 
 ## Pasos siguientes
 Otros temas acerca de los servicios de BizTalk de Azure:

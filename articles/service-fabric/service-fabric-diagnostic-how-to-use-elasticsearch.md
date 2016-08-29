@@ -24,9 +24,11 @@ El tiempo de ejecución de Service Fabric usa ETW para producir información de 
 
 Para que los seguimientos aparezcan en ElasticSearch, deben capturarse en los nodos de clúster de Service Fabric en tiempo real (mientras se ejecuta la aplicación) y enviarse al punto de conexión de ElasticSearch. Hay dos opciones principales para la captura de seguimientos:
 
-+ **Captura de seguimientos en proceso** La aplicación o, más concretamente, el proceso de servicio es responsable de enviar los datos de diagnóstico al almacén de seguimientos (ElasticSearch).
++ **Captura de seguimientos en proceso**  
+La aplicación o, más concretamente, el proceso de servicio es responsable de enviar los datos de diagnóstico al almacén de seguimientos (ElasticSearch).
 
-+ **Captura de seguimientos fuera de proceso** Un agente independiente captura los seguimientos de los procesos del servicio y los envía al almacén de seguimientos.
++ **Captura de seguimientos fuera de proceso**  
+Un agente independiente captura los seguimientos de los procesos del servicio y los envía al almacén de seguimientos.
 
 En el resto del artículo se describe cómo configurar ElasticSearch en Azure, se analizan los pros y los contras de ambas opciones de captura y se explica cómo configurar un servicio de Service Fabric para enviar datos a ElasticSearch.
 
@@ -41,7 +43,8 @@ La manera más fácil de usar la plantilla ES-MultiNode es mediante un script de
 
 El script `CreateElasticSearchCluster` está diseñado para facilitar su uso con la plantilla ES-MultiNode en una máquina con Windows. Se puede usar la plantilla en una máquina que no sea de Windows, pero ese escenario queda fuera del ámbito de este artículo.
 
-1. Si aún no lo hizo, instale los [**módulos de Azure PowerShell**](http://aka.ms/webpi-azps). Cuando se le pida, haga clic en **Ejecutar** y, después, en **Instalar**. Se requiere Azure PowerShell 1.3 o posterior.
+1. Si aún no lo hizo, instale los [**módulos de Azure PowerShell**](http://aka.ms/webpi-azps). Cuando se le pida, haga clic en **Ejecutar** y, después, en **Instalar**.
+Se requiere Azure PowerShell 1.3 o posterior.
 
 2. La herramienta **openssl** se incluye en la distribución de [**Git para Windows**](http://www.git-scm.com/downloads). Si aún no lo hizo, instale [Git para Windows](http://www.git-scm.com/downloads) ahora. (las opciones de instalación predeterminadas son adecuadas).
 

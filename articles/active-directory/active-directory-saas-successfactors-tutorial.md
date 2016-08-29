@@ -282,7 +282,8 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 
 ### Creación de un usuario de prueba de SuccessFactors
   
-Para permitir que los usuarios de Azure AD inicien sesión en SuccessFactors, deben aprovisionarse en SuccessFactors. En el caso de SuccessFactors, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en SuccessFactors, deben aprovisionarse en SuccessFactors.
+En el caso de SuccessFactors, el aprovisionamiento es una tarea manual.
   
 Para que se creen los usuarios en SuccessFactors, deberá ponerse en contacto con el [equipo de soporte técnico de SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
