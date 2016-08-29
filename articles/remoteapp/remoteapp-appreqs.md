@@ -13,22 +13,26 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Requisitos de aplicaciones
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp admite el streaming de aplicaciones Windows de 32 o 64 bits desde una imagen de Windows Server 2012 R2. La mayoría de las aplicaciones Windows de 32 o 64 bits se ejecutan "tal cual" en el entorno de Azure RemoteApp (Servicios de Escritorio remoto antes conocido como Terminal Services). Sin embargo, hay una diferencia entre ejecutar y ejecutar bien; algunas aplicaciones funcionan correctamente y su rendimiento es adecuado, mientras que otras no. La siguiente información proporciona instrucciones para el desarrollo de aplicaciones en un entorno de Servicios de Escritorio remoto y su prueba para garantizar la compatibilidad.
 
-Sugerencia: estamos trabajando en la creación de algunos ejemplos prácticos de aplicaciones para usted. Verá algunos temas en los que se analizará el uso de Microsoft Access, QuickBooks y App-V en RemoteApp.
+Sugerencia: estamos trabajando en la creación de algunos ejemplos prácticos de aplicaciones para usted. Verá algunos temas nuevos en los que se analiza el uso de Microsoft Access, QuickBooks y App-V en RemoteApp.
 
 ## Requisitos
 Estos tres requisitos, si se siguen, ayudarán a sus aplicaciones a ejecutarse bien en RemoteApp:
 
 1.	Las aplicaciones que cumplan todos los [Requisitos de certificación para aplicaciones de escritorio de Windows](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) y que se ajusten a las [Instrucciones de programación de Servicios de Escritorio remoto](https://msdn.microsoft.com/library/aa383490.aspx) tendrán completa compatibilidad con RemoteApp.
 2.	Las aplicaciones nunca deben almacenar los datos localmente en la imagen o en instancias de RemoteApp que se puedan perder. Después de crear una colección de RemoteApp, las instancias se clonan y están sin estado y solo deben contener aplicaciones. Almacene los datos en un origen externo o en el perfil del usuario.
-3.	Las imágenes personalizadas nunca deben contener datos que se puedan perder.  
+3.	Las imágenes personalizadas nunca deben contener datos que se puedan perder.
 
 ## Prueba de las aplicaciones
 Use estos pasos para probar las aplicaciones:
@@ -55,4 +59,4 @@ Use las siguientes instrucciones para desarrollar aplicaciones para RemoteApp.
 - Debe ajustar y equilibrar el [uso de subprocesos](https://msdn.microsoft.com/library/aa383520.aspx) de la aplicación en un entorno de varios usuarios y procesadores.
 - Para optimizar el rendimiento, resulta conveniente [detectar](https://msdn.microsoft.com/library/aa380798.aspx) si las aplicaciones se ejecutan en una sesión de cliente.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 # Uso del almacenamiento de tablas de Azure en Node.js
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Información general
 
 Este tema muestra cómo realizar algunas tareas comunes a través del servicio Tabla de Azure en una aplicación Node.js.
 
-En los ejemplos de código de este tema se considera que ya tiene una aplicación Node.js. Para obtener información sobre cómo crear una aplicación Node.js en Azure, consulte alguno de estos temas:
+En los ejemplos de código de este tema se considera que ya tiene una aplicación Node.js. Para información sobre cómo crear una aplicación Node.js en Azure, consulte alguno de estos temas:
 
 - [Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
 - [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
@@ -108,13 +107,13 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Adición de una entidad a una tabla
 
-Para agregar una entidad, primero cree un objeto que defina las propiedades de la entidad. Todas las entidades deben contener un valor para **PartitionKey** y para **RowKey**, que son identificadores únicos de la entidad.
+Para agregar una entidad, primero cree un objeto que defina las propiedades de la entidad. Todas las entidades deben contener un valor para **PartitionKey** y **RowKey**, que son identificadores únicos de la entidad.
 
 * **PartitionKey**: determina la partición en la que se almacena la entidad
 
 * **RowKey**: identifica de forma única la entidad dentro de la partición
 
-Tanto **PartitionKey** como **RowKey** deben ser valores de cadena. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Tanto **PartitionKey** com **RowKey** deben ser valores de cadena. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Este es un ejemplo de la definición de una entidad. Tenga en cuenta que **dueDate** se define como un tipo de **Edm.DateTime**. La especificación del tipo es opcional, y los tipos se deducen si no se especifican.
 
@@ -442,4 +441,4 @@ Para obtener más información, consulte los siguientes recursos:
   [Aplicación web de Node.js con servicio Tabla de Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

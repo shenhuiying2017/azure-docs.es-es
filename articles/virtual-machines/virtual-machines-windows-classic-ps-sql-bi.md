@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-La galería de máquinas virtuales de Microsoft Azure incluye imágenes que contienen instalaciones de SQL Server. Las ediciones de SQL Server que se admiten en las imágenes de la galería son los mismos archivos de instalación que puede instalar en equipos locales y máquinas virtuales. En este tema se resumen las características de Business Intelligence (BI) de SQL Server instaladas en las imágenes y los pasos de configuración necesarios después de aprovisionar una máquina virtual. En este tema también se describen las topologías de implementación admitidas para las características de BI y prácticas recomendadas.
+La galería de máquinas virtuales de Microsoft Azure incluye imágenes que contienen instalaciones de SQL Server. Las ediciones de SQL Server que se admiten en las imágenes de la galería son los mismos archivos de instalación que puede instalar en equipos locales y máquinas virtuales. En este tema se resumen las características de Business Intelligence (BI) de SQL Server instaladas en las imágenes, y los pasos de configuración necesarios después de aprovisionar una máquina virtual. En este tema también se describen las topologías de implementación admitidas para las características de BI y los procedimientos recomendados.
 
 ## Consideraciones de licencias
 
@@ -319,7 +319,7 @@ O ejecute C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.ex
 
 >[AZURE.NOTE] La primera vez que ejecute el programa de instalación de SQL Server, se podrá descargar más archivos de instalación y requerir un reinicio de la instalación de SQL Server.
 >
->Si necesita personalizar repetidamente la imagen seleccionada de la máquina virtual de Microsoft Azure, considere la posibilidad de crear su propia imagen de SQL Server. La funcionalidad SysPrep de Analysis Services se habilitó con SQL Server 2012 SP1 CU2. Para obtener más información, consulte [Consideraciones acerca de la instalación de SQL Server con SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Si necesita personalizar repetidamente la imagen seleccionada de la máquina virtual de Microsoft Azure, considere la posibilidad de crear su propia imagen de SQL Server. La funcionalidad SysPrep de Analysis Services se habilitó con SQL Server 2012 SP1 CU2. Para más información, consulte [Consideraciones acerca de la instalación de SQL Server con SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) y [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
 
 ### Para instalar el modo tabular de Analysis Services
 
@@ -389,7 +389,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 
 - Si la máquina virtual se une a un dominio con un túnel VPN, como las redes virtuales de Azure, los extremos no son necesarios. Sin embargo, abra los puertos en el firewall en la máquina virtual.
 
-	|Port|Tipo|Descripción|
+	|Port|Tipo|Description|
 |---|---|---|
 |**80**|TCP|Acceso remoto al servidor de informes (*).|
 |**1433**|TCP|SQL Server Management Studio (*).|
@@ -410,7 +410,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 ## Recursos
 
-- Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad para características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para máquinas virtuales Azure](http://support.microsoft.com/kb/2721672).
+- Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad con características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para máquinas virtuales Azure](http://support.microsoft.com/kb/2721672).
 
 - [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
@@ -436,4 +436,4 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

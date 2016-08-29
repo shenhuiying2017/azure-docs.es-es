@@ -2,7 +2,7 @@ En este artículo se describe un conjunto de procedimientos probados para ejecut
 
 > [AZURE.NOTE] Azure cuenta con dos modelos de implementación diferentes: [Resource Manager][resource-manager-overview] y clásico. En este artículo se utiliza el Administrador de recursos, que Microsoft recomienda para las implementaciones nuevas.
 
-No se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún Acuerdo de Nivel de Servicio (SLA) de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, tiene que implementar varias máquinas virtuales en un [conjunto de disponibilidad][availability-set]. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
+No se recomienda usar una sola VM para cargas de trabajo de producción, porque no hay ningún Acuerdo de Nivel de Servicio (SLA) de tiempo de actividad para VM individuales en Azure. Para obtener el SLA, tiene que implementar varias máquinas virtuales en un [conjunto de disponibilidad][availability-set]. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 ## Diagrama de la arquitectura
 
@@ -12,7 +12,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Grupo de recursos.** Un [_grupo de recursos_][resource-manager-overview] es un contenedor que incluye recursos relacionados. Cree un grupo de recursos para contener los recursos de esta máquina virtual.
 
-- **Máquina virtual**. Puede aprovisionar una máquina virtual desde una lista de imágenes publicadas o desde un archivo de disco duro virtual (VHD) cargado en Almacenamiento de blobs de Azure.
+- **Máquina virtual**. Puede aprovisionar una VM desde una lista de imágenes publicadas o desde un archivo de disco duro virtual (VHD) cargado en Almacenamiento de blobs de Azure.
 
 - **Disco del sistema operativo.** El disco del sistema operativo es un disco duro virtual almacenado en [Almacenamiento de Azure][azure-storage]. Esto significa que persiste incluso si el equipo host deja de funcionar. El disco del sistema operativo es `/dev/sda1`.
 
@@ -26,7 +26,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Interfaz de red (NIC)**. La NIC permite que la VM se comunique con la red virtual.
 
-- **Grupo de seguridad de red (NSG)**. El [NSG][nsg] se utiliza para permitir o denegar el tráfico de red a la subred. Puede asociar un NSG a una NIC individual o a una subred. Si se asocia con una subred, las reglas NSG se aplican a todas las máquinas virtuales de esa subred.
+- **Grupo de seguridad de red (NSG)**. El [NSG][nsg] se usa para permitir o denegar el tráfico de red a la subred. Puede asociar un NSG a una NIC individual o a una subred. Si se asocia con una subred, las reglas NSG se aplican a todas las máquinas virtuales de esa subred.
  
 - **Diagnóstico.** El registro de diagnóstico es fundamental para administrar y solucionar problemas de la VM.
 
@@ -36,13 +36,13 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Se recomienda la serie GS, a menos que tenga una carga de trabajo especializada, como puede ser el caso de la informática de alto rendimiento. Para más información, consulte [Tamaños de máquinas virtuales][virtual-machine-sizes]. Al mover una carga de trabajo existente a Azure, comience con el tamaño de máquina virtual que más se acerque a los servidores locales. Luego, mida el rendimiento de la carga de trabajo real con respecto a la CPU, la memoria y las operaciones de entrada/salida por segundo (IOPS) de disco, y ajuste el tamaño, si es necesario. Además, si tiene varias tarjetas NIC, tenga en cuenta el límite de NIC para cada tamaño.
 
-- Cuando aprovisiona la VM y otros recursos, debe especificar una ubicación. Por lo general, se recomienda elegir una ubicación más cercana a los usuarios internos o clientes. Sin embargo, no todos los tamaños de máquina virtual están disponibles en todas las ubicaciones. Para más información, consulte [Servicios por región][services-by-region]. Para listar los tamaños de máquina virtual disponibles en una ubicación dada, ejecute el siguiente comando de la interfaz de la línea de comandos (CLI) de Azure:
+- Cuando aprovisiona la VM y otros recursos, debe especificar una ubicación. Por lo general, se recomienda elegir una ubicación más cercana a los usuarios internos o clientes. Sin embargo, no todos los tamaños de máquina virtual están disponibles en todas las ubicaciones. Para más información, consulte [Servicios por región][services-by-region]. Para enumerar los tamaños de VM disponibles en una ubicación dada, ejecute el siguiente comando de la interfaz de la línea de comandos (CLI) de Azure:
 
     ```
     azure vm sizes --location <location>
     ```
 
-- Para más información sobre cómo elegir una imagen de máquina virtual publicada, consulte [Navegación y selección de máquinas de máquina virtual de Azure][select-vm-image].
+- Para más información sobre cómo elegir una imagen de VM publicada, consulte [Navegación y selección de las imágenes de máquina virtual de Azure][select-vm-image].
 
 ### Recomendaciones de discos y almacenamiento
 
@@ -77,9 +77,9 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - La dirección IP pública puede ser dinámica o estática. El valor predeterminado es dinámica.
 
-    - Reserve una [dirección IP estática][static-ip] si necesita una dirección IP fija que no cambie, por ejemplo, si tiene que crear un registro A en DNS o necesita que se permita la dirección IP.
+    - Reserve una [dirección IP estática][static-ip] si necesita una dirección IP fija que no cambie, por ejemplo, si tiene que crear un registro D en DNS o necesita que se permita la dirección IP.
 
-    - También puede crear un nombre de dominio completo (FQDN) para la dirección IP. Luego, puede registrar un [registro CNAME][cname-record] en DNS que apunte al FQDN. Para más información, consulte [Creación de un nombre de dominio completo en el Portal de Azure][fqdn].
+    - También puede crear un nombre de dominio completo (FQDN) para la dirección IP. Luego, puede registrar un [registro CNAME][cname-record] en DNS que apunte al FQDN. Para más información, consulte [Crear un nombre de dominio completo en el Portal de Azure][fqdn].
 
 - Todos los NSG contienen un conjunto de [reglas predeterminadas][nsg-default-rules], incluida una que bloquea todo el tráfico entrante de Internet. No se puede eliminar las reglas predeterminadas, pero otras reglas pueden reemplazarlas. Para permitir el tráfico de Internet, cree reglas que permitan el tráfico entrante a puertos específicos &mdash; por ejemplo, el puerto 80 para HTTP.
 
@@ -87,7 +87,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 ## Consideraciones sobre escalabilidad
 
-- Puede escalar o reducir verticalmente una máquina virtual [cambiando su tamaño][vm-resize].
+- Puede escalar y reducir verticalmente una VM [cambiando su tamaño][vm-resize].
 
 - Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
@@ -95,7 +95,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Como se mencionó anteriormente, no hay ningún SLA para una sola máquina virtual. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad.
 
-- La máquina virtual puede verse afectada por un [mantenimiento planeado][planned-maintenance] o un [mantenimiento no planeado][manage-vm-availability]. Puede usar [registros de reinicio de máquina virtual][reboot-logs] para determinar si se produjo un reinicio de máquina virtual por mantenimiento planeado.
+- La VM puede verse afectada por un [mantenimiento planeado][planned-maintenance] o un [mantenimiento no planeado][manage-vm-availability]. Puede usar [registros de reinicio de VM][reboot-logs] para determinar si se produjo un reinicio de la máquina virtual por mantenimiento planeado.
 
 - Los discos duros virtuales están respaldados por [Almacenamiento de Azure][azure-storage], que se replica para su disponibilidad y durabilidad.
 
@@ -115,7 +115,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
     azure vm enable-diag <resource-group> <vm-name>
     ```
 
-- **Detención de una máquina virtual.** Azure hace una distinción entre los estados "Detenido" y "Desasignado". Se le cobrará cuando el estado de la VM sea "Detenido". No se le cobrará cuando el estado de la máquina virtual sea "Desasignado".
+- **Detención de una máquina virtual.** Azure hace una distinción entre los estados "Detenido" y "Desasignado". Se le cobrará cuando el estado de la VM sea "Detenido". No se le cobrará cuando la VM esté desasignada.
 
     Utilice el siguiente comando de la CLI para desasignar una máquina virtual:
 
@@ -123,11 +123,11 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
     azure vm deallocate <resource-group> <vm-name>
     ```
 
-    El botón **Detener** en el Portal de Azure también desasigna la máquina virtual. Pero, si apaga desde dentro del sistema operativo mientras tiene la sesión iniciada, la máquina virtual se detiene pero _no_ se anula su asignación, por lo que se le seguirá cobrando.
+    El botón **Detener** en el Portal de Azure también desasigna la VM. Sin embargo, si apaga desde dentro del sistema operativo mientras tiene la sesión iniciada, la VM se detiene pero _no_ se desasigna, por lo que se le seguirá cobrando.
 
 - **Eliminación de una máquina virtual.** Si elimina una VM, no se eliminarán los discos duros virtuales. Esto significa que puede eliminar de forma segura la VM sin perder datos. Sin embargo, se le seguirá cobrando por el almacenamiento. Para eliminar el disco duro virtual, elimine el archivo de [Almacenamiento de blobs][blob-storage].
 
-  Para evitar eliminaciones accidentales, use un [bloqueo de recurso][resource-lock] para bloquear el grupo de recursos completo o recursos individuales, como la máquina virtual.
+  Para evitar eliminaciones por error, use un [bloqueo de recurso][resource-lock] para bloquear el grupo de recursos completo o recursos individuales, como la VM.
 
 ## Consideraciones sobre la seguridad
 
@@ -225,7 +225,7 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
 
 	El parámetro `subnetName` de la sección `nics` especifica la subred de la máquina virtual. De forma similar, el parámetro `name` de la sección `virtualNetworkSettings` identifica la red virtual que se usará. Estos valores deben ser el nombre de una subred y la red virtual definida en el archivo **virtualNetwork.parameters.json**.
 
-	Puede crear varias máquinas virtuales, bien mediante el uso compartido de una cuenta de almacenamiento, o con sus propias cuentas de almacenamiento si modifica la configuración de la sección `buildingBlockSettings`. Si crea varias máquinas virtuales, también tiene que especificar el nombre de un conjunto de disponibilidad que se usará o creará en la sección `availabilitySet`.
+	Puede crear varias máquinas virtuales, bien mediante el uso compartido de una cuenta de almacenamiento, o con sus propias cuentas de almacenamiento si modifica la configuración de la sección `buildingBlockSettings`. Si crea varias VM, también debe especificar el nombre de un conjunto de disponibilidad que se usará o creará en la sección `availabilitySet`.
 
 	```json
   "parameters": {
@@ -356,7 +356,7 @@ Para que se aplique el [Acuerdo de Nivel de Servicio para máquinas virtuales][v
 [boot-diagnostics]: https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
 [iostat]: https://en.wikipedia.org/wiki/Iostat
@@ -394,4 +394,4 @@ Para que se aplique el [Acuerdo de Nivel de Servicio para máquinas virtuales][v
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura de una única máquina virtual Linux en Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

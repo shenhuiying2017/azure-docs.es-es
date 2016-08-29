@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="07/11/2016"
    ms.author="v-sharos" />
 
 # Instalar y configurar el adaptador de StorSimple para SharePoint
@@ -39,7 +39,7 @@ RBS requiere el uso de un proveedor RBS, como el adaptador de StorSimple para Sh
 
 La implementación de RBS en Microsoft Azure StorSimple proporciona los siguientes beneficios:
 
-- Al mover el contenido BLOB en un servidor independiente, puede reducir la carga de consultas en SQL Server, lo que puede mejorar la capacidad de respuesta de SQL Server. 
+- Al mover el contenido BLOB en un servidor independiente, puede reducir la carga de consultas en SQL Server, lo que puede mejorar la capacidad de respuesta de SQL Server.
 
 - StorSimple de Azure usa la desduplicación y la compresión para reducir el tamaño de los datos.
 
@@ -59,7 +59,7 @@ Antes de considerar la utilización de RBS en la solución de SharePoint, debe c
 
 Revise lo siguiente antes de configurar RBS:
 
-- Asegúrese de que el tamaño total del contenido (el tamaño de una base de datos de contenido más el tamaño de los BLOBs externalizados asociados) no supere el límite de tamaño de RBS admitido por SharePoint. Este límite es de 200 GB. 
+- Asegúrese de que el tamaño total del contenido (el tamaño de una base de datos de contenido más el tamaño de los BLOBs externalizados asociados) no supere el límite de tamaño de RBS admitido por SharePoint. Este límite es de 200 GB.
 
     **Para medir el tamaño de la base de datos de contenido y del BLOB**
 
@@ -85,7 +85,7 @@ Revise lo siguiente antes de configurar RBS:
 
     Utilice los procedimientos recomendados de migración tradicional de SQL Server para mover la base de datos de contenido al dispositivo StorSimple. Mueva la base de datos solo después de haber movido todo el contenido BLOB de la base de datos al recurso compartido de archivos mediante RBS. Si elige mover la base de datos de contenido al dispositivo StorSimple, recomendamos configurar el almacenamiento de la base de datos de contenido en el dispositivo como el volumen principal.
 
-- En Microsoft Azure StorSimple, no hay forma de garantizar que el contenido almacenado localmente en el dispositivo StorSimple no se nivele con el almacenamiento en la nube de Microsoft Azure. Para asegurarse de que la base de datos de contenido permanezca en el dispositivo StorSimple y no se mueve a Microsoft Azure (lo que afectaría negativamente los tiempos de respuesta de las transacciones de SharePoint), es importante comprender y administrar las otras cargas de trabajo en el dispositivo StorSimple. Recomendamos que no configure un dispositivo StorSimple para hospedar cargas de trabajo que tengan una alta tasa de escritura de datos si el dispositivo ya hospeda cargas de trabajo de base de datos de contenido de SharePoint y cargas de trabajo de recursos compartidos de archivos de SharePoint.
+- En Microsoft Azure StorSimple, si se usan volúmenes en capas, no hay forma de garantizar que el contenido almacenado localmente en el dispositivo StorSimple no se nivele con el almacenamiento en la nube de Microsoft Azure. Por lo tanto, se recomienda usar volúmenes de StorSimple anclados localmente junto con RBS de SharePoint. Esto garantizará que todo el contenido de blob siga estando almacenado de manera local en el dispositivo StorSimple y no se transfiera a Microsoft Azure.
 
 - Si no almacena las bases de datos de contenido en el dispositivo StorSimple, utilice los procedimientos recomendados de alta disponibilidad tradicionales de SQL Server compatibles con RBS. La agrupación en clústeres de SQL Server admite RBS, mientras que la creación de reflejos de SQL Server no es compatible.
 
@@ -103,7 +103,7 @@ Antes de instalar al adaptador de StorSimple para SharePoint, asegúrese de que 
 
 El adaptador de StorSimple para SharePoint funciona con el siguiente hardware y software:
 
-- Sistema operativo compatible: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. 
+- Sistema operativo compatible: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
 
 - Versiones de SharePoint compatibles: SharePoint Server 2010 o SharePoint Server 2013
 
@@ -141,7 +141,7 @@ Si planea utilizar el Administrador de instantáneas StorSimple para tomar insta
 
 Asegúrese de que su granja de servidores de SharePoint está configurada correctamente, de la siguiente manera:
 
-- Verifique que la granja de servidores de SharePoint esté en buen estado y compruebe lo siguiente: 
+- Verifique que la granja de servidores de SharePoint esté en buen estado y compruebe lo siguiente:
 
 - Todos los servidores de aplicaciones y WFE de SharePoint registrados en la granja están en funcionamiento y se les puede hacer ping desde el servidor en el que instalará el adaptador de StorSimple para SharePoint.
 
@@ -226,7 +226,7 @@ Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y l
 >
 >- Una vez completada la actualización o reinstalación, debe habilitar RBS para las bases de datos de contenido. Para obtener más información, vea [Configuración de RBS](#configure-rbs).
 >
->- Si va a configurar RBS para una granja de SharePoint que contiene un gran número de bases de datos (más de 200), podría agotarse el tiempo de espera de la página **Administración central de SharePoint**. Si esto sucede, actualice la página. Esto no afecta el proceso de configuración.
+>- Si va a configurar RBS para una granja de SharePoint que contiene un gran número de bases de datos (más de 200), podría agotarse el tiempo de espera de la página **Administración central de SharePoint**. Si esto sucede, actualice la página. Esto no afecta al proceso de configuración.
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
@@ -308,4 +308,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

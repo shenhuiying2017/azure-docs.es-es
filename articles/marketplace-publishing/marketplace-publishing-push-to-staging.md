@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -48,7 +48,7 @@ En este paso del proceso de publicación, deberá proporcionar determinados cont
 Todos los logotipos que se cargan en el Portal de publicación deberían seguir las siguientes directrices:
 
 - El diseño de Azure tiene una paleta de colores simple. Utilice pocos colores primarios y secundarios en el logotipo.
-- Los colores del tema del Portal de Azure son el blanco y el negro. Por lo tanto, evite emplear estos colores como fondo de los logotipos. Utilice algún color que haga destacar a los logotipos en el Portal de Azure. Nosotros recomendamos usar colores primarios simples. **Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color blanco o negro.**
+- Los colores del tema del Portal de Azure son el blanco y el negro. Por lo tanto, evite emplear estos colores como fondo de los logotipos. Utilice algún color que haga destacar a los logotipos en el Portal de Azure. Nosotros recomendamos usar colores primarios simples. **Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color azul, blanco o negro.**
 - No utilice un fondo degradado en el logotipo.
 - Evite colocar texto, incluso la empresa o el nombre de marca, en el logotipo. El aspecto del logotipo debe ser "plano" y debe evitar degradados.
 - El logotipo no se debe extender.
@@ -99,10 +99,10 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 - **SKU Identifier** (Identificador de SKU): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña SKUs (SKU) -> Offer Identifier (Identificador de oferta)
 - **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -> Máquinas virtuales -> pestaña Walkthrough (Tutorial) -> Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -> Publisher Namespace (Espacio de nombres de publicador) -> Espacio de nombres
 - **Puertos**: Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña Imágenes de VM -> Open Ports (Abrir puertos)
-- **Pricing Change of listed SKU(s)** (Cambio de precios de las SKU activas)
-- **Billing Model Change of listed SKU(s)** (Cambio del modelo de facturación de las SKU activas)
-- **Removal of billing regions of listed SKU(s)** (Eliminación de las regiones de facturación de las SKU activas)
-- **Changing the data disk count of listed SKU(s)** (Cambio del número de discos de datos de las SKU activas)
+- **Pricing Change of listed SKU(s) (Cambio de precios de las SKU activas)**
+- **Billing Model Change of listed SKU(s) (Cambio del modelo de facturación de las SKU activas)**
+- **Removal of billing regions of listed SKU(s) (Eliminación de las regiones de facturación de las SKU activas)**
+- **Changing the data disk count of listed SKU(s) (Cambio del número de discos de datos de las SKU activas)**
 
 
 ## Paso 2: Establecimiento de precios
@@ -192,7 +192,7 @@ Siga los pasos indicados a continuación para configurar el modelo de precios po
 Siga los pasos indicados a continuación para configurar el modelo de precios BYOL en sus SKU:
 
 1.	Inicie sesión en el [Portal de publicación](https://publish.windowsazure.com).
-2.	Vaya a la pestaña **VIRTUAL MACHINES** (MÁQUINAS VIRTUALES) y seleccione su oferta.
+2.	Vaya a la pestaña **MÁQUINAS VIRTUALES** y seleccione la oferta.
 3.	En el menú del lado izquierdo, haga clic en la pestaña **SKUs** (SKU).
 4.	Asegúrese de que la SKU esté marcada como Bring your own license SKU (SKU Traiga su propia licencia). En caso contrario, haga clic en el botón EDITAR para revertir el modelo de facturación. Se mostrará una ventana. Active la casilla de verificación Billing and licensing is done externally from Azure (aka Bring Your Own License) (La facturación y las licencias no se administran en Azure [Traiga su propia licencia]) y guarde los cambios.
 
@@ -277,4 +277,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

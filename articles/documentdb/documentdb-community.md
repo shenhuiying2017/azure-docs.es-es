@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="07/06/2016"
+  ms.date="08/17/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -120,7 +120,9 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Grupo de usuarios de .NET de Capital City](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, Florida (EE. UU.) | 1 de septiembre de 2016 | N/D |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu y Tara Jana | Atlanta, GA | 26 a 30 de septiembre de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | Nueva York, NY | 26 a 29 de septiembre de 2016 | [#StrataConf](https://twitter.com/strataconf) |
 
 
 *¿Es el orador u organizador de un evento? [Queremos saber](mailto:askdocdb@microsoft.com) cómo podemos ayudarle*
@@ -161,7 +163,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 | [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | Seattle, WA | 17 de junio de 2015 | [Schema Agnostic Indexing with Azure DocumentDB (Indexación independiente de esquemas con Azure DocumentDB)](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015 (Actualización tecnológica 2015)](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | Lisboa, Portugal | 15 de junio de 2015 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [SQL Saturday #417 - Sri Lanka 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415) | Mihail Mateev | Colombo, Sri Lanka | 06 de junio de 2015 | N/D |
-| [Meetup:Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 de mayo de 2015 | N/D |
+| [Meetup: Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 de mayo de 2015 | N/D |
 | [SQL Saturday #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) | Mihail Mateev | Kiev, Ucrania | 23 de mayo de 2015 | N/D |
 | [Mes de la base de datos](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | Nueva York, NY | 19 de mayo de 2015 | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service (Azure DocumentDB: servicio de base de datos de documentos multiempresa y escalable de forma masiva)](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group (Encuentro: grupo de usuarios de SQL Server de Londres)](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londres, Reino Unido | 19 de mayo de 2015 | N/D |
@@ -206,11 +208,11 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 ### Clases en línea
 
-| Partner de aprendizaje | Descripción |
+| Partner de aprendizaje | Description |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Academia virtual de Microsoft](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) | La [**Academia virtual de Microsoft**](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) le ofrece entrenamiento por parte de quienes ayudan a crear Azure DocumentDB. |
-| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) es un asociado clave de Microsoft que ofrece entrenamiento en Azure. Si es suscriptor de MSDN, use sus beneficios para tener acceso al entrenamiento de Microsoft Azure. |
-| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) proporciona un entrenamiento técnico profundo sobre Microsoft Azure. Reciba un entrenamiento dirigido por un instructor en el sitio o a través de una clase remota de la mano de instructores reconocidos del sector. |
+| [![Academia virtual de Microsoft](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) | La [**Academia virtual de Microsoft**](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) le ofrece aprendizaje de las personas que ayudaron a crear Azure DocumentDB. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) es un asociado clave de Microsoft que ofrece cursos de aprendizaje de Azure. Si es suscriptor de MSDN, use sus beneficios para tener acceso al entrenamiento de Microsoft Azure. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) proporciona un aprendizaje técnico en profundidad sobre Microsoft Azure. Reciba un entrenamiento dirigido por un instructor en el sitio o a través de una clase remota de la mano de instructores reconocidos del sector. |
 
 ## Discusión
 
@@ -220,7 +222,7 @@ Síganos en twitter [@DocumentDB](https://twitter.com/DocumentDB) y manténgase 
 
 ### Foros en línea
 
-| Proveedor de foro | Descripción |
+| Proveedor de foro | Description |
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [![Stackoverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | Un sitio de preguntas y respuestas que se modifica en colaboración, y que es independiente del lenguaje, dedicado a los programadores. Siga nuestra etiqueta: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) | Un buen lugar para proporcionar ayuda y comentarios sobre las características y los servicios de Microsoft Azure, como los Sitios web, DocumentDB, etc. |
@@ -229,7 +231,7 @@ Síganos en twitter [@DocumentDB](https://twitter.com/DocumentDB) y manténgase 
 
 ![Team](./media/documentdb-community/documentdb-team.png)
 
-¿Necesita ayuda técnica? ¿Tiene alguna pregunta? ¿Se pregunta si NoSQL es adecuado para usted? [Puede programar una charla 1:1 directamente con el equipo de ingeniería de DocumentDB](http://www.askdocdb.com/). También puede enviarnos un [correo electrónico](mailto:askdocdb@microsoft.com) o tuitearnos a la dirección [@DocumentDB](https://twitter.com/DocumentDB).
+¿Necesita ayuda técnica? ¿Tiene alguna pregunta? ¿Se pregunta si NoSQL es adecuado para usted? También puede [programar una charla 1:1 directamente con el equipo de ingeniería de DocumentDB](http://www.askdocdb.com/). También puede enviarnos un [correo electrónico](mailto:askdocdb@microsoft.com) o tuitearnos a la dirección [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Proyectos de código abierto
 
@@ -266,4 +268,4 @@ Asistente | Imagen
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

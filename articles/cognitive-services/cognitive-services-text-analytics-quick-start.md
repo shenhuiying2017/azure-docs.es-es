@@ -16,7 +16,7 @@
 	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
-# Introducción a las API de análisis de texto para detectar opiniones, frases clave, temas e idioma
+# Introducción a Text Analytics API para detectar opiniones, frases clave, temas e idioma
 
 <a name="HOLTop"></a>
 
@@ -82,7 +82,7 @@ Tenga en cuenta que los idiomas admitidos son los siguientes:
 		Content-Type: application/json
 		Accept: application/json
 
-1. A continuación, aplique el formato JSON a las filas de entrada. El formato es el mismo para las opiniones, las frases clave y el idioma. Tenga en cuenta que cada id. debe ser único y será el id. que el sistema devuelva. El tamaño máximo de un documento que se puede enviar es de 10 KB y el tamaño máximo total de las entradas enviadas es de 1 MB. No se pueden enviar más de 1 000 documentos en una llamada. Lenguaje es un parámetro opcional que se debe especificar si se analiza texto en un idioma que no es el inglés. A continuación, se muestra un ejemplo de la entrada, donde se ha incluido el parámetro opcional `language` para analizar opiniones o extraer frases clave:
+1. A continuación, aplique el formato JSON a las filas de entrada. El formato es el mismo para las opiniones, las frases clave y el idioma. Tenga en cuenta que cada id. debe ser único y será el id. que el sistema devuelva. El tamaño máximo de un documento que se puede enviar es de 10 KB y el tamaño máximo total de las entradas enviadas es de 1 MB. No se pueden enviar más de 1 000 documentos en una llamada. Existe una limitación de velocidad de 100 llamadas por minuto, por lo que se recomienda que envíe grandes cantidades de documentos en una sola llamada. Lenguaje es un parámetro opcional que se debe especificar si se analiza texto en un idioma que no es el inglés. A continuación, se muestra un ejemplo de la entrada, donde se ha incluido el parámetro opcional `language` para analizar opiniones o extraer frases clave:
 
 		{
 			"documents": [
@@ -170,7 +170,7 @@ Tenga en cuenta que los idiomas admitidos son los siguientes:
 
 Se trata de una API recién publicada que devuelve los temas detectados más importantes para obtener los registros de texto enviados. Se identifica un tema con una frase clave, que puede ser una o más palabras relacionadas. La API se ha diseñado para funcionar bien con texto escrito humano y corto, como revisiones y comentarios del usuario.
 
-Esta API requiere **un mínimo de 100 registros de texto** que enviar, pero se ha diseñado para detectar temas en cientos o miles de registros. Los registros que no estén en inglés o que tengan menos de 3 palabras se descartarán y, por lo tanto, no se les asignarán temas. En el caso de la detección de temas, el tamaño máximo de un documento que se puede enviar es de 30 KB y el tamaño máximo total de las entradas enviadas es de 30 MB.
+Esta API requiere **un mínimo de 100 registros de texto** que enviar, pero se ha diseñado para detectar temas en cientos o miles de registros. Los registros que no estén en inglés o que tengan menos de 3 palabras se descartarán y, por lo tanto, no se les asignarán temas. En el caso de la detección de temas, el tamaño máximo de un documento que se puede enviar es de 30 KB y el tamaño máximo total de las entradas enviadas es de 30 MB. La detección de temas tiene una velocidad limitada a 5 envíos cada 5 minutos.
 
 Hay dos parámetros de entrada **opcionales** que pueden ayudar a mejorar la calidad de los resultados:
 
@@ -270,7 +270,7 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 **topics**
 
-| Clave | Descripción |
+| Clave | Description |
 |:-----|:----|
 | id | Un identificador único para cada tema. |
 | de la aplicación | Recuento de documentos asignados al tema. |
@@ -278,7 +278,7 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 **topicAssignments**
 
-| Clave | Descripción |
+| Clave | Description |
 |:-----|:----|
 | documentId | Identificador del documento. Equivale al identificador incluido en la entrada. |
 | topicId | El identificador de tema que se ha asignado al documento. |
@@ -286,7 +286,7 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 **errors**
 
-| Clave | Descripción |
+| Clave | Description |
 |:-----|:----|
 | id | Identificador único del documento de entrada al que se refiere el error. |
 | message | Mensaje de error. |
@@ -297,4 +297,4 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 Para ver cómo pueden usarse las funcionalidades de análisis de textos, como una opinión, como parte de un bot, vea el ejemplo [Emotional Bot](http://docs.botframework.com/es-ES/bot-intelligence/language/#example-emotional-bot) en el sitio de Bot Framework.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

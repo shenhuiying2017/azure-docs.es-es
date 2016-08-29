@@ -3,7 +3,7 @@
 	description="En este artículo se muestra cómo clonar una única máquina virtual clásica en Azure Resource Manager mediante scripts de PowerShell"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -112,7 +112,7 @@ La plantilla crea archivos en función de la existencia de extensiones de agente
 4.  `<ServiceName>-<VMName>-setextensions<optional timestamp>.json`: un conjunto de cmdlets de PowerShell que se ejecutan para configurar las extensiones de agente de máquina virtual.
 4.  `<ServiceName>-<VMName>-copydisks<optional timestamp>.json`: un conjunto de cmdlets de PowerShell que se ejecutan para copiar blobs de disco, si se especifica la opción CopyDisks.
 
-Si se establece la marca -Deploy, después de generar los archivos, el cmdlet implementa entonces la plantilla <ServiceName>-<VMName>-setup.json, copia los blobs de disco de máquina virtual si el parámetro DiskAction está definido como CopyDisks y luego implementa la plantilla <ServiceName>-<VMName>-deploy.json, mediante el archivo <ServiceName>-<VMName>-parameters.json para los parámetros. Cuando haya finalizado la implementación de la máquina virtual, si hay un script imperativo (para las extensiones de agente de máquina virtual), o un script para copiar los discos, estos se ejecutan.
+Si se establece la marca -Deploy, después de generar los archivos, el cmdlet implementa entonces la plantilla <NombreDeServicio>-<NombreDeMáquinaVirtual>-setup.json, copia los blobs de disco de máquina virtual de origen si el parámetro DiskAction está definido como CopyDisks y luego implementa la plantilla <NombreDeServicio>-<NombreDeMáquinaVirtual>-deploy.json, mediante el archivo <NombreDeServicio>-<NombreDeMáquinaVirtual>-parameters.json para los parámetros. Cuando haya finalizado la implementación de la máquina virtual, si hay un script imperativo (para las extensiones de agente de máquina virtual), o un script para copiar los discos, estos se ejecutan.
 
 ### Detalles de la red
 La intención del cmdlet no es clonar la configuración de la red clásica en Resource Manager. Utiliza instalaciones de red de la manera más conveniente para clonar la propia máquina virtual. Esto es lo que sucede en diferentes condiciones:
@@ -148,9 +148,9 @@ Existen algunas diferencias entre el método de clonación actual y la migració
  
 ## Escenarios no admitidos
 
-**Los siguientes escenarios escapan del ámbito de los scripts de clonación**:
+**Los siguientes escenarios escapan del ámbito de los scripts de clonación:**
 
- 1. Detención de una máquina virtual en ejecución 
+ 1. Detención de una máquina virtual en ejecución
  2. Cambio de los discos de datos
  3. Clonación de máquinas virtuales en ejecución
  4. Clonación de varias máquinas virtuales en un escenario complejo de forma automática
@@ -162,7 +162,7 @@ Existen algunas diferencias entre el método de clonación actual y la migració
 
 El cmdlet _Add-AzureSMVmToRM_ se validó usando los siguientes casos de prueba:
 
-| de streaming | Descripción |
+| programas | Description |
 |:---|:---|
 | 1 | Máquina virtual de Windows con un disco de sistema operativo existente |
 | 2 | Máquina virtual de Linux con un disco de sistema operativo existente |
@@ -185,4 +185,4 @@ El cmdlet _Add-AzureSMVmToRM_ se validó usando los siguientes casos de prueba:
 ## Notas
 1. Si se clonan varias máquinas virtuales, una después de otra, con cortos intervalos entre ellas, podrían producirse conflictos de nombres DNS en las direcciones IP públicas debido al tiempo de actualización de la caché DNS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

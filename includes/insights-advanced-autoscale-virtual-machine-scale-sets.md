@@ -1,52 +1,50 @@
-# Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
+# Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escala de máquina virtual
 
-You can scale out and in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all the above using a Resource Manager template on a VM Scale Set.
+Puede escalar y reducir horizontalmente los conjuntos de escala de máquina virtual según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todo lo anterior utilizando una plantilla de Resource Manager en un conjunto de escala de máquina virtual.
 
->[AZURE.NOTE] While this walkthrough explains the steps for VM Scale Sets, you can apply the same for autoscaling Cloud Services and Web Apps.
-For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) documents
-
+>[AZURE.NOTE] Aunque este tutorial explica los pasos para los conjuntos de escala de máquina virtual, lo mismo se puede aplicar al escalado automático de los servicios en la nube y las aplicaciones web. Para tener un valor simple de escalado y reducción horizontal en un conjunto de escala de máquina virtual basado en una métrica de rendimiento simple como CPU, consulte los documentos sobre [Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) y [Windows](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 
 
-## Walkthrough
-In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.com/) to configure and update the autoscale setting for a scale set. Azure Resource Explorer is an easy way to manage Azure resources via Resource Manager templates. If you are new to Azure Resource Explorer tool, read [this introduction](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Deploy a new scale set with a basic autoscale setting. This article uses the one from the Azure QuickStart Gallery, which has a Windows scale set with a basic autoscale template. Linux scale sets work the same way.
+## Tutorial
+En este tutorial, usaremos el [Explorador de recursos de Azure](https://resources.azure.com/) para configurar y actualizar el valor de escalado automático para un conjunto de escala. El Explorador de recursos de Azure es una manera fácil de administrar los recursos de Azure mediante las plantillas de Resource Manager. Si no está familiarizado con la herramienta Explorador de recursos de Azure, lea [esta introducción](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-2. After the scale set is created, navigate to the scale set resource from Azure Resource Explorer. You see the following under Microsoft.Insights node.
+1. Implemente un nuevo conjunto de escala con un valor de escalado automático básico. Este artículo utiliza uno de la Galería de inicio rápido de Azure, que tiene un conjunto de escala de Windows con una plantilla básica de escalado automático. Los conjuntos de escala de Linux funcionan del mismo modo.
+
+2. Una vez creado el conjunto de escala, navegue al recurso del mismo desde el Explorador de recursos de Azure. En el nodo de Microsoft.Insights aparece lo siguiente.
 
 	![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
-	The template execution has created a default autoscale setting with the name **'autoscalewad'**. On the right-hand side, you can view the full definition of this autoscale setting. In this case, the default autoscale setting comes with a CPU% based scale-out and scale-in rule.
+	La ejecución de la plantilla crea un valor de escalado automático de forma predeterminada con el nombre **'autoscalewad'**. En el lado derecho puede ver la definición completa de este valor de escalado automático. En este caso, el valor de escalado automático predeterminado viene con una regla de escalado horizontal y otra de reducción horizontal, ambas basadas en el % de CPU.
 
-3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](../articles/azure-portal/insights-autoscale-best-practices.md). 
+3. Ahora puede agregar más perfiles y reglas basadas en la programación o requisitos específicos. Creamos una configuración de escalado automático con tres perfiles. Para comprender los perfiles y las reglas de escalado automático, revise el artículo [Procedimientos recomendados de escalado automático](../articles/azure-portal/insights-autoscale-best-practices.md).
 
-    | Profiles & Rules | Description |
+    | Perfiles y reglas | Description |
 	|---------|-------------------------------------|
-	| **Profile** | **Performance/metric based**    |
-	| Rule    | Service Bus Queue Message Count > x |
-	| Rule    | Service Bus Queue Message Count < y |
-	| Rule    | CPU%,< n                            |
-	| Rule    | CPU% < p                            |
-	| **Profile** | **Weekday morning hours (no rules)**    |
-	| **Profile** | **Product Launch day (no rules)**       |
+	| **Perfil** | **Basado en rendimiento/métrica** |
+	| Regla | Recuento de mensajes de cola de Bus de servicio > x |
+	| Regla | Recuento de mensajes de cola de Bus de servicio > y |
+	| Regla | % de CPU,< n |
+	| Regla | % de CPU < p |
+	| **Perfil** | **Horas de la mañana días de semana, (no hay reglas)** |
+	| **Perfil** | **Día de lanzamiento de producto (no hay reglas)** |
 
-4. Here is a hypothetical scaling scenario that we use for this walkthrough.
-	- _**Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set._
-	- _**Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold._
-	- _**Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time._
-	- _**Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application._
-	- _The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles._
+4. Este es un escenario hipotético de escalado que se utiliza para este tutorial.
+	- _**Basado en la carga**: quisiera escalar o reducir horizontalmente según la carga en la aplicación hospedada en mi conjunto de escala._
+	- _**Tamaño de cola de mensajes**: uso una cola de Bus de servicio para los mensajes entrantes a la aplicación. Uso el % de CPU y el recuento de la cola de mensajes y configuro un perfil predeterminado para desencadenar una acción de escalado si el número de mensajes o la CPU alcanzan el umbral._
+	- _**Horario de la semana y el día**: quiero un perfil periódico semanal basado en la "hora del día" llamado "Horas de la mañana en semana". Según los datos históricos, ya sé que es mejor tener cierto número de instancias de máquina virtual para administrar la carga de la aplicación durante este tiempo._
+	- _**Fechas especiales**: agrego un perfil de "Día de lanzamiento de producto". Planeo con antelación para fechas específicas, de forma que mi aplicación esté preparada para controlar la carga que se produce con los anuncios de marketing y cuando se coloca un nuevo producto en la aplicación._
+	- _Los dos últimos perfiles también pueden contener otras reglas basadas en métricas de rendimiento. En este caso, decidí no tener ninguno y confiar en las reglas basadas en las métricas de rendimiento predeterminadas. Las reglas son opcionales para los perfiles periódico y basado en la fecha._
 
-	Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](../articles/azure-portal/insights-autoscale-best-practices.md) article.
-	For a list of common metrics for autoscale, refer [Common metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+	La asignación de prioridades de los perfiles y las reglas que realiza el motor de escalado automático también se explica en el artículo [Procedimientos recomendados de escalado automático en Azure Insights](../articles/azure-portal/insights-autoscale-best-practices.md). Para ver una lista de las métricas más comunes para el escalado automático, consulte [Métricas comunes de escalado automático de Azure Insights](../articles/azure-portal/insights-autoscale-common-metrics.md).
 
-5. Make sure you are on the **Read/Write** mode in Resource Explorer
+5. Asegúrese de que se encuentra en el modo de **lectura y escritura** en el Explorador de recursos
 
-	![Autoscalewad, default autoscale setting](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+	![Autoscalewad, valor de escalado automático predeterminado](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
 
-6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following:
+6. Haga clic en Editar. **Reemplace** el elemento "perfiles" en la configuración de escalado automático con lo siguiente:
 
-	![profiles](./media/insights-advanced-autoscale-vmss/profiles.png)
+	![perfiles](./media/insights-advanced-autoscale-vmss/profiles.png)
 
 	```
 	{
@@ -178,19 +176,19 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	        }
 	      }
 	```
-	For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx).
+	Para los campos compatibles y sus valores, consulte [Creación o actualización de una configuración de escalado automático](https://msdn.microsoft.com/es-ES/library/azure/dn931928.aspx).
 
-	Now your autoscale setting contains the three profiles explained previously.
+	La configuración de escalado automático contiene ahora los tres perfiles explicados anteriormente.
 
-7. 	Finally let's look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
+7. 	Por último, echemos un vistazo a la sección de **notificación** del escalado automático. Las notificaciones de escalado automático le permiten hacer tres cosas cuando se desencadena correctamente un escalado o una reducción horizontal.
 
-	1. Notify the admin and co-admins of your subscription
+	1. Notificar a los administradores y coadministradores de su suscripción
 
-	2. Email a set of users
+	2. Enviar un correo electrónico a un conjunto de usuarios
 
-	3. Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md).
+	3. Desencadenar una llamada de webhook. Cuando se desencadena, este webhook envía metadatos sobre la condición de escalado automático y el recurso de conjunto de escala. Para más información acerca de la carga de escalado automático de webhook, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../articles/azure-portal/insights-autoscale-to-webhook-email.md).
 
-	Add the following to the Autoscale setting replacing your **notification** element whose value is null
+	Agregue lo siguiente al valor de escalado automático para reemplazar el elemento de **notificación** cuyo valor es null
 
 	```
 	"notifications": [
@@ -218,20 +216,22 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 	```
 
-	Hit **Put** button in Resource Explorer to update the autoscale setting.
+	Presione el botón **Put** botón en el Explorador de recursos para actualizar el valor de escalado automático.
 
-You have updated an autoscale setting on a VM Scale set to include multiple scale profiles and scale notifications.
+Ha actualizado un valor de escalado automático en un conjunto de escala de máquina virtual para incluir varios perfiles y notificaciones de escalado.
 
-## Next Steps
+## Pasos siguientes
 
-Use these links to learn more about autoscaling.
+Siga estos vínculos para más información sobre el escalado automático:
 
-[Common Metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+[Métricas comunes de escalado automático de Azure Insights](../articles/azure-portal/insights-autoscale-common-metrics.md)
 
-[Best Practices for Azure Autoscale](../articles/azure-portal/insights-autoscale-best-practices.md)
+[Procedimientos recomendados de escalado automático en Azure Insights](../articles/azure-portal/insights-autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../articles/azure-portal/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Creación y administración de la configuración de escalado automático](../articles/azure-portal/insights-powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](../articles/azure-portal/insights-cli-samples.md#autoscale)
+[Administración del escalado automático con CLI](../articles/azure-portal/insights-cli-samples.md#autoscale)
 
-[Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md)
+[Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../articles/azure-portal/insights-autoscale-to-webhook-email.md)
+
+<!---HONumber=AcomDC_0817_2016-->

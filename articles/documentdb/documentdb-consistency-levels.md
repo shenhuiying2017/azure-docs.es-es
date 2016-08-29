@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Niveles de coherencia en Base de datos de documentos
@@ -87,15 +87,12 @@ En la siguiente tabla, se reflejan las diversas garantías de coherencia que cor
 
 2. En la hoja **Cuentas de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
 
-3. En la hoja de la cuenta, si la hoja **Toda la configuración** no está abierta, haga clic en el icono **Configuración** de la barra de herramientas superior.
+3. En la hoja Cuenta, haga clic en **Coherencia predeterminada**.
 
-4. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**.
+
+4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Aceptar**.
 
 	![Captura de pantalla que muestra el icono Configuración y la entrada Coherencia predeterminada](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Aceptar**.
-
-	![Captura de pantalla que muestra el nivel de coherencia y el botón Aceptar](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Niveles de coherencia para consultas
 
@@ -122,4 +119,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

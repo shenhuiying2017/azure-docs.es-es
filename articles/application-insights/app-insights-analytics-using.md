@@ -12,31 +12,33 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/26/2016" 
 	ms.author="danha"/>
 
 
 # Uso de Analytics en Application Insights
 
 
-[Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 * **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
 
 ## Apertura de Analytics
 
-En el recurso de inicio de su aplicación en Application Insights, haga clic en Analytics. p ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-using/001.png)
+En el recurso de inicio de la aplicación de Application Insights, haga clic en Analytics.
 
-El tutorial en línea le dará algunas ideas sobre lo que puede hacer.
+![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-using/001.png)
 
-Podrá encontrar un [paseo más amplio aquí](app-insights-analytics-tour.md).
+El tutorial en línea le proporciona algunas ideas sobre lo que puede hacer.
+
+Puede encontrar un [paseo más amplio aquí](app-insights-analytics-tour.md).
 
 ## Consulta de la telemetría
 
 ### Escriba una consulta.
 
-![](./media/app-insights-analytics-using/150.png)
+![Pantalla del esquema](./media/app-insights-analytics-using/150.png)
 
 Comience con los nombres de cualquiera de las tablas que aparecen a la izquierda (o los operadores [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator)). Use `|` para crear una canalización de [operadores](app-insights-analytics-reference.md#queries-and-operators). IntelliSense le indicará los operadores y algunos de los elementos de la expresión que se puede utilizar.
 
@@ -100,7 +102,7 @@ Para ordenar por más de una columna, use la agrupación. Primero, habilítela y
 
 ### ¿Faltan algunos resultados?
 
-Hay un límite de 10 000 filas en los resultados devueltos desde el portal. Se mostrará una advertencia si sobrepasa el límite. Si esto sucede, al ordenar los resultados de la tabla no siempre mostrará todos los resultados primeros o últimos reales.
+Hay un límite de 10 000 filas en los resultados devueltos desde el portal. Se muestra una advertencia si se sobrepasa el límite. Si esto sucede, al ordenar los resultados de la tabla no siempre mostrará todos los resultados primeros o últimos reales.
 
 Es recomendable evitar llegar al límite. Utilice operadores como:
 
@@ -115,21 +117,52 @@ Es recomendable evitar llegar al límite. Utilice operadores como:
 
 Seleccione el tipo de diagrama que desea:
 
-![](./media/app-insights-analytics-using/230.png)
+![Seleccione un tipo de diagrama](./media/app-insights-analytics-using/230.png)
 
 Si tiene varias columnas de los tipos correctos, puede elegir los ejes X e Y, así como una columna de dimensiones para dividir los resultados.
 
 De manera predeterminada, los resultados se muestran en un principio en forma de tabla y el diagrama se selecciona manualmente. Sin embargo, para seleccionar un diagrama se puede usar la [directiva render](app-insights-analytics-reference.md#render-directive) al final de una consulta.
 
-Puede anclar un diagrama a uno de sus [paneles compartidos](app-insights-dashboards.md); simplemente haga clic en la chincheta. (Solo disponible para las aplicaciones en un plan de tarifa de pago).
+## Anclar al panel
+
+Puede anclar un diagrama a uno de sus [paneles compartidos](app-insights-dashboards.md); simplemente haga clic en la chincheta. (Es posible que necesite [actualizar el paquete de precios de la aplicación](app-insights-pricing.md) para activar esta característica).
+
+![Haga clic en la chincheta](./media/app-insights-analytics-using/pin-01.png)
+
+Esto significa que, cuando elabora un panel que le ayude a supervisar el rendimiento o el uso de los servicios web, puede incluir un análisis bastante complejo junto con las demás métricas.
+
+#### Actualización del panel
+
+El gráfico anclado en el panel se actualiza automáticamente al volver a ejecutar la consulta aproximadamente cada media hora.
+
+#### Simplificaciones automáticas
+
+En algunos casos, determinadas simplificaciones se aplican a un gráfico cuando se fija a un panel.
+
+Al anclar un gráfico que muestra muchos intervalos discretos (normalmente un gráfico de barras), los intervalos rellenados automáticamente se agrupan en un solo intervalo "otros". Por ejemplo, esta consulta:
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+tiene esta apariencia en Analytics:
+
+
+![Gráfico con cola larga](./media/app-insights-analytics-using/pin-07.png)
+
+pero cuando se ancla a un panel, la siguiente apariencia:
+
+
+![Gráfico con intervalos limitados](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Exportación a Excel
 
-Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga clic en **Export, to Excel** (Exportar, a Excel).
+Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga clic en **Exportar, Excel**.
 
 ## Exportación a Power BI
 
-1. Coloque el cursor en una consulta y elija **Export to Power BI** (Exportación a Power BI).
+1. Coloque el cursor en una consulta y elija **Exportar, Power BI**.
 
     ![](./media/app-insights-analytics-using/240.png)
 
@@ -137,7 +170,7 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 3. Copie el script del lenguaje M en el editor de consultas avanzadas de Power BI Desktop.
  * Abra el archivo exportado.
- * En Power BI Desktop seleccione: **Obtener datos, Consulta en blanco, Editor avanzado** y pegue el script de lenguaje M.
+ * En Power BI Desktop seleccione **Obtener datos, Consulta en blanco, Editor avanzado** y pegue el script de lenguaje M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -150,4 +183,4 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

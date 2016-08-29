@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Acceso a las aplicaciones de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
 
@@ -32,7 +35,7 @@ Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows Phone 8.1
+ - Windows Phone 8,1
  - iOS
  - Mac OS X
  - Android
@@ -170,7 +173,7 @@ El cliente se inicia automáticamente una vez finalizada la instalación, sin em
 
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Windows5.png)
 
-## Windows Phone 8.1
+## Windows Phone 8,1
 
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Windows Phone 8.1, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
 
@@ -207,4 +210,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

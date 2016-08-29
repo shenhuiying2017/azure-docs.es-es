@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
@@ -46,7 +46,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
 
     **Vista del dispositivo de almacenamiento desempaquetado**
 
-     Etiqueta | Descripción
+     Etiqueta | Description
      ----- | -------------
      1 | Caja de embalaje
      2 | Cables SAS (en la bandeja de cables y accesorios)
@@ -119,7 +119,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
 
     **Fijación de guías a los laterales de la caja**
 
-    Etiqueta | Descripción
+    Etiqueta | Description
     ----- | -----------
     1 | Tornillos de cabeza de botón M 3 x 4
     2 | Guías de chasis
@@ -136,7 +136,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
 
     **Fijación de soportes de guía en el bastidor**
 
-     Etiqueta | Descripción
+     Etiqueta | Description
      ----- | -----------
      1 | Tornillo de fijación
      2 | Tornillo del poste del bastidor delantero de orificio cuadrado
@@ -168,7 +168,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
     **Instalación de los topes de las bridas**
 
-     Etiqueta | Descripción
+     Etiqueta | Description
      ----- | -----------
      1 | Tornillo de fijación del receptáculo
 
@@ -227,7 +227,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
     **Parte posterior del dispositivo en la que se muestran los puertos de datos**
 
-     Etiqueta | Descripción
+     Etiqueta | Description
      ------- | -----------
      0,1,4,5 | Interfaces de red de 1 GbE
      2,3 | Interfaces de red de 10 GbE
@@ -241,7 +241,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 **Cables de red del dispositivo**
 
-Etiqueta | Descripción
+Etiqueta | Description
 ----- | -----------
 Encontrará | LAN con acceso a Internet
 B | Controlador 0
@@ -302,4 +302,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

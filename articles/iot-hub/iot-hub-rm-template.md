@@ -13,16 +13,16 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
-# Creación de un Centro de IoT mediante un programa de C# con una plantilla del Administrador de recursos de Azure
+# Creación de un Centro de IoT mediante un programa de C# con una plantilla de Resource Manager
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introducción
 
-Puede usar el Administrador de recursos de Azure para crear y administrar Centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla del administrador de recursos para crear un centro de IoT desde un programa de C#.
+Puede usar el Administrador de recursos de Azure para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla de Resource Manager para crear un Centro de IoT desde un programa de C#.
 
 > [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
 
@@ -45,9 +45,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 4. En el Administrador de paquetes de NuGet, busque **Microsoft.IdentityModel.Clients.ActiveDirectory**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar la licencia.
 
-5. En el Administrador de paquetes de NuGet, busque **Microsoft.Azure.Common**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
-
-6. En Program.cs, reemplace las instrucciones **using** existentes por las siguientes:
+5. En Program.cs, reemplace las instrucciones **using** existentes por las siguientes:
 
     ```
     using System;
@@ -57,7 +55,7 @@ Para completar este tutorial, necesitará lo siguiente:
     using Microsoft.Rest;
     ```
     
-7. En Program.cs, agregue las siguientes variables estáticas reemplazando los valores de marcador de posición. Realizó una nota de **ApplicationId**, **SubscriptionId**, **TenantId** y **Password** anteriormente en este tutorial. **El nombre de la cuenta de almacenamiento** es el nombre de la cuenta de almacenamiento de Azure donde almacenará los archivos de la plantilla. El **Nombre de grupo de recursos** es el nombre del grupo de recursos que usará al crear el Centro de IoT, puede ser un grupo de recursos existente u otro nuevo. El **Nombre de la implementación** es un nombre para la implementación, como **Deployment\_01**.
+6. En Program.cs, agregue las siguientes variables estáticas reemplazando los valores de marcador de posición. Ha tomado nota de **ApplicationId**, **SubscriptionId**, **TenantId** y **Password** anteriormente en este tutorial. El **nombre de la cuenta de almacenamiento** es el nombre de la cuenta de Almacenamiento de Azure donde almacenará los archivos de la plantilla. El **nombre de grupo de recursos** es el nombre del grupo de recursos que usará al crear el Centro de IoT. Puede ser un grupo de recursos existente u otro nuevo. El **Nombre de la implementación** es un nombre para la implementación, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -73,11 +71,11 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Enviar una plantilla para crear un centro de IoT
 
-Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro de IoT en el grupo de recursos. También puede usar la plantilla para realizar cambios en un centro de IoT existente.
+Use una plantilla de JSON y un archivo de parámetro para crear un Centro de IoT en el grupo de recursos. También puede usar la plantilla para realizar cambios en un centro de IoT existente.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un nuevo archivo JSON denominado **template.json** a su proyecto.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un archivo JSON denominado **template.json** a su proyecto.
 
-2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un nuevo centro de IoT estándar a la región **Este de EE.UU.**:
+2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un Centro de IoT estándar a la región **Este de EE. UU.**:
 
     ```
     {
@@ -113,9 +111,9 @@ Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro 
     }
     ```
 
-3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un nuevo archivo JSON denominado **parameters.json** a su proyecto.
+3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un archivo JSON denominado **parameters.json** a su proyecto.
 
-4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece un nombre para el nuevo Centro de IoT como **{sus iniciales} mynewiothub** (tenga en cuenta que este nombre debe ser globalmente único, por lo que debe incluir su nombre o sus iniciales):
+4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece el nombre del nuevo Centro de IoT, como **{sus iniciales}miNuevoCentroDeIoT**. Tenga en cuenta que el nombre del Centro de IoT debe ser único globalmente, por lo que debe incluir su nombre o sus iniciales:
 
     ```
     {
@@ -127,13 +125,13 @@ Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro 
     }
     ```
 
-5. En el **Explorador de servidores**, conéctese a su suscripción de Azure y, en su cuenta de almacenamiento, cree un contenedor nuevo denominado **plantillas**. En el panel **Propiedades**, establezca los permisos de **Acceso de lectura público** para el contenedor **plantillas** en **Blob**.
+5. En el **Explorador de servidores**, conéctese a su suscripción de Azure y, en su cuenta de almacenamiento, cree un contenedor denominado **plantillas**. En el panel **Propiedades**, establezca los permisos de **Acceso de lectura público** para el contenedor **plantillas** en **Blob**.
 
 6. En el **Explorador de servidores**, haga clic con el botón derecho en el contenedor **plantillas** y luego haga clic en **Ver contenedor de blob**. Haga clic en el botón **Cargar blob**, seleccione los dos archivos, **parameters.json** y **templates.json**, y luego haga clic en **Abrir** para cargar los archivos JSON en el contenedor **plantillas**. Las direcciones URL de los blobs que contienen los datos de JSON son:
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
-    https://{Your storage account name}.windows.net/templates/template.json
+    https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
 
 7. Agregue el método siguiente a Program.cs:
@@ -145,7 +143,7 @@ Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro 
     }
     ```
 
-5. Agregue el código siguiente al método **CreateIoTHub** para enviar los archivos de plantilla y parámetro al Administrador de recursos de Azure:
+5. Agregue el código siguiente al método **CreateIoTHub** para enviar los archivos de plantilla y parámetro a Azure Resource Manager:
 
     ```
     var createResponse = client.Deployments.CreateOrUpdate(
@@ -198,13 +196,13 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 
 4. Para comprobar que su aplicación ha agregado el nuevo centro de IoT, visite el [portal][lnk-azure-portal] y vea la lista de recursos o use el cmdlet de PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
+> [AZURE.NOTE] Esta aplicación de ejemplo agrega un Centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
 
 ## Pasos siguientes
 
-Ahora que ha implementado un Centro de IoT mediante una plantilla del Administrador de recursos de Azure con un programa de C#, quizá desee seguir explorando:
+Ahora que ha implementado un Centro de IoT mediante una plantilla de Resource Manager con un programa de C#, quizá desee seguir explorando:
 
-- Lea sobre las capacidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] (API de REST del proveedor de recursos del centro de IoT).
+- Lea sobre las funcionalidades de la [API de REST del proveedor de recursos del Centro de IoT][lnk-rest-api].
 - Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
 
 Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
@@ -217,7 +215,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Diseño de la solución][lnk-design]
 - [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
 - [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Administración de Centros de IoT a través del Portal de Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -235,4 +233,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

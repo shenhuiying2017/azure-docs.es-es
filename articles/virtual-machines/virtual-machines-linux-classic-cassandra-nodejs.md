@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Ejecución de Cassandra con Linux en Azure y acceso desde Node.js 
@@ -424,7 +424,7 @@ Inicie sesión en uno de los nodos (como hk-c1-west-us) y ejecute el cmdlet sigu
 Debería ver la pantalla similar a la siguiente para un clúster de 8 nodos:
 
 <table>
-<tr><th>Status</th></th>Dirección	</th><th>Carga	</th><th>Tokens	</th><th>Propiedad </th><th>Identificador de host	</th><th>Bastidor</th></tr>
+<tr><th>Estado</th></th>Dirección	</th><th>Carga	</th><th>Tokens	</th><th>Propiedad </th><th>Identificador de host	</th><th>Bastidor</th></tr>
 <tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81 KB	</td><td>256	</td><td>38,0&#160;%	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08 KB	</td><td>256	</td><td>68,9&#160;%	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29 KB	</td><td>256	</td><td>68,8&#160;%	</td><td>GUID (eliminado)</td><td>rack2</td></tr>
@@ -705,4 +705,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 - [http://www.datastax.com](http://www.datastax.com)
 - [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

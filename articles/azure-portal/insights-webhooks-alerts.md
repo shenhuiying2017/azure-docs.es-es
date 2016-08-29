@@ -64,7 +64,7 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -72,8 +72,6 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
               }
 }
 ```
-
->[AZURE.NOTE] En nuestra próxima actualización, agregaremos compatibilidad para las alertas en eventos ("conditionType": "Event").
 
 
 | Campo | ¿Obligatorio? | ¿Conjunto fijo de valores? | Notas |
@@ -123,4 +121,4 @@ Use las alertas de Azure para enviar mensajes a otros servicios. Use las siguien
 
 [Usar la aplicación lógica para enviar mensajes a una cola de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

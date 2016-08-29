@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Agregar usuarios a la aplicación de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Para que los usuarios puedan ver y usar las aplicaciones en Azure RemoteApp, debe concederles acceso a la colección. Esta es la parte fácil: en la pestaña **Acceso de usuario**, escriba la información de cuenta del usuario y, a continuación, haga clic en la marca de verificación.
 
@@ -50,6 +53,6 @@ Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Dire
 > [AZURE.NOTE] Los usuarios de Azure Active Directory deben proceder del inquilino asociado a la suscripción. (Puede ver y modificar su suscripción en la pestaña **Configuración** del portal. Consulte [Cambio del inquilino de Azure Active Directory que usa RemoteApp](remoteapp-changetenant.md) para obtener más información).
 
 ## Información de la cuenta de usuario de Office 365 ProPlus
-Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
+Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

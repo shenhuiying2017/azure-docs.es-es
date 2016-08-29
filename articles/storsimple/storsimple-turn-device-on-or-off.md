@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Encendido o apagado del dispositivo de StorSimple 
@@ -241,4 +241,4 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

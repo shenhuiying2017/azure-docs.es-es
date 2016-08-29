@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
@@ -45,7 +45,7 @@ Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure 
 
 ##Datos de ejemplo de consultas
 
-Una vez que carga algunos datos de ejemplo en Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas. Para ejecutar una consulta, conéctese a la base de datos de Adventure Works que acaba de crear en Almacenamiento de datos SQL de Azure con Visual Studio y SSDT, tal como se describe en el documento de [conexión][].
+Una vez que carga algunos datos de ejemplo en Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas. Para ejecutar una consulta, conéctese a la base de datos de Adventure Works que acaba de crear en Almacenamiento de datos SQL de Azure con Visual Studio y SSDT, tal como se describe en el documento de [realización de consultas con Visual Studio][].
 
 Un ejemplo de una instrucción select simple para obtener toda la información de los empleados:
 
@@ -80,15 +80,15 @@ Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, 
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: ./sql-data-warehouse-overview-migrate.md
-[desarrollar]: ./sql-data-warehouse-overview-develop.md
-[cargar]: ./sql-data-warehouse-overview-load.md
-[conexión]: ./sql-data-warehouse-get-started-connect.md
-[migración del código]: ./sql-data-warehouse-migrate-code.md
-[instalar bcp]: ./sql-data-warehouse-load-with-bcp.md
-[instalar sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[migrar]: sql-data-warehouse-overview-migrate.md
+[desarrollar]: sql-data-warehouse-overview-develop.md
+[cargar]: sql-data-warehouse-overview-load.md
+[realización de consultas con Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[migración del código]: sql-data-warehouse-migrate-code.md
+[instalar bcp]: sql-data-warehouse-load-with-bcp.md
+[instalar sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

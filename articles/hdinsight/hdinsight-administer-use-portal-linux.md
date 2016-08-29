@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 #Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
@@ -41,7 +41,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 	
 		![Portal de Azure botón clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-        Si **HDInsight** no aparece en el menú de la izquierda, haga clic en **Examinar**.
+        Si **HDInsight** no se muestra en el menú de la izquierda, haga clic en **Examinar** y en **Clústeres de HDInsight**.
 
         ![Portal de Azure botón Examinar clúster](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
 
@@ -54,7 +54,7 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 ##Enumeración y visualización de clústeres
 
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
-2. Haga clic en **Clústeres de HDInsight** en el menú izquierdo para mostrar los clústeres existentes.
+2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda para mostrar los clústeres existentes.
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga doble clic en un clúster de la lista para mostrar los detalles.
 
@@ -64,15 +64,15 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 	
 	- **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
 	- **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
-	- **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
-	- **Escalar clúster**: permite cambiar el número de nodos de trabajo de este clúster.
+    - **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
+	- **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 	- **Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 	
-		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y los permisos de este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 	- **Etiquetas (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png))**: las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
-	- **Vistas de Ambari**: vínculos a la web de Ambari.
+	- **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 	
 	> [AZURE.IMPORTANT] Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -94,9 +94,9 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
     - **Acciones de script**: ejecuta scripts de Bash en el clúster.
     - **Propiedades**: muestra las propiedades del clúster.
 	- **Claves de almacenamiento de Azure**: consulte la cuenta de almacenamiento predeterminada y su clave. La cuenta de almacenamiento se configura durante el proceso de creación del clúster.
-	- **Identidad AAD de clúster**: 
-	- **Usuarios**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción a Azure.
-	- **Etiquetas**: las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	- **Identidad AAD de clúster**:
+	- **Usuarios**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de la suscripción de Azure.
+	- **Etiquetas**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
     
     > [AZURE.NOTE] Se trata de una lista genérica de opciones de configuración disponibles; no todas ellas estarán presentes en todos los tipos de clúster.
 
@@ -110,9 +110,9 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 	- **Región**: ubicación de Azure. Para una lista de ubicaciones de Azure admitidas, vea el cuadro de lista desplegable **Región** en [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Datos creados**.
 	- **Sistema operativo**: **Windows** o **Linux**.
-	- **Tipo**: Hadoop, HBase, Storm, Spark. 
+	- **Tipo**: Hadoop, HBase, Storm, Spark.
 	- **Versión**. Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).
-	- **Subscripción**: nombre de la suscripción.
+	- **Suscripción**: nombre de la suscripción.
 	- **Id. de suscripción**.
     - **Origen de datos predeterminado**: el sistema de archivos predeterminado del clúster.
 	- **Plan de tarifa de los nodos de trabajo**.
@@ -131,7 +131,7 @@ Vea también [Pausa o apagado de clústeres](#pauseshut-down-clusters).
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Enumeración y visualización de clústeres](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
+>[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Enumeración y visualización de clústeres](hdinsight-adminster-use-management-portal.md#list-and-show-clusters).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -204,9 +204,9 @@ Un clúster de HDInsight puede tener dos cuentas de usuario. La cuenta de usuari
 
 > [AZURE.NOTE] Si cambia la contraseña de usuario (admin) del clúster, puede provocar el error de las acciones de script ejecutadas en este clúster. Si tiene cualquier acciones de script persistente cuyo destino son nodos de trabajo, pueden producir un error al agregar nodos al clúster a través de operaciones de cambio de tamaño. Para más información sobre acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie sesión en la IU web de Ambari con las credenciales de usuario del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. La dirección URL es **https://<HDInsight Cluster Name>azurehdinsight.net**.
-2. Haga clic en **Administración** en el menú superior y después en "Administrar Ambari" (Administrar Ambari). 
-3. En el menú izquierdo, haga clic en **Usuarios**.
+1. Inicie sesión en la IU web de Ambari con las credenciales de usuario del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. La dirección URL es **https://&lt;HDInsightNombre de clúster>azurehdinsight.net**.
+2. Haga clic en **Administración** en el menú superior y después en "Administrar Ambari".
+3. En el menú de la izquierda, haga clic en **Usuarios**.
 4. Haga clic en **Administrador**.
 5. Haga clic en **Cambiar contraseña**.
 
@@ -214,7 +214,7 @@ A continuación, Ambari cambia la contraseña en todos los nodos del clúster.
 
 ###Cambio de la contraseña de usuario de SSH
 
-1. Con un editor de texto, guarde lo siguiente como un archivo denominado __changepassword.sh__.
+1. Con un editor de texto, guarde lo siguiente como un archivo llamado __changepassword.sh__.
 
     > [AZURE.IMPORTANT] Debe utilizar un editor que use LF como final de líneas. Si el editor utiliza CRLF, el script no funcionará.
     
@@ -226,7 +226,7 @@ A continuación, Ambari cambia la contraseña en todos los nodos del clúster.
 
 2. Cargue el archivo en una ubicación de almacenamiento a la que pueda accederse desde HDInsight con una dirección HTTP o HTTPS. Por ejemplo, un almacén de archivos público como OneDrive o Almacenamiento de blobs de Azure. Guarde el identificador URI (dirección HTTP o HTTPS), en el archivo, ya que se necesitará en el paso siguiente.
 
-3. En el Portal de Azure, seleccione el clúster de HDInsight y luego __Toda la configuración__. En la hoja __Configuración__, seleccione __Acciones de script__.
+3. En el Portal de Azure, seleccione el clúster de HDInsight y luego seleccione __Toda la configuración__. En la hoja __Configuración__, seleccione __Acciones de script__.
 
 4. En la hoja __Acciones de script__, seleccione __Enviar nuevo__. Cuando aparezca la hoja __Enviar acción de script__, especifique la siguiente información.
 
@@ -252,12 +252,12 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 
 De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar o conceder el acceso mediante la [CLI de Azure](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) y [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
-##Buscar el identificador de la suscripción
+##Búsqueda del identificador de la suscripción
 
 **Para buscar los identificadores de la suscripción de Azure**
 
 1. Inicie sesión en el [Portal][azure-portal].
-2. Haga clic en **Examinar todo** en el menú izquierdo y después haga clic en **Suscripciones**. Cada suscripción tiene un nombre y un identificador.
+2. Haga clic en **Examinar todo** en el menú de la izquierda y después haga clic en **Suscripciones**. Cada suscripción tiene un nombre y un identificador.
 
 Cada clúster está asociado a una suscripción de Azure. El identificador de la suscripción se muestra en el icono **Esencial** del clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
@@ -266,7 +266,7 @@ Cada clúster está asociado a una suscripción de Azure. El identificador de la
 En el modo ARM, cada clúster de HDInsight se crea con un grupo de recursos de Azure. El grupo de recursos de Azure al que pertenece un clúster aparece en:
 
 - La lista de clústeres tiene una columna **Grupo de recursos**.
-- Icono **Esencial** del clúster.  
+- Icono **Esencial** del clúster.
 
 Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
@@ -282,12 +282,12 @@ No puede ejecutar un trabajo de Hive directamente desde el Portal de Azure, pero
 
 **Para ejecutar las consultas de Hive mediante la vista de Hive de Ambari**
 
-1. Inicie sesión en la IU web de Ambari con las credenciales de usuario del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. La dirección URL es **https://<HDInsight Cluster Name>azurehdinsight.net**.
-2. Abra la vista de Hive como se muestra en la siguiente captura de pantalla:  
+1. Inicie sesión en la IU web de Ambari con las credenciales de usuario del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. La dirección URL es **https://&lt;HDInsightNombre de clúster>azurehdinsight.net**.
+2. Abra la vista de Hive como se muestra en la siguiente captura de pantalla:
 
 	![vista de hive de hdinsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 3. Haga clic en **Query** (Consulta) en el menú superior.
-4. Escriba una consulta de Hive en el **Editor de consultas** y después haga clic en **Execute** (Ejecutar).
+4. Escriba una consulta de Hive en el **Editor de consultas** y haga clic en **Execute** (Ejecutar).
 
 ##Supervisión de trabajos
 
@@ -298,7 +298,7 @@ Consulte [Administración de clústeres de HDInsight con la interfaz de usuario 
 Con el Portal de Azure, puede examinar el contenido del contenedor predeterminado.
 
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
-2. Haga clic en **Clústeres de HDInsight** en el menú izquierdo para enumerar los clústeres existentes.
+2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda para mostrar los clústeres existentes.
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga clic en **Configuración**.
 5. En la hoja **Configuración**, haga clic en **Claves de almacenamiento de Azure**.
@@ -309,7 +309,7 @@ Con el Portal de Azure, puede examinar el contenido del contenedor predeterminad
 
 ##Supervisión del uso de los clústeres
 
-La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles para la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y la forma en que se asignan a los nodos del clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 > [AZURE.IMPORTANT] Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, vea [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -332,4 +332,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

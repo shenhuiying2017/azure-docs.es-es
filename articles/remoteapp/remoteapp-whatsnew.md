@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Novedades en RemoteApp de Azure
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Una de las ventajas de Azure RemoteApp es que siempre trabajamos para mejorarlo. Cada vez que lo hagamos, anunciaremos aquí esos cambios.
 
 ## Actualizaciones futuras
-¿Sabía que el equipo de Azure RemoteApp publica actualizaciones mensuales en el blog de RDS? No solo encontrará las novedades de Azure RemoteApp, sino también más información acerca de cómo utilizar RDS. Para obtener información, visite su blog: [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/). Por ejemplo, hace un par de semanas, publicaron una entrada sobre [elevación y desplazamiento de cargas de trabajo con Azure RemoteApp y Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+¿Sabía que el equipo de Azure RemoteApp publica actualizaciones mensuales en el blog de RDS? No solo encontrará las novedades de Azure RemoteApp, sino también más información acerca de cómo utilizar RDS. Para obtener información, visite su blog [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/). Por ejemplo, hace un par de semanas, publicaron una entrada sobre [elevación y desplazamiento de cargas de trabajo con Azure RemoteApp y Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
 ## Septiembre de 2015
 - Se agregó InfoPath a la imagen de galería y plantilla de Microsoft Office 365. Si desea compartir InfoPath, asegúrese de actualizar las colecciones con la imagen más reciente.
@@ -69,7 +72,7 @@ En julio habrá nuevos cambios, por lo que pronto publicaremos otra actualizaci�
 
 ## Mayo de 2015
 
-Han tenido lugar varias adiciones y han pasado varios meses desde que creamos este tema, por lo que esta lista en realidad corresponde al período entre principios de marzo y mayo. Revise las nuevas características:
+Han tenido lugar varias adiciones y han pasado varios meses desde que creamos este tema, por lo que esta lista en realidad corresponde al periodo entre principios de marzo y mayo. Revise las nuevas características:
 
 - Automatización completa: ahora RemoteApp de Azure incluye [cmdlets en el módulo de Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
 - [Creación de una imagen de RemoteApp de Azure basada en una máquina virtual de Azure](remoteapp-image-on-azurevm.md). Consigue que la carga de la imagen personalizada en Azure se realice mucho más rápido.
@@ -87,4 +90,4 @@ Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 ### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de tablas de Java
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Información general
 
@@ -62,7 +62,7 @@ En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta ca
     String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
-En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
+En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
 ## Cómo crear una tabla
 
@@ -552,7 +552,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 - [API de REST de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+Para más información, consulte también el [Centro de desarrolladores de Java](/develop/java/).
 
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
@@ -564,4 +564,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [Tablas de Azure: Introducción a Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Tablas de Azure: Introducción de Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

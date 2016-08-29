@@ -20,7 +20,7 @@
 
 ##Información general
 
-Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](storage-client-side-encryption.md), HTTPS o SMB 3.0. Los datos se pueden configurar para que se cifren automáticamente cuando se escriben en Almacenamiento de Azure mediante el [cifrado del servicio de almacenamiento (SSE)](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Cifrado de discos de Azure](../azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Almacenamiento de Azure mediante las [Firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](storage-client-side-encryption.md), HTTPS o SMB 3.0. Los datos se pueden configurar para que se cifren automáticamente cuando se escriben en Almacenamiento de Azure mediante el [cifrado del servicio de almacenamiento (SSE)](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Almacenamiento de Azure mediante las [Firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 Este artículo ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Almacenamiento de Azure. Se incluyen vínculos a artículos en los que se detalla cada una de ellas, así que puede examinar un tema determinado con mayor detalle si así lo desea.
 
@@ -634,4 +634,4 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

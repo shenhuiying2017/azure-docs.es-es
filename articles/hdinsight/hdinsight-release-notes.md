@@ -14,11 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/17/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+## Notas de la versión de 17/08/2016 para R Server en HDInsight
+
+• R Server 8.0.5: básicamente, una versión con corrección de errores. Consulte [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) (Notas de la versión de R Server) para más información. • Paquete AzureML en el nodo perimetral: [este paquete de R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que se publiquen modelos de R y se consuman como servicio web de Aprendizaje automático de Azure. Consulte la sección ["Uso de modelos"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) de nuestro artículo ["Información general de R Server en HDInsight"](hdinsight-hadoop-r-server-overview.md) para más información. • Dependencias de Linux de los [100 paquetes de R más populares](https://github.com/metacran/cranlogs): estas dependencias de paquete de Linux se instalan previamente. • Opción de usar el repositorio CRAN al agregar paquetes de R a los nodos de datos. Consulte la sección ["Instalar paquetes de R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) de nuestro artículo ["Introducción al uso de R Server en HDInsight"](hdinsight-hadoop-r-server-get-started.md) para más información. • Se mejoró la confiabilidad del aprovisionamiento de R Server cuando se crean clústeres.
+
 
 ## Notas de la versión del 08/01/2016 de HDInsight
 
@@ -312,7 +317,7 @@ Esta versión contiene las siguientes actualizaciones.
 | Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Se ha cambiado la versión de HDP predeterminada a HDP 2.2. | La versión predeterminada para los clústeres de Windows de HDInsight se cambia a HDP 2.2. HDInsight versión 3.2 (HDP 2.2) ha estado disponible con carácter general desde febrero de 2015. Este cambio solo invierte la versión del clúster predeterminada, cuando no se ha realizado una selección explícita durante el aprovisionamiento del clúster mediante el portal de Azure, los cmdlets de PowerShell o el SDK. | Servicio | Todo| N/D |
-|Cambios en el formato de nombre de máquina virtual para la implementación de múltiples clústeres de HDInsight en Linux en una red virtual única | En esta versión se agrega compatibilidad para implementar varios clústeres de Linux de HDInsight en una red virtual única. Como parte de esto, el formato de nombres de máquina virtual en el clúster ha cambiado desde headnode\*, workernode\* y zookeepernode\* a hn\*, wn\* y zk\*, respectivamente. No se recomienda tomar una dependencia directa en el formato de nombres de máquina virtual, ya que esto está sujeto a cambios. Use "hostname -f" en la máquina local o API de Ambari para determinar la lista de hosts y la asignación de componentes a hosts. Encontrará más información en [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) y [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servicio | Clústeres de HDInsight en Linux | N/D |
+|Cambios en el formato de nombre de máquina virtual para la implementación de múltiples clústeres de HDInsight en Linux en una red virtual única | En esta versión se agrega compatibilidad para implementar varios clústeres de Linux de HDInsight en una red virtual única. Como parte de esto, el formato de nombres de máquina virtual en el clúster ha cambiado desde headnode*, workernode* y zookeepernode* a hn*, wn* y zk*, respectivamente. No se recomienda tomar una dependencia directa en el formato de nombres de máquina virtual, ya que esto está sujeto a cambios. Use "hostname -f" en la máquina local o API de Ambari para determinar la lista de hosts y la asignación de componentes a hosts. Encontrará más información en [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) y [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servicio | Clústeres de HDInsight en Linux | N/D |
 | Cambios en la configuración | Para los clústeres de HDInsight 3.1, ahora están habilitadas las siguientes configuraciones: <ul><li>tez.yarn.ats.enabled y yarn.log.server.url. Esto permite al servidor de escala de tiempo de aplicación y al servidor de registro poder servir registros.</li></ul>Para los clústeres de HDInsight 3.2, se han modificado las siguientes configuraciones: <ul><li>mapreduce.fileoutputcommitter.algorithm.version se ha establecido en 2. Esto permite el uso de la versión V2 de FileOutputCommitter.</li></ul> | Servicio | Todo | N/D |
 
 
@@ -1679,4 +1684,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

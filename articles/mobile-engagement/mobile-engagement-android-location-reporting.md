@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Informes de ubicación para el SDK de Android para Azure Mobile Engagement
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Este tema describe cómo realizar los informes de ubicación para la aplicación de Android.
+Este tema describe cómo realizar informes de ubicación para la aplicación de Android.
 
 ## Requisitos previos
 
@@ -33,45 +33,45 @@ Si desea que se notifiquen las ubicaciones, deberá agregar algunas líneas de c
 
 ### Informes de ubicaciones de áreas diferidas
 
-Los informes de ubicación de área diferida permiten notificar el país, la región y la localidad asociados con los dispositivos. Este tipo de informe de ubicación sólo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI). El área del dispositivo se notifica como máximo una vez por sesión. El GPS no se utiliza nunca y, por tanto, este tipo de informe de ubicación tiene muy poco impacto (por no decir ninguno) en la batería.
+Los informes diferidos de ubicación permiten notificar el país, la región y la localidad asociados con los dispositivos. Este tipo de informe de ubicación sólo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI). El área del dispositivo se notifica como máximo una vez por sesión. El GPS no se utiliza nunca y, por tanto, este tipo de informe de ubicación tiene muy poco impacto en la batería.
 
 Las áreas notificadas se utilizan para elaborar estadísticas geográficas acerca de los usuarios, las sesiones, los eventos y los errores. También se pueden usar como criterios en campañas de cobertura.
 
-Para habilitar los informes diferidos de ubicación, puede hacerlo mediante la configuración anteriormente mencionada en este procedimiento:
+Los informes diferidos de ubicación se habilitan mediante la configuración mencionada anteriormente en este procedimiento:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setLazyAreaLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Puede que también deba agregar el siguiente permiso si no existe:
+También necesita especificar un permiso de ubicación. Este código usa el permiso ``COARSE``:
 
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
+Si la aplicación lo requiere, puede usar ``ACCESS_FINE_LOCATION`` en su lugar.
 
 ### Informes de ubicación en tiempo real
 
-Los informes de ubicación en tiempo real permiten notificar la latitud y la longitud asociadas con los dispositivos. De forma predeterminada, este tipo de informes de ubicación solo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI), y los informes solo están activos cuando la aplicación se ejecuta en primer plano (por ejemplo, durante una sesión).
+Los informes de ubicación en tiempo real permiten notificar la latitud y la longitud asociadas con los dispositivos. Este tipo de informe de ubicación solo emplea ubicaciones de red basadas en el identificador del teléfono móvil o WiFi. Los informes solo están activos cuando la aplicación se ejecuta en primer plano (es decir, durante una sesión).
 
-Las ubicaciones en tiempo real *NO* se usan para calcular las estadísticas. Su único objetivo es permitir el uso de criterios de geovallas en tiempo real <Reach-audiencia-geovallas> en las campañas de Reach.
+Las ubicaciones en tiempo real *NO* se usan para calcular estadísticas. Su único objetivo es permitir el uso de criterios de geovallas en tiempo real <Reach-audiencia-geovallas> en las campañas de cobertura.
 
-Para habilitar los informes de ubicación en tiempo real, agregue una línea de código en la que establece la cadena de conexión de Engagement en la actividad del iniciador. El resultado tendrá este aspecto:
+Para habilitar los informes de ubicación en tiempo real, agregue una línea de código en la que establece la cadena de conexión de Engagement en la actividad del iniciador. El resultado será similar al siguiente:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Puede que también deba agregar el siguiente permiso si no existe:
+		You also need to specify a location permission. This code uses ``COARSE`` permission:
 
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
+		If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
 #### Informes basados en GPS
 
-De forma predeterminada, los informes de ubicación en tiempo real solo emplean ubicaciones de red. Para habilitar el uso de ubicaciones basadas en GPS (que son mucho más precisas), use el objeto de configuración:
+De forma predeterminada, los informes de ubicación en tiempo real solo emplean ubicaciones de red. Para habilitar el uso de ubicaciones basadas en GPS, que son mucho más precisas, use el objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -85,7 +85,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
 #### Informes en segundo plano
 
-De forma predeterminada, los informes de ubicación en tiempo real solo están activos cuando la aplicación se ejecuta en primer plano (es decir, durante una sesión). Para habilitar los informes también en segundo plano, use este objeto de configuración:
+De forma predeterminada, los informes de ubicación en tiempo real solo están activos cuando la aplicación se ejecuta en primer plano (por ejemplo, durante una sesión). Para habilitar los informes también en segundo plano, use este objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -95,7 +95,7 @@ De forma predeterminada, los informes de ubicación en tiempo real solo están a
 
 > [AZURE.NOTE] Cuando la aplicación se ejecuta en segundo plano, solo se notifican las ubicaciones de red, incluso si ha habilitado el GPS.
 
-El informe de ubicación en segundo plano se detendrá si el usuario reinicia su dispositivo; puede agregar esto para hacer que se reinicie automáticamente en el momento de inicio:
+Si el usuario reinicia su dispositivo, el informe de ubicación en segundo plano se detiene. Para que se reinicie automáticamente durante el arranque, agregue este código.
 
 	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
 		   android:exported="false">
@@ -110,18 +110,18 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
 ## Permisos de Android M
 
-A partir de Android M, algunos permisos se administran en tiempo de ejecución y se necesita la aprobación del usuario.
+A partir de Android M, algunos permisos se administran en tiempo de ejecución y necesitan la aprobación del usuario.
 
-Los permisos en tiempo de ejecución se desactivan de manera predeterminada para las nuevas instalaciones de aplicaciones con destino la API de Android nivel 23. De lo contrario, se activan de forma predeterminada.
+Si su objetivo es la API de Android nivel 23, los permisos en tiempo de ejecución se desactivan de manera predeterminada para las nuevas instalaciones de aplicaciones. De lo contrario, se activan de forma predeterminada.
 
-El usuario puede habilitar o deshabilitar esos permisos en el menú de configuración del dispositivo. Desactivar los permisos en el menú del sistema termina los procesos en segundo plano de la aplicación; se trata de un comportamiento del sistema y no afecta a la capacidad para recibir notificaciones push en segundo plano.
+Se puede habilitar o deshabilitar esos permisos en el menú de configuración del dispositivo. Desactivar los permisos en el menú del sistema termina los procesos en segundo plano de la aplicación; se trata de un comportamiento del sistema y no afecta a la capacidad para recibir inserciones en segundo plano.
 
 En el contexto de los informes de ubicación de Mobile Engagement, los permisos que requieren aprobación en tiempo de ejecución son:
 
 - `ACCESS_COARSE_LOCATION`
 - `ACCESS_FINE_LOCATION`
 
-Debe solicitar permiso al usuario mediante un cuadro de diálogo estándar del sistema. Si el usuario lo aprueba, debe indicar a ``EngagementAgent`` que tenga en cuenta ese cambio en tiempo real (de lo contrario,el cambio se procesará la próxima vez que el usuario inicie la aplicación).
+Debe solicitar permiso al usuario mediante un cuadro de diálogo estándar del sistema. Si el usuario acepta, indique a ``EngagementAgent`` que tenga ese cambio en cuenta en tiempo real. De lo contrario, el cambio se procesa la siguiente vez que el usuario inicie la aplicación.
 
 Este es un ejemplo de código para usar en una actividad de la aplicación para solicitar permisos y reenviar el resultado si es positivo a ``EngagementAgent``:
 
@@ -141,7 +141,7 @@ Este es un ejemplo de código para usar en una actividad de la aplicación para 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
       {
         /*
-         * Request location permission, but this won't explain why it is needed to the user.
+         * Request location permission, but this doesn't explain why it is needed to the user.
          * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
          * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
          */
@@ -159,4 +159,4 @@ Este es un ejemplo de código para usar en una actividad de la aplicación para 
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

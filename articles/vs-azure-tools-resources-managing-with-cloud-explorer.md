@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Administración de recursos de Azure con Cloud Explorer
@@ -21,7 +21,7 @@
 
 Cloud Explorer está diseñado para permitirle examinar y administrar con mayor facilidad y rapidez los recursos de Azure en el IDE de Visual Studio. Por ejemplo, puede usarlo para abrir una aplicación web en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) o en un explorador, o adjuntarle un depurador. También puede ver las propiedades de un contenedor de blobs y abrirlo en el editor de contenedores de blobs.
 
-Cloud Explorer se basa en la pila de Azure Resource Manager, igual que el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Entiende de recursos como, grupos de recursos de Azure, y de servicios de Azure, como aplicaciones lógicas y de API. Además, admite [control de acceso basado en rol](../role-based-access-control-configure/) (RBAC). Para ver los recursos de Azure que se han agregado o cambiado, elija el botón **Actualizar** en la barra de herramientas de Cloud Explorer.
+Cloud Explorer se basa en la pila de Azure Resource Manager, igual que el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Entiende de recursos como, grupos de recursos de Azure, y de servicios de Azure, como aplicaciones lógicas y de API. Además, admite [control de acceso basado en rol](./active-directory/role-based-access-control-configure.md) (RBAC). Para ver los recursos de Azure que se han agregado o cambiado, elija el botón **Actualizar** en la barra de herramientas de Cloud Explorer.
 
 Cloud Explorer se instala como parte de Visual Studio Tools para Azure SDK 2.7.
 
@@ -95,4 +95,4 @@ Para buscar recursos con un nombre específico en las suscripciones de cuenta de
 
 A medida que escribe caracteres en el cuadro de búsqueda, solo los recursos que coinciden con los caracteres aparecen en el árbol de recursos.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

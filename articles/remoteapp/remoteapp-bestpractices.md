@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Prácticas recomendadas para configurar y usar RemoteApp de Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure de manera productiva.
 
@@ -23,7 +26,7 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 
 
 - Utilice siempre la versión más reciente del cliente. El uso de clientes anteriores podría producir problemas de conectividad y otras experiencias degradadas. La habilitación de las actualizaciones automáticas de aplicaciones para su dispositivo garantizará que siempre esté instalado el cliente más reciente.
-- Utilice siempre la conexión a Internet más estable y confiable disponible.  
+- Utilice siempre la conexión a Internet más estable y confiable disponible.
 - Use solo las conexiones proxy admitidas para obtener un rendimiento óptimo de conectividad. No se admite el proxy SOCKS.
 
 ## Aplicaciones
@@ -35,7 +38,7 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 ## Configuración y administración
 
 
-- Conserve las imágenes de plantilla actualizadas, instalando actualizaciones de software y otras revisiones críticas según sea necesario. Esto garantiza que, conforme RemoteApp de Azure realiza la autoescala para satisfacer su capacidad, se revisa cada instancia.  
+- Conserve las imágenes de plantilla actualizadas, instalando actualizaciones de software y otras revisiones críticas según sea necesario. Esto garantiza que, conforme RemoteApp de Azure realiza la autoescala para satisfacer su capacidad, se revisa cada instancia.
 - Asegúrese de que su implementación de Servicios de federación de Active Directory (AD FS) es segura y confiable. En caso contrario, es posible que se produzca un error en las autenticaciones de cliente, con lo que se impedirá que los usuarios accedan a RemoteApp de Azure.
 - Configurar imágenes de plantilla con características, roles o aplicaciones instaladas, de manera que no tengan estado. No deben depender de todas las instancias de las máquinas virtuales en un servicio de RemoteApp que están en un estado persistente.
 	- Almacene todos los datos de usuario en perfiles de usuario u otras ubicaciones de almacenamiento externos al servicio, como recursos compartidos de archivos locales o OneDrive.
@@ -43,4 +46,4 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 	- Configure la configuración de todo el sistema en la imagen de plantilla en lugar de en las máquinas virtuales individuales de un servicio.
 	- Deshabilite las actualizaciones de software automáticas para las aplicaciones publicadas: en su lugar, aplíquelas manualmente a la imagen de plantilla y pruébelas antes de implementar desde la plantilla.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

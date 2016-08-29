@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Creación y conexión de una base de datos MySQL en Azure
@@ -36,11 +36,11 @@ Para restaurar una base de datos MySQL en el Portal de Azure, haga lo siguiente:
 2. En la [hoja](azure-portal-overview.md) Nueva base de datos MySQL, configure la nueva base de datos MySQL tal y como se muestra a continuación (*hoja*: una página del Portal que se abre horizontalmente):
 
 	- **Nombre de la base de datos**: escriba un nombre identificable de forma única.
-	- **Suscripción**: elija la suscripción que utilizará.
-	- **Tipo de base de datos**: seleccione **Compartido** para los niveles de bajo coste o gratuitos, o bien **Dedicado** si desea obtener recursos específicos. 
+	- **Suscripción**: elija la suscripción que va a utilizar
+	- **Tipo de base de datos**: seleccione **Compartido** para los niveles de bajo coste o gratuitos, o bien **Dedicado** si desea obtener recursos específicos.
 	- **Grupo de recursos**: agregue la base de datos MySQL a un [grupo de recursos](../resource-group-overview.md) existente, o bien colóquela en uno nuevo. Los recursos del mismo grupo pueden administrarse juntos de manera sencilla.
 	- **Ubicación**: elija una ubicación cercana a usted. Cuando se agrega la base de datos a un grupo de recursos existente, no podrá acceder a la ubicación de este.
-	- **Nivel de precios**: haga clic en **Nivel de precios**; después, seleccione una opción de precios (el nivel **Mercurio** es gratuito) y, luego, haga clic en **Seleccionar**. 
+	- **Nivel de precios**: haga clic en **Nivel de precios**; después, seleccione una opción de precios (el nivel **Mercurio** es gratuito) y, luego, haga clic en **Seleccionar**.
 	- **Condiciones legales**: haga clic en **Condiciones legales**, revise los detalles de la compra y haga clic en **Comprar**.
 	- **Anclar al panel**: seleccione si desea acceder directamente desde el panel. Esta opción le resultará especialmente útil si todavía se está familiarizando con la navegación por el Portal.
 	
@@ -139,4 +139,4 @@ Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a
 
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

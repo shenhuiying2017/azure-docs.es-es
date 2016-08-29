@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/16/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Solución de problemas de creación de colecciones híbridas de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Una colección híbrida se hospeda en y almacena los datos en la nube de Azure, pero también permite a los usuarios acceder a datos y recursos almacenados en la red local. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus credenciales corporativas sincronizadas o federadas con Azure Active Directory. Puede implementar una colección híbrida que use una red virtual de Azure existente o bien puede crear una nueva red virtual. Se recomienda crear o utilizar una subred de red virtual con un rango de CIDR lo suficientemente grande como para cubrir el crecimiento futuro esperado para Azure RemoteApp.
 
@@ -32,7 +35,7 @@ Si ve un mensaje como "GoldImageInvalid" cuando esté esperando a que Azure apro
 
 
 ## ¿La red virtual tiene grupos de seguridad de red definidos? ##
-Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a estas [direcciones URL y puertos](remoteapp-ports.md) desde la subred:
+Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a estas [direcciones URL y puertos](remoteapp-ports.md) desde la subred.
 
 Puede agregar grupos de seguridad de red adicionales a las red virtuales que implemente en la subred para disponer de un control más estricto.
 
@@ -40,7 +43,7 @@ Puede agregar grupos de seguridad de red adicionales a las red virtuales que imp
 >[AZURE.NOTE] Tendrá que asegurarse de que los servidores DNS de la red virtual estén siempre activos y puedan resolver en todo momento las máquinas virtuales hospedadas en la red virtual. No utilice Google DNS para ello.
 
 
-En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin). Consulte [Resolución de nombres para las VM e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) para asegurarse de que los servidores DNS se han configurado correctamente.
+En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin). Consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) para asegurarse de que los servidores DNS se han configurado correctamente.
 
 Asegúrese de que los servidores DNS de la colección son accesibles y están disponibles en la subred de red virtual especificada para esta colección.
 
@@ -67,4 +70,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

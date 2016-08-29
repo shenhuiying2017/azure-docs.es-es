@@ -36,13 +36,13 @@ Si la propiedad PreferredLocations no está establecida, atenderá todas las sol
 
 
 ## .NET SDK
-Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirigirá automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
+Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirige automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
 En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna Nombre de región en la página [Regiones de Azure][regions], sin espacios antes ni después del primer y el último carácter, respectivamente.
 
 Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.ReadEndpoint y DocumentClient.WriteEndpoint, respectivamente.
 
-> [AZURE.NOTE] Las direcciones URL de los puntos de conexión no deben considerarse constantes de larga duración. El servicio puede actualizarlas en cualquier momento. El SDK administrará este cambio automáticamente.
+> [AZURE.NOTE] Las direcciones URL de los puntos de conexión no deben considerarse constantes de larga duración. El servicio puede actualizarlas en cualquier momento. El SDK administra este cambio automáticamente.
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -128,7 +128,7 @@ Respuesta de ejemplo
 
 
 -	Todas las solicitudes PUT, POST y DELETE deben ir al URI de escritura indicado.
--	Todas las solicitudes GET y las demás de solo lectura (como las consultas) pueden ir a cualquier punto de conexión elegido por el cliente.
+-	Todas las solicitudes GET y las demás solicitudes de solo lectura (como las consultas) pueden ir a cualquier punto de conexión elegido por el cliente.
 
 Las solicitudes de escritura a regiones de solo lectura producirán un error con el código de error HTTP 403 ("Prohibido").
 
@@ -141,8 +141,8 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 - [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md)
 - [Niveles de coherencia](documentdb-consistency-levels.md)
 - [Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Add regions using the Azure portal (Incorporación de regiones con el Portal de Azure)](documentdb-manage-account.md#addregion)
+- [Add regions using the Azure portal (Incorporación de regiones con el Portal de Azure)](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

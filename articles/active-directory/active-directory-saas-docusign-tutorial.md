@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,16 +93,16 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 
 3. En la página **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 
-	![Configuración del inicio de sesión único][9]
+	![Configuración del inicio de sesión único][61]
 
-	a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL del inquilino de Docusign con el siguiente patrón: para el entorno de producción, el patrón de dirección URL será **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"**; para el entorno de demostración, el patrón de la dirección URL será **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"**
+	a. En el cuadro de texto **URL de inicio de sesión**, escriba `https://account.docusign.com/*`.
 
-	b. En el cuadro de texto **Identificador**, escriba la dirección URL del emisor de Docusign con el siguiente patrón: para el entorno de producción, el patrón de dirección URL será **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2"**; para el entorno de demostración, el patrón de la dirección URL será **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2"**
+	b. En el cuadro de texto **Identificador**, escriba `https://account.docusign.com/*`.
+   
+	c. Haga clic en **Next**.
 
-	c. Haga clic en **Siguiente**.
 
-
-    > [AZURE.TIP] Si no sabe cuál es la dirección URL de aplicación para el inquilino, póngase en contacto con DocuSign a través de [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com) para obtener la URL de SSO iniciado por el SP para el inquilino.
+    > [AZURE.TIP] Los valores de URL de inicio de sesión e Identificador son solo marcadores de posición. Las instrucciones para recuperar los valores reales de su entorno se proporcionan más adelante en este tema.
  
 
 4. En la página **Configurar inicio de sesión único en DocuSign**, haga clic en **Descargar certificado** y después guarde el archivo de certificado localmente en el equipo.
@@ -113,71 +113,81 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 5. En otra ventana del explorador web, inicie sesión en el **Portal de administración de DocuSign** como administrador.
 
 
-6. En el menú de navegación izquierdo, haga clic en **Domains** (Dominios)
+6. En el menú de navegación de la izquierda, haga clic en **Domains** (Dominios).
 
 	![Configuración del inicio de sesión único][51]
 
-7. En el panel derecho, haga clic en el botón **CLAIM DOMAIN** (DOMINIO DE NOTIFICACIÓN).
+7. En el panel derecho, haga clic en **Claim Domain** (Reclamar dominio).
 
 	![Configuración del inicio de sesión único][52]
 
-8. En la ventana emergente, escriba el nombre de dominio de su compañía y haga clic en la notificación. Asegúrese de que comprueba el dominio y de que muestra el estado como activo.
+8. En el cuadro de diálogo **Claim a domain** (Reclamar un dominio), en el cuadro de texto **Domain Name** (Nombre de dominio), escriba el dominio de la compañía y haga clic en **Claim** (Reclamar). Asegúrese de que comprueba el dominio y que su estado es activo.
 
 	![Configuración del inicio de sesión único][53]
 
-9. En el menú de navegación izquierdo, haga clic en **Identity Providers** (Proveedores de identidades)
+9. En el menú de la izquierda, haga clic en **Identity Providers** (Proveedores de identidades).
 
 	![Configuración del inicio de sesión único][54]
 
-10. En el panel derecho, haga clic en el botón "ADD IDENTITY PROVIDER" (AGREGAR PROVEEDOR DE IDENTIDADES). Se abrirá la página de configuración de SSO.
+10. En el panel derecho, haga clic en **Add Identity Provider** (Agregar proveedor de identidades).
 	
 	![Configuración del inicio de sesión único][55]
 
-11. En la página de configuración del proveedor de identidades, realice las siguientes acciones.
-
-	a. Dé un nombre único a la configuración. No use espacios entre las palabras.
-
-	b. En el cuadro de texto **Identity Provider Issuer** (Emisor de proveedor de identidades), coloque el valor de **URL del emisor** del Asistente para configuración de aplicaciones de Azure AD.
-
-	c. En el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades), coloque el valor de **Dirección URL de inicio de sesión remoto** del Asistente para configuración de aplicaciones de Azure AD.
-
-	d. En el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades), coloque el valor de **Dirección URL de cierre de sesión remoto** del Asistente para configuración de aplicaciones de Azure AD.
-
-	e. Active la casilla **Sign AuthN Request** (Firmar solicitud de autenticación).
-
-	f. Asegúrese de que la opción **Send AuthN request by:** (Enviar solicitud de autenticación por:) está establecida en **POST**
-
-	g. Asegúrese de que la opción **Send logout request by:** (Enviar solicitud de cierre de sesión por:) está establecida en **POST**
+11. En la página **Identity Provider Settings** (Configuración del proveedor de identidades), siga estos pasos:
 
 	![Configuración del inicio de sesión único][56]
 
-12. En la sección **Custom Attribute Mapping** (Asignación de atributos personalizados), elija el campo que desea asignar con la notificación de Azure AD. Por ejemplo, hemos utilizado la notificación **emailaddress** asignada con el valor como **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Este es el nombre de notificación predeterminado de Azure AD para la notificación de correo electrónico.
 
-	> [AZURE.NOTE] Utilice el identificador de usuario adecuado para asignar el usuario de Azure AD a la asignación de usuarios de Docusign. Seleccione el campo apropiado y escriba el valor adecuado según la configuración de la organización.
+	a. En el cuadro de texto **Name** (Nombre), escriba un nombre único para la configuración. No utilice espacios.
+
+	b. En el Portal de Azure clásico, copie el valor de URL del emisor y péguelo en el cuadro de texto **Identity Provider Issuer** (Emisor del proveedor de identidades).
+
+	c. En el Portal de Azure clásico, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades).
+
+	d. En el Portal de Azure clásico, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades).
+
+	e. Seleccione **Sign AuthN Request** (Firmar solicitud de autenticación).
+
+	f. En **Send AuthN request by** (Enviar solicitud de autorización por), seleccione **POST**.
+
+	g. En **Send logout request by** (Enviar solicitud de cierre de sesión por), seleccione **POST**.
+
+
+12. En la sección **Custom Attribute Mapping** (Asignación de atributos personalizados), elija el campo que desea asignar con la notificación de Azure AD. En este ejemplo, la notificación **emailaddress** asignada con el valor **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Este es el nombre de notificación predeterminado de Azure AD para la notificación de correo electrónico.
+
+	> [AZURE.NOTE] Utilice el **identificador de usuario** adecuado para asignar el usuario de Azure AD a la asignación de usuarios de Docusign. Seleccione el campo apropiado y escriba el valor adecuado según la configuración de la organización.
 
 	![Configuración del inicio de sesión único][57]
 
-13. En la sección **Identity Provider Certificate** (Certificado de proveedor de identidades), haga clic en el botón **ADD CERTIFICATE** (AGREGAR CERTIFICADO) y cargue el certificado que ha descargado del Asistente para configuración de aplicaciones de Azure AD.
+13. En la sección **Identity Provider Certificate** (Certificado del proveedor de identidades), haga clic en **Add Certificate** (Agregar certificado) y cargue el certificado que ha descargado del Portal de Azure clásico.
 
 	![Configuración del inicio de sesión único][58]
 
-14. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
+14. Haga clic en **Save** (Guardar).
 
-15. En la sección **Identity Providers** (Proveedores de identidades), haga clic en el botón **Actions** (Acciones) botón y haga clic en **Endpoints** (Puntos de conexión)
+15. En la sección **Identity Providers** (Proveedores de identidades), haga clic en **Actions** (Acciones) y luego en **Endpoints** (Puntos de conexión).
 
 	![Configuración del inicio de sesión único][59]
 
-16. En la sección **View SAML 2.0 Endpoints** (Ver puntos de conexión de SAML 2.0) lleve a cabo estos pasos:
 
-	a. Copie el valor de **Service Provider Issuer URL** (Dirección URL de emisor de proveedor de servicio) y colóquelo en el cuadro de texto **Identificador** del Asistente para configuración de Azure AD.
 
-	b. Copie el valor de **Service Provider Login URL** (Dirección URL de inicio de sesión de proveedor de servicio) y colóquelo en el cuadro de texto **URL de inicio de sesión** del Asistente para configuración de Azure AD.
+10. En el Portal de Azure clásico, vaya a la página **Configurar las opciones de la aplicación**.
+
+16. En el **Portal de administración de DocuSign**, en la sección **View SAML 2.0 Endpoints** (Ver puntos de conexión de SAML 2.0), siga estos pasos:
 
 	![Configuración del inicio de sesión único][60]
 
+	a. Copie el valor de **Service Provider Issuer URL** (Dirección URL del emisor del proveedor de servicios) y péguelo en el cuadro de texto **Identificador** del Portal de Azure clásico.
+
+	b. Copie el valor de **Service Provider Login URL** (Dirección URL de inicio de sesión del proveedor de servicios) y péguelo en el cuadro de texto **URL de inicio de sesión** del Portal de Azure clásico.
+
 	c. Haga clic en **Close** (Cerrar).
 
-15. En el Portal de Azure clásico, seleccione la **confirmación de la configuración de inicio de sesión único** y haga clic en **Siguiente**.
+
+10. En el Portal de Azure clásico, haga clic en **Siguiente**.
+
+
+15. En el Portal de Azure clásico, seleccione **Single sign-on configuration confirmation** (Confirmación de configuración de inicio de sesión único) y haga clic en **Siguiente**.
 
 	![Aplicaciones][14]
 
@@ -192,15 +202,15 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ### Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1. En el **Portal de Azure clásico**, en la página de **integración de la aplicación DocuSign**, haga clic en **Configurar aprovisionamiento de cuentas** para abrir el cuadro de diálogo Configurar aprovisionamiento de usuarios.
+1. En el **Portal de Azure clásico**, en la página de **integración de la aplicación DocuSign**, haga clic en **Configure account provisioning** (Configurar aprovisionamiento de cuentas) para abrir el cuadro de diálogo Configure User Provisioning (Configurar aprovisionamiento de usuarios).
 
 	![Configuración del aprovisionamiento de cuentas][30]
 
-2. En la página **Configuración y credenciales de administrador**, para habilitar el aprovisionamiento automático de usuarios, proporcione las credenciales de una cuenta de DocuSign con derechos suficientes y después haga clic en **Siguiente**.
+2. En la página **Configuración y credenciales de administrador**, para habilitar el aprovisionamiento automático de usuarios, especifique las credenciales de una cuenta de DocuSign con derechos suficientes y después haga clic en **Siguiente**.
 
 	![Configuración del aprovisionamiento de cuentas][31]
 
-3. En el cuadro de diálogo **Probar conexión**, haga clic en **Iniciar prueba** y, cuando se haya realizado la prueba correctamente, haga clic en **Siguiente**.
+3. En el cuadro de diálogo **Probar conexión**, haga clic en **Iniciar prueba** y, cuando el resultado de la prueba sea satisfactorio, haga clic en **Siguiente**.
 
 	![Configuración del aprovisionamiento de cuentas][32]
 
@@ -287,5 +297,6 @@ Para obtener más información sobre el Panel de acceso, consulte Introducción 
 [58]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_26.png
 [59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
+[61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

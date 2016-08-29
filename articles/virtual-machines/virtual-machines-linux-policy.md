@@ -3,7 +3,7 @@
 	description="Aplicación de una directiva a una máquina virtual Linux de Azure Resource Manager"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -86,7 +86,7 @@ La siguiente tabla describe las propiedades de la máquina Virtual que se pueden
 * [Campos y orígenes](../resource-manager-policy.md#fields-and-sources)
 
 
-| Nombre del campo | Descripción |
+| Nombre del campo | Description |
 |----------------|----------------------------------------------------|
 | imagePublisher | Especifica el publicador de la imagen |
 | imageOffer | Especifica la oferta para el publicador de la imagen seleccionada |
@@ -106,4 +106,4 @@ Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbit
 
 * [Creación de una directiva](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

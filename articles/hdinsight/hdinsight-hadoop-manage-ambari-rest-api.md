@@ -23,19 +23,17 @@
 
 Apache Ambari simplifica la administración y la supervisión de un clúster de Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight basado en Linux y, además, se usa para supervisar el clúster y realizar cambios en la configuración. En este documento, aprenderá los conceptos básicos de trabajar con la API de REST de Ambari al realizar tareas comunes, como encontrar el nombre de dominio completo de los nodos de clúster o encontrar la cuenta de almacenamiento predeterminada que usa el clúster.
 
-> [AZURE.NOTE] La información que aparece en este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo hay disponible un subconjunto de funcionalidad de supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](hdinsight-monitor-use-ambari-api.md).
-
 ##Requisitos previos
 
 * [cURL](http://curl.haxx.se/): cURL es una utilidad multiplataforma que se puede usar para trabajar con las API de REST desde la línea de comandos. En este documento, se usa para comunicarse con la API de REST de Ambari.
 * [jq](https://stedolan.github.io/jq/): jq es una utilidad de línea de comandos multiplataforma para trabajar con documentos JSON. En este documento, se usa para redistribuir los documentos JSON devueltos desde la API de REST de Ambari.
-* [CLI de Azure](../xplat-cli-install.md): Una utilidad de línea de comandos multiplataforma para trabajar con servicios de Azure.
+* [CLI de Azure](../xplat-cli-install.md): una utilidad de línea de comandos multiplataforma para trabajar con servicios de Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##<a id="whatis"></a> ¿Qué es Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede emplear para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
 
@@ -164,7 +162,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
 
     En esta lista, debe copiar el nombre del componente (por ejemplo, __spark\_thrift\_sparkconf__ y el valor __tag__).
     
-2. Recupere la configuración del componente y la etiqueta mediante el comando siguiente. Reemplace __spark-thrift-sparkconf__ e __INITIAL__ por el componente y la etiqueta para los que desea recuperar la configuración.
+2. Recupere la configuración del componente y la etiqueta mediante el comando siguiente. Reemplace __spark-thrift-sparkconf__ e __INITIAL__ por el componente y la etiqueta cuya configuración desea recuperar.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
@@ -192,7 +190,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
             }
         }
 
-3. Abra el documento __newconfig.json__ y agregue o modifique los valores del objeto __properties__. Por ejemplo, cambie el valor de __spark.yarn.am.memory__ de __1g__ a __3g__ y agregue un nuevo elemento para __spark.kryoserializer.buffer.max__ con un valor de __256m__.
+3. Abra el documento __newconfig.json__ y agregue o modifique los valores del objeto __properties__. Por ejemplo, cambie el valor de __”spark.yarn.am.memory”__ de __”1g”__ a __”3g”__ y agregue un nuevo elemento para __”spark.kryoserializer.buffer.max”__ con un valor de __”256m”__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -255,4 +253,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE] Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

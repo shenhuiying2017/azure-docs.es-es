@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -64,4 +64,4 @@ Para administrar el conjunto de registros y los registros, consulte [Administrac
 
 Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

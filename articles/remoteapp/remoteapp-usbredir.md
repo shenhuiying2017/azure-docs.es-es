@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Redireccionamiento de los dispositivos USB en Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 El redireccionamiento de dispositivos permite a los usuarios emplear los dispositivos USB conectados a su equipo o tableta con las aplicaciones de Azure RemoteApp. Por ejemplo, si comparte Skype a través de Azure RemoteApp, los usuarios necesitan poder usar las cámaras de su dispositivo.
 
@@ -28,7 +31,7 @@ Aunque en este artículo se trata del redireccionamiento de cámaras web, puede 
 ## Opciones de redireccionamiento de dispositivos USB
 Azure RemoteApp usa mecanismos muy similares para redirigir dispositivos USB como los que están disponibles para los Servicios de Escritorio remoto. La tecnología subyacente le permite elegir el método de redireccionamiento correcto para un dispositivo determinado, para obtener lo mejor del nivel alto y el redireccionamiento del dispositivo USB RemoteFX mediante el comando **usbdevicestoredirect:s:**. Hay cuatro elementos en este comando:
 
-| Orden de procesamiento | Parámetro | Descripción |
+| Orden de procesamiento | Parámetro | Description |
 |------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
 | 1 | * | Selecciona todos los dispositivos que no se recogen mediante el redireccionamiento de alto nivel. Nota: por diseño, * no funciona para las cámaras web USB. |
 | | {GUID de clase de dispositivo} | Selecciona todos los dispositivos que coinciden con la clase de configuración de dispositivo especificada. |
@@ -75,6 +78,6 @@ Ahora puede usar el identificador de instancia en el siguiente cmdlet:
 
 
 ### Permítanos ayudarle 
-¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
+¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

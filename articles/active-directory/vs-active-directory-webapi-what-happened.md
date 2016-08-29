@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qué ha ocurrido a mi proyecto WebApi (servicio conectado a Azure Active Directory de Visual Studio) | Microsoft Azure"
+	pageTitle="Qué ha ocurrido a mi proyecto WebApi (servicio conectado a Azure Active Directory de Visual Studio) | Microsoft Azure "
 	description="Describe lo que sucede a la WebApi de su proyecto de MVC cuando se conecta a Azure AD mediante Visual Studio."
   services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # ¿Qué ha ocurrido a mi proyecto de WebApi (servicio conectado de Visual Studio Azure Active Directory)
@@ -117,4 +117,4 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -28,7 +28,7 @@ Los servicios de BizTalk de Azure implementan limitaciones del servicio según d
 
 La siguiente tabla muestra los orígenes y umbrales de limitación:
 
-||Descripción|Umbral bajo|Umbral alto|
+||Description|Umbral bajo|Umbral alto|
 |---|---|---|---|
 |Memoria|% de memoria total del sistema disponible/PageFileBytes. <p><p>La cantidad total disponible de PageFileBytes es de aproximadamente 2 veces la memoria RAM del sistema.|60%|70%|
 |Procesamiento de mensajes|Número de mensajes que se procesan simultáneamente|40 * número de núcleos|100 * número de núcleos|
@@ -42,11 +42,11 @@ Los servicios de BizTalk de Azure realizan un seguimiento del estado de las limi
 
 Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocurre lo siguiente:
 
-- La limitación es por instancia de rol. Por ejemplo,<br/> 
+- La limitación es por instancia de rol. Por ejemplo,<br/>
 RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/> 
 **El servidor está ocupado. Vuelva a intentarlo.**<br/><br/>
-- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo,<br/> 
-una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
+- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo,<br/>
+|una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
 - Se envía una respuesta al cliente para que el cliente pueda volver a enviar el mensaje.
 - Debe esperar a que se resuelva la limitación. Específicamente, debe esperar hasta que se alcance el umbral bajo.
 
@@ -72,4 +72,4 @@ una canalización extrae los mensajes desde un origen FTP externo. La instancia 
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Migración de una colección híbrida de una red virtual de RemoteApp a una red virtual de Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 ¡Buenas noticias! Ahora tiene la posibilidad de implementar colecciones híbridas de RemoteApp directamente en sus redes virtuales de Azure (VNET) existentes, con lo que deja de ser necesario crear redes virtuales específicas para RemoteApp. Esto le permite aprovechar las últimas características de la red virtual (por ejemplo, ExpressRoute) y proporcionar a las colecciones híbridas acceso de red directo a otros servicios y máquinas virtuales de Azure implementados en esa red virtual. (Esto le permite disfrutar de un mejor rendimiento y mayor facilidad de configuración con respecto a las instalaciones de red virtual a red virtual).
 
@@ -49,4 +52,4 @@ Y ahora, ¡ya ha terminado!
 
 Si tiene alguna pregunta o necesita ayuda especial, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

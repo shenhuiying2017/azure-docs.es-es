@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 
@@ -111,7 +111,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Inicio de sesión único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Inicio de sesión único")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, copie el valor de la **URL de solicitud de autenticación** y luego péguelo en el cuadro de texto de la **dirección URL del portal de SAML a la que se envían los usuarios para autenticación**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, copie el valor de **URL de solicitud de autenticación** y péguelo en el cuadro de texto **URL of the SAML Portal to which users are sent for authentication** (URL del portal de SAML al que se envían los usuarios para autenticación).
     2.  En el cuadro de texto **Atributo que contiene el nombre de inicio de sesión**, escriba **NameID**.
     3.  Para cargar el certificado descargado, haga clic en **pem de Zscaler**.
     4.  Seleccione **Habilitar aprovisionamiento automático de SAML**.
@@ -180,7 +180,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ZScaler ZSCloud, d
     ![Agregar usuario](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781038.png "Agregar usuario")
 
     1.  Escriba el **Id. de usuario**, el **Nombre para mostrar del usuario**, la **Contraseña**, **Confirmar contraseña** y luego seleccione **Grupos** y el **Departamento** de una cuenta de AAD válida que quiera aprovisionar.
-    2.  Haga clic en **Guardar**.
+    2.  Haga clic en **Save**.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ZScaler ZSCloud ofrecida por ZScaler ZSCloud para aprovisionar cuentas de usuario de AAD.
 
@@ -200,6 +200,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-zscaler-zscloud-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

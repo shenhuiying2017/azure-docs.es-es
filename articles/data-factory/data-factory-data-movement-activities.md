@@ -97,6 +97,9 @@ Oeste de Japón | Este de Japón
 Sur de Brasil | Sur de Brasil
 Australia Oriental | Australia Oriental
 Sudeste de Australia | Sudeste de Australia
+India Central | India Central
+Sur de la India | India Central
+Oeste de la India | India Central
 
 
 > [AZURE.NOTE] Si la región del almacén de datos de destino no está en la lista anterior, se producirá un error en la actividad de copia, en lugar de pasar a una región alternativa.
@@ -185,4 +188,4 @@ Puede encontrar la asignación de un determinado sistema de tipo nativo a .NET p
 - Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para más información sobre cómo mover datos de un almacén de datos local a un almacén de datos en la nube.
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

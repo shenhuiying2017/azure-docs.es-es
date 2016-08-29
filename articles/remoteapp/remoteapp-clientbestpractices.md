@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Prácticas recomendadas para los clientes de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 La siguiente información puede ayudarle a usar los clientes de Azure RemoteApp:
 
@@ -26,4 +29,4 @@ La siguiente información puede ayudarle a usar los clientes de Azure RemoteApp:
 
 - RemoteApp cerrará automáticamente la sesión si está inactivo durante un período de tiempo determinado. Para impedir la pérdida de datos, se recomienda cerrar las aplicaciones cuando haya terminado de utilizar el servicio.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

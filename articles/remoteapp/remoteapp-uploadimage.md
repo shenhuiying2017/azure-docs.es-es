@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="ericor" />
 
 
 
 # Carga de una imagen personalizada para RemoteApp de Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Ahora que ha creado la imagen de plantilla personalizada o que la actualizado con cambios, es necesario cargar esa imagen a la biblioteca de imágenes de Azure RemoteApp. Siga estos pasos.
 
@@ -51,4 +54,4 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 - Nunca modifique el script: las validaciones existen para su comodidad.
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

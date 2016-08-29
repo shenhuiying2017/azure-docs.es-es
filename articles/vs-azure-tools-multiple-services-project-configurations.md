@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configuración de su proyecto Azure mediante varias configuraciones de servicio
@@ -103,11 +103,11 @@ Cualquier certificado de administración que asocie a su servicio solo se aplica
 
 Para configurar los valores que se aplican a todo un proyecto de servicio en la nube de Azure, primero abra el menú contextual para ese nodo de proyecto y elija Propiedades para abrir las páginas de propiedades. En la siguiente tabla se muestran las páginas de propiedades.
 
-|Página de propiedades|Descripción|
+|Página de propiedades|Description|
 |---|---|
 |Application|Desde esta página, puede mostrar información acerca de la versión de Azure Tools que usa este proyecto de servicio en la nube, y puede actualizar a la versión actual de las herramientas.|
 |Eventos de compilación|Desde esta página, puede establecer los eventos anteriores y posteriores a la compilación.|
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

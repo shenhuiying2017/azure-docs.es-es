@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Clasificación de datos para Azure
@@ -239,4 +239,4 @@ Algunas tecnologías de DLP también proporcionan la capacidad de invalidar la c
 - [Blog del equipo de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Centro de respuesta de seguridad de Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

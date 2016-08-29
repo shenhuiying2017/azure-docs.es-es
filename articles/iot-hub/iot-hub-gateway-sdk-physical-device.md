@@ -368,7 +368,7 @@ Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositiv
 
 ## Envío de mensajes de nube a dispositivo
 
-El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos del Centro de IoT de Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador del Centro de IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmita al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
+El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos del Centro de IoT de Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador del Centro de IoT](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
 
 - Restablecer todos los LED y el timbre (desactivarlos)
 
@@ -458,4 +458,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -2,6 +2,7 @@
    pageTitle="Galería de imágenes de Microsoft Azure Government | Microsoft Azure"
    description="En este artículo se proporciona información general de la Galería de imágenes de Azure Government y las imágenes incluidas"
    services="Azure-Government"
+   cloud="gov"
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
@@ -26,7 +27,7 @@ A continuación se proporciona una lista de imágenes disponibles en la Galería
 
 ## Lista de imágenes de Azure Government
 
-Publicador|Nombre de imagen|Descripción|SO|Tamaño del disco
+Publicador|Nombre de imagen|Description|SO|Tamaño del disco
 ---|---|---|---|---
 Barracuda Networks, Inc.|Barracuda NextGen Firewall de la serie F 6.2.1-057|Nota: Esta aplicación se administra a través de una aplicación cliente y TCP/807 se debe enviar para ello. Consulte el archivo LÉAME de la implementación https://techlib.barracuda.com/NG61/DeployAzure...|Linux|80 GB
 Barracuda Networks, Inc.|Firewall de aplicaciones web de Barracuda 8.0.1.008-20160405|Nota: esta aplicación se administra a través de una interfaz de usuario web y TCP/8000 se debe enviar para ello. Consulte el archivo Léame de implementación https://techlib.barracuda.com/WAF/Azure para más información. Las aplicaciones web de Barracuda...|Linux|50 GB
@@ -141,4 +142,4 @@ Los recursos siguientes deben proporcionar más información al implementar desd
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

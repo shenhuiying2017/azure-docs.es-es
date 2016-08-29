@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Visualización de operaciones de implementación con la CLI de Azure
@@ -41,7 +41,7 @@ Para ver los errores de una implementación, siga estos pasos:
 
         azure group log show ExampleGroup --last-deployment
 
-2. El comando **azure group log show** puede devolver mucha información. Para solucionar problemas, lo habitual es centrarse en las operaciones que produjeron un error. El script siguiente usa la opción **--json** y la utilidad [jq](https://stedolan.github.io/jq/) de JSON para buscar en el registro errores de implementación.
+2. El comando **azure group log show** devuelve mucha información. Para solucionar problemas, lo habitual es centrarse en las operaciones que produjeron un error. El script siguiente usa la opción **--json** y la utilidad [jq](https://stedolan.github.io/jq/) de JSON para buscar en el registro errores de implementación.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -121,6 +121,6 @@ Para ver los errores de una implementación, siga estos pasos:
 
 - Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - Para obtener más información acerca de cómo usar los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-- Para validar la implementación antes de ejecutarla, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md) (Implementación de un grupo de recursos con la plantilla de Azure Resource Manager).
+- Para validar la implementación antes de ejecutarla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

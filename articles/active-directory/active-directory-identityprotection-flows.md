@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Experiencias de inicio de sesión con Azure AD Identity Protection
@@ -59,7 +59,7 @@ La mejor experiencia de usuario en ambos casos: el flujo de recuperación de la 
 
 Los administradores pueden:
 
-- Establecer una directiva que requiere que los usuarios configuren sus cuentas para una verificación de seguridad adicional. 
+- Establecer una directiva que requiere que los usuarios configuren sus cuentas para una verificación de seguridad adicional.
 - Permitir que se omita el registro de la autenticación multifactor durante 30 días, en caso de que deseen dar a los usuarios un período de gracia antes de registrarse.
 
 **El registro de la autenticación multifactor consta de tres pasos:**
@@ -120,7 +120,7 @@ Cuando se ha configurado una directiva de seguridad de riesgo del usuario, los u
 
 <br> ![Corrección](./media/active-directory-identityprotection-flows/101.png "Corrección") <br>
 
-2.	Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor, puede recuperarse automáticamente cuando está en peligro. Necesitará devolver un código de seguridad enviado a su número de teléfono. 
+2.	Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor, puede recuperarse automáticamente cuando está en peligro. Necesitará devolver un código de seguridad enviado a su número de teléfono.
 
 <br> ![Corrección](./media/active-directory-identityprotection-flows/110.png "Corrección") <br>
 
@@ -154,8 +154,8 @@ Si se bloquea el inicio de sesión de los usuarios en peligro, un administrador 
 
  
 
-## Consulte también
+## Otras referencias
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -136,7 +136,7 @@ Se crea una sesión de generación de perfiles para cada instancia de un rol en 
 
 1. Para ver los informes de generación de perfiles para una instancia, elija el rol en el servicio, abra el menú contextual para una instancia específica y, a continuación, elija **Ver el informe de generación de perfiles**.
 
-    El informe, un archivo .vsp, se descarga desde Azure y el estado de la descarga aparece en el registro de actividad de Azure. Al completarse la descarga, el informe de generación de perfiles aparece en una pestaña en el editor de Visual Studio denominada <Role name>\_<Instance Number>\_<identifier>.vsp. Aparecen datos de resumen del informe.
+    El informe, un archivo .vsp, se descarga desde Azure y el estado de la descarga aparece en el registro de actividad de Azure. Al completarse la descarga, el informe de generación de perfiles aparece en una pestaña en el editor de Visual Studio denominada <Nombre de rol>_<Número de instancia>_<identificador>.vsp. Aparecen datos de resumen del informe.
 
 1. Para mostrar diferentes vistas del informe, en la lista Vista actual, elija el tipo de vista que desee. Para obtener más información, consulte [Vistas de informes de las herramientas de generación de perfiles](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
@@ -146,4 +146,4 @@ Se crea una sesión de generación de perfiles para cada instancia de un rol en 
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

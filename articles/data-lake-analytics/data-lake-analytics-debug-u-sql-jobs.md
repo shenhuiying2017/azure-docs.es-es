@@ -34,7 +34,7 @@ Al abrir un trabajo con error en la herramienta Data Lake Visual Studio, recibir
 
 ![Descarga de vértices para depuración de trabajos U-SQL de Azure Data Lake Analytics en Visual Studio](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-**Procedimiento para descargar vertet y crear una solución de depuración**
+**Procedimiento para descargar el vértice y crear una solución de depuración**
 
 1.	Abra un trabajo U-SQL con error en Visual Studio.
 2.	Haga clic en **Descargar** para descargar todos los flujos de entrada y recursos necesarios. Haga clic en **Reintentar** si la descarga no se realiza correctamente.
@@ -84,4 +84,4 @@ Cuando haya terminado la depuración del código U-SQL, puede volver a enviar el
 - [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

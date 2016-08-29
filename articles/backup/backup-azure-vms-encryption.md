@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Tratar con discos cifrados durante la copia de seguridad de máquina virtual
 
-Para las empresas que desean cifrar sus datos de máquina virtual en Azure, la solución que se debe usar es [Cifrado de discos de Azure](../azure-security-disk-encryption.md) o Bitlocker en Windows y dmcrypt en equipos Linux.
+Para las empresas que desean cifrar sus datos de máquina virtual en Azure, la solución que se debe usar es [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md) o Bitlocker en Windows y dmcrypt en equipos Linux.
 
 > [AZURE.NOTE]  Copia de seguridad de Azure admite la copia de seguridad y restauración de máquinas virtuales cifradas mediante Cifrado de discos de Azure (ADE). <br>
 1. Esto es posible gracias al uso de PowerShell si la máquina virtual se cifra mediante BEK y KEK. <br>
@@ -77,4 +77,4 @@ Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen c
 - [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

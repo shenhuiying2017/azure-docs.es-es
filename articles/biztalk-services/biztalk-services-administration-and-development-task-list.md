@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/15/2016"
 	ms.author="deonhe"/>
 
 # Lista de tareas de administración y desarrollo de los Servicios de BizTalk  
@@ -23,7 +23,7 @@ Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios compon
 
 |Paso|Quién es el responsable|Tarea|Vínculos relacionados|
 |----|----|----|----|
-1\.|Administrador|Crear la suscripción de Microsoft Azure con una cuenta de Microsoft o una cuenta de la organización|[Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
+1\.|Administrador|Creación de la suscripción de Microsoft Azure con una cuenta de Microsoft o una cuenta de la organización|[Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
 |2\.|Administrador|Cree o aprovisione un servicio de BizTalk.|[Crear un Servicio de BizTalk mediante el portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280)|
 |3\.|Administrador|Registrarse a usted o registrar la implementación de los Servicios de BizTalk de su empresa|[Registrar y actualizar una implementación del servicio de BizTalk en el Portal de servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx)|
 |4\.|Administrador|Se aplica si la aplicación usa el servicio de adaptador de BizTalk para conectarse a un sistema de línea de negocio (LOB) local o usa un destino de tema o cola. Cree el espacio de nombres del Bus de servicio de Azure. Dé los valores de este espacio de nombres, del nombre del emisor del Bus de servicio y de la clave del emisor del Bus de servicio al desarrollador.|[Crear o modificar un espacio de nombres del servicio del Bus de servicio](../service-bus/service-bus-dotnet-get-started-with-queues.md) y [Obtener valores del nombre de emisor y de la clave de emisor](biztalk-issuer-name-issuer-key.md)|
@@ -45,4 +45,4 @@ Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios compon
 ## Otros recursos  
 [Agregar puntos de conexión de mensajería de origen, destino y puente](https://msdn.microsoft.com/library/azure/hh689877.aspx) [Obtener información y crear transformaciones y mapas de mensajes](https://msdn.microsoft.com/library/azure/hh689905.aspx) [Uso del servicio del adaptador de BizTalk (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx) [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

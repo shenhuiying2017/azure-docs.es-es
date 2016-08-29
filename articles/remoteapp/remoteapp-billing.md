@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Procedimiento para detener la facturación de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Se le cobrará siempre y cuando tenga colecciones de Azure RemoteApp, incluso sin usuarios asignados. Para detener esta facturación, elimine todas las colecciones.
 
@@ -30,4 +33,4 @@ Para eliminar la colección, siga estos pasos:
 
 El proceso de eliminación de una colección puede durar unos minutos.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

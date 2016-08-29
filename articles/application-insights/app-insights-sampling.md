@@ -40,7 +40,7 @@ Existen tres métodos de muestreo alternativos:
 
 * El **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. Valor predeterminado del SDK v 2.0.0-beta3.
 * El **muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde el servidor ASP.NET y desde los exploradores de los usuarios. El usuario establece la frecuencia.
-* El **muestreo de ingesta** reduce el volumen de telemetría retenido por el servicio de Application Insights a una frecuencia definida. Aunque no reduce el tráfico de telemetría, le ayuda a mantenerse dentro de su cuota mensual. 
+* El **muestreo de ingesta** reduce el volumen de telemetría retenido por el servicio de Application Insights a una frecuencia definida. Aunque no reduce el tráfico de telemetría, le ayuda a mantenerse dentro de su cuota mensual.
 
 ## Muestreo de ingesta
 
@@ -130,7 +130,7 @@ Quite el nodo `AdaptiveSamplingTelemetryProcessor` del archivo .config.
 
     // Optional: here you can adjust the settings from their defaults.
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     
     builder.UseAdaptiveSampling(
          adaptiveSamplingSettings,
@@ -196,7 +196,7 @@ El algoritmo de muestreo conserva los elementos relacionados. Para cada evento d
 
 En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de excepciones, se multiplican por un factor para compensar la frecuencia de muestreo, de forma que sean aproximadamente correctas.
 
-1. **Actualice los paquetes de NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
+1. **Actualice los paquetes de NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
 2. **Deshabilite el muestreo adaptable**: en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), quite o convierta en comentario el nodo `AdaptiveSamplingTelemetryProcessor`.
 
@@ -266,9 +266,9 @@ Para la mayoría de las aplicaciones pequeñas y medianas no es necesario realiz
  
 Las principales ventajas del muestreo son:
 
-* El servicio de Application Insights descarta ("limita") puntos de datos cuando la aplicación envía un número muy elevado de telemetría en un intervalo de tiempo corto. 
-* Para mantenerse dentro de la [cuota](app-insights-pricing.md) de puntos de datos de su plan de tarifa. 
-* Para reducir el tráfico de red de la recopilación de telemetría. 
+* El servicio de Application Insights descarta ("limita") puntos de datos cuando la aplicación envía un número muy elevado de telemetría en un intervalo de tiempo corto.
+* Para mantenerse dentro de la [cuota](app-insights-pricing.md) de puntos de datos de su plan de tarifa.
+* Para reducir el tráfico de red de la recopilación de telemetría.
 
 ### ¿Qué tipo de muestreo debo utilizar?
 
@@ -283,7 +283,7 @@ Las principales ventajas del muestreo son:
 
 * Usa el SDK de Application Insights para servicios web de ASP.NET versión 2.0.0 o posterior.
 * Quiere un muestreo sincronizado entre cliente y servidor para que, cuando investigue eventos en [Búsqueda](app-insights-diagnostic-search.md), pueda desplazarse entre los eventos relacionados en el cliente y el servidor, como vistas de página y solicitudes HTTP.
-* Está seguro del porcentaje de muestreo adecuado para la aplicación. Debe ser lo bastante alto como para obtener métricas precisas, pero inferior a la frecuencia que supera la cuota de precios y los valores de limitación. 
+* Está seguro del porcentaje de muestreo adecuado para la aplicación. Debe ser lo bastante alto como para obtener métricas precisas, pero inferior a la frecuencia que supera la cuota de precios y los valores de limitación.
 
 
 **Use el muestreo adaptable si:**
@@ -320,11 +320,11 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 * Compruebe que establece el mismo porcentaje de muestreo en el cliente y el servidor.
 
 
-## Preguntas más frecuentes 
+## Preguntas frecuentes 
 
 *¿Por qué realizar un muestreo no consiste simplemente en "recopilar X por ciento de cada tipo de telemetría"?*
 
- *  Aunque este método de muestreo proporcionaría un nivel de precisión muy alto en las aproximaciones métricas, destruiría la capacidad para poner en correlación datos de diagnóstico por usuario, sesión y solicitud, lo cual es crítico para el diagnóstico. Por lo tanto, el muestreo funciona mejor con una lógica "recopilar todos los elementos de telemetría para X por ciento de los usuarios de la aplicación", o "recopilar toda la telemetría para X por ciento de las solicitudes de aplicación". Para los elementos de telemetría no asociados con las solicitudes (por ejemplo, el procesamiento asincrónico en segundo plano), el recurso es "recopilar X por ciento de todos los elementos para cada tipo de telemetría". 
+ *  Aunque este método de muestreo proporcionaría un nivel de precisión muy alto en las aproximaciones métricas, destruiría la capacidad para poner en correlación datos de diagnóstico por usuario, sesión y solicitud, lo cual es crítico para el diagnóstico. Por lo tanto, el muestreo funciona mejor con una lógica "recopilar todos los elementos de telemetría para X por ciento de los usuarios de la aplicación", o "recopilar toda la telemetría para X por ciento de las solicitudes de aplicación". Para los elementos de telemetría no asociados con las solicitudes (por ejemplo, el procesamiento asincrónico en segundo plano), el recurso es "recopilar X por ciento de todos los elementos para cada tipo de telemetría".
 
 *¿Se puede cambiar el porcentaje de muestreo con el tiempo?*
 
@@ -334,7 +334,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *Si uso el muestreo de frecuencia fija, ¿cómo sé cuál es el porcentaje de muestreo que funcionará mejor para mi aplicación?*
 
-* Una manera de comenzar es con muestreo adaptable, averigüe qué velocidad elige (consulte la pregunta anterior) y luego cambie a muestreo de tasa fija con esa velocidad. 
+* Una manera de comenzar es con muestreo adaptable, averigüe qué velocidad elige (consulte la pregunta anterior) y luego cambie a muestreo de tasa fija con esa velocidad.
 
     Si no, lo tendrá que adivinar. Analice su uso actual de telemetría en AI, observe las limitaciones que se produzcan y estime el volumen de telemetría recopilado. Estas tres entradas, junto con el plan de tarifa seleccionado, le sugerirán cuánto debería reducir el volumen de telemetría recopilado. Sin embargo, un aumento del número de usuarios o algún otro incremento en el volumen de datos de telemetría podrían provocar que la estimación no fuese válida.
 
@@ -356,4 +356,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

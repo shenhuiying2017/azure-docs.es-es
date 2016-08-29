@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio
 
 Para aprovechar los servicios de hospedaje y la escalabilidad de Azure, puede migrar y publicar la aplicación web en un servicio en la nube de Azure. Puede ejecutar una aplicación web en Azure realizando unos cambios mínimos en la aplicación existente.
 
->[AZURE.NOTE] Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, vea [Implementación de una aplicación web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-deploy.md).
+>[AZURE.NOTE] En este tema se explica la implementación en servicios en la nube pero no en sitios web. Para obtener más información sobre la implementación en sitios web, vea [Implementación de una aplicación web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-deploy.md).
 
-Para obtener una lista de plantillas específicas que son compatibles con Visual C# y Visual Basic, consulte la sección **Plantillas de proyecto compatibles** más adelante en este tema.
+Para obtener una lista de plantillas específicas que sean compatibles con Visual C# y Visual Basic, consulte la sección **Plantillas de proyecto compatibles** más adelante en este tema.
 
 Primero debe habilitar la aplicación web para Azure desde Visual Studio. En la siguiente ilustración se muestran los pasos principales para publicar la aplicación web existente agregando un proyecto de Azure que se va a usar para la implementación. Este proceso agrega a la solución un proyecto de Azure con el rol web necesario. Según el tipo de proyecto web de que se trate, las propiedades del proyecto para los ensamblados también se actualizarán si el paquete de servicio necesita ensamblados adicionales para la implementación.
 
@@ -67,7 +67,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
 1. Para copiar la cadena de conexión de ADO.NET para usarla para su cadena de conexión, en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) siga estos pasos:
 
-  1. Elija el botón **Base de datos** y, a continuación, vuelva a abrir el nodo de suscripción que usó para crear la instancia de Base de datos SQL.
+  1. Elija el botón **Base de datos** y vuelva a abrir el nodo de suscripción que usó para crear la instancia de Base de datos SQL.
 
   1. Para mostrar las instancias de Base de datos SQL disponibles, elija el nodo **Bases de datos SQL**.
 
@@ -160,13 +160,13 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
     |Aplicación de servicio de WCF|Debe establecer el archivo .svc como página de inicio para el proyecto de servicio WCF. Después, en la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**).|Necesita navegar hasta el archivo svc de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of service file>.svc`|
     |Aplicación de servicio de flujo de trabajo WCF|Debe establecer el archivo .svc como página de inicio para el proyecto de servicio WCF. Después, en la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**).|Necesita navegar hasta el archivo svc de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of service file>.svc`|
     |Entidades dinámicas de ASP.NET|En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**).|Debe actualizar la cadena de conexión (consulte la sección siguiente). También necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx`|
-    |Linq to SQL de datos dinámicos de ASP.NET|En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**).|Debe seguir los pasos de este procedimiento: Usar una Base de datos SQL de Azure para su aplicación (vea anteriormente en este tema). También necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx`|
+    |Linq to SQL de datos dinámicos de ASP.NET|En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**).|Debe seguir los pasos de este procedimiento: Usar una Base de datos SQL de Azure para su aplicación (que aparece anteriormente en este tema). También necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx`|
 
 ## Actualizar una cadena de conexión para Entidades dinámicas de ASP.NET
 
 ### Para actualizar una cadena de conexión para Entidades dinámicas de ASP.NET
 
-1. Para crear una Base de datos SQL de Azure que pueda usarse con la aplicación web Entidades dinámicas de ASP.NET, debe seguir los pasos de este procedimiento: **Usar una Base de datos SQL de Azure para su aplicación**.
+1. Para crear una Base de datos SQL de Azure que pueda usarse con la aplicación web Entidades dinámicas de ASP.NET, debe seguir los pasos de este procedimiento: **Usar una Base de datos SQL de Azure para su aplicación** que aparece anteriormente en este tema.
 
 1. Agregue las tablas y los campos que necesite para esta base de datos desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
@@ -208,4 +208,4 @@ Para publicar una aplicación web en Azure, la aplicación debe usar una de las 
 ## Pasos siguientes
 Para obtener más información sobre la publicación, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consulte también [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -62,7 +62,7 @@ Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azur
 1. Edite, cree y comparta paneles con la barra de herramientas del panel.
 2. Vuelva al panel actual o cambie a otras vistas recientes.
 3. Cambie los paneles.
-4. Cree, edite y comparta los paneles.
+4. Cree, edite y comparta paneles.
 5. Mantenga el puntero sobre un icono y, a continuación, utilice la barra superior para moverlo, personalizarlo o quitarlo.
 
 ## Adición a un panel
@@ -77,11 +77,15 @@ Cuando esté consultando una hoja o un conjunto de gráficos especialmente inter
 
 Observe que los gráficos se agrupan en iconos: un icono puede contener más de un gráfico. El icono se ancla entero al panel.
 
+### Gráficos de Analytics
+
+También puede [anclar gráficos de Analytics](app-insights-analytics-using.md#pin-to-dashboard) a un panel [compartido](#share-dashboards-with-your-team). Esto permite agregar gráficos de cualquier consulta arbitraria junto con las métricas estándares.
+
 ## Ajuste de un icono en el panel
 
 Una vez que un icono se encuentra en el panel, es posible ajustarlo.
 
-![Mantenga el mouse sobre un gráfico para modificarlo.](./media/app-insights-dashboards/36.png)
+![Mantenga el mouse sobre un gráfico para poder editarlo.](./media/app-insights-dashboards/36.png)
 
 1. Agregue un gráfico al icono.
 2. Configure la métrica, la dimensión de agrupación y el estilo (tabla, gráfico) de un gráfico.
@@ -111,10 +115,9 @@ En el panel, una hoja aparece como un icono. Haga clic en él para ir a la hoja.
 
 Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
-
 ![En el encabezado del panel, haga clic en Compartir.](./media/app-insights-dashboards/41.png)
 
-Obtenga información acerca de [Recursos, roles y control de acceso en Application Insights](app-insights-resources-roles-access-control.md).
+Aprenda más acerca de [Roles y control de acceso](app-insights-resources-roles-access-control.md).
 
 ## Settings
 
@@ -122,7 +125,7 @@ El botón Settings (Configuración) de la hoja de información general no sirve 
 
 * **Registros de auditoría**: revise las alertas y acciones que se han realizado en el recurso de aplicación.
 * [Nueva solicitud de soporte técnico](app-insights-get-dev-support.md): opciones para obtener ayuda sobre cualquier aspecto de Azure. En Application Insights, otra forma de obtener ayuda es usar el botón de emoticono de la parte superior derecha de la ventana.
-* [Mapa de la aplicación](app-insights-dependencies.md#application-map): mapa activo que muestra los componentes de la aplicación, obtenidos de la información de dependencia.
+* [Mapa de aplicación](app-insights-dependencies.md#application-map): mapa activo que muestra los componentes de la aplicación, obtenidos de la información de dependencia.
 * [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream): métricas clave con una latencia de 1 segundo aproximadamente, para la supervisión de una nueva versión.
 * **Errores**: errores de solicitudes, errores de llamadas de dependencias y excepciones. [Hoja de métricas editable](app-insights-metrics-explorer.md).
 * **Rendimiento**: tiempo de respuesta, tiempos de respuesta de dependencia. [Hoja de métricas editable](app-insights-metrics-explorer.md).
@@ -133,7 +136,7 @@ El botón Settings (Configuración) de la hoja de información general no sirve 
 * **Propiedades**: clave de instrumentación, suscripción e identificador de recursos.
 * [Disponibilidad](app-insights-monitor-web-app-availability.md): configuración y resultados de pruebas web.
 * [Alertas](app-insights-alerts.md): configuración de alertas de métricas.
-* [Exportación continua](app-insights-export-telemetry.md): configuración de la exportación de los datos de telemetría al Almacenamiento de Azure.
+* [Exportación continua](app-insights-export-telemetry.md): configuración de la exportación de los datos de telemetría a Almacenamiento de Azure.
 * [Pruebas de rendimiento](app-insights-monitor-web-app-availability.md#performance-tests): configuración de una carga simétrica en el sitio web.
 * [Cuotas y precios](app-insights-pricing.md) y [muestreo de ingesta](app-insights-sampling.md).
 * **Acceso a API**: se utiliza actualmente para crear [anotaciones de versión](app-insights-annotations.md) y para la API de acceso a datos.
@@ -152,4 +155,4 @@ El botón Settings (Configuración) de la hoja de información general no sirve 
 |[Búsqueda de diagnóstico](app-insights-diagnostic-search.md)<br/>Busque y examine eventos y eventos relacionados, y cree errores. |![Ejemplo de búsqueda](./media/app-insights-dashboards/61.png)
 |[Analytics](app-insights-analytics.md)<br/>Lenguaje de consulta eficaz| ![Ejemplo de búsqueda](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->
