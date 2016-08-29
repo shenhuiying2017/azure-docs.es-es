@@ -15,10 +15,10 @@
    ms.date="03/22/2016"
    ms.author="jdial" />
 
-# Establecimiento de una dirección IP privada interna estática
-En la mayoría de los casos, no necesitará especificar una dirección IP interna estática para la máquina virtual. Las máquinas virtuales de una red virtual recibirán automáticamente una dirección IP interna dentro de un intervalo que especifique. Pero en algunos casos, tiene sentido especificar una dirección IP estática para una máquina virtual concreta. Por ejemplo, si la máquina virtual va a ejecutar DNS o será un controlador de dominio.
+# Establecimiento de una dirección IP privada interna estática mediante PowerShell (modelo clásico)
+En la mayoría de los casos, no necesitará especificar una dirección IP interna estática para la máquina virtual. Las máquinas virtuales de una red virtual recibirán automáticamente una dirección IP interna dentro de un intervalo que especifique. Pero en algunos casos, tiene sentido especificar una dirección IP estática para una máquina virtual concreta. Por ejemplo, si la máquina virtual va a ejecutar DNS o será un controlador de dominio. Una dirección IP interna estática permanece con la máquina virtual incluso a través de un estado de detención o desaprovisionamiento.
 
->[AZURE.NOTE] Una dirección IP interna estática permanece con la máquina virtual incluso a través de un estado de detención o desaprovisionamiento.
+> [AZURE.IMPORTANT] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el [modelo de Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 
 ## Comprobación de que una dirección IP concreta está disponible
 Para comprobar si la dirección IP *10.0.0.7* está disponible en una red virtual denominada *TestVnet*, ejecute el siguiente comando de PowerShell y compruebe el valor de *IsAvailable*:
@@ -99,4 +99,4 @@ Para agregar una dirección IP interna estática a la máquina virtual creada co
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

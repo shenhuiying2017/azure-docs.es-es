@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yuridio"/>
 
 #Procedimientos recomendados de cifrado y seguridad de datos en Azure
@@ -90,7 +90,7 @@ Puede aprender más acerca de Cifrado de discos de Azure en el artículo [Cifrad
 
 Las soluciones de cifrado del sector usan claves secretas para cifrar los datos. Por lo tanto, es fundamental que estas claves se almacenen de forma segura. La administración de claves se convierte en una parte integral de la protección de datos, ya que se encargará de almacenar las claves secretas que sirven para cifrar datos.
 
-Cifrado de discos de Azure se integra con el [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para ayudarlo a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en el almacenamiento de Azure. Debería usar el Almacén de claves de Azure para auditar el uso de la directiva y las claves.
+Cifrado de discos de Azure se integra con el [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para ayudarlo a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en el Almacenamiento de Azure. Debería usar el Almacén de claves de Azure para auditar el uso de la directiva y las claves.
 
 Existen muchos riesgos inherentes a la carencia de controles de seguridad adecuados para proteger las claves secretas que se usaron para cifrar los datos. Si los atacantes obtienen acceso a las claves secretas, podrán descifrar los datos y acceder a información confidencial.
 
@@ -163,4 +163,4 @@ Las organizaciones con puntos débiles en la [clasificación de datos](http://do
 
 Puede aprender más acerca de Azure RMS en el artículo [Introducción a Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

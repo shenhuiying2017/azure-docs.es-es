@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Publicar un servicio en la nube mediante Azure Tools
@@ -91,7 +91,7 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
 1. Para habilitar Web Deploy para todos los roles web de su aplicación, seleccione **Habilitar Web Deploy para todos los roles web**.
 
-    Se muestra un triángulo de advertencia amarillo. Web Deploy usa de forma predeterminada un certificado autofirmado no de confianza, que no se recomienda para cargar datos confidenciales. Si necesita proteger este proceso por que hay datos confidenciales, puede agregar un certificado SSL para que sea usa para las conexiones de Web Deploy. Este certificado debe ser un certificado de confianza. Para obtener información sobre cómo hacerlo, consulte la sección **Proteger Web Deploy** más adelante sobre este tema.
+    Se muestra un triángulo de advertencia amarillo. Web Deploy usa de forma predeterminada un certificado autofirmado no de confianza, que no se recomienda para cargar datos confidenciales. Si necesita proteger este proceso por que hay datos confidenciales, puede agregar un certificado SSL para que sea usa para las conexiones de Web Deploy. Este certificado debe ser un certificado de confianza. Para más información sobre cómo hacerlo, consulte la sección **Para proteger Web Deploy** más adelante en este tema.
 
 1. Elija **Siguiente** para ver la pantalla **Resumen** y luego seleccione **Publicar** para implementar el servicio en la nube.
 
@@ -103,7 +103,7 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
 1. Para usar Web Deploy, debe realizar cambios en el código del proyecto para cualquiera de sus roles web en Visual Studio que quiera publicar, y luego haga clic con el botón derecho en el nodo de este proyecto en su solución y apunte a **Publicar**. Aparece el cuadro de diálogo **Publicación web**.
 
-1. (Opcional) Si agregó un certificado SSL de confianza para usarlo para las conexiones remotas de IIS, puede desactivar la casilla **Permitir certificado que no es de confianza**. Para obtener información sobre cómo agregar un certificado para proteger Web Deploy, consulte la sección **Proteger Web Deploy** más adelante sobre este tema.
+1. (Opcional) Si agregó un certificado SSL de confianza para usarlo para las conexiones remotas de IIS, puede desactivar la casilla **Permitir certificado que no es de confianza**. Para más información sobre cómo agregar un certificado para proteger Web Deploy, consulte la sección **Para proteger Web Deploy** más adelante en este tema.
 
 1. Para usar Web Deploy, el mecanismo de publicación necesita el nombre de usuario y la contraseña que configuró para su conexión de escritorio remoto cuando publicó el paquete por primera vez.
 
@@ -173,4 +173,4 @@ Puede que deba incluir archivos específicos en su paquete de servicio para que 
 
 Para obtener más información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/14/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos
 
-Los Centros de eventos ofrecen consumo a gran escala, persistencia y procesamiento de eventos de datos de orígenes de datos de alto rendimiento o millones de dispositivos. Cuando se emparejan con temas y colas de Bus de servicio, los Centros de eventos permiten comandos persistentes e implementaciones de control para los escenarios de [Internet de las cosas](https://azure.microsoft.com/services/iot-hub/).
+Centros de eventos ofrece consumo, persistencia y procesamiento a gran escala de eventos de datos de orígenes de datos de alto rendimiento o millones de dispositivos. Cuando se empareja con temas y colas de Bus de servicio, Centros de eventos permite implementaciones de comando y control persistentes para escenarios de [Internet de las cosas](https://azure.microsoft.com/services/iot-hub/).
 
-En esta sección se proporciona información sobre la disponibilidad de los Centros de eventos y respuestas a algunas preguntas frecuentes:
+En este artículo se proporciona información sobre la disponibilidad de Centros de eventos, así como respuestas a algunas preguntas frecuentes:
 
 ## Información de precios
 
@@ -33,7 +33,7 @@ Los eventos consumidos de un Centro de eventos, así como las operaciones de adm
 
 ## ¿Qué son las unidades de procesamiento de los Centros de eventos?
 
-Las unidades de procesamiento de los Centros de eventos las selecciona explícitamente el usuario, a través del Portal de Azure clásico o de las plantillas de Resource Manager de Centros de eventos. Las unidades de procesamiento que se aplican a todos los Centros de eventos de un espacio de nombres del Bus de servicio y cada unidad de procesamiento da derecho al espacio de nombres a las siguientes capacidades:
+Las unidades de procesamiento de Centros de eventos se seleccionan explícitamente, mediante el Portal de Azure clásico o las plantillas de Resource Manager para Centros de eventos. Las unidades de procesamiento se aplican a todos los Centros de eventos de un espacio de nombres de Centros de eventos, y cada unidad de procesamiento da derecho al espacio de nombres a las siguientes funcionalidades:
 
 - Hasta 1 MB por segundo de eventos de entrada (eventos enviados a un Centro de eventos), pero no más de 1000 eventos de entrada, operaciones de administración o llamadas a la API de control por segundo.
 
@@ -49,7 +49,7 @@ Si el procesamiento de entrada total o la tasa de eventos de entrada total en to
 
 Si el procesamiento de salida total o la tasa de eventos de salida total en todos los Centros de eventos en un espacio de nombres superan las unidades de procesamiento totales permitidas, los receptores se limitarán y recibirán errores que indican que se superó la cuota de salida. Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos, ni tampoco puede un receptor impedir que los eventos se envíen a un Centro de eventos.
 
-Tenga en cuenta que la selección de la unidad de procesamiento es independiente del número de particiones de los Centros de eventos. Aunque cada partición ofrece un procesamiento máximo de 1 MB por segundo de entrada (con un máximo de 1000 eventos por segundo) y 2 MB por segundo de salida, no hay ningún cargo fijo por las propias particiones. El cargo es para las unidades de procesamiento totales en todos los Centros de eventos en un espacio de nombres del Bus de servicio. Con este patrón, puede crear particiones suficientes para admitir la carga máxima anticipada de sus sistemas, sin incurrir en cargos por unidades de procesamiento hasta que la carga de eventos en el sistema requiera realmente mayores cifras de procesamiento, sin tener que cambiar la estructura y la arquitectura de los sistemas a medida que la carga del sistema aumente.
+Tenga en cuenta que la selección de la unidad de procesamiento es independiente del número de particiones de los Centros de eventos. Aunque cada partición ofrece un procesamiento máximo de 1 MB por segundo de entrada (con un máximo de 1000 eventos por segundo) y 2 MB por segundo de salida, no hay ningún cargo fijo por las propias particiones. El cargo es para las unidades de procesamiento totales en todos los Centros de eventos en un espacio de nombres de Centros de eventos. Con este patrón, puede crear particiones suficientes para admitir la carga máxima anticipada de sus sistemas, sin incurrir en cargos por unidades de procesamiento hasta que la carga de eventos en el sistema requiera realmente mayores cifras de procesamiento, sin tener que cambiar la estructura y la arquitectura de los sistemas a medida que la carga del sistema aumente.
 
 ## ¿Hay un límite en el número de unidades de procesamiento que se pueden seleccionar?
 
@@ -57,7 +57,7 @@ Hay una cuota predeterminada de 20 unidades de procesamiento por espacio de nomb
 
 ## ¿Hay un cargo por retener eventos de los Centros de eventos durante más de 24 horas?
 
-El nivel Standard de los Centros de eventos permiten períodos de retención de mensajes superiores a 24 horas, hasta un máximo de 30 días. Si el tamaño de la cantidad total de eventos almacenados supera la asignación de almacenamiento para el número de unidades de procesamiento seleccionadas (84 GB por unidad de procesamiento), el tamaño que supere la asignación se cargará con la tarifa publicada de almacenamiento de blobs de Azure. La asignación de almacenamiento en cada unidad de procesamiento cubre todos los costos de almacenamiento de los períodos de retención de 24 horas (valor predeterminado), incluso aunque la unidad de procesamiento se consuma hasta la asignación de entrada máxima.
+El nivel Standard de los Centros de eventos permiten períodos de retención de mensajes superiores a 24 horas, hasta un máximo de 30 días. Si el tamaño del número total de eventos almacenados supera la asignación de almacenamiento para el número de unidades de procesamiento seleccionadas (84 GB por unidad de procesamiento), el tamaño que supere la asignación se cargará con la tarifa publicada de almacenamiento de blobs de Azure. La asignación de almacenamiento en cada unidad de procesamiento cubre todos los costos de almacenamiento de los períodos de retención de 24 horas (valor predeterminado), incluso aunque la unidad de procesamiento se consuma hasta la asignación de entrada máxima.
 
 ## ¿Cuál es el período de retención máximo?
 
@@ -67,9 +67,9 @@ El nivel Standard de los Centros de eventos admite actualmente un período de re
 
 El tamaño total de todos los eventos almacenados, incluida la sobrecarga interna de encabezados de eventos o las estructuras de almacenamiento en disco de todos los Centros de eventos, se mide a lo largo del día. Al final del día, se calcula el tamaño máximo de almacenamiento. La asignación de almacenamiento diario se calcula basándose en el número mínimo de unidades de procesamiento seleccionadas durante el día (cada unidad de procesamiento ofrece una asignación de 84 GB). Si el tamaño total supera la asignación de almacenamiento diaria calculada, el exceso de almacenamiento se factura con las tarifas de almacenamiento de blobs de Azure (con la tarifa de **almacenamiento con redundancia local**).
 
-## ¿Puedo usar una conexión AMQP única para enviar y recibir desde los Centros de eventos y los temas y colas del Bus de servicio?
+## ¿Puedo usar una sola conexión AMQP para enviar y recibir desde Centros de eventos y los temas y colas de Bus de servicio?
 
-Sí, siempre y cuando todos los Centros de eventos, colas y temas se encuentren en el mismo espacio de nombres del Bus de servicio. Como tal, puede implementar una conectividad desacoplada e indirecta a muchos dispositivos, con latencias de fracciones de segundos, de manera rentable y altamente escalable.
+Sí, siempre y cuando todos los Centros de eventos, colas y temas se encuentren en el mismo espacio de nombres. Como tal, puede implementar una conectividad desacoplada e indirecta a muchos dispositivos, con latencias de fracciones de segundos, de manera rentable y altamente escalable.
 
 ## ¿Los cargos por conexión desacoplada se aplican a los Centros de eventos?
 
@@ -77,7 +77,7 @@ Para los remitentes, los cargos de conexión se aplican solo cuando se usa el pr
 
 ## ¿Cuál es la diferencia entre los niveles Basic y Standard de los Centros de eventos?
 
-El nivel Standard de los Centros de eventos ofrece características que van más allá de lo que está disponible en Basic, así como en algunos sistemas competitivos. Estas características incluyen períodos de retención superiores a 24 horas y la capacidad para usar una conexión AMQP única para enviar comandos a un gran número de dispositivos con latencias de fracciones de segundos, así como para enviar telemetría desde estos dispositivos a Centros de eventos. Para obtener la lista de características, consulte los [detalles de precios de los Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+El nivel Estándar de Centros de eventos ofrece más características que el nivel Básico, y que algunos sistemas de la competencia. Estas características incluyen períodos de retención superiores a 24 horas y la capacidad para usar una conexión AMQP única para enviar comandos a un gran número de dispositivos con latencias de fracciones de segundos, así como para enviar telemetría desde estos dispositivos a Centros de eventos. Para obtener la lista de características, consulte los [detalles de precios de los Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Disponibilidad geográfica
 
@@ -96,7 +96,7 @@ Los Centros de eventos están disponibles en las siguientes regiones:
 
 El soporte técnico para los Centros de eventos está disponible a través de los [foros de la comunidad](https://social.msdn.microsoft.com/forums/azure/home). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
-Para obtener más información sobre nuestro SLA, visite la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
+Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Pasos siguientes
 
@@ -110,4 +110,4 @@ Para obtener más información sobre los Centros de eventos, consulte los siguie
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

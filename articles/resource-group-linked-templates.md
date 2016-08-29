@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
 
-Desde dentro de una plantilla del Administrador de recursos de Azure, puede realizar la vinculación con otra plantilla que le permita descomponer la implementación en un conjunto de plantillas con fines específicos y dirigidas. Como ocurre con la descomposición de una aplicación en un número de clases de código, la descomposición proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad.
+Desde dentro de una plantilla de Azure Resource Manager, puede realizar la vinculación con otra plantilla que le permita descomponer la implementación en un conjunto de plantillas con fines específicos y dirigidas. Como ocurre con la descomposición de una aplicación en varias clases de código, la descomposición proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad.
 
 Puede pasar parámetros de una plantilla principal a una plantilla vinculada de nuevo, y esos parámetros pueden asignarse directamente a parámetros o variables expuestas por la plantilla de llamada. La plantilla vinculada también puede pasar una variable de salida de nuevo a la plantilla de origen, lo que permite un intercambio de datos bidireccional entre las plantillas.
 
@@ -44,14 +44,14 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
       } 
     ] 
 
-El Administrador de recursos debe poder tener acceso a la plantilla vinculada, lo que significa que no se puede especificar un archivo local o un archivo que solo esté disponible en la red local para la plantilla vinculada. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento, como se muestra a continuación.
+El servicio Resource Manager debe tener acceso a la plantilla vinculada. No se puede especificar un archivo local o un archivo que solo está disponible en la red local para la plantilla vinculada. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento, como se muestra en el ejemplo siguiente.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0",
     }
 
-Aunque la plantilla vinculada debe estar disponible externamente, no es necesario que esté generalmente disponible para el público. Puede agregar la plantilla a una cuenta de almacenamiento privada, que solo es accesible para el propietario de la cuenta de almacenamiento, y agregar a continuación un token de firma de acceso compartido (SAS) para permitir el acceso durante la implementación. Ese token SAS se agrega al identificador URI para la plantilla vinculada. Para obtener información acerca de cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md) o [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).
+Aunque la plantilla vinculada debe estar disponible externamente, no es necesario que esté generalmente disponible para el público. Puede agregar la plantilla a una cuenta de almacenamiento privada que sea accesible solo al propietario de la cuenta de almacenamiento. Ahora cree un token de Firma de acceso compartido (SAS) para permitir el acceso durante la implementación. Ese token SAS se agrega al identificador URI para la plantilla vinculada. Para obtener información acerca de cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md) o [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).
 
 En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra plantilla. El acceso a la plantilla anidada se obtiene con un token de SAS que se pasa como un parámetro.
 
@@ -98,7 +98,7 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
       } 
     ] 
 
-El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**. Por supuesto, también se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
+El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**. También se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
 
 ## Uso de variables para vincular plantillas
 
@@ -125,10 +125,111 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
         }
     }
 
-También puede usar la función [deployment()](resource-group-template-functions.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
+También puede usar la función [deployment()](resource-group-template-functions.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
+## Vinculación condicional a plantillas
+
+Puede vincular diferentes plantillas pasando un valor de parámetro que se utiliza para construir el URI de la plantilla vinculada. Este enfoque funciona bien cuando tiene que especificar durante la implementación qué plantilla vinculada desea usar. Por ejemplo, puede especificar una plantilla para una cuenta de almacenamiento existente y otra plantilla para una cuenta de almacenamiento nueva.
+
+En el ejemplo siguiente se muestra un parámetro para un nombre de cuenta de almacenamiento y otro parámetro que especifica si la cuenta de almacenamiento ya existe o es nueva.
+
+    "parameters": {
+        "storageAccountName": {
+            "type": "String"
+        },
+        "newOrExisting": {
+            "type": "String",
+            "allowedValues": [
+                "new",
+                "existing"
+            ]
+        }
+    },
+
+Cree una variable para la plantilla de URI que incluya el valor de parámetro nuevo o existente.
+
+    "variables": {
+        "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
+    },
+
+Proporcione ese valor de variable para los recursos de implementación.
+
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "StorageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    }
+                }
+            }
+        }
+    ],
+
+El URI se resuelve en una plantilla denominada **existingStorageAccount.json** o **newStorageAccount.json**. Cree plantillas para esos URI.
+
+En el ejemplo siguiente se muestra la plantilla **existingStorageAccount.json**.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountName": {
+          "type": "String"
+        }
+      },
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "storageAccountInfo": {
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+          "type" : "object"
+        }
+      }
+    }
+
+En el ejemplo siguiente se muestra la plantilla **newStorageAccount.json**. Observe que, al igual que la plantilla de cuenta de almacenamiento existente, el objeto de cuenta de almacenamiento se devuelve en las salidas. La plantilla principal funciona con cualquier plantilla anidada.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountName": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Storage/storageAccounts",
+          "name": "[parameters('StorageAccountName')]",
+          "apiVersion": "2016-01-01",
+          "location": "[resourceGroup().location]",
+          "sku": {
+            "name": "Standard_LRS"
+          },
+          "kind": "Storage",
+          "properties": {
+          }
+        }
+      ],
+      "outputs": {
+        "storageAccountInfo": {
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+          "type" : "object"
+        }
+      }
     }
 
 ## Ejemplo completo
@@ -193,10 +294,10 @@ En la CLI de Azure, se obtiene un token para el contenedor y se implementan las 
     azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
     azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
 
-Se le pedirá que proporcione el token de SAS como un parámetro. Tiene que anteponer **?** al token.
+Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer **?** al token.
 
 ## Pasos siguientes
-- Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md).
-- Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
+- Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
+- Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

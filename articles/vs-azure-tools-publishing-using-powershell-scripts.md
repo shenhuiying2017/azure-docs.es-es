@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas
@@ -310,21 +310,21 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 **AzureWebAppPublishModule**
 
-|Nombre de función|Descripción|
+|Nombre de función|Description|
 |---|---|
 |Add-AzureSQLDatabase|Crea una nueva base de datos SQL de Azure.|
 |Add-AzureSQLDatabases|Crea las bases de datos SQL de Azure a partir de los valores en el archivo de configuración de JSON que Visual Studio genera.|
 |Add-AzureVM|Crea una máquina virtual de Azure y devuelve la dirección URL de la máquina virtual implementada. La función configura los requisitos previos y luego llama a la función **New-AzureVM** (módulo de Azure) para crear una nueva máquina virtual.|
 |Add-AzureVMEndpoints|Agrega nuevos extremos de entrada a una máquina virtual y devuelve la máquina virtual con el nuevo extremo.|
-|Add-AzureVMStorage|Crea una nueva cuenta de almacenamiento de Azure en la suscripción actual. El nombre de la cuenta comienza con "devtest" seguido de una cadena alfanumérica única. La función devuelve el nombre de la nueva cuenta de almacenamiento. Debe especificar una ubicación o un grupo de afinidad para la nueva cuenta de almacenamiento.|
+|Add-AzureVMStorage|Crea una nueva cuenta de Almacenamiento de Azure en la suscripción actual. El nombre de la cuenta comienza con "devtest" seguido de una cadena alfanumérica única. La función devuelve el nombre de la nueva cuenta de almacenamiento. Debe especificar una ubicación o un grupo de afinidad para la nueva cuenta de almacenamiento.|
 |Add-AzureWebsite|Crea un sitio web con el nombre y la ubicación especificados. Esta función llama a la función **New-AzureWebsite** en el módulo de Azure. Si la suscripción no incluye ya un sitio web con el nombre especificado, esta función crea el sitio web y devuelve un objeto de sitio web. De lo contrario, devuelve `$null`.|
-|Backup-Subscription|Guarda la suscripción de Azure actual en la variable `$Script:originalSubscription` en el ámbito de script. Esta función guarda la suscripción de Azure actual (según se obtiene por `Get-AzureSubscription -Current`) y su cuenta de almacenamiento y la suscripción que se cambia por este script (almacenado en la variable `$UserSpecifiedSubscription`) y su cuenta de almacenamiento, en el ámbito de script. Al guardar los valores, puede usar una función, como `Restore-Subscription`, para restaurar la suscripción actual original y la cuenta de almacenamiento al estado actual si este estado ha cambiado.|
+|Backup-Subscription|Guarda la suscripción de Azure actual en la variable `$Script:originalSubscription` en el ámbito de script. Esta función guarda la suscripción de Azure actual (como se obtiene mediante `Get-AzureSubscription -Current`) y su cuenta de almacenamiento, y la suscripción que se cambia por este script (almacenada en la variable `$UserSpecifiedSubscription`) y su cuenta de almacenamiento, en el ámbito de script. Al guardar los valores, puede usar una función, como `Restore-Subscription`, para restaurar la suscripción actual original y la cuenta de almacenamiento al estado actual si este estado ha cambiado.|
 |Find-AzureVM|Obtiene la máquina virtual de Azure especificada.|
 |Format-DevTestMessageWithTime|Antepone la fecha y la hora a un mensaje. Esta función está diseñada para mensajes escritos en las secuencias de Error y Detallado.|
 |Get-AzureSQLDatabaseConnectionString|Ensambla una cadena de conexión para conectarse a una base de datos SQL de Azure.|
-|Get-AzureVMStorage|Devuelve el nombre de la primera cuenta de almacenamiento con el patrón de nombre "devtest" *(no distingue mayúsculas de minúsculas) en la ubicación especificada o el grupo de afinidad. Si la cuenta de almacenamiento "devtest"* no coincide con la ubicación o el grupo de afinidad, la función la omite. Debe especificar una ubicación o un grupo de afinidad.|
+|Get-AzureVMStorage|Devuelve el nombre de la primera cuenta de almacenamiento con el patrón de nombre "devtest*" (no distingue mayúsculas de minúsculas) en la ubicación especificada o el grupo de afinidad. Si la cuenta de almacenamiento "devtest*" no coincide con la ubicación o el grupo de afinidad, la función la omite. Debe especificar una ubicación o un grupo de afinidad.|
 |Get-MSDeployCmd|Devuelve un comando para ejecutar la herramienta MsDeploy.exe.|
-|New-AzureVMEnvironment|Busca o crea una máquina virtual en la suscripción que coincida con los valores en del archivo de configuración de JSON.|
+|New-AzureVMEnvironment|Busca o crea una máquina virtual en la suscripción que coincida con los valores del archivo de configuración de JSON.|
 |Publish-WebPackage|Usa MsDeploy.exe y un archivo .zip de paquete de publicación web para implementar recursos en un sitio web. Esta función no genera ninguna salida. Si se produce un error en la llamada a MSDeploy.exe, la función genera una excepción. Para obtener una salida más detallada, use la opción **-Verbose**.|
 |Publish-WebPackageToVM|Comprueba los valores de parámetro y luego llama a la función **Publish-WebPackage**.|
 |Read-ConfigFile|Valida el archivo de configuración de JSON y devuelve una tabla hash de valores seleccionados.|
@@ -339,7 +339,7 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 **Publish-WebApplication**
 
-|Nombre de función|Descripción|
+|Nombre de función|Description|
 |---|---|
 |New-AzureWebApplicationEnvironment|Crea recursos de Azure, como un sitio web o una máquina virtual.|
 |New-WebDeployPackage|Esta función no está implementada. Puede agregar comandos en esta función para generar su proyecto.|
@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

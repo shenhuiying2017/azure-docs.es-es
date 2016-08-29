@@ -29,6 +29,8 @@ En este artículo se muestra cómo usar Azure PowerShell para crear una imagen g
 
 - Debe tener instalada Azure PowerShell versión 1.0.x. Si aún no ha instalado PowerShell, lea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para ver los pasos de instalación.
 
+- Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
+
 ## Preparar la máquina virtual de origen 
 
 En esta sección se muestra cómo generalizar la máquina virtual de Windows para que se pueda usar como una imagen.
@@ -93,7 +95,7 @@ En esta sección se muestra cómo generalizar la máquina virtual de Windows par
 
 1. Copie la imagen de máquina virtual en el contenedor de almacenamiento de destino con este comando. La imagen se crea en la misma cuenta de almacenamiento que la de la máquina virtual original. La variable `-Path` guarda una copia local de la plantilla JSON. La variable `-DestinationContainerName` es el nombre del contenedor en el que quiere almacenar las imágenes. Si el contenedor no existe, se creará.
 
-		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
+		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -Name YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
 	Puede obtener la dirección URL de la imagen de la plantilla del archivo JSON. Vaya a la sección **recursos** > **storageProfile** > **osDisk** > **image** > **uri** para ver la ruta de acceso completa de la imagen. La dirección URL de la imagen es similar a esta: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
@@ -208,4 +210,4 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Portal d
 
 Para administrar la nueva máquina virtual con Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

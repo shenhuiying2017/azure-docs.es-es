@@ -38,9 +38,9 @@ Los roles de administrador disponibles son los siguientes:
 
 - **Administrador de usuarios**: restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
 
-- **Lector de seguridad**: acceso de solo lectura a un número de características de seguridad de Identity Protection Center, Privileged Identity Management, Supervisión de estado de servicio de Office 365 y Centro de protección de Office 365.
+- **Lector de seguridad**: acceso de solo lectura a un número de características de seguridad de Identity Protection Center, Privileged Identity Management, Supervisión de estado de servicio de Office 365 y Centro de seguridad y cumplimiento de Office 365.
 
-- **Administrador de seguridad**: todos los permisos de solo lectura del rol **Lector seguridad**, además de una serie de permisos administrativos adicionales para los mismos servicios: Identity Protection Center, Privileged Identity Management, Supervisión de estado de servicio de Office 365 y Centro de protección de Office 365.
+- **Administrador de seguridad**: todos los permisos de solo lectura del rol **Lector seguridad**, además de una serie de permisos administrativos adicionales para los mismos servicios: Identity Protection Center, Privileged Identity Management, Supervisión de estado de servicio de Office 365 y Centro de seguridad y cumplimiento de Office 365.
 
 ## Permisos de administrador
 
@@ -80,7 +80,7 @@ En el | Puede hacer
 ------------- | -------------
 Identity Protection Center | Leer todos los informes de seguridad y la información de configuración de las características de seguridad<ul><li>Filtro de correo no deseado<li>Cifrado<li>Prevención de pérdida de datos<li>Antimalware<li>Protección contra amenazas avanzada<li>Protección contra suplantación de identidad (anti-phishing)<li>Reglas de flujo de correo
 Privileged Identity Management | <p>Tiene acceso de solo lectura a toda la información que aparece en PIM de Azure: directivas e informes para las asignaciones de roles de Azure AD, revisiones de seguridad y, en el futuro, acceso de lectura a datos e informes de directivas en escenarios distintos a la asignación de roles de Azure AD.<p>**No puede** registrarse para PIM de Azure AD ni realizar ningún cambio en esta característica. En el portal de PIM o a través de PowerShell, alguien con este rol puede activar roles adicionales (por ejemplo, Administrador Global o Administrador de rol con privilegios), si el usuario es un candidato para ellos.
-<p>Supervisión de estado de servicio de Office 365</p><p>Centro de protección de Office 365</p> | <ul><li>Leer y administrar alertas<li>Leer directivas de seguridad<li>Leer información sobre amenazas, Cloud App Discovery y Cuarentena en Search and Investigar (Buscar e investigar)<li>Leer todos los informes
+<p>Supervisión de estado de servicio de Office 365</p><p>Centro de cumplimiento y seguridad de Office 365</p> | <ul><li>Leer y administrar alertas<li>Leer directivas de seguridad<li>Leer información sobre amenazas, Cloud App Discovery y Cuarentena en Search and Investigar (Buscar e investigar)<li>Leer todos los informes
 
 ### Administrador de seguridad
 
@@ -88,7 +88,7 @@ En el | Puede hacer
 ------------- | -------------
 Identity Protection Center | <ul><li>Todos los permisos del rol Lector de seguridad.<li>Además, la posibilidad de realizar todas las operaciones de IPC, excepto la de restablecer contraseñas.
 Privileged Identity Management | <ul><li>Todos los permisos del rol Lector de seguridad.<li>**No puede** administrar la configuración de roles de Azure AD o la pertenencia a ellos.
-<p>Supervisión de estado de servicio de Office 365</p><p>Protección de Office 365 | <ul><li>Todos los permisos del rol Lector de seguridad.<li>Puede configurar todos los valores de la característica Protección frente a amenazas avanzada (malware y protección antivirus, configuración de direcciones URL malintencionadas, seguimiento de URL, etc.).
+<p>Supervisión de estado de servicio de Office 365</p><p>Centro de cumplimiento y seguridad de Office 365 | <ul><li>Todos los permisos del rol Lector de seguridad.<li>Puede configurar todos los valores de la característica Protección frente a amenazas avanzada (malware y protección antivirus, configuración de direcciones URL malintencionadas, seguimiento de URL, etc.).
 
 ## Detalles acerca del rol de administrador global
 
@@ -112,7 +112,7 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 ## Pasos siguientes
 
-- Para más información sobre cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md).
+- Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
 
 - Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md).
 
@@ -124,4 +124,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

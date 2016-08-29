@@ -13,18 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 
 
 # Uso de cmdlets de Windows PowerShell con Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
  Puede usar los cmdlets de PowerShell de RemoteApp de Azure para administrar y mantener las colecciones. Use la siguiente información para comenzar.
 
 ## Obtención de los cmdlets 
 -------------
-En primer lugar, descargue [aquí](http://go.microsoft.com/?linkid=9811175) los cmdlets de Azure PowerShell, que incluyen los de RemoteApp.
+En primer lugar, descargue [aquí](http://go.microsoft.com/?linkid=9811175) los cmdlets de Azure PowerShell, que incluyen los de RemoteApp.
 
 Consulte la [ayuda de cmdlets de Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
@@ -111,4 +114,4 @@ Otros cmdlets de RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

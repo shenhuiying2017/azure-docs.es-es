@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # ¿Cómo se implementa QuickBooks en Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Use la siguiente información para compartir QuickBooks como aplicación en Azure RemoteApp.
 
@@ -44,4 +47,4 @@ También puede consultar la presentación de Ignite [Fundamentals of Microsoft A
 
 ![Implementación de QuickBooks y RemoteApp de Azure](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

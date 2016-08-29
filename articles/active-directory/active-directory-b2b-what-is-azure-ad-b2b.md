@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/09/2016"
+   ms.date="08/11/2016"
    ms.author="femila"/>
 
 # Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube
@@ -23,8 +23,7 @@ A medida que las empresas se centran cada vez más en su negocio principal, aume
 
 - **Sencillez**: cada usuario del asociado utiliza una cuenta de Azure AD existente o una nueva que se crea fácilmente mientras acepta de la invitación. Puede proporcionar a los usuarios acceso directo a la aplicación corporativa que elija o a un conjunto de aplicaciones a través del Panel de acceso de la aplicación.
 
-- **Seguridad**: el administrador controla todo el acceso a las aplicaciones corporativas a través del directorio de Azure AD. Cuando se termina la colaboración, se pueden quitar los usuarios de los asociados
-- de Azure AD y el acceso se revoca inmediatamente a sus aplicaciones. Además, si el usuario del asociado abandona la organización del asociado, dejará de tener acceso automáticamente.
+- **Seguridad**: el administrador controla todo el acceso a las aplicaciones corporativas a través del directorio de Azure AD. Cuando se termina la colaboración, los usuarios del asociado se pueden eliminar de Azure AD. El acceso a las aplicaciones quedará inmediatamente revocado. Además, si el usuario del asociado abandona la organización del asociado, dejará de tener acceso automáticamente.
 
 - **Acceso directo:** Las empresas del asociado que necesitan acceder a las aplicaciones corporativas **no necesitan contar con Azure AD.** La colaboración de Azure AD B2B proporciona una experiencia de inicio de sesión de usuario sencilla que ofrece a estos asociados un acceso inmediato a las aplicaciones.
 
@@ -43,4 +42,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

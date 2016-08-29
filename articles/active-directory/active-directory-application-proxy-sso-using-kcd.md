@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/10/2016"
 	ms.author="kgremban"/>
 
 
@@ -23,7 +23,7 @@ El inicio de sesión único es un elemento clave del proxy de aplicación de Azu
 
 1. Un usuario inicia sesión en la nube.
 2. Todas las validaciones de seguridad se realizan en la nube (autenticación previa).
-3. Cuando la solicitud se envía a la aplicación local, el conector del proxy de aplicación suplanta al usuario para que la aplicación de back-end crea que se trata de un usuario normal procedente de un dispositivo unido al dominio.
+3. Cuando se envía la solicitud a la aplicación local, el conector del proxy de aplicación suplanta al usuario. La aplicación de back-end piensa que se trata de un usuario normal procedente de un dispositivo unido a dominio.
 
 ![Diagrama de acceso desde el usuario final, a través del Proxy de aplicación, a la red corporativa](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -57,7 +57,7 @@ Antes de empezar a trabajar con SSO para Proxy de la aplicación, asegúrese de 
 
 - Todas las aplicaciones tienen nombres de entidad de seguridad de servicio.
 
-- El servidor que ejecuta el conector y el que ejecuta la aplicación se unen mediante dominio y forman parte del mismo dominio. Para obtener más información sobre la unión a un dominio, consulte [Unir un equipo a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
+- El servidor que ejecuta el conector y el que ejecuta la aplicación están unidos a dominio y forman parte del mismo dominio o dominios de confianza. Para obtener más información sobre la unión a un dominio, consulte [Unir un equipo a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
 
 - El servidor que ejecuta el conector tiene acceso para leer el atributo TokenGroupsGlobalAndUniversal de los usuarios. Se trata de una configuración predeterminada que podría verse afectada por la seguridad del entorno. Obtenga más ayuda con este tema en el artículo [KB2009157](https://support.microsoft.com/es-ES/kb/2009157).
 
@@ -155,7 +155,7 @@ También le ayudará con aplicaciones que no aceptan direcciones en forma de dir
 Si se produce un error en el proceso SSO, aparecerá en el registro de eventos de la máquina del conector como se explica en [Solución de problemas](active-directory-application-proxy-troubleshoot.md). Pero, en algunos casos, la solicitud se enviará correctamente a la aplicación back-end mientras que esta aplicación responderá en otras diferentes respuestas HTTP. La solución de problemas de estos casos debe empezar examinando el número de evento 24029 en la máquina del conector en el registro de eventos de sesión del Proxy de aplicación. La identidad del usuario que se usó para la delegación aparecerá en el campo “usuario” dentro de los detalles del evento. Para activar el registro de sesión, seleccione **Mostrar registros analíticos y de depuración** en el menú de vista del Visor de eventos.
 
 
-## Consulte también
+## Otras referencias
 
 - [Publicar aplicaciones con Proxy de aplicación](active-directory-application-proxy-publish.md)
 - [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
@@ -169,4 +169,4 @@ Para ver las últimas noticias y actualizaciones, consulte el [blog Application 
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

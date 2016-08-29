@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/06/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introducción a las métricas de diagnóstico
 
-Las métricas de diagnóstico le ofrecen mejores datos sobre el estado de los recursos de Azure en su suscripción. Las métricas permiten que un usuario evalúe el estado general del servicio y los dispositivos conectados a él. Las estadísticas orientadas al usuario son importantes porque ayudan a estos a ver lo que está ocurriendo con su Centro de IoT y ayudan a determinar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Las métricas de diagnóstico le ofrecen mejores datos sobre el estado de los recursos de Azure en su suscripción. Las métricas permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las estadísticas orientadas al usuario son importantes porque ayudan a ver lo que está ocurriendo con su Centro de IoT y ayudan a determinar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 Puede habilitar las métricas de diagnóstico desde el Portal de Azure.
 
@@ -26,15 +26,15 @@ Puede habilitar las métricas de diagnóstico desde el Portal de Azure.
 
 1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un Centro de IoT en la guía [Introducción][lnk-get-started].
 
-2. Abra la hoja de su Centro de IoT. Desde allí, haga clic en **Toda la configuración** y luego haga clic en **Diagnósticos**.
+2. Abra la hoja de su Centro de IoT. Desde allí, haga clic en **Diagnósticos**.
 
     ![][1]
 
-3. Configure el diagnóstico estableciendo el estado en **Activado** y seleccionando una cuenta de almacenamiento para almacenar los datos de diagnóstico. Active la casilla de las métricas y luego presione **Guardar**. Recuerde que la cuenta de almacenamiento se debe crear con antelación y se le cobrará por separado para el almacenamiento.
+3. Configure el diagnóstico estableciendo el estado en **Activado** y seleccionando una cuenta de almacenamiento para almacenar los datos de diagnóstico. Active **Métricas** y presione **Guardar**. Recuerde que la cuenta de almacenamiento se debe crear con antelación y que se le cobrará el almacenamiento por separado. También puede elegir enviar los datos de diagnóstico a un punto de conexión de centros de eventos.
 
     ![][2]
 
-4. Una vez haya configurado los diagnósticos, vuelva a la hoja principal de Centro de IoT. La información de las métricas se rellena en la sección **Supervisión** de la hoja. Al hacer clic en el gráfico se abre el panel de métricas, donde puede ver un resumen de la información de las métricas para su Centro de IoT y modificar la selección de las métricas que se muestra en el gráfico. También puede configurar alertas basadas en valores de métrica.
+4. Una vez haya configurado los diagnósticos, vuelva a la **Información general** del Centro de IoT. La información de las métricas se rellena en la sección **Supervisión** de la hoja. Al hacer clic en el gráfico se abre el panel de métricas, donde puede ver un resumen de la información de las métricas para su Centro de IoT y modificar la selección de las métricas que se muestra en el gráfico. También puede configurar alertas basadas en valores de métrica.
 
     ![][3]
 
@@ -84,4 +84,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

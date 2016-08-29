@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Habilitación del inicio de sesión único entre aplicaciones en Android mediante ADAL | Microsoft Azure"
-	description="Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones."
+	description="Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,8 +33,9 @@ Este tutorial se aplica a:
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
+* Acceso condicional de Azure Active Directory
 
-Tenga en cuenta que en el documento siguiente se asume que tiene conocimientos acerca de cómo [aprovisionar aplicaciones en el portal heredado para Azure Active Directory](active-directory-how-to-integrate.md) y que ha integrado su aplicación con el [SDK de Android de Microsoft Identity](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+Tenga en cuenta que en el documento siguiente se considera que tiene conocimientos acerca de cómo [aprovisionar aplicaciones en el portal heredado para Azure Active Directory](active-directory-how-to-integrate.md) y que ha integrado su aplicación con el [SDK de Android de Microsoft Identity](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Conceptos de inicio de sesión único en la plataforma de Microsoft Identity
 
@@ -58,7 +59,7 @@ Los inicios de sesión no asistidos por agente son experiencias de inicio de ses
 Estos inicios de sesión tienen las siguientes ventajas:
 
 -  La experiencia de usuario se desarrolla por completo dentro de la aplicación.
--  Las credenciales se pueden compartir entre aplicaciones que estén firmadas por el mismo certificado, proporcionando una experiencia de inicio de sesión único para el conjunto de aplicaciones. 
+-  Las credenciales se pueden compartir entre aplicaciones que estén firmadas por el mismo certificado, proporcionando una experiencia de inicio de sesión único para el conjunto de aplicaciones.
 -  Se proporciona el control de la experiencia de inicio de sesión a la aplicación antes y después del inicio de sesión.
 
 Estos inicios de sesión tienen las siguientes desventajas:
@@ -155,7 +156,7 @@ En el caso del SSO entre aplicaciones no asistido por agente, los SDK de Microso
 
 Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer lo siguiente:
 
-1. Garantizar que todas las aplicaciones utilizan el mismo identificador de cliente o aplicación 
+1. Garantizar que todas las aplicaciones utilizan el mismo identificador de cliente o aplicación
 * Garantizar que todas las aplicaciones tienen el mismo conjunto de SharedUserID.
 * Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Google Play Store para que puedan compartir el almacenamiento.
 
@@ -204,9 +205,9 @@ Estos están anidados en el mismo identificador de cliente o aplicación y se co
 
 #### Paso 2: Configuración del almacenamiento compartido en Android
 
-El establecimiento del `SharedUserID` está fuera del ámbito de este documento, pero se puede aprender mediante la lectura de la documentación de Google Android en el [Manifiesto](http://developer.android.com/guide/topics/manifest/manifest-element.html). Lo importante es que decida cómo desea llamar a su sharedUserID y usar ese nombre en todas sus aplicaciones.
+La definición de `SharedUserID` está fuera del ámbito de este documento, pero se puede aprender en la documentación de Google Android, en el [Manifiesto](http://developer.android.com/guide/topics/manifest/manifest-element.html). Lo importante es que decida cómo desea llamar a su sharedUserID y usar ese nombre en todas sus aplicaciones.
 
-Una vez que tiene el `SharedUserID` en todas las aplicaciones, estará listo para utilizar SSO.
+Una vez que tiene `SharedUserID` en todas las aplicaciones, estará listo para utilizar SSO.
 
 > [AZURE.WARNING] 
 Cuando se comparte un almacenamiento entre aplicaciones, cualquiera de ellas puede eliminar usuarios o, peor aún, eliminar todos los tokens de la aplicación. Esto puede resultar especialmente problemático si tiene aplicaciones que dependen de los tokens para hacer el trabajo en segundo plano. Compartir un almacenamiento implica ser muy cuidadoso en todas y cada una de las operaciones de eliminación realizadas a través de los SDK de Microsoft Identity.
@@ -240,7 +241,7 @@ Para ser correcto, el URI de redirección debe presentar el formato siguiente:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-Por ejemplo:**msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+ejemplo: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 Este URI de redirección debe especificarse en el registro de la aplicación mediante el [Portal de Azure clásico](https://manage.windowsazure.com/). Para más información sobre el registro de aplicaciones de Azure AD, consulte [Integración con Azure Active Directory](active-directory-how-to-integrate.md).
 
@@ -261,4 +262,4 @@ MANAGE_ACCOUNTS
 
 Ahora, el SDK de Microsoft Identity compartirá automáticamente las credenciales entre las aplicaciones e invocará al agente si está presente en su dispositivo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

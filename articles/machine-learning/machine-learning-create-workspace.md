@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
 # Creación y uso compartido de un área de trabajo de Aprendizaje automático de Azure
 
-Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de análisis de Cortana (CAPS).
+Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de Cortana Analytics (CAPS).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -31,7 +31,7 @@ Para usar Estudio de aprendizaje automático de Azure, debe tener un área de tr
 
 1. Inicie sesión en el [Portal de Microsoft Azure clásico].
 
-> [AZURE.NOTE] Solo pueden hacerlo los administradores de suscripciones de Azure. El mero hecho de ser propietario de un área de trabajo de Aprendizaje automático no proporciona acceso al [Portal de Microsoft Azure clásico]. Para más información, consulte [Privilegios de administradores de suscripciones de Azure y de propietarios de áreas de trabajo](#subscriptionvsworkspace).
+> [AZURE.NOTE] Solo los administradores de suscripciones de Azure pueden iniciar sesión. El mero hecho de ser propietario de un área de trabajo de Aprendizaje automático no proporciona acceso al [Portal de Microsoft Azure clásico]. Para obtener más información, consulte [Privilegios de administradores de suscripciones de Azure y de propietarios de áreas de trabajo](#subscriptionvsworkspace).
 
 2. En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
 
@@ -72,7 +72,7 @@ Para obtener más información sobre cómo administrar un área de trabajo, cons
 
 ## <a name="subscriptionvsworkspace"></a>Privilegios de administradores de suscripciones de Azure y de propietarios de áreas de trabajo
 
-A continuación se muestra una tabla que clarificar la diferencia entre un administrador de suscripciones y el propietario de un área de trabajo de Azure.
+A continuación se muestra una tabla que clarifica la diferencia entre un administrador de suscripciones y el propietario de un área de trabajo de Azure.
 
 | Acciones | Administrador de suscripciones de Azure | Propietario del espacio de trabajo |
 | --------------			|:------------------------:| :----------------:|
@@ -85,7 +85,7 @@ A continuación se muestra una tabla que clarificar la diferencia entre un admin
 | Acceder a [Estudio de aprendizaje automático] | No * | Sí |
 
 
-> [AZURE.NOTE] * Se agregará automáticamente un administrador de suscripciones de Azure al área de trabajo que crea como propietario del área de trabajo. Sin embargo, el mero hecho de ser administrador de suscripciones de Azure no le concede acceso a ningún área de trabajo de esa suscripción.
+> [AZURE.NOTE] * Se agregará automáticamente un administrador de suscripciones de Azure al área de trabajo que se cree como propietario del área de trabajo. Sin embargo, el mero hecho de ser administrador de suscripciones de Azure no concede acceso a ningún área de trabajo de esa suscripción.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -105,4 +105,4 @@ A continuación se muestra una tabla que clarificar la diferencia entre un admin
 [Estudio de aprendizaje automático]: https://studio.azureml.net/
 [Portal de Microsoft Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
+En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [Creación de una red virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## Comprobación de que una dirección IP concreta está disponible
 Para comprobar si la dirección IP *192.168.1.101* está disponible en una red virtual denominada *TestVnet*, ejecute el siguiente comando de PowerShell y compruebe el valor de *IsAvailable*:
@@ -46,12 +46,12 @@ Resultado esperado:
 El siguiente script de PowerShell crea un nuevo servicio en la nube denominado *TestService*; a continuación, recupera una imagen de Azure, crea una máquina virtual denominada *DNS01* en el nuevo servicio en la nube con la imagen recuperada, establece que la máquina virtual esté en una subred llamada *Front-end* y establece *192.168.1.7* como una dirección IP privada estática para la VM:
 
 	New-AzureService -ServiceName TestService -Location "Central US"
-	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-	New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName `
-	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-	| Set-AzureSubnet –SubnetNames FrontEnd `
-	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-	| New-AzureVM -ServiceName "TestService" –VNetName TestVNet
+	$image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+	New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName |
+	  Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! |
+	  Set-AzureSubnet –SubnetNames FrontEnd |
+	  Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+	  New-AzureVM -ServiceName TestService –VNetName TestVNet
 
 Resultado esperado:
 
@@ -98,9 +98,9 @@ Resultado esperado:
 ## Eliminación de una dirección IP privada estática de una VM
 Para quitar la dirección IP privada estática agregada a la máquina virtual en el script anterior, ejecute el siguiente comando de PowerShell:
 	
-	Get-AzureVM -ServiceName TestService -Name DNS01 `
-	| Remove-AzureStaticVNetIP `
-	| Update-AzureVM
+	Get-AzureVM -ServiceName TestService -Name DNS01 |
+	  Remove-AzureStaticVNetIP |
+	  Update-AzureVM
 
 Resultado esperado:
 
@@ -111,9 +111,9 @@ Resultado esperado:
 ## Adición de una dirección IP privada estática a una VM existente
 Para agregar una dirección IP privada estática a la VM creada con el script anterior, ejecute el siguiente comando:
 
-	Get-AzureVM -ServiceName TestService -Name DNS01 `
-	| Set-AzureStaticVNetIP -IPAddress 192.168.1.7 `
-	| Update-AzureVM
+	Get-AzureVM -ServiceName TestService -Name DNS01 |
+	  Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+	  Update-AzureVM
 
 Resultado esperado:
 
@@ -127,4 +127,4 @@ Resultado esperado:
 - Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,7 +1,8 @@
 <properties 
    pageTitle="Información general de Azure Government| Microsoft Azure" 
    description="En este artículo se proporciona información general sobre las capacidades de la nube de Azure Government y de la seguridad y el diseño de confianza que se usa para apoyar el cumplimiento aplicable a organizaciones locales, estatales, federales y sus socios. " 
-   services="Azure-Government" 
+   services="Azure-Government"
+   cloud="gov" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
@@ -117,4 +118,4 @@ Si está interesado en obtener más información sobre Azure Government, consult
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

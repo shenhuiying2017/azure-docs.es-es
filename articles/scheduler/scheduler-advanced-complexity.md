@@ -35,7 +35,7 @@ En este artículo se describen ejemplos de trabajos que se pueden crear con Prog
 
 ## Escenarios admitidos
 
-Los diversos ejemplos de este tema muestran la gran variedad de escenarios que admite Programador de Azure. En general, estos ejemplos muestran cómo crear programaciones para diversos patrones de comportamiento, incluidos los siguientes:
+Los numerosos ejemplos de este tema muestran la gran variedad de escenarios que admite Programador de Azure. En general, estos ejemplos muestran cómo crear programaciones para diversos patrones de comportamiento, incluidos los siguientes:
 
 -	Ejecutar una vez en una determinada fecha y hora
 -	Ejecutar y repetir un número de veces explícitas
@@ -52,7 +52,7 @@ Las referencias a fecha/hora en los trabajos de Programador de Azure siguen la [
 
 ## Uso de JSON y API de REST para crear programaciones
 
-Para crear una programación simple mediante la [API de REST del Programador de Azure](https://msdn.microsoft.com/library/mt629143), primero [registre su suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (el nombre del proveedor para el Programador es _Microsoft.Scheduler_); después, [cree una colección de trabajos](https://msdn.microsoft.com/library/mt629159.aspx), y finalmente, [cree un trabajo](https://msdn.microsoft.com/library/mt629145.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
+Para crear una programación simple mediante la [API de REST del Programador de Azure](https://msdn.microsoft.com/library/mt629143), primero [registre su suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (el nombre del proveedor para el Programador es _Microsoft.Scheduler_); después, [cree una colección de trabajos](https://msdn.microsoft.com/library/mt629159.aspx) y, finalmente, [cree un trabajo](https://msdn.microsoft.com/library/mt629145.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -145,36 +145,36 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 |**Ejemplo**|**Descripción**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|Se ejecuta a las 5 a.m. cada día. Programador de Azure hace corresponder cada valor en "horas" con cada valor de "minutos", uno por uno, para crear una lista de todas las veces en las que se va a ejecutar el trabajo.|
-|<code>{"minutes":[15],"hours":[5]}</code>|Se ejecuta a las 5:15 a.m. cada día.|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|Se ejecuta a las 5:15 a.m. y 5:15 p.m. todos los días.|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p.m. y a las 5:45 p.m. cada día.|
+|<code>{"minutes":[15], "hours":[5]}</code>|Se ejecuta a las 5:15 a.m. cada día.|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Se ejecuta a las 5:15 a.m. y 5:15 p.m. todos los días.|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p.m. y a las 5:45 p.m. cada día.|
 |<code>{"minutes":[0,15,30,45]}</code>|Se ejecuta cada 15 minutos.|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Se ejecuta cada hora. Este trabajo se ejecuta cada hora. Los minutos se controlan mediante _startTime_, si se especifica una fecha y hora de inicio, o si no se especifica, en el momento de creación. Por ejemplo, si la hora de inicio o la hora de creación (lo que se aplique) es 12:25 p.m., el trabajo se ejecutará a las 00:25, 01:25, 02:25, …, 23:25. La programación equivale a tener un trabajo con un valor de _frequency_ de "hora", un valor de _interval_ de 1 y ningún valor de _schedule_. La diferencia es que esta programación puede usarse con diferentes valores en _frequency_ e _interval_ para crear también otros trabajos. Por ejemplo, si el valor de _frequency_ fuera "mes", la programación se ejecutaría solo una vez al mes en lugar de todos los días si _frequency_ fuera "día"|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Se ejecuta cada hora. Este trabajo se ejecuta cada hora. Los minutos se controlan mediante _startTime_, si se especifica una fecha y hora de inicio, o si no se especifica, en el momento de creación. Por ejemplo, si la hora de inicio o la hora de creación (lo que se aplique) es 12:25 p.m., el trabajo se ejecutará a las 00:25, 01:25, 02:25, …, 23:25. La programación equivale a tener un trabajo con un valor de _frequency_ de "hora", un valor de _interval_ de 1 y ningún valor de _schedule_. La diferencia es que esta programación puede usarse con diferentes valores en _frequency_ e _interval_ para crear también otros trabajos. Por ejemplo, si el valor de _frequency_ fuera "mes", la programación se ejecutaría solo una vez al mes en lugar de todos los días si _frequency_ fuera "día"|
 |<code>{minutes:[0]}</code>|Se ejecuta cada hora durante la hora. Esta tarea también se ejecuta cada hora, pero a la hora exacta (por ejemplo, 12 a.m., 1 a.m., 2 a.m., etc.) Esto es equivalente a un trabajo con una frecuencia de "hora", una hora de inicio con cero minutos y a ninguna programación si la frecuencia fuera "día", pero si la frecuencia fuera "semana" o "mes", la programación podría ejecutarse solo un día a la semana o un día del mes, respectivamente.|
 |<code>{"minutes":[15]}</code>|Se ejecuta a «y cuarto» cada hora. Se ejecuta cada hora, comenzando en 00:15 a.m., 1:15 a.m., 2:15 a.m., etc. y terminando en 10:15 p.m. y las 11:15 p.m.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|Se ejecuta a las 5 p.m. los sábados cada semana.|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Se ejecuta a las 5 p.m. el lunes, el miércoles y el viernes de cada semana,|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Se ejecuta a las 5:15 p.m. y las 5:45 p.m. el lunes, el miércoles y el viernes cada semana.|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Se ejecuta a las 5 a.m. y a las 5 p.m. el lunes, el miércoles y el viernes de cada semana.|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p.m. y las 5:45 p.m. el lunes, el miércoles y el viernes cada semana|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Se ejecuta cada 15 minutos los días laborables.|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Se ejecuta cada 15 minutos los días laborables entre las 9 a.m. y las 4:45 p.m.|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Se ejecuta a las 5 p.m. los sábados cada semana.|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Se ejecuta a las 5 p.m. el lunes, el miércoles y el viernes de cada semana,|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Se ejecuta a las 5:15 p.m. y las 5:45 p.m. el lunes, el miércoles y el viernes cada semana.|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Se ejecuta a las 5 a.m. y a las 5 p.m. el lunes, el miércoles y el viernes de cada semana.|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p.m. y las 5:45 p.m. el lunes, el miércoles y el viernes cada semana|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Se ejecuta cada 15 minutos los días laborables.|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Se ejecuta cada 15 minutos los días laborables entre las 9 a.m. y las 4:45 p.m.|
 |<code>{"weekDays":["sunday"]}</code>|Se ejecuta los domingos a la hora de inicio.|
 |<code>{"weekDays":["tuesday", "thursday"]}</code>|Se ejecuta los martes y los jueves a la hora de inicio.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|Se ejecuta a las 6 a.m. del día 28 de cada mes (suponiendo una frecuencia de mes).|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|Se ejecuta a las 6 a.m. el último día del mes. Si desea ejecutar un trabajo en el último día del mes, use -1 en lugar de día 28, 29, 30 o 31.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|Se ejecuta a las 6 a.m. el primer y último día de cada mes.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Se ejecuta a las 6 a.m. del día 28 de cada mes (suponiendo una frecuencia de mes).|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Se ejecuta a las 6 a.m. el último día del mes. Si desea ejecutar un trabajo en el último día del mes, use -1 en lugar de día 28, 29, 30 o 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Se ejecuta a las 6 a.m. el primer y último día de cada mes.|
 |<code>{monthDays":[1,-1]}</code>|Se ejecuta el primer y último día de cada mes a la hora de inicio.|
 |<code>{monthDays":[1,14]}</code>|Se ejecuta el primer y decimocuarto día de cada mes a la hora de inicio.|
 |<code>{monthDays":[2]}</code>|Se ejecuta el segundo día del mes en la hora de inicio.|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|Se ejecuta el primer viernes de cada mes a las 5 a.m.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|: Se ejecuta el primer viernes de cada mes a la hora de inicio.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|Se ejecuta el tercer viernes desde el final del mes, cada mes, a la hora de inicio.|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Se ejecuta el primer y último viernes de cada mes a las 5:15 a.m.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Se ejecuta el primer y último viernes de cada mes a la hora de inicio.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|Se ejecuta el quinto viernes de cada mes a la hora de inicio. Si no hay ningún quinto viernes en un mes, no se ejecuta ya que se ha programado para ejecutarse solo el quinto viernes. Puede considerar usar -1 en lugar de 5 para la repetición si desea ejecutar el trabajo en el último viernes del mes.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Se ejecuta cada 15 minutos el último viernes del mes.|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p., y 5:45 p.m. el tercer miércoles de cada mes|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Se ejecuta el primer viernes de cada mes a las 5 a.m.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Se ejecuta el primer viernes de cada mes a la hora de inicio.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Se ejecuta el tercer viernes desde el final del mes, cada mes, a la hora de inicio.|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Se ejecuta el primer y último viernes de cada mes a las 5:15 a.m.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Se ejecuta el primer y último viernes de cada mes a la hora de inicio.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Se ejecuta el quinto viernes de cada mes a la hora de inicio. Si no hay ningún quinto viernes en un mes, no se ejecuta ya que se ha programado para ejecutarse solo el quinto viernes. Puede considerar usar -1 en lugar de 5 para la repetición si desea ejecutar el trabajo en el último viernes del mes.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Se ejecuta cada 15 minutos el último viernes del mes.|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p., y 5:45 p.m. el tercer miércoles de cada mes|
 
 ## Otras referencias
 
@@ -197,4 +197,4 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

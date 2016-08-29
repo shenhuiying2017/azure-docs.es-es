@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -48,7 +48,7 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 4. Haga clic en **Crear**. Escriba un nombre de servicio de aplicaciones único, un nombre válido para el grupo de recursos y un nuevo plan de servicio.
 
-    ![Definición de un nombre de grupo de recursos][resource-group]
+    ![Establecer nombre de grupo de recurso][resource-group]
 
 
 6. Especifique los valores para la nueva base de datos, incluida la aceptación de los términos legales.
@@ -295,4 +295,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

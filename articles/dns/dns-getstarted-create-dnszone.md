@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Creación de una zona DNS mediante PowerShell
@@ -33,7 +33,7 @@ En este artículo encontrará una guía de los pasos necesarios para crear una z
 
 Supongamos que dos personas o dos procesos tratan de modificar un registro DNS al mismo tiempo. ¿Cuál gana? ¿Y el ganador sabe que solo ha sobrescrito cambios creados por otra persona?
 
-DNS de Azure usa Etag para administrar de forma segura los cambios simultáneos realizados al mismo recurso. Cada recurso DNS (zona o conjunto de registros) tiene un valor de Etag asociado a él. Siempre que se recupera un recurso, también se recupera su Etag. Al actualizar un recurso, tiene la opción de devolver el valor de Etag para que DNS de Azure pueda comprobar dicho valor en las coincidencias de servidor. Habida cuenta de que cada actualización a un recurso conlleva la regeneración de Etag, una incoherencia de Etag indica que se ha producido un cambio simultáneo. Los valores de Etag también se usan al crear un recurso para asegurarse de que el recurso no existe aún.
+DNS de Azure usa Etag para administrar de forma segura los cambios simultáneos realizados al mismo recurso. Cada recurso DNS (zona o conjunto de registros) tiene un valor de Etag asociado a él. Siempre que se recupera un recurso, también se recupera su Etag. Al actualizar un recurso, tiene la opción de devolver el valor de Etag para que DNS de Azure pueda comprobar dicho valor en las coincidencias de servidor. Puesto que cada actualización a un recurso conlleva la regeneración de Etag, una incoherencia de Etag indica que se ha producido un cambio simultáneo. Los valores de Etag también se usan al crear un recurso para asegurarse de que el recurso no existe aún.
 
 De forma predeterminada, PowerShell para DNS de Azure utiliza Etags para bloquear los cambios simultáneos a zonas y conjuntos de registros. El elemento opcional *-Overwrite* se puede usar para suprimir las comprobaciones de ETag, en cuyo caso, se sobrescribirán todos los cambios simultáneos que se hayan producido.
 
@@ -50,7 +50,7 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 
 Las etiquetas son diferentes de las Etag. Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos con fines de facturación o agrupación. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
 
-PowerShell para DNS de Azure es compatible con etiquetas en las zonas y en los conjuntos de registros especificados mediante el parámetro `-Tag` opcional.
+PowerShell para DNS de Azure admite etiquetas en las zonas y en los conjuntos de registros especificados mediante el parámetro `-Tag` opcional.
 
 
 ## Antes de empezar
@@ -59,7 +59,7 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 	
 - Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Necesitará instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager (1.0 o posterior). Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+- Necesitará instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager (1.0 o posterior). Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ## Paso 1: Inicio de sesión
 
@@ -73,7 +73,7 @@ Compruebe las suscripciones para la cuenta.
 
 	Get-AzureRmSubscription 
 
-Especifique la suscripción que quiere usar.
+Especifique la suscripción que desea usar.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
@@ -97,11 +97,11 @@ El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. 
 
 Una zona DNS se crea mediante el cmdlet `New-AzureRmDnsZone`. A continuación se muestran ejemplos para crear una zona DNS con o sin etiquetas. Para más información acerca de las etiquetas, consulte la sección sobre [etiquetas](#tags) que aparece en este artículo.
 
->[AZURE.NOTE] En DNS de Azure, deben especificarse nombres de zona sin la terminación **“.”**. Por ejemplo, "**contoso.com**" en lugar de "**contoso.com.**".
+>[AZURE.NOTE] En DNS de Azure, deben especificarse nombres de zona sin un punto de terminación **“.”**. Por ejemplo, "**contoso.com**" en lugar de "**contoso.com.**".
 
 ### Creación de una zona DNS
 
-En el ejemplo siguiente, se crea una zona DNS denominada *contoso.com* en el grupo de recursos denominado *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
+En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo de recursos *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
 
 	New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
@@ -148,9 +148,9 @@ Los conjuntos de registros de la raíz (o la *cúspide*) de una zona DNS usan **
 
 ## Prueba
 
-Puede probar su zona DNS con herramientas DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+Puede probar su zona DNS con herramientas de DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
 
-Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando `Get-AzureRmDnsRecordSet` mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
+Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, tal y como se muestra con el comando `Get-AzureRmDnsRecordSet` mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
 
 	nslookup
 	> set type=SOA
@@ -174,4 +174,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 
 Después de crear una zona DNS, cree [conjuntos de registros y registros](dns-getstarted-create-recordset.md) para iniciar la resolución de nombres para el dominio de Internet.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

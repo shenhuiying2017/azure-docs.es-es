@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="adrianha"/>
 
 # Actualización del Servicio móvil de Azure de Node.js existente a Servicio de aplicaciones
@@ -100,13 +100,13 @@ Durante la implementación, deberá realizar estos pasos:
 
 1. Inicie sesión en el [Portal de Azure].
 
-2. Haga clic en **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, luego, proporcione un nombre para el back-end de la aplicación móvil.
+2. Haga clic en **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, a continuación, proporcione un nombre para el back-end de la aplicación móvil.
 
-3. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
+3. Para el **grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
  
-	Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información sobre los planes de Servicios de aplicaciones y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes de Servicio de aplicaciones y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. En **Plan del Servicio de aplicaciones**, se selecciona el plan predeterminado (en el [nivel estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). La configuración del plan del Servicio de aplicaciones determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados a la aplicación.
+4. Para **Plan del Servicio de aplicaciones**, se selecciona el plan predeterminado (en el [nivel estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). La configuración del plan del Servicio de aplicaciones determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados a la aplicación.
 
 	Después de decidir el plan, haga clic en **Crear**. Esto crea el back-end de aplicación móvil
 
@@ -191,4 +191,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

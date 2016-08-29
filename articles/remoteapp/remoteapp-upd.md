@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # ¿Cómo guarda Azure RemoteApp la configuración y datos de usuario?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp guarda la identidad y las personalizaciones de los usuarios en dispositivos y sesiones. Estos datos de los usuarios se almacenan en un disco para cada colección y cada usuario, conocido como disco de perfil de usuario (UDP). El disco sigue al usuario y garantiza que este tenga una experiencia coherente, independientemente de donde inicie sesión.
 
@@ -31,7 +34,7 @@ Siga leyendo para obtener información específica sobre los datos del perfil de
 
 ## ¿Cómo puede un administrador acceder a los datos?
 
-Si necesita obtener acceso a los datos de uno de los usuarios (para efectuar la recuperación ante desastres o si el usuario abandona la empresa), póngase en contacto con [Azure RemoteApp](mailto:remoteappforum@microsoft.com) y ofrezca la información de suscripción de la recopilación y la identidad del usuario. El equipo de Azure RemoteApp le proporcionará una dirección URL para el disco duro virtual. Descargue ese VHD y recupere los documentos o archivos que necesite. Tenga en cuenta que el disco duro virtual es de 50 GB, por lo que tardará un poco en descargarlo.
+Si necesita obtener acceso a los datos de uno de los usuarios (para efectuar la recuperación ante desastres o si el usuario abandona la empresa), póngase en contacto con el soporte técnico de Azure y ofrezca la información de suscripción de la recopilación y la identidad del usuario. El equipo de Azure RemoteApp le proporcionará una dirección URL para el disco duro virtual. Descargue ese VHD y recupere los documentos o archivos que necesite. Tenga en cuenta que el disco duro virtual es de 50 GB, por lo que tardará un poco en descargarlo.
 
 
 ## ¿Se efectúa una copia de seguridad de los datos?
@@ -75,7 +78,7 @@ Sí, todo lo escrito en HKEY\_Current\_User forma parte de los UPD.
 
 ## ¿Puedo deshabilitar los UPD para una colección?
 
-Sí, puede pedir a Azure RemoteApp que deshabilite los UPD para una suscripción, pero no puede hacerlo usted. Esto significa que los UPDs se deshabilitarán para todas las colecciones de la suscripción.
+Sí, puede pedir a Azure RemoteApp que deshabilite los UPD para una suscripción, pero no puede hacerlo usted. Esto significa que los UPD se deshabilitarán para todas las colecciones de la suscripción.
 
 Es posible que quiera deshabilitar UPD en cualquiera de las siguientes situaciones:
 
@@ -155,4 +158,4 @@ También se pueden guardar las credenciales ejecutando lo siguiente:
 
 Así, se puede omitir el parámetro -Credential en el cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

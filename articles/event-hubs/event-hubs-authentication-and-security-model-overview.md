@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/03/2016"
+    ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
 # Introducción al modelo de autenticación y seguridad de los Centros de eventos
@@ -37,7 +37,7 @@ Todos los tokens se firman con una clave de SAS. Normalmente, todos los tokens s
 
 ### Creación de la clave SAS
 
-Cuando se crea un espacio de nombres, el Bus de servicio genera una clave SAS de 256 bits denominada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el Centro de eventos concreto. En el resto de este tema, se supone que esta clave tiene el nombre `EventHubSendKey`.
+Cuando se crea un espacio de nombres de Centros de eventos, Centros de eventos de Azure genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el Centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre `EventHubSendKey`.
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el Centro de eventos:
 
@@ -95,9 +95,9 @@ Si un atacante roba un token, el atacante puede suplantar el dispositivo al que 
 
 ## Autenticación de aplicaciones de back-end
 
-Para autenticar aplicaciones de back-end que consumen los datos que generan los dispositivos, los Centros de eventos emplean un modelo de seguridad que es similar al que se usa en los temas de Bus de servicio. Un grupo de consumidores de Centros de eventos es equivalente a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el Centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que concede derechos de recepción en ese grupo de consumidores, Centro de eventos o espacio de nombres al que pertenece el Centro de eventos.
+Para autenticar aplicaciones de back-end que consumen los datos que generan los dispositivos, Centros de eventos emplea un modelo de seguridad que es similar al que se usa en los temas de Bus de servicio. Un grupo de consumidores de Centros de eventos equivale a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el Centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que concede derechos de recepción en ese grupo de consumidores, Centro de eventos o espacio de nombres al que pertenece el Centro de eventos.
 
-La versión actual del Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
+La versión actual de Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
 
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un Centro de eventos.
 
@@ -105,7 +105,7 @@ En ausencia de autenticación SAS para grupos de consumidores individuales, pued
 
 ACS admite varias formas de crear identidades de servicio, usuarios de confianza y reglas, pero la forma más sencilla es mediante [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Por ejemplo:
 
-1. Crear una identidad de servicio en un elemento **EventHubSender**. Devuelve el nombre de la identidad del servicio que se creó y su clave:
+1. Crear una identidad de servicio en un elemento **EventHubSender**. Esta operación devuelve el nombre de la identidad del servicio que se creó y su clave:
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
@@ -143,7 +143,7 @@ ACS admite varias formas de crear identidades de servicio, usuarios de confianza
 
 ## Pasos siguientes
 
-Para obtener más información sobre los Centros de eventos, visite los siguientes temas:
+Para más información sobre Centros de eventos, visite los siguientes temas:
 
 - [Información general de los Centros de eventos]
 - Una [aplicación de ejemplo completa que usa Centros de eventos].
@@ -154,4 +154,4 @@ Para obtener más información sobre los Centros de eventos, visite los siguient
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

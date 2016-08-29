@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 #Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -209,4 +209,4 @@ Para más información, vea el [Centro para desarrolladores de PHP](/develop/php
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

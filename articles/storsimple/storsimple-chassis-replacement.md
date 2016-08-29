@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/22/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Reemplazar el chasis en el dispositivo StorSimple
@@ -63,4 +63,4 @@ Realice los pasos siguientes para instalar el chasis en el dispositivo StorSimpl
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -51,7 +51,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>Si carece de una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
++ Una cuenta de Azure activa. <br/>Si no tiene una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
 También se dan por sentados ciertos conocimientos sobre [Almacenamiento de Azure] y [Bus de servicio de Azure].
 
@@ -90,7 +90,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
+    > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
 
 ## Procesamiento de mensajes de dispositivo a la nube
 
@@ -336,7 +336,7 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProcessD2CInteractiveMessages** y luego haga clic en **Administrar paquetes NuGet**. Aparecerá la ventana **Administrador de paquetes NuGet**.
 
-3. Busque **WindowsAzure.Service Bus**, haga clic en **Instalar** y acepte los términos de uso. De esta forma, se descarga, se instala y se agrega una referencia al [Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+3. Busque **WindowsAzure.ServiceBus**, haga clic en **Instalar** y acepte las condiciones de uso. De esta forma, se descarga, se instala y se agrega una referencia al [Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. En la parte superior del archivo **Program.cs**, agregue las siguientes instrucciones **using**:
 
@@ -382,7 +382,7 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1.	En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** y luego **Iniciar** como la acción para los proyectos **ProcessDeviceToCloudMessages**, **SimulatedDevice** y **ProcessD2CInteractiveMessages**.
 
@@ -449,4 +449,4 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

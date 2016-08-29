@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -27,7 +27,7 @@ Registros de operaciones es una característica de los Servicios de administraci
 ## Consulta de los registros de operaciones de los Servicios BizTalk
 1. En el Portal de Azure clásico, seleccione **Servicios de administración** y, a continuación, seleccione la pestaña **Registros de operaciones**.
 2. Puede filtrar los registros en función de diferentes parámetros, como suscripción, intervalo de fechas, tipo de servicio (por ejemplo, Servicios de BizTalk), nombre de servicio o estado (de la operación, por ejemplo, Succeeded, Failed).
-3. Seleccione la marca de verificación para consultar la lista filtrada. La imagen siguiente muestra las actividades relacionadas con testbiztalkservice. ![Consulta de registros de operaciones][ViewLogs] 
+3. Seleccione la marca de verificación para consultar la lista filtrada. La imagen siguiente muestra las actividades relacionadas con testbiztalkservice. ![Consulta de registros de operaciones][ViewLogs]
 4. Para obtener más información sobre una operación específica, seleccione la fila y haga clic en **Detalles** en la barra de tareas situada en la parte inferior.
 
 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operación para purgar copias de seguridad del Servi
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

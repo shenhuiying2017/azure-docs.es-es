@@ -2,6 +2,7 @@
 	pageTitle="Guía para desarrolladores de Azure Government" 
 	description="Esto proporciona una comparación de funciones e instrucciones sobre cómo desarrollar aplicaciones para la administración de Azure" 
 	services="" 
+	cloud="gov"
 	documentationCenter="" 
 	authors="Joharve2" 
 	manager="Chrisnie" 
@@ -92,7 +93,7 @@ Portal de administración|manage.windowsazure.com|manage.windowsazure.us
 General|*.windows.net|*.usgovcloudapi.net
 Núcleo|*.core.windows.net|*.core.usgovcloudapi.net
 Proceso|*.cloudapp.net|*.usgovcloudapp.net
-Almacenamiento de blobs|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
+Almacenamiento de blobs|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
 Almacenamiento de colas|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Almacenamiento de tablas|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Administración de servicios|management.core.windows.net|management.core.usgovcloudapi.net
@@ -129,4 +130,4 @@ Si está interesado en obtener más información sobre Azure Government, consult
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0817_2016-->

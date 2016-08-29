@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte" />
 
 # Hybrid Runbook Worker: un trabajo de Runbook finaliza con el estado Suspendido
@@ -33,7 +33,7 @@ Se produce un error en la ejecución de un Runbook y el error devuelto es "La ac
 Hay varias causas posibles para este error:
 
   1. Hybrid Worker está detrás de un firewall o proxy.
-  2. El equipo en el que se está ejecutando Hybrid Worker no cumple los [requisitos](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) mínimos de hardware. 
+  2. El equipo en el que se está ejecutando Hybrid Worker no cumple los [requisitos](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) mínimos de hardware.
   3. No se pueden autenticar los Runbooks con recursos locales.
 
 
@@ -57,9 +57,9 @@ Confirme primero que el equipo designado para ejecutar la característica Hybrid
 
 ### Solución
 
-Compruebe el registro de eventos **Microsoft SMA** para un evento correspondiente con la descripción *Proceso Win32 cerrado con el código [4294967295]*. La causa de este error es que no ha configurado la autenticación en sus Runbooks o especificado las credenciales de identificación para el grupo de Hybrid Worker. Revise los [permisos de Runbook](automation-hybrid-runbook-worker#runbook-permissions) para confirmar que ha configurado correctamente la autenticación para los Runbooks.
+Compruebe el registro de eventos **Microsoft SMA** para un evento correspondiente con la descripción *Proceso Win32 cerrado con el código [4294967295]*. La causa de este error es que no ha configurado la autenticación en sus Runbooks o especificado las credenciales de identificación para el grupo de Hybrid Worker. Revise los [permisos de runbook](automation-hybrid-runbook-worker.md#runbook-permissions) para confirmar que ha configurado correctamente la autenticación para los runbooks.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

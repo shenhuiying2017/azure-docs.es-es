@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
@@ -49,13 +49,13 @@ Para desinstalar la versión anterior, ejecute Programas y características en e
 Consulte [Crear clústeres basados en Linux en HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ##Enumeración de clústeres
-Use el comando siguiente para enumerar todos los clústeres en la suscripción actual:
+Use el comando siguiente para enumerar todos los clústeres de la suscripción actual:
 
 	Get-AzureRmHDInsightCluster
 
 ##Presentación de clústeres
 
-Use el comando siguiente para mostrar los detalles de un clúster específico en la suscripción actual:
+Use el comando siguiente para mostrar los detalles de un clúster específico de la suscripción actual:
 
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
@@ -103,7 +103,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 	La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
-	![reequilibrio de escalado de storm de hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![reequilibrio de escalado de storm de HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
@@ -150,7 +150,7 @@ Para conceder:
 
 >[AZURE.NOTE] Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
-Esto también se puede hacer a través del Portal. Vea [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
+Esto también se puede hacer a través del Portal. Consulte [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal]
 
 ##Actualización de las credenciales de usuario HTTP
 
@@ -172,7 +172,7 @@ El siguiente script de Powershell muestra cómo obtener el nombre y la clave de 
 
 ##Búsqueda del grupo de recursos
 
-En el modo ARM, cada clúster de HDInsight pertenece a un grupo de recursos de Azure. Para buscar el grupo de recursos:
+En el modo de Resource Manager, cada clúster de HDInsight pertenece a un grupo de recursos de Azure. Para buscar el grupo de recursos:
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

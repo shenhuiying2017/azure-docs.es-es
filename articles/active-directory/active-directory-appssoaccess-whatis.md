@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="terrylan"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="08/15/2016"
 	ms.author="asmalser-msft"/>
 
 #¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
@@ -227,4 +227,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0817_2016-->

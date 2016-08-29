@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Zoom
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zoom**, escriba su dirección URL con el siguiente patrón "*http://company.zoom.us*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Zoom**, escriba su dirección URL con el siguiente patrón "*http://company.zoom.us*" y haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configurar dirección URL de la aplicación")
 
@@ -98,15 +98,15 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Inicio de sesión único](./media/active-directory-saas-zoom-tutorial/IC784701.png "Inicio de sesión único")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoom**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoom**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoom**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
-    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
         >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
     5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoom**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-    6.  Haga clic en **Guardar**.
+    6.  Haga clic en **Save**.
 
 9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -116,7 +116,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en Zoom, deben aprovisionarse a Zoom. En el caso de Zoom, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su sitio de la compañía de **Zoom** como administrador.
 
@@ -152,6 +152,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-zoom-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

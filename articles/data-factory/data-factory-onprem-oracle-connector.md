@@ -32,13 +32,18 @@ Para que el servicio Factoría de datos de Azure pueda conectarse a la base de d
 
 > [AZURE.NOTE] Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
+## Asistente para copia de datos
+La manera más fácil de crear una canalización que copie datos de una base de datos Oracle a cualquiera de los almacenes de datos receptores admitidos y viceversa es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde una base de datos de Oracle al almacenamiento de blobs de Azure y viceversa. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
+
 ## Ejemplo: copia de datos de Oracle a un blob de Azure
 En este ejemplo, se muestra cómo copiar datos de una base de datos Oracle local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
  
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
 3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como origen y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como receptor.
@@ -226,7 +231,7 @@ En este ejemplo se muestra cómo se copian datos de un Almacenamiento de blobs d
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
 3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como origen y [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como receptor.
@@ -436,7 +441,7 @@ oracleReaderQuery | Utilice la consulta personalizada para leer los datos. | Cad
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). | No
+writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: 00:30:00 (30 minutos). | No
 writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. | Entero (número de filas)| No (valor predeterminado = 10000)  
 sqlWriterCleanupScript | Consulta especificada por el usuario para que la actividad de copia se ejecute de tal forma que se limpien los datos de un segmento específico. | Una instrucción de consulta. | No
 sliceIdentifierColumnName | Nombre de columna especificado por el usuario para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. | Nombre de columna de una columna con el tipo de datos binarios (32). | No
@@ -481,7 +486,7 @@ XML | String
 
 ## Sugerencias de solución de problemas
 
-**Problema:** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
+**Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
 
 **Causas posibles**
 
@@ -493,7 +498,7 @@ XML | String
 1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e intente de nuevo este escenario.
 2. Si recibe el mensaje de error incluso después de instalar el proveedor, haga lo siguiente:
 	1. Abra la configuración de máquina de .NET 2.0 desde la carpeta: <disco del sistema>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Busque **Proveedor de datos de Oracle para .NET**; debe ser capaz de encontrar una entrada como la siguiente en **system.data**: **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”.
+	2. Busque **Proveedor de datos de Oracle para .NET** y deberá encontrar una entrada como la siguiente en **system.data**: **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”.
 2.	Copie esta entrada en el archivo machine.config de la siguiente carpeta v4.0: <disco del sistema>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, and change the version to 4.xxx.x.x.
 3.	Instale <Ruta de instalación de ODP.NET>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll en la caché global de ensamblados (GAC) ejecutando gacutil /i [ruta del proveedor].
 
@@ -505,4 +510,4 @@ XML | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

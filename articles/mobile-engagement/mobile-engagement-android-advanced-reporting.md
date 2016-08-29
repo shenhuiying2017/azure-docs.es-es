@@ -13,27 +13,30 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Opciones de informes con Engagement en Android
+# Informes avanzados con Engagement en Android
 
 > [AZURE.SELECTOR]
+- [Windows universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-advanced-reporting.md)
 
-Este tema describe los escenarios de informes adicionales en la aplicación Android. Estas son opciones que puede aplicar a la aplicación que creó en el tutorial [Introducción](mobile-engagement-android-get-started.md).
+Este tema describe los escenarios de informes adicionales en la aplicación Android. Puede aplicar estas opciones a la aplicación creada en el tutorial [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md).
 
 ## Requisitos previos
 
 [AZURE.INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
 
-El tutorial que realizó era deliberadamente directo y sencillo, pero hay una serie de opciones entre las que puede elegir.
+El tutorial realizado era deliberadamente directo y sencillo, pero hay una serie de opciones avanzadas entre las que elegir.
 
 ## Modificación de sus clases `Activity`
 
-En el [tutorial de introducción](mobile-engagement-android-get-started.md), todo lo que tenía que hacer era que las subclases `*Activity` heredaran las clases `Engagement*Activity` correspondientes (por ejemplo, si su actividad heredada ampliaba `ListActivity`, podía hacer que ampliara `EngagementListActivity`).
+En la [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md), todo lo que tenía que hacer era conseguir que las subclases `*Activity` heredaran las clases `Engagement*Activity` correspondientes. Por ejemplo, si su actividad heredada amplía `ListActivity`, se ampliaría `EngagementListActivity` también.
 
-> [AZURE.IMPORTANT] Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`, de lo contrario se producirá un bloqueo.
+> [AZURE.IMPORTANT] Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`. De lo contrario, se producirá un bloqueo.
 
 Puede encontrar estas clases en la carpeta `src` y puede copiarlas en su proyecto. Las clases también están en **JavaDoc**.
 
@@ -43,7 +46,7 @@ Si no puede o no quiere sobrecargar sus clases `Activity`, puede iniciar y final
 
 > [AZURE.IMPORTANT] El SDK de Android nunca llama al método `endActivity()`, incluso cuando la aplicación está cerrada (en Android, las aplicaciones nunca se cierran realmente). Por tanto, es *MUY* recomendable llamar al método `startActivity()` en la devolución de llamada `onResume` de *TODAS* las actividades y al método `endActivity()` en la devolución de llamada `onPause()` de *TODAS* las actividades. Esta es la única manera de asegurarse de que las sesiones no se pierdan. Si una sesión se pierde, el servicio Engagement nunca se desconectará del back-end de Engagement (dado que el servicio permanece conectado mientras una sesión esté pendiente).
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	public class MyActivity extends Some3rdPartyActivity
 	{
@@ -63,7 +66,7 @@ Aquí tiene un ejemplo:
 	  }
 	}
 
-Este ejemplo es muy parecido a la clase `EngagementActivity` y sus variantes, cuyo código fuente se proporciona en la carpeta `src`.
+Este ejemplo es parecido a la clase `EngagementActivity` y sus variantes, cuyo código fuente se proporciona en la carpeta `src`.
 
 ## Uso de Application.onCreate()
 
@@ -85,9 +88,9 @@ También puede ampliar `EngagementApplication` en lugar de `Application`: la dev
 
 ## Etiquetas del archivo AndroidManifest.xml
 
-En la etiqueta de servicio del archivo AndroidManifest.xml, el atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla "Running services" (Servicios en ejecución) de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
+En la etiqueta de servicio del archivo AndroidManifest.xml, el atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla Servicios en ejecución de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
 
-La especificación del atributo `android:process` garantiza que el servicio Engagement se ejecutará en su propio proceso (al ejecutarse Engagement en el mismo proceso que su aplicación, el subproceso principal y de interfaz de usuario podría tener menos capacidad de respuesta).
+La especificación del atributo `android:process` garantiza que el servicio Engagement se ejecuta en su propio proceso (al ejecutarse Engagement en el mismo proceso que su aplicación, el subproceso principal y de interfaz de usuario podría tener menos capacidad de respuesta).
 
 ## Compilación con ProGuard
 
@@ -98,4 +101,4 @@ Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clas
 	<methods>;
  	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

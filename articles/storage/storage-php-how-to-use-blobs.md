@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-    	ms.date="06/01/2016"
+    	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Uso del almacenamiento de blobs de PHP
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Información general
 
@@ -49,7 +49,7 @@ Para usar las API del servicio BLOB de Azure, necesita:
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [AZURE.NOTE] En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente, deberá hacer referencia al archivo del cargador automático `WindowsAzure.php`.
+> [AZURE.NOTE] En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente, debe hacer referencia al archivo del cargador automático `WindowsAzure.php`.
 
 	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -308,4 +308,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

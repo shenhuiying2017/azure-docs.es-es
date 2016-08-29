@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Calcular el uso del ancho de banda de red de Azure RemoteApp 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp usa el Protocolo de escritorio remoto (RDP) para comunicarse entre las aplicaciones que se ejecutan en la nube de Azure y sus usuarios. En este artículo se proporcionan algunas directrices básicas que puede usar para calcular el uso de la red y evaluar potencialmente el uso del ancho de banda de red por cada usuario de Azure RemoteApp.
 
@@ -39,4 +42,4 @@ Aunque trataremos el redireccionamiento de dispositivos, no tendremos en cuenta 
 
 Tampoco analizamos cómo un usuario puede afectar a otros usuarios dentro de la misma red. Por ejemplo, un usuario que consume un vídeo de 4K en una red de 100 MB/s puede afectar significativamente a otros usuarios de esa misma red que intenten realizar la misma tarea. Lamentablemente, cada vez es más difícil determinar el impacto del uso simultáneo para proporcionar una recomendación común o integral acerca de cómo funciona el sistema a nivel global. Todo lo que podemos decir es que la tecnología de protocolo subyacente hará el mejor uso del ancho de banda de red disponible, pero tiene sus limitaciones.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

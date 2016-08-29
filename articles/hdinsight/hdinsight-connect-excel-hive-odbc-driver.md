@@ -55,10 +55,10 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
 5. Escriba o seleccione los valores siguientes:
 
-    Propiedad|Descripción
+    Propiedad|Description
     ---|---
     Data Source Name|Asigne un nombre al origen de datos
-    Host|Escriba <nombreDelClústerDeHDInsight>.azurehdinsight.net. Por ejemplo, myHDICluster.azurehdinsight.net
+    Host|Escriba &lt;NombreDeClústerDeHDInsight>.azurehdinsight.net. Por ejemplo, myHDICluster.azurehdinsight.net
     Port|Use <strong>443</strong>. (Este puerto se ha cambiado de 563 a 443).
     Base de datos|Use el <strong>valor predeterminado</strong>
     Hive Server Type|Seleccione <strong>Hive Server 2</strong>
@@ -70,7 +70,7 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
     Hay algunos parámetros importantes que se deben tener en cuenta al hacer clic en **Opciones avanzadas**:
 
-    Parámetro|Descripción
+    Parámetro|Description
     ---|---
     Use Native Query|Cuando esta opción está seleccionada, el controlador ODBC NO tratará de convertir TSQL en HiveQL. Solo debe usarla si está totalmente seguro de que va a enviar instrucciones de HiveQL puras. Al conectarse a SQL Server o a la Base de datos SQL de Azure, debe dejar esta opción desactivada.
     Rows fetched per block|Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo.
@@ -131,4 +131,4 @@ En este artículo se proporciona información acerca de cómo usar Microsoft Hiv
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

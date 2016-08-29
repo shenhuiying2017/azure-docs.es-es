@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Importación y exportación de un archivo de zona DNS mediante la CLI de Azure
@@ -99,7 +99,7 @@ Para importar un archivo de zona para la zona **contoso.com**.
 
 		azure login
 
-2. Seleccione la suscripción en la que quiere crear la zona DNS.
+2. Seleccione la suscripción en la que quiere crear la nueva zona DNS.
 
 		azure account set <subscription name>
 
@@ -172,7 +172,7 @@ Valores:
 - `<zone name>` es el nombre de la zona.
 - `<zone file name>` es la ruta de acceso y el nombre del archivo de zona que se va a exportar.
 
-Al igual que con la importación de zona, en primer lugar necesita iniciar la sesión, elegir su suscripción y configurar la CLI de Azure para que use el modo del Administrador de recursos.
+Al igual que con la importación de zona, en primer lugar necesita iniciar sesión, elegir su suscripción y configurar la CLI de Azure para que use el modo de Resource Manager.
 
 ### Para exportar un archivo de zona
 
@@ -181,7 +181,7 @@ Al igual que con la importación de zona, en primer lugar necesita iniciar la se
 
 		azure login
 
-2. Seleccione la suscripción en la que quiere crear la zona DNS.
+2. Seleccione la suscripción en la que quiere crear la nueva zona DNS.
 
 		azure account set <subscription name>
 
@@ -193,4 +193,4 @@ Al igual que con la importación de zona, en primer lugar necesita iniciar la se
 
 		azure network dns zone export myresourcegroup contoso.com contoso.com.txt
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

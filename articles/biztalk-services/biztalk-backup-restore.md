@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ También puede realizar la copia de seguridad de los Servicios de BizTalk median
 
 - El contenido de las copias de seguridad se puede restaurar en el mismo servicio de BizTalk o en uno nuevo. Para restaurar el servicio de BizTalk con el mismo nombre, es preciso eliminar el servicio de BizTalk existente y el nombre debe estar disponible. Después de eliminar un servicio de BizTalk, puede tardar más tiempo del deseado para que el mismo nombre esté disponible. Si no puede esperar a que el mismo nombre esté disponible, restaure a un nuevo servicio de BizTalk.
 
-- Servicios de BizTalk se puede restaura en la misma edición o en una posterior. No se puede realizar la restauración de los Servicios de BizTalk en una edición anterior con respecto a la usada para realizar la copia de seguridad.
+- Se pueden restaurar los servicios de BizTalk en la misma edición o en una posterior. No se puede realizar la restauración de los Servicios de BizTalk en una edición anterior con respecto a la usada para realizar la copia de seguridad.
 
 	Por ejemplo, una copia de seguridad que usa la Basic Edition se puede restaurar a la Premium Edition. Sin embargo, una copia de seguridad que usa la Premium Edition no se puede restaurar a la Standard Edition.
 
@@ -65,7 +65,7 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 #### <a name="backupschedule"></a>Programación de una copia de seguridad
 
 1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y luego seleccione la pestaña **Configurar**.
-2. Establezca **Estado de la copia de seguridad** en **Automático**. 
+2. Establezca **Estado de la copia de seguridad** en **Automático**.
 3. Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
 
 	![][AutomaticBU]
@@ -206,7 +206,7 @@ Se incluyen los elementos siguientes al crear una copia de seguridad:
  <strong>Elementos adicionales</strong></td>
 </tr> 
 <tr>
-<td>Base de datos de seguimiento</td> 
+<td>Tracking Database</td> 
 <td>Cuando se crea el Servicio de BizTalk, se definen los detalles de la base de datos de seguimiento, entre los que se incluyen el servidor de Base de datos SQL de Azure y el nombre de la base de datos de seguimiento. No se realiza la copia de seguridad de la base de datos de seguimiento de forma automática.
 <br/><br/>
 <strong>Importante</strong><br/>
@@ -235,4 +235,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de Azure clásico, vay
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

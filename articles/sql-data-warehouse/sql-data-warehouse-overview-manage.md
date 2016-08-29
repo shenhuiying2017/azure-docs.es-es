@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="08/16/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Administración de base datos en Almacenamiento de datos SQL de Azure
@@ -46,7 +46,7 @@ Para empezar a usar el Portal de Azure, consulte [Creación de Almacenamiento de
 
 SSDT incluye el Explorador de objetos de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en el Portal de Azure clásico.
 
-Para obtener instrucciones sobre SSDT en Visual Studio, consulte [Conexión a Almacenamiento de datos SQL con Visual Studio][].
+Para una introducción a SSDT en Visual Studio, consulte [Consultas en Almacenamiento de datos SQL de Azure con Visual Studio][].
 
 ### Herramientas de línea de comandos
 Las herramientas de línea de comandos son ideales para automatizar las cargas de trabajo. PowerShell y sqlcmd son dos excelentes formas de automatizar los procesos. Se recomienda el uso de estas herramientas para administrar un gran número de servidores lógicos e implementar cambios en los recursos en un entorno de producción, ya que las tareas necesarias se pueden realizar mediante scripts y automatizar.
@@ -71,7 +71,7 @@ Para más información, consulte [Pause compute][] (Pausa del proceso) y [Resume
 
 ## Prácticas recomendadas de rendimiento
 
-Cuando comience a trabajar con una nueva tecnología, descubrir las sugerencias y trucos que funcionan mejor directamente desde el inicio puede ahorrarle mucho tiempo. Encontrará prácticas recomendadas a lo largo de muchos de nuestros temas.
+Cuando comience a trabajar con una nueva tecnología, descubrir las sugerencias y trucos que funcionan mejor directamente desde el inicio puede ahorrarle mucho tiempo. Encontrará procedimientos recomendados a lo largo de muchos de nuestros temas.
 
 Para ver un resumen de las consideraciones más importantes al desarrollar la carga de trabajo, consulte [Prácticas recomendadas de Almacenamiento de datos SQL][].
 
@@ -100,7 +100,7 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 [Creación de Almacenamiento de datos SQL (Portal de Azure)]: sql-data-warehouse-get-started-provision.md
 [Creación de una base de datos (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
-[Conexión a Almacenamiento de datos SQL con Visual Studio]: sql-data-warehouse-get-started-connect.md
+[Consultas en Almacenamiento de datos SQL de Azure con Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Conexión y consultas con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 [Supervisión de la carga de trabajo con DMV]: sql-data-warehouse-manage-monitor.md
@@ -118,4 +118,4 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 <!--Other web references-->
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

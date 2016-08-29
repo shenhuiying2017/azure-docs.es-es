@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/20/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # ¿Qué tipo de colección necesita para Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 RemoteApp de Azure permite compartir aplicaciones y recursos con usuarios de cualquier dispositivo. Para ello se crean colecciones para contener las aplicaciones y los recursos y, a continuación, se comparten dichas colecciones con los usuarios. Existen 2 opciones de colecciones distintas con diferentes opciones de autenticación y red. ¿Cuál es la que más le conviene?
 
@@ -56,7 +59,7 @@ Créela mediante la opción **Crear con red virtual** y seleccione la opción de
 ## Opciones de autenticación
 RemoteApp de Azure admite tanto cuentas de Microsoft como cuentas de Azure Active Directory; aunque no todas las colecciones admiten todos los métodos.
 
-| Tipo de cuenta | | Nube | Nube + red virtual | Híbrido |
+| Tipo de cuenta | | Nube | Nube + red virtual | Híbrida |
 |-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
 | Cuenta Microsoft | | Sí | Sí | No |
 | Azure Active Directory (Azure AD) | | | | |
@@ -91,4 +94,4 @@ Bueno, creo que ya lo tenemos claro. Solo queda una cosa por hacer: crear la pri
 
 [Crear una colección de nube](remoteapp-create-cloud-deployment.md) o [crear una colección híbrida](remoteapp-create-hybrid-deployment.md): ya está preparado para crear su colección.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

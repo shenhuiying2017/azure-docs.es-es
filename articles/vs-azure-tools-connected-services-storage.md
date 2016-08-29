@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
@@ -94,4 +94,4 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 
@@ -102,7 +102,7 @@ Puede compartir su paquete de soporte generado manualmente con el servicio de so
 ### Parámetros del cmdlet Export-HcsSupportPackage
 Puede usar los siguientes parámetros con el cmdlet Export-HcsSupportPackage.
 
-| Parámetro | Obligatorio/opcional | Descripción |
+| Parámetro | Obligatorio/opcional | Description |
 |----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `-Path` | Obligatorio | Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
 | `-EncryptionPassphrase` | Obligatorio | Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
@@ -190,4 +190,4 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

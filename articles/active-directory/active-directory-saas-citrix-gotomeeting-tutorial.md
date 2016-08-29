@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Citrix GoToMeeting  
@@ -75,7 +75,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 1.  En la página de integración de aplicaciones de **Citrix GoToMeeting**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **CONFIGURAR INICIO DE SESIÓN ÚNICO**.
 
-    ![Habilitar inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Habilitar inicio de sesión único")
+    ![Habilitar el inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Habilitar el inicio de sesión único")
 
 2.  En la página **¿Cómo desea que los usuarios inicien sesión en Citrix GoToMeeting?**, seleccione **Inicio de sesión único de Microsoft Azure AD**.
 
@@ -84,7 +84,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 3. En la página **Configurar las opciones de la aplicación**, haga clic en **Siguiente**.
 
-	![Habilitar el inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Habilitar inicio de sesión único")
+	![Habilitar el inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Habilitar el inicio de sesión único")
 
 4.  En la página **Configuración de inicio de sesión único en Citrix GoToMeeting**, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
 
@@ -146,7 +146,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 	b. En el cuadro de texto **Contraseña de administrador de Citrix GoToMeeting**, escriba la contraseña del administrador.
 
     
-	c. Haga clic en **Siguiente**.
+	c. Haga clic en **Next**.
 
 3.  En la página **Confirmación**, haga clic en la marca de verificación para guardar la configuración.
 
@@ -155,7 +155,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ##Asignación de usuarios
 
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 ###Para asignar usuarios a Citrix GoToMeeting, lleve a cabo los siguientes pasos:
 
@@ -183,4 +183,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 
 Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

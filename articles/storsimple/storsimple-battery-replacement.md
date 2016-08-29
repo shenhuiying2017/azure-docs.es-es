@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 
 ## Información general
 
-El Módulo de alimentación y refrigeración (PCM) del gabinete primario en el dispositivo StorSimple de Microsoft Azure tiene un paquete de baterías adicional. Este paquete proporciona energía para que el dispositivo StorSimple pueda guardar los datos si hay una pérdida de alimentación de CA para el gabinete principal. Este paquete de baterías se conoce como el *módulo de baterías de reserva*. El módulo de baterías de reserva solo existe para el gabinete principal del dispositivo StorSimple (el gabinete de EBOD no contiene un módulo de baterías de reserva).
+El Módulo de alimentación y refrigeración (PCM) del gabinete primario en el dispositivo StorSimple de Microsoft Azure tiene un paquete de baterías adicional. Este paquete proporciona energía para que el dispositivo StorSimple pueda guardar los datos si hay una pérdida de alimentación de CA para el gabinete principal. Este paquete de baterías se conoce como el * módulo de baterías de reserva*. El módulo de baterías de reserva solo existe para el gabinete principal del dispositivo StorSimple (el gabinete de EBOD no contiene un módulo de baterías de reserva).
 
 Este tutorial explica cómo realizar lo siguiente:
 
-- Quitar el módulo de baterías de reserva 
+- Quitar el módulo de baterías de reserva
 - Instalar un nuevo módulo de baterías de reserva
 - Mantener el módulo de baterías de reserva
 
@@ -43,7 +43,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
 
     **Figura 1** Vista posterior del dispositivo primario que muestra los módulos PCM y del controlador
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:----|:----------|
     |1|PCM 0|
     |2|PCM 1|
@@ -56,7 +56,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
 
     **Figura 2** Parte posterior del PCM que muestra los LED indicadores de supervisión
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:---|:-----------|
     |1|Error de corriente alterna|
     |2|Error del ventilador|
@@ -115,4 +115,4 @@ Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

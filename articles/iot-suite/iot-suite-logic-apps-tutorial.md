@@ -14,16 +14,20 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/20/2016"
+  ms.date="08/16/2016"
   ms.author="araguila"/>
   
 # Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure
 
-solución preconfigurada de supervisión remota del [conjunto de aplicaciones de IoT de Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Aquí se muestra cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
+solución preconfigurada de supervisión remota del [conjunto de aplicaciones de IoT de Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
 
 _Si está buscando un tutorial sobre cómo aprovisionar una solución preconfigurada de supervisión remota, consulte [Tutorial: Introducción a las soluciones preconfiguradas][lnk-getstarted]._
 
-Antes de comenzar este tutorial, además de aprovisionar la solución preconfigurada de supervisión remota en su suscripción de Azure, debe crear una cuenta de SendGrid para poder enviar un correo electrónico que desencadene el proceso empresarial. Puede registrarse para obtener una cuenta gratuita en [SendGrid](https://sendgrid.com/) haciendo clic en **Try for Free** (Probar gratis). Después de haberse registrado para crear una cuenta de evaluación gratuita, deberá generar una [clave de API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) en SendGrid que conceda permisos para enviar correo. Las necesitará más adelante en el tutorial.
+Antes de comenzar este tutorial, debe:
+
+- Aprovisionar la solución preconfigurada de supervisión remota en su suscripción de Azure.
+
+- Crear una cuenta de SendGrid para poder enviar un correo electrónico que desencadene el proceso de negocio. Puede registrarse para obtener una cuenta de evaluación gratuita en [SendGrid](https://sendgrid.com/) haciendo clic en **Try for Free** (Probar gratis). Después de haberse registrado para crear una cuenta de evaluación gratuita, deberá generar una [clave de API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) en SendGrid que conceda permisos para enviar correo. La necesitará más adelante en el tutorial.
 
 Suponiendo que ya se haya aprovisionado la solución preconfigurada de supervisión remota, vaya al grupo de recursos correspondiente a esa solución en el [Portal de Azure][lnk-azureportal]. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada. En el grupo de recursos, puede ver todos los recursos de Azure aprovisionados previamente para su solución (a excepción de la aplicación Azure Active Directory, que se puede encontrar en el Portal de Azure clásico). La captura de pantalla siguiente muestra una hoja de **grupo de recursos** de ejemplo para una solución preconfigurada de supervisión remota:
 
@@ -37,17 +41,17 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
 
 2. Busque la __aplicación lógica__, selecciónela y, después, haga clic en **Crear**.
 
-3. Especifique un valor en __Nombre__ y utilice los mismos parámetros **Suscripción**, **Grupo de recursos** y **Plan de servicio de aplicaciones** que usó al aprovisionar la solución de supervisión remota. Haga clic en __Crear__.
+3. Especifique un valor en __Nombre__ y utilice los mismos valores de **Suscripción** y **Grupo de recursos** que usó al aprovisionar la solución de supervisión remota. Haga clic en __Crear__.
 
     ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
 
 4. Cuando se complete la implementación, verá que la aplicación lógica aparece incluida en el grupo de recursos.
 
-5. Haga clic en la aplicación lógica para desplazarse a la hoja de estudio. Con ello, se abrirá inmediatamente el **diseñador de aplicaciones lógicas**.
+5. Haga clic en la aplicación lógica para desplazarse a la hoja de aplicación lógica y seleccione la plantilla **Blank Logic App** (Aplicación lógica en blanco) para abrir el **Logic Apps Designer** (Diseñador de aplicaciones lógicas).
 
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 
-6. Seleccione __Manual – When an HTTP request is received__ (Manual: cuando se recibe una solicitud HTTP). Con ello, se especifica que una solicitud HTTP entrante con una carga específica con formato de JSON actúa como desencadenador.
+6. Seleccione __Solicitud__. Esta acción especifica que una solicitud HTTP entrante con una carga específica con formato de JSON actúa como desencadenador.
 
 7. Pegue lo siguiente en el esquema de JSON del cuerpo de la solicitud:
 
@@ -80,7 +84,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
     
     Nota: Puede copiar la dirección URL de HTTP POST tras guardar la aplicación lógica, pero, primero, debe agregar una acción.
 
-8. Haga clic en el signo __(+)__ que verá bajo el desencadenador manual. A continuación, haga clic en **Agregar una acción**.
+8. Haga clic en __+ Nuevo paso__ en el desencadenador manual. A continuación, haga clic en **Agregar una acción**.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
 
@@ -88,23 +92,23 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
 
     ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
 
-10. Escriba un nombre para la conexión, como **SendGridConnection**, escriba la **clave de API de SendGrid** que creó al configurar la cuenta de SendGrid y haga clic en **Crear conexión**.
+10. Escriba un nombre para la conexión, como **SendGridConnection**, escriba la **clave de API de SendGrid** que creó al configurar la cuenta de SendGrid y haga clic en **Crear**.
 
     ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
 
-11. Agregue direcciones de correo electrónico que posea tanto en el campo **De** como en **Para**. Agregue **Remote monitoring alert [DeviceId]** (Alerta de supervisión remota [DeviceId]) al campo **Asunto**. En el campo **Email Body** (Cuerpo del correo electrónico), agregue **El dispositivo [DeviceId] ha informado de [measurementName] con el valor [measuredValue]**. Puede agregar **[DeviceId]**, **[measurementName]** y **[measuredValue]** haciendo clic en la sección **You can insert data from previous steps** (Puede insertar datos de pasos anteriores).
+11. Agregue direcciones de correo electrónico que posea tanto en el campo **De** como en **Para**. Agregue **Remote monitoring alert [DeviceId]** (Alerta de supervisión remota [DeviceId]) al campo **Asunto**. En el **cuerpo del correo electrónico **, agregue **El dispositivo [DeviceId] ha informado de [measurementName] con el valor [measuredValue]**. Puede agregar **[DeviceId]**, **[measurementName]** y **[measuredValue]** haciendo clic en la sección **Puede insertar datos de pasos anteriores**.
 
     ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
 
 12. Haga clic en __Guardar__ en el menú superior.
 
-13. Haga clic en el desencadenador **When an HTTP request is received** (Cuando se recibe una solicitud HTTP) y copie el valor __Http Post to this URL__ (HTTP POST a esta URL). Necesitará esta URL más adelante en el tutorial.
+13. Haga clic en el desencadenador **Solicitud** y copie el valor __HTTP POST a esta dirección URL__. Necesitará esta URL más adelante en el tutorial.
 
 > [AZURE.NOTE] Las aplicaciones lógicas permiten ejecutar [muchos tipos diferentes de acciones][lnk-logic-apps-actions], incluidas las de Office 365.
 
 ## Configuración del trabajo web EventProcessor
 
-En esta sección, se conectará la solución preconfigurada a la aplicación lógica creada mediante la adición de la dirección URL que desencadena la aplicación lógica a la acción que se lleva a cabo cuando un valor de sensor de dispositivo supera cierto umbral.
+En esta sección, se conectará la solución preconfigurada a la aplicación lógica creada. Para completar esta tarea, agregue la dirección URL para desencadenar la aplicación lógica con la acción que se activa cuando el valor del sensor de un dispositivo supera un umbral.
 
 1. Use el cliente de Git para clonar la versión más reciente del [repositorio de GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Por ejemplo:
 
@@ -116,7 +120,7 @@ En esta sección, se conectará la solución preconfigurada a la aplicación ló
 
 3. Abra el archivo __ActionRepository.cs__ de la carpeta **Infrastructure\\Repository**.
 
-4. Actualice el diccionario **actionIds** con el valor de __Http Post to this URL__ (HTTP POST a esta URL) que anotó de la aplicación lógica, como se muestra seguidamente:
+4. Actualice el diccionario **actionIds** con el valor de __HTTP POST a esta dirección URL__ que anotó de la aplicación lógica, como se indica a continuación:
 
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
@@ -142,18 +146,18 @@ En esta sección, implementará la versión actualizada de la solución de super
     build.cmd cloud release demologicapp
     ``
     
-    Cuando se ejecute el script de compilación, asegúrese de usar la misma cuenta, suscripción, región e instancia de Active Directory de Azure que utilizó al aprovisionar la solución por primera vez.
+    Cuando se ejecute el script de compilación, asegúrese de usar la misma cuenta, suscripción, región e instancia de Active Directory de Azure que utilizó al aprovisionar la solución.
 
 ## La aplicación lógica en acción
 
-La solución preconfigurada de supervisión remota tiene dos reglas configuradas de forma predeterminada al aprovisionar una solución por primera vez. Ambas se encuentran en el dispositivo **SampleDevice001**:
+La solución preconfigurada de supervisión remota tiene dos reglas configuradas de forma predeterminada al aprovisionar una solución. Ambas se encuentran en el dispositivo **SampleDevice001**:
 
 * Temperature > 38.00 (Temperatura > 38,00)
 * Humidity > 48.00 (Humedad > 48,00)
 
-La regla de temperatura desencadena la acción **Raise Alarm** (Activar alarma), mientras que la de humedad, desencadena la acción **SendMessage**. Suponiendo que haya usado la misma dirección URL para ambas acciones en la clase **ActionRepository**, la aplicación lógica desencadenará alguna de las dos reglas y utilizará SendGrid para enviar un correo electrónico a la dirección de **Para** con detalles sobre la alerta.
+La regla de temperatura desencadena la acción **Raise Alarm** (Activar alarma), mientras que la de humedad desencadena la acción **SendMessage** (Enviar mensaje). Suponiendo que utiliza la misma dirección URL para ambas acciones de la clase **ActionRepository**, la aplicación lógica se desencadenará con cualquiera de las dos reglas. Ambas reglas usan SendGrid para enviar un correo electrónico a la dirección **Para** con detalles de la alerta.
 
-> [AZURE.NOTE] La aplicación lógica se seguirá desencadenando cada vez que se alcance el umbral, por lo que, para evitar mensajes innecesarios, puede deshabilitar las reglas en el portal de la solución o deshabilitar la aplicación lógica en el [Portal de Azure][lnk-azureportal].
+> [AZURE.NOTE] La aplicación lógica se sigue desencadenando cada vez que se alcance el umbral. Para evitar mensajes innecesarios, puede deshabilitar las reglas en el portal de la solución o deshabilitar la aplicación lógica en el [Portal de Azure][lnk-azureportal].
 
 Además de recibir mensajes de correo electrónico, también puede ver cuándo se ejecuta la aplicación lógica en el portal:
 
@@ -178,4 +182,4 @@ Ahora que ha utilizado una aplicación lógica para conectar la solución precon
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Acceso a los registros de diagnóstico de Azure Data Lake Analytics
@@ -32,7 +32,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 - **Habilite su suscripción de Azure** para la versión preliminar pública de Data Lake Analytics. Consulte las [instrucciones](data-lake-analytics-get-started-portal.md#signup).
 - **Cuenta de Azure Data Lake Analytics**. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Analytics mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
 
-## Habilitación del registro de diagnósticos para la cuenta de Data Lake Analytics
+## Habilitación del registro
 
 1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 
 Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico**.
 
-## Visualización de registros de diagnóstico de la cuenta de Data Lake Analytics
+## Ver registros
 
 Existen dos formas de ver los datos de registro para la cuenta de Data Lake Analytics.
 
@@ -108,7 +108,7 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Anal
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Comprender la estructura de los datos de registro
+## Estructura de los registros
 
 Los registros de auditoría y de solicitud tienen un formato JSON. En esta sección, veremos la estructura de JSON de los registros de auditoría y de solicitud.
 
@@ -225,13 +225,13 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ y __Paralelismo__ proporcionan información sobre una operación y solo contendrán algún valor si una operación se ha iniciado o completado. Por ejemplo, __SubmitTime__ contiene un valor después de que __operationName__ indique __JobSubmitted__.
 
-## Ejemplos para procesar los datos de registro
+## Procesamiento de los datos de registro
 
 Azure Data Lake Analytics proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Otras referencias
+## Pasos siguientes
 
 - [Información general de Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

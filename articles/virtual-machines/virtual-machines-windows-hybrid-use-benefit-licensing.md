@@ -29,11 +29,11 @@ Se deben cumplir un par de requisitos previos para poder utilizar la ventaja de 
 - Haber cargado el VHD de Windows Server en Almacenamiento de Azure.
 
 ### Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure. Aunque vaya a implementar las máquinas virtuales con plantillas de Resource Manager, necesitará tener instalado Azure PowerShell para poder cargar el VHD de Windows Server (consulte el siguiente paso).
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure. Aunque vaya a implementar las máquinas virtuales con plantillas de Resource Manager, necesitará tener instalado Azure PowerShell para poder cargar el VHD de Windows Server (consulte el siguiente paso).
 
 ### Carga de un VHD de Windows Server
 
-Para implementar una máquina virtual de Windows Server en Azure, primero debe crear un VHD que contenga la compilación de Windows Server base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede [obtener más información sobre los requisitos de VHD y el proceso de Sysprep](./virtual-machines-windows-upload-image.md). Una vez que haya preparado el VHD, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
+Para implementar una máquina virtual de Windows Server en Azure, primero debe crear un VHD que contenga la compilación de Windows Server base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede [leer más sobre los requisitos de disco duro virtual y el proceso de Sysprep](./virtual-machines-windows-upload-image.md) y la [compatibilidad de Sysprep con roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
@@ -41,12 +41,12 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 
 > [AZURE.NOTE] Microsoft SQL Server, SharePoint Server y Dynamics también pueden utilizar una concesión de licencias de Software Assurance. Aun así, es preciso preparar la imagen de Windows Server, para lo que hay que instalar los componentes de la aplicación y proporcionar las claves de licencia según corresponda y, a luego, cargar la imagen del disco en Azure. Revise la documentación adecuada para ejecutar Sysprep con la aplicación, como [Consideraciones acerca de la instalación de SQL Server con SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) o [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx) [Creación de una imagen de referencia de SharePoint Server 2016 (Sysprep)].
 
-También puede obtener más detalles sobre la [carga del VHD en un proceso de Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+También puede obtener más detalles sobre la [carga del disco duro virtual en un proceso de Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
 > [AZURE.TIP] Este artículo se centra en la implementación de máquinas virtuales de Windows Server, pero también puede implementar máquinas virtuales de cliente de Windows de la misma manera. En los ejemplos siguientes, `Server` se reemplaza por `Client` como corresponda.
 
 ## Implementación de una máquina virtual a través de PowerShell (introducción rápida)
-Cuando se implementa una máquina virtual de Windows Server mediante PowerShell, se dispone de un parámetro adicional para `-LicenseType`. Una vez que el VHD esté cargado en Azure, cree una máquina virtual nueva mediante `New-AzureRmVM` y especifique el tipo de concesión de licencias de la siguiente forma:
+Cuando se implementa una máquina virtual de Windows Server mediante PowerShell, se dispone de un parámetro adicional para `-LicenseType`. Cuando el disco duro virtual esté cargado en Azure, cree una máquina virtual nueva mediante `New-AzureRmVM` y especifique el tipo de concesión de licencias de la siguiente forma:
 
 ```
 New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
@@ -55,7 +55,7 @@ New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -Li
 A continuación, puede [leer un tutorial más detallado sobre la implementación de una máquina virtual en Azure a través de PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough), o bien consultar una guía más descriptiva sobre los diferentes pasos que deben darse para [crear una máquina virtual Windows mediante Resource Manager y PowerShell](./virtual-machines-windows-ps-create.md).
 
 ## Implementación de una máquina virtual a través de Resource Manager
-En las plantillas de Resource Manager, se puede especificar un parámetro adicional para `licenseType`. En [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md), puede obtener más información al respecto. Una vez que haya cargado el VHD en Azure, edite la plantilla de Resource Manager para incluir el tipo de licencia como parte del proveedor de procesos e impleméntela de la forma habitual:
+En las plantillas de Resource Manager, se puede especificar un parámetro adicional para `licenseType`. En [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md), puede encontrar más información al respecto. Una vez que haya cargado el VHD en Azure, edite la plantilla de Resource Manager para incluir el tipo de licencia como parte del proveedor de procesos e impleméntela de la forma habitual:
 
 ```
 "properties": {  
@@ -66,7 +66,7 @@ En las plantillas de Resource Manager, se puede especificar un parámetro adicio
 ```
  
 ## Comprobación de que la máquina virtual está utilizando la ventaja de licencia
-Una vez que haya implementado la máquina virtual mediante el método de implementación de Resource Manager o PowerShell, compruebe el tipo de licencia con `Get-AzureRmVM` como se indica a continuación:
+Cuando haya implementado la máquina virtual mediante el método de implementación de Resource Manager o PowerShell, compruebe el tipo de licencia con `Get-AzureRmVM`, como se indica a continuación:
  
 ```
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
@@ -165,4 +165,4 @@ Más información sobre las [ventajas del uso híbrido de Azure](https://azure.m
 
 Más información sobre el [uso de plantillas de Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

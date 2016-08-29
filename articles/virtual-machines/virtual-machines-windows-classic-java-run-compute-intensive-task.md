@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
@@ -38,7 +38,7 @@ Aprenderá a:
 
 En este tutorial se utilizará el problema del viajante para explicar la tarea de proceso intensivo. A continuación se muestra un ejemplo de la aplicación Java que ejecuta la tarea de proceso intensivo:
 
-![Solucionador del problema del viajante][solver_output]
+![Solucionador del problema del viajante (TSP)][solver_output]
 
 A continuación se muestra un ejemplo de la aplicación Java que supervisa la tarea de proceso intensivo:
 
@@ -81,7 +81,7 @@ Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que s
 
 ## Creación de un espacio de nombres del bus de servicio
 
-Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
+Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
@@ -521,4 +521,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

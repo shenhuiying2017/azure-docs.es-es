@@ -22,9 +22,9 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-Puede usar la [biblioteca de red CDN de Azure para .NET](https://msdn.microsoft.com/library/mt657769.aspx) con el fin de automatizar la creación y la administración de perfiles y puntos de conexión de red CDN. Este tutorial lo guiará por la creación de una aplicación de consola .NET sencilla que muestra algunas de las operaciones disponibles. Con este tutorial no se pretende describir todos los aspectos de la biblioteca de red CDN de Azure para .NET en detalle.
+Puede usar la [biblioteca de red CDN de Azure para .NET](https://msdn.microsoft.com/library/mt657769.aspx) con el fin de automatizar la creación y la administración de perfiles y puntos de conexión de red CDN. Este tutorial describe la creación de una aplicación de consola .NET sencilla que muestra algunas de las operaciones disponibles. Con este tutorial no se pretende describir todos los aspectos de la biblioteca de red CDN de Azure para .NET en detalle.
 
-Necesitará Visual Studio 2015 para completar este tutorial. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponible gratis para descargarse.
+Necesita Visual Studio 2015 para completar este tutorial. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponible gratis para descargarse.
 
 > [AZURE.TIP] El [proyecto completado en este tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) está disponible para descargarse en MSDN.
 
@@ -323,7 +323,7 @@ Ahora podemos compilar y ejecutar el programa haciendo clic en el botón **Inici
 
 ![Programa en ejecución](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-Cuando el programa llega el mensaje anterior, debería poder ver, de vuelta en el grupo de recursos en el Portal de Azure, que se ha creado el perfil.
+Cuando el programa llega al mensaje anterior, debería poder ver, de vuelta en el grupo de recursos en el Portal de Azure, que se ha creado el perfil.
 
 ![¡Éxito!](./media/cdn-app-dev-net/cdn-success.png)
 
@@ -337,4 +337,6 @@ Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://
 
 Para ver más documentación sobre la biblioteca de administración de red CDN de Azure para .NET, consulte la [referencia en MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+Administración de los recursos de red CDN con [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

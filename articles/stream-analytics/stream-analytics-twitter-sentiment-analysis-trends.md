@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -26,12 +26,12 @@ Las herramientas de análisis de los medios sociales ayudan a las organizaciones
 
 ## Escenario: Análisis de opiniones en tiempo real
 
-Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. Por lo que en esencia requieren un motor de análisis de análisis de opiniones basado en esta fuente de medios sociales.
+Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Usan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. Por lo que en esencia requieren un motor de análisis de análisis de opiniones basado en esta fuente de medios sociales.
 
 ## Requisitos previos
 1.	Cuenta de Twitter y [token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) del Centro de descarga de Microsoft
-3.	Opcional: código fuente de cliente de twitter desde [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
+3.	Opcional: código fuente de cliente de Twitter desde [Github](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Cree una entrada del centro de eventos y un grupo de consumidores
 
@@ -52,7 +52,7 @@ Siga estos pasos para crear un Centro de eventos.
 
 ## Configuración e inicio de la aplicación cliente Twitter
 
-Hemos proporcionado una aplicación cliente que aprovechará datos de Twitter a través de las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
+Hemos proporcionado una aplicación cliente que aprovechará datos de Twitter a través de las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
 
 Siga estos pasos para configurar la aplicación:
 
@@ -64,7 +64,7 @@ Siga estos pasos para configurar la aplicación:
 	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.
 3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo TwitterClient.exe.config con la cadena de conexión del centro de eventos y el nombre. La cadena de conexión que copió anteriormente proporciona el nombre y la cadena de conexión del Centro de eventos, así que no se olvide de separar y colocar cada una de ellas en el campo correcto.
 4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo TwitterClient.exe.config, si lo desea.
-5.	Ejecute **TwitterClient.exe** para iniciar la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
+5.	Ejecute **TwitterClient.exe** para iniciar la aplicación. Verá los eventos Tweet con los valores de CreatedAt, Topic y SentimentScore que se envían al Centro de eventos:
 
 	![Análisis de opinión: valores de SentimentScore enviados a un centro de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -92,14 +92,14 @@ Ahora que tenemos un flujo de eventos Tweet en tiempo real de Twitter, podemos c
 3.	Seleccione **CENTRO DE EVENTOS** y, a continuación, haga clic con el botón secundario.
 4.	Escriba o seleccione los valores siguientes en la tercera página:
 
-	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante. **CENTRO DE EVENTOS**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
+	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante. **CENTRO DE EVENTOS**: si el Centro de eventos que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 
 		Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **ESPACIO DE NOMBRES DE BUS DE SERVICIO**, **NOMBRE DE CENTRO DE EVENTOS**, **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**, **CLAVE DE DIRECTIVA DE CENTRO DE EVENTOS** y **RECUENTO DE PARTICIONES DE CENTRO DE EVENTOS**.
 
 	* **NOMBRE DE CENTRO DE EVENTOS**: seleccione el nombre del centro de eventos
 	* **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**: seleccione la directiva del centro de eventos que creó anteriormente en este tutorial.
 	* **GRUPO DE CONSUMIDORES DEL CENTRO DE EVENTOS**: escriba el grupo de consumidores que creó anteriormente en este tutorial.
-5.	Haga clic con el botón secundario.
+5.	Haga clic con el botón derecho.
 6.	Especifique los siguientes valores:
 
 	* **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
@@ -198,12 +198,12 @@ Siga estos pasos para crear un contenedor para el almacenamiento de blobs, si a�
 3.	Escriba o seleccione los valores siguientes en la tercera página:
 
 	* **ALIAS DE SALIDA**: escriba un nombre descriptivo para esta entrada de trabajo.
-	* **SUSCRIPCIÓN**: si el almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
+	* **SUSCRIPCIÓN**: si el Almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
 	* **CUENTA DE ALMACENAMIENTO**: seleccione el nombre de la cuenta de almacenamiento
 	* **CONTENEDOR**: seleccione el nombre del contenedor
 	* **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se usará al escribir la salida de blob
 
-4.	Haga clic con el botón secundario.
+4.	Haga clic con el botón derecho.
 5.	Especifique los siguientes valores:
 	* **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
 	* **CODIFICACIÓN**: UTF8
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

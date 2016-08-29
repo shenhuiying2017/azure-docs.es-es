@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurar el proxy web para el dispositivo StorSimple
@@ -57,7 +57,7 @@ Puede utilizar al asistente de configuración que le guiará a través de los pa
 
     `Invoke-HcsSetupWizard`
 
-2. Si esta es la primera vez que utiliza el asistente de configuración para el registro de dispositivos, deberá configurar todos los valores de red requeridos hasta llegar a la configuración del proxy web. Si el dispositivo ya está registrado, puede aceptar todos los valores de red configurados hasta llegar a la configuración del proxy web. En el asistente de configuración, cuando se le pregunte si desea configurar los valores del proxy web, escriba **Sí**.
+2. Si esta es la primera vez que utiliza el asistente de configuración para el registro de dispositivos, deberá configurar todos los valores de red requeridos hasta llegar a la configuración del proxy web. Si el dispositivo ya está registrado, puede aceptar todos los valores de red configurados hasta llegar a la configuración del proxy web. En el asistente para instalación, cuando se le solicite configurar los valores del proxy web, escriba **Sí**.
 
 3. Para la **URL del Proxy Web** especifique la dirección IP o el nombre de dominio completo (FQDN) del servidor proxy web y el número de puerto TCP que desea que el dispositivo utilice cuando se comunique con la nube. Utilice el siguiente formato:
 
@@ -137,12 +137,12 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 |3\.|0x80070057 - Parámetro no válido|Uno de los parámetros proporcionados para la configuración del proxy no es válido.|El URI no se proporciona con el formato correcto. Utilice el siguiente formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
 |4\.|0x800706ba - Servidor RPC no disponible|La causa principal es una de las siguientes:</br></br>El clúster está inactivo.</br></br>El servicio de ruta de datos no está en ejecución.</br></br>El comando se ejecuta desde el controlador pasivo y no puede comunicarse con el controlador activo.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que el clúster está activo y el servicio de ruta de datos está ejecutándose.</br></br>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Si la conectividad está rota, deberá ponerse en contacto con el soporte técnico de Microsoft.|
 |5\.|0X800706be - Llamada RPC con errores|El clúster está inactivo.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que el clúster está activo.|
-|6\.|0x8007138f - Recurso de clúster no encontrado|El recurso de clúster del servicio de plataforma no se encuentra. Esto puede ocurrir cuando la instalación no se ha realizado correctamente.|Puede que deba restablecer su dispositivo a los valores de fábrica. Es posible que deba crear un recurso de plataforma. Póngase en contacto con el soporte técnico de Microsoft para conocer los siguientes pasos.|
+|6\.|0x8007138f - Recurso de clúster no encontrado|El recurso de clúster del servicio de plataforma no se encuentra. Esto puede ocurrir cuando la instalación no se ha realizado correctamente.|Puede que sea necesario realizar un restablecimiento de fábrica en el dispositivo. Puede que sea necesario crear un recurso de plataforma. Póngase en contacto con el soporte técnico de Microsoft para conocer los siguientes pasos.|
 |7\.|0x8007138c - El recurso de clúster no está en línea|Los recursos de clúster de ruta de datos o plataforma no están en línea.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que la ruta de datos y el recurso del servicio de plataforma están en línea.|
 
 > [AZURE.NOTE] 
 > 
-> -  La lista anterior de mensajes de error no es exhaustiva. 
+> -  La lista anterior de mensajes de error no es exhaustiva.
 > - Los errores relacionados con la configuración de proxy web no se muestran en el Portal de Azure clásico del servicio del Administrador de StorSimple. Si hay un problema con el proxy web una vez completada la configuración, el estado del dispositivo cambiará a **Sin conexión** en el Portal clásico.
 
 ## Pasos siguientes
@@ -151,4 +151,4 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 
 - Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

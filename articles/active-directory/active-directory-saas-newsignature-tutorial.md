@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con el Portal de administración en la nube de Microsoft Azure, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Un Portal de administración en la nube para suscripciones con inicio de sesión único habilitado de Microsoft Azure.
+- Un Portal de administración en la nube para suscripciones con inicio de sesión único habilitado de Microsoft Azure
 
 
 > [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -57,7 +57,7 @@ Para configurar la integración del Portal de administración en la nube de Micr
 
 **Para agregar el Portal de administración en la nube de Microsoft Azure desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -172,9 +172,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-newsignature-tutorial/create_aaduser_06.png)
 
@@ -267,4 +267,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

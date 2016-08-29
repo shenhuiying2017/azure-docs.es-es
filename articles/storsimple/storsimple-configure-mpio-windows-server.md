@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurar E/S de múltiples rutas para el dispositivo StorSimple
@@ -101,7 +101,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 
 9. Haga clic en **Propiedades**. En el cuadro de diálogo **Propiedades**, haga clic en **Agregar sesión**.
 10. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
-11. En el cuadro de diálogo **Configuración avanzada**:										
+11. En el cuadro de diálogo **Configuración avanzada**:
 	-  En la lista desplegable **Adaptador local**, seleccione Iniciador iSCSI de Microsoft.
 	-  En la lista desplegable **IP de iniciador**, seleccione la dirección IP correspondiente al host. En este caso, estamos conectando dos interfaces de red en el dispositivo a una única interfaz de red en el host. Por lo tanto, esta interfaz es la misma que la proporcionada para la primera sesión.
 	-  En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
@@ -173,4 +173,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 Obtenga más información sobre el [uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

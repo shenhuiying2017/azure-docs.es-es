@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Actualización de la propia contraseña
 Si no está seguro de cómo administrar la contraseña de su cuenta profesional o educativa, ha llegado al lugar adecuado. Lea la siguiente información para aprender a realizar pasos comunes, como el cambio de una contraseña, el restablecimiento de una contraseña o el registro del restablecimiento de contraseña.
 
-* [**Registro para el restablecimiento de contraseña**](#how-to-register-for-password-reset)
+* [**Actualización de la propia contraseña**](#how-to-register-for-password-reset)
 * [**Cambio de la contraseña en Office 365**](#how-to-change-your-password-from-o365)
 * [**Cambio de la contraseña en el panel de acceso**](#how-to-change-your-password-from-the-access-panel)
 * [**Restablecimiento de la contraseña**](#how-to-reset-your-password)
 * [**Desbloqueo de la cuenta**](#how-to-unlock-your-account)
 * [**Problemas comunes y sus soluciones**](#common-problems-and-their-solutions)
 
-## Registro para el restablecimiento de contraseña
+## Actualización de la propia contraseña
 
 > [AZURE.IMPORTANT]
 **¿Por qué veo esto?** Si ha seguido un vínculo para llegar aquí, probablemente verá esto porque el administrador requiere que se registre para el restablecimiento de contraseña y acceder a la aplicación. Es posible que se le solicite información de teléfono o correo electrónico, o que tenga que configurar preguntas de seguridad. No se preocupe: no usaremos esa información para enviarle correo no deseado. El único objetivo es mantener su cuenta aún más protegida. Los pasos que aparecen a continuación deben ayudarle a alcanzar su objetivo.
@@ -261,4 +261,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

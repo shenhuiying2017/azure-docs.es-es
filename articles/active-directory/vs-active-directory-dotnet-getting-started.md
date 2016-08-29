@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de MVC)
@@ -28,7 +28,7 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
  
 ##Incorporación de controles SignIn / SignOut 
 
-Para agregar controles SignIn/SignOut a su vista, utilice la vista parcial **\_LoginPartial.cshtml** para agregar esta funcionalidad a alguna de sus vistas. El siguiente es un ejemplo de la funcionalidad agregada a la vista estándar **\_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
+Para agregar controles SignIn/SignOut a su vista, puede utilizar la vista parcial **\_LoginPartial.cshtml** para agregar esta funcionalidad a alguna de sus vistas. Aquí se presenta un ejemplo de la funcionalidad agregada a la vista estándar **\_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
 
 <pre>
     &lt;!DOCTYPE html> 
@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, utilice la vista parcial **\_L
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

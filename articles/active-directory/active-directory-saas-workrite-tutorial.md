@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -22,7 +22,7 @@
 El objetivo de este tutorial es mostrar cómo integrar Workrite con Azure Active Directory (Azure AD). La integración de Workrite con Azure AD proporciona las siguientes ventajas:
 
 
-- Puede controlar en Azure AD quién tiene acceso a Workrite. 
+- Puede controlar en Azure AD quién tiene acceso a Workrite.
 - Puede permitir que los usuarios inicien sesión automáticamente en Workrite (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -42,13 +42,13 @@ Para configurar la integración de Azure AD con Workrite, necesita los siguiente
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
-1. Agregar Workrite desde la galería 
+1. Agregar Workrite desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -57,7 +57,7 @@ Para configurar la integración de Workrite en Azure AD, deberá agregar Workrit
 
 **Para agregar Workrite desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
  
 	![Active Directory][1]
 
@@ -115,11 +115,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	
 	![Inicio de sesión único de Azure AD][8]
  
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en el sitio de Workrite (p. ej.: **https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*)).
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en el sitio de Workrite (p. ej. *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
 
      > [AZURE.NOTE] Póngase en contacto con el equipo de soporte de Workrite [support@workrite.co.uk](mailto:support@workrite.co.uk) si no conoce el valor de la URL de inicio de sesión.
 
-     b. Haga clic en **Siguiente**.
+     b. Haga clic en **Next**.
  
 4. En la página **Configurar inicio de sesión único en Workrite**, siga estos pasos:
 
@@ -172,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -245,7 +245,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 1. En el menú de la parte superior, haga clic en **Usuarios**.
 
-	![Asignar usuario][203] 
+	![Asignar usuario][203]
 1. En la lista Usuarios, seleccione **Britta Simon**.
 
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
@@ -294,4 +294,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

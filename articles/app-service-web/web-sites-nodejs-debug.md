@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure
 
-Azure proporciona diagnósticos integrados para ayudar a depurar aplicaciones Node.js hospedadas en aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo aprenderá a habilitar el registro de stdout y stderr, mostrar información de error en el explorador y descargar y ver los archivos de registro.
+Azure proporciona diagnósticos integrados para ayudar a depurar aplicaciones Node.js hospedadas en aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo aprenderá a habilitar el registro de stdout y stderr, mostrar información de error en el explorador y a descargar y ver los archivos de registro.
 
 El diagnóstico de las aplicaciones Node.js hospedadas en Azure lo proporciona [IISNode]. Si bien este artículo analiza la configuración más común para recopilar información de diagnóstico, no proporciona una referencia completa para trabajar con IISNode. Para obtener más información sobre el trabajo con IISNode, consulte el archivo [léame de IISNode] en GitHub.
 
@@ -59,11 +59,11 @@ Si las herramientas de línea de comandos de Azure están instaladas en su entor
 <a id="viewlogs"></a>
 ## Acceso a los registros
 
-Se puede tener acceso a los registros de diagnósticos de tres formas; mediante el protocolo de transferencia de archivos (FTP), descargando un archivo Zip o como una secuencia en directo actualizada del registro (lo que se conoce también como cola). La descarga del archivo Zip de los archivos de registro o la visualización de la secuencia en directo requieren las herramientas de línea de comandos de Azure. Estas se pueden instalar usando el siguiente comando:
+Se puede tener acceso a los registros de diagnósticos de tres formas; mediante el protocolo de transferencia de archivos (FTP), la descarga de un archivo Zip o como una secuencia en directo actualizada del registro (lo que se conoce también como cola). La descarga del archivo Zip de los archivos de registro o la visualización de la secuencia en directo requieren las herramientas de línea de comandos de Azure. Estas se pueden instalar usando el siguiente comando:
 
 	npm install azure-cli -g
 
-Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure](../xplat-cli-connect.md).
+Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Primero se deben configurar las herramientas de línea de comandos para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure](../xplat-cli-connect.md).
 
 ###FTP
 
@@ -104,7 +104,7 @@ De esta manera se devolverá una secuencia de eventos de registro que se actuali
 <a id="nextsteps"></a>
 ## Pasos siguientes
 
-En este artículo ha aprendido a habilitar y la información de diagnóstico y a tener acceso a ella en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan las aplicaciones web del Servicio de aplicaciones es diferente a la usada en su entorno de implementación.
+En este artículo aprendió a habilitar y a tener acceso a información de diagnóstico en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan las aplicaciones web del Servicio de aplicaciones es diferente a la usada en su entorno de implementación.
 
 Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -126,4 +126,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

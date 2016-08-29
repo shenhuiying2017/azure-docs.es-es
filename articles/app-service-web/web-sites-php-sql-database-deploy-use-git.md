@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Crear una aplicación web de PHP-SQL e implementarla en el Servicio de aplicaciones de Azure mediante Git
@@ -76,7 +76,7 @@ Siga estos pasos para crear una aplicación web de Azure y una base de datos SQL
 
 6. En **Configuración**, haga clic en **Propiedades** para ver la dirección URL remota de Git que necesita para implementar la aplicación PHP más adelante.
 
-##información de conexión de la Base de datos SQL
+##Obtención de información de conexión de la Base de datos SQL
 
 Para conectarse a la instancia de Base de datos SQL vinculada a la aplicación web, necesitará la información de conexión que especificó al crear la base de datos. Para obtener la información de conexión de Base de datos SQL, siga estos pasos:
 
@@ -298,4 +298,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

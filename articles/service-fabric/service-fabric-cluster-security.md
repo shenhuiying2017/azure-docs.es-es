@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="08/10/2016"
    ms.author="chackdan"/>
 
 # Escenarios de seguridad de los clústeres de Service Fabric
@@ -52,9 +52,9 @@ Los clústeres que se ejecutan en Azure o los independientes que se ejecutan en 
 ### Seguridad basada en certificados de cliente a nodo
  La seguridad basada en certificados de cliente a nodo se configura al crear el clúster mediante el Portal de Azure, las plantillas de Resource Manager o una plantilla JSON independiente, especificando un certificado de cliente de administración y uno de cliente de usuario. Los certificados de cliente de administración y de cliente de usuario que especifique deben ser diferentes de los certificados principales y secundarios que determine para la [seguridad de nodo a nodo](#node-to-node-security).
 
-Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Es decir, estos certificados se usan para el control de acceso basado en rol (RBAC) que se describe a continuación.
+Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Es decir, estos certificados se usan para el control de acceso basado en rol (RBAC) que se describen más adelante en este artículo.
 
-Para Azure, lea [Protección de clústeres de Service Fabric mediante certificados](service-fabric-secure-azure-cluster-with-certs.md) o [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para aprender a configurar la seguridad basada en certificados en un clúster.
+Para aprender a configurar la seguridad basada en certificados en un clúster de Azure, lea [Protección de clústeres de Service Fabric de Azure mediante certificados](service-fabric-secure-azure-cluster-with-certs.md) o [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Para Windows Server de modo independiente, lea [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md).
 
@@ -62,9 +62,9 @@ Para Windows Server de modo independiente, lea [Protección de un clúster de Wi
 Los clústeres que se ejecutan en Azure también pueden proteger el acceso a los puntos de conexión de administración con Azure Active Directory (AAD). Consulte [Creación de un clúster de Service Fabric con Azure Active Directory para la autenticación de cliente](service-fabric-cluster-security-client-auth-with-aad.md) para información sobre cómo crear los artefactos de AAD necesarios, cómo rellenarlos durante la creación de los clústeres y cómo conectarse a estos clústeres posteriormente.
 
 ## Recomendaciones de seguridad
-Para los clústeres de Azure, se recomienda que utilice la seguridad de AAD para autenticar clientes y certificados para la seguridad de nodo a nodo.
+Para los clústeres de Azure, se recomienda utilizar la seguridad de AAD para autenticar clientes y certificados para la seguridad de nodo a nodo.
 
-Para los clústeres Windows Server independientes, se recomienda que utilice la seguridad de Windows con las cuentas administradas de grupo (gMA) si tiene Windows Server 2012 R2 y Active Directory. De lo contrario, use la seguridad de Windows con cuentas de Windows.
+Para los clústeres Windows Server independientes, se recomienda que utilice la seguridad de Windows con las cuentas administradas de grupo (GMA) si tiene Windows Server 2012 R2 y Active Directory. De lo contrario, use la seguridad de Windows con cuentas de Windows.
 
 ## Control de acceso basado en roles (RBAC)
 El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster. Se admiten dos tipos de control de acceso diferentes para los clientes que se conectan a un clúster: administrador y usuario.
@@ -103,9 +103,15 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 
 
 ## Pasos siguientes
+
+Aprender a configurar un clúster seguro:
+
+- [Protección de clústeres de Service Fabric de Azure mediante certificados](service-fabric-secure-azure-cluster-with-certs.md)
+
 Cuando el clúster esté configurado, obtenga sobre las actualizaciones del clúster:
 
 - [Proceso de actualización del clúster de Service Fabric y expectativas](service-fabric-cluster-upgrade.md)
+- [Agregar o quitar certificados para un clúster de Service Fabric de Azure](service-fabric-cluster-security-update-certs-azure.md)
 
 Más información sobre la seguridad de las aplicaciones:
 
@@ -117,4 +123,4 @@ Más información sobre la seguridad de las aplicaciones:
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

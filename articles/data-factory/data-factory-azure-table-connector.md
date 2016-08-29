@@ -20,8 +20,10 @@
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos desde otro almacén de datos a Tabla de Azure y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
-En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de tablas de Azure y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+## Asistente para copia de datos
+La manera más sencilla de crear una canalización que copie datos hacia o desde Almacenamiento de tablas de Azure es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
+En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos entre Almacenamiento de tablas de Azure y Base de datos de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
 
 ## Ejemplo: copia de datos de una tabla de Azure a un blob de Azure
 
@@ -46,7 +48,7 @@ El ejemplo copia los datos que pertenecen a la partición predeterminada de una 
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
+Data Factory de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 **Conjunto de datos de entrada de tabla de Azure:**
 
@@ -208,7 +210,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
+Data Factory de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 **Conjunto de datos de entrada de blob de Azure:**
 
@@ -365,7 +367,7 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 ### Esquema de Data Factory
 En los almacenes de datos sin esquemas como Tabla de Azure, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
 
-1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
 2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
 
 Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
@@ -402,7 +404,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 azureTableDefaultPartitionKeyValue | Valor predeterminado de la clave de la partición que puede usar el receptor. | Valor de cadena. | No 
 azureTablePartitionKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se utilizan como clave de la partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. | Un nombre de columna. | No |
 azureTableRowKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se usan como clave de fila. Si no se especifica, use un GUID para cada fila. | Un nombre de columna. | No  
-azureTableInsertType | Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Tenga en cuenta que esta configuración se aplica en el nivel de fila, no el nivel de tabla, y que ninguna opción eliminará filas de la tabla de salida que no existan en la entrada. | merge (predeterminado)<br/>replace | No 
+azureTableInsertType | Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Tenga en cuenta que esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y que ninguna opción eliminará filas de la tabla de salida que no existan en la entrada. | merge (predeterminado)<br/>replace | No 
 writeBatchSize | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | Entero (número de filas)| No (valor predeterminado = 10000) 
 writeBatchTimeout | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) | No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos)
 
@@ -529,4 +531,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure
@@ -97,7 +97,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para roles que se
 
   - Si elige la opción Emulador de almacenamiento de Microsoft Azure, la cadena de conexión se establece en UseDevelopmentStorage=true.
 
-  - Si elige la opción Su suscripción, puede elegir la suscripción de Azure que quiere usar y el nombre de cuenta. Puede elegir el botón Administrar cuentas para administrar sus suscripciones de Azure.
+  - Si elige la opción Su suscripción, puede elegir la suscripción de Azure que quiere usar y el nombre de cuenta. Puede seleccionar el botón Administrar cuentas para administrar sus suscripciones de Azure.
 
   - Si elige la opción de credenciales especificadas manualmente, se le pedirá que escriba el nombre y la clave de la cuenta de Azure que quiere usar.
 
@@ -299,7 +299,7 @@ Si está investigando un problema con un servicio en la nube que ya se está eje
 
 1. En el menú contextual para un nodo de instancia o un nodo de rol, elija **Actualizar valores de diagnóstico** y luego elija la configuración de diagnóstico que quiere recopilar.
 
-    Para obtener información acerca de las opciones de configuración, consulte **Configurar orígenes de datos de diagnósticos** en este tema. Para obtener información sobre cómo ver los datos de diagnósticos, vea **Ver los datos de diagnóstico** en este tema.
+    Para más información acerca de las opciones de configuración, consulte **Configurar orígenes de datos de diagnósticos** en este tema. Para más información sobre cómo ver los datos de diagnósticos, consulte **Ver los datos de diagnóstico** en este tema.
 
     Si cambia la colección de datos en el **Explorador de servidores**, estos cambios permanecerán en vigor hasta que vuelva a implementar totalmente su servicio en la nube. Si usa la configuración de publicación predeterminada, no se sobrescriben los cambios, ya que la configuración de publicación predeterminada es actualizar la implementación existente, en lugar de hacer una nueva implementación completa. Para asegurarse de que la configuración está borrada durante la implementación, vaya a la casilla **Configuración avanzada** del Asistente para publicación y desactive la casilla **Actualización de implementación**. Cuando vuelva a implementar con esa casilla desactivada, la configuración se revertirá a la del archivo .wadcfgx (o .wadcfg) según se establece a través del editor de Propiedades para el rol. Si actualiza su implementación, Azure conserva la configuración anterior.
 
@@ -357,4 +357,4 @@ En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio
 
 Para obtener más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->
