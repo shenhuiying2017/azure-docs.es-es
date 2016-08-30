@@ -46,4 +46,4 @@ La página Actualizar esquema aparece y ofrece un vínculo a un documento que pr
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->
