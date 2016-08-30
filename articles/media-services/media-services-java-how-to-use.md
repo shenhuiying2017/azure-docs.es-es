@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Servicios multimedia con Java" 
+	pageTitle="Introducción a la entrega de contenido a petición mediante Java | Microsoft Azure" 
 	description="Describe cómo usar Servicios multimedia de Azure para realizar tareas comunes como codificación, cifrado y recursos de streaming." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#Uso de Servicios multimedia con Java
+# Introducción a la entrega de contenido a petición mediante Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ Esta sección contiene los requisitos previos generales para el desarrollo de Se
 
 ##Uso de Servicios multimedia con Java
 
-El siguiente código muestra cómo crear un recurso, cargar un archivo multimedia en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y crear un localizador para hacer streaming del vídeo.
+El siguiente código muestra cómo crear un recurso, cargar un archivo multimedia en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y crear un localizador para transmitir el vídeo.
 
 Necesitará configurar una cuenta de Servicios multimedia antes de usar este código. Para obtener información sobre cómo configurar una cuenta, consulte [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
 
-Sustituya los valores por las variables `clientId` y `clientSecret`. El código también se basa en un archivo almacenado localmente. Necesitará proporcionar su propio archivo para usar.
+Sustituya los valores de las variables 'clientId' y 'clientSecret'. El código también se basa en un archivo almacenado localmente. Necesitará proporcionar su propio archivo para usar.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -276,4 +276,4 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

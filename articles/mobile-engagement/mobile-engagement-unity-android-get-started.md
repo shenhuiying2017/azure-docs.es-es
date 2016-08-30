@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-unity-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para la implementación de Unity para Android
@@ -38,7 +38,7 @@ Este tutorial requiere lo siguiente:
 
 ###Importación del paquete de Unity
 
-1. Descargue el [paquete de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk) y guárdelo en el equipo local. 
+1. Descargue el [paquete de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk) y guárdelo en el equipo local.
 
 2. Vaya a **Assets -> Import Package -> Custom Package** (Recursos -> Importar paquete -> Paquete personalizado) y seleccione el paquete que descargó en el paso anterior.
 
@@ -54,7 +54,7 @@ Este tutorial requiere lo siguiente:
 
 ###Actualización de EngagementConfiguration
 
-1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **ANDROID\_CONNECTION\_STRING** con la cadena de conexión que obtuvo anteriormente desde el Portal de Azure.  
+1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **ANDROID\_CONNECTION\_STRING** con la cadena de conexión que obtuvo anteriormente desde el Portal de Azure.
 
 	![][73]
 
@@ -68,7 +68,7 @@ Este tutorial requiere lo siguiente:
 
 ###Configuración de la aplicación para un seguimiento básico
 
-1. Abra el script **Playercontroller** asociado al objeto Player para su edición. 
+1. Abra el script **Playercontroller** asociado al objeto Player para su edición.
 
 2. Agregue la siguiente instrucción using:
 
@@ -82,7 +82,7 @@ Este tutorial requiere lo siguiente:
 ###Implementación y ejecución de la aplicación
 Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar implementar esta aplicación Unity en su dispositivo.
 
-1. Conecte un dispositivo Android al equipo. 
+1. Conecte un dispositivo Android al equipo.
 
 2. Abra **File -> Build Settings** (Archivo -> Configuración de compilación).
 
@@ -116,7 +116,7 @@ Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar i
 
 ###Actualización de EngagementConfiguration
 
-1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **ANDROID\_GOOGLE\_NUMBER** con el **número de proyecto de Google** que obtuvo anteriormente en el portal Google Cloud Developer (desarrollador en la nube de Google). Se trata de un valor de cadena, así que asegúrese de encerrarlo entre comillas dobles. 
+1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **ANDROID\_GOOGLE\_NUMBER** con el **número de proyecto de Google** que obtuvo anteriormente en el portal Google Cloud Developer (desarrollador en la nube de Google). Se trata de un valor de cadena, así que asegúrese de encerrarlo entre comillas dobles.
 
 	![][75]
 
@@ -128,7 +128,7 @@ Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar i
 
 ###Configuración de la aplicación para recibir notificaciones
 
-1. Abra el script **Playercontroller** asociado al objeto Player para su edición. 
+1. Abra el script **Playercontroller** asociado al objeto Player para su edición.
 
 2. Agregue lo siguiente al método `Start()`.
 
@@ -151,4 +151,4 @@ Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar i
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

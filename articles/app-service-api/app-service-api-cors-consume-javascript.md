@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="rachelap"/>
 
 # Consumo de una aplicación de API desde JavaScript con CORS
@@ -48,7 +48,7 @@ Puede configurar CORS en el Portal de Azure o mediante las herramientas de [Azur
 	Por ejemplo, si ha implementado la aplicación de JavaScript en una aplicación web denominada todolistangular, escriba "https://todolistangular.azurewebsites.net". Como alternativa, puede escribir un asterisco (*) para especificar que se acepten todos los dominios de origen.
 
 
-13. Haga clic en **Guardar**.
+13. Haga clic en **Save**.
 
 	![Haga clic en Guardar](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
@@ -133,7 +133,7 @@ El procedimiento para crear una aplicación web del Servicio de aplicaciones e i
 	|---|---|---|
 	|toDoListAPIURL|https://{your nombre de la aplicación de API de nivel intermedio}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**.
 
 	Cuando el código se ejecuta en Azure, este valor anula ala dirección URL de host local que se encuentra en el archivo *Web.config*.
 
@@ -201,7 +201,7 @@ En esta sección, establecerá la configuración de CORS en Azure para la aplica
 
 	Como alternativa, puede escribir un asterisco (*) para especificar que se acepten todos los dominios de origen.
 
-13. Haga clic en **Guardar**.
+13. Haga clic en **Save**.
 
 	![Haga clic en Guardar](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
@@ -284,4 +284,4 @@ Para más información acerca de las características de Visual Studio que simpl
 
 En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. Para aprender más sobre las aplicaciones de API, consulte [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md) y después vaya al tutorial [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Creación de su primera función de Azure
+#Creación de su primera función de Azure
 
 ##Información general
 Funciones de Azure es una experiencia de proceso a petición basada en eventos que amplía la plataforma de aplicaciones existente de Azure con funcionalidades para implementar código desencadenado por eventos que ocurren en otros servicios de Azure, productos de SaaS y en sistemas locales. Con Funciones de Azure, sus aplicaciones escalan en función de la demanda y solo hay que pagar por los recursos consumidos. Funciones de Azure permite crear unidades de código programadas o desencadenadas que se implementan en varios lenguajes de programación. Para más información acerca de Funciones de Azure, consulte [Información general sobre Funciones de Azure](functions-overview.md).
@@ -59,9 +59,9 @@ Este inicio rápido demuestra una ejecución muy sencilla de una función desenc
 
 + [Azure Functions developer reference](functions-reference.md) (Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
 + [Testing Azure Functions](functions-test-a-function.md) (Prueba de Funciones de Azure) Este artículo describe las diversas herramientas y técnicas para probar sus funciones.
-+ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado. 
-+ [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md) Funciones de Azure aprovecha la plataforma de Servicio de aplicaciones de Azure para obtener funcionalidad básica como implementaciones, variables de entorno y diagnósticos. 
++ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.
++ [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md) Funciones de Azure aprovecha la plataforma de Servicio de aplicaciones de Azure para obtener funcionalidad básica como implementaciones, variables de entorno y diagnósticos.
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

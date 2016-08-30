@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
+	ms.date="08/19/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -22,7 +22,7 @@
 
 ## Introducción
 
-Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta capacidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
+Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
 
 En este tutorial se muestra cómo usar el Portal de Azure clásico para crear un centro de eventos. También se muestra cómo recopilar mensajes en un centro de eventos mediante el uso de una aplicación de consola escrita en C# y cómo recuperarlos en paralelo por medio de la biblioteca [Host del procesador de eventos][] de C#.
 
@@ -30,7 +30,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1. En Visual Studio, abra el proyecto **Receiver** que creó anteriormente.
 
@@ -64,11 +64,11 @@ Ya está preparado para ejecutar las aplicaciones.
 
 	![][21]
 
-2.	El proyecto **Sender** se ejecutará automáticamente. Presione **Entrar** en la ventana de la consola y verá que los eventos aparecen en la ventana del receptor.
+2.	El proyecto **Sender** proyecto se ejecutará automáticamente. Presione **Entrar** en la ventana de la consola y verá que los eventos aparecen en la ventana del receptor.
 
 	![][22]
 
-Presione **Ctrl + C** en la ventana de **Sender** para finalizar la aplicación Sender y, a continuación, presione **Entrar** en la ventana de Receiver para cerrar la aplicación.
+Presione **Ctrl + C** en la ventana de **Sender** para finalizar la aplicación Sender y, a continuación, presione **ENTRAR** en la ventana de Receiver para cerrar la aplicación.
 
 ## Pasos siguientes
 
@@ -94,4 +94,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

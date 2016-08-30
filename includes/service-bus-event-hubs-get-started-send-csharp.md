@@ -12,7 +12,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
 	![][8]
 
-	De esta forma, se descarga, instala y agrega una referencia al <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">paquete de NuGet de la biblioteca del Bus de servicio de Azure</a>.
+	Visual Studio descarga, instala y agrega una referencia al [paquete NuGet de la biblioteca del Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
 
@@ -69,3 +69,5 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+
+<!---HONumber=AcomDC_0824_2016-->

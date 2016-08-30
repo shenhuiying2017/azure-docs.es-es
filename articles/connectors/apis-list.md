@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Lista de conectores
 
-Seleccione un icono para aprender a aprovechar rápidamente estos conectores a fin de crear flujos de trabajo que llamen a estos servicios.
+Seleccione un conector para aprender cómo crea flujos de trabajo rápidamente.
 
 ## Conectores estándar
 
@@ -46,17 +46,18 @@ Use los conectores EIP para crear aplicaciones de lógica para escenarios de B2B
  
 |Conectores EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Icono de API][as2icon]<br/>**Codificación y descodificación de</br>AS2**][as2doc]|[![Icono de API][x12icon]<br/>**Codificación y descodificación de</br>X12**][x12Doc]|[![Icono de API][xmlvalidateicon]<br/>**Validación de <br/>XML**][xmlvalidatedoc]|[![Icono de API][xmltransformicon]<br/>**Transformación de<br/> XML**][xmltransformdoc]|
-|[![Icono de API][flatfileicon]<br/>**Codificación de</br>archivos planos**][flatfiledoc]|[![Icono de API][flatfiledecodeicon]<br/>**Descodificación de</br>archivos planos**][flatfiledecodedoc]|||
+|[![Icono de API][xmlvalidateicon]<br/>**Validación de <br/>XML**][xmlvalidatedoc]|[![Icono de API][xmltransformicon]<br/>**Transformación de<br/> XML**][xmltransformdoc]|[![Icono de API][flatfileicon]<br/>**Codificación de</br>archivos planos**][flatfiledoc]|[![Icono de API][flatfiledecodeicon]<br/>**Descodificación de</br>archivos planos**][flatfiledecodedoc]|
+|[![Icono de API][as2icon]<br/>**Descodificación de</br>AS2**][as2decode]|[![Icono de API][as2icon]<br/>**Descodificación de</br>AS2**][as2encode]|[![Icono de API][x12icon]<br/>**Descodificación de</br>X12**][x12decode]|[![Icono de API][x12icon]<br/>**Descodificación de</br>X12**][x12encode]|
+|[![Icono de API][x12icon]<br/>**Descodificación de</br>EDIFACT**][EDIFACTdecode]|[![Icono de API][x12icon]<br/>**Descodificación de</br>EDIFACT**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Los conectores pueden ser desencadenadores
-Varios conectores proporcionan desencadenadores que pueden notificar a la aplicación que se producen eventos determinados. Por ejemplo, el conector de FTP tiene el desencadenador OnUpdatedFile. Puede crear una aplicación lógica o una PowerApp o flujo que escuche al desencadenador y realice alguna acción cuando este se ponga en marcha.
+Varios conectores proporcionan desencadenadores que pueden notificar a la aplicación que se producen eventos determinados. Por ejemplo, el conector de FTP tiene el desencadenador OnUpdatedFile. Puede crear una aplicación lógica, una PowerApp o un flujo que escuche a este desencadenador y realice alguna acción cuando este se ponga en marcha.
 
 Existen dos tipos de desencadenadores:
 
-* Desencadenadores de sondeo: estos desencadenadores sondean el servicio que proceda a una frecuencia especificada para comprobar si hay nuevos datos. Cuando haya nuevos datos disponibles, se ejecutará una nueva instancia de la aplicación con los datos como entrada. Para impedir que los mismos datos se consuman varias veces, el desencadenador puede limpiar los datos que se han leído y pasado a la aplicación.
-* Desencadenadores de inserción: estos desencadenadores escuchan datos en un extremo o esperan a que se produzca un evento. A continuación, desencadena una nueva instancia de la aplicación. El conector de Twitter es un ejemplo.
+* Desencadenadores de sondeo: estos desencadenadores sondean el servicio que proceda a una frecuencia especificada para comprobar si hay nuevos datos. Cuando haya nuevos datos disponibles, se ejecutará una nueva instancia de la aplicación con los datos como entrada. Para evitar que los mismos datos se consuman varias veces, el desencadenador puede limpiar los datos que se han leído y pasado a la aplicación.
+* Desencadenadores de push: estos desencadenadores escuchan datos en un punto de conexión o esperan a que se produzca un evento para desencadenar una nueva instancia de su aplicación. El conector de Twitter es un ejemplo de ellos.
 
 ### Los conectores pueden ser acciones
 Los conectores también pueden utilizarse como acciones dentro de las aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por los conectores. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
@@ -105,6 +106,12 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Más información sobre validación XML para integración empresarial."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Más información sobre transformaciones para integración empresarial."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Más información sobre la descodificación AS2 para integración empresarial"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Más información sobre la descodificación AS2 para integración empresarial"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Más información sobre la descodificación X12 para integración empresarial"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Más información sobre la descodificación X12 para integración empresarial"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Más información sobre la descodificación EDIFACT para integración empresarial"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Más información sobre la descodificación EDIFACT para integración empresarial"
 [httpdoc]: ./connectors-native-http.md "Conector HTTP para realizar llamadas HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Acciones de solicitud y respuesta."
 [http~responsedoc]: ./connectors-native-reqres.md "Acciones de solicitud y respuesta."
@@ -183,4 +190,4 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

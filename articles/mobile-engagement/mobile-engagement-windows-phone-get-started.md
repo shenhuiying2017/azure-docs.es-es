@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones Windows Phone Silverlight
 
 [AZURE.INCLUDE [Modificador del tutorial de imagen prominente](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso que hace de las aplicaciones y enviar notificaciones de inserción a los usuarios segmentados de una aplicación de Windows Phone Silverlight. En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, puede crear una aplicación de Windows Phone Silverlight vacía que recopila datos básicos y recibe notificaciones de inserción mediante el Servicio de notificaciones de inserción de Microsoft (MPNS).
+En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso que hace de las aplicaciones y enviar notificaciones push a los usuarios segmentados de una aplicación de Windows Phone Silverlight. En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, puede crear una aplicación de Windows Phone Silverlight vacía que recopila datos básicos y recibe notificaciones de inserción mediante el Servicio de notificaciones de inserción de Microsoft (MPNS).
 
 > [AZURE.NOTE] Si va a desarrollar para Windows Phone 8.1 (no Silverlight), consulte el [tutorial Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md).
 
@@ -129,7 +129,7 @@ Agregue nuevas capacidades a su archivo `WMAppManifest.xml`:
 
 ###Inicializar el SDK de REACH
 
-1. En `App.xaml.cs`, llame a `EngagementReach.Instance.Init();` en la función **Application_Launching** justo después de la inicialización del agente:
+1. En `App.xaml.cs`, llame a `EngagementReach.Instance.Init();` en la función **Application\_Launching** justo después de la inicialización del agente:
 
 		private void Application_Launching(object sender, LaunchingEventArgs e)
 		{
@@ -137,7 +137,7 @@ Agregue nuevas capacidades a su archivo `WMAppManifest.xml`:
 		   EngagementReach.Instance.Init();
 		}
 
-2. En `App.xaml.cs`, llame a `EngagementReach.Instance.OnActivated(e);` en la función **Application_Activated** justo después de la inicialización del agente:
+2. En `App.xaml.cs`, llame a `EngagementReach.Instance.OnActivated(e);` en la función **Application\_Activated** justo después de la inicialización del agente:
 
 		private void Application_Activated(object sender, ActivatedEventArgs e)
 		{
@@ -166,4 +166,4 @@ Ahora debería ver una notificación en su dispositivo que se mostrará como una
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

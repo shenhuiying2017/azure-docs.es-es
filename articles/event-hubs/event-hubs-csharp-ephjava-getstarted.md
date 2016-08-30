@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.author="jotaub"/>
 
 # Introducción a los Centros de eventos
 
@@ -22,7 +22,7 @@
 
 ## Introducción
 
-Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta capacidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
+Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
 
 En este tutorial se muestra cómo usar el Portal de Azure clásico para crear un centro de eventos. También se muestra cómo recopilar mensajes en un centro de eventos mediante el uso de una aplicación de consola escrita en C# y cómo recuperarlos en paralelo por medio de la biblioteca Host del procesador de eventos de Java.
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1.	Ejecute el proyecto **Receiver**.
 
@@ -71,4 +71,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -39,39 +39,7 @@ Para comenzar a usar la retransmisión de bus de servicio en Azure, primero debe
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de Azure clásico][].
-
-2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
-
-3.  En el panel inferior del Portal, haga clic en **Crear**.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
-
-	> [AZURE.IMPORTANT] seleccione la *misma región* que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
-
-6.	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-	El espacio de nombres que creó aparecerá a continuación en el Portal y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
-
-## Obtención de credenciales de administración predeterminadas para el espacio de nombres
-
-Para realizar operaciones de administración, como la creación de una conexión de relé, en el espacio de nombres nuevo, debe configurar la regla de autorización de la Firma de acceso compartido (SAS) para el espacio de nombres. Para obtener más información sobre SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio][].
-
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Haga doble clic en el nombre del espacio de nombres que acaba de crear en la lista que se muestra:![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Haga clic en la pestaña **Configurar** en la parte superior de la página.
-
-4.  Cuando se aprovisiona un espacio de nombres del Bus de servicio, se crea de forma predeterminada **SharedAccessAuthorizationRule**, con **KeyName** establecido en **RootManageSharedAccessKey**. Esta página muestra esa clave, así como las claves principales y secundarias para la regla predeterminada.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Obtenga el paquete NuGet del bus de servicio
 
@@ -133,7 +101,7 @@ class ProblemSolver : IProblemSolver
 
 ### Configuración de un host de servicio mediante programación
 
-Con el contrato y la implementación en su lugar, puede hospedar el servicio. El hospedaje se produce dentro de un objeto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), que se encarga de administrar las instancias del servicio y hospeda los extremos que escuchan mensajes. El código siguiente configura el servicio con un extremo local normal y un extremo del Bus de servicio para mostrar la apariencia, en paralelo, de los extremos internos y externos. Reemplace la cadena *namespace* por el nombre del espacio de nombres y *yourKey* por la clave SAS obtenida en el paso anterior de la configuración.
+Con el contrato y la implementación en su lugar, puede hospedar el servicio. El hospedaje se produce dentro de un objeto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), que se encarga de administrar las instancias del servicio y hospeda los extremos que escuchan mensajes. El código siguiente configura el servicio con un punto de conexión local normal y un punto de conexión del Bus de servicio para mostrar la apariencia, en paralelo, de los puntos de conexión internos y externos. Reemplace la cadena *namespace* por el nombre del espacio de nombres y *yourKey* por la clave SAS obtenida en el paso anterior de la configuración.
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -267,9 +235,8 @@ Ahora que conoce los fundamentos del servicio Retransmisión de bus de servicio,
 - [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - Descargue ejemplos de Bus de servicio en [Ejemplos de Azure][] o consulte la [información general de ejemplos de Bus de servicio][].
 
-  [Portal de Azure clásico]: http://manage.windowsazure.com
-  [Autenticación con firma de acceso compartido en Bus de servicio]: service-bus-shared-access-signature-authentication.md
+  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [información general de ejemplos de Bus de servicio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

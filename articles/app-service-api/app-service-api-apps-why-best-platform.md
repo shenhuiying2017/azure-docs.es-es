@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="rachelap"/>
 
 # Información general sobre Aplicaciones de API
@@ -63,4 +63,4 @@ Para empezar a trabajar con Aplicaciones de API mediante la implementación de c
 
 Para plantear preguntas sobre Aplicaciones de API, cree una conversación en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->
