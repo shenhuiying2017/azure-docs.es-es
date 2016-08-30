@@ -115,4 +115,4 @@ En este documento, ha aprendido a usar Power BI en Azure Security Center. Para o
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0817_2016-->

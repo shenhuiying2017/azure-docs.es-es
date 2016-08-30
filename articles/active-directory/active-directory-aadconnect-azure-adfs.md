@@ -303,4 +303,4 @@ Cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación s
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->
