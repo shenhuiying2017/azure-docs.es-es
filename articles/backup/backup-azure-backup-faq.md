@@ -14,14 +14,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/01/2016"
+	 ms.date="08/21/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
 
 > [AZURE.SELECTOR]
 - [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
-- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo ARM](backup-azure-backup-ibiza-faq.md)
+- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
 
 En este artículo encontrará una lista de las preguntas más frecuentes (y sus correspondientes respuestas) acerca del servicio Copia de seguridad de Azure. Nuestra comunidad responde rápidamente, y si una pregunta se repite a menudo, la agregamos a este artículo. Normalmente, las respuestas proporcionan referencia o información de soporte técnico. Las preguntas acerca de Copia de seguridad de Azure se pueden realizar en la sección Disqus de este artículo o de otros artículos relacionados. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -49,9 +49,9 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P4. Al configurar al agente de Copia de seguridad de Azure, se me solicita que especifique las **credenciales de almacén**. ¿Expiran las credenciales de almacén? R4. Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén de copia de seguridad.
 
-**P5. ¿Hay algún límite del número de almacenes de copia de seguridad que se pueden crear en cada suscripción de Azure?** <br/> R5. Sí. A partir de julio de 2015, puede crear 25 almacenes por suscripción. Si necesita más almacenes, cree una nueva suscripción.
+**P5. ¿Hay algún límite del número de almacenes de copia de seguridad que se pueden crear en cada suscripción de Azure?** <br/> R5. Sí. A partir de julio de 2015, se pueden crear 25 almacenes por suscripción. Si necesita más almacenes, cree una nueva suscripción.
 
-**P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque es posible obtener una factura detallada de cada almacén, es muy recomendable que considere una suscripción de Azure como entidad de facturación. Es coherente en todos los servicios y es más fácil de administrar.
+**P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque se puede obtener una factura detallada de cada almacén, se recomienda encarecidamente considerar las suscripciones de Azure entidades de facturación. Es coherente en todos los servicios y es más fácil de administrar.
 
 **P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, se pueden registrar un máximo de 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 200 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
 
@@ -88,7 +88,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P14. Si la organización tiene un almacén de copia de seguridad, ¿cómo se pueden aislar los datos de un servidor desde otro servidor al restaurar los datos?**<br/> R14. Los servidores registrados en el mismo almacén podrán recuperar los datos cuya copia de seguridad hayan realizado otros servidores *que usen la misma frase de contraseña*. Si tiene servidores cuyos datos de copia de seguridad desee aislar de otros servidores de la organización, utilice una frase de contraseña específica para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
-**P15. ¿Puedo "migrar" mis datos de copia de seguridad entre suscripciones?** <br/> R15: No.
+**P15. ¿Puedo "migrar" mis datos de copia de seguridad de una suscripción a otra?** <br/> R15: No.
 
 **P16. ¿Puedo "migrar" mi almacén de copia de seguridad de una suscripción a otra?** <br/> R16. No. El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción una vez que se crea.
 
@@ -182,7 +182,9 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 **P3. ¿Cuál es la longitud mínima de la clave de cifrado utilizada para cifrar los datos de copia de seguridad?** <br/> R3. La clave de cifrado debe tener al menos 16 caracteres.
 
-**P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.  
+**P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.
+
+**P5. ¿Están cifrados los datos de las copias de seguridad de las máquinas virtuales de Azure?** <br/> R5. Copia de seguridad de Azure utiliza la configuración de cifrado de la máquina virtual de Azure para el cifrado de copias de seguridad. Si la máquina virtual utiliza Cifrado de discos de Azure, Copia de seguridad de Azure usa dicho cifrado para proteger los datos.  
 
 ## Memoria caché de copia de seguridad
 
@@ -206,7 +208,7 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
   Una vez que la creación de la copia de seguridad se haya completado correctamente en la nueva ubicación de la memoria caché, puede quitar la carpeta de la memoria caché original.
 
-**P2. ¿Dónde se puede colocar la carpeta de caché para que el agente de Copia de seguridad de Azure funcione según lo previsto?**<br/> R2. No se recomiendan las siguientes ubicaciones para la carpeta de caché:
+**P2. ¿Dónde se puede colocar la carpeta de caché del agente de Copia de seguridad de Azure para que funcione según lo previsto?**<br/> R2. No se recomiendan las siguientes ubicaciones para la carpeta de caché:
 
 - Recursos compartidos de red o medios extraíbles: la carpeta de caché debe ser local para el servidor que necesita realizar copias de seguridad mediante la copia de seguridad en línea. No se admiten ubicaciones de red ni medios extraíbles como unidades USB.
 - Volúmenes sin conexión: la carpeta de caché debe estar en línea para la copia de seguridad esperada con el agente de Copia de seguridad de Azure.
@@ -221,4 +223,4 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 Se recomienda que ni la carpeta de caché ni el disco duro virtual de metadatos tengan los atributos anteriores para que el agente de Copia de seguridad de Azure funcione de la forma esperada.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

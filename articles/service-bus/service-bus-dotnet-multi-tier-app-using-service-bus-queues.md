@@ -43,7 +43,7 @@ Para enviar una orden para su procesamiento, el componente de la interfaz de usu
 
 El uso de la mensajería asíncrona entre los niveles de web e intermedio desacopla los dos componentes. Al contrario que en la mensajería directa (es decir, TCP o HTTP), el nivel web no se conecta directamente al nivel intermedio; por el contrario, inserta unidades de trabajo, como mensajes, en el Bus de servicio, que los conserva de manera confiable hasta que el nivel intermedio esté preparado para consumirlas y procesarlas.
 
-El bus de servicio ofrece dos entidades para admitir la mensajería asíncrona: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para una suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. En este ejemplo se usan las colas de bus de servicio.
+El bus de servicio ofrece dos entidades para admitir la mensajería asincrónica: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para una suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. En este ejemplo se usan las colas de bus de servicio.
 
 ![][1]
 
@@ -73,45 +73,11 @@ Antes de comenzar a desarrollar aplicaciones de Azure, obtenga las herramientas 
 
 6.  Cuando la instalación se complete, dispondrá de todo lo necesario para iniciar el desarrollo de la aplicación. El SDK incluye las herramientas que le permiten desarrollar fácilmente aplicaciones Azure en Visual Studio. Si no tiene instalado Visual Studio, el SDK también instala la versión gratuita Visual Studio Express.
 
-## Creación de un espacio de nombres de bus de servicio
+## Creación de un espacio de nombres
 
-El siguiente paso es crear un espacio de nombres de servicio y obtener una clave de Firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
+El siguiente paso es crear un espacio de nombres de servicio y obtener una clave de Firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
 
-### Configuración de un espacio de nombres mediante el Portal de Azure clásico
-
-1.  Inicie sesión en el [Portal de Azure clásico][].
-
-2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
-
-3.  En el panel inferior del Portal, haga clic en **Crear**.
-
-    ![][6]
-
-4.  En la página **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-
-    ![][7]
-
-5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso). Además, asegúrese de seleccionar **Mensajería** en el espacio de nombres de campo **Tipo** y **Estándar** en el campo **Capa de mensajería**.
-
-    > [AZURE.IMPORTANT] Seleccione la **misma región** que vaya a elegir para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
-
-6.  Haga clic en la marca de verificación Aceptar. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-7.  En la ventana principal, haga clic en el nombre del espacio de nombres de servicio.
-
-8. Haga clic en **Información de conexión**.
-
-9.  En el panel **Información de conexión de acceso**, encuentre la cadena de conexión que contiene la clave SAS y el nombre de la clave.
-
-    ![][35]
-
-10.  Tome nota de estas credenciales o cópielas en el Portapapeles.
-
-11. En la misma página del portal, haga clic en la pestaña **Configurar** en la parte superior de la página.
-
-12. Copie la clave principal para la directiva **RootManageSharedAccessKey** en el Portapapeles o péguela en el Bloc de notas. Usará este valor más adelante en el tutorial.
-
-	![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Creación de un rol web
 
@@ -147,7 +113,7 @@ En esta sección, va a crear el front-end de la aplicación. En primer lugar, va
 
 6.  En el **Explorador de soluciones**, en el proyecto **FrontendWebRole**, haga clic con el botón derecho en **Referencias** y haga clic en **Administrar paquetes NuGet**.
 
-7.  Haga clic en la pestaña **Examinar** y busque `Microsoft Azure Service Bus`. Haga clic en **Instalar** y acepte las condiciones de uso.
+7.  Haga clic en la pestaña **Examinar** y luego busque `Microsoft Azure Service Bus`. Haga clic en **Instalar** y acepte las condiciones de uso.
 
     ![][13]
 
@@ -271,7 +237,7 @@ Ahora, agregue el código para enviar elementos a una cola. En primer lugar, va 
 
 2.  Asigne a la clase el nombre **QueueConnector.cs**. Haga clic en **Agregar** para crear la clase.
 
-3.  Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Bus de servicio. Reemplace todo el contenido de QueueConnector.cs por el código siguiente y escriba valores para `your Service Bus namespace` (el nombre del espacio de nombres) y `yourKey`, la **clave principal** que obtuvo antes en el [Portal de Azure clásico][] durante el paso 12 de la sección "Creación de un espacio de nombres de bus de servicio".
+3.  Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Bus de servicio. Reemplace todo el contenido de QueueConnector.cs por el código siguiente y escriba valores para `your Service Bus namespace` (el nombre del espacio de nombres) y `yourKey`, la **clave principal** que obtuvo antes en el Portal de Azure.
 
 	```
 	using System;
@@ -448,13 +414,13 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:
 
-* [Bus de servicio de Azure][sbmsdn]  
-* [Página de servicio del Bus de servicio][sbwacom]  
-* [Utilización de las colas del Bus de servicio][sbwacomqhowto]  
+* [Bus de servicio de Azure][sbmsdn]
+* [Página de servicio del Bus de servicio][sbwacom]
+* [Utilización de las colas del Bus de servicio][sbwacomqhowto]
 
 Para más información sobre los escenarios de niveles múltiples, consulte:
 
-* [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]  
+* [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -472,9 +438,6 @@ Para más información sobre los escenarios de niveles múltiples, consulte:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Portal de Azure clásico]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -492,8 +455,6 @@ Para más información sobre los escenarios de niveles múltiples, consulte:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -501,4 +462,4 @@ Para más información sobre los escenarios de niveles múltiples, consulte:
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

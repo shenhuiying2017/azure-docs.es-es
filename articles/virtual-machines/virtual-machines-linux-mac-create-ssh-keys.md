@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/08/2016"
 	ms.author="v-livech"/>
 
 # Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure
 
-Para crear una clave pública y privada SSH protegida con contraseña, necesita un terminal abierto en su estación de trabajo. Cuando tenga las claves SSH, puede crear nuevas máquinas virtuales con esas claves de forma predeterminada o agregar la clave pública a máquinas virtuales existentes mediante la CLI de Azure y plantillas de Azure. De este modo, podrá iniciar sesión sin contraseña con SSH y utilizar en su lugar claves, lo que constituye un método mucho más seguro que el uso de contraseñas.
+Con un par de claves SSH, puede crear máquinas virtuales en Azure que usen de forma predeterminada claves SSH para la autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. Las contraseñas se pueden adivinar y dejan las máquinas virtuales expuestas a intentos constantes de adivinarlas por fuerza bruta. Las máquinas virtuales creadas con plantillas de Azure o `azure-cli` pueden incluir la clave pública SSH como parte de la implementación, por lo que no es necesario configurarla después de esta. Si va a conectarse a una máquina virtual Linux desde Windows, consulte [este documento.](virtual-machines-linux-ssh-from-windows.md)
 
 ## Lista rápida de comandos
 
@@ -29,7 +29,7 @@ En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; 
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 ```
 
-Escriba el nombre del archivo que se guardará en el directorio `~/.ssh/`:
+Escriba el nombre del archivo que se guarda en el directorio `~/.ssh/`:
 
 ```bash
 <azure_fedora_id_rsa>
@@ -64,19 +64,20 @@ $
 
 ## Introducción
 
-El uso de claves públicas y privadas SSH es la forma más fácil de iniciar sesión en los servidores Linux pero, además, la [criptografía de clave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) también proporciona una manera mucho más segura de iniciar sesión en la máquina virtual de Linux o de BSD en Azure que las contraseñas, que pueden ser forzadas más fácilmente. La clave pública se puede compartir con cualquiera. Sin embargo, la clave privada es propiedad exclusivamente suya (o de su infraestructura de seguridad local). La clave privada SSH creada tendrá una [contraseña segura](https://www.xkcd.com/936/) para protegerla; esta contraseña es solo para tener acceso a la clave privada SSH, **no** es la contraseña de la cuenta de usuario. Cuando se agrega una contraseña a la clave SSH, la clave privada se cifra para que no pueda usarse sin la contraseña que la desbloquea. En el caso de que un atacante robara la clave privada y no tuviera una contraseña, podría usar la clave privada para iniciar sesión en los servidores que tienen instalada la clave pública correspondiente. Si la clave privada está protegida con una contraseña, el atacante no podrá usarla, ya que la contraseña constituye un nivel adicional de seguridad en la infraestructura de Azure.
+El uso de claves públicas y privadas SSH es la manera más fácil de iniciar sesión en los servidores de Linux. La [criptografía de clave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) ofrece una manera mucho más segura que las contraseñas de iniciar sesión en la máquina virtual Linux o BSD en Azure, que pueden ser forzadas con mucha más facilidad. La clave pública se puede compartir con cualquiera. Sin embargo, la clave privada es propiedad exclusivamente suya (o de su infraestructura de seguridad local). La clave privada SSH puede tener una [contraseña](https://www.xkcd.com/936/) para protegerla. Esta contraseña solo sirve para acceder a la clave privada SSH y **no es** la contraseña de la cuenta de usuario. Cuando agrega una contraseña a la clave SSH, cifra la clave privada para que no pueda usarse sin la contraseña que la desbloquea. Si un atacante robara la clave privada y esta no tuviera contraseña, podría usarla para iniciar sesión en los servidores que tuvieran instalada la clave pública correspondiente. Si la clave privada está protegida con una contraseña, el atacante no podrá usarla, ya que la contraseña constituye un nivel adicional de seguridad en la infraestructura de Azure.
 
 
-En este artículo se crean archivos de clave con el formato *ssh-rsa*, como los que se recomiendan para las implementaciones en Resource Manager y se requieren en el [Portal](https://portal.azure.com) tanto para las implementaciones clásicas como para las de Resource Manager.
+En este artículo se crean archivos de clave con el formato *ssh-rsa*, que son los recomendados para las implementaciones en Resource Manager. Las claves *ssh-rsa* se requieren en el [Portal](https://portal.azure.com) tanto para las implementaciones clásicas como para las de Resource Manager.
 
 
 ## Creación de las claves SSH
 
-Azure requiere al menos claves públicas y privadas de 2048 bits con el formato ssh-rsa. Para crear el par, se usará `ssh-keygen`, que formula una serie de preguntas y después escribe una clave privada y una clave pública correspondiente. Cuando se crea la máquina virtual de Azure, se pasa el contenido de la clave pública, que se copia en la máquina virtual de Linux y se usa con la clave privada almacenada de forma segura y local para autenticarle al iniciar sesión.
+Azure requiere al menos claves públicas y privadas de 2048 bits con el formato ssh-rsa. Para crear las claves, use `ssh-keygen`, que realiza una serie de preguntas y después escribe una clave privada y una clave pública correspondiente. Cuando se crea una máquina virtual de Azure, la clave pública se copia en `~/.ssh/authorized_keys`. Las claves SSH en `~/.ssh/authorized_keys` se utilizan para presentar un desafío al cliente, que debe proporcionar la clave privada correspondiente en una conexión de inicio de sesión SSH.
+
 
 ## Uso de ssh-keygen
 
-Este comando crea un par de claves SSH protegidas con contraseña (cifradas) mediante RSA de 2048 bits y estas claves se marcan como comentario para poder identificarlas fácilmente.
+Este comando crea un par de claves SSH protegidas con contraseña (cifradas) mediante RSA de 2048 bits e incluye un comentario para que se pueda identificar fácilmente.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -84,13 +85,23 @@ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 
 _Explicación del comando_
 
-`ssh-keygen` = el programa usado para crear las claves
+`ssh-keygen` = programa usado para crear las claves;
 
-`-t rsa` = tipo de clave que se va a crear, que es el [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = tipo de clave que se va a crear, que es el [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem);
 
-`-b 2048` = bits de la clave
+`-b 2048` = bits de la clave;
 
-`-C "ahmet@fedoraVMAzure"` = un comentario que se anexa al final del archivo de clave pública para identificarlo fácilmente Normalmente se usa un correo electrónico como comentario, pero puede utilizar lo que mejor le vaya para su infraestructura.
+`-C "ahmet@fedoraVMAzure"` = comentario que se anexa al final del archivo de clave pública para identificarlo fácilmente. Normalmente se usa un correo electrónico como comentario, pero puede utilizar lo que mejor le vaya para su infraestructura.
+
+### Uso de claves PEM
+
+Si usa el modelo de implementación clásica (Portal de Azure clásico o la CLI de administración de servicios de Azure `asm`), es posible que tenga que usar claves SSH con formato PEM para acceder a las máquinas virtuales Linux. Aquí se muestra cómo crear una clave PEM a partir de una clave SSH pública y un certificado x509 existentes.
+
+Para crear una clave con formato PEM a partir de una clave pública SSH existente:
+
+```bash
+ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+```
 
 ## Tutorial de ssh-keygen
 
@@ -124,42 +135,42 @@ Archivos de clave guardados:
 
 `Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 
-El nombre del par de claves en este artículo. El valor predeterminado es un par de claves llamado **id\_rsa** y algunas herramientas podrían esperar el nombre de archivo de clave privada **id\_rsa**, así que es buena idea tener uno. (`~/.ssh/` es la ubicación predeterminada típica de todos los pares de claves SSH y del archivo de configuración SSH).
+El nombre del par de claves en este artículo. Tener un par de claves denominado **id\_rsa** es el valor predeterminado y algunas herramientas podrían esperar **id\_rsa** como nombre del archivo de la clave privada, así que es buena idea tener uno. El directorio `~/.ssh/` es la ubicación predeterminada para los pares de claves SSH y el archivo de configuración de SSH.
 
 ```bash
 ahmet@fedora$ ls -al ~/.ssh
 -rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
-Muestra los nuevos pares de clave y sus permisos. `ssh-keygen` crea el directorio `~/.ssh` si no existe y también establece los modos de propiedad y de archivo correctos.
+Una lista del directorio `~/.ssh`. `ssh-keygen` crea el directorio `~/.ssh` si no existe y también establece los modos de propiedad y de archivo correctos.
 
 Contraseña de la clave:
 
 `Enter passphrase (empty for no passphrase):`
 
-Es muy recomendable agregar a los pares de clave una contraseña (en `ssh-keygen` esto se llama "frase de contraseña"). Sin una contraseña que proteja el par de claves, cualquiera con una copia del archivo de clave privada puede usarlo para iniciar sesión en cualquier servidor (sus servidores) que tenga la clave pública correspondiente. Por lo tanto, agregar una contraseña ofrece una protección mucho mayor en caso de que alguien obtenga acceso al archivo de clave privada, lo que le dará tiempo para cambiar las claves que se usan para autenticarlo.
+`ssh-keygen` se refiere a una contraseña como "frase de contraseña". Es *muy* recomendable agregar una contraseña a los pares de clave. Sin una contraseña que los proteja, cualquiera que disponga del archivo de clave privada puede usarlo para iniciar sesión en cualquier servidor que tenga la clave pública correspondiente. Agregar una contraseña ofrece más protección en caso de que alguien obtenga acceso al archivo de clave privada, lo que le dará tiempo para cambiar las claves que se usan para autenticarse.
 
 ## Uso de ssh-agent para almacenar la contraseña de clave privada
 
-Para no tener que escribir la contraseña del archivo de clave privada con cada inicio de sesión SSH, puede usar `ssh-agent` para almacenar en caché la contraseña del archivo de clave privada, lo que permite inicios de sesión rápidos y seguros en la máquina virtual de Linux. Si usa OSX, el llavero almacenará de forma segura las contraseñas de clave privada cuando invoque `ssh-agent`.
+Para no tener que escribir la contraseña del archivo de clave privada con cada inicio de sesión SSH, puede usar `ssh-agent` para almacenar en caché la contraseña del archivo de clave privada. Si usa Mac, Llaveros en OSX almacena de forma segura las contraseñas de clave privada cuando invoque `ssh-agent`.
 
-En primer lugar, compruebe que `ssh-agent` se está ejecutando.
+En primer lugar, compruebe que `ssh-agent` se esté ejecutando.
 
 ```bash
 eval "$(ssh-agent -s)"
 ```
 
-Ahora, agregue la clave privada a `ssh-agent` mediante el comando `ssh-add`; de nuevo en OSX se iniciará el llavero, donde se almacenarán las credenciales.
+Ahora, agregue la clave privada a `ssh-agent` mediante el comando `ssh-add`.
 
 ```bash
 ssh-add ~/.ssh/azure_fedora_id_rsa
 ```
 
-La contraseña de clave privada se almacena ahora, por lo que no tendrá que escribir la contraseña de clave con cada inicio de sesión SSH.
+La contraseña de clave privada está almacenada ahora en `ssh-agent`.
 
 ## Creación y configuración de un archivo de configuración de SSH
 
-Aunque no es absolutamente necesario para empezar a trabajar con una máquina virtual de Linux, se recomienda crear y configurar un archivo `~/.ssh/config` para impedir el uso accidental de contraseñas para iniciar sesión en sus máquinas virtuales, automatizar el uso de pares de claves diferentes para las distintas máquinas virtuales de Azure y configurar otros programas como **git** para que usen también varios servidores de destino.
+Es procedimiento recomendado crear y configurar un archivo `~/.ssh/config` para acelerar los inicios de sesión y optimizar el comportamiento del cliente SSH.
 
 En el ejemplo siguiente se muestra una configuración estándar.
 
@@ -182,42 +193,38 @@ vim ~/.ssh/config
 Host fedora22
   Hostname 102.160.203.241
   User ahmet
-  PubkeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # Default Settings
 Host *
-  PubkeyAuthentication=no
+  PubkeyAuthentication=yes
   IdentitiesOnly=yes
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /home/ahmet/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
   ControlPersist 4h
-  StrictHostKeyChecking=no
-  IdentityFile /home/ahmet/.ssh/id_rsa
-  UseRoaming=no
+  IdentityFile ~/.ssh/id_rsa
 ```
 
-Esta configuración de SSH ofrece secciones para cada servicio para que cada uno tenga su propio par de claves dedicado. La configuración predeterminada es para los hosts en los que haya iniciado sesión y que no se correspondan con ninguno de los grupos anteriores.
+Esta configuración de SSH ofrece secciones para cada servidor para que cada uno tenga su propio par de claves dedicado. La configuración predeterminada (`Host *`) es para los hosts que no coincidan con ninguno de los hosts específicos más arriba en el archivo de configuración.
 
 
 ### Explicación del archivo de configuración
 
 `Host` = nombre del host al que se llama en el terminal. `ssh fedora22` indica a `SSH` que use los valores del bloque de configuración con la etiqueta `Host fedora22`. NOTA: Puede ser cualquier etiqueta lógica para su uso y no representa el nombre de host real de ningún servidor.
 
-`Hostname 102.160.203.241` = dirección IP o nombre DNS del servidor en el que está iniciando sesión. Se usa para enrutar al servidor y puede ser una dirección IP externa que se asigna a una dirección IP interna.
+`Hostname 102.160.203.241` = dirección IP o nombre DNS del servidor al que se está accediendo.
 
-`User git` = cuenta de usuario remoto que se usará al iniciar sesión en la máquina virtual de Azure.
+`User git` = cuenta de usuario remoto que se va a utilizar.
 
-`PubKeyAuthentication yes` = indica a SSH que quiere usar una clave SSH para el inicio de sesión.
+`PubKeyAuthentication yes` = indica a SSH que desea usar una clave SSH para iniciar sesión.
 
-`IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa` = indica a SSH qué par de claves se presenta al servidor para autenticar el inicio de sesión.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = clave privada SSH y clave pública correspondiente que se usan para la autenticación.
 
 
 ## SSH en Linux sin contraseña
 
-Ahora que tiene un par de claves SSH y un archivo de configuración SSH configurado, puede iniciar sesión en la máquina virtual de Linux de forma rápida y segura. La primera vez que inicie sesión en un servidor mediante una clave SSH, el símbolo del sistema le pedirá la frase de contraseña para ese archivo de claves.
+Ahora que tiene un par de claves SSH y un archivo de configuración de SSH configurado, puede iniciar sesión en la máquina virtual Linux de forma rápida y segura. La primera vez que inicie sesión en un servidor mediante una clave SSH, el símbolo del sistema le pedirá la frase de contraseña para ese archivo de clave.
 
 ```bash
 ssh fedora22
@@ -225,14 +232,14 @@ ssh fedora22
 
 ### Explicación del comando
 
-Cuando se ejecuta `ssh fedora22`, SSH primero busca y carga la configuración del bloque `Host fedora22` y, después, carga la configuración restante del último bloque, `Host *`.
+Cuando se ejecuta `ssh fedora22`, primero SSH busca y carga la configuración del bloque `Host fedora22` y, después, carga la configuración restante del último bloque, `Host *`.
 
 ## Pasos siguientes
 
-El siguiente paso es crear máquinas virtuales de Linux en Azure con la nueva clave pública SSH. Las máquinas virtuales de Azure que se crean con una clave pública SSH como inicio de sesión están mejor protegidas que las creadas con las contraseñas del método de inicio de sesión predeterminado. Las máquinas virtuales de Azure que usan claves SSH para los inicios de sesión están, de manera predeterminada, configuradas para deshabilitar los inicios de sesión con contraseña, lo que evita los intentos de ataque por fuerza bruta.
+El siguiente paso es crear máquinas virtuales de Linux en Azure con la nueva clave pública SSH. Las máquinas virtuales de Azure que se crean con una clave pública SSH como inicio de sesión están mejor protegidas que las creadas con contraseñas, el método de inicio de sesión predeterminado. Las máquinas virtuales de Azure creadas con claves SSH están configuradas de forma predeterminada con las contraseñas deshabilitadas, a fin de evitar los intentos de adivinarlas por fuerza bruta.
 
-- [Crear una máquina virtual de Linux segura mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Crear una máquina virtual de Linux segura mediante el Portal de Azure](virtual-machines-linux-quick-create-portal.md)
+- [Creación de una máquina virtual Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Creación de una máquina virtual Linux protegida mediante el Portal de Azure](virtual-machines-linux-quick-create-portal.md)
 - [Crear una máquina virtual de Linux segura mediante la CLI de Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

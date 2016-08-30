@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="08/19/2016"
 	ms.author="rachelap"/>
 
 # Introducción a Aplicaciones de API, ASP.NET y Swagger en el Servicio de aplicaciones de Azure
@@ -219,7 +219,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 4. Inicie sesión en su cuenta de Azure si aún no lo hizo o actualice sus credenciales si expiraron.
 
-4. En el cuadro de diálogo Servicio de aplicaciones, elija la **suscripción** de Azure que desee usar y, a continuación, haga clic en **Nuevo**.
+4. En el cuadro de diálogo Servicio de aplicaciones, elija la **suscripción** de Azure que desee usar y haga clic en **Nuevo**.
 
 	![Haga clic en Nuevo en el cuadro de diálogo Servicio de aplicaciones](./media/app-service-api-dotnet-get-started/clicknew.png)
 
@@ -243,7 +243,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 4. Haga clic en el botón **Nuevo** situado junto a la lista desplegable **Plan de servicio de aplicaciones**.
 
-	La captura de pantalla muestra los valores de ejemplo de **Nombre de aplicación de API**, **Suscripción** y **Grupo de recursos**. Sus valores serán diferentes.
+	La captura de pantalla muestra los valores de ejemplo de **API App Name** (Nombre de aplicación de API), **Subscription** (Suscripción) y **Resource Group** (Grupo de recursos), pero sus valores serán diferentes.
 
 	![Cuadro de diálogo Crear servicio de aplicaciones](./media/app-service-api-dotnet-get-started/createas.png)
 
@@ -418,7 +418,7 @@ Antes [creó la aplicación de API de la capa de datos e implementó código en 
 
 3. En la pestaña **Hospedaje** del cuadro de diálogo **Crear servicio de aplicaciones**, acepte el nombre predeterminado en **Nombre de la aplicación de API** o escriba uno único en el dominio *azurewebsites.net*.
 
-5. Elija la **suscripción** de Azure que ha estado usando.
+5. Elija la **suscripción** de Azure que ha usado.
 
 6. En la lista desplegable **Grupo de recursos**, elija el grupo de recursos que creó anteriormente.
 
@@ -491,4 +491,4 @@ Si desea crear proyectos de aplicación de API desde cero, use la plantilla **Ap
 
 La elección de la plantilla de proyecto **Aplicación de API de Azure** equivale a elegir la plantilla **vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete NuGet Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados. Una vez que haya creado un proyecto de aplicación de API, puede implementarlo en una aplicación de API del mismo modo que el mostrado en este tutorial.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

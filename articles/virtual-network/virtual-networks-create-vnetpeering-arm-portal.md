@@ -3,7 +3,7 @@
    description="Aprenda a crear una red virtual mediante el Portal de Azure en Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -36,7 +36,7 @@ Para emparejar una red virtual según el escenario anterior por medio del Portal
 
 	![Elija el emparejamiento](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
 
-4. En la hoja Agregar emparejamiento, asigne un nombre de vínculo de emparejamiento LinkToVnet2, elija la suscripción y la red virtual VNET2 emparejada, y haga clic en Aceptar.
+4. En la hoja Agregar emparejamiento, asigne a un vínculo de emparejamiento el nombre LinkToVnet2, elija la suscripción y la red virtual VNET2 emparejada, y haga clic en Aceptar.
 
 	![Vínculo a la red virtual](./media/virtual-networks-create-vnetpeering-arm-portal/figure03.png)
 
@@ -48,7 +48,7 @@ Para emparejar una red virtual según el escenario anterior por medio del Portal
 
 	![Emparejar con otra red virtual](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
 
-7. En la hoja Agregar emparejamiento, asigne un nombre de vínculo de emparejamiento LinkToVnet1, elija la suscripción y la red virtual emparejada, y haga clic en Aceptar.
+7. En la hoja Agregar emparejamiento, asigne a un vínculo de emparejamiento el nombre LinkToVnet1, elija la suscripción y la red virtual emparejada, y haga clic en Aceptar.
 
 	![Icono de Crear red virtual](./media/virtual-networks-create-vnetpeering-arm-portal/figure06.png)
 
@@ -76,7 +76,7 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
-2. En este ejemplo utilizaremos dos suscripciones A y B y dos usuarios UserA y UserB con privilegios en las suscripciones respectivamente
+2. En este ejemplo utilizaremos dos suscripciones A y B, y dos usuarios UserA y UserB con privilegios en las suscripciones respectivamente.
 3. En el portal, haga clic en Examinar y elija Redes virtuales. Haga clic en la red virtual y después en Agregar.
 
     ![Escenario 2 Examinar](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
@@ -95,7 +95,7 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 6. Inicie sesión en el portal como UserA, vaya a la hoja VNET3, haga clic en Peering (Emparejamiento), marque la casilla "Conozco mi id. de recurso" y escriba el identificador de recurso de VNET5 en el formato siguiente.
 
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/<Id. de suscripción>/resourceGroups/<nombreDeGrupoDeRecursos>/providers/Microsoft.Network/VirtualNetwork/<Nombre de red virtual>
 
     ![Id. de recurso](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
@@ -130,4 +130,4 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 4. En este estado, no se puede volver a crear el vínculo hasta que cambie el estado del vínculo de emparejamiento a iniciado. Se recomienda quitar ambos vínculos antes de volver a crear el emparejamiento de VNET.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

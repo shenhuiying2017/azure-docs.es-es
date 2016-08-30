@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Corrección de usuario al acceder a aplicaciones protegidas con acceso condicional basado en dispositivos de Azure AD | Microsoft Azure"
+	pageTitle="Solución de problemas: no se puede acceder desde aquí | Microsoft Azure"
 	description="Este tema le ayuda a identificar si hay pasos de corrección que pueda seguir para obtener acceso a la aplicación que desea."
 	services="active-directory"
 	keywords="acceso condicional basado en dispositivo, registro de dispositivo, habilitar registro de dispositivo, registro de dispositivo y MDM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# Corrección de usuario al acceder a aplicaciones protegidas con acceso condicional basado en dispositivos de Azure AD
+# Solución de problemas: no se puede acceder desde aquí
 
 Aparece una página a la que deniega el acceso al acceder a una aplicación como Office 365 SharePoint Online. ¿Qué hace?
 
@@ -172,4 +172,4 @@ Pronto podrá ver instrucciones para teléfonos y tabletas con Android.
 
 [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

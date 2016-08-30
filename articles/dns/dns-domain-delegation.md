@@ -47,6 +47,10 @@ Existen dos tipos de servidores DNS:
 - Un servidor DNS _autoritativo_ hospeda zonas DNS. Solo responde a las consultas DNS de los registros de dichas zonas.
 - Un servidor DNS _recursivo_ no hospeda zonas DNS. Responde a todas las consultas DNS, para lo que realiza una llamada a los servidores DNS autoritativos a fin de recopilar los datos que necesita.
 
+>[AZURE.NOTE] DNS de Azure proporciona un servicio DNS autoritativo. No proporciona un servicio DNS recursivo.
+
+> Los Servicios en la nube y las máquinas virtuales de Azure se configuran automáticamente para que utilicen un servicio DNS recursivo que se proporciona por separado como parte de la infraestructura de Azure. Para más información sobre cómo cambiar esta configuración de DNS, consulte [Resolución de nombres de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 Los clientes DNS de equipos o dispositivos móviles suelen llamar a un servidor DNS recursivo para realizar todas las consultas DNS que las aplicaciones cliente necesitan.
 
 Cuando un servidor DNS recursivo recibe una consulta para un registro DNS, como “www.contoso.com”, primero necesita encontrar el servidor de nombres que hospeda la zona para el dominio “contoso.com”. Para ello, empieza por los servidores de nombres raíz y, a partir de ahí, busca los servidores de nombres que hospedan la zona “com”. A continuación, consulta los servidores de nombres “com” para encontrar los servidores de nombres que hospedan la zona “contoso.com”. Por último, puede consultar estos servidores de nombres para “www.contoso.com”.
@@ -116,7 +120,7 @@ También puede utilizar la CLI de Azure multiplataforma para recuperar los regis
 
 Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos con los que DNS de Azure ha creado.
 
-Al delegar un dominio a DNS de Azure, debe usar los nombres de servidor DNS proporcionados por DNS de Azure. Debe usar siempre los cuatro nombres de servidor DNS, independientemente del nombre de su dominio. La delegación de dominios no requiere el nombre del servidor DNS para usar el mismo dominio de primer nivel que su dominio.
+Al delegar un dominio a DNS de Azure, debe usar los nombres de servidor DNS proporcionados por DNS de Azure. Debe usar siempre los cuatro nombres de servidor DNS, independientemente del nombre de su dominio. La delegación de dominios no requiere que el nombre del servidor de nombres use el mismo dominio de primer nivel que su dominio.
 
 No debe usar 'registros de adherencia' para apuntar a direcciones IP del servidor DNS de Azure, ya que estas direcciones IP pueden cambiar en el futuro. Las delegaciones que usan nombres de servidor en su propia zona (a veces denominados "servidores DNS personalizados") no se admiten de momento en DNS de Azure.
 
@@ -201,4 +205,4 @@ Se puede comprobar que todo está configurado correctamente mirando el registro 
 
 [Administración de registros DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

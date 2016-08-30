@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local
@@ -41,7 +41,7 @@ Necesitará privilegios de administrador para completar el proceso de instalaci�
 Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conectarlo al servicio StorSimple Manager: Además de los pasos obligatorios, hay pasos y procedimientos opcionales que puede que necesite llevar a cabo durante la implementación. Las instrucciones detalladas de implementación indican cuándo debe realizar cada uno de estos pasos opcionales.
 
 
-| Paso | Descripción |
+| Paso | Description |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **REQUISITOS PREVIOS** | Se deben llevar a cabo como preparación para la próxima implementación. |
 | Lista de comprobación de la configuración de implementación. | Use esta lista de comprobación para recopilar y registrar información antes y durante la implementación. |
@@ -135,18 +135,18 @@ Antes de configurar el dispositivo, asegúrese de que:
 Antes de comenzar, asegúrese de que:
 
 - Se abren los puertos del firewall del centro de datos para permitir el tráfico de iSCSI y de la nube, como se describe en [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-- El dispositivo en su centro de datos puede conectarse a la red externa. Ejecute los siguientes cmdlets de [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (que se muestran a continuación en una tabla) para validar la conectividad a la red externa. Realice esta validación en un equipo (en la red del centro de datos) que tenga conectividad a Azure y donde vaya a implementar el dispositivo StorSimple.  
+- El dispositivo en su centro de datos puede conectarse a la red externa. Ejecute los siguientes cmdlets de [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (que se muestran a continuación en una tabla) para validar la conectividad a la red externa. Realice esta validación en un equipo (en la red del centro de datos) que tenga conectividad a Azure y donde vaya a implementar el dispositivo StorSimple.
 
 | Para este parámetro... | Para comprobar la validez... | Ejecute estos comandos o cmdlets. |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **IP**</br>**Subred**</br>**Puerta de enlace** | ¿Es una dirección IPv4 o IPv6 válida?</br>¿Es una subred válida?</br>¿Es una puerta de enlace válida?</br>¿Es una dirección IP duplicada en la red? | `ping ip`</br>`arp -a`</br>Los comandos `ping` y `arp` no deberían dar error al indicar que no hay ningún dispositivo en la red del centro de datos que este usando esta dirección IP.
+| **IP**</br>**Subnet**</br>**Gateway** | ¿Es una dirección IPv4 o IPv6 válida?</br>¿Es una subred válida?</br>¿Es una puerta de enlace válida?</br>¿Es una dirección IP duplicada en la red? | `ping ip`</br>`arp -a`</br>Los comandos `ping` y `arp` no deberían dar error al indicar que no hay ningún dispositivo en la red del centro de datos que este usando esta dirección IP.
 | | | |
 | **DNS** | ¿Es una DNS válida y puede resolver las direcciones URL de Azure? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>`</br>Un comando alternativo que se puede usar es:</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
 | | Compruebe si el puerto 53 está abierto. Esto solo es aplicable si está usando una DNS externa para el dispositivo. El DNS interno debe resolver automáticamente las direcciones URL externas. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Más información sobre este cmdlet](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
 | **NTP** | Desencadenamos una sincronización de tiempo tan pronto como se introduce el servidor NTP. Compruebe que el puerto UDP 123 está abierto cuando introduce `time.windows.com` o servidores de hora públicos). | [Descargue y use este script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
+| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
 | | ¿Se puede enrutar el tráfico a través del proxy? | Ejecute las validación DNS y la comprobación NTP o HTTP después de configurar el proxy en el dispositivo. Esto le dará una idea clara de si el tráfico se está bloqueando en el proxy o en otro lugar. |
 | | | |
 | **Registro** | Compruebe si los puertos TCP de salida 443, 80, 9354 están abiertos. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Más información sobre el cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx). |
@@ -167,8 +167,7 @@ Siga estos pasos para crear una nueva instancia del servicio de Administrador de
 
 > [AZURE.IMPORTANT] Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
-> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
-> Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
+> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
 
 ## Paso 2: Obtener la clave de registro del servicio
 
@@ -264,7 +263,7 @@ La actualización del dispositivo puede tardar entre 1 y 4 horas. Realice los pa
 > [AZURE.NOTE] Si tiene una puerta de enlace configurada en una interfaz de red que no sea Data 0, deberá deshabilitar las interfaces de red Data 2 y Data 3 antes de instalar la actualización. Vaya a **Dispositivos > Configurar** y deshabilite las interfaces Data 2 y Data 3. Deberá volver a habilitar estas interfaces después de actualiza el dispositivo.
 
 #### Para actualizar su dispositivo
-1.	En la página **Inicio rápido** del dispositivo, haga clic en **Dispositivos**. Seleccione el dispositivo físico, haga clic en **Mantenimiento** y luego en **Buscar actualizaciones**.  
+1.	En la página **Inicio rápido** del dispositivo, haga clic en **Dispositivos**. Seleccione el dispositivo físico, haga clic en **Mantenimiento** y luego en **Buscar actualizaciones**.
 2.	Se crea un trabajo para buscar las actualizaciones disponibles. Si hay actualizaciones disponibles, la opción **Buscar actualizaciones** cambia a **Instalar actualizaciones**. Haga clic en **Instalar actualizaciones**. Puede que se le pida que deshabilite Data 2 y Data 3 antes de instalar las actualizaciones. Debe deshabilitar estas interfaces de red o las actualizaciones podrían dar error.
 3.	Se creará un trabajo de actualización. Vaya a **Trabajos** para supervisar el estado de la actualización.
 
@@ -294,4 +293,4 @@ Siga estos pasos en el Portal de Azure clásico para crear una copia de segurida
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

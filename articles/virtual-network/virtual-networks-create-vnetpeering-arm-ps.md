@@ -3,7 +3,7 @@
    description="Aprenda a crear una red virtual mediante el Portal de Azure en Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -147,7 +147,7 @@ Para crear un emparejamiento de VNET entre suscripciones mediante PowerShell, si
 
         This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup. 
 
-2. Inicie sesión en Azure con la cuenta del UserB con privilegios para la suscripción B y ejecute el siguiente cmdlet:
+2. Inicie sesión en Azure con la cuenta de UserB con privilegios para la suscripción B y ejecute el siguiente cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
 
@@ -201,4 +201,4 @@ Para crear un emparejamiento de VNET entre suscripciones mediante PowerShell, si
 
 2. Una vez que se quita un vínculo de un emparejamiento de VNET, el estado del vínculo del emparejamiento cambia a desconectado. En este estado, no se puede volver a crear el vínculo hasta que cambie el estado del vínculo de emparejamiento a iniciado. Se recomienda quitar ambos vínculos antes de volver a crear el emparejamiento de VNET.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

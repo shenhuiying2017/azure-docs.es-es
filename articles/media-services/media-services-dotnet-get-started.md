@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la entrega de contenido a petición mediante .NET SDK"
+	pageTitle="Introducción a la entrega de contenido a petición mediante .NET SDK | Azure"
 	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido a petición con Servicios multimedia de Azure mediante la API de REST."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="07/18/2016"
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 
@@ -453,4 +453,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

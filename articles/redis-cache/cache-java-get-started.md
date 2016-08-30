@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Java
@@ -27,7 +27,7 @@
 
 Caché en Redis de Azure le proporciona acceso a una caché en Redis dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
 
-En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando Java.
+En este tema se explica cómo comenzar a usar Caché en Redis de Azure mediante Java.
 
 ## Requisitos previos
 
@@ -79,4 +79,4 @@ Algunos clientes de Redis no son compatibles con SSL y, de forma predeterminada,
 - [Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché.
 - Lea la [documentación de Redis](http://redis.io/documentation) oficial.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

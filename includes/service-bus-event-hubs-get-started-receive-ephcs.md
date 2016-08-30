@@ -26,7 +26,7 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 
     ![][13]
 
-	Esto descarga, instala y agrega una referencia al [Centro de eventos del Bus de servicio de Azure - Paquete de NuGet de EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
+	Visual Studio descarga, instala y agrega una referencia al [Centro de eventos del Bus de servicio de Azure - Paquete de NuGet de EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
 
 7. Haga clic con el botón derecho en el proyecto **Receptor**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Agregar** para crear la clase.
 
@@ -115,13 +115,13 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
     }
 	```
 
-> [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost][]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente][]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte [Información general de los Centros de eventos][] y [Guía de programación de Centros de eventos][].
+> [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost][]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente][]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][] según los equipos (o roles) en que se implementan. Para más información acerca de estos temas, consulte [Información general de los Centros de eventos][] y [Guía de programación de Centros de eventos][].
 
 <!-- Links -->
 [Información general de los Centros de eventos]: event-hubs-overview.md
 [Guía de programación de Centros de eventos]: event-hubs-programming-guide.md
 [procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
+[cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
@@ -133,3 +133,4 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
+<!---HONumber=AcomDC_0824_2016-->

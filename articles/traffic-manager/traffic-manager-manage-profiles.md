@@ -3,7 +3,7 @@
    description="Este artículo le ayudará a crear, deshabilitar, habilitar, eliminar y ver el historial de un perfil del Administrador de tráfico de Azure."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Administrar un perfil del Administrador de tráfico de Azure
 
@@ -29,10 +29,10 @@ Puede crear rápidamente un perfil del Administrador de tráfico mediante Creaci
 
 2. **Inicie sesión en el Portal de Azure clásico.** Para crear un nuevo perfil del Administrador de tráfico, haga clic en **Nuevo** en la parte inferior izquierda del portal, haga clic en **Servicios de red > Administrador de tráfico** y, a continuación, en **Creación rápida** para comenzar a configurar su perfil.
 3. **Configure el prefijo DNS.** Proporcione a su perfil de Administrador de tráfico un nombre de prefijo DNS único. Puede especificar solo el prefijo de un nombre de dominio de Administrador de tráfico.
-4. **Seleccione la suscripción.** Seleccione la suscripción de Azure apropiada. Cada perfil está asociado a una sola suscripción. Si sólo tiene una suscripción, esta opción no aparecerá.
+4. **Seleccione la suscripción.** Seleccione la suscripción de Azure apropiada. Cada perfil está asociado a una sola suscripción. Si solo tiene una suscripción, esta opción no aparecerá.
 5. **Método de enrutamiento del tráfico de rendimiento** Seleccione el método de enrutamiento del tráfico en **Directiva de enrutamiento del tráfico**. Para obtener más información acerca de los métodos de enrutamiento del tráfico, consulte[ Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md).
 6. **Haga clic en “Crear” para crear un nuevo perfil**. Cuando haya terminado de configurar el perfil, puede buscarlo en el panel del Administrador de tráfico del Portal de Azure clásico.
-7. **Configure los puntos de conexión, la supervisión y la configuración adicional en el Portal de Azure clásico.** Dado que sólo se pueden configurar valores básicos mediante la Creación rápida, es necesario configurar opciones adicionales tales como la lista de extremos y el orden de conmutación por error del extremo, con el fin de completar la configuración deseada. 
+7. **Configure los puntos de conexión, la supervisión y la configuración adicional en el Portal de Azure clásico.** Dado que sólo se pueden configurar valores básicos mediante la Creación rápida, es necesario configurar opciones adicionales tales como la lista de extremos y el orden de conmutación por error del extremo, con el fin de completar la configuración deseada.
 
 
 ## Deshabilitar, habilitar o eliminar un perfil
@@ -50,7 +50,7 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 1. Seleccione el perfil que desea habilitar. Para seleccionar el perfil, en la página Administrador de tráfico, resalte el perfil haciendo clic en la columna situada junto al nombre del perfil. No haga clic en el nombre del perfil ni en la flecha que aparece junto al nombre, ya que esto le llevará a la página de configuración del perfil.
 2. Después de seleccionar el perfil, haga clic en **Habilitar**, en la parte inferior de la página.
-3. Modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil del Administrador de tráfico. Para obtener más información, consulte [Selección de un dominio de Internet de la compañía para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
+3. Modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil del Administrador de tráfico. Para obtener más información, consulte [Selección de un dominio de Internet de la compañía para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 4. El tráfico comenzará a dirigirse de nuevo a los extremos.
 
 ### Para eliminar un perfil
@@ -85,4 +85,4 @@ Puede ver el historial de cambios del perfil del Administrador de tráfico en el
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

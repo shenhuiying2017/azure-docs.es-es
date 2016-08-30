@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Conceptos, terminología y jerarquía de entidades de Programador
@@ -21,9 +21,9 @@
 
 En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API del Programador:
 
-|Recurso | Descripción |
+|Recurso | Description |
 |---|---|
-|**Colección de trabajos**|Una colección de trabajos contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. La colección de trabajos la crea el propietario de la suscripción y agrupa los trabajos en función de los límites de uso o de aplicación. Está limitado a una región. También permite la aplicación de cuotas para restringir el uso de todos los trabajos de la colección. Las cuotas incluyen MaxJobs y MaxRecurrence.|
+|**Colección de trabajos**|Una colección de trabajos contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. La colección de trabajos la crea el propietario de la suscripción y agrupa los trabajos en función de los límites de uso o de la aplicación. Está limitado a una región. También permite la aplicación de cuotas para restringir el uso de todos los trabajos de la colección. Las cuotas incluyen MaxJobs y MaxRecurrence.|
 |**Trabajo**|Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de almacenamiento, de cola de bus de servicio o de tema de bus de servicio.|
 |**Historial de trabajos**|Un historial de trabajos representa los detalles de una ejecución de un trabajo. Contiene los trabajos realizados correctamente y los errores, así como los detalles de las respuestas.|
 
@@ -194,7 +194,7 @@ Para establecer una directiva de reintentos, se pueden especificar dos configura
 
 El intervalo de reintentos, especificado con el objeto **retryInterval**, es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora. Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount**; es el número de veces que se realiza un reintento. Su valor predeterminado es 4 y su valor máximo es 20. Tanto **retryInterval** como **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
 
-## Consulte también
+## Otras referencias
 
  [¿Qué es Programador?](scheduler-intro.md)
 
@@ -214,4 +214,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->
