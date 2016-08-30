@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,7 +25,7 @@ Puede automatizar las operaciones para crear, eliminar o actualizar zonas, conju
 
 Para poder utilizar el cliente DNS, tendrá que instalar el paquete NuGet **Biblioteca de administración de DNS de Azure** y agregar los espacios de nombres de administración de DNS al proyecto.
  
-1. En **Visual Studio**, abra un proyecto o cree uno nuevo. 
+1. En **Visual Studio**, abra un proyecto o cree uno nuevo.
 
 2. Vaya a **Herramientas** **>** **Administrador de paquetes Nuget** **>** **Consola del administrador de paquetes**.
 
@@ -37,7 +37,7 @@ Para poder utilizar el cliente DNS, tendrá que instalar el paquete NuGet **Bibl
 
 ## Inicialización del cliente de administración de DNS
 
-El *DnsManagementClient* contiene los métodos y las propiedades necesarios para administrar los conjuntos de registros y las zonas DNS. Para que el cliente pueda acceder a su suscripción, debe configurar los permisos correctos y generar un token AWT. Para más información, consulte [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) \(Autenticación de solicitudes de Azure Manager Resource).
+El *DnsManagementClient* contiene los métodos y las propiedades necesarios para administrar los conjuntos de registros y las zonas DNS. Para que el cliente pueda acceder a su suscripción, debe configurar los permisos correctos y generar un token AWT. Para más información, consulte [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) (Autenticación de solicitudes de Azure Manager Resource).
 
 	// get a token for the AAD application (see the article link above for code)
 	string jwt = GetAToken();
@@ -113,4 +113,4 @@ En el ejemplo siguiente se ilustra cómo obtener una lista de zonas y conjuntos 
 
 [Proyecto de ejemplo del SDK de Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

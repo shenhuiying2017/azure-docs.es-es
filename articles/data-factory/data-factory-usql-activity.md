@@ -53,7 +53,7 @@ Tipo | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | S�
 accountName | Nombre de la cuenta de Análisis de Azure Data Lake | Sí
 dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake. | No 
 authorization | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. | Sí 
-subscriptionId | Identificador de suscripción de Azure. | No (si no se especifica, se usa la suscripción de la factoría de datos). 
+subscriptionId | Identificador de suscripción de Azure | No (si no se especifica, se usa la suscripción de Data Factory). 
 resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
 sessionId | Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de Factoría de datos. | Sí
 
@@ -93,7 +93,7 @@ Para evitar o resolver este error, será preciso que vuelva a dar la autorizaci�
         }
     }
 
-Para más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
  
 ## Actividad U-SQL de Análisis de Data Lake 
@@ -158,16 +158,16 @@ Propiedad | Descripción | Obligatorio
 type | La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL**. | Sí
 scriptPath | Ruta de acceso a la carpeta que contiene el script U-SQL. Tenga en cuenta que el nombre del archivo distingue mayúsculas de minúsculas. | No (si se utiliza el script)
 scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | No (si se utiliza el script)
-script | Especifique el script en línea en lugar de especificar scriptPath y scriptLinkedService. Por ejemplo: "script": "Prueba CREAR BASE DE DATOS". | No (si usa scriptPath y scriptLinkedService)
+script | Especifique el script en línea en lugar de scriptPath y scriptLinkedService. Por ejemplo: "script": "Prueba CREAR BASE DE DATOS". | No (si usa scriptPath y scriptLinkedService)
 degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No
 prioridad | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No 
 parameters | Parámetros del script SQL U | No 
 
 Para ver la definición del script, vea [Definición del script SearchLogProcessing.txt](#script-definition).
 
-### Conjuntos de datos de entrada y salida de ejemplo
+## Conjuntos de datos de entrada y salida de ejemplo
 
-#### Conjunto de datos de entrada
+### Conjunto de datos de entrada
 En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (archivo SearchLog.tsv en la carpeta de datalake/input).
 
 	{
@@ -191,7 +191,7 @@ En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (ar
     	}
 	}	
 
-#### Conjunto de datos de salida
+### Conjunto de datos de salida
 En este ejemplo, los datos de salida generados por el script U-SQL se almacenan en Almacén de Azure Data Lake (carpeta datalake/output).
 
 	{
@@ -209,7 +209,7 @@ En este ejemplo, los datos de salida generados por el script U-SQL se almacenan 
 	    }
 	}
 
-#### Servicio vinculado de Almacén de Azure Data Lake de ejemplo
+### Ejemplo de servicio vinculado de Data Lake Store
 Aquí está la definición del servicio vinculado de Almacén de Azure Data Lake usado que usan los conjuntos de datos de entrada y salida anteriores.
 
 	{
@@ -226,7 +226,7 @@ Aquí está la definición del servicio vinculado de Almacén de Azure Data Lake
 
 Vea [Movimiento de datos a y desde el Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md) para obtener descripciones de las propiedades JSON del servicio vinculado de Almacén de Azure Data Lake y de los fragmentos de código JSON del conjunto de datos.
 
-### Definición del script
+## Script U-SQL 
 
 	@searchlog =
 	    EXTRACT UserId          int,
@@ -257,4 +257,21 @@ ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el 
 
 Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Parámetros dinámicos
+En la definición de canalización de ejemplo anterior, se asignan los parámetros in y out con valores muy codificados.
+
+    "parameters": {
+        "in": "/datalake/input/SearchLog.tsv",
+        "out": "/datalake/output/Result.tsv"
+    }
+
+Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:
+
+    "parameters": {
+        "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
+        "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    }
+
+En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input y los de salida se generan en la carpeta /datalake/output, pero los nombres de archivo son dinámicos, según la hora de inicio del segmento.
+
+<!---HONumber=AcomDC_0817_2016-->

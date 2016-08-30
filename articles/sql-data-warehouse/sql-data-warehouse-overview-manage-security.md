@@ -63,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para obtener más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Autenticación a Almacenamiento de datos SQL de Azure][].
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Conexión a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory][].
 
 
 ## Autorización
@@ -83,7 +83,7 @@ Existen varias formas de limitar aún más lo que los usuarios pueden hacer con 
 - Los [roles de base de datos][] que no sean db\_datareader y db\_datawriter se pueden utilizar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces. Los roles d base de datos fijos integrados proporcionan una manera fácil de conceder permisos, pero pueden dar lugar a la concesión de más permisos que son necesarios.
 - Los [procedimientos almacenados][] puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
-La administración de bases de datos y servidores lógicos desde el Portal de Azure clásico o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure][].
+La administración de bases de datos y servidores lógicos desde el Portal de Azure clásico o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure][].
 
 ## Cifrado
 
@@ -103,15 +103,15 @@ También puede habilitar el cifrado de datos transparente de la configuración d
 La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a mantener el cumplimiento de las reglamentaciones y a identificar cualquier actividad sospechosa. La auditoría de Almacenamiento de datos SQL permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Almacenamiento de Azure. La auditoría de Almacenamiento de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL][].
 
 ## Pasos siguientes
-Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con diferentes protocolos, consulte [Conexión a Almacenamiento de datos SQL][].
+Para detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con diferentes protocolos, consulte [Conexión a Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Conexión a Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-connections.md
-[Introducción a la auditoría de Base de datos SQL]: ./sql-data-warehouse-overview-auditing.md
+[Conexión a Almacenamiento de datos SQL]: ./sql-data-warehouse-connect-overview.md
+[Introducción a la auditoría de Base de datos SQL]: ./sql-data-warehouse-auditing-overview.md
 [Introducción al cifrado de datos transparente (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Autenticación a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Conexión a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -127,4 +127,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

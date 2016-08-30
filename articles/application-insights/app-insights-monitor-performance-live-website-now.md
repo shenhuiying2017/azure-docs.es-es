@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="08/24/2016"
 	ms.author="awills"/>
 
 
@@ -48,7 +48,7 @@ A continuación hay un resumen de lo que se obtiene de cada forma:
 
 ## Instrumentación de la aplicación web en tiempo de ejecución
 
-Necesita una suscripción a [Microsoft Azure](http://azure.com)
+Necesita una suscripción a [Microsoft Azure](http://azure.com).
 
 ### Si la aplicación se hospeda en el servidor IIS
 
@@ -300,4 +300,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

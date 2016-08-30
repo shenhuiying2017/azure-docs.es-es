@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Requisitos de Azure AD + Active Directory para Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 
 En el caso de la colección de híbrida de Azure RemoteApp o de una colección en la nube que desee federar mediante AD Connect, deberá hacer lo siguiente.
@@ -45,4 +47,4 @@ También debe crear los siguientes objetos de Active Directory locales:
 
 Se necesitan estos dos objetos cuando se crea la colección de RemoteApp, por lo que debe asegurarse de realizar estos pasos en primer lugar.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

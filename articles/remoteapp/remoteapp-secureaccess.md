@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Protección del acceso a Azure RemoteApp, y mucho más
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 En este artículo ofrecemos información sobre cómo un administrador puede configurar un canal de acceso seguro que comienza en el usuario final, a través de Azure RemoteApp y que finaliza con un recurso seguro, como una base de datos SQL o un back-end de otra aplicación. El objetivo es asegurarse de que solo los usuarios autorizados que cumplen las condiciones deseadas pueden tener acceso a las aplicaciones remotas y que solo se pueda acceder al back-end seguro desde el entorno de Azure RemoteApp controlado y no desde otras ubicaciones.
 
@@ -110,4 +113,4 @@ Con Azure RemoteApp debe configurar primero su red virtual y, después, utilizar
 ## La solución completa
 El diagrama siguiente muestra la solución completa donde hemos creado un canal de acceso seguro del usuario final, a través de Azure RemoteApp (ARA), al recurso de back-end. ![Azure RemoteApp seguro](./media/remoteapp-secureaccess/ra-secureoverview.png) En la fase 1, hemos seleccionado a los usuarios y hemos creado reglas de acceso que rigen cómo se puede acceder a ARA. En el ejemplo siguiente solo se permite el acceso a los usuarios que trabajan en la red corporativa. Los usuarios no conformes no podrá acceder de ninguna manera al entorno de ARA. En la "fase 2" se ha expuesto el recurso de back-end solo a través de la configuración de red virtual o VPN que se controla. Azure RemoteApp se ha colocado en la misma red virtual. El resultado final es que solo se puede acceder al recurso a través del entorno de ARA.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

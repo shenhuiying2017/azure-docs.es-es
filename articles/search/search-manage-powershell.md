@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Administración del servicio Búsqueda de Azure con PowerShell
@@ -23,7 +23,7 @@
 - [PowerShell](search-manage-powershell.md)
 - [API DE REST](search-get-started-management-api.md)
 
-En este tema se describe los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Búsqueda de Azure. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API. Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx).
+En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Búsqueda de Azure. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API. Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## Requisitos previos
  
@@ -139,4 +139,4 @@ Ahora que el servicio está creado, puede realizar los pasos siguientes: crear u
 
 - [Analizar el tráfico de Búsqueda de Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/15/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticación a Almacenamiento de datos SQL de Azure
@@ -24,12 +24,12 @@
 - [Autenticación](sql-data-warehouse-authentication.md)
 - [Controladores](sql-data-warehouse-connection-strings.md)
 
-Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
+Para conectarse a Almacenamiento de datos SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
 
 Para obtener más información sobre la seguridad y cómo habilitar las conexiones a su almacenamiento de datos, consulte [Proteger una base de datos en Almacenamiento de datos SQL][].
 
 ## Autenticación de SQL
-Para conectarse a Almacenamiento de datos SQL, deberá proporcionar la siguiente información:
+Para conectarse a Almacenamiento de datos SQL, debe proporcionar la información siguiente:
 
 - Nombre de servidor completo
 - Especificar la autenticación de SQL
@@ -37,12 +37,12 @@ Para conectarse a Almacenamiento de datos SQL, deberá proporcionar la siguiente
 - Password
 - Base de datos predeterminada (opcional)
 
-De forma predeterminada, su conexión se realizará a la base de datos principal y no a su base de datos de usuario. Para conectarse a la base de datos de usuario puede hacer dos cosas:
+De forma predeterminada, su conexión se realiza a la base de datos maestra y no a su base de datos de usuario. Para conectarse a la base de datos de usuario puede hacer dos cosas:
 
-1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT, SSMS o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
-2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
+- Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT, SSMS o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
+- En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+> [AZURE.NOTE] Para instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, consulte el artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
 
 De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <su base de datos>** no se admite para cambiar la base de datos en una conexión
 
@@ -62,6 +62,7 @@ Entre las ventajas se incluyen las siguientes:
 - Puede eliminar el almacenamiento de contraseñas mediante la habilitación de la autenticación integrada de Windows y otras formas de autenticación compatibles con Azure Active Directory.
 - La autenticación de Azure Active Directory utiliza usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
 - Azure Active Directory admite la autenticación basada en token para las aplicaciones que se conectan a Almacenamiento de datos SQL.
+- Cuando está configurada la autenticación de Azure Active Directory, SQL Server Management Studio es compatible con Multi-Factor Authentication a través de Autenticación universal de Active Directory. Para una descripción de Multi-Factor Authentication, consulte [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 
 ### Pasos de configuración
@@ -90,4 +91,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

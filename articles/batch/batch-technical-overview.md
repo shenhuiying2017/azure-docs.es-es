@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/22/2016"
 	ms.author="marsma"/>
 
 # Datos básicos de Lote de Batch
@@ -71,8 +71,7 @@ Las aplicaciones y los servicios pueden emitir llamadas de API de REST directas,
 | **REST de Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET de Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Administración de recursos de Lote
 
@@ -126,7 +125,7 @@ No olvide que esta es simplemente una forma de usar Lote y que este escenario de
 
 Ahora que ha visto información general de alto nivel del servicio Lote, es hora de profundizar en el servicio para aprender cómo puede utilizarlo para procesar las cargas de trabajo paralelas de proceso intensivo.
 
-- Para información más detallada sobre las características de API que proporciona Lote para procesar cargas de trabajo, consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md). Este artículo es esencial para cualquiera que se esté preparando para utilizar Lote.
+- Consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md), donde encontrará información esencial para cualquier persona que vaya a utilizar Lote. El artículo contiene información más detallada acerca de los recursos del servicio de Lote, como grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Lote.
 
 - Para aprender a usar C# y la biblioteca .NET de Lote para ejecutar una carga de trabajo sencilla mediante un flujo de trabajo de Lote común, consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). Este artículo debería ser una de sus primeras lecturas durante el periodo de aprendizaje de Lote. También hay una [versión para Python](batch-python-tutorial.md) del tutorial.
 
@@ -161,4 +160,4 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

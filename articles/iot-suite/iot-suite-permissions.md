@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/16/2016"
+  ms.date="08/10/2016"
   ms.author="araguila"/>
   
 # Permisos en el sitio azureiotsuite.com
@@ -154,4 +154,4 @@ Para más información sobre el Conjunto de aplicaciones de IoT, consulte cómo 
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

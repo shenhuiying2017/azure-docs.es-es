@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
@@ -64,7 +64,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
     - Deseo protección a corto plazo mediante disco.
     - Deseo protección en línea.
 
-6. Haga clic en **Siguiente**.
+6. Haga clic en **Next**.
 
 7. Seleccione la opción **Ejecutar Eseutil para comprobar la integridad de los datos** si desea comprobar la integridad de las bases de datos de Exchange Server.
 
@@ -72,7 +72,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 
     >[AZURE.NOTE] Para usar esta opción, debe copiar los archivos Ese.dll y Eseutil.exe en el directorio C:\\Archivos de programa\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin del servidor DPM. De lo contrario, se desencadena el siguiente error: ![Error de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
-8. Haga clic en **Siguiente**.
+8. Haga clic en **Next**.
 
 9. Seleccione la base de datos para **Copia de seguridad de copia**, y, a continuación, haga clic en **Siguiente**.
 
@@ -132,4 +132,4 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
 
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

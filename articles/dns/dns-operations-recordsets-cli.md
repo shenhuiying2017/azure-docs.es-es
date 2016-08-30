@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Administración de registros y conjuntos de registros DNS mediante la CLI
@@ -178,4 +178,4 @@ Para más información acerca de DNS de Azure, consulte [Introducción a DNS de 
 
 Si desea trabajar con registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante la CLI de Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

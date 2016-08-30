@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
+   ms.date="08/11/2016"
    ms.author="jehollan"/>
 
 # Ejemplos de aplicaciones lógicas y escenarios comunes
 
 En este documento se detallan escenarios y ejemplos comunes que le ayudan a conocer algunas de las formas que Aplicaciones lógicas puede utilizar para automatizar los procesos empresariales.
 
-## Desencadenadores y acciones
+## Desencadenadores y acciones personalizados
 
-Hay varias maneras de desencadenar una aplicación lógica desde otra aplicación. Estas son algunas de ellas:
+Hay varias maneras de desencadenar una aplicación lógica desde otra aplicación. Presentamos algunos ejemplos comunes:
 
 - [Crear un desencadenador o una acción personalizados](app-service-logic-create-api-app.md)
 - [Acciones de ejecución prolongada](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@ Hay varias maneras de desencadenar una aplicación lógica desde otra aplicació
 ### Escenarios
 
 - [Respuesta sincrónica de solicitudes](app-service-logic-http-endpoint.md)
+- [Solicitud/respuesta con SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Registro y control de errores
 
+- [Excepciones y control de errores](app-service-logic-exception-handling.md)
 - [Configuración de alertas y diagnósticos de Azure](app-service-logic-monitor-your-logic-apps.md)
 
 ### Escenarios
@@ -50,9 +52,9 @@ Hay varias maneras de desencadenar una aplicación lógica desde otra aplicació
 
 ## Tipos de contenido, conversiones y transformaciones
 
-El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de Logic Apps contiene muchas funciones que permiten convertir y trabajar con distintos tipos de contenido. Además, el motor hará todo que lo posible para conservar los tipos de contenido, ya que los datos pasan por el flujo de trabajo.
+El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de Logic Apps contiene muchas funciones que permiten convertir distintos tipos de contenido y trabajar con ellos. Además, el motor hará todo que lo posible para conservar los tipos de contenido, ya que los datos pasan por el flujo de trabajo.
 
-- [Control de encabezados Content-Type](app-service-logic-content-type.md) como application/json, application/xml, y plain/text
+- [Control del tipo de contenido](app-service-logic-content-type.md) como application/json, application/xml y plain/text
 - [Creación de definiciones de flujos de trabajo](app-service-logic-author-definitions.md)
 - [Referencia de lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs)
 
@@ -77,4 +79,4 @@ El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de
 
 Seguiremos agregando ejemplos y escenarios a este documento. Utilice la sección de comentarios que aparece a continuación para indicarnos qué ejemplos o escenarios que le gustaría ver aquí.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

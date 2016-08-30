@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Creación de un nuevo grupo de bases de datos elásticas con C&#x23;
@@ -24,15 +24,15 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Obtenga información acerca de cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante C#;.
+Obtenga información acerca de cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante C#.
 
 Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
 
-En los ejemplos siguientes se usa la [biblioteca de la Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), por lo que, si aún no está instalada, debe instalarla antes de continuar. Puede instalar esta biblioteca ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
+Los ejemplos usan la [biblioteca de Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), por lo que, si aún no está instalada, debe instalarla antes de continuar. Puede instalar esta biblioteca ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Creación de un nuevo grupo
+## Creación de un grupo
 
 Cree una instancia de [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) con los valores tomados de [Azure Active Directory](sql-database-client-id-keys.md). Cree una instancia de [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) y llame al método [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Los valores de eDTU por grupo, DTU mín. y máx. están limitados por el valor de nivel de servicio (basic, standard o premium). Consulte [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -52,7 +52,7 @@ Cree una instancia de [SqlManagementClient](https://msdn.microsoft.com/library/m
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Creación de una nueva base de datos en un grupo
+## Creación de una base de datos en un grupo
 
 Cree una instancia de [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) y establezca las propiedades de la nueva base de datos. A continuación, llame al método CreateOrUpdate con el grupo de recursos, el nombre del servidor y el nuevo nombre de la base de datos.
 
@@ -76,20 +76,20 @@ Para mover una base de datos existente a un grupo, consulte [Movimiento de una b
 
 ## Ejemplo: creación de un grupo mediante C&#x23;
 
-Este ejemplo crea un nuevo grupo de recursos de Azure, una nueva instancia de SQL Server de Azure y un nuevo grupo elástico.
+Este ejemplo crea un grupo de recursos de Azure, una instancia de SQL Server de Azure y un grupo elástico.
  
 
 Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y los valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md). Use el cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) para recuperar el valor para el identificador de suscripción.
+Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y los valores relacionados, cree una aplicación nativa según se describe en el siguiente artículo: [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -241,7 +241,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 ## Pasos siguientes
 
 - [Administración del grupo](sql-database-elastic-pool-manage-csharp.md)
-- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos de un grupo.
 - [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): utilice las herramientas de la base de datos elástica para realizar un escalado horizontal.
 
 ## Recursos adicionales
@@ -249,4 +249,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/15/2016"
 	ms.author="magoedte;csand"/>
 
 #Administración de RemoteApp de Azure mediante Automatización de Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de RemoteApp de Azure.
 
@@ -40,4 +43,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 * Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md) de Automatización de Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

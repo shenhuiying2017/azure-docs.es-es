@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Decisiones de diseño y técnicas de codificación para el Almacenamiento de datos SQL
@@ -52,7 +52,7 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 
 <!--Article references-->
 [simultaneidad]: ./sql-data-warehouse-develop-concurrency.md
-[conexiones]: ./sql-data-warehouse-develop-connections.md
+[conexiones]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL dinámico]: ./sql-data-warehouse-develop-dynamic-sql.md
 [opciones de agrupar por]: ./sql-data-warehouse-develop-group-by-options.md
@@ -75,4 +75,4 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

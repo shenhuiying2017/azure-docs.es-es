@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Uso del redireccionamiento de RemoteApp de Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Redireccionamiento de dispositivos permite a los usuarios interactuar con aplicaciones remotas mediante los dispositivos conectados a su equipo local, un teléfono o una tableta. Por ejemplo, si proporciona Skype a través de Azure RemoteApp, el usuario tendrá que disponer de la cámara instalada en su equipo para que funcione con Skype. Esto también se aplica a las impresoras, altavoces, monitores y a una amplia gama de periféricos conectados mediante USB.
 
@@ -102,6 +105,6 @@ También puede utilizar la herramienta de administración de directivas de grupo
 5. Abra **Configuración del equipo\\Directivas\\Plantillas administrativas\\Componentes Windows\\Servicios de escritorio remoto\\Cliente de conexión de escritorio remoto\\Redireccionamiento de dispositivo USB RemoteFX**.
 6. Haga doble clic en **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
 7. Seleccione **Habilitado** y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento USB RemoteFX**.
-8. Haga clic en **Aceptar**.  
+8. Haga clic en **Aceptar**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

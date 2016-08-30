@@ -1,6 +1,6 @@
 <properties
  pageTitle="IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)"
- description="Información general de la supervisión de operaciones del Centro de IoT de Azure, que permite a los usuarios supervisar el estado de las operaciones de su Centro de IoT en tiempo real."
+ description="Información general de la supervisión de operaciones del Centro de IoT de Azure, que permite supervisar el estado de las operaciones de su Centro de IoT en tiempo real."
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/07/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introducción a la supervisión de operaciones
 
-La supervisión de operaciones del Centro de IoT permite a los usuarios supervisar el estado de las operaciones de su Centro de IoT en tiempo real. Centro de IoT realiza el seguimiento de eventos a través de varias categorías de operaciones, y los usuarios pueden optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su Centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en modelos de datos.
+La supervisión de operaciones del Centro de IoT permite supervisar el estado de las operaciones de su Centro de IoT en tiempo real. Centro de IoT realiza el seguimiento de eventos a través de varias categorías de operaciones, y se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su Centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
 El Centro de IoT supervisa cinco categorías de eventos:
 
@@ -32,7 +32,7 @@ El Centro de IoT supervisa cinco categorías de eventos:
 
 1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un Centro de IoT en la guía [Introducción][lnk-get-started].
 
-2. Abra la hoja de su Centro de IoT. Desde ahí, haga clic en **Toda la configuración**, y, a continuación, haga clic en **Supervisión de operaciones**.
+2. Abra la hoja de su Centro de IoT. Desde allí, haga clic en **Supervisión de operaciones**.
 
     ![][1]
 
@@ -46,7 +46,7 @@ Cada categoría de supervisión de operaciones realiza el seguimiento de un tipo
 
 ### Operaciones de identidad de dispositivos
 
-La categoría de operaciones de identidad de dispositivo supervisa los errores que se producen cuando el usuario intenta crear, actualizar o eliminar una entrada en el registro de la identidad del Centro de IoT. El seguimiento de esta categoría resulta útil para los escenarios de aprovisionamiento.
+La categoría de operaciones de identidad de dispositivo supervisa los errores que se producen cuando se intenta crear, actualizar o eliminar una entrada en el registro de la identidad del Centro de IoT. El seguimiento de esta categoría resulta útil para los escenarios de aprovisionamiento.
 
     {
         "time": "UTC timestamp",
@@ -57,13 +57,13 @@ La categoría de operaciones de identidad de dispositivo supervisa los errores q
          "statusDescription": "MessageDescription",
          "deviceId": "device-ID",
          "durationMs": 1234,
-         "userAgent": “userAgent”,
+         "userAgent": "userAgent",
          "sharedAccessPolicy": "accessPolicy"
     }
 
 ### Telemetría de dispositivo
 
-La categoría de telemetría del dispositivo realiza el seguimiento de los errores que se producen en el Centro de IoT y se relacionan con la canalización de telemetría. Esto incluye los errores que se producen al enviar eventos de telemetría (por ejemplo, la limitación) y recibir eventos de telemetría (por ejemplo, un lector no autorizado). Tenga en cuenta que esta categoría no puede detectar los errores causados por el código que se ejecuta en el propio dispositivo.
+La categoría de telemetría del dispositivo realiza el seguimiento de los errores que se producen en el Centro de IoT y se relacionan con la canalización de telemetría. Esta categoría incluye los errores que se producen al enviar eventos de telemetría (por ejemplo, la limitación) y recibir eventos de telemetría (por ejemplo, un lector no autorizado). Tenga en cuenta que esta categoría no puede detectar los errores causados por el código que se ejecuta en el propio dispositivo.
 
     {
          "messageSizeInBytes": 1234,
@@ -85,7 +85,7 @@ La categoría de telemetría del dispositivo realiza el seguimiento de los error
 
 ### Comandos de nube a dispositivo
 
-La categoría de comandos de nube a dispositivo realiza el seguimiento de los errores que se producen en el Centro de IoT y se relacionan con la canalización del comando de dispositivo. Esto incluye errores que se producen al enviar comandos (por ejemplo, un remitente no autorizado), recibir comandos (por ejemplo, el número de entregas superado) y recibir comentarios de comando (por ejemplo, comentarios caducados). Esta categoría no detecta errores de un dispositivo que trata incorrectamente un comando si el comando se ha entregado correctamente.
+La categoría de comandos de nube a dispositivo realiza el seguimiento de los errores que se producen en el Centro de IoT y se relacionan con la canalización del comando de dispositivo. Esta categoría incluye errores que se producen al enviar comandos (por ejemplo, un remitente no autorizado), recibir comandos (por ejemplo, el número de entregas superado) y recibir comentarios de comando (por ejemplo, comentarios caducados). Esta categoría no detecta errores de un dispositivo que trata incorrectamente un comando si el comando se ha entregado correctamente.
 
     {
          "messageSizeInBytes": 1234,
@@ -107,7 +107,7 @@ La categoría de comandos de nube a dispositivo realiza el seguimiento de los er
 
 ### Conexiones
 
-La categoría Conexiones supervisa los errores cuando los dispositivos se conectan o desconectan de un Centro de IoT. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
+La categoría Conexiones supervisa los errores que se producen cuando los dispositivos se conectan o desconectan de un Centro de IoT. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
 
     {
          "durationMs": 1234,
@@ -125,7 +125,7 @@ La categoría Conexiones supervisa los errores cuando los dispositivos se conect
 
 ### Cargas de archivos
 
-La categoría de carga de archivos supervisa los errores que se producen en el Centro de IoT y está relacionada con la funcionalidad de carga de archivos. Aquí se incluyen los errores que se producen con el URI de SAS (por ejemplo, cuando caduca antes de que un dispositivo notifique al centro una carga completada), las cargas con errores notificadas por el dispositivo y cuando un archivo no se encuentra en el almacenamiento durante la creación de mensajes de notificación del Centro de IoT. Tenga en cuenta que esta categoría no puede detectar los errores que se producen directamente mientras el dispositivo está cargando un archivo en el almacenamiento.
+La categoría de carga de archivos supervisa los errores que se producen en el Centro de IoT y está relacionada con la funcionalidad de carga de archivos. En esta categoría se incluyen los errores que se producen con el URI de SAS (por ejemplo, cuando caduca antes de que un dispositivo notifique al centro una carga completada), las cargas con errores notificadas por el dispositivo y cuando un archivo no se encuentra en el almacenamiento durante la creación de mensajes de notificación del Centro de IoT. Tenga en cuenta que esta categoría no puede detectar los errores que se producen directamente mientras el dispositivo está cargando un archivo en el almacenamiento.
 
     {
          "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
@@ -144,7 +144,7 @@ La categoría de carga de archivos supervisa los errores que se producen en el C
 
 ## Pasos siguientes
 
-Ahora que ha visto una visión general de la supervisión de operaciones, consulte [Configuración y administración del acceso al Centro de IoT][lnk-itpro] para obtener información adicional acerca de cómo administrar el Centro de IoT.
+Ahora que ha visto la información general de la supervisión de operaciones, consulte [Configuración y administración del acceso al Centro de IoT][lnk-itpro] para obtener información adicional acerca de cómo administrar el Centro de IoT.
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
@@ -169,4 +169,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

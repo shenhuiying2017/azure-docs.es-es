@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Configuración de aplicaciones web en el Servicio de aplicaciones de Azure #
@@ -188,4 +188,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

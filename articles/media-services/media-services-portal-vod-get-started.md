@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="08/18/2016"
 	ms.author="juliako"/>
 
 
 # Introducción a la entrega de contenido a petición mediante el Portal de Azure
+
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Servicios multimedia de Azure (AMS) mediante el Portal de Azure.
 
@@ -37,7 +39,7 @@ Este tutorial incluye las siguientes tareas:
 
 ## Creación de una cuenta de Servicios multimedia de Azure
 
-Los pasos de esta sección muestran cómo crear una nueva cuenta de AMS.
+Los pasos de esta sección muestran cómo crear una cuenta de AMS.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **+Nuevo** > **Medios + CDN** > **Servicios multimedia**.
@@ -52,7 +54,7 @@ Los pasos de esta sección muestran cómo crear una nueva cuenta de AMS.
 	2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
 	
 	2. En **Grupo de recursos** seleccione el recurso nuevo o uno ya existente. Un grupo de recursos es una colección de recursos que comparten los mismos ciclos de vida, permisos y directivas. Obtenga más información [aquí](resource-group-overview.md#resource-groups).
-	3. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Servicios multimedia. Esta región se utilizará para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable.
+	3. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Servicios multimedia. Esta región se utiliza para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable.
 	
 	3. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente en la misma región geográfica que la cuenta de Servicios multimedia o crear una nueva cuenta de almacenamiento. Se crea una nueva cuenta de almacenamiento en la misma región. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
 
@@ -87,14 +89,14 @@ Necesita el nombre de cuenta y la información de la clave principal para obtene
 
 Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) justo a tiempo sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos de streaming.
+Servicios multimedia proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) justo a tiempo sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos de streaming.
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
 - Cree al menos una unidad de streaming para el *punto de conexión de streaming* para el que planea entregar el contenido. Para cambiar el número de unidades de streaming, realice los siguientes pasos.
 
-Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
 Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
@@ -105,7 +107,7 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
 
 	Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO**.
 
-3. Para especificar el número de unidades de streaming, deslice el control deslizante **Unidades de streaming**.
+3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming**.
 
 	![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 
@@ -115,7 +117,7 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
 
 ## Carga de archivos
 
-Para transmitir vídeos mediante los Servicios multimedia de Azure, necesitará cargar los vídeos de origen, codificarlos en varias velocidades de bits y publicar el resultado. En esta sección se describe el primer paso.
+Para transmitir vídeos mediante los Servicios multimedia de Azure, necesita cargar los vídeos de origen, codificarlos en varias velocidades de bits y publicar el resultado. En esta sección se describe el primer paso.
 
 1. En la ventana **Configuración**, haga clic en **Activos**.
 
@@ -133,12 +135,11 @@ Para transmitir vídeos mediante los Servicios multimedia de Azure, necesitará 
 
 Una vez que la carga se haya completado, verá el nuevo recurso en la ventana **Activos**.
 
-
 ## Codificación de recursos
 
-Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). Para preparar vídeos para streaming con velocidad de bits adaptable, debe codificar el vídeo de origen en archivos de varias velocidades de bits. Debe utilizar el **Estándar de codificador multimedia** para codificar sus vídeos.
+Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). Para preparar vídeos para streaming con velocidad de bits adaptable, debe codificar el vídeo de origen en archivos de varias velocidades de bits. Debe utilizar el **Codificador multimedia estándar** para codificar sus vídeos.
 
-Servicios multimedia también proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits adaptable en los siguientes formatos de streaming: MPEG DASH, HLS, Smooth Streaming o HDS sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Servicios multimedia también proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS, Smooth Streaming o HDS sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
@@ -152,7 +153,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 1.  En la ventana **Configuración**, seleccione **Activos**.
 2.  En la ventana **Activos**, seleccione el recurso que desea codificar.
 3.  Presione el botón **Codificar**.
-4.  En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Estándar de codificador multimedia" y un valor predeterminado. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Para más información acerca de los valores predeterminados, consulte [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artículo: es importante seleccionar el valor predeterminado que resulta más adecuado para el vídeo de entrada. Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor predeterminado "H264 Multiple Bitrate 1080p".
+4.  En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Codificador multimedia estándar" y un valor predeterminado. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Para más información acerca de los valores predeterminados, consulte [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artículo: es importante seleccionar el valor predeterminado que resulta más adecuado para el vídeo de entrada. Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor predeterminado "H264 Multiple Bitrate 1080p".
 	
 	Para facilitar la administración, se puede editar el nombre del recurso de salida y el nombre del trabajo.
 		
@@ -192,7 +193,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 
 >[AZURE.NOTE] Si usó el portal para crear localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
 
-Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
 ### Uso del portal para publicar un recurso
 
@@ -206,7 +207,7 @@ Para usar el portal para publicar un recurso, haga lo siguiente:
 
 	![Publicar](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-La dirección URL se agregará a la lista de **direcciones URL publicadas**.
+La dirección URL se agrega a la lista de **direcciones URL publicadas**.
 
 ## contenido desde el portal
 
@@ -219,7 +220,7 @@ Haga clic en el vídeo deseado y, luego, en el botón **Reproducir**.
 Se aplican algunas consideraciones:
 
 - Asegúrese de que se ha publicado el vídeo.
-- El *Reproductor multimedia** reproduce desde el punto de conexión de streaming predeterminado. Si desea reproducir desde un punto de conexión de streaming que no esté predeterminado, haga clic para copiar la dirección URL y use otro reproductor. Por ejemplo, el [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- El **Reproductor multimedia** reproduce desde el punto de conexión de streaming predeterminado. Si desea reproducir desde un punto de conexión de streaming que no esté predeterminado, haga clic para copiar la dirección URL y use otro reproductor. Por ejemplo, el [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ##Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 
@@ -229,4 +230,4 @@ Se aplican algunas consideraciones:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0824_2016-->

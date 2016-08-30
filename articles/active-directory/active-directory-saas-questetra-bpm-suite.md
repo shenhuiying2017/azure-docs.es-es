@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 El objetivo de este tutorial es mostrar cómo integrar Questetra BPM Suite con Azure Active Directory (Azure AD). La integración de Questetra BPM Suite con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Questetra BPM Suite 
+- Puede controlar en Azure AD quién tiene acceso a Questetra BPM Suite
 - Puede permitir que los usuarios inicien sesión automáticamente en Questetra BPM Suite (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -32,7 +32,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Questetra BPM Suite, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Un inicio de sesión único de [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) en la suscripción habilitada
+- Una suscripción habilitada para el inicio de sesión único en [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/)
 
 
 > [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -41,13 +41,13 @@ Para configurar la integración de Azure AD con Questetra BPM Suite, necesita lo
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
-1. Incorporación de Questetra BPM Suite desde la galería 
+1. Incorporación de Questetra BPM Suite desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de Questetra BPM Suite en Azure AD, deberá agre
 
 **Para agregar Questetra BPM Suite desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -131,7 +131,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     c. En el sitio de la compañía **Questetra BPM Suite**, en la sección de información de SP, copie el valor de **ACS URL** (URL de ACS) y, a continuación, péguelo en el cuadro de texto **Reply URL** (URL de respuesta).
 
-    d. Haga clic en **Siguiente**.
+    d. Haga clic en **Next**.
 
  
 7. En la página **Configurar inicio de sesión único en Questetra BPM Suite**, haga clic en **Descargar certificado** y, después, guarde el archivo de certificado localmente en el equipo.
@@ -160,7 +160,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     g. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de validación**.
 
-    h. Haga clic en **Guardar**.
+    h. Haga clic en **Save**.
 
 
 9. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD][101]
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD][102]
 
@@ -238,8 +238,8 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 **Para crear un usuario llamado Britta Simon en Questetra BPM Suite, realice los pasos siguientes:**
 
 1.	Inicie sesión en el sitio de la compañía de Questetra BPM Suite como administrador.
-2.	Vaya a **System Settings > User List > New User** (Configuración del sistema > Lista de usuarios > Nuevo usuario). 
-3.	En el cuadro de diálogo Nuevo usuario, realice los pasos siguientes: 
+2.	Vaya a **System Settings > User List > New User** (Configuración del sistema > Lista de usuarios > Nuevo usuario).
+3.	En el cuadro de diálogo Nuevo usuario, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba][300]
 
@@ -332,4 +332,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

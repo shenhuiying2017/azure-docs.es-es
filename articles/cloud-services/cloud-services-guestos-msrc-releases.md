@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="07/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## SO invitado de agosto 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Actualización de seguridad acumulativa para Internet Explorer | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-097 | [3177393] | Actualización de seguridad para el componente de gráficos de Microsoft | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-098 | [3178466] | Actualización de seguridad para controladores de modo kernel de Windows | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-100 | [3179577] | Actualización de seguridad para Arranque seguro | 4\.35, 3.42 | 9 de agosto de 2016 |
+| MS16-101 | [3178465] | Actualización de seguridad para los métodos de autenticación de Windows | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-102 | [3182248] | Actualización de seguridad para Biblioteca de PDF de Microsoft Windows | 4\.35, 3.42 | 9 de agosto de 2016 |
+| Volver a publicar la versión MS16-077 | [3165191] | Actualización de seguridad para el proxy web de detección automática (WPAD) | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| | [3172605] | Paquete acumulativo de actualizaciones de julio de 2016 para Windows 7 SP1 y Windows Server 2008 R2 SP1 | 2\.54 | 9 de agosto de 2016 |
+| | [3172615] | Paquete acumulativo de actualizaciones de julio de 2016 de Windows Server 2012 | 3\.42 | 9 de agosto de 2016 |
+| | [3172614] | Paquete acumulativo de actualizaciones de julio de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 | 4\.35 | 9 de agosto de 2016 |
 
 ## SO invitado de julio 
 
@@ -335,6 +350,17 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
 
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
+
 [3169991]: http://support.microsoft.com/kb/3169991
 [3170005]: http://support.microsoft.com/kb/3170005
 [3170050]: http://support.microsoft.com/kb/3170050
@@ -576,4 +602,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

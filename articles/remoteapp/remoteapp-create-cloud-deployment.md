@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/15/2016" 
 	ms.author="elizapo"/>
 
 # Creación de una colección en la nube de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
 
@@ -54,7 +57,7 @@ Siga los pasos que se indican a continuación para crear una **colección de sol
 4. Seleccione el plan que quiere usar: Standard o Basic.
 5. Elija la plantilla que se usará para esta colección.
 
-	**Sugerencia:** la suscripción a RemoteApp incluye [imágenes de plantilla](remoteapp-images.md) incluidas en programas de Office 365 o de Office 2013 (con fines de prueba), algunos publicados (como Word) y otros listos para su publicación. También puede crear una [imagen](remoteapp-imageoptions.md) y usarla en su colección en la nube.
+	**Sugerencia:** la suscripción a RemoteApp incluye [imágenes de plantilla](remoteapp-images.md) incluidas en programas de Office 365 o de Office 2013 (con fines de prueba), algunos publicados (como Word) y otros listos para su publicación. También puede crear una [imagen](remoteapp-imageoptions.md) y usarla en su colección en la nube.
 
 
 1. Haga clic en **Crear colección de RemoteApp**.
@@ -69,7 +72,7 @@ Siga los pasos que se indican a continuación para crear una **colección en la 
 2. Haga clic en **Nuevo** > **Crear con red virtual**.
 3. Escriba un nombre para la colección.
 4. Seleccione el plan que quiere usar: Standard o Basic.
-5. Elija la red virtual que ya creó. ¿No sabe cómo hacerlo? Por ahora, los pasos se encuentran en el tema [Híbrida](remoteapp-create-hybrid-deployment.md).
+5. Elija la red virtual que ya creó. ¿No sabe cómo hacerlo? Por ahora, los pasos se encuentran en el tema [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md).
 6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto es lo que se trata más adelante en el **paso 2**.
 6. Haga clic en **Crear colección de RemoteApp**.
 
@@ -84,7 +87,7 @@ Una aplicación de Azure RemoteApp es la aplicación o el programa que proporcio
 
 Antes de que los usuarios puedan acceder a las aplicaciones, es necesario publicarlas; publicar aplicaciones permite que los usuarios accedan a ellas a través del cliente de Escritorio remoto.
  
-Puede publicar varias aplicaciones en su colección de Azure RemoteApp. En la página de publicación, haga clic en **Publicar** para agregar un programa. Puede publicar desde el menú **Inicio** de la imagen de plantilla o especificando la ruta de acceso en la imagen de plantilla para la aplicación. Si opta por agregar desde el menú **Inicio**, elija la aplicación para publicar. Si opta por proporcionar la ruta de acceso a la aplicación, proporcione un nombre para la aplicación y la ruta de acceso en la que se instaló en la imagen de la plantilla.
+Puede publicar varias aplicaciones en su colección de Azure RemoteApp. En la página de publicación, haga clic en **Publicar** para agregar un programa. Puede publicar desde el menú **Inicio** de la imagen de plantilla o especificando la ruta de acceso en la imagen de plantilla para la aplicación. Si opta por agregar desde el menú **Inicio**, elija la aplicación que publicar. Si opta por proporcionar la ruta de acceso a la aplicación, proporcione un nombre para la aplicación y la ruta de acceso en la que se instaló en la imagen de la plantilla.
 
 ## Paso 4: Configuración del acceso de usuarios ##
 
@@ -109,4 +112,4 @@ Eso es todo, creó e implementó correctamente su colección en la nube de Azure
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

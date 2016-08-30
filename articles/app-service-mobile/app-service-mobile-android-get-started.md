@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Creación de una aplicación de Android
@@ -32,7 +32,6 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la plataforma de Android más reciente.
 * El SDK de Android móvil de Azure, al que se hace automáticamente referencia como parte del proyecto de inicio rápido que puede descargar.
-* Un equipo con [Visual Studio Community 2013] o más reciente; no es necesario para un back-end de Node.js.
 * Una [cuenta de Azure activa](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Creación de un nuevo back-end de Aplicaciones móviles de Azure
@@ -54,4 +53,4 @@ Para completar este tutorial, necesitará lo siguiente:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

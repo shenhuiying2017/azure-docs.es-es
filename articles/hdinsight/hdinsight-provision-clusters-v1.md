@@ -51,7 +51,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes:
 	- **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight proporciona la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight en Linux**: HDInsight proporciona la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versión de HDInsight**
@@ -253,7 +253,7 @@ Puede revisar la sección [opciones de configuración básica] y la sección [op
 3. En la página **Detalles del clúster**, escriba o elija los valores siguientes:
 
 	- Cluster Name
-	- Subscription Name
+	- Nombre de la suscripción
 	- Tipo de clúster
 	- Sistema operativo
 	- Versión de HDInsight
@@ -304,7 +304,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight con Azure PowerShell:
 
-- Crear una cuenta de Almacenamiento de Azure
+- Creación de una cuenta de almacenamiento de Azure
 - Creación de un contenedor de blobs de Azure
 - Creación de un clúster de HDInsight
 
@@ -459,7 +459,7 @@ Las instrucciones que aparecen a continuación le guían en la instalación de l
 Realice los siguientes procedimientos para configurar un equipo con Linux para que use la interfaz de la línea de comandos de Azure (CLI de Azure):
 
 - Instalar la CLI de Azure mediante el uso del Administrador de paquetes de Node.js (NPM)
-- Conectarse a su suscripción de Azure
+- Conexión a su suscripción de Azure
 
 **Para instalar la CLI de Azure mediante NPM**
 
@@ -562,12 +562,12 @@ Antes de usar la interfaz de línea de comandos, debe configurar la conectividad
 
 Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight con la CLI de Azure:
 
-- Crear una cuenta de Almacenamiento de Azure
+- Creación de una cuenta de almacenamiento de Azure
 - Aprovisionamiento de un clúster
 
 **Para crear una cuenta de almacenamiento de Azure**
 
-HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure antes de crear un clúster de HDInsight. La cuenta de almacenamiento debe ubicarse en el mismo centro de datos.
+HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es necesario tener una cuenta de Almacenamiento de Azure antes de crear un clúster de HDInsight. La cuenta de almacenamiento debe ubicarse en el mismo centro de datos.
 
 - En la ventana del símbolo del sistema, ejecute el siguiente comando para crear una cuenta de almacenamiento de Azure:
 
@@ -815,4 +815,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

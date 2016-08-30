@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Tipos de punto de conexión del Administrador de tráfico | Microsoft Azure"
    description="En este artículo, se explican los diferentes tipos de puntos de conexión que pueden utilizarse con el Administrador de tráfico de Azure."
    services="traffic-manager"
@@ -6,7 +6,7 @@
    authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -41,7 +41,7 @@ Los puntos de conexión de Azure se utilizan para configurar servicios basados e
 
 - Servicios en la nube PaaS y máquinas virtuales IaaS clásicos
 - Aplicaciones web
-- Recursos de PublicIPAddress (que pueden conectarse a las máquinas virtuales directamente o a través de una instancia de Azure Load Balancer)
+- Recursos de PublicIPAddress (que pueden conectarse a las máquinas virtuales directamente o a través de una instancia de Azure Load Balancer). Tenga en cuenta que publicIpAddress debe tener un nombre DNS asignado para usarse en el Administrador de tráfico.
 
 Los recursos de PublicIPAddress son exclusivos de Azure Resource Manager y no están disponibles en las API de Administración del servicio de Azure. Por lo tanto, solo se pueden utilizar en este servicio del Administrador de tráfico. Los otros tipos de punto de conexión pueden emplearse a través de Administración del servicio y Azure Resource Manager en el Administrador de Tráfico.
 
@@ -98,13 +98,13 @@ Si se deshabilitan todos los puntos de conexión de un perfil, o si se deshabili
 ## P+F
 
 ### ¿Puedo usar el Administrador de tráfico con puntos de conexión de varias suscripciones?
-Para las aplicaciones web de Azure, esto no es posible. Esto se debe a que las aplicaciones web requieren que cualquier nombre de dominio personalizado usado con ellas se utilice solo en una sola suscripción. No es posible usar aplicaciones web de varias suscripciones con el mismo nombre de dominio y, por tanto, no pueden utilizarse con el Administrador de tráfico.
+Para las aplicaciones web de Azure, esto no es posible. Esto se debe a que las Aplicaciones web requieren que cualquier nombre de dominio personalizado usado con ellas se use solo en una sola suscripción. No es posible usar Aplicaciones web de varias suscripciones con el mismo nombre de dominio y, por tanto, no pueden utilizarse con el Administrador de tráfico.
 
 Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. Aunque la forma de hacerlo depende de si se utilizan las API de Administración del servicio o las de Azure Resource Manager del Administrador de tráfico. El [Portal de Azure](https://portal.azure.com) usa Resource Manager y el [portal 'clásico'](https://manage.windowsazure.com), administración de servicios.
 
-En Azure Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
 
-En Administración del servicio, el Administrador de tráfico precisa que todos los servicios en la nube o aplicaciones web configurados como puntos de conexión de Azure residan en la misma suscripción que el perfil del Administrador de tráfico. Pueden agregarse puntos de conexión de servicio en la nube de otras suscripciones al Administrador de tráfico como puntos de conexión externos (se seguirán facturando con la tarifa de los puntos de conexión internos).
+En Service Management, el Administrador de tráfico precisa que todos los servicios en la nube o aplicaciones web configurados como puntos de conexión de Azure residan en la misma suscripción que el perfil del Administrador de tráfico. Pueden agregarse puntos de conexión de servicio en la nube de otras suscripciones al Administrador de tráfico como puntos de conexión externos (se seguirán facturando con la tarifa de los puntos de conexión internos).
 
 ### ¿Puedo usar el Administrador de tráfico con ranuras de ensayo de servicio en la nube?
 Sí. Las ranuras de ensayo de servicio en la nube se pueden configurar en el Administrador de tráfico como puntos de conexión externos.
@@ -130,7 +130,7 @@ Normalmente, el Administrador de tráfico se utiliza para dirigir el tráfico a 
 En el caso de las aplicaciones web, los puntos de conexión de Azure del Administrador de tráfico no permiten que se agregue más de un punto de conexión de aplicación web de la misma región de Azure al mismo perfil del Administrador de tráfico. En los pasos siguientes se ofrece una solución alternativa a esta restricción:
 
 1.	Compruebe que las aplicaciones web de la misma región se encuentren en diferentes unidades de escalado de aplicación web; es decir, en distintas instancias del servicio de aplicaciones web. Para ello, compruebe la ruta DNS de la entrada DNS <...>.azurewebsites.net; la unidad de escalado deberá ser similar a esta: waws-prod-xyz-123.vip.azurewebsites.net. Debe asignar un nombre de dominio determinado a un único sitio de una unidad de escalado específica y, por este motivo, dos aplicaciones web de la misma unidad de escalado no pueden compartir un perfil del Administrador de tráfico.
-2.	Suponiendo que cada aplicación web está en una unidad de escalado diferente, agregue el nombre de dominio personal como nombre de host personalizado a cada una de las aplicaciones web. Para ello, todas las aplicaciones web deben pertenecer a la misma suscripción.
+2.	Suponiendo que cada aplicación web está en una unidad de escalado diferente, agregue el nombre de dominio personal como nombre de host personalizado a cada una de las aplicaciones web. Para ello, todas las Aplicaciones web deben pertenecer a la misma suscripción.
 3.	Agregue un solo punto de conexión de aplicación web de la misma forma que lo haría con el perfil del Administrador de tráfico; es decir, como punto de conexión de Azure.
 4.	Agregue cada punto de conexión de aplicación web adicional al perfil del Administrador de tráfico como punto de conexión externo. Para ello, hay que utilizar el servicio Azure Resource Manager del Administrador de tráfico en lugar de Administración del servicio.
 5.	Cree un registro CNAME de DNS para asignar el dominio personal (tal y como se utilizó en el paso 2 anterior) al nombre DNS del perfil del Administrador de tráfico (<…>.trafficmanager.net).
@@ -144,4 +144,4 @@ En el caso de las aplicaciones web, los puntos de conexión de Azure del Adminis
 
 - Conozca los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

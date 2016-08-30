@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Optimización del código de Azure
@@ -29,7 +29,7 @@ La herramienta de análisis de código de Azure usa la siguientes reglas para ma
 
 AP0000
 
-### Descripción
+### Description
 
 Si usa el modo de estado de sesión (en proceso) de forma predeterminada para las aplicaciones de nube, puede perder el estado de sesión.
 
@@ -51,7 +51,7 @@ Una solución recomendada es almacenar el estado de sesión en un servicio de ca
 
 AP1000
 
-### Descripción
+### Description
 
 Cree métodos asincrónicos (como [await](https://msdn.microsoft.com/library/hh156528.aspx)) fuera del método [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) y luego llame a los métodos asincrónicos desde [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx). Si se declara el método [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) como asincrónico, el rol de trabajo entra en un bucle de reinicio.
 
@@ -101,7 +101,7 @@ public async Task RunAsync()
 
 AP2000
 
-### Descripción
+### Description
 
 Use SAS (firma de acceso compartido) para la autenticación. El servicio de control de acceso (ACS) se está desusando para la autenticación de Bus de servicio.
 
@@ -121,13 +121,13 @@ SubscriptionClient sc = listenMF.CreateSubscriptionClient(topicPath, subscriptio
 BrokeredMessage receivedMessage = sc.Receive();
 ```
 
-Para obtener más información, consulte los temas siguientes.
+Para más información, consulte los temas siguientes.
 
 - Para obtener información general, consulte [Autenticación con firma de acceso compartido en Bus de servicio](https://msdn.microsoft.com/library/dn170477.aspx).
 
 - [Usar la autenticación con firma de acceso compartido con el Bus de servicio](https://msdn.microsoft.com/library/dn205161.aspx)
 
-- Para ver un proyecto de ejemplo, consulte [Uso de la autenticación con firma de acceso compartido (SAS) con suscripciones de Bus de servicio](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
+- Para ver un proyecto de ejemplo, consulte [Using Shared Access Signature (SAS) authentication with ServiceBus Subscriptions](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c) [Uso de la autenticación con firma de acceso compartido (SAS) con suscripciones de Bus de servicio]
 
 ## Considere usar el método OnMessage para evitar un "bucle de recepción"
 
@@ -135,7 +135,7 @@ Para obtener más información, consulte los temas siguientes.
 
 AP2002
 
-### Descripción
+### Description
 
 Para evitar entrar en un "bucle de recepción", la mejor solución para recibir mensajes es llamar al método **OnMessage** en lugar de llamar al método **Receive**. Sin embargo, si debe usar el método **Receive** y especifica un tiempo de espera del servidor no predeterminado, asegúrese de que el tiempo de espera del servidor es superior a un minuto.
 
@@ -243,7 +243,7 @@ while (true)
 
 AP2003
 
-### Descripción
+### Description
 
 Usar métodos asincrónicos de Bus de servicio para mejorar el rendimiento de la mensajería asíncrona.
 
@@ -265,7 +265,7 @@ Para mejorar el rendimiento de la infraestructura de mensajería de Azure, consu
 
 AP2004
 
-### Descripción
+### Description
 
 Partición de temas y colas de Bus de servicio para mejorar el rendimiento de la mensajería de Bus de servicio.
 
@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Para obtener más información, consulte [Temas y colas de Bus de servicio con particiones | Blog de Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) y consulte el ejemplo de [Cola con particiones de Bus de servicio de Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Para más información, consulte [Partitioned Service Bus Queues and Topics](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) (Temas y colas de Bus de servicio con particiones) del blog de Microsoft Azure y consulte el ejemplo de [Microsoft Azure Service Bus Partitioned Queue](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) (Cola con particiones de Bus de servicio de Microsoft Azure).
 
 ## No establezca SharedAccessStartTime
 
@@ -295,7 +295,7 @@ Para obtener más información, consulte [Temas y colas de Bus de servicio con p
 
 AP3001
 
-### Descripción
+### Description
 
 Debe evitar el uso de SharedAccessStartTime establecido en la hora actual para iniciar inmediatamente la directiva de acceso compartido. Solo es necesario establecer esta propiedad si quiere iniciar la directiva de acceso compartido en un momento posterior.
 
@@ -332,7 +332,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 
 AP3002
 
-### Descripción
+### Description
 
 Puede haber hasta cinco minutos de diferencia entre los relojes de los centros de datos en diferentes ubicaciones debido a una condición conocida como "desplazamiento del reloj". Para evitar que el token de la directiva de SAS expire antes de lo planeado, establezca el tiempo de expiración en un valor superior a cinco minutos.
 
@@ -387,7 +387,7 @@ Para obtener más información, consulte [Crear y usar una firma de acceso compa
 
 AP4000
 
-### Descripción
+### Description
 
 El uso de la clase [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) para proyectos como Sitio web de Azure y Servicios móviles de Azure no presentará problemas de tiempo de ejecución. Sin embargo, se recomienda usar Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) como una manera unificada de administración de configuraciones para todas las aplicaciones de nube de Azure.
 
@@ -429,7 +429,7 @@ Este es un ejemplo de cómo almacenar la configuración en un archivo App.config
 
 AP4001
 
-### Descripción
+### Description
 
 Si usa las cadenas de conexión codificadas de forma rígida y necesita actualizarlas más adelante, tendrá que realizar cambios en el código fuente y volver a compilar la aplicación. Sin embargo, si almacena las cadenas de conexión en un archivo de configuración, puede cambiarlas más adelante simplemente actualizando el archivo de configuración.
 
@@ -457,7 +457,7 @@ Para obtener información sobre el uso de archivos de configuración como web.co
 
 AP5000
 
-### Descripción
+### Description
 
 En lugar de configurar opciones de diagnóstico en el código como mediante la API de programación de Microsoft.WindowsAzure.Diagnostics, debe configurar las opciones de diagnóstico en el archivo diagnostics.wadcfg. (O bien, diagnostics.wadcfgx si usa Azure SDK 2.5). Al hacer eso, puede cambiar la configuración de diagnóstico sin tener que volver a compilar el código.
 
@@ -490,7 +490,7 @@ Use el diseñador de configuración de diagnósticos para mover la configuració
 
 AP6000
 
-### Descripción
+### Description
 
 Para ahorrar memoria, evite declarar objetos DBContext como estáticos.
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Para obtener más información sobre cómo optimizar y solucionar problemas de Aplicaciones de Azure, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

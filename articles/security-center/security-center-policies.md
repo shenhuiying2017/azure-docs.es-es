@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/24/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en el Centro de seguridad de Azure
@@ -22,11 +22,11 @@ Este documento le ayuda a configurar las directivas de seguridad en Security Cen
 ## ¿Qué son las directivas de seguridad?
 Una directiva de seguridad define el conjunto de controles recomendados para los recursos en la suscripción o el grupo de recursos especificados. En Security Center, el usuario define directivas para sus suscripciones o grupos de recursos de Azure de acuerdo con las necesidades de seguridad de la compañía y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
 
-Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan distintos requisitos de seguridad que los de aquellos que se emplean para aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como información de identificación personal (PII) requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en el Centro de seguridad de Azure tratarán las recomendaciones de seguridad y la supervisión para ayudarle a identificar posibles vulnerabilidades y mitigar las amenazas. Consulte [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) para más información sobre cómo decidir qué opción es la más adecuada.
+Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan distintos requisitos de seguridad que los de aquellos recursos que se emplean para aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como información de identificación personal (PII) requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en Azure Security Center tratarán las recomendaciones de seguridad y la supervisión para ayudarle a identificar posibles vulnerabilidades y mitigar las amenazas. Consulte [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) para más información sobre cómo decidir qué opción es la más adecuada.
 
 ## Configuración de directivas de seguridad para las suscripciones
 
-Las directivas de seguridad se pueden configurar para cada suscripción o grupo de recursos. Para modificar una directiva de seguridad, debe ser propietario o colaborador de la suscripción. Acceda al Portal de Azure y siga estos pasos para configurar directivas de seguridad en Security Center:
+Las directivas de seguridad se pueden configurar para cada suscripción o grupo de recursos. Para modificar una directiva de seguridad, debe ser propietario o colaborador de la suscripción. Acceda al Portal de Azure y siga los pasos descritos anteriormente para configurar directivas de seguridad en Security Center:
 
 1. Haga clic en el icono **Directiva** en el panel de Security Center.
 
@@ -34,19 +34,19 @@ Las directivas de seguridad se pueden configurar para cada suscripción o grupo 
 
     ![Definición de directiva](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-3. La hoja **Directiva de seguridad** de esa suscripción se abrirá con un conjunto de opciones similares a las siguientes:
+3. La hoja **Directiva de seguridad** de esa suscripción se abrirá con un conjunto de opciones similares a las que aparecen en la siguiente pantalla:
 
     ![Habilitación de la recopilación de datos](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
 4. Asegúrese de que la opción **Recopilar datos de máquinas virtuales** está **Activada**. Esta opción habilita la recopilación de inicio de sesión automático para recursos nuevos y existentes.
 
-    >[AZURE.NOTE] Es muy recomendable activar la recopilación de datos para cada una de las suscripciones, ya que esto garantizará la disponibilidad de la supervisión de seguridad para todas las máquinas virtuales nuevas y existentes. Al habilitar la recopilación de datos se instala el agente de supervisión. Si no desea activar la recopilación de datos ahora desde esta ubicación, puede hacerlo más tarde desde las vistas de estado y recomendaciones. También puede habilitar la recopilación de datos solo para la suscripción o para determinadas máquinas virtuales. Consulte las [preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) para más información sobre VM compatibles.
+    >[AZURE.NOTE] Es recomendable activar la recopilación de datos para cada una de las suscripciones para garantizar la disponibilidad de la supervisión de seguridad para todas las máquinas virtuales nuevas y existentes. Al habilitar la recopilación de datos se instala el agente de supervisión. Si no desea activar la recopilación de datos ahora desde esta ubicación, puede hacerlo más tarde desde las vistas de estado y recomendaciones. También puede habilitar la recopilación de datos solo para la suscripción o para determinadas máquinas virtuales. Consulte las [preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) para más información sobre VM compatibles.
 
-5. Si la cuenta de almacenamiento todavía no está configurada, puede ver una advertencia similar a la mostrada en la figura siguiente al abrir la **Directiva de seguridad**:
+5. Si la cuenta de almacenamiento todavía no está configurada, puede que aparezca una advertencia similar a la mostrada en la pantalla siguiente al abrir la **Directiva de seguridad**:
 
     ![Selección de almacenamiento](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. Si aparece esta advertencia, haga clic en esta opción y seleccione la región tal y como se muestra en la siguiente figura:
+6. Si aparece esta advertencia, haga clic en esta opción y seleccione la región tal y como se muestra en la siguiente pantalla:
 
     ![Selección de almacenamiento](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
@@ -56,7 +56,7 @@ Las directivas de seguridad se pueden configurar para cada suscripción o grupo 
 
     > [AZURE.NOTE] Si lo prefiere, puede agregar datos desde máquinas virtuales de varias regiones en una cuenta de almacenamiento central. Consulte las [preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) para más información.
 
-9. En la hoja **Directiva de seguridad**, haga clic en **Activado** para habilitar las recomendaciones de seguridad que desee usar en esta suscripción. Haga clic en la opción **Directiva de prevención**. Se abrirá la hoja **Directiva de seguridad** tal como se muestra a continuación.
+9. En la hoja **Directiva de seguridad**, haga clic en **Activado** para habilitar las recomendaciones de seguridad que desee usar en esta suscripción. Haga clic en la opción **Directiva de prevención**. Se abrirá la hoja **Directiva de seguridad** tal como se muestra en la siguiente pantalla:
 
 	![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
@@ -100,4 +100,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0824_2016-->

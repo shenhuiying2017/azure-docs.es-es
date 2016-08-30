@@ -56,7 +56,7 @@ Habilite Stretch Database.
 
 -   Para habilitar Stretch Database en otra **tabla** cuando Stretch ya está habilitado en la base de datos, consulte [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md).
 
-## Consulte también
+## Otras referencias
 
 [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md)
 
@@ -64,4 +64,6 @@ Habilite Stretch Database.
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+[Todos los temas del servicio SQL Server Stretch Database de Azure](sql-server-stretch-database-index-all-articles.md)
+
+<!---HONumber=AcomDC_0817_2016-->

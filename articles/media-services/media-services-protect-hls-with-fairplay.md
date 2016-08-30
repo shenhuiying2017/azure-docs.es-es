@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/15/2016"
 	ms.author="juliako"/>
 
 #Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay 
@@ -23,10 +23,6 @@ Servicios multimedia de Azure permite cifrar dinámicamente el contenido HTTP Li
 - **Clave sin cifrado AES-128 Envelope**: el fragmento completo se cifra mediante el modo **CBC AES-128**. El reproductor de OSX e iOS admite el descifrado de la transmisión de forma nativa. Para obtener más información, consulte [este artículo](media-services-protect-with-aes128.md).
 
 - **Apple FairPlay**: las muestras de audio y vídeo individuales se cifran mediante el modo **AES-128 CBC**. **FairPlay Streaming** (FPS) se integra en los sistemas operativos de dispositivos, con compatibilidad nativa en iOS y TV de Apple. Safari en OS X permite FPS mediante la compatibilidad con la interfaz Encrypted Media Extensions (EME).
-
-	>[AZURE.NOTE]
-	El uso de AMS para entregar HLS cifrado con FairPlay está actualmente en versión preliminar.
-
 
 La siguiente imagen muestra el flujo de trabajo de "cifrado dinámico de FairPlay".
 
@@ -40,7 +36,7 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 - Se necesita lo siguiente para usar AMS para proporcionar HLS cifrado con FairPlay y entregar licencias de FairPlay.
 
 	- Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
-	- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
+	- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte [Creación de una cuenta](media-services-create-account.md).
 	- Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
 	- En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay.
 
@@ -66,15 +62,15 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
 	- **Contraseña de certificación de aplicaciones**: contraseña del cliente para crear el archivo .pfx.
-	- **Identificador de contraseña de certificación de aplicaciones**: el cliente debe cargar la contraseña de forma similar a como carga otras claves de AMS y mediante el valor de enumeración **ContentKeyType.FairPlayPfxPassword**. En el resultado se obtendrá el identificador de AMS que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
+	- **Identificador de contraseña de certificación de aplicaciones**: el cliente debe cargar la contraseña de forma similar a otras claves de AMS y mediante el valor de enumeración **ContentKeyType.FairPlayPfxPassword**. Como resultado se obtendrá el identificador de AMS, que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
 	- **iv**: valor aleatorio de 16 bytes que debe coincidir con el IV de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
 	- **ASK**: la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante.
-	-  **Identificador de ASK**: se obtiene cuando el cliente carga ASK en AMS. El cliente debe cargar la ASk mediante el valor de enumeración **ContentKeyType.FairPlayASk**. Como resultado, obtendrá el identificador de AMS y este es el que debe utilizarse al establecer la opción de directiva de entrega de claves.
+	-  **Identificador de ASK**: se obtiene cuando el cliente carga ASk en AMS. El cliente debe cargar ASk mediante el valor de enumeración **ContentKeyType.FairPlayASk**. Como resultado, se obtiene el identificador de AMS, que debe utilizarse al establecer la opción de directiva de entrega de claves.
 
 - En el lado cliente FPS se debe establecer lo siguiente:
  	- **Certificación de aplicaciones (AC)**: archivo .cer o .der que contiene la clave pública que utiliza el SO para cifrar algunas cargas. AMS necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
 
-- Para reproducir una transmisión cifrada FairPlay, necesita obtener primero la ASK real y luego generar un certificado real. Ese proceso creará las 3 partes:
+- Para reproducir una transmisión cifrada FairPlay, necesita obtener primero la ASK real y luego generar un certificado real. Este proceso crea todas las tres partes:
 
 	-  .der,
 	-  .pfx y
@@ -94,7 +90,7 @@ Estos son los pasos generales que deberá realizar cuando proteja los recursos c
 	- Método de entrega (en este caso, FairPlay)
 	- Configuración de opciones de directiva de FairPlay. Para más detalles sobre cómo configurar FairPlay, consulte el método ConfigureFairPlayPolicyOptions() en el siguiente ejemplo.
 	
-		>[AZURE.NOTE] En la mayoría de los casos, lo más seguro es que desee configurar las opciones de directiva de FairPlay solo una vez, ya que solo tendrá un conjunto de certificados y una ASK.
+		>[AZURE.NOTE] En general, lo más seguro es que desee configurar las opciones de directiva de FairPlay solo una vez, ya que solo tendrá un conjunto de certificados y ASK.
 	- Restricciones (abiertas o token),
 	- Y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente.
 	
@@ -113,7 +109,7 @@ Estos son los pasos generales que deberá realizar cuando proteja los recursos c
 
 ##Uso de la entrega de la clave FairPlay de aplicaciones cliente/reproductor
 
-Los clientes podían desarrollar aplicaciones de reproductor con el SDK de iOS. Para poder reproducir el contenido de FairPlay, los clientes deben implementar el protocolo de intercambio de licencias. El protocolo de intercambio de licencias no lo especifica Apple. El envío de las solicitudes de entrega de claves depende de cada aplicación. Los servicios de entrega de claves de AMS FairPlay esperan que SPC funcione como mensaje de publicación codificado www-form-url con el formato siguiente:
+Los clientes podían desarrollar aplicaciones de reproductor con el SDK de iOS. Para poder reproducir el contenido de FairPlay, los clientes deben implementar el protocolo de intercambio de licencias. Apple no especifica el protocolo de intercambio de licencias. Depende de cada aplicación decidir cómo enviar las solicitudes de entrega de claves. Los servicios de entrega de claves de AMS FairPlay esperan que SPC funcione como mensaje de publicación codificado www-form-url con el formato siguiente:
 
 	spc=<Base64 encoded SPC>
 
@@ -128,7 +124,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 	PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
-1. Creación de un nuevo proyecto de consola
+1. Creación de un proyecto de consola.
 1. Use NuGet para instalar y agregar el SDK de Servicios multimedia de Azure para .NET.
 2. Agregue referencias adicionales: System.Configuration.
 2. Agregue el archivo de configuración que contiene el nombre de cuenta y la información de clave:
@@ -554,4 +550,4 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

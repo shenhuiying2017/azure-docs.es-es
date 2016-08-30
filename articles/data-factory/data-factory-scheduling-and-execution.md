@@ -203,14 +203,14 @@ Suponga que los datos de SQL Azure son los siguientes:
 
 Al implementar la canalización anterior, el blob de Azure se rellenará como sigue:
 
-1.	Archivo mypath/2015/1/1/8/Data.<Guid>.txt con datos 
+1.	Archivo mypath/2015/1/1/8/Data.<Guid>.txt con datos
 
 		10002345,334,2,2015-01-01 08:24:00.3130000
 		10002345,347,15,2015-01-01 08:24:00.6570000
 		10991568,2,7,2015-01-01 08:56:34.5300000
 
 	**Nota:** <Guid> se reemplazará con el guid real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	Archivo mypath/2015/1/1/9/Data.<Guid>.txt con datos
+2.	Archivo mypath/2015/1/1/9/Data.<Guid>.txt con datos:
 
 		10002345,334,1,2015-01-01 09:13:00.3900000
 		24379245,569,23,2015-01-01 09:25:00.3130000
@@ -224,11 +224,11 @@ El artículo [Creación de canalizaciones](data-factory-create-pipelines.md) int
  
 Puede establecer la fecha de inicio para el período activo de la canalización en el pasado y la factoría de datos calculará automáticamente (rellenará) todos los segmentos de datos en el pasado y comenzará a procesarlos.
 
-Con los segmentos de datos con el fondo relleno, es posible configurarlos para que se ejecuten en paralelo. Puede hacerlo estableciendo la propiedad [concurrency](data-factory-create-pipelines.md) en la sección **policy** del JSON de la actividad, tal como se muestra en el artículo **Canalizaciones y actividades en Data Factory de Azure**.
+Con los segmentos de datos con el fondo relleno, es posible configurarlos para que se ejecuten en paralelo. Puede hacerlo estableciendo la propiedad [concurrency](data-factory-create-pipelines.md) en la sección **policy** del JSON de la actividad, tal como se muestra en el artículo de **creación de canalizaciones**.
 
 ## Error al volver a ejecutar segmentos de datos y el seguimiento de dependencias de datos automático
 
-Puede supervisar la ejecución de los segmentos de manera visual enriquecida. Consulte [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) o [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para obtener más información.
+Puede supervisar la ejecución de los segmentos de manera visual enriquecida. Consulte **Supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) [Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para más información.
 
 Considere el ejemplo siguiente, que muestra dos actividades. Activity1 produce un conjunto de datos de series temporales con segmentos de salida que se han consumido como entrada por Activity2 para generar el conjunto de datos de series temporales de salida final.
 
@@ -239,7 +239,7 @@ Considere el ejemplo siguiente, que muestra dos actividades. Activity1 produce u
 El diagrama anterior muestra que en tres segmentos recientes se produjo un error al generar el segmento 9-10 AM para **Dataset2**. Factoría de datos realiza automáticamente un seguimiento de la dependencia para el conjunto de datos de series temporales y, como resultado, retiene el comienzo de la ejecución de la actividad para el segmento de nivel inferior de 9-10 AM.
 
 
-Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para obtener más información sobre cómo iniciar las repeticiones y entender las transiciones de estado para segmentos de datos, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) o [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para obtener más información.
+Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para más información sobre cómo iniciar las repeticiones y entender las transiciones de estado para segmentos de datos, consulte **Supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) [Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 Cuando haya iniciado la repetición de la ejecución y el segmento 9-10 AM para dataset2 esté preparado, la factoría de datos inicia la ejecución del segmento dependiente 9-10 AM en el conjunto de datos final, tal como se muestra en el diagrama siguiente.
 
@@ -282,8 +282,8 @@ ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos
 
 Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
 
-- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.   
-- ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
+- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.
+- ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.
 
 
 
@@ -382,7 +382,7 @@ El script de Hive recibe la información de fecha y hora adecuada como parámetr
 		                "scriptPath": "adftutorial\\hivequery.hql",
 		                "scriptLinkedService": "StorageLinkedService",
 		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
 		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
 		                }
@@ -534,7 +534,7 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+	            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
 	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
 	          }
@@ -557,7 +557,7 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 
 ## Funciones y variables del sistema de Data Factory   
 
-Consulte el artículo [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md) para obtener una lista de funciones y variables del sistema admitidas por Data Factory de Azure.
+Para conocer la lista de funciones y variables del sistema que admite Data Factory de Azure, consulte el artículo [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md).
 
 ## Profundización de la dependencia de datos
 
@@ -626,7 +626,7 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
 
 ## Canalización de una vez
-Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Consulte [Programación de actividades](#scheduling-and-execution) para obtener más información. También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
+Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution). También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -664,10 +664,10 @@ Puede crear y programar una canalización que se ejecute periódicamente (cada h
 
 Tenga en cuenta lo siguiente:
  
-- No tiene que especificar las horas de **inicio** y **finalización** de la canalización. 
-- En este momento, tiene que especificar la disponibilidad de los conjuntos de datos de entrada y salida (frecuencia e intervalo), aunque Data Factory no use los valores.  
-- La vista Diagrama no muestra las canalizaciones de una vez. Esto es así por diseño. 
-- Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra. 
+- No tiene que especificar las horas de **inicio** y **finalización** de la canalización.
+- En este momento, tiene que especificar la disponibilidad de los conjuntos de datos de entrada y salida (frecuencia e intervalo), aunque Data Factory no use los valores.
+- La vista Diagrama no muestra las canalizaciones de una vez. Esto es así por diseño.
+- Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
   
 
@@ -702,4 +702,4 @@ Tenga en cuenta lo siguiente:
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

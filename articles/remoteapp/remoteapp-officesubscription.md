@@ -13,14 +13,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Uso de la suscripción de Office 365 con Azure RemoteApp
 
-¿Sabía que puede usar tu suscripción de Office 365 existente en Azure RemoteApp para compartir aplicaciones de Office desde la nube? Siga leyendo para obtener información sobre las opciones de Office 365 + Azure RemoteApp, incluidos vínculos a artículos sobre Office 365 que le ayudarán a sacar el máximo partido de su suscripción.
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
+¿Sabía que puede usar tu suscripción de Office 365 existente en Azure RemoteApp para compartir aplicaciones de Office desde la nube? Siga leyendo para obtener información sobre las opciones de Office 365 + Azure RemoteApp, incluidos vínculos a artículos sobre Office 365 que lo ayudarán a sacar el máximo partido de su suscripción.
 
 ## ¿Cómo uso cuentas de Office 365 para Azure RemoteApp?
 Consulte el nuevo artículo de Peter para toda la información: [Cómo usar Azure RemoteApp con cuentas de usuario de Office 365](remoteapp-o365user.md)
@@ -52,7 +55,7 @@ Puede usar la suscripción de Office 365 ProPlus para compartir Office 2013 y Of
 
 ## ¿Qué sucede con Visio Pro o Project Pro?
 
-La imagen de Office 365 ProPlus incluida en su suscripción de RemoteApp incluye Visio Pro y Project Pro. Pero no puede usar su suscripción de Office 365 ProPlus para activar esos programas, cada uno tiene su propia licencia. Puede activarlos en el [portal de Office 365](https://portal.office365.com/).
+La imagen de Office 365 ProPlus incluida en su suscripción de RemoteApp incluye Visio Pro y Project Pro. Sin embargo, no puede usar su suscripción de Office 365 ProPlus para activar esos programas: cada uno tiene su propia licencia. Puede activarlos en el [portal de Office 365](https://portal.office365.com/).
 
 No necesita activar la licencia de estos programas si no desea usarlos. Solo active los programas que vaya a usar y omita los demás. Aunque los seguirá viendo e la imagen, no podrá usarlos.
 
@@ -97,7 +100,7 @@ Ahora, el archivo de configuración debe contener estas líneas:
 
 Hay muchas razones para actualizar la imagen en la colección. Estas son algunas:
 
-- Obtener las actualizaciones de Windows más recientes 
+- Obtener las actualizaciones de Windows más recientes
 - Obtener las actualizaciones de aplicaciones de Office 365 ProPlus más recientes
 - Actualizar la aplicación personalizada
 - Cambiar otras opciones de configuración en la propia imagen.
@@ -123,4 +126,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

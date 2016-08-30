@@ -46,7 +46,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### Notificaciones en los id\_tokens
 
-| Notificación de JWT | Nombre | Descripción |
+| Notificación de JWT | Nombre | Description |
 |-----------|------|-------------|
 | `appid`| Identificador de aplicación | Identifica la aplicación que usa el token para acceder a un recurso. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. <br><br> **Valor de JWT de ejemplo**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud`| Público | El destinatario previsto del token. La aplicación que recibe el token debe comprobar que el valor de la audiencia sea correcto y rechazar cualquier token destinado a una audiencia diferente. <br><br> **Valor de SAML de ejemplo**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de JWT de ejemplo**: <br> `"aud":"https://contoso.com"` |
@@ -110,6 +110,20 @@ La notificación `alg` indica el algoritmo que se usó para firmar el token, mie
 
 En cualquier momento, Azure AD puede firmar un id\_token mediante cualquiera de un determinado conjunto de pares de claves pública y privada. Azure AD rota los posibles conjuntos de claves de forma periódica, por lo que su aplicación debería estar escrita para manejar esos cambios de clave automáticamente. Una frecuencia razonable para comprobar las actualizaciones de las claves públicas usadas por Azure AD es cada 24 horas.
 
+Puedes adquirir los datos de las claves de firmas necesarios para validar la firma utilizando el documento de metadatos de OpenID Connect, ubicado en:
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] Pruebe esta dirección URL en un explorador.
+
+Este documento de metadatos es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes extremos necesarios para realizar la autenticación de OpenID Connect.
+
+También incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+
+La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarte a hacerlo si es necesario.
+
 #### Validación de las notificaciones
 
 Cuando tu aplicación recibe un id\_token al inicio de sesión del usuario, también tiene que realizar algunas comprobaciones de las notificaciones del id\_token. Estas incluyen, pero no se limitan a:
@@ -120,7 +134,7 @@ Cuando tu aplicación recibe un id\_token al inicio de sesión del usuario, tamb
   - El **Valor de seguridad**: para mitigar ataques de reproducción de tokens.
   - y mucho más...
 
-Para ver una lista completa de validaciones de notificación que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+Para ver una lista completa de las validaciones de notificación que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
 En la [sección id\_token](#id-tokens) situada arriba se incluyen los detalles de los valores esperados para estas notificaciones.
 
@@ -275,4 +289,4 @@ A continuación se muestra un ejemplo de token web JSON (JWT) típico que se usa
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 # Información general de desarrollo de Base de datos SQL
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Base de datos SQL de Azure.
 
 ## Plataforma y lenguaje
-Existen ejemplos de código para muchos lenguajes de programación y plataformas. Puede encontrar vínculos a los ejemplos de código en:
+Existen ejemplos de código para diferentes lenguajes de programación y plataformas. Puede encontrar vínculos a los ejemplos de código en:
 
 * Más información: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
@@ -37,12 +37,12 @@ Base de datos SQL de Azure proporciona recursos para limitar el acceso, proteger
 
 ## Autenticación
 * Base de datos SQL de Azure admite inicios de sesión y usuarios de autenticación de SQL Server, así como de [autenticación de Azure Active Directory](sql-database-aad-authentication.md).
-* Deberá especificar una base de datos concreta, en lugar de las bases de datos *maestra* predeterminada.
+* Debe especificar una base de datos concreta, en lugar de la base de datos *maestra* predeterminada.
 * No puede usar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL para cambiar a otra base de datos.
 * Más información: [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md)
 
 ## Resistencia
-Cuando se produce un error transitorio al conectar con Base de datos SQL, el código debe reintentar la llamada. Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará innecesariamente la Base de datos SQL con los reintentos de varios clientes a la vez.
+Cuando se produce un error transitorio al conectar con Base de datos SQL, el código debe reintentar la llamada. Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará la Base de datos SQL con los reintentos de varios clientes a la vez.
 
 * Ejemplos de código: puede ver ejemplos de código que ilustran la lógica de reintento en el lenguaje de su elección en: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 * Más información: [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md)
@@ -67,4 +67,4 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 
 Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

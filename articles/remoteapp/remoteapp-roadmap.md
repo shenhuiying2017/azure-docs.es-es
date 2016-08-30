@@ -12,23 +12,26 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="05/20/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Novedades de Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Siempre estamos trabajando para mejorar Azure RemoteApp basándonos en sus comentarios. A continuación presentamos los momentos en que se prevé la disponibilidad de futuras características.
 
 |Característica|Abril y junio de 2016|Julio y septiembre de 2016|
 |-----------|-------|-------|
-|Azure RemoteApp disponible tanto en el [Portal de Azure clásico](http://manage.windowsazure.com) como en el [Portal de Azure](https://portal.azure.com): versión preliminar privada|X | |
-|Capacidad para publicar aplicaciones individuales para usuarios específicos: versión preliminar privada ([comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
-|Paquete MSI redistribuíble del cliente Windows ([comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)): versión preliminar privada| X| |
-|Soporte técnico del Administrador de recursos de Azure (ARM)||X|
-|Compatibilidad con recursos de Azure v2| |X|
-|Proveedor de soluciones en la nube (CSP)||X|
-|Disponibilidad en la región de India||X|
-|Disponibilidad en la región del Reino Unido||X|
+|Azure RemoteApp disponible tanto en el [Portal de Azure clásico](http://manage.windowsazure.com) como en el [Portal de Azure](https://portal.azure.com): versión preliminar privada| | |
+|Capacidad para publicar aplicaciones individuales para usuarios específicos: versión preliminar privada ([comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))| | |
+|Paquete MSI redistribuible del cliente Windows ([comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)): versión preliminar privada| | |
+|Soporte técnico del Administrador de recursos de Azure (ARM)|||
+|Compatibilidad con recursos de Azure v2| ||
+|Proveedor de soluciones en la nube (CSP)|||
+|Disponibilidad en la región de India|||
+|Disponibilidad en la región del Reino Unido|||
 
 
 Otras mejoras agregadas anteriormente este año:
@@ -47,4 +50,4 @@ Otras mejoras agregadas anteriormente este año:
 - Disponibilidad en centros de datos australianos
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

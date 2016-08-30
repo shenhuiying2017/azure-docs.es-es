@@ -25,12 +25,13 @@ Estas son las diferencias entre usar **Importación** y **DirectQuery**.
 |Importación | DirectQuery
 |---|---
 |Las tablas, columnas *y datos* se importan o se copian en el conjunto de datos del informe. Para ver los cambios que se han producido en los datos subyacentes, debe actualizar o importar de nuevo un conjunto de datos actual completo.|Solo las *tablas y columnas* se importan o se copian en el conjunto de datos del informe. Siempre verá los datos más actuales.
+Con Power BI incrustado, en este momento se puede usar DirectQuery con orígenes de datos de nube, pero no en orígenes de datos locales.
 
 ## Ventajas del uso de DirectQuery
 
 Existen dos ventajas principales al usar **DirectQuery**:
 
-   -	**DirectQuery** le permite crear visualizaciones sobre conjuntos de datos muy grandes, cuando, de lo contrario, sería inviable importar por primera vez todos los datos.
+   -	**DirectQuery** le permite crear visualizaciones sobre conjuntos de datos muy grandes, cuando, de otro modo, sería inviable importar por primera vez todos los datos.
    -	Los cambios en los datos subyacentes pueden requerir una actualización de datos, y para algunos informes, la necesidad de mostrar los datos actuales puede requerir grandes transferencias de datos, haciendo inviable la reimportación de datos. Por el contrario, los informes de **DirectQuery** siempre usan datos actuales.
 
 ## Limitaciones de DirectQuery
@@ -52,4 +53,4 @@ Para asegurarse de que las consultas que se envían al origen de datos subyacent
 - [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

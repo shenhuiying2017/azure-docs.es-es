@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Introducción a las colas del Bus de servicio
@@ -111,9 +111,9 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
     }
     ```
   
-3. Ejecute el programa y compruebe el Portal de Azure clásico. Tenga en cuenta que el valor de **Longitud de la cola** debería ser ahora 1.
+3. Ejecute el programa y compruebe el Portal de Azure. Haga clic en el nombre de la cola en la hoja **Introducción** del espacio de nombres. Tenga en cuenta que el valor de **Recuento de mensajes activos** debe ser ahora 1.
     
-      ![Longitud de la cola][queue-length-send]
+      ![Recuento de mensajes][queue-message]
     
 ## 4\. Recepción de mensajes de la cola
 
@@ -173,7 +173,7 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
   
 4. Ejecute el programa y compruebe el portal. Tenga en cuenta que el valor de **Longitud de la cola** debería ser ahora 0.
 
-    ![Longitud de la cola][queue-length-receive]
+    ![Longitud de la cola][queue-message-receive]
   
 ¡Enhorabuena! Ha creado una cola, ha enviado un mensaje y ha recibido un mensaje.
 
@@ -184,12 +184,12 @@ Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure-S
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

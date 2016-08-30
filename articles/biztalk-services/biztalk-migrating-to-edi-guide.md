@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -60,7 +60,7 @@ Servicios de BizTalk proporciona una experiencia de configuración fácil de usa
 
 1. Se recibe un mensaje EDI del socio comercial, Fabrikam. Para recibir mensajes EDI de socios comerciales, los Servicios de BizTalk admiten protocolos de transporte como FTP, SFTP, AS2 y HTTP/S.
 
-2. El procesamiento del lado de recepción del contrato de socio comercial desensambla el mensaje EDI en formato XML. Puede enrutar el mensaje EDI desensamblado (en formato XML) a los extremos del Bus de servicio como un extremo de retransmisión de bus de servicio, tema de bus de servicio, cola de bus de servicio o un puente de Servicios de BizTalk.
+2. El procesamiento del lado de recepción del contrato de socio comercial desensambla el mensaje EDI en formato XML. Puede enrutar el mensaje EDI desensamblado (en formato XML) a los puntos de conexión del Bus de servicio como un punto de conexión de retransmisión de Bus de servicio, tema de Bus de servicio, cola de Bus de servicio o un puente de Servicios de BizTalk.
 
 3. Los mensajes XML desensamblados podrán recibirse entonces desde el extremo para efectuar un procesamiento más personalizado. Estos extremos podrán ser procesados por un componente local o una instancia de proceso de Microsoft Azure para procesar el mensaje en un servicio de flujo de trabajo de Windows (WF) o Windows Communication Foundation (WCF), por ejemplo.
 
@@ -76,7 +76,7 @@ En BizTalk Server se configuran ubicaciones de recepción y puertos de recepció
 
 En EDI de BizTalk Server, las canalizaciones son entidades de procesamiento de mensajes que también pueden incluir una lógica personalizada para capacidades de procesamiento específicas, tal como requiere la aplicación. Para los Servicios de BizTalk, el equivalente sería un puente EDI. Sin embargo, en Servicios de BizTalk, por ahora, los puentes EDI están "cerrados". Es decir, no puede agregar sus propias actividades personalizadas a un puente EDI. Cualquier procesamiento personalizado debe hacerse fuera el puente EDI en la aplicación, ya sea antes o después de que el mensaje acceda al puente configurado como parte del contrato de socio comercial. Los puentes EAI tienen la opción de hacer un procesamiento personalizado. Si desea efectuar el procesamiento personalizado, puede usar puentes EAI antes o después de que el mensaje sea procesado por el puente EDI. Para obtener más información, consulte [Cómo incluir código personalizado en puentes](https://msdn.microsoft.com/library/azure/dn232389.aspx).
 
-Puede insertar un flujo de publicación/suscripción con código personalizado y/o usar colas y temas de mensajería de bus de servicio antes de que el contrato de socio comercial reciba el mensaje, o después de que el acuerdo procese el mensaje y lo enrute a un extremo del Bus de servicio.
+Puede insertar un flujo de publicación/suscripción con código personalizado y/o usar colas y temas de mensajería de bus de servicio antes de que el contrato de socio comercial reciba el mensaje, o después de que el acuerdo procese el mensaje y lo enrute a un punto de conexión del Bus de servicio.
 
 Consulte **Escenarios y flujo de mensajes** en este tema para obtener el modelo de flujo de mensajes.
 
@@ -112,7 +112,7 @@ También puede ver un ejemplo realizado por Sandro Pereira, MVP de BizTalk, sobr
 
 Si necesita migrar a Microsoft Azure el procesamiento de la orquestación de BizTalk Server, las orquestaciones tendrían que reescribirse porque Microsoft Azure no admite la ejecución de las orquestaciones de BizTalk Server. Puede volver a escribir la funcionalidad de orquestación en un servicio de Windows Workflow Foundation 4.0 (WF4). Esto sería una reescritura completa, ya que no hay actualmente ninguna migración desde orquestaciones de BizTalk Server a WF4. Estos son algunos recursos para el flujo de trabajo de Windows:
 
-- [*Cómo integrar un servicio de flujo de trabajo de WCF con temas y colas de Bus de servicio*](https://msdn.microsoft.com/library/azure/hh709041.aspx), por Paolo Salvatori. 
+- [*Cómo integrar un servicio de flujo de trabajo de WCF con temas y colas de Bus de servicio*](https://msdn.microsoft.com/library/azure/hh709041.aspx), por Paolo Salvatori.
 
 - [*Generación de aplicaciones con una sesión de Windows Workflow Foundation y Azure* ](http://go.microsoft.com/fwlink/p/?LinkId=237314)desde la compilación 2011.
 
@@ -126,11 +126,11 @@ A continuación se facilitan algunas consideraciones que debe realizar durante e
 
 ### Contratos de reserva
 
-El procesamiento de EDI de BizTalk Server tiene el concepto de "contratos de reserva". Servicios de BizTalk **no** tiene un concepto de contrato de reserva hasta ahora. Vea los temas de la documentación de BizTalk [El rol de los contratos en el procesamiento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) y [Configuración de las propiedades del contrato global o de reserva](https://msdn.microsoft.com/library/bb245981.aspx) para información sobre cómo se usan los acuerdos de reserva en BizTalk Server.
+El procesamiento de EDI de BizTalk Server tiene el concepto de "contratos de reserva". Servicios de BizTalk **no** tiene un concepto de contrato de reserva hasta ahora. Consulte los temas de la documentación de BizTalk [El rol de los contratos en el procesamiento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) y [Configuración de las propiedades del contrato global o de reserva](https://msdn.microsoft.com/library/bb245981.aspx) para información sobre cómo se usan los acuerdos de reserva en BizTalk Server.
 
 ### Redirección a múltiples destinos
 
-Los puentes de Servicios de BizTalk, en su estado actual, no admiten enrutamiento de mensajes a varios destinos mediante un modelo publicación-suscripción. En su lugar se podrían enrutar mensajes de un puente de Servicios de BizTalk a un tema de Bus de servicio, que puede tener varias suscripciones para recibir el mensaje en más de un extremo.
+Los puentes de Servicios de BizTalk, en su estado actual, no admiten enrutamiento de mensajes a varios destinos mediante un modelo publicación-suscripción. En su lugar se podrían enrutar mensajes de un puente de Servicios de BizTalk a un tema de Bus de servicio, que puede tener varias suscripciones para recibir el mensaje en más de un punto de conexión.
 
 ## Conclusión
 
@@ -142,4 +142,4 @@ Servicios de BizTalk de Microsoft Azure se actualiza a intervalos regulares para
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores
@@ -29,7 +29,7 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 
     La siguiente tabla muestra las propiedades que están disponibles, pero son todas de solo lectura. Utilizar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) para cambiarlas.
 
-  	|Propiedad|Descripción|
+  	|Propiedad|Description|
   	|---|---|
   	|Nombre DNS|La dirección URL con la dirección de Internet de la máquina virtual.|
   	|Environment|En el caso de una máquina virtual, el valor de esta propiedad siempre es Production.|
@@ -46,11 +46,11 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
   	|---|---|
   	|Nombre|Un identificador para el extremo.|
   	|Private Port|El puerto del acceso de red interno de la aplicación.|
-  	|Protocolo|El protocolo que usa la capa de transporte para este extremo, TCP o UDP.|
+  	|Protocol|El protocolo que usa la capa de transporte para este extremo, TCP o UDP.|
   	|Public Port|El puerto que se usa para el acceso público a la aplicación.|
 
 ## Pasos siguientes
 
 Para obtener más información sobre los roles de Azure en Visual Studio, consulte [Uso de Escritorio de remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web Hello World para Azure en Eclipse
@@ -75,7 +75,7 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
    ![][04]
    
    Nota: Si tiene varias cuentas de Azure, puede que algunos de los avisos que aparecen durante el proceso de inicio de sesión se muestren más de una vez, incluso si parecen ser iguales. Cuando esto ocurra, siga la instrucciones de inicio de sesión.
-1. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Manage Subscriptions** (Administrar suscripciones) mostrará una lista de suscripciones que están asociados con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Close** (Cerrar).
+1. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Manage Subscriptions** (Administrar suscripciones) mostrará una lista de suscripciones que están asociados con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Cerrar**.
 
    ![][05]
    
@@ -187,7 +187,7 @@ Si la vista **Azure Explorer** (Explorador de Azure) no está ya abierta, puede 
 Cuando se muestre la vista **Azure Explorer** (Explorador de Azure), siga estos pasos para detener su aplicación web:
 
 1. Expanda el nodo **Azure**.
-2. Expanda el nodo **Aplicaciones web**. 
+2. Expanda el nodo **Aplicaciones web**.
 3. Haga clic en la aplicación web deseada.
 5. Cuando aparezca el menú contextual, haga clic en **Detener**. ![][13]
 
@@ -242,4 +242,4 @@ Para obtener más información sobre cómo crear aplicaciones web de Azure, cons
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

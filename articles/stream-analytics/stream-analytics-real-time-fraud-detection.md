@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok" />
 
 
@@ -37,7 +37,7 @@ En escenarios convencionales de Internet de las cosas (IoT) se genera gran canti
 ## Requisitos previos
 
 - Descargue [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft.
-- Opcional: código fuente del generador de eventos desde [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
+- Opcional: código fuente del generador de eventos desde [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## Creación de un Grupo de consumidores y una entrada de Centros de eventos de Azure
 
@@ -114,9 +114,9 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 4.	Escriba o seleccione los valores siguientes en la tercera página:
 
 	* **Alias de entrada**: escriba un nombre descriptivo para esta entrada del trabajo, como *CallStream*. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante.
-	* **Centro de eventos**: si el Centro de eventos que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el Centro de eventos.
+	* **Centro de eventos**: si el Centro de eventos que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 
-	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
+	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres Bus de servicio**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
 	* **Nombre de Centro de eventos**: seleccione el nombre del Centro de eventos.
 
@@ -155,7 +155,7 @@ Si desea archivar todos los eventos, puede usar una consulta de paso a través p
 	> Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que especificó anteriormente.
 
 3.	Haga clic en **Prueba** en el editor de consultas.
-4.	Proporcione un archivo de prueba, ya sea uno creado siguiendo los pasos anteriores o [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/SampleDataFiles/Telco.json).
 5.	Haga clic en el botón de comprobación y vea los resultados que aparecen debajo de la definición de consulta.
 
 	![Resultados de la definición de consulta](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sim-fraud-output.png)
@@ -232,7 +232,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 	* **Contenedor**: seleccione el nombre del contenedor
 	* **Prefijo de nombre de archivo**: escriba un prefijo de archivo que se usará al escribir la salida del blob
 
-4.	Haga clic con el botón secundario.
+4.	Haga clic con el botón derecho.
 5.	Especifique los siguientes valores:
 
 	* **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
@@ -249,7 +249,7 @@ Puesto que ya se han especificado la entrada, la consulta y la salida del trabaj
 
 ## Consulta de la salida de la detección de fraudes
 
-Use una herramienta como [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o [Explorador de Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver eventos fraudulentos a medida que se escriben en la salida en tiempo real.
+Use una herramienta como [Explorador de almacenamiento de Azure](http://storageexplorer.com/) o [Explorador de Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver eventos fraudulentos a medida que se escriben en la salida en tiempo real.
 
 ![Detección de fraudes: eventos fraudulentos vistos en tiempo real](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
@@ -264,4 +264,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

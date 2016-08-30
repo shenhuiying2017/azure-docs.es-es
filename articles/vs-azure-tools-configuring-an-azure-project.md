@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configuración de un proyecto de servicio en la nube de Azure con Visual Studio.
@@ -61,4 +61,4 @@ La ilustración siguiente muestra cómo seleccionar una configuración para usar
 
 Para obtener más información sobre de cómo configurar los proyectos de servicios en la nube de Azure en Visual Studio, vea [Configuración del proyecto de Azure con varias configuraciones de servicio](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

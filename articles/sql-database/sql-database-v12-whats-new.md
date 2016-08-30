@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -99,7 +99,7 @@ Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para ob
 ## Mejor compatibilidad para proveedores de SaaS en la nube
 
 
-Solo en V12, hemos lanzado el nuevo nivel de rendimiento estándar S3 y la versión preliminar pública de [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Se trata de una solución diseñada específicamente para proveedores de SaaS en la nube. Con grupos de bases de datos elásticas, puede:
+Solo en V12, hemos lanzado el nuevo nivel de rendimiento estándar S3 y la versión preliminar pública de [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Los grupos de bases de datos elásticas son una solución diseñada para proveedores de SaaS en la nube. Con grupos de bases de datos elásticas, puede:
 
 
 - Compartir DTU entre bases de datos para reducir costos cuando se tiene un gran número de bases de datos.
@@ -125,7 +125,7 @@ La seguridad es una cuestión prioritaria para cualquiera que dirija su negocio 
 ## Mayor continuidad del negocio cuando se necesita recuperación
 
 
-V12 ofrece una mejora significativa en lo que a objetivos de puntos de recuperación (RPO) y tiempos de recuperación estimados (ERT) se refiere:
+V12 ofrece una mejora en lo que a objetivos de puntos de recuperación (RPO) y tiempos de recuperación estimados (ERT) se refiere:
 
 
 | Característica de continuidad del negocio | Versión anterior | V12 |
@@ -143,7 +143,7 @@ Para obtener más información, consulte [Continuidad del negocio en Base de dat
 Hay muchas buenas razones por las que los clientes deberían actualizar ahora Base de datos SQL de Azure de la V11 a la V12:
 
 
-- V12 de Base de datos SQL presenta una larga lista de características que superan a las de la V11.
+- V12 de Base de datos SQL presenta una larga lista de características que van más allá de las características de la V11.
 - Seguimos agregando nuevas características a la V12, pero ya no vamos a agregar más características a la V11.
 - La mayoría de las características nuevas se lanzan en Base de datos SQL V12 antes que en Microsoft SQL Server.
 
@@ -183,4 +183,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

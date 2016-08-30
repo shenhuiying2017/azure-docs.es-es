@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -105,11 +105,13 @@ El mapa de contenido siguiente enumera los documentos que debe consultar para ob
 - [Compatibilidad con el acceso condicional de las aplicaciones](active-directory-conditional-access-supported-apps.md)
 
 
-### Directivas de dispositivo
+### Acceso condicional basado en dispositivos
 
 - [Establecer una directiva de acceso condicional basado en dispositivo para control de acceso a aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
 
 - [Configurar el registro automático de dispositivos unidos a dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Corrección de usuario al acceder a aplicaciones protegidas con acceso condicional basado en dispositivos de Azure AD](active-directory-conditional-access-device-remediation.md)
 
 - [Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
@@ -123,4 +125,4 @@ El mapa de contenido siguiente enumera los documentos que debe consultar para ob
 - [Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)
 - [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

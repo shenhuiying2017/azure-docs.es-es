@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
@@ -33,14 +33,14 @@ En este tema se explica cómo usar la CLI de Azure con plantillas de Resource Ma
 
 > [AZURE.TIP] Para obtener ayuda con la depuración de un error durante la implementación, consulte:
 >
-> - [Visualización de operaciones de implementación con la CLI de Azure](resource-manager-troubleshoot-deployments-cli.md) para obtener información que le ayudará a solucionar el error
+> - [Visualización de operaciones de implementación con la CLI de Azure](resource-manager-troubleshoot-deployments-cli.md) para obtener información que le ayude a solucionar el error
 > - [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
 
 La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
 ## Pasos rápidos para la implementación
 
-Este artículo describe todas las diferentes opciones disponibles durante la implementación. Sin embargo, muy a menudo necesitará solo dos comandos simples. Para empezar a trabajar rápidamente con la implementación, use los siguientes comandos:
+En este artículo se describen todas las diferentes opciones disponibles durante la implementación. Sin embargo, a menudo solo necesita dos sencillos comandos. Para empezar a trabajar rápidamente con la implementación, use los siguientes comandos:
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
@@ -53,7 +53,7 @@ Para obtener más información acerca de opciones de implementación que podría
 
 Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md).
 
-1. Inicie sesión en su cuenta de Azure. Después de proporcionar las credenciales, el comando devuelve el resultado del inicio de sesión.
+1. Inicio de sesión en la cuenta de Azure Después de proporcionar las credenciales, el comando devuelve el resultado del inicio de sesión.
 
         azure login
   
@@ -70,7 +70,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
    
         info:     New mode is arm
 
-4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
+4. Si no tiene un grupo de recursos existente, puede crear uno. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
 
         azure group create -n ExampleResourceGroup -l "West US"
    
@@ -90,7 +90,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Para crear una implementación nueva para el grupo de recursos, ejecute el siguiente comando y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
+5. Para implementar recursos en el grupo de recursos, ejecute el siguiente comando y proporcione los parámetros necesarios. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
    
      Tiene las siguientes tres opciones para proporcionar valores de parámetro:
 
@@ -106,7 +106,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     Una vez implementados los recursos a través de uno de los 3 métodos anteriores, verá un resumen de la implementación.
+     Una vez implementados los recursos mediante uno de los tres métodos anteriores, verá un resumen de la implementación.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -132,11 +132,11 @@ Puede agregar las plantillas a una cuenta de almacenamiento y establecer víncul
 
 Con los pasos siguientes se configura una cuenta de almacenamiento para plantillas:
 
-1. Cree un nuevo grupo de recursos.
+1. Cree un grupo de recursos.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Cree una cuenta de almacenamiento nueva. El nombre de la cuenta de almacenamiento debe ser único en Azure, así que indique su propio nombre para la cuenta.
+2. Cree una cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe ser único en Azure, así que indique su propio nombre para la cuenta.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
@@ -145,7 +145,7 @@ Con los pasos siguientes se configura una cuenta de almacenamiento para plantill
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Cree un contenedor nuevo. El permiso está establecido en **Desactivado**, lo que significa que el contenedor solo es accesible para el propietario.
+4. Cree un contenedor. El permiso está establecido en **Desactivado**, lo que significa que el contenedor solo es accesible para el propietario.
 
         azure storage container create --container templates -p Off 
         
@@ -176,4 +176,4 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -40,12 +40,12 @@ En primer lugar, empezaremos con la creación de un proyecto Java.
 
 *  Inicie Eclipse y, en el menú, haga clic en **Archivo**, **Nuevo** y **Dynamic Web Project**. (Si no ve **Dynamic Web Project** como proyecto disponible después de hacer clic en **Archivo**, **Nuevo**, a continuación lleve a cabo lo siguiente: haga clic en **Archivo**, **Nuevo** y **Proyecto**, expanda **Web**, y haga clic en **Dynamic Web Project** y **Siguiente**).
 *  Para los fines de este tutorial, asigne el nombre **MyHelloWorld** al proyecto. (Asegúrese de utilizar este nombre; los pasos posteriores de este historial esperan que su archivo WAR tenga el nombre MyHelloWorld). La pantalla se parecerá a la siguiente:
-	![][ic589576]
+    ![][ic589576]
 * Haga clic en **Finalizar**
 * En la vista del explorador de proyectos de Eclipse, expanda **MyHelloWorld**. Haga clic con el botón secundario en **WebContent**, luego haga clic en **Nuevo** y, a continuación, en **JSP File**.
 * En el cuadro de diálogo **Nuevo archivo JSP**, asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **MyHelloWorld/WebContent**, tal como aparece a continuación:
 
-	![][ic659262].
+    ![][ic659262]
 * En el cuadro de diálogo **Seleccionar plantilla JSP**, para este tutorial, seleccione **Nuevo archivo JSP (html)** y haga clic en **Finalizar**.
 * Cuando el archivo index.jsp se abra en Eclipse, agregue texto para que se muestre dinámicamente **Hola a todos** dentro del elemento `<body>` existente. Su contenido de `<body>` actualizado debería aparecer de la siguiente manera:
 ```
@@ -61,35 +61,28 @@ Tan pronto como tenga una aplicación web de Java lista para probar, puede usar 
 
 1. En el Explorador de proyectos de Eclipse, haga clic en **Hola a todos**.
 1. En la barra de herramientas de Eclipse, haga clic en el botón desplegable **Publish** (Publicar) y luego haga clic en **Publish As Azure Cloud Service** (Publicar como servicio en la nube de Azure).
-
-	![][publishDropdownButton]
-
+    ![][publishDropdownButton]
 1. Si va a publicar esta aplicación en Azure por primera vez y no ha creado un proyecto de implementación de Azure para esta aplicación antes, se creará un proyecto de implementación de Azure automáticamente. Debería ver el siguiente símbolo del sistema, que también incluye el paquete de JDK y el servidor de aplicaciones que se implementarán automáticamente para ejecutar la aplicación.
+    ![][ic789598]
 
-	![][ic789598]
-
-    Este enfoque abreviado le permite probar de forma rápida y fácil la aplicación en Azure sin tener que configurar un JDK o un servidor específicos que sean diferentes de los valores predeterminados. Si está satisfecho con los valores predeterminados, haga clic en **Aceptar** para continuar con los pasos siguientes. Sin embargo, si desea cambiar el JDK o el servidor de aplicaciones que se utilizará para la aplicación, puede hacerlo posteriormente editando el proyecto de implementación de Azure que se creó automáticamente para usted, o puede hacer clic en **Cancelar** ahora y leer la sección **Acerca de los proyectos de implementación de Azure** de este tutorial.
+    Este enfoque abreviado le permite probar de forma rápida y fácil la aplicación en Azure sin tener que configurar un JDK o un servidor específicos que sean diferentes de los valores predeterminados. Si está satisfecho con los valores predeterminados, haga clic en **Aceptar** para continuar con los pasos siguientes.
+    Sin embargo, si desea cambiar el JDK o el servidor de aplicaciones que se utilizará para la aplicación, puede hacerlo posteriormente editando el proyecto de implementación de Azure que se creó automáticamente para usted, o puede hacer clic en **Cancelar** ahora y leer la sección **Acerca de los proyectos de implementación de Azure** de este tutorial.
 1. En el cuadro de diálogo **Publicar en Azure**:
     1. Si no hay aún ninguna suscripción que seleccionar en la lista **Suscripción**, siga estos pasos para importar la información de suscripción:
         1. Haga clic en **Importar desde el archivo PUBLISH-SETTINGS**.
-        1. En el cuadro de diálogo **Importar información de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. A continuación, se le solicitará que guarde un archivo de configuración de publicación de Azure. Guárdelo en su equipo local.
-        1. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente en el paso anterior y, a continuación, haga clic en **Abrir**. La pantalla debe parecerse a la siguiente:  
-
-			![][ic644267].
-
+        1. En el cuadro de diálogo **Importar desde el archivo de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. A continuación, se le solicitará que guarde un archivo de configuración de publicación de Azure. Guárdelo en su equipo local.
+        1. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente en el paso anterior y luego haga clic en **Abrir**. La pantalla debe parecerse a la siguiente:
+            ![][ic644267].
         1. Haga clic en **Aceptar**.
-    1. En **Suscripción**, seleccione la suscripción que desee usar para la implementación.
+    1. En **Suscripción**, seleccione la suscripción que quiera usar para la implementación.
     1. Para **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento que desee utilizar o haga clic en **Nuevo** para crear una nueva cuenta de almacenamiento.
     1. Para **Nombre de servicio**, seleccione el servicio en la nube que desee usar o haga clic en **Nuevo** para crear un nuevo servicio en la nube.
     1. Para **SO de destino**, seleccione la versión del sistema operativo que desee usar para la implementación.
     1. Para **Entorno de destino**, para fines de este tutorial, seleccione **Ensayo**. (Cuando esté listo para implementar en su sitio de producción, cámbielo a **Producción**.)
-    1. Opcional: asegúrese de que la opción **Sobrescribir implementación anterior** esté activada si desea que la nueva implementación sobrescriba automáticamente la implementación anterior. Cuando habilite esta opción, no experimentará los problemas del "conflicto 409" cuando publique en la misma ubicación. Tenga en cuenta que el cuadro de diálogo **Publicar en Azure** contiene una sección para **acceso remoto**. El acceso remoto no está habilitado de forma remota y no lo habilitaremos para este ejemplo. Para habilitar el acceso remoto, debe especificar el nombre de usuario y la contraseña que se utilizarán al iniciar la sesión de forma remota. Para obtener más información acerca del acceso remoto, consulte [Habilitación del acceso remoto para implementaciones de Azure en Eclipse][]. El cuadro de diálogo **Publicar en Azure** tendrá un aspecto similar al siguiente:
-
-		![][ic719488]
-
+    1. Opcional: asegúrese de que la opción **Sobrescribir implementación anterior** esté activada si desea que la nueva implementación sobrescriba automáticamente la implementación anterior. Cuando habilite esta opción, no experimentará los problemas del "conflicto 409" cuando publique en la misma ubicación. Tenga en cuenta que el cuadro de diálogo **Publicar en Azure** contiene una sección para **acceso remoto**. El acceso remoto no está habilitado de forma remota y no lo habilitaremos para este ejemplo. Para habilitar el acceso remoto, debe especificar el nombre de usuario y la contraseña que se utilizarán al iniciar la sesión de forma remota. Para obtener más información acerca del acceso remoto, consulte [Habilitación del acceso remoto para implementaciones de Azure en Eclipse][]. El cuadro de diálogo **Publicar en Azure** tendrá un aspecto similar al siguiente: ![][ic719488]
 1. Haga clic en **Publicar** para publicar en el entorno de ensayo. Cuando se le solicite que realice una compilación completa, haga clic en **Sí**. La primera compilación puede tardar varios minutos en completarse. Se mostrará un **registro de actividad de Azure** en la sección de vistas por pestañas de Eclipse. ![][ic719489] Puede usar este registro, así como la vista de **consola** para ver el progreso de la implementación. Una alternativa es iniciar sesión en el [Portal de administración de Azure][] y usar la sección de **servicios en la nube** para supervisar el estado.
 1. Cuando la implementación se implementa correctamente, el **registro de actividad de Azure** mostrará el estado **Publicado**. Haga clic en **Publicado**, como se muestra en la siguiente imagen, y el explorador abrirá una instancia de la implementación.
-	![][ic719490]
+    ![][ic719490]
 
 Dado que se trata de una implementación en un entorno de ensayo, el nombre DNS tendrá el formato http://&lt;*guid*&gt;.cloudapp.net, y la dirección URL contendrá el nombre DNS con un sufijo para la aplicación. Por ejemplo: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (La parte **MyHelloWorld** distingue mayúsculas de minúsculas). También puede ver el nombre DNS si hace clic en el nombre de la implementación en el Portal de administración de plataforma de Azure (dentro de la parte de Servicios en la nube del Portal de administración).
 
@@ -142,8 +135,7 @@ Si ha creado un nuevo proyecto de implementación de Azure siguiendo los pasos d
 
 1. Examine los resultados de la interfaz de usuario del emulador de proceso para determinar si hay algún problema con el proyecto. Según el contenido de la implementación, su aplicación puede tardar un par de minutos en iniciarse al completo en el emulador de proceso.
 1. Inicie el explorador y use la dirección URL `http://localhost:8080/MyHelloWorld` como la dirección (la parte `MyHelloWorld` de la dirección URL distingue mayúsculas de minúsculas). La aplicación MyHelloWorld (la salida de index.jsp) debe ser similar a la siguiente imagen:
-
-	![][ic589579].
+    ![][ic589579].
 
 Cuando esté listo para detener la ejecución de la aplicación en el emulador de proceso, haga clic en el botón **Restablecer Emulador de Azure**, ![][ic710880] en la barra de herramientas de Eclipse.
 
@@ -153,7 +145,7 @@ Para eliminar la implementación en el kit de herramientas de Azure para Eclipse
 
 ![][ic719491]
 
-Seleccione el servicio en la nube y la suscripción que contienen la implementación, seleccione la implementación que desee eliminar y luego haga clic en **Anular publicación**.
+Seleccione el servicio en la nube y la suscripción que contienen la implementación, seleccione la implementación que quiera eliminar y luego haga clic en **Anular publicación**.
 
 (Una alternativa al uso del kit de herramientas para eliminar la implementación es usar la sección **Servicios en la nube** del Portal de administración de Azure: vaya a la implementación, selecciónela y luego haga clic en el botón **Eliminar**. Se detendrá el proceso y luego se eliminará la implementación. Si solo desea detener la implementación y no eliminarla, haga clic en el botón **Detener** en lugar de **Eliminar**, pero tal como se mencionó anteriormente, si no se elimina la implementación, se seguirán aplicando costos facturables para la implementación a pesar de que se haya detenido).
 
@@ -197,4 +189,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

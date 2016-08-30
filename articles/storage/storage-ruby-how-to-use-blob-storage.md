@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de blobs de Ruby
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Información general
 
@@ -33,7 +33,7 @@ En esta guía se muestra cómo realizar algunas tareas comunes con Almacenamient
 
 ## Creación de una aplicación de Ruby
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Cree una aplicación de Ruby. Para instrucciones, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuración de la aplicación para obtener acceso al almacenamiento
 
@@ -63,7 +63,7 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
-3. En la hoja Configuración de la derecha, haga clic en **Claves de acceso**.
+3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
 4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
@@ -157,4 +157,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

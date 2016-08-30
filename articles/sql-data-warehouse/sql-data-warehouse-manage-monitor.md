@@ -147,7 +147,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la consulta espera activamente recursos de otra consulta, el estado será **AcquireResources**. Si la consulta tiene todos los recursos necesarios, el estado será **Concedido**.
 
 ## Pasos siguientes
-Para obtener más información sobre las vistas de administración dinámica (DMV), consulte [Vistas de sistema][]. Para ver sugerencias sobre cómo administrar el Almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][]. Paras consultar procedimientos recomendados, lea el artículo [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
+Para obtener más información sobre las vistas de administración dinámica (DMV), consulte [Vistas de sistema][].  
+Para ver sugerencias sobre cómo administrar el Almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][].  
+Paras consultar procedimientos recomendados, lea el artículo [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 

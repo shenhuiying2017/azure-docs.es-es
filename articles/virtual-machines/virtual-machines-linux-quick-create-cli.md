@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
 
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual rodeada de una infraestructura básica que se puede usar para crear un prototipo o probar un concepto con gran rapidez (puede considerarse la forma más rápida de acceder a un shell de Bash de Linux). Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y haber iniciado sesión en [la CLI de Azure](../xplat-cli-install.md) (`azure login`) en modo de Resource Manager (`azure config mode arm`). También puede implementar rápidamente una máquina virtual Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual con una infraestructura básica que la rodea y que puede usar para crear un prototipo o hacer una prueba de concepto rápidamente. Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y haber iniciado sesión en [la CLI de Azure](../xplat-cli-install.md) (`azure login`) en modo de Resource Manager (`azure config mode arm`). También puede implementar rápidamente una máquina virtual Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumen rápido de comandos
 
@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Implementación de la máquina virtual con Linux
 
-Si se usa el mismo comando que arriba, a continuación se muestra cada aviso, junto con el resultado que cabría esperar, pero se utiliza el alias RHEL para crear una máquina virtual con Red Hat Enterprise Linux 7.2.
+Ahora vamos a explicar cada paso del comando usando Red Hat Enterprise Linux 7.2.
 
 ## Uso de un alias ImageURN
 
@@ -46,14 +46,13 @@ El comando `quick-create` de la CLI de Azure tiene alias asignados a las distrib
 | Debian | credativ | Debian | 8 | más reciente |
 | openSUSE | SUSE | openSUSE | 13\.2 | más reciente |
 | RHEL | Redhat | RHEL | 7,2 | más reciente |
-| SLES | SLES | SLES | 12-SP1 | más reciente |
 | UbuntuLTS | Canonical | UbuntuServer | 14\.04.4-LTS | más reciente |
 
 
 
-Para la opción **ImageURN** (`-Q`) utilizaremos `RHEL` para implementar una máquina virtual con Red Hat Enterprise Linux 7.2. (Estos siete alias representan una pequeña parte del sistema operativo disponible en Azure; [busque más imágenes](virtual-machines-linux-cli-ps-findimage.md) en Marketplace o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)).
+Para la opción **ImageURN** (`-Q`), vamos a usar `RHEL` para implementar una máquina virtual con Red Hat Enterprise Linux 7.2. Estos alias `quick-create` representan una mínima parte del sistema operativo disponible en Azure. Para encontrar más imágenes en Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md).
 
-En el siguiente tutorial de comandos, reemplace los avisos por valores de su propio entorno. Estamos usando valores de "ejemplo".
+En el siguiente tutorial de comandos, reemplace los mensajes por valores de su propio entorno.
 
 Siga las indicaciones y escriba sus propios nombres
 
@@ -147,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Ahora puede usar SSH en la máquina virtual en el puerto SSH 22 predeterminado y el nombre de dominio completo (FQDN) que aparece en la salida anterior (también se puede usar la dirección IP que aparece.)
+SSH en la máquina virtual en el puerto 22 y la dirección IP pública que aparece en la salida. (También se puede usar el FQDN que aparece).
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -165,12 +164,10 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Pasos siguientes
 
-El comando `azure vm quick-create` es la forma más rápida de implementar una máquina virtual para poder iniciar sesión en un shell de Bash y empezar a trabajar. `vm quick-create` no proporcionará las ventajas adicionales de un entorno complejo. Para implementar una máquina virtual de Linux personalizada para su infraestructura, puede seguir cualquiera de los artículos que se indican a continuación.
+El comando `azure vm quick-create` es la forma más rápida de implementar una máquina virtual para poder iniciar sesión en un shell de Bash y empezar a trabajar. `vm quick-create` no proporcionará las ventajas adicionales de un entorno complejo. Para implementar una máquina virtual Linux personalizada para su infraestructura, puede seguir cualquiera de estos artículos.
 
 - [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md)
 - [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md).
-- [Creación de una VM de Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

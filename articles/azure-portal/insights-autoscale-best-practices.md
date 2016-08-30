@@ -103,18 +103,19 @@ De forma similar, cuando el escalado automático regresa al perfil predeterminad
 Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Cuando se establecen varias reglas, los servicios usan el siguiente conjunto de reglas de escalado automático.
 
 Al *escalar horizontalmente*, el escalado automático se ejecutará si se cumple cualquier regla. Al *reducir horizontalmente*, el escalado automático necesitará que todas las reglas se cumplan.
- 
+
 Para ilustrar esto, imaginemos que tiene las siguientes 4 reglas de escalado automático:
- 
+
 - Si CPU < 30 %, reducir horizontalmente en 1
-- ​Si memoria < 50 %, reducir horizontalmente en 1
-- ​Si CPU> 75 %, escalarhorizontalmente en 1
-- ​Si memoria > 75 %, escalar horizontalmente en 1
+- Si memoria < 50 %, reducir horizontalmente en 1
+- Si CPU> 75 %, escalarhorizontalmente en 1
+- Si memoria > 75 %, escalar horizontalmente en 1
 
 Por tanto, sucederá lo siguiente:
+
 - Con una CPU del 76 % y una memoria del 50 %, se escalará horizontalmente.
 - Con una CPU del 50 % y una memoria del 76 %, se escalará horizontalmente.
- 
+
 Por otro lado, con una del 25 % y una memoria del 51 %, el escalado automático **no** reducirá horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
 
 ### Seleccione siempre un número predeterminado de instancias seguro
@@ -126,4 +127,4 @@ El escalado automático notifica a los administradores y a los colaboradores del
 - No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 - Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado. Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

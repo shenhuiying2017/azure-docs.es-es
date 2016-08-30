@@ -67,43 +67,7 @@ Antes de comenzar a desarrollar aplicaciones de Azure, obtenga las herramientas 
 
 Para comenzar a usar las características del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
-1.  Inicie sesión en el [Portal de Azure clásico][].
-
-2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
-
-3.  En el panel inferior del Portal, haga clic en **Crear**.
-
-    ![][5]
-
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][6]
-
-5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
-
-    > [AZURE.IMPORTANT] seleccione la *misma región* que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
-
-6.	Deje los demás campos del cuadro de diálogo con los valores predeterminados y luego haga clic en la casilla Aceptar. El sistema crea ahora el espacio de nombres y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-El espacio de nombres que creó aparecerá en el portal, aunque puede tardar un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
-
-## Obtención de credenciales de administración predeterminadas para el espacio de nombres
-
-Para realizar operaciones de administración en el nuevo espacio de nombres, como la creación de entidades de mensajería, debe obtener las credenciales para el espacio de nombres.
-
-1.  En la ventana principal, haga clic en el espacio de nombres que creó en el paso anterior.
-
-2.  En la parte inferior de la página, haga clic en **Información de conexión**.
-
-3.  En el panel **Información de conexión de acceso**, encuentre la cadena de conexión que contiene la clave SAS y el nombre de la clave.
-
-	![][45]
-
-4.  Copie la cadena de conexión y péguela en algún sitio para usarla más adelante en este tutorial.
-
-5. En la misma página del portal, haga clic en la pestaña **Configurar** en la parte superior de la página.
-
-6. Copie la clave principal para la directiva **RootManageSharedAccessKey** en el Portapapeles o péguela en el Bloc de notas. Usará este valor más adelante en el tutorial.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Creación de un servidor local
 
@@ -113,7 +77,7 @@ Este proyecto es una aplicación de consola de Visual Studio y emplea el [paquet
 
 ### Creación del proyecto
 
-1.  Inicie Microsoft Visual Studio con privilegios de administrador. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón derecho en el icono del programa **Visual Studio** y luego haga clic en **Ejecutar como administrador**.
+1.  Inicie Microsoft Visual Studio con privilegios de administrador. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón derecho en el icono del programa **Visual Studio** y haga clic en **Ejecutar como administrador**.
 
 2.  En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 
@@ -252,7 +216,7 @@ Este proyecto es una aplicación de consola de Visual Studio y emplea el [paquet
       </behaviors>
     </system.serviceModel>
     ```
-14. Aún en App.config, en el elemento **&lt;appSettings&gt;**, sustituya el valor de cadena de conexión por la cadena de conexión anteriormente obtenida en el portal. 
+14. Aún en App.config, en el elemento **&lt;appSettings&gt;**, sustituya el valor de cadena de conexión por la cadena de conexión anteriormente obtenida en el portal.
 
 	```
 	<appSettings>
@@ -319,7 +283,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
 
 2.  En el Explorador de soluciones, expanda la carpeta **Controladores** y luego haga doble clic en el archivo **HomeController.cs** para abrirlo en Visual Studio.
 
-3. En el archivo **HomeController.cs**, sustituya la definición de espacio de nombres existente por el código siguiente:
+3. En el archivo **HomeController.cs**, sustituya la definición de espacio de nombres existente por el código siguiente.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -503,7 +467,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
 3. En la columna izquierda, haga clic en **Web**.
 
-5. En la sección **Acción de inicio**, haga clic en el botón **Dirección URL de inicio** y, en el cuadro de texto, escriba la dirección URL de la aplicación anteriormente implementada, por ejemplo `http://productsportal1234567890.azurewebsites.net/`.
+5. En la sección **Acción de inicio**, haga clic en el botón **Dirección URL de inicio** y, en el cuadro de texto, escriba la dirección URL de la aplicación web anteriormente implementada, por ejemplo `http://productsportal1234567890.azurewebsites.net/`.
 
 	![][27]
 
@@ -513,7 +477,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
 ## Ejecución de la aplicación
 
-2.  Presione F5 para compilar y ejecutar la aplicación. Primero debe iniciarse el servidor local (la aplicación de consola **ProductsServer**) y luego la aplicación **ProductsPortal** en una ventana de explorador, tal como se muestra en la captura de pantalla siguiente. Observe de nuevo que el inventario de productos muestra los datos recuperados del sistema local del servicio de productos y muestra esos datos en la aplicación web. Compruebe la dirección URL para asegurarse de que **ProductsPortal** se ejecuta en la nube como una aplicación web de Azure. 
+2.  Presione F5 para compilar y ejecutar la aplicación. Primero debe iniciarse el servidor local (la aplicación de consola **ProductsServer**) y luego la aplicación **ProductsPortal** en una ventana de explorador, tal como se muestra en la captura de pantalla siguiente. Observe de nuevo que el inventario de productos muestra los datos recuperados del sistema local del servicio de productos y muestra esos datos en la aplicación web. Compruebe la dirección URL para asegurarse de que **ProductsPortal** se ejecuta en la nube como una aplicación web de Azure.
 
     ![][1]
 
@@ -529,8 +493,8 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:
 
-* [Bus de servicio de Azure][sbwacom]  
-* [Utilización de las colas del Bus de servicio][sbwacomqhowto]  
+* [Bus de servicio de Azure][sbwacom]
+* [Utilización de las colas del Bus de servicio][sbwacomqhowto]
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -538,11 +502,6 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [Obtener herramientas y SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Portal de Azure clásico]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -564,10 +523,9 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

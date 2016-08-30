@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -28,7 +28,7 @@ Azure HDInsight proporciona las ofertas de la nube de macrodatos en dos categor�
 
 >[AZURE.NOTE] Actualmente, la oferta HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Linux.
 
-| Característica de HDInsight Premium | Descripción |
+| Característica de HDInsight Premium | Description |
 |--------------|---------------|
 | Microsoft R Server (Preview) | Microsoft R Server es la plataforma de análisis empresarial que más se implementa para R escalable. El lenguaje R admite diversas estadísticas de macrodatos, modelado de predicción y capacidades de aprendizaje automático. Como parte de HDInsight Premium, ahora se puede crear un clúster de HDInsight con R Server listo para usarse con modelos y conjuntos de datos masivos. Esta nueva capacidad proporciona a los estadistas y científicos de datos una interfaz conocida de R que se puede escalar bajo demanda a través de HDInsight sin la sobrecarga de tener que mantener y configurar clústeres. <br> <br>Para obtener más información, consulte [Introducción a R Server en HDInsight](hdinsight-hadoop-r-server-get-started.md).
 
@@ -87,15 +87,15 @@ En la siguiente tabla se enumeran las versiones de HDInsight que está disponibl
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
 * Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure clásico. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) y en el SDK de .NET hasta la fecha de degradación.
 
-Versión de HDInsight|Versión de HDP|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure|Fecha de expiración del soporte técnico|Fecha de desuso
----|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Sí|29/03/2016|Sí||
-HDI 3.3|HDP 2.3|Sí|12/02/2015|Sí||
-HDI 3.2|HDP 2.2|Sí|18/02/2015|Sí||
-HDI 3,1|HDP 2,1|Sí|24/06/2014|Sí||
-HDI 3,0|HDP 2,0|Sí|11/02/2014|Sí|17/09/2014|30/06/2015
-HDI 2,1|HDP 1,3|Sí|28/10/2013|Sí|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1|No|28/10/2013|Sí|26/04/2014|31/05/2015
+Versión de HDInsight|Versión de HDP|SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure|Fecha de expiración del soporte técnico|Fecha de desuso
+---|---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Sí|29/03/2016|Sí||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sí|12/02/2015|Sí||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sí|18/02/2015|Sí||
+HDI 3,1|HDP 2,1|Windows Server 2012R2|Sí|24/06/2014|Sí||
+HDI 3,0|HDP 2,0|Windows Server 2012R2|Sí|11/02/2014|Sí|17/09/2014|30/06/2015
+HDI 2,1|HDP 1,3|Windows Server 2012R2|Sí|28/10/2013|Sí|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1||No|28/10/2013|Sí|26/04/2014|31/05/2015
 
 **Implementación de clústeres no predeterminados**
 
@@ -112,7 +112,7 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 ## Notas de la versión de HortonWorks asociadas con las versiones de HDInsight##
 
-* La versión 3.4 del clúster de HDInsight usa una distribución de Hadoop basada en [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+* La versión 3.4 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
 
 
 
@@ -156,4 +156,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

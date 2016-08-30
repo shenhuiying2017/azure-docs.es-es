@@ -42,17 +42,15 @@ Se admiten las siguientes conexiones entre locales:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute es una conexión directa a Azure desde la WAN, no a través de la red Internet pública. Si desea más información consulte la [ Información técnica de ExpressRoute ](../expressroute/expressroute-introduction.md) y [P+F de ExpressRoute](../expressroute/expressroute-faqs.md).
 
-Para más información sobre las conexiones entre locales, consulte [Acerca de la conectividad segura entre locales](vpn-gateway-cross-premises-options.md).
+Para más información acerca de las conexiones, consulte los [diagramas de conexión de Puerta de enlace de VPN](vpn-gateway-topology.md).
 
 ### ¿Cuál es la diferencia entre una conexión de sitio a sitio y una de punto a sitio?
 
-Las conexiones de **sitio a sitio** le permiten conectar cualquiera de los equipos ubicados en sus instalaciones locales con cualquier máquina virtual o instancia de rol dentro de la red virtual, dependiendo de cómo elija configurar el enrutamiento. Es ideal para una conexión entre locales que esté siempre disponible y una opción que se adapta bien a las configuraciones híbridas. Este tipo de conexión se basa en un dispositivo (de hardware o de software) VPN sobre IPsec, que se tiene que implementar en el perímetro de la red. Para crear este tipo de conexión, tendrá que tener el hardware de VPN necesario y una dirección IPv4 con orientación externa.
+Las conexiones de **sitio a sitio** le permiten conectar cualquiera de los equipos ubicados en sus instalaciones locales con cualquier máquina virtual o instancia de rol dentro de la red virtual, dependiendo de cómo elija configurar el enrutamiento. Es ideal para una conexión entre locales que esté siempre disponible y una opción que se adapta bien a las configuraciones híbridas. Este tipo de conexión se basa en un dispositivo (de hardware o de software) VPN sobre IPsec, que se tiene que implementar en el perímetro de la red. Para crear este tipo de conexión, debe tener el hardware de VPN necesario y una dirección IPv4 externa.
 
 Las conexiones de **punto a sitio** le permiten conectarse desde un único equipo y desde cualquier lugar con cualquier dispositivo ubicado en la red virtual. Usa el cliente VPN incluido en Windows. Como parte de la configuración de punto a sitio, instala un certificado y un paquete de configuración de cliente VPN, que contiene la configuración que permite al equipo conectarse a cualquier máquina virtual o instancia de rol dentro de la red virtual. Es ideal si desea conectarse a una red virtual pero no se encuentra en una ubicación local. También es una buena opción cuando no tenga acceso a un hardware VPN o una dirección IPv4 con orientación externa, ya que ambos son necesarios para una conexión de sitio a sitio.
 
 Puede configurar la red virtual para utilizar las conexiones de sitio a sitio y de punto a sitio simultáneamente, siempre que cree la conexión de sitio a sitio mediante un tipo de VPN basada en enrutamiento para la puerta de enlace. Los tipos de VPN basada en enrutamiento se denominan puertas de enlace dinámicas en el modelo de implementación clásico.
-
-Para más información, consulte [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
 ### ¿Qué es ExpressRoute?
 
@@ -184,7 +182,7 @@ Si está usando el Portal de Azure clásico, agregue cada uno de los intervalos 
 
 Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
-### ¿Puedo configurar mi propio servidor VPN en Azure y usarlo para conectar a mi propia red local?
+### ¿Puedo configurar mi propio servidor VPN en Azure y usarlo para conectar a mi red local?
 
 Sí, puede implementar sus propias puertas de enlace o servidores VPN en Azure bien desde Azure Marketplace o creando sus propios enrutadores VPN. Tendrá que configurar las rutas definidas por el usuario en la red virtual para asegurarse de que el tráfico se enruta correctamente entre las redes locales y las subredes de la red virtual.
 
@@ -227,7 +225,7 @@ Sí, las VPN de punto a sitio (P2S) se pueden usar con las puertas de enlace de 
 
 ### ¿Puedo configurar varios túneles entre mi red virtual y mi sitio local utilizando VPN multisitio?
 
-No, no se admite túneles redundantes entre una red virtual Azure y un sitio local.
+No, no se admiten túneles redundantes entre una red virtual de Azure y un sitio local.
 
 ### ¿Puede haber espacios de direcciones superpuestos entre las redes virtuales conectadas y los sitios locales?
 
@@ -283,4 +281,4 @@ Puede ver más información sobre las puertas de enlace de VPN en la [Página de
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

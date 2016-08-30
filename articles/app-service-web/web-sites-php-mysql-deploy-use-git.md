@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
@@ -49,7 +49,7 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 4. Escriba un nombre válido para el grupo de recursos.
 
-    ![Definición de un nombre de grupo de recursos][resource-group]
+    ![Establecer nombre de grupo de recurso][resource-group]
 
 5. Escriba valores para la nueva aplicación web.
 
@@ -70,7 +70,7 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
     ![Configuración de un repositorio Git][setup-repository]
 
 
-9. Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Tome nota de ambos. (Si ya ha configurado un repositorio de Git anteriormente, este paso se omitirá).
+9. Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Tome nota de ambos. (Si ya ha configurado un repositorio Git anteriormente, este paso se omitirá).
 
 	![Creación de credenciales de publicación][credentials]
 
@@ -89,7 +89,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 
 2. Anote los valores de `Database`, `Host`, `User Id` y `Password`.
 
-    ![Propiedades de las notas][note-properties]
+    ![Anotar propiedades][note-properties]
 
 ## Compilación y prueba local de la aplicación
 
@@ -211,7 +211,7 @@ Ahora puede dirigirse a **http://localhost:8000/** para probar la aplicación.
 
 ## Publicación de la aplicación
 
-Una vez que se haya probado la aplicación localmente, esta puede publicarse en Aplicaciones web mediante Git. Será necesario inicializar el repositorio de Git local y publicar la aplicación.
+Una vez que se haya probado la aplicación localmente, esta puede publicarse en Aplicaciones web mediante Git. Será necesario inicializar el repositorio Git local y publicar la aplicación.
 
 > [AZURE.NOTE]
 Estos son los mismos pasos que se muestran en el Portal de Azure al final de la sección Creación de una aplicación web y configuración de la publicación Git, más arriba.
@@ -319,4 +319,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

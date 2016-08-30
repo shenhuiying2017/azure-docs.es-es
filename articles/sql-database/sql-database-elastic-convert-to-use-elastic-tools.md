@@ -3,7 +3,7 @@
    description="Conversión de bases de datos particionadas para usar herramientas para bases de datos elásticas creando un administrador de mapas de particiones"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)
 
@@ -25,7 +25,7 @@ Para migrar una base de datos particionada existente:
 
 1. Prepare la [base de datos de Shard Map Manager](sql-database-elastic-scale-shard-map-management.md).
 2. Crear el mapa de particiones.
-3. Preparar las particiones individuales.  
+3. Preparar las particiones individuales.
 2. Agregue asignaciones al mapa de particiones.
 
 Estas técnicas pueden implementarse mediante la [biblioteca de cliente de .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o los scripts de PowerShell que se encuentran en [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas para bases de datos elásticas). Los ejemplos siguientes usan los scripts de PowerShell.
@@ -62,7 +62,7 @@ Después de la creación, puede recuperar el administrador de mapas de particion
 
 Debe seleccionar el tipo de mapa de particiones que desea crear. La elección depende de la arquitectura de base de datos:
 
-1. Un solo inquilino por base de datos (para ver los términos, consulte el [glosario](sql-database-elastic-scale-glossary.md)). 
+1. Un solo inquilino por base de datos (para ver los términos, consulte el [glosario](sql-database-elastic-scale-glossary.md)).
 2. Varios inquilinos por base de datos (dos tipos):
 	3. Asignación de lista
 	4. Asignación de intervalo
@@ -187,4 +187,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base 
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

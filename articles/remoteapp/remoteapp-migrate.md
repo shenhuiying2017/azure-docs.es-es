@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Procedimiento para migrar datos en Azure RemoteApp como origen y destino
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Puede usar muchos métodos y herramientas diferentes para transferir [datos de usuario](remoteapp-upd.md) en Azure RemoteApp como origen y destino. Estos son algunos métodos:
 
@@ -34,7 +37,7 @@ No se pueden habilitar los agentes de sincronización de OneDrive para la Empres
 
 La característica de copiar y pegar mediante el Portapapeles está habilitada [de forma predeterminada](remoteapp-redirection.md) en las implementaciones de RemoteApp. Gracias a esto, los usuarios pueden copiar archivos entre su equipo local y aplicaciones de RemoteApp. A menudo, durante el uso normal de las aplicaciones de RemoteApp, los usuarios guardan archivos en sus UPD, así que resulta sencillo mover los datos de RemoteApp:
 
-1. [Publique el Explorador de archivos como aplicación](remoteapp-publish.md) en una colección de RemoteApp (tenga en cuenta que se trata de una tarea administrativa).
+1. [Publique el Explorador de archivos como aplicación](remoteapp-publish.md) en una colección de RemoteApp. (tenga en cuenta que se trata de una tarea administrativa).
 2. Pídale a los usuarios que inicien la aplicación Explorador de archivos que publicó y que la utilicen para copiar y pegar archivos en su UPD como origen y destino.
 
 ## Carga de archivos y datos en un servidor de archivos mediante la copia de archivos de red estándar
@@ -55,4 +58,4 @@ Aunque no se puede habilitar el agente de sincronización de OneDrive para la Em
 
 Si ha habilitado la [redirección de unidades](remoteapp-redirection.md), ya ha creado una unidad asignada para los usuarios. En este caso, puede comprimir los archivos en la unidad redirigida y, después, guardarlos en su equipo local.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -35,7 +35,7 @@ Mediante Azure Resource Manager, puede crear e implementar plantillas que define
 
 ## Implementación de una plantilla con la extensión de VM de Docker:
 
-Vamos a usar una plantilla existente de inicio rápido para mostrar cómo implementar una máquina virtual de Ubuntu que tenga una extensión de máquina virtual de Docker instalada. Puede ver la plantilla aquí: [Implementación simple de una VM de Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu).
+Vamos a usar una plantilla existente de inicio rápido para mostrar cómo implementar una máquina virtual de Ubuntu que tenga una extensión de máquina virtual de Docker instalada. Puede ver la plantilla aquí: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) (Implementación simple de una máquina virtual de Ubuntu con Docker). También necesita la [versión más reciente de la CLI de Azure](../xplat-cli-install.md) en modo de Resource Manager (`azure config mode arm`).
 
 Implemente la plantilla con la CLI de Azure. Para ello, especifique un nombre para el nuevo grupo de recursos (aquí `myDockerResourceGroup`) junto con el identificador URI de la plantilla:
 
@@ -127,7 +127,7 @@ En este ejemplo se utiliza una plantilla de inicio rápido. Para implementar la 
 }
 ```
 
-Puede encontrar un tutorial más detallado sobre el uso de plantillas de Azure Resource Manager consultando [Información general de Azure Resource Manager](../resource-group-overview.md).
+Puede encontrar un tutorial más detallado sobre el uso de plantillas de Azure Resource Manager en [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 ## Pasos siguientes
 
@@ -135,7 +135,7 @@ Puede obtener más pasos detallados para las distintas opciones de implementaci�
 
 1. [Uso de una máquina de Docker con el controlador de Azure](./virtual-machines-linux-docker-machine.md)
 2. [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
-3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de varios contenedores en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md)
+3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

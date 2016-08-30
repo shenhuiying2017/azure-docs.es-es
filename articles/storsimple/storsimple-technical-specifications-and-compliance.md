@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -135,16 +135,16 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 ## Cumplimiento de normas internacionales
 El dispositivo de Microsoft Azure StorSimple cumple los estándares internacionales siguientes:
 
-- CE - EN 60950-1  
-- Informe de CB para CEI 60950-1  
-- UL y cUL para UL 60950-1  
+- CE - EN 60950-1
+- Informe de CB para CEI 60950-1
+- UL y cUL para UL 60950-1
 
 ## Cumplimiento de seguridad  
 
 El dispositivo de Microsoft Azure StorSimple cumple las clasificaciones de seguridad siguientes:
 
-- Homologación del tipo de producto de sistema: UL, cUL, CE  
-- Cumplimiento de seguridad: UL 60950, CEI 60950, EN 60950  
+- Homologación del tipo de producto de sistema: UL, cUL, CE
+- Cumplimiento de seguridad: UL 60950, CEI 60950, EN 60950
 
 ## Cumplimiento de normas de CEM 
 
@@ -154,8 +154,8 @@ El dispositivo de Microsoft Azure StorSimple cumple las siguientes clasificacion
 
 El dispositivo es compatible con las exigencias de CEM para los niveles de emisiones radiadas y conducidas.
 
-- Niveles límite de emisiones conducidas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A  
-- Niveles límite de emisiones radiadas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A   
+- Niveles límite de emisiones conducidas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
+- Niveles límite de emisiones radiadas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
 
 ### Armónicos y parpadeo  
 
@@ -191,4 +191,4 @@ Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cab
 
 Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para más información, vea [Implementar un dispositivo local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

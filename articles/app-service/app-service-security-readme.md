@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="08/16/2015"
 	ms.author="naziml"/>
 
 # Seguridad de Servicio de aplicaciones de Azure
@@ -22,6 +22,6 @@ Servicios de aplicaciones de Azure cumple con los estándares esenciales de segu
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-El Servicio de aplicaciones de Azure usa la misma solución antimalware que usan los Servicios en la nube de Azure y Máquinas virtuales. Para más información sobre esto consulte nuestra [documentación sobre antimalware](../azure-security-antimalware.md)
+El Servicio de aplicaciones de Azure usa la misma solución antimalware que usan los Servicios en la nube de Azure y Máquinas virtuales. Para más información al respecto, consulte nuestra [documentación sobre antimalware](../security/azure-security-antimalware.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

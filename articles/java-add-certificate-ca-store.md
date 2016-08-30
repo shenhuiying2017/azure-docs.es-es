@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
-Los siguientes pasos le muestran la manera de agregar un certificado de una entidad de certificación (CA) al almacén de certificados CA (cacert) de Java. El ejemplo hace referencia al certificado CA que es necesario utilizar con el servicio Twilio. La información que se proporciona en este tema describe la forma de instalar el certificado CA para el Bus de servicio de Azure.
+Los siguientes pasos le muestran la manera de agregar un certificado de una entidad de certificación (CA) al almacén de certificados CA (cacert) de Java. El ejemplo hace referencia al certificado CA que es necesario utilizar con el servicio Twilio. La información que se proporciona en este tema describe la forma de instalar el certificado de entidad de certificación para el Bus de servicio de Azure.
 
 Puede usar keytool para agregar el certificado de entidad de certificación antes de comprimir su JDK y agregarlo a la carpeta **approot** de su proyecto de Azure, o puede ejecutar una tarea de inicio de Azure que use keytool para agregar el certificado. En este ejemplo se asume que agregará un certificado CA antes de comprimir el JDK. Además, en este ejemplo se utiliza un certificado CA específico, pero los pasos necesarios para obtener un certificado CA diferente e importarlo al almacén de certificados CA serán similares.
 
@@ -56,4 +56,4 @@ Para obtener más información sobre los certificados raíz que usa Azure, consu
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

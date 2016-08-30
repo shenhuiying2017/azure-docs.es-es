@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Uso del Almacenamiento de tablas de Azure con Ruby
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Información general
 
@@ -60,7 +60,7 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
-3. En la hoja Configuración de la derecha, haga clic en **Claves de acceso**.
+3. En la hoja Configuración que se encuentra a la derecha, haga clic en **Claves de acceso**.
 4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
@@ -122,7 +122,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
 ## Consulta de una entidad
 
-Para consultar la entidad de una tabla, use el método **get\_entity()**, pasando el nombre de tabla, la **PartitionKey** y la **RowKey**.
+Para consultar la entidad de una tabla, use el método **get\_entity()**, pasando el nombre de tabla, **PartitionKey** y **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key",
 	  "1")
@@ -163,4 +163,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Preparación para publicar o implementar una aplicación de Azure desde Visual Studio
@@ -38,7 +38,7 @@ Para publicar un servicio en la nube en Azure, debe crear primero un servicio en
 
     ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-1. Si no ha iniciado sesión, inicie sesión con su nombre de usuario y contraseña para la cuenta Microsoft o la cuenta profesional asociada a su suscripción de Azure.
+1. Si no ha iniciado sesión, inicie sesión con su nombre de usuario y contraseña para la cuenta Microsoft o la cuenta de organización asociada a su suscripción de Azure.
 
 1. Elija el botón **Siguiente** para avanzar a la página **Configuración**.
 
@@ -116,11 +116,11 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 1. En las páginas de propiedades del rol, elija **Configuración**.
 
-1. En la lista **Configuración del servicio**, elija el nombre de la configuración del servicio que quiere editar. Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**. Para obtener más información acerca de cómo actualizar configuraciones del servicio, consulte la sección **Administrar cadenas de conexión para cuentas de almacenamiento** en el tema [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. En la lista **Configuración del servicio**, elija el nombre de la configuración del servicio que quiere editar. Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**. Para más información acerca de cómo actualizar configuraciones del servicio, consulte la sección **Administrar cadenas de conexión para cuentas de almacenamiento** en el tema [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 1. Para modificar cualquier configuración de la cadena de conexión, elija el botón **...** situado junto a la configuración. Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento**.
 
-1. En **Conectar usando**, elija la opción **Su suscripción**.
+1. En **Conectar utilizando**, elija la opción **Su suscripción**.
 
 1. En la lista de **Suscripción**, elija su suscripción. Si la lista de suscripciones no incluye la que desea, elija el vínculo **Descargar configuración de publicación**.
 
@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 Para obtener más información acerca de la publicación de aplicaciones en Azure desde Visual Studio, consulte [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

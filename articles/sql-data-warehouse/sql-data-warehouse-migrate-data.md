@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migración de los datos
@@ -22,7 +22,7 @@ Se pueden mover datos de distintos orígenes a Almacenamiento de datos SQL con d
 En este artículo se describen en primer lugar los escenarios sencillos de migración de Copia de ADF, SSIS y bcp. Luego ahonda algo más en cómo se puede optimizar la migración.
 
 ## Copia de Factoría de datos de Azure (ADF)
-[Copia de ADF][] forma parte de [Factoría de datos de Azure][]. Puede usar Copia de ADF para exportar los datos a archivos planos que se encuentran en el almacenamiento local, a archivos planos remotos que se mantienen en el almacenamiento de blobs de Azure o directamente a Almacenamiento de datos SQL.
+[Copia de ADF][] forma parte de [Data Factory de Azure][]. Puede usar Copia de ADF para exportar los datos a archivos planos que se encuentran en el almacenamiento local, a archivos planos remotos que se mantienen en el almacenamiento de blobs de Azure o directamente a Almacenamiento de datos SQL.
 
 Si los datos comienzan en archivos planos, tendrá que transferirlos primero al almacenamiento de blobs de Azure antes de iniciar su carga en Almacenamiento de datos SQL. Una vez que se transfieren los datos al almacenamiento de blobs de Azure puede volver a usar [Copia de ADF][] para insertar los datos en Almacenamiento de datos SQL.
 
@@ -30,7 +30,7 @@ PolyBase ofrece también una opción de muy alto rendimiento para cargar los dat
 
 > [AZURE.NOTE] PolyBase requiere que los archivos de datos estén en UTF-8. Se trata de la codificación predeterminada de la Copia de ADF, por lo que no es necesario cambiar nada. Esto es solo un aviso para que no cambie el comportamiento predeterminado de Copia de ADF.
 
-Vaya al siguiente artículo para ver algunos excelentes [ejemplos de Copia de ADF][].
+Vaya al siguiente artículo para ver algunos excelentes [ejemplos de ADF][].
 
 ## Servicios de integración ##
 Integration Services (SSIS) es una herramienta eficaz y flexible de extracción, transformación y carga de datos (ETL) que admite varias opciones de carga de datos, flujos de trabajo complejos y transformación de datos. Use SSIS para transferir simplemente datos a Azure o como parte de una migración más amplia.
@@ -173,9 +173,9 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[Copia de ADF]: ../data-factory/data-factory-copy-activity.md
-[ejemplos de Copia de ADF]: ../data-factory/data-factory-copy-activity-examples.md
-[información general sobre desarrollo]: sql-data-warehouse-develop-overview.md
+[ejemplos de ADF]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 [Migración de la solución a Almacenamiento de datos SQL]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Uso de bcp para cargar datos en Almacenamiento de datos SQL]: sql-data-warehouse-load-with-bcp.md
@@ -185,7 +185,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Factoría de datos de Azure]: http://azure.microsoft.com/services/data-factory/
+[Data Factory de Azure]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
@@ -194,4 +194,4 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

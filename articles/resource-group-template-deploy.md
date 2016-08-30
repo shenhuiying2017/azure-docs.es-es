@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
@@ -34,14 +34,14 @@ En este tema se explica cómo usar Azure PowerShell con plantillas de Resource M
 
 > [AZURE.TIP] Para obtener ayuda con la depuración de un error durante la implementación, consulte:
 >
-> - [Visualización de operaciones de implementación con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para obtener información que le ayudará a solucionar el error
+> - [Visualización de operaciones de implementación con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para obtener información que le ayude a solucionar el error
 > - [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
 
 La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
 ## Pasos rápidos para la implementación
 
-Este artículo describe todas las diferentes opciones disponibles durante la implementación. Sin embargo, muy a menudo necesitará solo dos comandos simples. Para empezar a trabajar rápidamente con la implementación, use los siguientes comandos:
+En este artículo se describen todas las diferentes opciones disponibles durante la implementación. Sin embargo, a menudo solo necesita dos sencillos comandos. Para empezar a trabajar rápidamente con la implementación, use los siguientes comandos:
 
     New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
     New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
@@ -52,7 +52,7 @@ Para obtener más información acerca de opciones de implementación que podría
 
 ## Implementación con PowerShell
 
-1. Inicie sesión en su cuenta de Azure.
+1. Inicio de sesión en la cuenta de Azure
 
         Add-AzureRmAccount
 
@@ -66,9 +66,9 @@ Para obtener más información acerca de opciones de implementación que podría
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. Normalmente, al implementar una nueva plantilla, deberá crear un nuevo grupo de recursos para contener los recursos. Si ya tiene un grupo de recursos en el que desea realizar la implementación, puede omitir este paso y simplemente usar ese grupo de recursos.
+3. Normalmente, al implementar una nueva plantilla, desea crear un grupo de recursos para contener los recursos. Si ya tiene un grupo de recursos en el que desea realizar la implementación, puede omitir este paso y simplemente usar ese grupo de recursos.
 
-     Para crear un nuevo grupo de recursos, proporcione un nombre y una ubicación para el grupo de recursos.
+     Para crear un grupo de recursos, proporcione un nombre y una ubicación para el grupo de recursos.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -88,7 +88,7 @@ Para obtener más información acerca de opciones de implementación que podría
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. Si no se especifica el parámetro **Mode**, se usa el valor predeterminado **Incremental**. Para ejecutar una implementación completa, establezca el **Modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
+5. Para implementar recursos en el grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. Si no se especifica el parámetro **Mode**, se usa el valor predeterminado **Incremental**. Para ejecutar una implementación completa, establezca el **Modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
 
      Para implementar una plantilla local, use el parámetro **TemplateFile**:
 
@@ -117,6 +117,8 @@ Para obtener más información acerca de opciones de implementación que podría
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
 
+        Cuando se utiliza un archivo de parámetros externo, no se pueden pasar otros valores ya sea en línea o desde un archivo local. Para más información, consulte [Prioridad de parámetros](#parameter-precendence).
+
      Una vez implementados los recursos, verá un resumen de la implementación.
 
         DeploymentName    : ExampleDeployment
@@ -126,13 +128,13 @@ Para obtener más información acerca de opciones de implementación que podría
         Mode              : Incremental
         ...
 
-     Si la plantilla incluye un parámetro con un nombre que coincide con el de uno de los parámetros del comando usado para implementar la plantilla (como cuando incluye un parámetro denominado **ResourceGroupName** en la plantilla y este es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
+     Si la plantilla incluye un parámetro con el mismo nombre que uno de los parámetros en el comando de PowerShell para implementar la plantilla, se le pedirá que proporcione un valor para ese parámetro con el sufijo **FromTemplate**. Por ejemplo, un parámetro denominado **ResourceGroupName** de su plantilla entra en conflicto con el parámetro **ResourceGroupName** del cmdlet [AzureRmResourceGroupDeployment nuevo](https://msdn.microsoft.com/library/azure/mt679003.aspx). Se le pedirá que proporcione un valor para **ResourceGroupNameFromTemplate**. Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
 
 6. Si desea registrar más información sobre la implementación que pueda ayudarle a solucionar los errores de implementación, use el parámetro **DeploymentDebugLogLevel**. Puede especificar que se registren el contenido de la solicitud y el de la respuesta, o ambos, con la operación de implementación.
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     Para más información sobre cómo usar este contenido de depuración para solucionar problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     Para más información sobre cómo usar este contenido de depuración a fin de solucionar problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
 ## Implementación de plantilla desde el almacenamiento con token de SAS
 
@@ -144,11 +146,11 @@ Puede agregar las plantillas a una cuenta de almacenamiento y establecer víncul
 
 Con los pasos siguientes se configura una cuenta de almacenamiento para plantillas:
 
-1. Cree un nuevo grupo de recursos.
+1. Cree un grupo de recursos.
 
         New-AzureRmResourceGroup -Name ManageGroup -Location "West US"
 
-2. Cree una cuenta de almacenamiento nueva. El nombre de la cuenta de almacenamiento debe ser único en Azure, así que indique su propio nombre para la cuenta.
+2. Cree una cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe ser único en Azure, así que indique su propio nombre para la cuenta.
 
         New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates -Type Standard_LRS -Location "West US"
 
@@ -156,7 +158,7 @@ Con los pasos siguientes se configura una cuenta de almacenamiento para plantill
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Cree un contenedor nuevo. El permiso está establecido en **Desactivado**, lo que significa que el contenedor solo es accesible para el propietario.
+4. Cree un contenedor. El permiso está establecido en **Desactivado**, lo que significa que el contenedor solo es accesible para el propietario.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -184,10 +186,17 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## Pasos siguientes
-- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
-- Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
-- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
-- Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+## Prioridad de parámetros
 
-<!---HONumber=AcomDC_0720_2016-->
+Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
+
+Sin embargo, no puede utilizar parámetros en línea con un archivo de parámetros externo. Cuando se especifica un archivo de parámetros en el parámetro **TemplateParameterUri**, se omiten todos los parámetros en línea. Debe proporcionar todos los valores de parámetro en el archivo externo. Si la plantilla incluye un valor confidencial que no puede incluir en el archivo de parámetros, agregue ese valor a un almacén de claves y haga referencia al almacén en el archivo de parámetros externo o proporcione dinámicamente todos los valores de parámetro en línea.
+
+Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+
+## Pasos siguientes
+- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
+- Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
+- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
+
+<!---HONumber=AcomDC_0817_2016-->

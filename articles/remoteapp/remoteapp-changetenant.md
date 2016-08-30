@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Cambio del inquilino de Azure Active Directory en Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp usa Azure Active Directory (Azure AD) para permitir el acceso de usuario. El único inquilino de Azure AD que puede utilizar en Azure RemoteApp es el que se encuentra asociado a la suscripción de Azure. Puede ver la suscripción asociada en la página **Configuración** del portal. Observe la columna **Directorio** en la pestaña **Suscripciones**.
 
@@ -41,10 +44,10 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 5. En **Directorio**, elija **Usar directorio existente**. Vamos a tener que iniciar sesión en el portal ahora, así que elija **Estoy listo para cerrar la sesión ahora**.
 6. Inicie sesión de nuevo en el portal como administrador global del directorio que desea agregar. (Si no fuera todavía administrador global, lo será después de volver a iniciar sesión y luego cerrarla).
 7. Se le preguntará al iniciar sesión si desea usar al inquilino existente de AD con su suscripción. Haga clic en **Continuar**, y luego haga clic en **Cerrar sesión ahora**.
-5. Inicie sesión de nuevo y vuelva a **Configuración -> Suscripciones**. Seleccione la suscripción y, a continuación, haga clic en **Editar directorio**. Seleccione el inquilino de Azure AD que desea usar.
+5. Inicie sesión de nuevo y vuelva a **Configuración -> Suscripciones**. Seleccione la suscripción y haga clic en **Editar directorio**. Seleccione el inquilino de Azure AD que desea usar.
 
 
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en Azure RemoteApp.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

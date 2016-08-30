@@ -28,11 +28,11 @@ En este artículo se muestra cómo puede cargar su propia imagen de VM generaliz
 
 En este artículo se supone que ya dispones de:
 
-1. **Una suscripción a Azure**: si no tiene una, puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F).
+- **Una suscripción a Azure**: si no tiene una, puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-2. **[Microsoft Azure PowerShell](../powershell-install-configure.md)**: tiene el módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)**: tiene el módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción.
 
-3. **Un archivo .VHD**: sistema operativo Windows compatible almacenado en un archivo .vhd y conectado a una máquina virtual.
+- **Un archivo .VHD**: sistema operativo Windows compatible almacenado en un archivo .vhd y conectado a una máquina virtual. También debe comprobar que los roles de servidor que se ejecutan en el disco duro virtual sean compatibles con sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
 
 > [AZURE.IMPORTANT] El formato VHDX no se admite en Microsoft Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Para obtener más información, consulta esta [publicación de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
@@ -86,7 +86,7 @@ Necesitas una cuenta de almacenamiento de Azure para tener un sitio para cargar 
 
 ## Paso 3: Cargar el archivo .vhd
 
-Usará [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) para cargar el VHD.
+Use [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) para cargar el VHD.
 
 Desde la ventana de Azure PowerShell que utilizó en el paso anterior, escriba el siguiente comando y reemplace las variables entre &lsaquo; corchetes &rsaquo; por su propia información.
 
@@ -102,6 +102,6 @@ Use el cmdlet [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.a
 
 ## Pasos siguientes
 
-Ahora puede [crear una VM personalizada](virtual-machines-windows-classic-createportal.md) mediante la imagen que cargó.
+Ahora puede [crear una máquina virtual personalizada](virtual-machines-windows-classic-createportal.md) mediante la imagen que cargó.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

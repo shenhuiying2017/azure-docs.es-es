@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Administrar controladores de su dispositivo StorSimple
@@ -187,7 +187,7 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 - **Apagar un controlador active**: se le notificará que continuar con la operación dará como resultado un tiempo de inactividad y que debe presionar el botón de encendido en uno o ambos controladores para activar el dispositivo. Se le pedirá confirmación.
 
-**P.** ¿Cuándo se produciría un error en el reinicio o el apagado del controlador?
+**P.** ¿Cuándo se produce un error en el reinicio o el apagado del controlador?
 
 **R.** El reinicio o apagado de un controlador puede producir un error si:
 
@@ -215,4 +215,4 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 - Para obtener información sobre el uso del servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

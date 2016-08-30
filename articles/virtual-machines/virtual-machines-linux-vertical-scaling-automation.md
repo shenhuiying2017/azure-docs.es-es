@@ -3,7 +3,7 @@
 	description="Escalado vertical de una máquina virtual Linux en respuesta a las alertas de supervisión con Automatización de Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -27,7 +27,7 @@ El escalado vertical es el proceso de aumentar o disminuir los recursos de una m
 Los pasos para lograr esto se describen a continuación:
 
 1. Configurar la Automatización de Azure para tener acceso a las máquinas virtuales.
-2. Importar los runbooks de escalado vertical de Automatización de Azure a la suscripción.
+2. Importar los runbooks de escalado vertical de Automatización de Azure a la suscripción
 3. Agregar un webhook al runbook.
 4. Agregar una alerta a la máquina virtual.
 
@@ -88,4 +88,4 @@ Asegúrese de copiar el webhook antes de cerrar el cuadro de diálogo de webhook
 
 ![Agregar alerta a máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

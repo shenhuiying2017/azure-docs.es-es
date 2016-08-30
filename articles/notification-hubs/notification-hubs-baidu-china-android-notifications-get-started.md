@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones con Baidu
@@ -79,7 +79,7 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [portal de Baidu].
 
   	![][9]
 
-6. A continuación, recibirá un mensaje de texto con un número de verificación, tal como se muestra en el ejemplo siguiente:
+6. A continuación, debe recibir un mensaje de texto con un número de verificación, tal como se muestra en el ejemplo siguiente:
 
   	![][10]
 
@@ -91,7 +91,7 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [portal de Baidu].
 
 ##Creación de un proyecto de inserción de nube Baidu
 
-Cuando se crea un proyecto de inserción de nube Baidu, recibirá el identificador de la aplicación, la clave de API y la clave secreta.
+Cuando se crea un proyecto de inserción en la nube de Baidu, recibe el identificador de la aplicación, la clave de API y la clave secreta.
 
 1. Una vez iniciada la sesión en el [portal de Baidu], haga clic en **更多>>** (**más**).
 
@@ -504,4 +504,4 @@ Para enviar una notificación de prueba, puede usar la pestaña de depuración d
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 #Solución de problemas de Azure RemoteApp: errores de inicio y conexión de la aplicación 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Es posible que las aplicaciones hospedadas en Azure RemoteApp no se inicien por diversos motivos. En este artículo se describe varias razones y mensajes de error que los usuarios pueden recibir cuando intentan iniciar las aplicaciones. También se incluyen los errores de conexión. (Sin embargo, en este artículo no se describen los problemas al iniciar sesión en el cliente de Azure RemoteApp).
 
@@ -25,7 +28,7 @@ Para obtener información sobre los mensajes de error comunes debidos a errores 
 
 ##Estamos realizando la configuración... Inténtelo de nuevo en 10 minutos.
 
-Este error significa que Azure RemoteApp se está escalando horizontalmente para satisfacer las necesidades de capacidad de los usuarios. Se están creando en segundo plano más instancias de máquina virtual de Azure RemoteApp con el fin de controlar las necesidades de capacidad de los usuarios. Normalmente, esta operación puede tardar entre cinco y diez minutos. En ocasiones, no se produce lo suficientemente rápido y se necesitan recursos inmediatamente. Por ejemplo, un escenario de 9 de la mañana donde muchos usuarios necesitan usar la aplicación en Azure RemoteAppn al mismo tiempo. Si esto sucede podemos habilitar el **modo de capacidad** en el back-end. Para ello, abra una incidencia de soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com). Asegúrese de incluir el id. de suscripción en la solicitud.
+Este error significa que Azure RemoteApp se está escalando horizontalmente para satisfacer las necesidades de capacidad de los usuarios. Se están creando en segundo plano más instancias de máquina virtual de Azure RemoteApp con el fin de controlar las necesidades de capacidad de los usuarios. Normalmente, esta operación puede tardar entre cinco y diez minutos. En ocasiones, no se produce lo suficientemente rápido y se necesitan recursos inmediatamente. Por ejemplo, un escenario de 9 de la mañana donde muchos usuarios necesitan usar la aplicación en Azure RemoteAppn al mismo tiempo. Si esto sucede, podemos habilitar el **modo de capacidad** en el back-end. Para ello, abra una incidencia de soporte técnico de Azure o envíenos un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com). Asegúrese de incluir el identificador de la suscripción en la solicitud.
 
 ![Estamos realizando la configuración](./media/remoteapp-apptrouble/ra-apptrouble1.png)
 
@@ -51,4 +54,4 @@ Se trata de un mensaje de error genérico: póngase en contacto con el soporte t
 
 ![Mensaje genérico de Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

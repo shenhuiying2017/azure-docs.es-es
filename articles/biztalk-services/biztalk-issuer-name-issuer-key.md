@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -21,7 +21,7 @@
 
 # Servicios de BizTalk: nombre del emisor y clave del emisor
 
-Los servicios de BizTalk de Azure usan el nombre y la clave de emisor de Bus de servicio, además del nombre y la clave de emisor del servicio de control de acceso. Concretamente:
+Los servicios de BizTalk de Azure usan el nombre y la clave de emisor del bus de servicio, además del nombre y la clave de emisor del servicio de control de acceso. Concretamente:
 
 Tarea | Nombre de emisor y clave de emisor
 --- | ---
@@ -63,7 +63,7 @@ En el panel de navegación izquierdo también puede seleccionar **Active Directo
 
 
 ## Nombre de emisor y clave de emisor del bus de servicio
-Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor de Bus de servicio. En su proyecto de los servicios de BizTalk en Visual Studio, se usan los servicios de adaptador de BizTalk para conectarse a un sistema local de línea de negocio (LOB). Para conectarse, debe crear el relé de LOB y especificar los detalles de su sistema de LOB. Para ello, debe especificar el nombre y la clave de emisor del bus de servicio.
+Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor del bus de servicio. En su proyecto de los servicios de BizTalk en Visual Studio, se usan los servicios de adaptador de BizTalk para conectarse a un sistema local de línea de negocio (LOB). Para conectarse, debe crear el relé de LOB y especificar los detalles de su sistema de LOB. Para ello, debe especificar el nombre y la clave de emisor del bus de servicio.
 
 ### Recuperación del nombre y la clave de emisor del bus de servicio
 
@@ -72,7 +72,7 @@ Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor de Bus
 3. Seleccione su espacio de nombres. Seleccione **Información de conexión** en la barra de tareas. De este modo se muestra el **Emisor predeterminado** (nombre de emisor) y la **Clave predeterminada** (clave de emisor). Sus valores se pueden copiar.  
 
 En resumen:  
-Nombre de emisor = Emisor predeterminado  
+Nombre de emisor = Emisor predeterminad  
 Clave de emisor = Clave predeterminada
 
 ## Pasos siguientes
@@ -94,4 +94,4 @@ Otros temas acerca de los servicios de BizTalk de Azure:
 - [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configuración de una puerta de enlace de VPN en el Portal de Azure clásico | Microsoft Azure"
-   description="Este artículo le guiará a través de la configuración de la puerta de enlace VPN de red virtual y el cambio de un tipo de enrutamiento de la puerta de enlace VPN de estático a dinámico o de dinámico a estático."
+   description="Este artículo le lleva por la configuración de la puerta de enlace de VPN de red virtual y el cambio de un tipo de enrutamiento de VPN de puerta de enlace."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,22 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/11/2016"
    ms.author="cherylmc" />
 
 # Configuración de una puerta de enlace VPN para el modelo de implementación clásico
 
 
-Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace de VPN y el tipo de puerta de enlace de VPN que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee usar.
+Si quiere crear una conexión segura entre locales segura entre Azure y su ubicación local, debe configurar una conexión de puerta de enlace de VPN. En el modelo de implementación clásica, una puerta de enlace puede ser uno de dos tipos de enrutamiento de VPN: estático o dinámico. El tipo que elija depende tanto del plan de diseño de la red como del dispositivo VPN local que quiera usar.
 
-Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace.
+Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si quiere configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar una conexión de sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace de VPN.
 
-Además, tendrá que asegurarse de que el dispositivo que desea usar para la conexión será compatible con el tipo de VPN que se va a crear. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md).
+Además, debe asegurarse de que el dispositivo que quiere usar para la conexión admita el tipo de enrutamiento de VPN que quiere crear. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md).
 
 
 **Información acerca de este artículo**
 
-Este artículo se escribió pensando en el modelo de implementación clásico mediante el [Portal clásico](https://manage.windowsazure.com) (no el Portal de Azure). Cuando tengamos un artículo disponible para el modelo de implementación del Administrador de recursos, nos vincularemos a este desde aquí.
+Este artículo se escribió pensando en el modelo de implementación clásica mediante el [Portal clásico](https://manage.windowsazure.com) (no el Portal de Azure).
 
 **Información sobre los modelos de implementación de Azure**
 
@@ -37,7 +37,7 @@ Este artículo se escribió pensando en el modelo de implementación clásico me
 
 ## Información general sobre la configuración
 
-El siguiente procedimiento le guiará a través de la configuración de una puerta de enlace de VPN en el Portal de Azure clásico. Estos pasos se aplican a las puertas de enlace de redes virtuales que se crearon usando el modo de administración de servicios y están visibles en el Portal de Azure clásico. No son los pasos para usar el portal de vista previa o para redes virtuales configuradas mediante el modo del Administrador de recursos. Puede encontrar información acerca de cómo crear puertas de enlace de red virtual para las redes virtuales creadas mediante el modo del Administrador de recursos en [Crear una red virtual con una conexión de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+Los siguientes pasos le llevan por la configuración de una puerta de enlace de VPN en el Portal de Azure clásico. Estos pasos se aplican a las puertas de enlace de redes virtuales que se crearon con el modelo de implementación clásica. Actualmente, no todos los valores de configuración de puertas de enlace están disponibles en el Portal de Azure. Cuando lo estén, crearemos un nuevo conjunto de instrucciones que se aplicarán al Portal de Azure.
 
 
 1. [Creación de una puerta de enlace de VPN para la red virtual](#create-a-vpn-gateway)
@@ -65,11 +65,11 @@ Si ya tiene una puerta de enlace de VPN y desea cambiar el tipo de enrutamiento,
 ![Puerta de enlace no creada](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-A continuación, en la parte inferior de la página, haga clic en **Crear puerta de enlace**. Puede seleccionar *Enrutamiento estático* o *Enrutamiento dinámico*. El tipo de enrutamiento que seleccione depende de una serie de factores. Por ejemplo, lo que será compatible con el dispositivo VPN y si necesita admitir conexiones punto a sitio. Consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md) para comprobar el tipo de enrutamiento que necesita. Una vez creada la puerta de enlace, no se puede cambiar entre los tipos de enrutamiento VPN de puerta de enlace sin eliminar y volver a crear la puerta de enlace. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **SÍ**.
+A continuación, en la parte inferior de la página, haga clic en **Crear puerta de enlace**. Puede seleccionar *Enrutamiento estático* o *Enrutamiento dinámico*. El tipo de enrutamiento de VPN que seleccione depende de algunos factores. Por ejemplo, del dispositivo VPN que será compatible y de si será necesario admitir conexiones de punto a sitio. Consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md) para comprobar el tipo de enrutamiento de VPN que necesita. Una vez creada la puerta de enlace, no se puede cambiar entre los tipos de enrutamiento VPN de puerta de enlace sin eliminar y volver a crear la puerta de enlace. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **SÍ**.
 
 ![Tipo de enrutamiento VPN de puerta de enlace](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
-Una vez creada la puerta de enlace, verá que el gráfico de la puerta de enlace de la página cambia a amarillo e indica *Creando puerta de enlace*. La puerta de enlace puede tardar hasta 25 minutos en crearse. Tendrá que esperar hasta que la puerta de enlace se haya completado antes de poder avanzar con otras opciones de configuración.
+Una vez creada la puerta de enlace, verá que el gráfico de la puerta de enlace de la página cambia a amarillo e indica *Creando puerta de enlace*. La puerta de enlace puede tardar hasta 45 minutos en crearse. Espere a que la puerta de enlace se haya completado antes de avanzar con otras opciones de configuración.
 
 ![Creación de una puerta de enlace](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
 
@@ -83,14 +83,14 @@ Una vez creada la puerta de enlace, recopile la información de la configuració
 
 1. **Dirección IP de puerta de enlace:** la dirección IP se encuentra en la página **Panel**. No podrá verla hasta después de que ha terminado de crear la puerta de enlace.
 
-1. **Clave compartida:** haga clic en el botón **Administrar claves**, en la parte inferior de la pantalla. Haga clic en el icono situado junto a la clave para copiarlo en el Portapapeles y, a continuación, pegar y guardar la clave. Tenga en cuenta que este botón solo funciona cuando hay un solo túnel VPN S2S. Si tiene varios túneles de VPN S2S, utilice la API Obtener clave compartida de puerta de enlace de red virtual o el cmdlet de PowerShell.
+1. **Clave compartida:** haga clic en el botón **Administrar claves**, en la parte inferior de la pantalla. Haga clic en el icono situado junto a la clave para copiarlo en el Portapapeles y, a continuación, pegue y guarde la clave. Este botón solo funciona cuando hay un solo túnel VPN S2S. Si tiene varios túneles VPN S2S, utilice la API *Get Virtual Network Gateway Shared Key* o el cmdlet de PowerShell.
 
 ![Administración de una clave](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 
 ## Configurar el dispositivo VPN
 
-Después de completar los pasos anteriores, usted o su administrador de red se debe configurar el dispositivo VPN para crear la conexión. [Para obtener más información acerca de los dispositivos VPN, consulte Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
+Después de completar los pasos anteriores, usted o su administrador de red deberán configurar el dispositivo VPN para crear la conexión. [Para obtener más información acerca de los dispositivos VPN, consulte Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
 
 Una vez configurado el dispositivo VPN, puede ver la información de conexión actualizada en la página Panel para la red virtual.
 
@@ -106,7 +106,7 @@ También puede ejecutar uno de los comandos siguientes para probar la conexión:
 
 ### Verificación de la dirección IP de la puerta de enlace de VPN
 
-Para que la puerta de enlace se conecte correctamente, la dirección IP del dispositivo VPN debe configurarse correctamente para la red local que especificó para la configuración entre entornos. Normalmente, esto se configura durante el proceso de configuración de sitio a sitio. Sin embargo, si anteriormente usó esta red local con un dispositivo diferente o ha cambiado la dirección IP para esta red local, deberá modificar la configuración para especificar la dirección IP de la puerta de enlace correcta.
+Para que la puerta de enlace se conecte correctamente, la dirección IP del dispositivo VPN debe configurarse correctamente para la red local que especificó para la configuración entre entornos. Normalmente, esto se configura durante el proceso de configuración de sitio a sitio. Sin embargo, si anteriormente usó esta red local con un dispositivo diferente o ha cambiado la dirección IP de esta red local, edite la configuración para especificar la dirección IP de la puerta de enlace correcta.
 
 1. Para comprobar la dirección IP de la puerta de enlace, haga clic en **Redes** en el panel izquierdo del portal y seleccione **Redes locales** en la parte superior de la página. Verá la dirección de la puerta de enlace de VPN para cada red local que ha creado. Para modificar la dirección IP, seleccione la red virtual y haga clic en **Editar** en la parte inferior de la página.
 
@@ -116,9 +116,9 @@ Para que la puerta de enlace se conecte correctamente, la dirección IP del disp
 
 ### Verificación de los intervalos de direcciones de sus redes locales
 
-Para que el tráfico correcto pase a través de la puerta de enlace a la ubicación local, deberá comprobar que ha enumerado cada intervalo de direcciones IP que desea incluir en la configuración de la red local. Según la configuración de red de su ubicación local, puede ser una tarea bastante pesada porque cada intervalo debe estar incluido en su configuración de **Redes locales** de Azure. A continuación, el tráfico vinculado a una dirección IP que está dentro de los intervalos especificados se enviará a través de la puerta de enlace de VPN de red virtual. Los intervalos de direcciones IP que indique no debe ser intervalos privados, aunque deberá comprobar que la configuración local puede recibir el tráfico entrante.
+Para que el tráfico correcto fluya por la puerta de enlace hasta la ubicación local, debe comprobar que se especifique cada intervalo de direcciones IP. Cada intervalo debe mostrarse en la configuración de **Redes locales** de Azure. Según la configuración de red de su ubicación local, esta tarea puede ser bastante pesada. A continuación, el tráfico vinculado a una dirección IP que está dentro de los intervalos especificados se enviará a través de la puerta de enlace de VPN de la red virtual. Los intervalos que indique no tienen que ser intervalos privados, aunque deberá comprobar que la configuración local puede recibir el tráfico entrante.
 
-Para agregar o editar los intervalos de una red local, siga este procedimiento.
+Para agregar o editar los intervalos de una red local, siga estos pasos.
 
 1. Para editar los intervalos de direcciones IP de una red local, haga clic en **Redes** en el panel izquierdo del portal y seleccione **Redes locales** en la parte superior de la página. En el portal, la manera más fácil de ver los intervalos que ha enumerado es en la página **Editar**. Para ver los intervalos, seleccione la red virtual y haga clic en **Editar** en la parte inferior de la página.
 
@@ -143,13 +143,13 @@ En la página **Panel** puede ver lo siguiente:
 
 ## Cómo cambiar el tipo de enrutamiento de VPN para la puerta de enlace
 
-Puesto que algunas configuraciones de conectividad solo están disponibles para ciertos tipos de enrutamiento de puerta de enlace, puede que necesite cambiar el tipo de enrutamiento VPN de puerta de enlace de una puerta de enlace VPN existente. Por ejemplo, puede desear agregar conectividad punto a sitio a una conexión de sitio a sitio ya existente que tiene una puerta de enlace estática. Punto a sitio requiere una puerta de enlace dinámica, lo que significa que para configurarla, tendrá que cambiar el tipo de enrutamiento VPN de puerta de enlace de estática a dinámica.
+Puesto que algunas configuraciones de conectividad solo están disponibles para ciertos tipos de enrutamiento de puerta de enlace, puede que necesite cambiar el tipo de enrutamiento VPN de puerta de enlace de una puerta de enlace VPN existente. Por ejemplo, puede desear agregar conectividad punto a sitio a una conexión de sitio a sitio ya existente que tiene una puerta de enlace estática. Las conexiones de punto a sitio requieren una puerta de enlace dinámica. Esto significa que para configurar una conexión P2S, tendrá que cambiar el tipo de enrutamiento de VPN de puerta de enlace de estático a dinámico.
 
 Si necesita cambiar un tipo de enrutamiento VPN de puerta de enlace, deberá eliminar la puerta de enlace existente y, a continuación, volver a crearla con el nuevo tipo de enrutamiento. No es necesario eliminar toda la red virtual para cambiar el tipo de enrutamiento de la puerta de enlace.
 
-Antes de cambiar el tipo VPN de puerta de enlace, asegúrese de comprobar que el dispositivo VPN será compatible con el tipo de enrutamiento que desea usar. Para descargar nuevos ejemplos de configuración de enrutamiento y comprobar los requisitos del dispositivo VPN, consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
+Antes de cambiar el tipo de enrutamiento de VPN de puerta de enlace, asegúrese de comprobar que el dispositivo VPN sea compatible con el tipo de enrutamiento que quiere usar. Para descargar nuevos ejemplos de configuración de enrutamiento y comprobar los requisitos del dispositivo VPN, consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
 
->[AZURE.IMPORTANT] Cuando se elimina una puerta de enlace de VPN de red virtual, se libera la VIP asignada a la puerta de enlace. Al volver a crear la puerta de enlace, se la asignará una nueva VIP.
+>[AZURE.IMPORTANT] Cuando se elimina una puerta de enlace de VPN de red virtual, se libera la VIP asignada a la puerta de enlace. Cuando vuelva a crear la puerta de enlace, se la asignará una nueva VIP.
 
 1. **Elimine la puerta de enlace VPN existente.**
 
@@ -168,4 +168,4 @@ Si quiere configurar una conexión VPN de punto a sitio, vea [Configuración de 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

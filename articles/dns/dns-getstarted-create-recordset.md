@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -32,7 +32,7 @@ Este artículo le guiará a través del proceso de creación de registros y los 
 
 ## Comprobación de que se dispone de la versión más reciente de PowerShell.
 
-Compruebe que tiene instalada la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+Compruebe que tiene instalada la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ## Creación de un nuevo conjunto de registros y de un registro
 
@@ -49,7 +49,7 @@ Compruebe las suscripciones para la cuenta.
 
 	Get-AzureRmSubscription
 
-Especifique la suscripción que quiere usar.
+Especifique la suscripción que desea usar.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
@@ -145,4 +145,4 @@ En los ejemplos siguientes se muestra cómo crear un conjunto de registros de ca
 
 [Automate Azure operations with .NET SDK](dns-sdk.md) (Automatización de operaciones de Azure con el SDK de .NET)
 
-<!----HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

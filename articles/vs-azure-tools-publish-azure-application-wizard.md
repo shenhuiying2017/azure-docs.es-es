@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Asistente Publicar aplicaciones de Azure.
@@ -21,7 +21,7 @@
 
 Después de desarrollar una aplicación web en Visual Studio, puede publicarla más fácilmente en un servicio en la nube de Azure mediante el asistente **Publicar aplicación de Azure**. En la primera sección se explican los pasos que se deben completar antes de usar el asistente y en las secciones restantes se explican las características del asistente.
 
->[AZURE.NOTE] Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, consulte [Implementación de un sitio web de Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] En este tema se explica la implementación en servicios en la nube pero no en sitios web. Para obtener más información sobre la implementación en sitios web, consulte [Implementación de un sitio web de Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Requisitos previos
 
@@ -39,25 +39,25 @@ Antes de publicar la aplicación web en Azure, debe tener una cuenta de Microsof
 
 1. Cuando esté preparado para publicar la aplicación, abra el menú contextual del proyecto del servicio en la nube de Azure y elija **Publicar**. Los pasos siguientes muestran el asistente Publicar aplicación de Azure.
 
-## Elegir la suscripción
+## Elección de la suscripción
 
 ### Para elegir una suscripción
 
-1. Antes de usar al asistente por primera vez, debe iniciar sesión. Elija el vínculo **Iniciar sesión**. Inicie sesión en el Portal de Azure cuando se le solicite y proporcione su nombre de usuario y contraseña de Azure. 
+1. Antes de usar al asistente por primera vez, debe iniciar sesión. Elija el vínculo **Iniciar sesión**. Inicie sesión en el Portal de Azure cuando se le solicite y proporcione su nombre de usuario y contraseña de Azure.
 
     ![Esta es una de las pantallas del Asistente para publicación](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
     La lista de suscripciones se rellena con las suscripciones asociadas a su cuenta. Es posible que vea también suscripciones de otros archivos de suscripción que importó previamente.
 
-1. En la lista **Elija una suscripción**, elija la suscripción que desee usar para esta implementación.
+1. En la lista **Elija una suscripción**, seleccione la suscripción que desee usar para esta implementación.
 
-   Si elige **<Administrar…>**, aparece el cuadro de diálogo **Administrar suscripciones**, en el que puede elegir la suscripción y la cuenta de usuario que desea usar. En la pestaña **Cuentas** se muestran todas las cuentas del usuario y en la pestaña **Suscripciones** se muestran todas las suscripciones asociadas a las cuentas. También puede elegir una región desde la que se vayan a usar los recursos de Azure, así como crear o importar certificados para su suscripción desde el portal de Azure. Si importó suscripciones de un archivo de suscripción, los certificados asociados aparecerán en la pestaña **Certificados**. Cuando termine, elija el botón **Cerrar**.
+   Si elige **<Administrar…>**, aparece el cuadro de diálogo **Administrar suscripciones**, en el que puede elegir la suscripción y la cuenta de usuario que desea usar. En la pestaña **Cuentas** se muestran todas las cuentas del usuario y en la pestaña **Suscripciones** aparecen todas las suscripciones asociadas a las cuentas. También puede elegir una región desde la que se vayan a usar los recursos de Azure, así como crear o importar certificados para su suscripción desde el Portal de Azure. Si importó suscripciones de un archivo de suscripción, los certificados asociados aparecerán en la pestaña **Certificados**. Cuando termine, elija el botón **Cerrar**.
 
     ![Manage subscriptions](./media/vs-azure-tools-publish-azure-application-wizard/IC799160.png)
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. Elija el botón **Siguiente** para continuar. 
+1. Elija el botón **Siguiente** para continuar.
 
     Si no hay servicios en la nube en su suscripción, deberá crear un servicio en la nube en Azure para hospedar el proyecto. Aparece el cuadro de diálogo **Crear servicio en la nube y cuenta de almacenamiento**.
 
@@ -139,4 +139,4 @@ Puede modificar la configuración avanzada y la configuración común para una i
 
 [Probar el rendimiento de un servicio en la nube](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->
