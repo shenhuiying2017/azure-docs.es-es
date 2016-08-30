@@ -20,13 +20,13 @@
 
 # Captura de una máquina virtual con Linux para usarla como plantilla de Resource Manager
 
-Use la interfaz de la línea de comandos (CLI) de Azure para capturar y generalizar una máquina virtual de Azure con Linux y así poder usarla como plantilla de Azure Resource Manager cuando desee crear otras máquinas virtuales. Esta plantilla especifica el disco del sistema operativo y cualquier otro disco de datos asociado a la máquina virtual. No incluye los recursos de redes virtuales y tendrá crear una máquina virtual del Administrador de recursos de Azure, por lo que en la mayoría de los casos necesitará configurarlos por separado antes de crear otra máquina virtual que usa la plantilla.
+Use la interfaz de la línea de comandos (CLI) de Azure para capturar y generalizar una máquina virtual de Azure con Linux. Luego, puede usarla como una plantilla de Azure Resource Manager para crear otras máquinas virtuales. Esta plantilla especifica el disco del sistema operativo y cualquier otro disco de datos asociado a la máquina virtual. No incluye los recursos de redes virtuales que necesita para crear una máquina virtual de Azure Resource Manager. Por lo tanto, normalmente necesitará configurarlos por separado antes de crear otra máquina virtual que use la plantilla.
 
 >[AZURE.TIP]Si está interesado en la creación de una imagen de la máquina virtual Linux personalizada y su carga en Azure para poder crear máquinas virtuales desde la imagen, consulte [Upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md) (Carga y creación de una máquina virtual desde una imagen de disco personalizada).
 
 ## Antes de empezar
 
-En estos pasos se da por sentado que ya creó un máquina virtual de Azure con el modelo de implementación del Administrador de recursos de Azure, que configuró el sistema operativo, que adjuntó cualquier disco de datos y que realizó otras personalizaciones como la instalación de aplicaciones. Puede hacerlo de varias maneras, incluido a través de la CLI de Azure. Si no todavía no lo hizo, consulte estas instrucciones para usar la CLI de Azure en modo de Administrador de recursos de Azure:
+En estos pasos se da por sentado que ya creó un máquina virtual de Azure con el modelo de implementación de Resource Manager, que configuró el sistema operativo, que adjuntó discos de datos y que realizó otras personalizaciones, como la instalación de aplicaciones. Puede configurar la máquina virtual de varias maneras, incluido a través de la CLI de Azure. Si no todavía no lo hizo, consulte estas instrucciones para usar la CLI de Azure en modo de Administrador de recursos de Azure:
 
 - [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md)
 
@@ -43,11 +43,11 @@ Después de aprovisionar y ejecutar la máquina virtual, debe [asociar y montar 
 
 1. Cuando esté listo para capturar la máquina virtual, conéctese a ella con el cliente SSH.
 
-2. En la ventana SSH, escriba el siguiente comando. Observe que el resultado de **waagent** puede variar levemente según la versión de esta utilidad:
+2. En la ventana SSH, escriba el siguiente comando. El resultado de **waagent** puede variar levemente según la versión de esta utilidad:
 
 	`sudo waagent -deprovision+user`
 
-	Este comando intentará limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación ejecuta las siguientes tareas:
+	Este comando intenta limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación ejecuta las siguientes tareas:
 
 	- Quita las claves de host de SSH (si Provisioning.RegenerateSshHostKeyPair es "y" en el archivo de configuración)
 	- Borra la configuración de Nameserver en /etc/resolvconf
@@ -56,7 +56,7 @@ Después de aprovisionar y ejecutar la máquina virtual, debe [asociar y montar 
 	- Restablece el nombre de host a localhost.localdomain
 	- Elimina la última cuenta de usuario aprovisionada (obtenida desde /var/lib/waagent) y los datos asociados.
 
-	>[AZURE.NOTE] El desaprovisionamiento elimina los archivos y datos en un esfuerzo por generalizar la imagen. Solo puede ejecutar este comando en una máquina virtual que quiera capturar como imagen. No garantiza que se haya borrado toda información sensible de la imagen o que sea adecuada para su redistribución a terceros.
+	>[AZURE.NOTE] El desaprovisionamiento elimina los archivos y los datos para generalizar la imagen. Solo puede ejecutar este comando en una máquina virtual que quiera capturar como imagen. No garantiza que se haya borrado toda información sensible de la imagen o que sea adecuada para su redistribución a terceros.
 
 3. Escriba **y** para continuar. Puede agregar el parámetro **-force** para evitar este paso de confirmación.
 
@@ -64,7 +64,7 @@ Después de aprovisionar y ejecutar la máquina virtual, debe [asociar y montar 
 
 	>[AZURE.NOTE] En los siguientes pasos se supone que ya ha [instalado la CLI de Azure](../xplat-cli-install.md) en el equipo cliente.
 
-5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para obtener más información, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para detalles, lea [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 6. Asegúrese de que está en modo de Administrador de recursos:
 
@@ -76,7 +76,7 @@ Después de aprovisionar y ejecutar la máquina virtual, debe [asociar y montar 
 
 8. Generalice la máquina virtual con el comando siguiente:
 
-	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. Ahora, capture la imagen y una plantilla de archivo local con el comando siguiente:
 
@@ -87,7 +87,7 @@ Después de aprovisionar y ejecutar la máquina virtual, debe [asociar y montar 
 >[AZURE.TIP] Para buscar la ubicación de una imagen, abra la plantilla de archivo JSON. En **storageProfile**, busque el **uri** de la **imagen** ubicado en el contenedor **system**. Por ejemplo, el uri de la imagen de disco del sistema operativo es similar a `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Implementación de una nueva máquina virtual desde la imagen capturada
-Ahora use la imagen con una plantilla para crear una nueva máquina virtual de Linux. Estos pasos le muestran cómo usar la CLI de Azure y la plantilla del archivo JSON que creó con el comando `azure vm capture` para crear la máquina virtual en una nueva red virtual.
+Ahora use la imagen con una plantilla para crear una máquina virtual Linux. Estos pasos le muestran cómo usar la CLI de Azure y la plantilla del archivo JSON que creó con el comando `azure vm capture` para crear la máquina virtual en una nueva red virtual.
 
 ### Crear recursos de red
 
@@ -107,7 +107,7 @@ Para implementar una máquina virtual desde la imagen mediante el JSON que guard
 
 	azure network nic show <your-new-resource-group-name> <your-nic-name>
 
-El **id.** de la salida es una cadena similar a esta.
+El **id.** del resultado es una cadena similar a esta.
 
 	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
 
@@ -172,20 +172,20 @@ Use la imagen capturada y la plantilla para implementar máquinas virtuales adic
 
 * Asegúrese de que la imagen de la máquina virtual se encuentra en la misma cuenta de almacenamiento que hospedará el disco duro virtual de la máquina virtual.
 * Copie el archivo JSON de plantilla y escriba un valor único para el **uri** del disco duro virtual de todas las máquinas virtuales.
-* Cree una nueva tarjeta de interfaz de red en la misma red virtual o en otra.
+* Cree una tarjeta de interfaz en la misma red virtual o en otra.
 * Cree una implementación del grupo de recursos en el que configuró la red virtual, mediante el uso del archivo JSON de la de plantilla modificada.
 
-Si quiere que la red se configure automáticamente al crear una máquina virtual de la imagen, use la [plantilla 101-vm-from-user-image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) en GitHub. Esta plantilla crea una máquina virtual desde la imagen personalizada, así como la red virtual necesaria, la dirección IP pública y la tarjeta de interfaz de red de recursos. Para obtener un tutorial acerca del uso de la plantilla en el Portal de Azure, consulte [Crear una máquina virtual desde una imagen personalizada mediante una plantilla del Administrador de recursos de Azure](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+Si quiere que la red se configure automáticamente al crear una máquina virtual de la imagen, use la [plantilla 101-vm-from-user-image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) en GitHub. Esta plantilla crea una máquina virtual desde la imagen personalizada, así como la red virtual necesaria, la dirección IP pública y la tarjeta de interfaz de red de recursos. Para ver un tutorial acerca del uso de la plantilla en el Portal de Azure, consulte [Crear una máquina virtual desde una imagen personalizada mediante una plantilla de Resource Manager](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
 ## Uso del comando azure vm create
 
-Por lo general, querrá usar una plantilla del Administrador de recursos para crear una máquina virtual a partir de la imagen. Sin embargo, puede crear la máquina virtual _imperativamente_ usando el comando **azure vm create** con el parámetro **-Q** (**--image-urn**). También podrá transferir el parámetro **-d** (**--os-disk-vhd**) para especificar la ubicación del archivo .vhd del sistema operativo para la nueva máquina virtual. Debe estar en el contenedor de discos duros virtuales de la cuenta de almacenamiento donde se almacena el archivo VHD. El comando copiará el VHD para la nueva máquina virtual automáticamente en el contenedor de discos duros virtuales.
+Por lo general, querrá usar una plantilla del Administrador de recursos para crear una máquina virtual a partir de la imagen. Sin embargo, puede crear la máquina virtual _imperativamente_ usando el comando **azure vm create** con el parámetro **-Q** (**--image-urn**). Si usa este método, también puede transferir el parámetro **-d** (**--os-disk-vhd**) para especificar la ubicación del archivo .vhd del sistema operativo para la nueva máquina virtual. Debe estar en el contenedor de discos duros virtuales de la cuenta de almacenamiento donde se almacena el archivo VHD. El comando copia el VHD para la nueva máquina virtual automáticamente en el contenedor de discos duros virtuales.
 
 Haga lo siguiente antes de ejecutar **azure vm create** con la imagen:
 
-1.	Cree un nuevo grupo de recursos o identifique un grupo de recursos existente para la implementación.
+1.	Cree un grupo de recursos o identifique un grupo de recursos existente para la implementación.
 
-2.	Cree un recurso de direcciones IP públicas y un recurso de tarjeta de interfaz de red para la nueva máquina virtual. Para conocer los pasos para crear una red virtual, la dirección IP pública y la tarjeta de interfaz de red con la CLI, consulte más arriba este artículo. (El comando **azure vm create** también puede crear una nueva tarjeta de interfaz de red, pero necesitará pasar parámetros adicionales para una red virtual y una subred).
+2.	Cree un recurso de direcciones IP públicas y un recurso de tarjeta de interfaz de red para la nueva máquina virtual. Para conocer los pasos para crear una red virtual, la dirección IP pública y la tarjeta de interfaz de red con la CLI, consulte más arriba este artículo. (El comando **azure vm create** también puede crear una tarjeta de interfaz de red, pero necesitará pasar parámetros adicionales para una red virtual y una subred).
 
 
 A continuación, ejecute un comando similar a los siguientes, pasando los URI para el nuevo archivo VHD del sistema operativo y la imagen existente.
@@ -198,4 +198,4 @@ Para obtener opciones de comando adicionales, ejecute `azure help vm create`.
 
 Para administrar las máquinas virtuales con la CLI, consulte las tareas de [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

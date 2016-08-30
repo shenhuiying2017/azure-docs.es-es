@@ -1,14 +1,14 @@
 <properties
-    pageTitle="Creación de un espacio de nombres de Centro de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager | Microsoft Azure"
-    description="Creación de un espacio de nombres de Centro de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
-    services="service-bus"
+    pageTitle="Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager | Microsoft Azure"
+    description="Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
+    services="event-hubs"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus"
+    ms.service="event-hubs"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
@@ -18,7 +18,7 @@
 
 # Creación de un espacio de nombres de Centro de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
 
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Centro de eventos con un centro de eventos y un grupo de consumidores. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
@@ -166,4 +166,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [plantilla Service Bus Event Hub and consumer group]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -83,11 +83,11 @@ A continuación, cree los siguientes activos en la cuenta.
 
 	![](media/site-recovery-runbook-automation/07_1.png)
 
-Puede identificar el nombre de la suscripción desde la página de configuración de la cuenta en el portal de Azure.
+Puede identificar el nombre de la suscripción desde la página de configuración de la cuenta en el Portal de Azure.
 
 ### Incorporación de una credencial de inicio de sesión de Azure como activo
 
-Automatización de Azure usa Azure PowerShell para conectarse a la suscripción y funciona en los artefactos ahí. Para ello, deberá autenticarse con su cuenta de Microsoft o una cuenta profesional o educativa. Puede almacenar las credenciales de la cuenta en un activo para que el runbook la use de forma segura.
+Automatización de Azure usa Azure PowerShell para conectarse a la suscripción y procesa los artefactos en dicho lugar. Para ello, deberá autenticarse con su cuenta de Microsoft o una cuenta profesional o educativa. Puede almacenar las credenciales de la cuenta en un activo para que el runbook la use de forma segura.
 
 1.  Agregue una nueva opción ![](media/site-recovery-runbook-automation/04.png) en los activos de Automatización de Azure y seleccione ![](media/site-recovery-runbook-automation/09.png)
 
@@ -103,7 +103,7 @@ Ahora ambas configuraciones están disponibles en los activos.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Se proporciona más información acerca de cómo conectarse a su suscripción mediante powershell [aquí](../powershell-install-configure.md).
+Se proporciona más información acerca de cómo conectarse a su suscripción mediante PowerShell [aquí](../powershell-install-configure.md).
 
 A continuación, creará un runbook en Automatización de Azure que puede agregar un extremo para la máquina virtual front-end después de la conmutación por error.
 
@@ -169,7 +169,7 @@ Ahora cree el runbook para abrir el puerto 80 en la máquina virtual front-end.
 
 	```
 
-4.  A continuación, conéctese a la suscripción con la credencial y el nombre de la suscripción
+4.  A continuación, conéctese a la suscripción con la credencial y el nombre de la suscripción.
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
@@ -266,8 +266,7 @@ El script completo se muestra a continuación para su referencia
 
 Una vez que el script esté listo, puede agregarlo al plan de recuperación que creó anteriormente.
 
-1.  En el plan de recuperación que creó, elija agregar un script después del grupo 2.
-![](media/site-recovery-runbook-automation/15.png)
+1.  En el plan de recuperación que creó, elija agregar un script después del grupo 2. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  Especifique un nombre de script. Se trata simplemente de un nombre descriptivo para este script que se muestra en el plan de recuperación.
 
@@ -279,7 +278,7 @@ Una vez que el script esté listo, puede agregarlo al plan de recuperación que 
 
 ## Scripts principales
 
-Cuando se está ejecutando una conmutación por error en Azure, también puede ejecutar scripts principales. Estos scripts se ejecutarán en el servidor VMM durante la conmutación por error. Los scripts principales solo están disponibles solo para las fases de preapagado y postapagado. Esto es porque se espera que el sitio principal no esté disponible normalmente cuando se produzca un desastre. Durante una conmutación por error no planeada, solo si participa en operaciones de sitio principal, intentará ejecutar los scripts principales. Si no son accesibles o se agota el tiempo de espera, la conmutación por error continuará recuperando las máquinas virtuales. Los scripts principales están sin disponibles para sitios VMware/físicos/Hyper-v sin VMM protegido en Azure: durante la conmutación por error en Azure. Sin embargo, cuando se produce la conmutación por recuperación de Azure en local, los scripts principales (Runbooks) pueden utilizarse para todos los destinos excepto VMware.
+Cuando se está ejecutando una conmutación por error en Azure, también puede ejecutar scripts principales. Estos scripts se ejecutarán en el servidor VMM durante la conmutación por error. Los scripts principales solo están disponibles solo para las fases de preapagado y postapagado. Esto es porque se espera que el sitio principal no esté disponible normalmente cuando se produzca un desastre. Durante una conmutación por error no planeada, solo si participa en operaciones de sitio principal, intentará ejecutar los scripts principales. Si no son accesibles o se agota el tiempo de espera, la conmutación por error continuará recuperando las máquinas virtuales. Los scripts principales están sin disponibles para sitios VMware/físicos/Hyper-v sin VMM protegido en Azure: durante la conmutación por error en Azure. Sin embargo, cuando se produce la conmutación por recuperación de Azure en local, los scripts principales (Runbooks) pueden utilizarse para todos los destinos, excepto VMware.
 
 ## Prueba del plan de recuperación
 
@@ -309,4 +308,4 @@ Mientras describimos la automatización de la tarea habitual de agregar un extre
 
 [Scripts de Automatización de Azure de ejemplo](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Scripts de Automatización de Azure de ejemplo")
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,271 +1,278 @@
 <properties
-pageTitle="Incorporación del conector de Dynamic CRM Online a PowerApps Enterprise o las aplicaciones lógicas| Microsoft Azure"
-description="Información general del conector de CRM Online con los parámetros de la API de REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor="" tags="connectors" />
+	pageTitle="Incorporación del conector de Dynamics CRM Online a las aplicaciones lógicas | Microsoft Azure"
+	description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El proveedor de conexión de Dynamics CRM Online proporciona una API para trabajar con entidades de Dynamics CRM Online."
+	services="logic-apps"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor="" 
+	tags="connectors" />
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
-ms.author="deonhe"/>
+ms.date="08/15/2016"
+ms.author="mandia"/>
 
-# Introducción al conector de CRM
-Conéctese a Dynamics CRM Online para crear un nuevo registro, actualizar un elemento y mucho más. El conector de CRM Online se puede usar desde:
+# Introducción al conector de Dynamics CRM Online
+Conéctese a Dynamics CRM Online para crear un nuevo registro, actualizar un elemento y mucho más. Con CRM Online, puede hacer lo siguiente:
 
-- Aplicaciones lógicas
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-crmonline.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
-
-Con CRM Online, puede hacer lo siguiente:
-
-- Compilar el flujo de negocio en función de los datos que obtiene de CRM Online. 
+- Compilar el flujo de negocio en función de los datos que obtiene de CRM Online.
 - Usar acciones para eliminar registros, obtener entidades y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se actualice un elemento en CRM, puede enviar un correo electrónico mediante Office 365.
 
+En este tema se muestra cómo usar el conector de Dynamics CRM Online en una aplicación lógica y también se enumeran los desencadenadores y las acciones.
 
-Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../app-service-logic/app-service-logic-what-are-logic-apps.md) y [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Desencadenadores y acciones
-El conector de CRM incluye las siguientes acciones. No hay desencadenadores.
+## Conexión a Dynamics CRM Online
 
-| Desencadenadores | Acciones|
-| --- | --- |
-|None| <ul><li>Crear un nuevo registro</li><li>Obtener registros</li><li>Eliminar un registro</li><li>Obtener un registro</li><li>Obtener entidades</li><li>Actualizar un elemento</li></ul>
+Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a Dynamics, primero necesita una *conexión* de Dynamics CRM Online. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que desea conectarse. Por lo tanto, con Dynamics CRM Online, escriba las credenciales de la cuenta de Dynamics CRM Online para crear la conexión.
 
-Todos los conectores admiten datos en formato JSON y XML.
 
-## Creación de una conexión a CRM Online
+### Creación de la conexión
 
-Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en Dynamics CRM Online. Siga estos pasos para iniciar sesión en CRM Online y completar la configuración de la **conexión** en la aplicación lógica:
+>[AZURE.INCLUDE [Pasos para crear una conexión al proveedor de conexión de Dynamics CRM Online](../../includes/connectors-create-api-crmonline.md)]
 
-1. En la aplicación lógica, seleccione **Agregar una acción**: ![Configurar CRM Online][13]
-4. Escriba CRM en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan CRM en el nombre.
-5. Seleccione **Dynamics CRM Online: Crear un nuevo registro**.
-6. Seleccione **Sign in to Dynamics CRM Online** (Iniciar sesión en Dynamics CRM Online): ![Configurar CRM Online][14]
-7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación ![Configurar CRM Online][15].  
-8. Después de iniciar sesión, vuelva a la aplicación lógica para completar el proceso agregando otros desencadenadores y otras acciones que necesite.
-9. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
+## Uso de un desencadenador
 
-Después de crear la conexión, especifique las propiedades de CRM Online, como table o dataset. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
+1. En la aplicación lógica, escriba "dynamics" para obtener una lista de los desencadenadores:
 
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
+	![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 
-### Crear un nuevo registro 
-Crea un nuevo registro en una entidad. ```POST: /datasets/{dataset}/tables/{table}/items```
+2. Seleccione **Dynamics CRM Online - When a record is created**. Si ya existe una conexión, seleccione una organización y una entidad de la lista desplegable.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-|table|cadena|yes|path|Ninguna|Nombre de la entidad|
-|item| |yes|body|Ninguna|Registro para crear|
+	![](./media/connectors-create-api-crmonline/select-organization.png)
 
-#### Respuesta
+	Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En este tema, en [Creación de la conexión](connectors-create-api-crmonline.md#create-the-connection) se enumeran los pasos.
+
+	> [AZURE.NOTE] En este ejemplo, la aplicación lógica se ejecuta cuando se crea un evento. Para ver los resultados de este desencadenador, agregue otra acción que envíe un correo electrónico. Por ejemplo, agregue la acción *Send an email* (Enviar un correo electrónico) en Office 365 que le envía un correo electrónico cuando se agrega un nuevo registro.
+
+3. Seleccione el botón **Editar** y defina los valores para **Frecuencia** e **Intervalo**. Por ejemplo, si desea que el desencadenador sondee cada 15 minutos, establezca el valor **Frecuencia** en **Minuto** y el de **Intervalo** en **15**.
+
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
+
+4. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+
+
+## Uso de una acción
+
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Seleccione el signo más. Aparecen varias opciones: **Add an action** (Agregar una acción), **Add a condition** (Agregar una condición) o una de las opciones de **More** (Más).
+
+	![](./media/connectors-create-api-crmonline/add-action.png)
+
+2. Elija **Agregar una acción**.
+
+3. En el cuadro de texto, escriba "dynamics" para obtener una lista de todas las acciones disponibles.
+
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+
+4. En nuestro ejemplo, elija **Dynamics CRM Online - Update a record** (Dynamics CRM Online: actualizar un registro). Si ya existe una conexión, elija las propiedades **Organization name** (Nombre de la organización), **Entity Name** (Nombre de la entidad) y otras propiedades:
+
+	![](./media/connectors-create-api-crmonline/sample-action.png)
+
+	Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-crmonline.md#create-the-connection) de este tema.
+
+	> [AZURE.NOTE] En este ejemplo se actualiza un registro existente en CRM Online. Para actualizar el registro puede utilizar la salida de otro desencadenador. Por ejemplo, agregue el desencadenador SharePoint *When an existing item is modified* (SharePoint: cuando se modifica un elemento ya existente). A continuación, agregue la acción CRM Online *Update a record* (CRM Online: actualizar un registro) que utiliza los campos de SharePoint para actualizar el registro existente en CRM Online.
+
+5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+
+
+## Detalles técnicos
+
+## Desencadenadores
+
+|Desencadenador | Description|
+|--- | ---|
+|[When a record is created](connectors-create-api-crmonline.md#when-a-record-is-created)|Desencadena un flujo cuando se crea un objeto en CRM.|
+|[When a record is updated](connectors-create-api-crmonline.md#when-a-record-is-updated)|Desencadena un flujo cuando se modifica un objeto en CRM.|
+|[When a record is deleted](connectors-create-api-crmonline.md#when-a-record-is-deleted)|Desencadena un flujo cuando se elimina un objeto en CRM.|
+
+
+## Acciones
+
+|Acción|Description|
+|--- | ---|
+|[List records](connectors-create-api-crmonline.md#list-records)|Esta operación obtiene los registros de una entidad.|
+|[Crear un nuevo registro](connectors-create-api-crmonline.md#create-a-new-record)|Esta operación crea un nuevo registro de una entidad.|
+|[Get record](connectors-create-api-crmonline.md#get-record)|Esta operación obtiene el registro especificado de una entidad.|
+|[Delete a record](connectors-create-api-crmonline.md#delete-a-record)|Esta operación elimina un registro de una colección de entidades.|
+|[Actualización de un registro](connectors-create-api-crmonline.md#update-a-record)|Esta operación actualiza un registro existente de una entidad.|
+
+### Detalles de los desencadenadores y las acciones
+
+En esta sección podrá consultar los detalles específicos acerca de los desencadenadores y las acciones, como las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+
+#### When a record is created
+Desencadena un flujo cuando se crea un objeto en CRM.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para obtener (valor predeterminado = 256)|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+ItemsList
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+#### When a record is updated
+Desencadena un flujo cuando se modifica un objeto en CRM.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para obtener (valor predeterminado = 256)|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+ItemsList
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+#### When a record is deleted
+Desencadena un flujo cuando se elimina un objeto en CRM.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para obtener (valor predeterminado = 256)|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+ItemsList
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+#### List records
+Esta operación obtiene los registros de una entidad.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
+|$top|Número máximo de entradas|Número máximo de entradas para obtener (valor predeterminado = 256)|
+|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
+|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+ItemsList
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|value|array|
+
+
+#### Crear un nuevo registro
+Esta operación crea un nuevo registro de una entidad.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Get record
+Esta operación obtiene el registro especificado de una entidad.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|id*|Identificador de elementos|Especifica el identificador del registro|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Delete a record
+Esta operación elimina un registro de una colección de entidades.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|id*|Identificador de elementos|Especifica el identificador del registro|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+
+#### Actualización de un registro
+Esta operación actualiza un registro existente de una entidad.
+
+|Nombre de propiedad| Nombre para mostrar|Description|
+| ---|---|---|
+|dataset*|Nombre de la organización|Nombre de la organización en CRM como Contoso|
+|table*|Nombre de entidad|Nombre de la entidad|
+|id*|Identificador del registro|Especifica el identificador del registro|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+## Respuestas HTTP
+
+Las acciones y los desencadenadores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido.|
 |default|Error en la operación.|
-
-
-### Obtiene registros 
- Obtiene registros de una entidad. ```GET: /datasets/{dataset}/tables/{table}/items```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-|table|cadena|yes|path|Ninguna|Nombre de la entidad|
-|$skip|integer|no|query|Ninguna|Número de entradas para omitir. El valor predeterminado es 0.|
-|$top|integer|no|query|Ninguna|Número máximo de entradas para capturar. El valor predeterminado es 100.|
-|$filter|cadena|no|query|Ninguna|Consulta de filtro ODATA para restringir el número de entradas.|
-|$orderby|cadena|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas.|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-
-### Devolver los conjuntos de datos 
- Devuelve los conjuntos de datos. ```GET: /datasets```
-
-No hay parámetros para esta llamada.
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Obtiene un elemento de tabla 
-Se usa para obtener un determinado registro que existe para una entidad CRM. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-|table|cadena|yes|path|Ninguna|Nombre de la entidad|
-|id|cadena|yes|path|Ninguna|Identificador del registro|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Eliminar un elemento de una lista 
-Elimina un elemento de una lista. ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-|table|cadena|yes|path|Ninguna|Nombre de la entidad|
-|id|cadena|yes|path|Ninguna|Identificador del registro|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Aplica un parche a un elemento de tabla existente 
-Se usa para actualizar parcialmente un registro existente para una entidad CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-|table|cadena|yes|path|Ninguna|Nombre de la entidad|
-|id|cadena|yes|path|Ninguna|Identificador del registro|
-|item| |yes|body|Ninguna|Registro para actualizar|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Obtiene entidades 
-Se usa para obtener la lista de entidades existentes en una instancia de CRM. ```GET: /datasets/{dataset}/tables```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre único para la organización de CRM contoso.crm|
-
-#### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-## Definiciones de objeto
-
-#### DataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos | Obligatorio|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-#### BlobDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-
-#### TableMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|name|cadena|no|
-|título|cadena|no|
-|x-ms-permission|cadena|no|
-|schema|not defined|no|
-
-#### DataSetsList
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|value|array|no|
-
-#### DataSet
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-
-
-#### Tabla
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-
-#### Elemento
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|ItemInternalId|cadena|no|
-
-#### ItemsList
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|value|array|no|
-
-
-#### TablesList
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|value|array|no|
 
 
 ## Pasos siguientes
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 
-Volver a la [lista de API](apis-list.md).
-
-
-[9]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-appinfo.png
-[10]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-app-properties.png
-[12]: ./media/connectors-create-api-crmonline/contoso-aad-app-configure.png
-[13]: ./media/connectors-create-api-crmonline/crmconfig1.png
-[14]: ./media/connectors-create-api-crmonline/crmconfig2.png
-[15]: ./media/connectors-create-api-crmonline/crmconfig3.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

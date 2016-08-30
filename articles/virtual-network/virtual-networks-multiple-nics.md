@@ -25,7 +25,7 @@ Puede crear máquinas virtuales (VM) en Azure y asociar varias interfaces de red
 
 La figura anterior muestra una máquina virtual con tres NIC, cada una de ellas conectada a una subred diferente.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - La VIP accesible desde Internet (implementaciones clásicas) solo se admite en la NIC marcada como "predeterminada". Solo hay una VIP a la IP de la NIC predeterminada.
 - En estos momentos, no se admiten direcciones IP públicas (implementaciones clásicas) de nivel de instancia (LPIP) para máquinas virtuales con varias NIC.
@@ -265,4 +265,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

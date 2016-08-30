@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
@@ -73,8 +73,8 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es mediante e
 
 ## Pasos siguientes
 
-- Para configurar las interfaces de red que no sean DATA 0, puede usar la [página Configurar del Portal de Azure clásico](storsimple-modify-device-config.md). 
+- Para configurar las interfaces de red que no sean DATA 0, puede usar la [página Configurar del Portal de Azure clásico](storsimple-modify-device-config.md).
 
 - Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

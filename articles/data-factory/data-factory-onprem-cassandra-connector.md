@@ -33,20 +33,21 @@ Para que el servicio Data Factory de Azure pueda conectarse a la base de datos d
 ## Asistente para copia de datos
 La manera más fácil de crear una canalización que copie datos de una base de datos de Cassandra en cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos desde la base de datos Cassandra a Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
+
 
 ## Ejemplo: Copiar datos de Cassandra en un blob
 El ejemplo copia los datos de una base de datos de Cassandra en un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos. Los datos se pueden copiar directamente en cualquiera de los receptores que se indican en el artículo [Movimiento de datos y actividad de copia](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia de Data Factory de Azure.
 
 - Un servicio vinculado de tipo [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
-- Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+- Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
 - Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [CassandraTable](#cassandratable-properties).
 - Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 - Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que use [CassandraSource](#cassandrasource-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 **Servicio vinculado de Cassandra**
 
-En este ejemplo, se utiliza el servicio vinculado de **Cassandra**. Consulte la sección [Servicio vinculado de Cassandra](#onpremisescassandra-linked-service-properties) para ver las propiedades admitidas por este servicio vinculado.
+En este ejemplo, se utiliza el servicio vinculado de **Cassandra**. Consulte la sección [Propiedades del servicio vinculado OnPremisesCassandra](#onpremisescassandra-linked-service-properties) para ver las propiedades admitidas por el mismo.
 
 	{
     	"name": "CassandraLinkedService",
@@ -104,7 +105,7 @@ En este ejemplo, se utiliza el servicio vinculado de **Cassandra**. Consulte la 
 		}
 	}
 
-Si se establece **external** en **true**, se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece **external** en **true**, se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 
 **Conjunto de datos de salida de blob de Azure**
 
@@ -133,7 +134,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de la canalización, el tipo de **origen** está establecido en **CassandraSource**, mientras que el tipo de **receptor** está establecido en **BlobSink**.
 
-Consulte [Propiedades de tipo RelationalSource](#cassandrasource-type-properties) para obtener la lista de propiedades admitidas por RelationalSource.
+Consulte las [propiedades de tipo RelationalSource](#cassandrasource-type-properties) para obtener la lista de propiedades admitidas por RelationalSource.
 	
 	{  
 		"name":"SamplePipeline",
@@ -197,7 +198,7 @@ La tabla siguiente incluye una descripción de los elementos JSON específicos p
 
 ## Propiedades de CassandraTable
 
-Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties de los conjuntos de datos de tipo **CassandraTable** tiene las siguientes propiedades:
 
@@ -216,7 +217,7 @@ En el caso de la actividad de copia, cuando el origen es de tipo **CassandraSour
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| query | Utilice la consulta personalizada para leer los datos. | Consulta SQL-92 o consulta CQL. Vea la [referencia de CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. | No (si tableName y el espacio de claves del conjunto de datos están definidos). |
+| query | Utilice la consulta personalizada para leer los datos. | Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html) (referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. | No (si tableName y el espacio de claves del conjunto de datos están definidos). |
 | consistencyLevel | El nivel de coherencia establece el número de réplicas que deben responder a una solicitud de lectura antes de que se devuelvan datos a la aplicación cliente. Cassandra comprueba el número de réplicas especificado para que los datos satisfagan la solicitud de lectura. | ONE, TWO, THREE, QUORUM, ALL, LOCAL\_QUORUM, EACH\_QUORUM, LOCAL\_ONE. Para más información, consulte [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) (Configuración de la coherencia de datos). | No. El valor predeterminado es ONE. |  
 
 
@@ -240,7 +241,7 @@ VARCHAR | String
 VARINT | Decimal
 
 > [AZURE.NOTE]  
-Par más información sobre tipos de colecciones (map, set, list, etc.), consulte la sección [Uso de tipos de colección de Cassandra con tablas virtuales](#work-with-collections-using-virtual-table).
+Par más información sobre tipos de colecciones (map, set, list, etc.), consulte la sección [Uso de colecciones con tablas virtuales](#work-with-collections-using-virtual-table).
 > 
 > No se admiten tipos definidos por el usuario.
 > 
@@ -310,6 +311,6 @@ pk\_int | StringSet\_value
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

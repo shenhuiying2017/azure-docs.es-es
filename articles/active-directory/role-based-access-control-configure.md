@@ -70,4 +70,4 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 - Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md).
 - Defina sus propios [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

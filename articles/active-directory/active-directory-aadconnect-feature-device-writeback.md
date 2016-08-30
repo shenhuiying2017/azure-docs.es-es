@@ -18,7 +18,7 @@
 
 # Azure AD Connect: habilitación de la escritura diferida de dispositivos
 
->[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
+>[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la escritura diferida de dispositivos.
 
 En la siguiente documentación se ofrece información sobre cómo habilitar la característica de escritura diferida de dispositivo en Azure AD Connect. La escritura diferida de dispositivo se usa en los siguientes escenarios:
 
@@ -56,8 +56,8 @@ Se necesitan credenciales de administrador de organización, puesto que es neces
 
 Description:
 
-- En caso de no existir, crea y configura nuevos contenedores y objetos en CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- En caso de no existir, crea y configura nuevos contenedores y objetos en CN=RegisteredDevices,[domain-dn]. Los objetos de dispositivo se crearán en este contenedor.
+- Si todavía no existen, se crean y configuran nuevos contenedores y objetos en CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- Si todavía no existen, se crean y se configuran nuevos contenedores y objetos en CN=RegisteredDevices,[domain-dn]. Los objetos de dispositivo se crearán en este contenedor.
 - Establece los permisos necesarios en la cuenta de Azure AD Connector, para administrar dispositivos en su Active Directory.
 - Solo necesita ejecutarse en un bosque, incluso si se está instalando Azure AD Connect en varios bosques.
 
@@ -130,4 +130,4 @@ Compruebe la configuración en Active Directory:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

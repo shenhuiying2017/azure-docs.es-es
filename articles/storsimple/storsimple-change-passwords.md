@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli"/>
 
 # Use el servicio de Administrador de StorSimple para cambiar las contraseñas de StorSimple
@@ -69,4 +69,4 @@ Ahora se debe actualizar la contraseña de StorSimple Snapshot Manager.
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

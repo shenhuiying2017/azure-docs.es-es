@@ -40,12 +40,12 @@ Realice una copia de la clave de instrumentación, que identifica al recurso.
 En los equipos de servidor Unix:
 
 1. Instale la versión de [collectd](http://collectd.org/) 5.4.0 o posterior.
-2. Descargue el [complemento del escritor collectd de Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Anote el número de versión.
+2. Descargue el [complemento del escritor collectd de Application Insights](https://aka.ms/aijavasdk). Anote el número de versión.
 3. Copie el archivo JAR del complemento en `/usr/share/collectd/java`.
 3. Edite `/etc/collectd/collectd.conf`:
  * Asegúrese de que [el complemento de Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
  * Actualice el elemento JVMArg para que java.class.path incluya el archivo JAR siguiente. Actualice el número de versión para que coincida con el que descargó:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Agregue este fragmento de código con la clave de instrumentación del recurso:
 
 ```
@@ -71,7 +71,7 @@ A continuación se muestra un archivo de configuración de ejemplo:
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@ De forma predeterminada, el complemento de Application Insights enviará todos l
 
 Para excluir los datos de orígenes de datos o complementos específicos:
 
-* Edite el archivo de configuración. 
+* Edite el archivo de configuración.
 * En `<Plugin ApplicationInsightsWriter>`, agregue líneas de directiva de esta manera:
 
 Directiva | Efecto
@@ -143,4 +143,4 @@ Separar directivas con una nueva línea.
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

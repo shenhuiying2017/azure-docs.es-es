@@ -82,10 +82,10 @@ Proveedor de recursos | Característica
 ---------- | ------------
 Proceso | Discos de máquinas virtuales no asociados.
 Proceso | Imágenes de máquina virtual.
-Red | Direcciones IP reservadas no asociadas (si no están adjuntadas a una máquina virtual). Se admiten direcciones IP reservadas que estén adjuntadas a máquinas virtuales.
-Red | Grupos de seguridad de red no asociados (si no están adjuntados a una red virtual o una interfaz de red). Los grupos de seguridad de red a los que hacen referencia las redes virtuales están admitidos.
 Red | ACL de puntos de conexión.
-Red | Puertas de enlace de red virtual (de sitio a sitio, Azure ExpressRoute, de punto a sitio).
+Red | Puertas de enlace de red virtual (de sitio a sitio, Azure ExpressRoute, puerta de enlace de aplicaciones, de punto a sitio).
+Red | Redes virtuales que usan el emparejamiento de VNET. (Migre la red virtual a ARM y luego emparéjela). Más información sobre el [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+Red | Perfiles del Administrador de tráfico.
 
 ### Configuraciones no admitidas
 
@@ -221,7 +221,7 @@ Publique sus problemas y preguntas sobre la migración en nuestro [foro de máqu
 
 **¿Qué hago si no me gustan los nombres que eligió la plataforma para los recursos durante la migración?**
 
-Todos los recursos para los que se proporcionen nombres explícitamente en el modelo de implementación clásica se conservarán durante la migración. En algunos casos, se crearán recursos nuevos. Por ejemplo, se creará una interfaz de red para cada máquina virtual. En este momento, no se admite la capacidad de controlar los nombres de estos recursos nuevos creados durante la migración. Registre sus votos para esta característica el [foro de comentarios de Azure](http://feedback.azure.com).
+Todos los recursos para los que se proporcionen nombres explícitamente en el modelo de implementación clásica se conservarán durante la migración. En algunos casos, se crearán recursos nuevos. Por ejemplo, se creará una interfaz de red para cada máquina virtual. En este momento, no se admite la capacidad de controlar los nombres de estos recursos nuevos creados durante la migración. Registre sus votos para esta característica en el [foro de comentarios de Azure](http://feedback.azure.com).
 
 **Aparece el mensaje *"La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de VM notifica el estado de agente general como Preparado"* o *"la máquina virtual contiene la extensión cuyo estado no se notifica desde la VM. Por lo tanto, esta VM no se puede migrar."***
 
@@ -235,4 +235,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

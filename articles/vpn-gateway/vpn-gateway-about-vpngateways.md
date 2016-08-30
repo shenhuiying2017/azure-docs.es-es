@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Acerca de Puerta de enlace de VPN | Microsoft Azure"
-   description="Obtenga información acerca de Puerta de enlace de VPN para Red virtual de Azure."
+   description="Obtenga información acerca de las conexiones de Puerta de enlace de VPN para redes virtuales de Azure."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,122 +13,117 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/20/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc" />
 
 # Acerca de Puerta de enlace de VPN
 
-Puerta de enlace de VPN es una colección de ajustes que se utilizan para enviar tráfico de red entre redes virtuales y ubicaciones locales. Las secciones en este artículo tratan los ajustes relacionados con Puerta de enlace de VPN. Puerta de enlace de VPN se utiliza para conexiones de sitio a sitio, de punto a sitio y ExpressRoute. También se usa para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual).
 
-Puerta de enlace de VPN puede agregarse a una red virtual para crear una conexión. Cada red virtual puede tener solo una Puerta de enlace de VPN y hay pasos de configuración específicos para cada conexión. Para diagramas de conexión, consulte [Topologías de conexión de Puerta de enlace de VPN de Azure](vpn-gateway-topology.md).
+Puerta de enlace de VPN es una colección de ajustes que se utilizan para enviar tráfico de red entre redes virtuales y ubicaciones locales. Puerta de enlace de VPN se utiliza para conexiones de sitio a sitio, de punto a sitio y ExpressRoute. También se usa para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual).
 
-## <a name="gwsku"></a>SKU de puerta de enlace
+Cada red virtual tiene una única puerta de enlace de red virtual. Para crear una conexión, agregue la puerta de enlace de red virtual a una red virtual y configure opciones adicionales para Puerta de enlace de VPN. En algunos casos, la conexión que se crea es una conexión VPN. En otros, la configuración no requiere una VPN. La colección de configuraciones se llama "Puerta de enlace de VPN" independientemente de si necesita o no una VPN para la conexión.
 
-Cuando se crea una puerta de enlace de VPN, debe especificar la SKU de puerta de enlace que desea usar. Las SKU de puerta de enlace se aplican a los tipos de puerta de enlace de VPN y ExpressRoute. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Cuando configure Puerta de enlace de VPN, las instrucciones que use dependen del modelo de implementación que usara para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../resource-manager-deployment-model.md) para más información.
 
-Hay tres SKU de puerta de enlace de VPN:
+Las secciones siguientes contienen tablas que muestran la siguiente información para la configuración:
 
-- Básica
-- Standard
-- HighPerformance
-
-En el ejemplo siguiente, `-GatewaySku` está especificado como *Standard*.
-
-	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
-
-###  <a name="aggthroughput"></a>Estimación del rendimiento agregado por tipo de SKU y tipo de puerta de enlace
+- modelo de implementación disponible;
+- herramientas de configuración disponibles;
+- vínculos que llevan directamente a un artículo, si lo hay.
 
 
-La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+Use los gráficos y las descripciones como ayuda para seleccionar la topología de configuración que mejor se ajuste a sus requisitos. Los diagramas muestran las principales topologías de referencia, pero también se pueden crear configuraciones más complejas con los diagramas como guía. Cada configuración se basa en la configuración de Puerta de enlace de VPN que seleccione.
 
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
-
-## <a name="gwtype"></a>Tipos de puerta de enlace
-
-El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es un valor de configuración necesario para el modelo de implementación de Resource Manager. No confunda el tipo de puerta de enlace con el tipo de VPN, que especifica el tipo de enrutamiento de la VPN. Los valores disponibles para `-GatewayType` son:
-
-- VPN
-- ExpressRoute
+Como Puerta de enlace de VPN es una colección de configuraciones, puede configurar algunas de ellas con una herramienta y después cambiar a otra. Actualmente, no se pueden definir todas las configuraciones de puerta de enlace de VPN en el Portal de Azure. Las instrucciones de los artículos para cada configuración indican si se necesita una herramienta específica. Si está trabajando con el modelo de implementación clásica, podría trabajar en el Portal clásico o usar PowerShell ahora. Para más información sobre las configuraciones individuales disponibles, consulte [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) (Acerca de la configuración de Puerta de enlace de VPN).
 
 
-En este ejemplo del modelo de implementación de Resource Manager, -GatewayType está especificado como *Vpn*. Al crear una puerta de enlace, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
+## De sitio a sitio y multisitio
 
-	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+### De sitio a sitio
 
-## <a name="connectiontype"></a>Tipos de conexión
+Una conexión de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones S2S para las configuraciones híbridas y entre locales.
 
-Cada configuración requiere un tipo de conexión específico. Los valores de PowerShell de Resource Manager para `-ConnectionType` son:
-
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
-
-En el siguiente ejemplo, vamos a crear una conexión de sitio a sitio, que requiere que el tipo de conexión "IPsec".
-
-	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-
-## <a name="vpntype"></a>Tipos de VPN
-
-Cada configuración requiere un tipo específico de VPN para funcionar. Si combina dos configuraciones, como la creación de una conexión de sitio a sitio y una conexión de punto a sitio a la misma red virtual, debe usar un tipo de VPN que cumpla ambos requisitos de conexión.
-
-En el caso de las conexiones de punto a sitio y de sitio a sitio coexistentes, debe usar un tipo de VPN basado en la ruta cuando se trabaja con el modelo de implementación de Resource Manager, o una puerta de enlace dinámica si trabaja con el modo de implementación clásica.
-
-Al crear la configuración, seleccione el tipo de VPN que se requiere para la conexión.
-
-Hay dos tipos de VPN:
-
-[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
-
-En este ejemplo del modelo de implementación de Resource Manager, `-VpnType` está especificado como *RouteBased*. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
-
-	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
-
-##  <a name="requirements"></a>Requisitos de la puerta de enlace
-
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
+![Conexión S2S](./media/vpn-gateway-about-vpngateways/demos2s.png "De sitio a sitio")
 
 
-## <a name="gwsub"></a>Subred de puerta de enlace
+### Multisitio
 
-Para configurar una puerta de enlace de VPN, primero deberá crear una subred de puerta de enlace para la red virtual. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser *GatewaySubnet*. Con este nombre, Azure sabe que esta subred debe usarse como puerta de enlace.<BR>En la interfaz del Portal de Azure clásico, a la subred de puerta de enlace se le asigna automáticamente el nombre *Gateway*. Esto nombre únicamente se utiliza cuando se ve la subred de puerta de enlace en el Portal clásico. En este caso, el nombre de la subred que se crea en Azure es en realidad *GatewaySubnet* y puede verse en el Portal de Azure y en PowerShell.
+Puede crear y configurar una conexión VPN entre su red virtual y varias redes locales. Cuando trabaje con varias conexiones, debe usar un tipo de VPN basada en rutas (puerta de enlace dinámica para redes virtuales clásicas). Como una red virtual solo puede tener una puerta de enlace de red virtual, todas las conexiones a través de la puerta de enlace comparten el ancho de banda disponible. Este tipo de configuración se denomina con frecuencia, conexión "multisitio".
+ 
 
-El tamaño mínimo de la subred de puerta de enlace depende por completo de la configuración que desee crear. Aunque es posible crear una puerta de enlace tan pequeña como /29 para algunas configuraciones, le recomendamos que cree una puerta de enlace de /28 o mayor (/28, /27, /26, etc.).
+![Conexión multisitio](./media/vpn-gateway-about-vpngateways/demomulti.png "Multisitio")
 
-Crear un tamaño mayor de la puerta de enlace evitará que se superen las limitaciones de tamaño de puerta de enlace. Por ejemplo, si creó una puerta de enlace con un tamaño de subred de puerta de enlace /29 y desea definir configuraciones coexistentes de sitio-a-sitio o ExpressRoute, tendrá que eliminar la puerta de enlace, eliminar la subred de puerta de enlace, crear la puerta de enlace como /28 o mayor y, después, volver a crear la puerta de enlace.
+### Modelos de implementación y métodos
 
-Si crea una puerta de enlace de un tamaño mayor desde el principio, ahorrará tiempo más adelante cuando agregue nuevas características de configuración a su entorno de red.
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-El ejemplo siguiente muestra una subred de puerta de enlace con el nombre GatewaySubnet. Puede ver que la notación CIDR especifica /27, lo que permite suficientes direcciones IP para la mayoría de las configuraciones que existen en este momento.
+## De red virtual a red virtual
 
-	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+La conexión de una red virtual a otra es muy parecida a la conexión de una red virtual a una ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN de Azure para proporcionar un túnel seguro con IPsec/IKE. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
->[AZURE.IMPORTANT] Asegúrese de que la GatewaySubnet no tiene un grupo de seguridad de red (NSG) aplicado, ya que esto puede causar errores en las conexiones.
+Las redes virtuales que conecta pueden:
+
+- estar en la misma región o en distintas;
+- pertenecer a la misma suscripción o a distintas;
+- usar el mismo modelo de implementación o dos diferentes.
 
 
 
-## <a name="lng"></a>Puertas de enlace de red local
-
-La puerta de enlace de red local suele hacer referencia a la ubicación local. En el modelo de implementación clásica, la puerta de enlace de red local se conoce como un sitio local. Debe asignar un nombre a la puerta de enlace de red local, así como la dirección IP pública del dispositivo VPN local, y especificar los prefijos de dirección que se encuentran en la ubicación local. Azure examinará los prefijos de dirección de destino para el tráfico de red, consultará la configuración que especificó para la puerta de enlace de red local, y enrutará los paquetes según corresponda. Puede modificar estos prefijos de dirección según sea necesario.
+![Conexión de red virtual a red virtual](./media/vpn-gateway-about-vpngateways/demov2v.png "De red virtual a red virtual")
 
 
-### Modificación de los prefijos de dirección: Resource Manager
 
-El procedimiento para modificar los prefijos de dirección varía según si ya creó la puerta de enlace de VPN. Consulte la sección [Para modificar los prefijos de dirección IP de una puerta de enlace de red local](vpn-gateway-create-site-to-site-rm-powershell.md#modify).
+### Conexiones entre modelos de implementación
 
-En el ejemplo siguiente verá cómo se especifica una puerta de enlace de red local llamada MyOnPremiseWest, que contiene dos prefijos de dirección IP.
+Actualmente, Azure tiene dos modelos de implementación: el clásico y el de Resource Manager. Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Puede crear una conexión entre las redes virtuales para permitir que los recursos de una red virtual se comuniquen directamente con los recursos de otra.
 
-	New-AzureRmLocalNetworkGateway -Name MyOnPremisesWest -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')	
+### Emparejamiento de VNET
 
-### Modificar prefijos de dirección: implementación clásica
+Es posible que pueda usar el emparejamiento de VNET para crear la conexión, siempre que la configuración de red virtual cumpla determinados requisitos. El emparejamiento de VNET no utiliza una puerta de enlace de red virtual. El [emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md) está actualmente en versión preliminar.
 
-Si necesita modificar los sitios locales al usar el modelo de implementación clásica, puede usar la página de configuración Redes locales en el portal clásico, o modificar directamente el archivo de configuración de red NETCFG.XML.
 
+### Modelos de implementación y métodos
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
+
+
+## De punto a sitio
+
+Una configuración de punto a sitio (P2S) permite crear una conexión segura a su red virtual desde un equipo cliente individual. P2S es una conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros). Las conexiones P2S no requieren un dispositivo VPN ni una dirección IP pública para funcionar. Para establecer la conexión VPN, iníciela desde el equipo cliente. Esta es una solución útil cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual.
+
+
+![Conexión de punto a sitio](./media/vpn-gateway-about-vpngateways/demop2s.png "De punto a sitio")
+
+### Modelos de implementación y métodos
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+
+## ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
+## Conexiones de sitio a sitio y de ExpressRoute coexistentes
+
+ExpressRoute es una conexión dedicada directa desde la WAN (no a través de Internet) a servicios Microsoft, incluido Azure. El tráfico VPN de sitio a sitio viaja cifrado a través de la red pública de Internet. Poder configurar las conexiones VPN de sitio a sitio y ExpressRoute para la misma red virtual tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExpressRoute, o bien usar la VPN de sitio a sitio para conectarse a sitios que no forman parte de su red, pero que están conectados a través de ExpressRoute.
+
+
+![Coexistencia de conexión](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
+
+
+### Modelos de implementación y métodos
+
+[AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 
 ## Pasos siguientes
 
-Consulte el artículo [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información antes de continuar con la planeación y el diseño de la configuración.
+Consulte [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información sobre las puertas de enlace de VPN.
+
+Conecte su ubicación local a una red virtual. Consulte [Creación de una conexión de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 
 
@@ -136,4 +131,4 @@ Consulte el artículo [Preguntas más frecuentes sobre la puerta de enlace de VP
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -72,7 +72,7 @@ En la tabla siguiente se enumeran los posibles errores y se indica cómo corregi
 |-----------------------|-------------------|-----------------------------|
 | Error: no se admite el atributo. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>La propiedad debe coincidir con una de la [lista de propiedades admitidas](#supported-properties). |
 | Error: no se admite el operador en el atributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true)<br/>La propiedad es de tipo booleano. Utilice los operadores admitidos (-eq o -ne) en un tipo booleano de la lista anterior. |
-| Error: error de compilación de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>El operador lógico debe coincidir con una de las propiedades admitidas enumeradas anteriormente.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error en la expresión regular. |
+| Error: error de compilación de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>El operador lógico debe coincidir con una de las propiedades admitidas enumeradas anteriormente.(user.userPrincipalName -match ".*@domain.ext") o (user.userPrincipalName -match "@domain.ext$") Error en la expresión regular. |
 | Error: la expresión binaria no está en un formato adecuado. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
 | Error: se ha producido un error desconocido durante la configuración de pertenencias dinámicas. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
 
@@ -168,11 +168,11 @@ Los atributos de extensión se sincronizan desde Windows Server AD local y tiene
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación de SaaS conectada y el formato es "user.extension\_[GUID]\_\_[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo que se creó. Un ejemplo de una regla que utiliza un atributo personalizado es
+Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación de SaaS conectada y el formato es "user.extension_[GUID]\_\__[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo que se creó. Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
 
 ## Regla de informes directos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
@@ -196,6 +196,23 @@ Ahora puede rellenar los miembros de un grupo en función del atributo de admini
 3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Pueden pasar unos minutos hasta que empiece a llenarse el grupo.
 
 
+## Uso de atributos para crear reglas para los objetos de dispositivo
+
+También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo:
+
+| Propiedades | Valores permitidos | Uso |
+|----------------------|---------------------------------|------------------------------------------------------|
+| DisplayName | cualquier valor de cadena | (device.displayName -eq "Rob Iphone”) |
+| deviceOSType | cualquier valor de cadena | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | cualquier valor de cadena | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.
+
+
 ## Información adicional
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
@@ -209,4 +226,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

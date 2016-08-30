@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="brjohnst"/>
 
 # Versiones de API en Búsqueda de Azure
@@ -31,6 +31,7 @@ A continuación se incluye una instantánea de las versiones actuales de todas l
 Interfaces|Versión principal más reciente|Estado
 ----------|-------------------------|------
 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Disponibilidad general, lanzado en febrero de 2016
+[Versión preliminar del SDK de .NET](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|Versión preliminar , publicada en agosto de 2016
 [API de REST de servicio](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Disponibilidad general
 [Versión preliminar de la API de REST de servicio](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Vista previa
 [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Disponibilidad general
@@ -54,19 +55,19 @@ El SDK de .NET está ahora disponible con carácter general y ya se está trabaj
 Versión de SDK de .NET|Versión de API de REST|Características|Fecha estimada
 ----------------|----------------|--------|---
 1\.1|2015-02-28|Sintaxis de consulta de Lucene|Febrero de 2016
-2\.x-preview|2015-02-28-Preview|Analizadores personalizados, indexador de blobs de Azure, asignaciones de campos, etiquetas ETag|Las características empezarán a incluirse en el primer trimestre de 2016
-2\.x|Nueva versión de API de disponibilidad general|Igual que 2.x-preview|Poco después de que se complete 2.x-preview
+2\.0-preview|2015-02-28-Preview|Analizadores personalizados, blobs e indizadores de tabla de Azure, asignaciones de campos, ETags|Agosto de 2016
+2\.x|Nueva versión de API de disponibilidad general|Igual que 2.0-preview|A principios del cuarto trimestre de 2016
 
 ##Acerca de las versiones preliminar y de disponibilidad general
 
-Búsqueda de Azure siempre publica previamente características experimentales primero a través de la API de REST y, después, a través de las versiones preliminares del SDK de .NET. Encontrará una lista de las características en versión preliminar en [Novedades de Búsqueda de Azure](search-latest-updates.md).
+Búsqueda de Azure siempre publica previamente características experimentales primero a través de la API de REST y, después, a través de las versiones preliminares del SDK de .NET.
 
 No se garantiza la migración de las características en versión preliminar a una versión de disponibilidad general. Mientras que las características de una versión de disponibilidad general se consideran estables y es poco probable que cambien, a excepción de pequeñas mejoras y correcciones compatibles con versiones anteriores, las características en versión preliminar están disponibles para la experimentación y la realización de pruebas, con el fin de recabar comentarios sobre el diseño y la implementación de la característica.
 
 Sin embargo, dado que las características en versión preliminar están sujetas a cambios, no se recomienda escribir código de producción que dependa de versiones preliminares. Si usa una versión preliminar antigua, se recomienda que migre a la versión de disponibilidad general (GA).
 
-Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualizar el SDK de .NET](search-dotnet-sdk-migration.md).
+Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md).
 
-La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en [Acuerdo de Nivel de Servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en el [Acuerdo de Nivel de Servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

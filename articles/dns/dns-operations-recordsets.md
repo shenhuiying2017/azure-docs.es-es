@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Administración de registros y conjuntos de registros DNS mediante PowerShell
@@ -47,7 +47,7 @@ Para recuperar un conjunto de registros existente, use `Get-AzureRmDnsRecordSet`
 
 Al igual que con `New-AzureRmDnsRecordSet`, el nombre del registro debe ser un nombre relativo, es decir, que no incluya el nombre de la zona.
 
-La zona se puede especificar mediante un nombre de zona, nombre de grupo de recursos u objeto de zona:
+La zona se puede especificar mediante el nombre de zona y el nombre del grupo de recursos. o mediante un objeto de zona:
 
 	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
 	$rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
@@ -151,7 +151,7 @@ En este ejemplo, agregamos 2 registros MX más al conjunto de registros existent
 
 ## Eliminación de un registro de un conjunto de registros existente
 
-Los registros pueden eliminarse de un conjunto de registros con `Remove-AzureRmDnsRecordConfig`. Tenga en cuenta que todos los parámetros del registro que se va a eliminar deben coincidir exactamente con los del registro existente. Los cambios deben confirmarse mediante `Set-AzureRmDnsRecordSet`.
+Los registros pueden eliminarse de un conjunto de registros con `Remove-AzureRmDnsRecordConfig`. Todos los parámetros del registro que se va a eliminar deben coincidir exactamente con los del registro existente. Los cambios deben confirmarse mediante `Set-AzureRmDnsRecordSet`.
 
 Al eliminar el último registro de un conjunto de registros, no se elimina el conjunto de registros. Consulte [Eliminación de un conjunto de registros](#delete-a-record-set) a continuación para obtener más información.
 
@@ -204,7 +204,7 @@ Puesto que un conjunto de registros CNAME puede contener como máximo un registr
 
 ## Eliminación de un conjunto de registros
 
-Los conjuntos de registros pueden eliminarse mediante el cmdlet `Remove-AzureRmDnsRecordSet`. No se pueden eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = "@") que se crean automáticamente cuando se crea la zona. Se eliminarán automáticamente si se elimina la zona.
+Los conjuntos de registros pueden eliminarse mediante el cmdlet `Remove-AzureRmDnsRecordSet`. No se pueden eliminar los conjuntos de registros SOA ni NS en el vértice de zona (nombre = "@") que se crearon automáticamente cuando se creó la zona. Se eliminarán automáticamente si se elimina la zona.
 
 Utilice uno de los tres métodos siguientes para eliminar un conjunto de registros:
 
@@ -237,4 +237,4 @@ Para obtener más información sobre DNS de Azure, consulte [Introducción a DNS
 
 Para obtener más información sobre los registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

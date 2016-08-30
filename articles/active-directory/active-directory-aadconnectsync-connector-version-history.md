@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronización de Azure AD Connect: historial de versiones de conectores | Microsoft Azure"
+   pageTitle="Historial de versiones de conectores | Microsoft Azure"
    description="En este tema se incluyen todas las versiones de los conectores para Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM)."
    services="active-directory"
    documentationCenter=""
@@ -13,13 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="andkjell"/>
 
-# Sincronización de Azure AD Connect: historial de versiones de conectores
+# Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
 
-Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
+>[AZURE.NOTE]
+Este tema solo está disponible en FIM y MIM. Estos conectores no se admiten en Azure AD Connect.
+
+En este tema se muestran todas las versiones de los conectores que se han publicado.
 
 Vínculos relacionados:
 
@@ -33,7 +36,7 @@ Vínculos relacionados:
 ## 1\.1.117.0
 Publicación: marzo de 2016
 
-**Nuevo conector** Versión inicial del [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md).
+**Nuevo conector** Versión inicial del [Conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Nuevas características:**
 
@@ -43,7 +46,7 @@ Publicación: marzo de 2016
     - Se han actualizado las actividades csEntryChangeResult y setImportErrorCode para permitir que los errores de nivel de objeto se devuelvan al motor de sincronización.
     - Se han actualizado las plantillas SAP6 y SAP6User para utilizar la nueva funcionalidad de error de nivel de objeto.
 - Conector Lotus Domino:
-    - Al realizar una exportación, necesita un certificador por cada libreta de direcciones. Ahora puede usar la misma contraseña para todos los certificadores a fin de facilitar la administración.
+    - Al exportar, necesita un certificador por cada libreta de direcciones. Ahora puede usar la misma contraseña para todos los certificadores a fin de facilitar la administración.
 
 **Problemas corregidos:**
 
@@ -82,7 +85,7 @@ Antes de marzo de 2016, los conectores se publicaban como temas de soporte técn
 - [KB3096533](https://support.microsoft.com/kb/3096533): 1.0.0597, septiembre de 2015
 - [KB3044895](https://support.microsoft.com/kb/3044895): 1.0.0549, marzo de 2015
 - [KB2977286](https://support.microsoft.com/kb/2977286): 5.3.0712, agosto de 2014
-- [KB2932635](https://support.microsoft.com/kb/2932635): 5.3.1003, febrero de 2014  
+- [KB2932635](https://support.microsoft.com/kb/2932635): 5.3.1003, febrero de 2014
 - [KB2899874](https://support.microsoft.com/kb/2899874): 5.3.0721, octubre de 2013
 - [KB2875551](https://support.microsoft.com/kb/2875551): 5.3.0534, agosto de 2013
 
@@ -91,4 +94,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

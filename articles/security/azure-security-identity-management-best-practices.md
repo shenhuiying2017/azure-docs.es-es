@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
@@ -134,4 +134,4 @@ En cambio, Azure AD Identity Protection es un sistema de supervisión activo y m
 
 Las organizaciones que no supervisen activamente sus sistemas de identidad corren el riesgo de comprometer las credenciales de los usuarios. Si las organizaciones no saben que están teniendo lugar actividades sospechosas con estas credenciales, no podrán mitigar este tipo de amenaza. Puede aprender más sobre Azure Identity Protection en [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

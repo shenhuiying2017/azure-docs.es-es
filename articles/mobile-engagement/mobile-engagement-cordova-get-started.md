@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="04/04/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para Cordova/Phonegap
@@ -48,7 +48,7 @@ Crearemos una aplicación básica con Cordova para demostrar la integración:
 
 ###Creación de un nuevo proyecto de Cordova
 
-1. Inicie la ventana *Terminal* en Mac y escriba lo siguiente para crear un nuevo proyecto de Cordova a partir de la plantilla predeterminada. Asegúrese de que el perfil de publicación que usará para implementar la aplicación de iOS usa 'com.mycompany.myapp' como ID de aplicación. 
+1. Inicie la ventana *Terminal* en Mac y escriba lo siguiente para crear un nuevo proyecto de Cordova a partir de la plantilla predeterminada. Asegúrese de que el perfil de publicación que usará para implementar la aplicación de iOS usa 'com.mycompany.myapp' como ID de aplicación.
 
 		$ cordova create azme-cordova com.mycompany.myapp
 		$ cd azme-cordova
@@ -167,7 +167,7 @@ Edite **www/js/index.js** para agregar la llamada a Mobile Engagement para solic
 
 **[iOS]**
 
-1. Usaremos XCode para compilar e implementar la aplicación en el dispositivo para probar las notificaciones push porque iOS solo permite notificaciones push a un dispositivo real. Vaya a la ubicación donde se creará el proyecto Cordova y vaya a la ubicación **...\\platforms\\ios**. Abra el archivo .xcodeproj nativo en XCode. 
+1. Usaremos XCode para compilar e implementar la aplicación en el dispositivo para probar las notificaciones push porque iOS solo permite notificaciones push a un dispositivo real. Vaya a la ubicación donde se creará el proyecto Cordova y vaya a la ubicación **...\\platforms\\ios**. Abra el archivo .xcodeproj nativo en XCode.
 	
 2. Compile e implemente la aplicación de Cordova en el dispositivo iOS usando la cuenta que tiene el perfil de aprovisionamiento que contiene el certificado que acaba de cargar al portal de Mobile Engagement y el identificador de la aplicación que coincide con el que proporcionó al crear la aplicación de Cordova. Puede consultar el *identificador del paquete* en el archivo **Resources*-info.plist** en XCode para que coincidan.
 
@@ -191,20 +191,20 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 
 3. Proporcione entradas para crear la campaña **[Android]**.
 	
-	- Proporcione un **Nombre** para la campaña. 
+	- Proporcione un **Nombre** para la campaña.
 	- Seleccione el **Tipo de entrega** como *Notificación del sistema* - *Simple*
 	- En **Plazo de entrega**, seleccione *En cualquier momento*.
 	- Especifique un **Título** para la notificación que será la primera línea en la inserción.
-	- Especifique un **Mensaje** para la notificación que servirá como el cuerpo del mensaje. 
+	- Especifique un **Mensaje** para la notificación que servirá como el cuerpo del mensaje.
 
 	![][11]
 
 4. Especifique entradas para crear la campaña **[iOS]**.
 
-	- Proporcione un **Nombre** para la campaña. 
+	- Proporcione un **Nombre** para la campaña.
 	- Configure **Plazo de entrega** como *Solo fuera de la aplicación*.
 	- Especifique un **Título** para la notificación que será la primera línea en la inserción.
-	- Especifique un **Mensaje** para la notificación que servirá como el cuerpo del mensaje. 
+	- Especifique un **Mensaje** para la notificación que servirá como el cuerpo del mensaje.
  
 	![][12]
 
@@ -212,7 +212,7 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 
 	![][8]
 
-6. [Opcional] También puede proporcionar la dirección URL de una acción. Asegúrese de que usa un esquema de URL proporcionado al configurar la variable **AZME REDIRECT URL** del complemento, por ejemplo, **myapp://test*.
+6. [Opcional] También puede proporcionar la dirección URL de una acción. Asegúrese de que usa un esquema de URL proporcionado al configurar la variable **AZME REDIRECT URL** del complemento, por ejemplo, *myapp://test*.
 
 7. Ya ha terminado de configurar la campaña más básica posible. Ahora, desplácese de nuevo hacia abajo y haga clic en el botón **Crear** para guardar la campaña.
 
@@ -237,4 +237,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0824_2016-->

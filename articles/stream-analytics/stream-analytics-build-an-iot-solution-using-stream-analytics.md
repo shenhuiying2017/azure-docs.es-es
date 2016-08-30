@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Construir una solución de IoT con Análisis de transmisiones | Microsoft Azure" 
 	description="tutorial de introducción de la solución de iot de Análisis de transmisiones de un escenario de peaje"
-	keywords=""
+	keywords="solución de IOT, funciones de ventana"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -42,7 +42,7 @@ Necesitará los siguientes requisitos previos antes de realizar este tutorial
 -   [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegios administrativos en el equipo.
 -   Descargue [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) del Centro de descarga de Microsoft.
--   Opcional: código fuente del generador de eventos TollApp desde [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
+-   Opcional: código fuente del generador de eventos TollApp desde [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Introducción al escenario: peajes
 
@@ -58,8 +58,8 @@ Se trabajará con dos flujos de datos producidos por los sensores instalados en 
 ### Flujo de datos de entrada
 
 El flujo de datos de entrada contiene información sobre los automóviles que entran al peaje.
-  
-  
+
+
 | TollId | EntryTime | LicensePlate | Estado | Asegúrese | Modelo | VehicleType | VehicleWeight | Toll | Etiqueta |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1 | 10-09-2014 12:01:00.000 | JNB 7001 | NY | Honda | CRV | 1 | 0 | 7 | |
@@ -68,11 +68,11 @@ El flujo de datos de entrada contiene información sobre los automóviles que en
 | 2 | 10-09-2014 12:03:00.000 | XYZ 1003 | CT | Toyota | Corolla | 1 | 0 | 4 | |
 | 1 | 10-09-2014 12:03:00.000 | BNJ 1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |
 | 2 | 10-09-2014 12:05:00.000 | CDE 1007 | NJ | Toyota | 4 x 4 | 1 | 0 | 6 | 321987654 |
-  
+
 
 Breve descripción de las columnas:
-  
-  
+
+
 | TollId | Id. de la cabina de peaje que la identifica de forma única. |
 |--------------|----------------------------------------------------------------|
 | EntryTime | Fecha y hora de entrada del vehículo en la cabina de peaje en UTC. |
@@ -89,8 +89,8 @@ Breve descripción de las columnas:
 ### Flujo de datos de salida
 
 El flujo de datos de salida contiene información sobre los automóviles que salen del peaje.
-  
-  
+
+
 | **TollId** | **ExitTime** | **LicensePlate** |
 |------------|------------------------------|------------------|
 | 1 | 10-09-2014 T12:03:00.0000000Z | JNB 7001 |
@@ -101,9 +101,9 @@ El flujo de datos de salida contiene información sobre los automóviles que sal
 | 2 | 10-09-2014 T12:07:00.0000000Z | CDE 1007 |
 
 Breve descripción de las columnas:
-  
-  
-| Columna | Descripción |
+
+
+| Columna | Description |
 |--------------|-----------------------------------------------------------------|
 | TollId | Id. de la cabina de peaje que la identifica de forma única. |
 | ExitTime | La fecha y hora de salida del vehículo de la cabina de peaje en UTC. |
@@ -112,8 +112,8 @@ Breve descripción de las columnas:
 ### Datos de matriculación de vehículos comerciales
 
 Usaremos una instantánea estática de la base de datos de matriculación de vehículos comerciales.
-  
-  
+
+
 | LicensePlate | RegistrationId | Expirada |
 |--------------|----------------|---------|
 | SVT 6023 | 285429838 | 1 |
@@ -121,12 +121,12 @@ Usaremos una instantánea estática de la base de datos de matriculación de veh
 | BAC 1005 | 876133137 | 1 |
 | RIV 8632 | 992711956 | 0 |
 | SNY 7188 | 592133890 | 0 |
-| ELH 9896 | 678427724 | 1 |                      
+| ELH 9896 | 678427724 | 1 |
 
 Breve descripción de las columnas:
-  
-  
-| Columna | Descripción |
+
+
+| Columna | Description |
 |--------------|-----------------------------------------------------------------|
 | LicensePlate | Número de matrícula del vehículo. |
 | RegistrationId | RegistrationId |
@@ -246,22 +246,22 @@ Conectarse a la base de datos de Azure (el destino) desde Visual Studio:
 6) Elija TollDataDB como base de datos
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-    
+
 7) Haga clic en Aceptar.
 
 8) Abra el Explorador de servidores.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-  
+
 9) Vea las 4 tablas creadas en la base de datos TollDataDB.
-  
+
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
-  
+
 ## Generador de eventos: proyecto ejemplo de TollApp
 
 El script de PowerShell comienza a enviar eventos automáticamente mediante el programa de aplicación de ejemplo TollApp. No es necesario realizar pasos adicionales.
 
-Sin embargo, si está interesado en los detalles de implementación, puede encontrar el código fuente de la aplicación TollApp en GitHub [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp)
+Sin embargo, si está interesado en los detalles de implementación, puede encontrar el código fuente de la aplicación TollApp en GitHub [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source)
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -376,9 +376,7 @@ Supongamos que necesitamos contar el número de vehículos que entra en el peaje
 
 Veamos la consulta de Análisis de transmisiones que responde a esta pregunta:
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream TIMESTAMP BY EntryTime GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 Como puede ver, Análisis de transmisiones usa un lenguaje de consulta similar a SQL con algunas extensiones adicionales para permitir especificar los aspectos de la consulta que están relacionados con la hora.
 
@@ -418,11 +416,7 @@ Queremos saber el tiempo promedio que tarda un vehículo en pasar a través del 
 
 Para ello se debe combinar el flujo que contiene EntryTime con el flujo que contiene ExitTime. Se combinarán los flujos de TollId y las columnas LicencePlate. El operador JOIN requiere que se especifique un margen temporal que describa una diferencia de tiempo aceptable entre los eventos combinados. Usaremos la función DATEDIFF para especificar que los eventos no durarán más de 15 minutos entre sí. También se aplicará la función DATEDIFF a las horas Exit y Entry para calcular el tiempo real que transcurre un automóvil en el peaje. Tenga en cuenta la diferencia del uso de DATEDIFF en una instrucción SELECT en comparación con su uso en una condición JOIN.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes FROM EntryStream TIMESTAMP BY EntryTime JOIN ExitStream TIMESTAMP BY ExitTime ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate) AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Para probar esta consulta, actualícela en la ficha Consulta del trabajo:
 
@@ -442,11 +436,7 @@ Análisis de transmisiones de Azure puede usar instantáneas estáticas de datos
 
 Si un vehículo comercial está registrado en la empresa de peaje, puede atravesar la cabina sin detenerse para inspección. Se usará la tabla de búsqueda de matriculaciones de vehículos comerciales para identificar todos los vehículos comerciales con matriculaciones expiradas.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId FROM EntryStream TIMESTAMP BY EntryTime JOIN Registration ON EntryStream.LicensePlate = Registration.LicensePlate WHERE Registration.Expired = '1'
 
 Tenga en cuenta que para probar una consulta con datos de referencia es necesario definir un origen de entrada para los datos de referencia, como hicimos en el paso 5.
 
@@ -485,9 +475,7 @@ Abra el Explorador de servidores de Visual Studio y haga clic con el botón dere
 
 Análisis de transmisiones de Azure está diseñado para escalar de manera elástica y ser capaz de controlar una gran carga de datos. Las consultas de Análisis de transmisiones puede usar una cláusula **PARTITION BY** para indicar al sistema que este paso se escalará horizontalmente. PartitionId es una columna especial agregada por el sistema que coincide con el identificador de partición de la entrada (Centro de eventos).
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 Detenga el trabajo actual, actualice la consulta en la ficha Consulta y abra la ficha Escala.
 
@@ -535,4 +523,4 @@ Tenga en cuenta que los recursos se identifican por el nombre. Asegúrese de rev
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

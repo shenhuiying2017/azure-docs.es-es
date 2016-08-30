@@ -42,7 +42,7 @@ El token de seguridad tiene el formato siguiente:
 
 Estos son los valores esperados:
 
-| Valor | Descripción |
+| Valor | Description |
 | ----- | ----------- |
 | {signature} | Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | {resourceURI} | Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede obtener acceso con este token, que comienza por un nombre de host del Centro de IoT (sin protocolo) Por ejemplo, `myHub.azure-devices.net/devices/device1` |
@@ -78,12 +78,31 @@ Se trata de una función de nodo que calcula el token a partir de las entradas `
         // console.log("signature:" + token);
         return token;
     };
+ 
+ Con fines de comparación, el código Python equivalente es:
+ 
+    from base64 import b64encode, b64decode
+    from hashlib import sha256
+    from hmac import HMAC
+    from urllib import urlencode
+    
+    def generate_sas_token(uri, key, policy_name='device', expiry=3600):
+        ttl = time() + expiry
+        sign_key = "%s\n%d" % (uri, int(ttl))
+        signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+     
+        return 'SharedAccessSignature ' + urlencode({
+            'sr' :  uri,
+            'sig': signature,
+            'se' : str(int(ttl)),
+            'skn': policy_name
+        })
 
 > [AZURE.NOTE] Puesto que el período de validez del token se valida en equipos del Centro de IoT, es importante que el desfase del reloj del equipo que genera el token sea mínimo.
 
 ## Uso de tokens de SAS como dispositivo
 
-Hay dos maneras de obtener permisos **DeviceConnect** con el Centro de IoT con tokens de seguridad: mediante una clave de identidad de dispositivo o una clave de directiva de acceso compartido.
+Existen dos maneras de obtener permisos **DeviceConnect** con el Centro de IoT con tokens de seguridad: mediante una clave de identidad de dispositivo o una clave de directiva de acceso compartido.
 
 Además, es importante tener en cuenta que puede acceder a toda la funcionalidad desde los dispositivos expuestos por diseño en los puntos de conexión con el prefijo `/devices/{deviceId}`.
 
@@ -102,8 +121,8 @@ Cuando se utiliza la clave simétrica de la identidad de un dispositivo para gen
 
 Por ejemplo, un token creado para tener acceso a toda la funcionalidad de dispositivo debe tener los siguientes parámetros:
 
-* URI de recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`
-* Clave de firma: cualquier clave simétrica de la identidad `{device id}`
+* URI de recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`,
+* clave de firma: cualquier clave simétrica de la identidad `{device id}`,
 * ningún nombre de directiva,
 * cualquier fecha de expiración.
 
@@ -126,16 +145,16 @@ Al crear un token desde una directiva de acceso compartido, el campo de nombre d
 
 Los dos escenarios principales para utilizar directivas de acceso compartido para tener acceso a la funcionalidad del dispositivo son:
 
-* [Puertas de enlace del protocolo en la nube][lnk-azure-protocol-gateway]
-* [Servicios de tokens][lnk-devguide-security] usados para implementar esquemas de autenticación personalizados
+* [Puertas de enlace del protocolo en la nube][lnk-azure-protocol-gateway],
+* [Servicios de tokens][lnk-devguide-security] usados para implementar esquemas de autenticación personalizados.
 
 Dado que la directiva de acceso compartido potencialmente puede conceder acceso para conectarse a cualquier dispositivo, es importante usar el identificador URI de recurso correcto al crear tokens de seguridad. Esto es especialmente importante para los servicios de token, que tienen que definir el ámbito de token para un dispositivo específico mediante el identificador URI del recurso. Este punto es menos relevante para puertas de enlace de protocolo, puesto que ya están mediando el tráfico para todos los dispositivos.
 
-Por ejemplo, un servicio de token que usa acceso compartido creado previamente denominado "**dispositivo**" crearía un token con los parámetros siguientes:
+Por ejemplo, un servicio de token que usa acceso compartido creado previamente denominado **dispositivo** crearía un token con los parámetros siguientes:
 
-* URI de recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`
-* Clave de firma: una de las claves de la directiva `device`
-* Nombre de la directiva: `device`
+* URI de recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`,
+* clave de firma: una de las claves de la directiva `device`,
+* nombre de la directiva: `device`,
 * cualquier fecha de expiración.
 
 Un ejemplo de uso de la función del nodo anterior sería:
@@ -165,11 +184,11 @@ Estas son las funciones de servicio expuestas en los puntos de conexión:
 | `{iot hub host name}/servicebound/feedback` | Recepción de comentarios para los mensajes de nube a dispositivo. |
 | `{iot hub host name}/devicebound` | Envío de mensajes de nube a dispositivo. |
 
-Por ejemplo, un servicio que genera el uso de la directiva de acceso compartido creada previamente denominada "**registryRead**" crearía un token con los parámetros siguientes:
+Por ejemplo, un servicio que genera el uso de la directiva de acceso compartido creada previamente denominada **registryRead** crearía un token con los parámetros siguientes:
 
-* URI de recurso: `{IoT hub name}.azure-devices.net/devices`
-* Clave de firma: una de las claves de la directiva `registryRead`
-* Nombre de la directiva: `registryRead`
+* URI de recurso: `{IoT hub name}.azure-devices.net/devices`,
+* clave de firma: una de las claves de la directiva `registryRead`,
+* nombre de la directiva: `registryRead`,
 * cualquier fecha de expiración.
 
     var endpoint ="myhub.azure-devices.net/devices"; var policyName = 'device'; var policyKey = '...';
@@ -194,7 +213,7 @@ Un dispositivo puede usar un token de seguridad o un certificado X.509 para real
 
 ## Registro de certificados de cliente X.509 en un dispositivo
 
-El [SDK de servicio de IoT de Azure para C#][lnk-service-sdk] \(versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado de cliente X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
+El [SDK de servicio de IoT de Azure para C#][lnk-service-sdk] (versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado de cliente X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
 
 ### Compatibilidad con C#
 
@@ -221,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Uso de certificados de cliente X.509 durante las operaciones en runtime
 
-El [SDK de dispositivo IoT de Azure para .NET][lnk-client-sdk] \(versión 1.0.11 o posterior) permite utilizar certificados de cliente X.509.
+El [SDK de dispositivo IoT de Azure para .NET][lnk-client-sdk] (versión 1.0.11 o posterior) permite utilizar certificados de cliente X.509.
 
 ### Compatibilidad con C#
 
@@ -246,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

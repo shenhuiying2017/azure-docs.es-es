@@ -101,4 +101,4 @@ Para eliminar una aplicación, seleccione una aplicación en la lista y después
 
 Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

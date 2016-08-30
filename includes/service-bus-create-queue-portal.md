@@ -1,33 +1,28 @@
 Asegúrese de que ya haya creado un espacio de nombres del Bus de servicio, como se muestra [aquí][namespace-how-to].
 
-1. Inicie sesión en el [Portal de Azure clásico][classic-portal].
+1. Inicie sesión en el [Portal de Azure][azure-portal].
 
 2. En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3. Seleccione el espacio de nombres donde desea crear la cola. En este caso, es "mytestns1".
+3. Seleccione el espacio de nombres donde desea crear la cola. En este caso, es **nstest1**.
 
-    ![Seleccionar un espacio de nombres][select-namespace]
+    ![Creación de una cola][createqueue1]
 
-4. Seleccione **Colas**.
+4. En la hoja **Espacio de nombres del Bus de servicio**, seleccione **Colas** y, a continuación, haga clic en **Agregar cola**.
 
-    ![Seleccionar Colas][select-queue]
+    ![Seleccionar Colas][createqueue2]
 
-5. Seleccione **Nuevo** en la esquina inferior izquierda y **Creación rápida**.
+5. Escriba el **Nombre de la cola** y deje los demás valores con sus valores predeterminados.
 
-    ![Seleccionar Nuevo][select-new]
+    ![Seleccionar Nuevo][createqueue3]
 
-6. Escriba un nombre en **Nombre de la cola** y compruebe que esté seleccionado el espacio de nombres correcto.
+7. Haga clic en **Crear** en la parte inferior de la hoja.
 
-7. Seleccione **Crear una nueva cola**.
-
-    ![Creación de una cola][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -104,14 +104,14 @@ El quinto ejemplo muestra cómo usar un códec de compresión personalizado para
 
 El sexto ejemplo muestra cómo utilizar la serialización de Avro para cargar datos en el almacenamiento de blobs de Azure y después analizarlos mediante Hive con un clúster HDInsight (Hadoop). Se puede descargar desde el sitio de <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">muestras de código de Azure</a>.
 
-A continuación se muestran los vínjculos a los seis ejemplos tratados en el tema:
+Estos son los vínculos a los seis ejemplos tratados en el tema:
 
- * <a href="#Scenario1">**Serialización mediante el uso de reflexión**</a>: el esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
- * <a href="#Scenario2">**Serialización mediante el uso de un registro genérico**</a>: el esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
- * <a href="#Scenario3">**Serialización mediante el uso de archivos contenedores de objetos con reflexión**</a>: el esquema JSON se compila de manera automática y se comparte junto con los datos serializados mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario4">**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**</a>: el esquema JSON se especifica explícitamente antes de la serialización y se comparte junto con los datos mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario5">**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**</a>: este ejemplo muestra cómo crear un archivo contenedor de objetos de Avro con una implementación .NET personalizada del códec de compresión de datos Deflate.
- * <a href="#Scenario6">**Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure**</a>: muestra cómo la serialización de Avro interactúa con el servicio HDInsight. Para ejecutar este ejemplo, se requiere una suscripción activa a Azure y acceso al clúster HDInsight.
+ * <a href="#Scenario1">**Serialización mediante reflexión**</a>: el esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
+ * <a href="#Scenario2">**Serialización mediante un registro genérico**</a>: el esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
+ * <a href="#Scenario3">**Serialización mediante archivos contenedores de objetos con reflexión**</a>: el esquema JSON se compila de manera automática y se comparte junto con los datos serializados mediante el uso de un archivo contenedor de objetos de Avro.
+ * <a href="#Scenario4">**Serialización mediante archivos contenedores de objetos con un registro genérico**</a>: el esquema JSON se especifica explícitamente antes de la serialización y se comparte junto con los datos mediante el uso de un archivo contenedor de objetos de Avro.
+ * <a href="#Scenario5">**Serialización mediante archivos contenedores de objetos con un códec de compresión personalizado**</a>: este ejemplo muestra cómo crear un archivo contenedor de objetos de Avro con una implementación .NET personalizada del códec de compresión de datos Deflate.
+ * <a href="#Scenario6">**Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure**</a>: muestra cómo la serialización de Avro interactúa con el servicio HDInsight. Para ejecutar este ejemplo, se requiere una suscripción activa a Azure y acceso al clúster HDInsight de Azure.
 
 ###<a name="Scenario1"></a>Muestra 1: serialización mediante el uso de reflexión
 
@@ -1403,4 +1403,4 @@ Para limpiar el clúster, ejecute el comando siguiente:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

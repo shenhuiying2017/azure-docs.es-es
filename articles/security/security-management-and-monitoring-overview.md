@@ -1,6 +1,6 @@
 <properties
    pageTitle="Información general sobre la administración y la supervisión de la seguridad en Azure | Microsoft Azure"
-   description="Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad."
+   description=" Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Información general sobre la administración y la supervisión de la seguridad en Azure
@@ -63,7 +63,7 @@ Symantec End Point Protection (SEP) también se admite en Azure. Gracias a la in
 Más información:
 
 - [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure](../azure-security-antimalware.md)
+- [Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure](../security/azure-security-antimalware.md)
 - [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/) (Nuevas opciones antimalware para proteger las máquinas virtuales de Azure: McAfee Endpoint Protection)
@@ -134,4 +134,4 @@ Más información:
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

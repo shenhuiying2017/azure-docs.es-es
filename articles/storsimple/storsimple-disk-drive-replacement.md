@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/28/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Reemplazar un disco duro en el dispositivo StorSimple
@@ -35,7 +35,7 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
 
 #### Para desbloquear el bloqueo antisabotaje
 
-1. Inserte cuidadosamente la clave de bloqueo (un destornillador T10 "inviolable" proporcionado por Microsoft) en el orificio del asa y en la toma. 
+1. Inserte cuidadosamente la clave de bloqueo (un destornillador T10 "inviolable" proporcionado por Microsoft) en el orificio del asa y en la toma.
 
     >[AZURE.NOTE] Si el bloqueo antisabotaje está activado, el indicador rojo está visible en el orificio.
 
@@ -43,7 +43,7 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
 
     **Figura 1** Bloqueo antisabotaje activado
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:----|:----------|
     |1|Orificio indicador|
     |2|Bloqueo antisabotaje|
@@ -124,4 +124,4 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

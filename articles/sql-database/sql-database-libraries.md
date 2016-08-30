@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/17/2016"
 	ms.author="pehteh"/>
 
 # Bibliotecas de conexiones para Base de datos SQL y SQL Server
@@ -30,4 +30,4 @@ En este tema se muestra cada biblioteca o controlador que los programas cliente 
 | Python | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Python](sql-database-develop-python-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

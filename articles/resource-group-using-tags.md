@@ -4,8 +4,8 @@
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/16/2016"
 	ms.author="tomfitz"/>
 
 
@@ -88,104 +88,7 @@ Actualmente, el administrador de recursos no admite el procesamiento de un objet
 
 ## PowerShell
 
-Las etiquetas existen directamente en los recursos y grupos de recursos. Para ver las etiquetas existentes, obtenga un recurso o grupo de recursos con **Get-AzureRmResource** o **Get-AzureRmResourceGroup**. Comencemos con un grupo de recursos.
-
-    Get-AzureRmResourceGroup -Name tag-demo-group
-
-Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso qué etiquetas se han aplicado, si las hay.
-
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name         Value
-                    ===========  ==========
-                    Dept         Finance
-                    Environment  Production
-
-Al obtener los metadatos de un recurso, las etiquetas no se muestran directamente.
-
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
-
-En los resultados puede ver que las etiquetas solo se muestran como objeto de tabla hash.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-Las etiquetas reales se pueden ver mediante la recuperación de la propiedad **Tags**.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Que devuelve resultados con formato:
-    
-    Dept: Finance
-    Environment: Production
-
-En lugar de ver las etiquetas de un recurso o un grupo de recursos concreto, a menudo se desea recuperar todos los recursos o grupos de recursos con una etiqueta y un valor concretos. Para obtener grupos de recursos con una etiqueta específica, use el cmdlet **Find-AzureRmResourceGroup** con el parámetro **-Tag**.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
-Que devuelve los nombres de los grupos de recursos con ese valor de etiqueta.
-   
-    tag-demo-group
-    web-demo-group
-
-Para obtener todos los recursos con una etiqueta y un valor concretos, use el cmdlet **Find-AzureRmResource**.
-
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
-    
-Que devuelve los nombres de los recursos con ese valor de etiqueta.
-    
-    tfsqlserver
-    tfsqldatabase
-
-Para agregar una etiqueta a un grupo de recursos que no tiene etiquetas existentes, basta con usar el comando **Set-AzureRmResourceGroup** y especificar un objeto de etiqueta.
-
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-
-Que devuelve el grupo de recursos con sus nuevos valores de etiqueta.
-
-    ResourceGroupName : test-group
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name          Value
-                    =======       =====
-                    Dept          IT
-                    Environment   Test
-                    
-Para agregar etiquetas a un recurso que no tenga etiquetas existentes, use el comando **Set-AzureRmResource**.
-
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
-
-Las etiquetas se actualizan en conjunto. Si desea agregar una etiqueta a un recurso que tiene otras etiquetas, use una matriz con todas las etiquetas que desea conservar. En primer lugar, seleccione las etiquetas existentes, agregue una a ese conjunto y vuelva a aplicar todas las etiquetas.
-
-    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
-    Set-AzureRmResourceGroup -Name test-group -Tag $tags
-
-Para quitar una o varias etiquetas, simplemente guarde la matriz sin la que desea quitar.
-
-El proceso es el mismo para los recursos, excepto en el hecho de que usa los cmdlets **Get-AzureRmResource** y **Set-AzureRmResource**.
-
-Para obtener una lista de todas las etiquetas dentro de una suscripción usando PowerShell, use el cmdlet **Get-AzureRmTag**.
-
-    Get-AzureRmTag
-    Name                      Count
-    ----                      ------
-    env                       8
-    project                   1
-
-Puede ver las etiquetas que comienzan con hidden-" y "link:". Se trata de etiquetas internas, las que debe omitir y evitar cambiar.
-
-Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. Estas etiquetas se incluyen en la característica Autocompletar, aunque todavía no se hayan aplicado a los recursos o grupos de recursos. Para quitar un nombre o valor de etiqueta, quite primero la etiqueta de los recursos con los que se pueda usar y, a continuación, use el cmdlet **Remove-AzureRmTag** para quitarla de la taxonomía.
+[AZURE.INCLUDE [resource-manager-tag-resources](../includes/resource-manager-tag-resources-powershell.md)]
 
 ## Azure CLI
 
@@ -281,4 +184,4 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos (CLI) de Azure al implementar recursos, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

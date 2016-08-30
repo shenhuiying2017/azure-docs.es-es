@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio" 
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio | Microsoft Azure" 
 	description="En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Visual Studio." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,23 +23,26 @@
 - [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 En este tutorial hará lo siguiente mediante Visual Studio 2013:
 
 1. Cree dos servicios vinculados: **AzureStorageLinkedService1** y **AzureSqlinkedService1**. AzureStorageLinkedService1 vincula un almacenamiento de Azure y AzureSqlLinkedService1 vincula una Base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryVS**. Los datos de entrada para la canalización se encuentran en un contenedor de blob en el almacenamiento de blobs de Azure y los datos de salida se almacenan en una tabla en la base de datos SQL de Azure. Por lo tanto, agregue estos almacenes de datos como servicios vinculados en la factoría de datos.
-2. Creará dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blobs que contiene un blob con los datos de origen, y para EmpSQLTable, especificará la tabla SQL que almacenará los datos de salida. Especifique también otras propiedades como la estructura de los datos, su disponibilidad, etc.
-3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactoryVS. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure en la tabla de salida de Azure SQL. La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
+2. Creará dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especifique el contenedor de blobs que contiene un blob con los datos de origen. Para EmpSQLTable, especifique la tabla SQL que almacena los datos de salida. Especifique también otras propiedades como estructura, disponibilidad, etc.
+3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactoryVS. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure en la tabla de salida de Azure SQL. La actividad de copia realiza el movimiento de datos en Data Factory de Azure. La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
 4. Cree una factoría de datos e implemente servicios vinculados, tablas y la canalización.
 
 ## Requisitos previos
 
-1. **Debe** leer la sección [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
-2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory en Data Factory de Azure. Esta es una limitación actualmente.
+1. Lea el artículo [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+	
+	> [AZURE.IMPORTANT] Complete los requisitos previos antes de continuar.
+2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory en Data Factory de Azure.
 3. Debe tener lo siguiente instalado en el equipo:
 	- Visual Studio 2013 o Visual Studio 2015.
 	- Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-	- Descargue el último complemento de Data Factory de Azure para Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si usa Visual Studio 2013, también puede actualizar el complemento mediante el proceso siguiente: haga clic en el menú **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Factoría de datos de Microsoft Azure para Visual Studio** -> **Actualizar**.
+	- Descargue el último complemento de Data Factory de Azure para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si usa Visual Studio 2013, también puede actualizar el complemento mediante el proceso siguiente: haga clic en el menú **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Factoría de datos de Microsoft Azure para Visual Studio** -> **Actualizar**.
  
 
 
@@ -54,7 +57,7 @@ En este tutorial hará lo siguiente mediante Visual Studio 2013:
 	![Explorador de soluciones](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)
 
 ## Crear servicios vinculados
-Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser un almacenamiento de Azure, una base de datos SQL de Azure o una base de datos SQL Server local.
+Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser un Almacenamiento de Azure, una Base de datos SQL de Azure o una Base de datos SQL Server local.
 
 En este paso, crea dos servicios vinculados: **AzureStorageLinkedService1** y **AzureSqlLinkedService1**. El servicio vinculado AzureStorageLinkedService1 vincula una cuenta de almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos SQL de Azure a la factoría de datos: **ADFTutorialDataFactory**.
 
@@ -80,7 +83,7 @@ En este paso, crea dos servicios vinculados: **AzureStorageLinkedService1** y **
 
 
 ## Creación de conjuntos de datos
-En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService1** y **AzureSqlLinkedService1** para vincular una cuenta de Almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactory**. En este paso, define dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hacen referencia AzureStorageLinkedService1 y AzureSqlLinkedService1 respectivamente. Para EmpTableFromBlob, especificará el contenedor de blobs que contiene un blob con los datos de origen, y para EmpSQLTable, especificará la tabla SQL que almacenará los datos de salida.
+En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService1** y **AzureSqlLinkedService1** para vincular una cuenta de Almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactory**. En este paso, define dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hacen referencia AzureStorageLinkedService1 y AzureSqlLinkedService1 respectivamente. Para EmpTableFromBlob, especifique el contenedor de blobs que contiene un blob con los datos de origen. Para EmpSQLTable, especifique la tabla SQL que almacena los datos de salida.
 
 ### Creación de un conjunto de datos de entrada
 
@@ -235,7 +238,7 @@ Tenga en cuenta lo siguiente:
 		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 	
 			Get-AzureRmResourceProvider
-	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 - 	El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 - 	Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
 
@@ -270,8 +273,8 @@ Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy
 | :---- | :---- |
 | [Actividades de movimiento de datos](data-factory-data-movement-activities.md) | En este artículo se proporciona información detallada sobre la actividad de copia que se usa en el tutorial. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) | En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
-| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Data Factory de Azure y cómo aprovecharlas para construir flujos de trabajo completos controlados por datos para su escenario o negocio. |
+| [Procesos](data-factory-create-pipelines.md) | Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory de Azure. |
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

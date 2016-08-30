@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración del directorio para la suscripción de Office 365 en Azure | Microsoft Azure"
-   description="Administración de un directorio de la suscripción de Office 365 con Azure Active Directory y el Portal de Azure clásico"
+   pageTitle="Administración del directorio para una suscripción a Office 365 en Azure | Microsoft Azure"
+   description="Administración de un directorio de la suscripción a Office 365 con Azure Active Directory y el Portal de Azure clásico"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,18 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Administración del directorio para la suscripción de Office 365 en Azure
 
-En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 con el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser el administrador de servicios o un coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure puede suscribirse a una [evaluación gratuita de 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
+En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 mediante el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser administrador de servicios o coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure, desde este vínculo puede registrarse ahora mismo para disfrutar de una [evaluación gratuita durante 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) e implementar su primera solución en la nube en menos de 5 minutos. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
 
-Después de realizar la suscripción de Azure, puede iniciar sesión en el Portal de Azure clásico y obtener acceso a los servicios de Azure. Haga clic en la extensión de Active Directory para administrar el mismo directorio que autentica a los usuarios de Office 365.
+Después de completar la suscripción a Azure, puede iniciar sesión en el Portal de Azure clásico y acceder a los servicios de Azure. Haga clic en la extensión de Active Directory para administrar el mismo directorio que autentica a los usuarios de Office 365.
 
-Si ya tiene una suscripción de Azure, el proceso para administrar un directorio adicional también es sencillo. Por ejemplo, puede que Michael Smith tenga una suscripción a Office 365 para Contoso.com. También tiene una suscripción de Azure en la que se suscribió con su cuenta de Microsoft, msmith@hotmail.com. En este caso, administra dos directorios.
+Si ya tiene una suscripción a Azure, el proceso para administrar un directorio adicional también es sencillo y directo. Por ejemplo, suponga que Michael Smith tiene una suscripción a Office 365 para Contoso.com. También tiene una suscripción a Azure, que realizó con su cuenta Microsoft, msmith@hotmail.com. En este caso, administra dos directorios.
 
- La suscripción | Office 365 | Las tablas de Azure
+ Subscription | Office 365 | Las tablas de Azure
   -------------- | ------------- | -------------------------------
  Nombre para mostrar | Contoso | Directorio de Azure Active Directory (Azure AD) predeterminado
  Nombre de dominio | contoso.com | msmithhotmail.onmicrosoft.com
@@ -52,13 +52,13 @@ Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con un
 Después de realizar estos pasos, msmith@hotmail.com es un administrador global en el directorio Contoso.
 
 ## Para administrar recursos como administrador global
-Ahora supongamos que Jane Doe necesita administrar recursos de base de datos y sitios web asociados con la suscripción de Azure de msmith@hotmail.com. Antes de que pueda hacerlo, Michael Smith debe realizar estos pasos adicionales:
+Ahora supongamos que Jane Doe necesita administrar sitios web y recursos de la base de datos asociados con la suscripción de Azure de msmith@hotmail.com. Antes de que pueda hacerlo, Michael Smith debe realizar estos pasos adicionales:
 
 1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) mediante la cuenta de administrador de servicios de la suscripción de Azure (en este ejemplo, msmith@hotmail.com).
 2.	Transfiera la suscripción al directorio Contoso: haga clic en **Configuración** > **Suscripciones** > seleccione la suscripción > **Editar directorio** > y seleccione **Contoso (Contoso.com)**. Como parte de la transferencia, se eliminan todas las cuentas profesionales o educativas que sean coadministradores de la suscripción.
 3.	Agregue a Jane Doe como coadministradora de la suscripción: haga clic en **Configuración** > **Administradores** > seleccione la suscripción > **Agregar**> y escriba **JohnDoe@Contoso.com**.
 
 ## Pasos siguientes
-Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
+Para más información sobre la relación entre suscripciones y directorios, consulte [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
 # Runbooks secundarios en la Automatización de Azure
-
 
 Un procedimiento recomendado en la Automatización de Azure es escribir runbooks que sean reutilizables y modulares con una función independiente que puedan usar otros runbooks. Con frecuencia, un runbook primario llamará a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario y cada una tiene varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para los diferentes escenarios.
 
@@ -35,7 +34,7 @@ Los parámetros de un Runbook secundario en línea pueden ser de cualquier tipo 
 
 Qué tipos pueden llamarse entre sí:
 
-- Un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) y los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) puede llamarse entre sí en línea (ambos tipos se basan en PowerShell).
+- Un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) y los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) pueden llamarse entre sí en línea (ambos tipos se basan en PowerShell).
 - Un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y los runbooks gráficos de flujo de trabajo de PowerShell pueden llamarse entre sí en línea (ambos tipos se basan en el flujo de trabajo de PowerShell).
 - Los tipos de PowerShell y los tipos de flujo de trabajo de PowerShell no pueden llamarse entre sí en línea, y deben utilizar Start-AzureRmAutomationRunbook.
 	
@@ -94,4 +93,4 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

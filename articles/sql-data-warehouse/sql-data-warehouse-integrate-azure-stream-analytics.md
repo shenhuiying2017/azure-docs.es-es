@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Uso de Análisis de transmisiones de Azure con Almacenamiento de datos SQL
@@ -86,7 +86,7 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 
-[Introducción a Análisis de transmisiones de Azure]: ../stream-analytics/stream-analytics-introductiond.md
+[Introducción a Análisis de transmisiones de Azure]: ../stream-analytics/stream-analytics-introduction.md
 [Introducción al uso de Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integrate.md
@@ -96,4 +96,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

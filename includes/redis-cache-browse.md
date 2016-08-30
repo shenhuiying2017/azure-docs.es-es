@@ -11,3 +11,5 @@ Seleccione la memoria caché que quiera para ver las propiedades de dicha memori
 Haga clic en **Configuración** o en **Toda la configuración** para ver y configurar la memoria caché.
 
 ![Caché en Redis - Todas las configuraciones](media/redis-cache-browse/redis-cache-blade.png)
+
+<!---HONumber=AcomDC_0817_2016-->

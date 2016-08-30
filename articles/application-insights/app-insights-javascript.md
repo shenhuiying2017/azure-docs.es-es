@@ -57,7 +57,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 ![En la hoja de información general de su aplicación, elija Inicio rápido, Obtener código para supervisar mis páginas web. Copie el script.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Inserte el script justo antes de la etiqueta `<head>` de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
+Inserte el script justo antes de la etiqueta `</head>` de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
 * En un proyecto de ASP.NET MVC, lo colocaría en `View\Shared\_Layout.cshtml`.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
@@ -249,4 +249,4 @@ El nombre de la página puede contener los mismos caracteres que una dirección 
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

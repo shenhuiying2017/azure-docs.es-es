@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
@@ -120,8 +120,6 @@ Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 ## Pasos siguientes
 
-Para obtener información general sobre la integración, consulte [Información general de la integración de Almacenamiento de datos SQL][].
-
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
 
 <!--Image references-->
@@ -137,7 +135,6 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Article references-->
 
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
-[Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration.md
 [Tutorial para crear un experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
@@ -149,4 +146,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

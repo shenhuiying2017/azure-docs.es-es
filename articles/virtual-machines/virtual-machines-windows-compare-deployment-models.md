@@ -3,9 +3,9 @@
    description="Información general conceptual de los proveedores de recursos de almacenamiento, procesos y redes (CRP, NRP y SRP) para aplicaciones de Windows en el modelo de implementación de Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Proveedores de almacenamiento, redes y procesos de Azure para aplicaciones de Windows en el modelo de implementación de Azure Resource Manager
 
@@ -23,4 +23,4 @@ La inclusión de funcionalidades de proceso, red y almacenamiento con el modelo 
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

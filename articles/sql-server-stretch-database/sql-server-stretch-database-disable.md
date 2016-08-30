@@ -20,9 +20,9 @@
 
 Para deshabilitar Stretch Database para una tabla, seleccione **Stretch** para una tabla en SQL Server Management Studio. Seleccione una de las siguientes opciones.
 
--   **Deshabilitar| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This operation incurs data transfer costs, and it can't be canceled.
+-   **Deshabilitar| Bring data back from Azure**. Copia los datos remotos para la tabla de Azure a SQL Server y, a continuación, deshabilita Stretch Database para la tabla. Esta operación provoca costos de transferencia de datos y no se puede cancelar.
 
--   **Deshabilitar| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+-   **Deshabilitar| Leave data in Azure**. Deshabilita Stretch Database para la tabla.  Abandona los datos remotos para la tabla en Azure.
 
 También puede utilizar Transact-SQL para deshabilitar Stretch Database para una tabla o una base de datos.
 
@@ -40,13 +40,13 @@ Si simplemente desea pausar la migración de datos, consulte [Pausa y reanudaci�
 
 2.  Haga clic con el botón derecho y seleccione **Stretch** y, a continuación, seleccione una de las siguientes opciones.
 
-    -   **Deshabilitar| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This command can't be canceled.
+    -   **Deshabilitar| Bring data back from Azure**. Copia los datos remotos para la tabla de Azure a SQL Server y, a continuación, deshabilita Stretch Database para la tabla. Este comando no se puede cancelar.
 
-        >   [AZURE.NOTE] Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+        >   [AZURE.NOTE] Al volver a copiar los datos remotos de la tabla de Azure en el SQL Server, se generan costos de transferencia de datos. Para obtener más información, consulte [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-        After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
+        Después de que todos los datos remotos se hayan copiado de Azure a SQL Server, Stretch se deshabilita para la tabla.
 
-    -   **Deshabilitar| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+    -   **Deshabilitar| Leave data in Azure**. Deshabilita Stretch Database para la tabla.  Abandona los datos remotos para la tabla en Azure.
 
     >   [AZURE.NOTE] Al deshabilitar la característica Stretch Database para una tabla, no se eliminan los datos remotos ni la tabla remota. Si quiere eliminar la tabla remota, debe hacerlo mediante el Portal de administración de Azure. La tabla remota seguirá generando costos de almacenamiento de Azure hasta que la elimine. Para obtener más información, consulte la página [Precios SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 

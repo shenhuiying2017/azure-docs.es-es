@@ -52,6 +52,7 @@ En este artículo aprenderá a usar la API de REST de Data Factory para crear su
 Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] El nombre debe ser único globalmente, por lo que quizás desee usar el prefijo/sufijo ADFCopyTutorialDF para que sea un nombre único.
 
 	{  
 	    "name": "FirstDataFactoryREST",  
@@ -98,11 +99,11 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 
 Tenga en cuenta lo siguiente:
 
-- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También puede hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-- Puede usar **su propio clúster de HDInsight**, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento.
 
-	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
 Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -253,6 +254,8 @@ En este paso, creará una instancia de Data Factory de Azure llamada **LogProces
 
 1. Asigne el comando a la variable denominada **cmd**.
 
+	Confirme que el nombre de la factoría de datos que especifique aquí (ADFCopyTutorialDF) coincide con el nombre especificado en el archivo **datafactory.json**.
+
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. Ejecute el comando con **Invoke-Command**.
 
@@ -263,7 +266,10 @@ En este paso, creará una instancia de Data Factory de Azure llamada **LogProces
 
 Tenga en cuenta lo siguiente:
  
-- El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el error en los resultados: **El nombre “FirstDataFactoryREST” de factoría de datos no está disponible**, cambie el nombre (por ejemplo, suNombreFirstDataFactoryREST) en el archivo JSON y en el comando anterior. Use este nombre en lugar de **FirstDataFactoryREST** mientras sigue los pasos de este tutorial. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+- El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:
+	1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json**. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
+	2. En el primer comando, donde se asigna un valor a la variable **$cmd**, reemplace FirstDataFactoryREST por el nuevo nombre y ejecute el comando.
+	3. Ejecute los dos comandos siguientes para invocar la API de REST para crear la factoría de datos e imprimir los resultados de la operación.
 - Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
 - El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
 - Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
@@ -380,8 +386,8 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 
 1.	Ha creado una **factoría de datos** de Azure.
 2.	Ha creado dos **servicios vinculados**:
-	1.	El servicio vinculado **Almacenamiento de Azure** que vincula Almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
-	2.	El servicio vinculado a petición de **HDInsight de Azure** que vincula un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
+	1.	El servicio vinculado **Almacenamiento de Azure** para vincular el almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
+	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
 3.	Ha creado dos **conjuntos de datos**, que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización.
 4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
@@ -399,4 +405,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante las hojas del Portal de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

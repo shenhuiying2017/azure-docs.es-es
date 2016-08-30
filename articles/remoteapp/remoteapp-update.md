@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/05/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Actualización de una colección en Azure RemoteApp
 
-Llegará un momento, inevitablemente, en que tendrá que actualizar las aplicaciones o la imagen de la colección Azure RemoteApp. Si usa una de las imágenes incluidas con la suscripción de Azure RemoteApp, ya sea en una colección híbrida o en la nube, la administración de todas y cada una de las actualizaciones la realiza la propia Azure RemoteApp, por lo que puede estar tranquilo.
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
+Llegará un momento, inevitablemente, en que tendrá que actualizar las aplicaciones o la imagen de la colección Azure RemoteApp. Si usa una de las imágenes incluidas con la suscripción de Azure RemoteApp, ya sea en una colección híbrida o en la nube, la administración de todas y cada una de las actualizaciones la realiza la propia Azure RemoteApp, por lo que puede estar tranquilo.
 
 Sin embargo, si usa una imagen personalizada (creada desde cero o modificando una de nuestras imágenes), es responsable del mantenimiento de la imagen y las aplicaciones. Si necesita actualizar la imagen o cualquiera de las aplicaciones de dicha colección, tendrá que crear una nueva versión actualizada de la imagen y, luego, reemplazar la de la colección por esta nueva imagen actualizada.
 
@@ -34,4 +37,4 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
 
 1. Haga clic en la marca de verificación para iniciar la actualización.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

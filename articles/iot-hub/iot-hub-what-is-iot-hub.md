@@ -31,14 +31,14 @@ En el artículo [Comparación del Centro de IoT y los Centros de eventos][lnk-co
 
 ![Centro de IoT de Azure como solución de puerta de enlace de nube en Internet de las cosas][img-architecture]
 
-> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Arquitectura de referencia de IoT de Microsoft Azure).
+> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Arquitectura de referencia de IoT de Microsoft Azure).
 
 ## Problemas de conectividad de dispositivos IoT
 
 El Centro de IoT y las bibliotecas de dispositivo le ayudan a superar los desafíos derivados de la conexión confiable y segura de dispositivos al back-end de soluciones. Dispositivos IoT:
 
 - A menudo son sistemas insertados sin operador humano.
-- Pueden encontrarse en ubicaciones remotas, donde el acceso físico resulta muy costoso.
+- Pueden encontrarse en ubicaciones remotas, donde el acceso físico resulta costoso.
 - Es posible que solo sean accesibles a través del back-end de soluciones.
 - Es posible que tengan limitaciones de recursos de procesamiento y alimentación.
 - Es posible que tengan conectividad de red intermitente, lenta o costosa.
@@ -51,11 +51,11 @@ Además de los requisitos anteriores, toda solución de IoT debe ser capaz de of
 
 El Centro de IoT de Azure aborda las dificultades de conectividad de dispositivos de las maneras siguientes:
 
--   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia [clave de seguridad][lnk-devguide-security] para permitirle conectarse al Centro de IoT. El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede crear listas blancas y negras de dispositivos individuales, lo que permite controlar por completo el acceso a los dispositivos.
+-   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia [clave de seguridad][lnk-devguide-security] para permitirle conectarse al Centro de IoT. El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede agregar dispositivos individuales para permitir o denegar listas que permitan controlar por completo el acceso a los dispositivos.
 
--   **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esto permite que la solución de IoT identifique fácilmente los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
+-   **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite que la solución de IoT identifique fácilmente los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
 
--   **Amplio conjunto de bibliotecas de dispositivos**. Los [SDK de dispositivo IoT de Azure][lnk-device-sdks] están disponibles y son compatibles con una amplia gama de lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
+-   **Amplio conjunto de bibliotecas de dispositivos**. Los [SDK de dispositivo IoT de Azure][lnk-device-sdks] están disponibles y son compatibles con varios lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 
 -   **Extensibilidad y protocolos de IoT**. Si la solución no puede usar las bibliotecas de dispositivos, el Centro de IoT expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTP 1.1 o AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer soporte para protocolos personalizados mediante:
 
@@ -68,15 +68,15 @@ Estas ventajas son genéricas para varios patrones de comunicación. El Centro d
 
 -   **Ingestión de dispositivos a nube basada en eventos.** El Centro de IoT puede recibir de manera confiable millones de eventos por segundo de los dispositivos. A continuación, puede procesarlos en la ruta de acceso activa mediante un motor procesador de eventos. También puede almacenarlos en su ruta de acceso no activa para someterlos a análisis. El Centro de IoT conserva los datos de eventos hasta siete días para garantizar un procesamiento fiable y absorber picos de carga.
 
--   **Mensajería fiable de nube a dispositivo (o *comandos*).** El back-end de soluciones puede usar el Centro de IoT para enviar mensajes con garantía de entrega al menos una vez a dispositivos individuales. Cada mensaje tiene una configuración de período de vida individual y el back-end puede solicitar confirmación de entrega y vencimiento. Esto garantiza una visibilidad completa en el ciclo de vida de un mensaje de la nube al dispositivo. Luego puede implementar la lógica de negocios que incluye las operaciones que se ejecutan en dispositivos.
+-   **Mensajería fiable de nube a dispositivo (o *comandos*).** El back-end de soluciones puede usar el Centro de IoT para enviar mensajes con garantía de entrega al menos una vez a dispositivos individuales. Cada mensaje tiene una configuración de período de vida individual y el back-end puede solicitar confirmación de entrega y vencimiento. Estas confirmaciones garantizan una visibilidad completa en el ciclo de vida de un mensaje de la nube al dispositivo. Luego puede implementar la lógica de negocios que incluye las operaciones que se ejecutan en dispositivos.
 
 -   **Carga de archivos y datos de sensor en caché a la nube.** Los dispositivos pueden cargar archivos en el Almacenamiento de Azure mediante los URI de SAS gestionados por el Centro de IoT. El Centro de IoT puede generar notificaciones cuando llegan los archivos en la nube para permitir que el back-end los procese.
 
 ## Puertas de enlace
 
-Una puerta de enlace en una solución IoT es normalmente una [puerta de enlace de protocolo][lnk-gateway] implementada en la nube o una [puerta de enlace de campo][lnk-field-gateway] implementada localmente con sus dispositivos. Una puerta de enlace de protocolo realiza la traducción de protocolos, por ejemplo, de MQTT a AMQP. Una puerta de enlace de campo puede ejecutar análisis en el perímetro, tomar decisiones sujetas a limitaciones temporales que pueden reducir la latencia, proporcionar servicios de administración del dispositivo, aplicar restricciones de privacidad y seguridad y realizar la traducción de protocolos. Ambos tipos de puerta de enlace actúan como intermediarios entre los dispositivos y el Centro de IoT.
+Una puerta de enlace en una solución IoT es normalmente una [puerta de enlace de protocolo][lnk-gateway] implementada en la nube o una [puerta de enlace de campo][lnk-field-gateway] implementada localmente con sus dispositivos. Una puerta de enlace de protocolo realiza la traducción de protocolos, por ejemplo, de MQTT a AMQP. Una puerta de enlace de campo puede ejecutar análisis en el perímetro, tomar decisiones sujetas a limitaciones temporales para reducir la latencia, proporcionar servicios de administración del dispositivo, aplicar restricciones de privacidad y seguridad y realizar la traducción de protocolos. Ambos tipos de puerta de enlace actúan como intermediarios entre los dispositivos y el Centro de IoT.
 
-Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo de traducción de direcciones de red (NAT)) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución.
+Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo de traducción de direcciones de red) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución.
 
 Una solución puede incluir tanto puertas de enlace de protocolo como de campo.
 
@@ -98,7 +98,7 @@ El sector móvil ha usado correctamente el patrón de comunicación asistida por
 
 Para más información acerca de cómo puede administrar, configurar y actualizar sus dispositivos de forma remota mediante la administración de dispositivos IoT basada en estándares del Centro de IoT de Azure, consulte [Introducción a la administración de dispositivos desde Centro de IoT de Azure][lnk-device-management].
 
-Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre una serie de protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
+Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre varios protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
 
 Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutorial [Introducción al Centro de IoT de Azure para .NET][lnk-get-started].
 
@@ -123,4 +123,4 @@ Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutori
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

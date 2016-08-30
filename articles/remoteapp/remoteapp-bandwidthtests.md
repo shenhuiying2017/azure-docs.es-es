@@ -12,19 +12,22 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
     
 # Azure RemoteApp: probar el uso de ancho de banda de red con algunos escenarios comunes
 
-Como se explicó en [Cálculo aproximado del uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md), la mejor manera de averiguar cuál es el impacto de Azure RemoteApp en la red es ejecutar algunas pruebas de uso. Ejecute estas pruebas para establecer un período de tiempo y medir el ancho de banda necesario para cada escenario. Si dispone de la funcionalidad, también puede medir la vibración de red y la pérdida de paquetes de red para comprender los patrones de red que se crean en su entorno específico.
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
+Como se explicó en [Calcular el uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md), la mejor manera de averiguar cuál es el impacto de Azure RemoteApp en la red es ejecutar algunas pruebas de uso. Ejecute estas pruebas para establecer un período de tiempo y medir el ancho de banda necesario para cada escenario. Si dispone de la funcionalidad, también puede medir la vibración de red y la pérdida de paquetes de red para comprender los patrones de red que se crean en su entorno específico.
 
     
-Al evaluar el uso de ancho de banda, recuerde que el uso varía de un usuario a otro dentro de la empresa. Por ejemplo, los usuarios que escriben y leen texto suelen consumir menos ancho de banda que los usuarios que trabajan con vídeo. Para obtener mejores resultados, estudie las necesidades de sus propios usuarios y cree una combinación de los siguientes escenarios que mejor represente a los usuarios de la empresa. No olvide [revisar los factores que afectan al uso de ancho de banda y a la experiencia del usuario](remoteapp-bandwidthexperience.md), esto le ayudará a identificar las pruebas ideales.
+Al evaluar el uso de ancho de banda, recuerde que el uso varía de un usuario a otro dentro de la empresa. Por ejemplo, los usuarios que escriben y leen texto suelen consumir menos ancho de banda que los usuarios que trabajan con vídeo. Para obtener mejores resultados, estudie las necesidades de sus propios usuarios y cree una combinación de los siguientes escenarios que mejor represente a los usuarios de la empresa. No olvide [revisar los factores que afectan al uso de ancho de banda y a la experiencia del usuario](remoteapp-bandwidthexperience.md). Esto lo ayudará a identificar las pruebas ideales.
 
 Infórmese primero sobre las pruebas, seleccione la combinación y después ejecútelas. Puede usar la tabla siguiente para realizar un seguimiento del rendimiento.
 
->[AZURE.NOTE] Si no puede realizar sus propias pruebas de red, o no dispone de tiempo para hacerlo, consulte nuestras [recomendaciones y cálculos básicos de ancho de banda de red](remoteapp-bandwidthguidelines.md). Pero es posible que el consumo por kilómetro varíe, por eso, si *puede* ejecutar sus propias pruebas, debe hacerlo.
+>[AZURE.NOTE] Si no puede realizar sus propias pruebas de red, o no dispone de tiempo para hacerlo, consulte nuestras [recomendaciones y cálculos básicos de ancho de banda de red](remoteapp-bandwidthguidelines.md). Como es posible que el consumo por kilómetro varíe, debe ejecutar sus propias pruebas si *puede*.
 
 
 ## Pruebas de uso
@@ -76,7 +79,7 @@ Acerca de la tabla:
 - **Experiencia promedio** contiene el ancho de banda de red donde la productividad del usuario no se ve afectada significativamente, pero no excluye problemas ocasionales de audio o vídeo. El sistema es capaz de recuperarse rápidamente aprovechando las ventajas de la lógica dinámica. Los cálculos aproximados de ancho de banda de red intentan garantizar la calidad de la experiencia del usuario.
  - **Problemas perceptibles (punto de interrupción)** contiene el ancho de banda de red donde los usuarios pueden notar problemas importantes en su experiencia, y donde la productividad se ve afectada durante períodos de tiempo mensurables. En este momento, los algoritmos de RDP tienen dificultades para garantizar la calidad de la experiencia del usuario y no pueden debido a falta de ancho de banda.
  - **Recomendado** contiene el ancho de banda de red recomendado para una experiencia buena o excelente. Suele ser el nivel superior siguiente al valor de la columna **Experiencia promedio** correspondiente.
- - **Notas** incluyen observaciones y comentarios.
+ - En **Notas** se incluyen observaciones y comentarios.
  
 | Prueba | Experiencia promedio | Problemas perceptibles(punto de interrupción) | Ancho de banda de red recomendado | Notas |
 |-----------------------|--------------------|---------------------------------|-------------------------------|--------------------------------------------------------------------|
@@ -97,4 +100,4 @@ Para evaluar el ancho de banda de red por usuario, cree una combinación de los 
 
 - [Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo por sí mismo)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

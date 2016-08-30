@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 
 # Uso de almacenamiento de blobs en Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Información general
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo realizar algunas tareas comunes con Almacenam
 
 ## Creación de una aplicación Node.js
 
-Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en el Servicio de aplicaciones de Azure], [Creación e implementación de una aplicación Node.js en un Servicio de nube de Azure] con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix].
+Para instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en el Servicio de aplicaciones de Azure], [Creación e implementación de una aplicación Node.js en un Servicio en la nube de Azure] con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix].
 
 ## Configuración de la aplicación para acceder al almacenamiento
 
@@ -136,7 +136,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Cargar un blob en un contenedor
 
-Hay tres tipos de blobs: blobs en bloques, blobs en páginas y blobs en anexos. Los blobs en bloques permiten cargar datos de gran tamaño de una forma más eficaz. Los blobs en anexos están optimizados para las operaciones de anexión. Los blobs en páginas están optimizados para las operaciones de lectura y escritura. Para obtener más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Hay tres tipos de blobs: blobs en bloques, blobs en páginas y blobs en anexos. Los blobs en bloques permiten cargar datos de gran tamaño de una forma más eficaz. Los blobs en anexos están optimizados para las operaciones de anexión. Los blobs en páginas están optimizados para las operaciones de lectura y escritura. Para más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Blobs en bloques
 
@@ -411,8 +411,8 @@ Para obtener más información, consulte los siguientes recursos:
 [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Creación e implementación de una aplicación Node.js en un Servicio de nube de Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Creación e implementación de una aplicación Node.js en un Servicio en la nube de Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

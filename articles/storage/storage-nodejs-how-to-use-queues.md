@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de colas de Node.js
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Información general
 
@@ -305,9 +305,9 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 -   Visite el [Blog del equipo de almacenamiento de Azure][].
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub.
 
-  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
+  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Portal]: https://portal.azure.com
   [Creación de una aplicación web Node.js en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -325,4 +325,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

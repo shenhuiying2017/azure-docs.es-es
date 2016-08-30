@@ -79,7 +79,7 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 6. Compruebe el contenido en **resources** y observe lo siguiente:
 
 	- **type**. Tipo de recurso que creó la plantilla. En este caso, el tipo es **Microsoft.Network/applicationGateways**, que representa una puerta de enlace de aplicaciones.
-	- **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa que el nombre lo proporcionará el usuario o un archivo de parámetros durante la implementación.
+	- **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa que el nombre lo proporciona el usuario o un archivo de parámetros durante la implementación.
 	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la puerta de enlace de aplicaciones.
 
 7. Vuelva a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
@@ -121,7 +121,7 @@ Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configur
 
 ### Paso 1
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -129,7 +129,7 @@ Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configur
 
 Compruebe las suscripciones para la cuenta.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 Se le solicita que se autentique con sus credenciales.<BR>
 
@@ -138,7 +138,7 @@ Se le solicita que se autentique con sus credenciales.<BR>
 Elija qué suscripción de Azure va a utilizar.<BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Paso 4
@@ -146,7 +146,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, crea un grupo de recursos nuevo denominado AppgatewayRG en la ubicación East US.
 
-	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -163,29 +163,29 @@ Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourc
 
 Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
 
-		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+ 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 La salida generada por la línea de comandos es la siguiente:
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+	DeploymentName    : testappgatewaydeployment
+	ResourceGroupName : appgatewayRG
+	ProvisioningState : Succeeded
+	Timestamp         : 9/19/2015 1:49:41 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+				Name             Type                       Value
+				===============  =========================  ==========
+				location         String                     East US
+				addressPrefix    String                     10.0.0.0/16
+				subnetPrefix     String                     10.0.0.0/24
+				skuName          String                     Standard_Small
+				capacity         Int                        2
+				backendIpAddress1  String                     10.0.1.10
+				backendIpAddress2  String                     10.0.1.11
 
-		Outputs           :
+	Outputs           :
 
 
 ## Implementación de la plantilla del Administrador de recursos de Azure mediante la CLI de Azure
@@ -293,4 +293,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

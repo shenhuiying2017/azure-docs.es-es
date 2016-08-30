@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
     
 # Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo usted mismo)
 
-Si no tiene el tiempo ni la capacidad de ejecutar las [pruebas del ancho de banda de red](remoteapp-bandwidthtests.md) para Azure RemoteApp, le presentamos algunas directrices bastante genéricas que pueden ayudarle a calcular el ancho de banda de red por usuario.
+> [AZURE.IMPORTANT]
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+
+Si no tiene el tiempo ni la posibilidad de ejecutar las [pruebas del ancho de banda de red](remoteapp-bandwidthtests.md) para Azure RemoteApp, le presentamos algunas directrices bastante genéricas que pueden ayudarle a calcular el ancho de banda de red por usuario.
 
 Si tiene una combinación de estos escenarios, no le recomendamos nada que sea inferior a (o igual a) 10 MB/s como ancho de banda de red mínimo para las aplicaciones modernas conectadas a Internet en un entorno remoto. (Aunque, como se explicó anteriormente, esto no garantizará una experiencia de usuario superior a la media).
 
@@ -37,10 +40,10 @@ Una red LAN de 100 MB/s proporciona la mejor experiencia, aunque 10 MB/s es acep
 Se trata de un escenario de uso de ancho de banda bajo. A 256 KB/s, proporcionamos una experiencia tan buena como la de la red LAN.
 
 ## Más información
-- [Calcular el uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md)
+- [Cálculo aproximado del uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md)
 
 - [Azure RemoteApp: ¿cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?](remoteapp-bandwidthexperience.md)
 
 - [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios (Azure RemoteApp: probar su uso de ancho de banda de red con algunos escenarios comunes)](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

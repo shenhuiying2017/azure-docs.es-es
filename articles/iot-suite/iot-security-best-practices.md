@@ -23,13 +23,13 @@
 
 Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
-- [Arquitectura de seguridad de IoT][lnk-security-architecture]
+- [Arquitectura de seguridad de Internet de las cosas][lnk-security-architecture]
 - [Proteger su implementación de IoT][lnk-security-deployment]
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 - [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
-- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT de Azure][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +37,4 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado
@@ -67,4 +67,4 @@ Puede continuar trabajando en Visual Studio mientras se descargan los registros 
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

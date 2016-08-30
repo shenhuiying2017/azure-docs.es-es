@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Publicación de WebApplicationWebSite (script de Windows PowerShell)
@@ -45,7 +45,7 @@ La ruta de acceso al archivo de configuración JSON que describe los detalles de
 
 ## SubscriptionName
 
-El nombre de la suscripción de Azure en la que desea crear el sitio web.
+Nombre de la suscripción de Azure en la que desea crear el sitio web.
 
 |Parámetro|Valor predeterminado|
 |---|---|
@@ -129,4 +129,4 @@ Puede editar el archivo de configuración de JSON para cambiar lo que se impleme
 
 Para obtener más información, consulte [Publish-WebApplicationVM (script de Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

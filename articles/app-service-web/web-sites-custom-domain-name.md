@@ -197,7 +197,7 @@ En la hoja **Traer dominios externos** del Portal de Azure (consulte el [paso 1]
 
 6.  Haga clic en **Save**.
 
-7.  Cuando Azure termine de configurar el nuevo nombre de dominio personalizado, vaya al nombre de dominio personalizado en un explorador. Ahora verá la aplicación en ejecución y
+7.  Cuando Azure termine de configurar el nuevo nombre de dominio personalizado, vaya al nombre de dominio personalizado en un explorador. El explorador debería abrir la aplicación de Azure, lo que significa que el nombre de dominio personalizado está configurado correctamente.
 
 <a name="verify"></a>
 ## Comprobación de la propagación de DNS
@@ -219,4 +219,4 @@ Aprenda a proteger su nombre de dominio personalizado con HTTPS [comprando un ce
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

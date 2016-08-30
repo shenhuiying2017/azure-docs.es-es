@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configuración de credenciales de autenticación con nombre | Microsoft Azure"
-   description="Aprenda a proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure para publicar una aplicación en Azure desde Visual Studio o para supervisar un servicio en la nube existente."
+   description="Aprenda a proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure para publicar una aplicación en Azure desde Visual Studio o para supervisar un servicio en la nube existente. "
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configuración de credenciales de autenticación con nombre
@@ -71,4 +71,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     1. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

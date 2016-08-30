@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Solución de problemas de administración de contraseñas
@@ -456,7 +456,21 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Durante el reinicio del servicio ADSync, si se configuró la escritura diferida, se iniciará el extremo de WCF. Sin embargo, si se produce un error en el inicio del extremo, simplemente, se registra el evento 6800 y se deja que se inicie el servicio de sincronización. La presencia de este evento significa que el extremo de la escritura diferida de contraseñas no se ha iniciado. Los detalles de registro de eventos para este evento (6800) junto con las entradas de registro de eventos generadas por el componente PasswordResetService indicarán por qué el extremo no se ha podido iniciar. Revise estos errores de registro de eventos e intente volver a iniciar Azure AD Connect si la escritura diferida de contraseñas sigue sin funcionar. Si el problema persiste, intente deshabilitar y volver a habilitar la escritura diferida de contraseñas.</p>
             </td>
           </tr>
-          <tr>
+					<tr>
+            <td>
+              <p>Cuando un usuario intenta restablecer una contraseña o desbloquear una cuenta con la escritura diferida de contraseñas habilitada, se produce un error en la operación. Además, verá un evento en el registro de eventos de Azure AD Connect que contiene: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” (El motor de sincronización devolvió un error hr=800700CE, mensaje=El nombre de archivo o la extensión es demasiado largo) después de la operación de desbloqueo.
+							</p>
+            </td>
+            <td>
+              <p>Esto puede ocurrir si había realizado la actualización a partir de versiones anteriores de Azure AD Connect o DirSync. La actualización a versiones anteriores de Azure AD Connect establece una contraseña de 254 caracteres para la cuenta del agente de administración de Azure AD (las versiones más recientes establecen una contraseña de 127 caracteres). Dichas contraseñas largas van bien para las operaciones de importación y exportación de AD Connector, pero no son compatibles con la operación de desbloqueo.
+							</p>
+            </td>
+            <td>
+              <p>[Busque la cuenta de Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) para Azure AD Connect y restablezca la contraseña para que no contenga más de 127 caracteres. Después abra el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores ** y busque el **Conector Active Directory**. Selecciónelo y haga clic en **Propiedades**. Navegue a la página **Credenciales** y escriba la nueva contraseña. Seleccione **Aceptar** para cerrar la página.
+							</p>
+            </td>
+          </tr>
+					<tr>
             <td>
               <p>Error al configurar la escritura diferida durante la instalación de Azure AD Connect.</p>
             </td>
@@ -1501,4 +1515,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

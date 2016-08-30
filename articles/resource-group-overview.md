@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -39,7 +39,7 @@ Administrador de recursos ofrece varias ventajas:
 - Puede administrar la infraestructura mediante plantillas declarativas en lugar de scripts.
 - Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 - Puede aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
-- Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos en su suscripción.
+- Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos de la suscripción.
 - Puede aclarar la facturación de la organización consultando los costos acumulados de todo el grupo o para un grupo de recursos que comparten la misma etiqueta.
 
 El Administrador de recursos ofrece una nueva manera de implementar y administrar las soluciones. Si usó el anterior modelo de implementación y desea obtener más información sobre los cambios, consulte [Descripción de la implementación de Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
@@ -97,7 +97,7 @@ Para obtener instrucciones sobre cómo implementar la solución en diferentes en
 
 ## Etiquetas
 
-Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento. Sin etiquetas, los usuarios de su organización pueden crear varios recursos que son muy difíciles de identificar y administrar. Por ejemplo, puede que desee eliminar todos los recursos de un proyecto concreto, pero si no se han etiquetado esos recursos en el proyecto, tendrá que buscarlos manualmente. El etiquetado puede ser un aspecto importante para reducir costos innecesarios en su suscripción.
+Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento. Sin etiquetas, los usuarios de su organización pueden crear varios recursos que son muy difíciles de identificar y administrar. Por ejemplo, puede que desee eliminar todos los recursos de un proyecto concreto, pero si no se han etiquetado esos recursos en el proyecto, tendrá que buscarlos manualmente. El etiquetado puede ser un aspecto importante para reducir costos innecesarios en la suscripción.
 
 Los recursos no tienen que residir en el mismo grupo de recursos para compartir una etiqueta. Puede crear su propia taxonomía de etiquetas para asegurarse de que todos los usuarios de la organización utilizan etiquetas comunes y no aplican accidentalmente etiquetas ligeramente diferentes (por ejemplo, "dept" en lugar de "departamento").
 
@@ -133,31 +133,50 @@ Para más información sobre el uso del Portal, consulte [Implementación de rec
 
 El Administrador de recursos de Azure admite el uso compartido de recursos entre orígenes (CORS). Con CORS, puede llamar a la API de REST del Administrador de recursos o un API de REST de un servicio Azure desde una aplicación web que reside en un dominio diferente. Sin compatibilidad con CORS, el explorador web evitaría que una aplicación en un dominio acceda a recursos de otro dominio. El Administrador de recursos habilita CORS para todas las solicitudes con credenciales de autenticación válidas.
 
-## SDK y ejemplos
+## SDK
 
 Los SDK de Azure están disponibles para múltiples lenguajes y plataformas. Cada una de estas implementaciones de lenguajes está disponibles a través de su administrador de paquetes del ecosistema y GitHub.
 
 El código de cada uno de estos SDK se genera en las especificaciones de la API de RESTful de Azure. Estas especificaciones son de código abierto y se basan en la especificación Swagger 2.0. El código del SDK se genera mediante un proyecto de código abierto denominado AutoRest. AutoRest transforma estas especificaciones de la API de RESTful en bibliotecas de clientes en múltiples lenguajes. Si desea mejorar cualquiera de los aspectos del código generado en los SDK, todo el conjunto de herramientas para crear los SDK es abierto, está disponible de forma gratuita y se basa en un formato de especificaciones de API, ampliamente adoptado.
 
-**Ejemplos**: empiece rápidamente en el lenguaje que desee.
+Presentamos los repositorios de SDK de código abierto. Agradecemos todo tipo de comentarios, problemas y solicitudes de extracción.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *próximamente*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
-
-**Repositorios de SDK de código abierto**: agradecemos comentarios, problemas y solicitudes de extracción.
-
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] Si el SDK no proporciona la funcionalidad necesaria, también puede llamar a la [API de REST de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directamente.
+
+## Muestras
+
+### .NET
+
+- [Administración de recursos y grupos de recursos de Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Administración de recursos de Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Administración de grupos de recursos de Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Administración de recursos y grupos de recursos de Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Administración de recursos y grupos de recursos de Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Administración de recursos y grupos de recursos de Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Además de estos ejemplos, puede buscar en los ejemplos de la galería.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Pasos siguientes
 
@@ -171,4 +190,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -34,10 +34,10 @@ Estas son algunas instrucciones generales:
 * Cuando tenga una unidad de aplicación de implementación independiente que se ejecute en un conjunto de instancias de servidor que se puedan escalar vertical u horizontalmente con independencia de los demás componentes, normalmente la asignará a un único recurso. Es decir, tendrá una única clave de instrumentación (iKey).
 * En cambio, estas son algunas razones para usar claves iKey independientes:
  - Lea fácilmente métricas independientes procedentes de componentes independientes.
- - Mantenga la telemetría de bajo volumen separada de la de gran volumen, para que la limitación, las cuotas y el muestreo en una transmisión no afecten a la otra.
+ - Mantenga la telemetría de bajo volumen separada de la de gran volumen, para que la limitación, las cuotas y el muestreo de una transmisión no afecten a la otra.
  - Separe las alertas, la exportación y las configuraciones de elemento de trabajo.
  - Propague [límites](app-insights-pricing.md#limits-summary) como la cuota de telemetría, la limitación y el número de pruebas web.
- - El código en desarrollo y pruebas debería enviar datos a una clave iKey independiente del sello de producción.  
+ - El código en desarrollo y pruebas debería enviar datos a una clave iKey independiente del sello de producción.
 
 Muchas de las experiencias de portal de Application Insights están diseñadas con estas instrucciones en mente. Por ejemplo, los servidores ven segmentos en la instancia del servidor, que da por supuesto que la telemetría sobre un componente lógico puede proceder de varias instancias de servidor.
 
@@ -45,7 +45,7 @@ Muchas de las experiencias de portal de Application Insights están diseñadas c
 
 Cuando se envía telemetría procedente de varios componentes a una clave iKey única:
 
-* Agregue una propiedad a toda la telemetría que le permita segmentar y filtrar por la identidad del componente. Esto sucede automáticamente con instancias de rol de servidor, pero en otros casos puede usar un [inicializador de telemetría](app-insights-api-filtering-sampling.md#add-properties) para agregar la propiedad.
+* Agregue una propiedad a toda la telemetría que le permita segmentar y filtrar por la identidad del componente. El identificador del rol se agrega automáticamente a la telemetría desde instancias de rol de servidor, pero en otros casos puede usar un [inicializador de telemetría](app-insights-api-filtering-sampling.md#add-properties) para agregar la propiedad.
 * Actualice los SDK de Application Insights en los distintos componentes al mismo tiempo. La telemetría de una clave iKey debería originarse en la misma versión del SDK.
 
 ## Claves IKey independientes
@@ -53,7 +53,7 @@ Cuando se envía telemetría procedente de varios componentes a una clave iKey �
 Cuando existen varias claves iKey para diferentes componentes de la aplicación:
 
 * Cree un [panel](app-insights-dashboards.md) para obtener una vista de la telemetría clave desde la aplicación lógica, combinada desde los diferentes componentes de la aplicación. Los paneles se pueden compartir, para que diferentes equipos puedan trabajar con una sola vista de sistema lógico.
-* Organice los [grupos de recursos](app-insights-resources-roles-access-control.md) en el nivel de equipo. Los permisos de acceso se asignan por grupo de recursos, e incluyen permisos para configurar las alertas. 
+* Organice los [grupos de recursos](app-insights-resources-roles-access-control.md) en el nivel de equipo. Los permisos de acceso se asignan por grupo de recursos, e incluyen permisos para configurar las alertas.
 * Use [plantillas de Azure Resource Manager y PowerShell](app-insights-powershell.md) para ayudar a administrar artefactos, como reglas de alerta y pruebas web.
 
 
@@ -107,8 +107,8 @@ En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Applic
 * El **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas](app-insights-metrics-explorer.md). Si no ve el tipo de aplicación, elija uno de los tipos web para páginas web.
 * El **grupo de recursos** resulta práctico para administrar propiedades como el como el [control de acceso](app-insights-resources-roles-access-control.md). Puede usar grupos de recursos independientes para desarrollo, prueba y producción.
 * La **suscripción** es su cuenta de pago de Azure.
-* La **ubicación** es donde se guardan los datos. Actualmente no se puede cambiar. 
-* **Agregar al panel** coloca un icono de acceso rápido al recurso en la página principal de Azure. 
+* La **ubicación** es donde se guardan los datos. Actualmente no se puede cambiar.
+* **Agregar al panel** coloca un icono de acceso rápido al recurso en la página principal de Azure.
 
 El recurso tarda unos segundos en crearse. Verá una alerta cuando esté listo.
 
@@ -121,9 +121,10 @@ La clave de instrumentación identifica al recurso que ha creado.
 
 ![Haga clic en Essentials y elija la clave de instrumentación, CTRL + C](./media/app-insights-separate-resources/02-props.png)
 
-Necesitará las claves de instrumentación de todos los recursos a los que la aplicación enviará datos.
+Necesita las claves de instrumentación de todos los recursos a los que la aplicación enviará datos.
+
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

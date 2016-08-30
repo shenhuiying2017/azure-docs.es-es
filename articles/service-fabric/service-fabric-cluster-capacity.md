@@ -50,7 +50,7 @@ El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal 
 ### Tipo de nodo principal
 En el caso de un clúster con varios tipos de nodo, tendrá elegir uno de ellos como principal. Estas son las características de un tipo de nodo principal:
 
-- El tamaño mínimo de las máquinas virtuales del tipo de nodo principal se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
+- El tamaño mínimo de las máquinas virtuales del tipo de nodo principal se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.
 
 - El número mínimo de máquinas virtuales del tipo de nodo principal se determina mediante el nivel de confiabilidad que se elija. El valor predeterminado del nivel de confiabilidad es Silver. Desplácese hacia abajo para más información sobre el nivel de confiabilidad y los valores que puede adoptar.
 
@@ -62,7 +62,7 @@ En el caso de un clúster con varios tipos de nodo, tendrá elegir uno de ellos 
 ### Tipo de nodo no principal
 Para un clúster con varios tipos de nodo, habrá un tipo de nodo principal y los demás son de tipo no principal. Estas son las características de un tipo de nodo no principal:
 
-- El tamaño mínimo de las máquinas virtuales para este tipo de nodo se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.  
+- El tamaño mínimo de las máquinas virtuales para este tipo de nodo se determina mediante el nivel de durabilidad que se elija. El valor predeterminado del nivel de durabilidad es Bronze. Desplácese hacia abajo para más información sobre el nivel de durabilidad y los valores que puede adoptar.
 
 - El número mínimo de máquinas virtuales para este tipo de nodo puede ser uno. Pero este número se debe elegir en función del número de réplicas de la aplicación o de servicios que desea ejecutar en este tipo de nodo. Después de implementar el clúster, se puede aumentar el número de máquinas virtuales de un tipo de nodo.
 
@@ -107,4 +107,4 @@ Después de finalizar la planeación de capacidad y configurar un clúster, lea 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -134,6 +134,32 @@ Ahora que ha creado un almacén, prepare su infraestructura para realizar una co
 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
+### Confirmación de la instalación
+
+Para confirmar que el agente se ha instalado y registrado correctamente, puede buscar los elementos de los que ha realizado copia de seguridad en la sección **Servidor de producción** del Portal de administración. Para ello, siga estos pasos:
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante la suscripción de Azure.
+
+2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**.
+
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    Se muestra la lista de almacenes de Servicios de recuperación.
+
+2. Seleccione el nombre del almacén que ha creado.
+
+    Se abre la hoja del panel del almacén de Servicios de recuperación.
+
+    ![panel del almacén de Servicios de recuperación](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Haga clic en el botón **Configuración** situado en la parte superior de la página.
+
+4. Haga clic en **Infraestructura de copia de seguridad > Servidores de producción**.
+
+    ![Servidores de producción](./media/backup-configure-vault/production-server-verification.png)
+
+Si puede ver los servidores en la lista, tiene la confirmación de que el agente se ha instalado y registrado correctamente.
+
 ## Paso 4: Realización de la copia de seguridad inicial
 
 La copia de seguridad inicial incluye dos tareas clave:
@@ -149,7 +175,7 @@ Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad
 
     ![Lanzamiento del agente de Copia de seguridad de Azure](./media/backup-configure-vault/snap-in-search.png)
 
-2. En el agente de copia de seguridad, haga clic en **Programar copia de seguridad**.
+2. En el Agente de Copia de seguridad, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
@@ -159,21 +185,21 @@ Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad
 
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
 
-6. Haga clic en **Next**.
+6. Haga clic en **Siguiente**.
 
-7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copias de seguridad** y haga clic en **Siguiente**.
+7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copia de seguridad** y haga clic en **Siguiente**.
 
     Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
 
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] Para más información sobre cómo especificar la programación de la copia de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 
 8. En la página **Seleccione la directiva de retención**, elija la **directiva de retención** para la copia de seguridad.
 
     La directiva de retención especifica el tiempo durante el que se almacenará la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 
-9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente por encima de la red** y, luego, haga clic en **Siguiente**.
+9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
     Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
 
@@ -226,4 +252,4 @@ Para más información sobre la copia de seguridad de máquinas virtuales u otra
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

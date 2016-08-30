@@ -3,7 +3,7 @@
    description="Obtenga información acerca de los comandos que puede usar para automatizar las tareas de administración de sus máquinas virtuales."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="singhkays"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
@@ -67,7 +67,7 @@ Ejecute este comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Acoplamiento de un disco de datos
-Esta tarea requiere unos pocos pasos. En primer lugar, use el cmdlet ***Add-AzureDataDisk*** para agregar el disco al objeto $vm. A continuación, use el cmdlet **Update-AzureVM** para actualizar la configuración de la VM.
+Esta tarea requiere unos pocos pasos. En primer lugar, use el cmdlet ****Add-AzureDataDisk**** para agregar el disco al objeto $vm. A continuación, use el cmdlet **Update-AzureVM** para actualizar la configuración de la VM.
 
 También tendrá que decidir si desea adjuntar un disco nuevo o uno que contenga los datos. Para un disco nuevo, el comando crea el archivo .vhd y lo adjunta.
 
@@ -88,11 +88,11 @@ Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamien
 
 ## Creación de una máquina virtual Windows
 
-Para crear una nueva máquina virtual Windows en Azure, siga las instrucciones de [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-windows-classic-create-powershell.md). Este tema le guiará por la creación de un conjunto de comandos de Azure PowerShell que crea una máquina virtual Windows que puede configurarse previamente:
+Para crear una nueva máquina virtual Windows en Azure, siga las instrucciones de [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-windows-classic-create-powershell.md). Este tema le guiará por la creación de un conjunto de comandos de Azure PowerShell que crean una máquina virtual Windows que puede configurarse previamente:
 
 - Con pertenencia al dominio de Active Directory;
 - Con discos adicionales;
 - Como miembro de un conjunto de carga equilibrada;
 - Con una dirección IP estática.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

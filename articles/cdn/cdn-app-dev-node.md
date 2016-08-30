@@ -22,7 +22,7 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN. Este tutorial explicará paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles. No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
+Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN. Este tutorial explica paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles. No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
 
 Para completar este tutorial, debe tener ya instalado y configurado [Node.js](http://www.nodejs.org) **4.x.x** o superior. Puede usar cualquier editor de texto que desee para crear la aplicación de Node.js. Para escribir este tutorial, se ha usado [Visual Studio Code](https://code.visualstudio.com).
 
@@ -38,7 +38,7 @@ Cree una carpeta para almacenar la aplicación. Desde una consola con las herram
 	
 	npm init
 	
-A continuación, se le ofrecerán una serie de preguntas para inicializar el proyecto. Para **punto de entrada**, este tutorial usará *app.js*. Puede ver otras opciones en el ejemplo siguiente.
+A continuación, se le ofrecerán una serie de preguntas para inicializar el proyecto. Para **punto de entrada**, este tutorial usa *app.js*. Puede ver las demás opciones en el ejemplo siguiente.
 
 ![Salida de NPM init](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -47,7 +47,7 @@ El proyecto se inicializa ahora con un archivo *packages.json*. Va a usar alguna
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-Una vez que los paquetes se han instalado, el archivo *package.json* debe ser similar al siguiente (el número de versión pueden variar):
+Una vez que los paquetes se han instalado, el archivo *package.json* debe ser similar a este ejemplo (los números de versión pueden variar):
 
 ``` json
 {
@@ -117,7 +117,7 @@ Con *apps.js* abierto en el editor, vamos a escribir la estructura básica del p
 4.  Nuestra aplicación de consola Node.js necesita algunos parámetros de línea de comandos. Vamos a dar por válido que por lo menos un parámetro se pasó.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -213,7 +213,7 @@ Ahora que ya hemos escrito la estructura básica del programa, deberíamos crear
 
 ## Lista de perfiles y puntos de conexión de CDN
 
-Comencemos con código para enumera los perfiles y puntos de conexión existentes. Aportaremos comentarios de código con la sintaxis esperada para saber dónde va cada parámetro.
+Comencemos con código para enumera los perfiles y puntos de conexión existentes. Los comentarios de código proporcionan la sintaxis esperada para saber dónde va cada parámetro.
 
 ```javascript
 // list profiles
@@ -367,4 +367,6 @@ Para ver la referencia del SDK de red CDN de Azure para Node.js, consulte el doc
 
 Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [material de referencia completo](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0803_2016-->
+Administración de los recursos de red CDN con [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

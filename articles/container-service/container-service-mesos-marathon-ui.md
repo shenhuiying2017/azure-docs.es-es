@@ -49,7 +49,7 @@ ID | nginx
 Imagen | nginx
 Red | Bridged
 Puerto de host | 80
-Protocolo | TCP
+Protocol | TCP
 
 ![Nueva interfaz de usuario de la aplicación: General](media/dcos/dcos4.png)
 
@@ -73,7 +73,7 @@ De nuevo en la página principal de Marathon, puede ver el estado de implementac
 
 ![Página principal de la interfaz de usuario de Marathon: Estado de la implementación del contenedor](media/dcos/dcos7.png)
 
-Si vuelve a la interfaz de usuario de DC/OS (http://localhost/)), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
+Al volver a la interfaz de usuario web de DC/OS (http://localhost/), verá que se ejecuta una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
 
 ![Interfaz de usuario web de DC/OS: Tarea que se ejecuta en el clúster](media/dcos/dcos8.png)
 
@@ -97,4 +97,8 @@ Una vez que finaliza la operación de escalado, verá varias instancias de la mi
 
 - [Trabajo con la API de DC/OS y Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Profundice en Azure Container Service con Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

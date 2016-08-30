@@ -18,7 +18,6 @@ Los límites siguientes se aplican a los recursos de ExpressRoute por suscripci�
 
 | **Tamaño del circuito** | **Número de vínculos de red virtual para estándar** | **Número de vínculos de red virtual con complemento Premium** |
 |---|---|---|
-| 10 Mbps | 10 | No compatible |
 | 50 Mbps | 10 | 20 | |
 | 100 Mbps | 10 | 25 |
 | 200 Mbps | 10 | 25 |
@@ -28,4 +27,4 @@ Los límites siguientes se aplican a los recursos de ExpressRoute por suscripci�
 | 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0817_2016-->

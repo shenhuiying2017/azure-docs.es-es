@@ -57,7 +57,7 @@ Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterm
 </SinksConfig>
 ```
 
-En este ejemplo, la URL del Centro de eventos se establece en el espacio de nombres completo del Centro de eventos (espacio de nombres de Bus de servicio + "/" + nombre del Centro de eventos).
+En este ejemplo, la URL del Centro de eventos se establece en el espacio de nombres completo del Centro de eventos: espacio de nombres de Centro de eventos + "/" + nombre del Centro de eventos.
 
 La URL del Centro de eventos se muestra en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) del panel de Centros de eventos.
 
@@ -74,7 +74,7 @@ El receptor de Centros de eventos también se debe declarar y definir en la secc
 </PrivateConfig>
 ```
 
-El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Bus de servicio/Centros de eventos**. Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío*. El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.
+El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Centros de eventos**. Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío*. El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.
 
 > [AZURE.WARNING] Tenga en cuenta que la clave SAS de Centros de eventos se almacena en texto sin formato en el archivo *wadcfgx*. A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que cualquier usuario malintencionado pueda escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
 
@@ -319,4 +319,4 @@ El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

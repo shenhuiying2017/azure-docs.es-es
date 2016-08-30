@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/15/2016" 
 	ms.author="rnagpal"/>
 
 # SDK y API de DocumentDB 
@@ -39,8 +39,13 @@
 
 ## Notas de la versión
 
-### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+### <a name="1.9.3"/>[1\.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 > [AZURE.IMPORTANT] Puede recibir el error System.NotSupportedException al consultar colecciones con particiones. Para evitarlo, desactive la opción Preferencia de 32 bits en la ventana Propiedades del proyecto, que se encuentra en la pestaña Compilación.
+
+  - Se corrige un problema que causaba el error siguiente en las consultas de larga duración: El token de autorización no es válido en este momento.
+  - Se corrige un problema que quitaba la colección SqlParameterCollection original de las consultas multipartición principal/ordenar por.
+
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
 
   - Se ha agregado compatibilidad con las consultas paralelas en las colecciones particionadas.
   - Se ha agregado compatibilidad con las consultas ORDER BY y TOP entre particiones en las colecciones particionadas.
@@ -158,27 +163,28 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.9.1](#1.9.1) | 20 de julio, 2016 |--- 
-| [1\.9.0](#1.9.0) | 09 de julio, 2016 |--- 
-| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
-| [1\.7.1](#1.7.1) | 06 de mayo, 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
-| [1\.6.3](#1.6.3) | 08 de abril, 2016 |--- 
-| [1\.6.2](#1.6.2) | 29 de marzo, 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 de febrero, 2016 |--- 
-| [1\.5.2](#1.5.2) | 14 de diciembre, 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 de noviembre, 2015 |--- 
-| [1\.5.0](#1.5.0) | 05 de octubre, 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 de agosto, 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 de agosto, 2015 |--- 
-| [1\.3.0](#1.3.0) | 05 de agosto, 2015 |--- 
-| [1\.2.0](#1.2.0) | 06 de julio, 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 de abril, 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
-| [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo, 2015 | 29 de febrero, 2016 
-| [0\.9.2-versión preliminar](#0.9.x-preview) | Enero, 2015 | 29 de febrero, 2016 
-| [.9.1-versión preliminar](#0.9.x-preview) |13 de octubre, 2014 | 29 de febrero, 2016 
-| [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto, 2014 | 29 de febrero, 2016
+| [1\.9.3](#1.9.3) | 15 de agosto de 2016 |--- 
+| [1\.9.2](#1.9.2) | 23 de julio de 2016 |--- 
+| 1.9.1 | En desuso |--- | 1.9.0 | En desuso |--- 
+| [1\.8.0](#1.8.0) | 14 de junio de 2016 |--- 
+| [1\.7.1](#1.7.1) | 6 de mayo de 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- 
+| [1\.6.3](#1.6.3) | 8 de abril de 2016 |--- 
+| [1\.6.2](#1.6.2) | 29 de marzo de 2016 |--- 
+| [1\.5.3](#1.5.3) | 19 de febrero de 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 de diciembre de 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 de noviembre de 2015 |--- 
+| [1\.5.0](#1.5.0) | 5 de octubre de 2015 |--- 
+| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- 
+| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- 
+| [1\.3.0](#1.3.0) | 5 de agosto de 2015 |--- 
+| [1\.2.0](#1.2.0) | 6 de julio de 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
+| [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016 
+| [0\.9.2-versión preliminar](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016 
+| [0.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016 
+| [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -187,4 +193,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->
