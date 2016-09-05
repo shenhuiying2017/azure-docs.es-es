@@ -33,7 +33,7 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 [Inicio de sesión en la aplicación Microsoft Authenticator mediante un código de verificación](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con un código de verificación.
 [Inicio de sesión con un método alternativo](#signing-in-with-an-alternate-method)|Esto le mostrará qué esperar si desea usar un método alternativo.
 
-## Inicio de sesión con el teléfono de la oficina o con un móvil
+<h2 id="1">Inicio de sesión con el teléfono de la oficina o con un móvil</h2>
 
 La siguiente información describe la experiencia de uso de la autenticación multifactor con el teléfono de su oficina o con el móvil.
 
@@ -88,7 +88,7 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 - Con esto debe haber iniciado sesión.
 
 
-## Inicio de sesión con un método alternativo
+<h2 id="4">Inicio de sesión con un método alternativo</h2>
 
 
 En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.

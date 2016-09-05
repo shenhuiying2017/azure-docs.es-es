@@ -149,7 +149,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Los mensajes enviados a los temas de bus de servicio son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][]*tienen un conjunto de métodos estándar (como **setLabel** y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][] y, a continuación, se usará el objeto **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
+Los mensajes enviados a los temas de bus de servicio son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][]* tienen un conjunto de métodos estándar (como **setLabel** y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][] y, a continuación, se usará el objeto **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
 
 En el ejemplo que aparece a continuación se indica cómo enviar cinco mensajes de prueba al `TestTopic` **MessageSender** obtenido en el fragmento de código anterior: Fíjese en cómo el valor de la propiedad **MessageNumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones la reciben):
 
@@ -257,7 +257,7 @@ Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, consu
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.com/
+  [Portal de Azure clásico]: http://manage.windowsazure.com/
   [Colas, temas y suscripciones del Bus de servicio]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

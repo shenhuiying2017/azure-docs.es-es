@@ -356,7 +356,7 @@ Los datos se devuelven como una colección de propiedades.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
-|Clave|Description|
+|Clave|Descripción|
 |:-----|:----|
 | AvgItemLength | Número promedio de usuarios distintos por elemento. |
 | AvgUserLength | Número promedio de usuarios distintos por usuario. |
@@ -594,7 +594,7 @@ Los datos se devuelven como una colección de propiedades.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
-| Clave | Description |
+| Clave | Descripción |
 |:---- |:----|
 | CatalogCoverage | ¿Qué parte del catálogo puede modelarse con patrones de uso? El resto de los elementos necesitará características basadas en el contenido. |
 | Mpr | Clasificación de percentil de promedio del modelo. Un valor bajo es mejor. |
@@ -890,7 +890,18 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Cuerpo de la solicitud | 
-<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el identificador externo del elemento (el mismo identificador que usó en el archivo de catálogo)</ins><br> <ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para agregar una regla FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Para agregar una regla WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para agregar una regla FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el identificador externo del elemento (el mismo identificador que usó en el archivo de catálogo)</ins><br> 
+<ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Para agregar una regla FeatureBlockList:</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
+Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
+<ins>Para agregar una regla WhiteList:</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Para agregar una regla FeatureWhiteList:</ins><br> 
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
+Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Respuesta**:
@@ -1638,7 +1649,9 @@ Elimina todos los archivos de uso del modelo.
 código de estado HTTP: 200
 
 ##10\. Características
-En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
+En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. 
+El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. 
+El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
 ###10\.1. Obtener información de características (para la última compilación de rango)
 Recupera la información de características, incluida la clasificación de la última compilación correcta de rango.
@@ -1814,7 +1827,7 @@ El objetivo de la compilación de recomendación es generar un modelo de recomen
 
 Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado para un modelo de recomendación que implique características, debe seguir estos pasos:
 - Desencadenar una compilación de rango (a menos que la puntuación de sus características sea estable) y esperar hasta que se obtenga la puntuación de la característica.
-- Recuperar el rango de las características mediante una llamada a la API [Get Features Info](#101-get-features-info-for-last-rank-build).
+- Recuperar el rango de las características mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
 - Configurar una compilación de recomendación con los parámetros siguientes:
 	- `useFeatureInModel`: se establece en true.
 	- `ModelingFeatureList`: se establece en una lista de características separadas por coma con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
@@ -1842,7 +1855,7 @@ Los usuarios o elementos con pocos puntos de uso podrían contener más ruido de
 
 En la tabla siguiente se describen los parámetros de compilación para una compilación de rango.
 
-|Clave|Description|Tipo|Valor válido|
+|Clave|Descripción|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
@@ -1854,7 +1867,7 @@ En la tabla siguiente se describen los parámetros de compilación para una comp
 #####11\.1.3. Parámetros de compilación de recomendación
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
-|Clave|Description|Tipo|Valor válido|
+|Clave|Descripción|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
@@ -1862,7 +1875,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
-| Description | Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
+| Descripción| Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
 | ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | String | Nombres de características, hasta 512 caracteres |
@@ -1874,7 +1887,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 #####11\.1.4. Parámetros de compilación FBT
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
-|Clave|Description|Tipo|Valor válido (predeterminado)|
+|Clave|Descripción|Tipo|Valor válido (predeterminado)|
 |:-----|:----|:----|:---|
 |FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 (6) |
 |FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 (2) |

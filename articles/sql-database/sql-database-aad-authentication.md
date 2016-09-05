@@ -153,7 +153,8 @@ Cuando se usa Azure Active Directory con replicación geográfica, el administra
 3. En la hoja **Configuración**, haga clic en **Administrador de Active Directory.
 4. En la hoja **Administrador de Active Directory**, haga clic en **Administrador de Active Directory**y luego, en la parte superior, haga clic en **Establecer administrador**.
 5. En la hoja **Agregar administrador**, busque un usuario, seleccione el usuario o grupo que convertirá en administrador y, después, haga clic en **Seleccionar**. (En la hoja del administrador de Active Directory se muestran todos los miembros y grupos del directorio de Active Directory). No se pueden seleccionar los usuarios o grupos que aparecen atenuados porque no se admiten como administradores de Azure AD. (Consulte la lista de administradores admitidos en la sección anterior **Características y limitaciones de Azure AD**). El control de acceso basado en rol (RBAC) se aplica solo al portal y no se propaga a SQL Server.
-6. En la parte superior de la hoja **Administrador de Active Directory**, haga clic en **GUARDAR**. ![elegir administrador][10]
+6. En la parte superior de la hoja **Administrador de Active Directory**, haga clic en **GUARDAR**. 
+![elegir administrador][10]
 
 	El proceso de cambio del el administrador puede tardar varios minutos. El nuevo administrador aparece en el cuadro **Administrador de Active Directory**.
 
@@ -173,7 +174,7 @@ Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes com
 
 Cmdlets que se usan para aprovisionar y administrar administradores de Azure AD:
 
-| Nombre del cmdlet | Description |
+| Nombre del cmdlet | Descripción |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Almacenamiento de datos SQL de Azure. (Debe ser de la suscripción actual). |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Quita un administrador de Azure Active Directory para Azure SQL Server o para Almacenamiento de datos SQL de Azure. |
@@ -246,9 +247,10 @@ Para confirmar que el administrador de Azure AD está correctamente configurado,
 
 Use este método si tiene la sesión iniciada en Windows con sus credenciales de Azure Active Directory desde un dominio federado.
 
-1. Inicie Management Studio o Data Tools y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), seleccione **Autenticación integrada de Active Directory** en el cuadro **Autenticación**. No se necesita ni se puede especificar una contraseña para la conexión, ya que aparecen las credenciales existentes. ![Selección de autenticación integrada de Active Directory][11]
-
-2. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.![Selección del nombre de la base de datos][13]
+1. Inicie Management Studio o Data Tools y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), seleccione **Autenticación integrada de Active Directory** en el cuadro **Autenticación**. No se necesita ni se puede especificar una contraseña para la conexión, ya que aparecen las credenciales existentes. 
+![Selección de autenticación integrada de Active Directory][11]
+2. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.
+![Selección del nombre de la base de datos][13]
 
 
 #### Conectarse mediante la autenticación de contraseña de Active Directory
@@ -259,7 +261,8 @@ Use este método si tiene la sesión iniciada en Windows con las credenciales de
 
 1. Inicie Management Studio o Data Tools y, en el cuadro **Conectar con el servidor** (o **Conectarse al motor de base de datos**), en el cuadro **Autenticación**, seleccione **Autenticación de contraseña de Active Directory**.
 2. En el cuadro **Nombre de usuario**, escriba el nombre de usuario de Azure Active Directory con el formato **username@domain.com**. Debe tratarse de una cuenta de Azure Active Directory o una cuenta de un dominio federado con el directorio de Azure Active Directory.
-3. En el cuadro **Contraseña**, escriba la contraseña de usuario de la cuenta de Azure Active Directory o de la cuenta de dominio federado. ![Selección de autenticación de contraseña de Active Directory][12]
+3. En el cuadro **Contraseña**, escriba la contraseña de usuario de la cuenta de Azure Active Directory o de la cuenta de dominio federado. 
+![Selección de autenticación de contraseña de Active Directory][12]
 
 4. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse. (Consulte el gráfico que aparece en la opción anterior).
 

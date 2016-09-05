@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.  
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.
 Las [herramientas de Docker para Visual Studio](http://aka.ms/DockerToolsForVS) configurarán la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```

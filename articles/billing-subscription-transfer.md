@@ -78,7 +78,8 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     No afectan al servicio. Esto cancela de forma efectiva la suscripción del administrador de cuenta actual y crea una nueva en la cuenta del destinatario, pero asocia los servicios subyacentes de Azure con la nueva suscripción. El identificador de la suscripción no cambia.
 
--   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?** Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
+-   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?** 
+Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
 
 -   **¿Si asumo la propiedad de la facturación de una suscripción de otra organización, estos seguirán teniendo acceso a mis recursos?**
 

@@ -32,18 +32,19 @@ Los siguientes pasos son suficientes para activar el informe de los registros ne
 
 ##Incrustación del SDK de Engagement en su proyecto de iOS
 
-Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj). Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
+Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj).
+Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
 
 Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Fases de compilación"** en el menú **"Enlace binario con bibliotecas"** y agregue estos marcos:
 
-> -   `AdSupport.framework`- configure el vínculo como `Optional`
+> -   `AdSupport.framework` - configure el vínculo como `Optional`
 > -   `SystemConfiguration.framework`
 > -   `CoreTelephony.framework`
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar <ios-sdk-engagement-idfa> para cumplir con la nueva directiva de Apple con respecto a este identificador.
+> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar \<ios-sdk-engagement-idfa\> para cumplir con la nueva directiva de Apple con respecto a este identificador.
 
 ##Inicializar el SDK de Engagement
 

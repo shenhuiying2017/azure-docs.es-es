@@ -26,7 +26,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 
 >[AZURE.NOTE] Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
 
-| Nombre de rol | Description |
+
+| Nombre de rol | Descripción |
 | --------- | ----------- |
 | [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios de administración de API |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |

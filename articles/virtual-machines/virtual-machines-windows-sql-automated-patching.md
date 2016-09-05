@@ -24,7 +24,7 @@
 
 Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esta restricción garantiza que se actualice el sistema y que cualquier reinicio asociado se produzca en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)](virtual-machines-windows-classic-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure implementación clásica](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## Requisitos previos
 
@@ -51,7 +51,7 @@ Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguien
 
 En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
 
-|Configuración|Valores posibles|Description|
+|Configuración|Valores posibles|Descripción|
 |---|---|---|
 |**Aplicación de revisiones automatizada**|Habilitar/deshabilitar (deshabilitado)|Habilita o deshabilita Aplicación de revisión automatizada para una máquina virtual de Azure.|
 |**Programación de mantenimiento**|Cada día, el lunes, el martes, el miércoles, el jueves, el viernes, el sábado, el domingo|La programación para descargar e instalar actualizaciones de Windows, SQL Server y Microsoft para la máquina virtual.|
