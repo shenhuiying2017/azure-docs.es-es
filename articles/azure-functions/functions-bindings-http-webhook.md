@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Enlaces HTTP y webhook en funciones de Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artículo explica cómo configurar y codificar desencadenadores y enlaces HTTP y webhook en funciones de Azure.
 
@@ -32,15 +34,15 @@ Propiedades de la solicitud HTTP:
 
 - `name`: nombre de la variable que se usa en el código de la función para el objeto de solicitud (o en el cuerpo de la solicitud en caso de funciones de Node.js).
 - `type`: debe establecerse en *httpTrigger*.
-- `direction`: debe establecerse en *in*. 
-- `webHookType`: para los desencadenadores de WebHook, los valores válidos son *github*, *slack* y *genericJson*. Para un desencadenador de HTTP que no sea un WebHook, establezca esta propiedad en una cadena vacía. Para obtener más información sobre Webhooks, consulte la sección siguiente, [Desencadenadores de WebHook](#webhook-triggers).
-- `authLevel`: no se aplica a los desencadenadores de WebHook. Se establece en "function" para que solicite una clave de API, en "anonymous" para que ignore este requisito, o en "admin" para que solicite una clave maestra de API. Consulte las siguientes [claves de API](#apikeys) para obtener más información.
+- `direction`: debe establecerse en *in*.
+- `webHookType`: para los desencadenadores de webhooks, los valores válidos son *github*, *slack* y *genericJson*. Para un desencadenador de HTTP que no sea un WebHook, establezca esta propiedad en una cadena vacía. Para obtener más información sobre webhooks, consulte la sección siguiente, [Desencadenadores de WebHook](#webhook-triggers).
+- `authLevel`: no se aplica a los desencadenadores de webhooks. Se establece en "function" para que solicite una clave de API, en "anonymous" para que ignore este requisito, o en "admin" para que solicite una clave maestra de API. Consulte las siguientes [claves de API](#apikeys) para obtener más información.
 
 Propiedades de la respuesta HTTP:
 
 - `name`: nombre de la variable utilizada en el código de función para el objeto de respuesta.
 - `type`: debe establecerse en *http*.
-- `direction`: debe establecerse en *out*. 
+- `direction`: debe establecerse en *out*.
  
 Ejemplo de *function.json*:
 
@@ -72,7 +74,7 @@ Un desencadenador de WebHook es como un desencadenador de HTTP que tiene las sig
 * Para las funciones de Node.js, el sistema en tiempo de ejecución de Funciones proporciona el cuerpo de la solicitud en lugar del objeto de solicitud. No hay ningún control especial para las funciones de C#, ya que puede controlar lo que se proporciona especificando el tipo de parámetro. Si especifica `HttpRequestMessage`, obtendrá el objeto de solicitud. Si especifica un tipo de objeto POCO, el sistema en tiempo de ejecución de Funciones intenta analizar un objeto JSON en el cuerpo de la solicitud para rellenar las propiedades del objeto.
 * Para desencadenar una función de WebHook la solicitud HTTP debe incluir una clave de API. En caso de desencadenadores de HTTP que no sean de WebHook, este requisito es opcional.
 
-Para obtener más información acerca de cómo configurar un WebHook de GitHub, consulte [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (Desarrolladores de GitHub: Creación de WebHooks).
+Para obtener más información acerca de cómo configurar un webhook de GitHub, consulte [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (Desarrolladores de GitHub: Creación de webhooks).
 
 ## Dirección URL para desencadenar la función
 
@@ -84,7 +86,7 @@ Para desencadenar una función, se envía una solicitud HTTP a una URL que es un
 
 ## Claves de API
 
-De forma predeterminada, debe incluir una clave de API con una solicitud HTTP para desencadenar una función de HTTP o WebHook. La clave se puede incluir en una variable de cadena de consulta denominada `code` o puede estar incluida en un encabezado HTTP `x-functions-key`. Para las funciones que no son de WebHook, puede indicar que no se requiere una clave de API estableciendo la propiedad `authLevel` en "anonymous" en el archivo *function.json*.
+De forma predeterminada, debe incluir una clave de API con una solicitud HTTP para desencadenar una función de HTTP o WebHook. La clave se puede incluir en una variable de cadena de consulta denominada `code`, o puede estar incluida en un encabezado HTTP `x-functions-key`. Para las funciones que no son de WebHook, puede indicar que no se requiere una clave de API estableciendo la propiedad `authLevel` en "anonymous" en el archivo *function.json*.
 
 Puede encontrar los valores de clave de API en la carpeta *D:\\home\\data\\Functions\\secrets* del sistema de archivos de la aplicación de la función. La clave maestra y la de función se establecen en el archivo *host.json* como se muestra en este ejemplo.
 
@@ -95,9 +97,9 @@ Puede encontrar los valores de clave de API en la carpeta *D:\\home\\data\\Funct
 }
 ```
 
-La clave de función del archivo *host.json* puede usarse para desencadenar una función, pero no podrá desencadenar una función deshabilitada. La clave maestra puede usarse para desencadenar cualquier función incluso si está deshabilitada. Puede configurar una función para que solicite la clave maestra estableciendo la propiedad `authLevel` en "admin".
+La clave de función del archivo *host.json* puede usarse para desencadenar una función pero no podrá desencadenar una función deshabilitada. La clave maestra puede usarse para desencadenar cualquier función incluso si está deshabilitada. Puede configurar una función para que solicite la clave maestra estableciendo la propiedad `authLevel` en "admin".
 
-Si la carpeta *secrets* contiene un archivo JSON con el mismo nombre que una función, la propiedad `key` de ese archivo también se puede utilizar para desencadenar la función y esta clave solo funcionará con la función a la que hace referencia. Por ejemplo, la clave de API para una función denominada `HttpTrigger` se especifica en *HttpTrigger.json*, en la carpeta *secrets*. Este es un ejemplo:
+Si la carpeta *secrets* contiene un archivo JSON con el mismo nombre que una función, la propiedad `key` de ese archivo también se puede utilizar para desencadenar la función y esta clave solo funcionará con la función a la que hace referencia. Por ejemplo, la clave de API para una función denominada `HttpTrigger` se especifica en *HttpTrigger.json* en la carpeta *secrets*. Este es un ejemplo:
 
 ```json
 {
@@ -201,4 +203,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

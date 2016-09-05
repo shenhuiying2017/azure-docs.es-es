@@ -1,5 +1,5 @@
 <properties
-pageTitle="Incorporación del conector de Excel a PowerApps Enterprise | Microsoft Azure"
+pageTitle="Incorporación del conector de Excel | Microsoft Azure"
 description="Información general del conector de Excel con parámetros de la API de REST"
 services=""    
 documentationCenter=""     
@@ -14,198 +14,204 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="08/23/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector de Excel
 
-Conéctese a Excel para insertar o eliminar una fila y mucho más. El conector de Excel puede usarse desde:
+Actualmente, no hay ningún conector de Excel en Logic Apps.
 
-- PowerApps
+## Para utilizar datos de Excel
+Puede almacenar datos de Excel como un archivo de valores separados por comas (CSV) en una carpeta de almacenamiento, como [OneDrive](connectors-create-api-onedrive.md). También puede utilizar este archivo CSV con el [conector de archivos planos](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
-Con Excel, puede:
+<!---
 
-- Agregar el conector de Excel a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
+There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
-Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
-## Desencadenadores y acciones
-Excel incluye la siguiente acción. No hay ningún desencadenador.
 
-|Desencadenador|Acciones|
+Connect to Excel to insert a row, delete a row, and more. 
+
+## Triggers and actions
+Excel includes the following action. There are no triggers. 
+
+|Trigger|Actions|
 |--- | ---|
-|None | <ul><li>Obtener filas</li><li>Insertar fila</li><li>Eliminar fila</li><li>Obtener fila</li><li>Obtener tablas</li><li>Actualizar fila</li></ul>
+|None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
 
-Todos los conectores admiten datos en formato JSON y XML.
+All connectors support data in JSON and XML formats. 
 
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
+## Swagger REST API reference
+Applies to version: 1.0.
 
-### Inserta una fila nueva en una tabla de Excel
-```POST: /datasets/{dataset}/tables/{table}/items```
+### Inserts a new row into an Excel table
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre del archivo de Excel|
-|table|cadena|yes|path|Ninguna|Nombre de la tabla de Excel|
-|item| |yes|body|Ninguna|Fila que se va a insertar en la tabla especificada en Excel|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|item| |yes|body|none|Row to insert into the specified Excel table|
 
 
-### Respuesta
+### Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
 
-### Recupera una sola fila de una tabla de Excel
-```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+### Retrieves a single row from an Excel table
+```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre del archivo de Excel|
-|table|cadena|yes|path|Ninguna|Nombre de la tabla de Excel|
-|id|cadena|yes|path|Ninguna|Identificador único de la fila que se va a recuperar|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of row to retrieve|
 
 
-### Respuesta
+### Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
 
-### Elimina una fila de una tabla de Excel
-```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+### Deletes a row from an Excel table
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre del archivo de Excel|
-|table|cadena|yes|path|Ninguna|Nombre de la tabla de Excel|
-|id|cadena|yes|path|Ninguna|Identificador único de la fila que se va a eliminar|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to delete|
 
 
-### Respuesta
+### Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
 
-### Actualiza una fila existente en una tabla de Excel
-```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+### Updates an existing row in an Excel table
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Nombre del archivo de Excel|
-|table|cadena|yes|path|Ninguna|Nombre de la tabla de Excel|
-|id|cadena|yes|path|Ninguna|Identificador único de la fila que se va a actualizar|
-|item| |yes|body|Ninguna|Fila con valores actualizados|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to update|
+|item| |yes|body|none|Row with updated values|
 
 
-### Respuesta
+### Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
 
-## Definiciones de objeto
+## Object definitions
 
 #### DataSetsMetadata
 
-| Nombre | Tipo de datos | Obligatorio|
+| Name | Data Type | Required|
 |---|---|---|
 |tabular|not defined|no|
 |blob|not defined|no|
 
 #### TabularDataSetsMetadata
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
 #### BlobDataSetsMetadata
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
 #### TableMetadata
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|name|cadena|no|
-|título|cadena|no|
-|x-ms-permission|cadena|no|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
 |schema|not defined|no|
 
 #### DataSetsList
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 #### DataSet
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
+|Name|string|no|
+|DisplayName|string|no|
 
-#### Tabla
+#### Table
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
+|Name|string|no|
+|DisplayName|string|no|
 
-#### Elemento
+#### Item
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
-|ItemInternalId|cadena|no|
+|ItemInternalId|string|no|
 
 #### TablesList
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 #### ItemsList
 
-| Nombre | Tipo de datos |Obligatorio|
+| Name | Data Type |Required|
 |---|---|---|
 |value|array|no|
 
 
-## Pasos siguientes
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+-->
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -34,7 +34,7 @@ En este artículo aprenderá a instalar y configurar PostgreSQL en una máquina 
 
 En este caso, use el puerto 1999 como puerto PostgreSQL.
 
-Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primera vez que usa una máquina virtual Linux de Azure, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-ssh-from-linux.md) para aprender cómo usar PuTTY para conectarse a una máquina virtual de Linux.
+Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primera vez que usa una máquina virtual Linux de Azure, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-mac-create-ssh-keys.md) para aprender cómo usar PuTTY para conectarse a una máquina virtual de Linux.
 
 1. Ejecute el siguiente comando para cambiar a la raíz (admin):
 
@@ -231,7 +231,7 @@ Use el siguiente comando para mostrar una tabla:
 
 	select * from potluck;
 
-La salida es la siguiente:
+El salida es la siguiente:
 
 ![imagen](./media/virtual-machines-linux-postgresql-install/no7.png)
 
@@ -241,7 +241,7 @@ Use el comando siguiente para eliminar datos de una tabla:
 
 	delete from potluck where name=’John’;
 
-Esto elimina toda la información de la fila "John". La salida es la siguiente:
+Esto elimina toda la información de la fila "John". El salida es la siguiente:
 
 ![imagen](./media/virtual-machines-linux-postgresql-install/no8.png)
 
@@ -255,4 +255,4 @@ Use el comando siguiente para actualizar los datos de una tabla: En esta ocasió
 ##Obtener más información sobre PostgreSQL
 Ahora que ha completado la instalación de PostgreSQL en una máquina virtual Linux de Azure, puede disfrutar de su uso en Azure. Para obtener más información acerca de PostgreSQL, visite el [sitio web de PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

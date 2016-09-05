@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="08/17/2016"
+   ms.date="08/19/2016"
    ms.author="jeffstok"
 />
 
@@ -374,19 +374,17 @@ Acciones de script son scripts de Bash que se usan para realizar cambios en la c
 
 3. En la hoja __Enviar acción de script__, proporcione la siguiente información.
 
-* __Nombre__: nombre descriptivo que se va a usar para identificar este script
-* __URI de script de Bash__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
-* __Principal__: debe estar __desactivado__
-* __Trabajo__: debe estar __activado__
-* __Zookeeper__: debe estar __desactivado__
-* __Parámetros__: paquetes de R que se van a instalar Por ejemplo, `bitops stringr arules`
-    
-    > [AZURE.NOTE] De forma predeterminada, todos los paquetes de R se instalan desde una instantánea del repositorio Microsoft MRAN coherente con la versión del servidor R que se ha instalado. Si desea instalar las versiones más recientes de los paquetes, existen algunos riesgos de incompatibilidad; sin embargo, es posible especificando `useCRAN` como primer elemento de la lista de paquetes, por ejemplo, `useCRAN bitops, stringr, arules`.
-    
-* __Continuar con esta acción de script...__: debe estar __Activado__.
-    
-    > [AZURE.IMPORTANT] Algunos paquetes de R requieren otras bibliotecas de sistema de Linux. Por comodidad, hemos instalado previamente las dependencias que necesitan los 100 paquetes de R más populares. Sin embargo, si los paquetes de R que instale necesitan otras bibliotecas, debe descargar el script base usado aquí y realizar los pasos para instalar las bibliotecas del sistema. A continuación, debe cargar el script modificado a un contenedor de blobs público en el almacenamiento de Azure y usar el script modificado para instalar los paquetes. Para más información sobre cómo desarrollar acciones de script, consulte [Desarrollo de acciones de script](hdinsight-hadoop-script-actions-linux.md).
-    
+  - __Nombre__: nombre descriptivo para identificar este script.
+  - __URI de script de Bash__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+  - __Principal__: debe estar __desactivado__
+  - __Trabajador__: debe estar __activado__.
+  - __Zookeeper__: debe estar __desactivado__.
+  - __Parámetros__: paquetes de R que se van a instalar Por ejemplo, `bitops stringr arules`
+  - __Continuar con esta acción de script...__: debe estar __Activado__.
+
+    > [AZURE.NOTE] 1. De forma predeterminada, todos los paquetes de R se instalan desde una instantánea del repositorio Microsoft MRAN coherente con la versión del servidor R que se ha instalado. Si desea instalar las versiones más recientes de los paquetes, existen algunos riesgos de incompatibilidad; sin embargo, es posible especificando `useCRAN` como primer elemento de la lista de paquetes, por ejemplo, `useCRAN bitops, stringr, arules`.
+    > 2. Algunos paquetes de R requieren otras bibliotecas de sistema de Linux. Por comodidad, hemos instalado previamente las dependencias que necesitan los 100 paquetes de R más populares. Sin embargo, si los paquetes de R que instale necesitan otras bibliotecas, debe descargar el script base usado aquí y realizar los pasos para instalar las bibliotecas del sistema. A continuación, debe cargar el script modificado a un contenedor de blobs público en el almacenamiento de Azure y usar el script modificado para instalar los paquetes. Para más información sobre cómo desarrollar acciones de script, consulte [Desarrollo de acciones de script](hdinsight-hadoop-script-actions-linux.md).
+
     ![Agregar una Acción de script](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
 4. Seleccione __Crear__ para ejecutar el script. Una vez que finalice el script, los paquetes de R estarán disponibles en todos los nodos de trabajo.
@@ -412,4 +410,4 @@ Ambas plantillas crean un nuevo clúster de HDInsight y una cuenta de almacenami
 
 Para obtener información general sobre cómo usar las plantillas de Resource Manager, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

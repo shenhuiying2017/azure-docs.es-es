@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the OneDrive for Business connector (Introducción al conector de OneDrive para la Empresa)
 
-
-
-El conector de OneDrive para la Empresa puede usarse desde:
-
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flujo](http://flows.microsoft.com)
+Conéctese a OneDrive para la Empresa para administrar sus archivos. Puede realizar diversas acciones en archivos: carga, actualización, obtención y eliminación.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
@@ -40,7 +34,7 @@ El conector de OneDrive para la Empresa se puede usar como acción; tiene desenc
 ### Acciones de OneDrive para la Empresa
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |[GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata)|Recupera metadatos de un archivo en OneDrive para la Empresa mediante el identificador|
 |[UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile)|Actualiza un archivo en OneDrive para la Empresa|
@@ -56,18 +50,18 @@ Puede realizar estas acciones:
 ### Desencadenadores de OneDrive para la Empresa
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Descripción|
+|Desencadenador | Description|
 |--- | ---|
 |Cuando se crea un archivo|Desencadena un flujo al crearse un nuevo archivo en una carpeta de OneDrive para la Empresa|
 |Cuando se modifica un archivo|Desencadena un flujo al modificarse un archivo en una carpeta de OneDrive para la Empresa|
 
 
 ## Creación de una conexión a OneDrive para la Empresa
-Para crear aplicaciones lógicas con OneDrive para la Empresa, primero debe crear una **conexión** y, a continuación, proporcionar los detalles de las siguientes propiedades:
+A fin de crear aplicaciones lógicas con OneDrive para la Empresa, primero debe crear una **conexión** y, después, proporcionar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
+|Propiedad| Obligatorio|Description|
 | ---|---|---|
-|Se necesita el cifrado de tokens|Sí|Proporcionar las credenciales de OneDrive para la Empresa|
+|SWT|Sí|Proporcionar las credenciales de OneDrive para la Empresa|
 Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a OneDrive para la Empresa](../../includes/connectors-create-api-onedriveforbusiness.md)]
@@ -82,11 +76,11 @@ Obtener metadatos mediante el identificador: recupera metadatos de un archivo en
 
 ```GET: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Especificación del archivo|
+|id|string|yes|path|Ninguna|Especificación del archivo|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -99,12 +93,12 @@ Actualizar archivo: actualiza un archivo en OneDrive para la Empresa
 
 ```PUT: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Especificación del archivo que se va a actualizar|
+|id|string|yes|path|Ninguna|Especificación del archivo que se va a actualizar|
 |body| |yes|body|Ninguna|Contenido del archivo que se va a actualizar en OneDrive para la Empresa|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -117,11 +111,11 @@ Eliminar archivo: elimina un archivo de OneDrive para la Empresa
 
 ```DELETE: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Especificación del archivo que se va a eliminar|
+|id|string|yes|path|Ninguna|Especificación del archivo que se va a eliminar|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -134,11 +128,11 @@ Obtener metadatos de archivo mediante la ruta de acceso: recupera metadatos de u
 
 ```GET: /datasets/default/GetFileByPath```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive para la Empresa|
+|path|string|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive para la Empresa|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -151,11 +145,11 @@ Obtener contenido de archivo mediante la ruta de acceso: recupera contenido de u
 
 ```GET: /datasets/default/GetFileContentByPath```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive para la Empresa|
+|path|string|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive para la Empresa|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -168,11 +162,11 @@ Obtener contenido de archivo mediante el identificador: recupera contenido de un
 
 ```GET: /datasets/default/files/{id}/content```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Especificación del archivo|
+|id|string|yes|path|Ninguna|Especificación del archivo|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -185,13 +179,13 @@ Crear archivo: carga un archivo en OneDrive para la Empresa
 
 ```POST: /datasets/default/files```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderPath|cadena|yes|query|Ninguna|Ruta de acceso de carpeta para cargar el archivo en OneDrive para la Empresa|
-|name|cadena|yes|query|Ninguna|Nombre del archivo que se va a crear en OneDrive para la Empresa|
+|folderPath|string|yes|query|Ninguna|Ruta de acceso de carpeta para cargar el archivo en OneDrive para la Empresa|
+|name|string|yes|query|Ninguna|Nombre del archivo que se va a crear en OneDrive para la Empresa|
 |body| |yes|body|Ninguna|Contenido del archivo que se va a cargar en OneDrive para la Empresa|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -204,13 +198,13 @@ Copiar archivo: copia un archivo en OneDrive para la Empresa
 
 ```POST: /datasets/default/copyFile```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna|Dirección URL al archivo de origen|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso al archivo de destino en OneDrive para la Empresa, incluido el nombre de archivo de destino|
+|de origen|string|yes|query|Ninguna|Dirección URL al archivo de origen|
+|de destino|string|yes|query|Ninguna|Ruta de acceso al archivo de destino en OneDrive para la Empresa, incluido el nombre de archivo de destino|
 |overwrite|boolean|no|query|false|Sobrescribe el archivo de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -223,11 +217,11 @@ Cuando se crea un archivo: desencadena un flujo al crearse un nuevo archivo en u
 
 ```GET: /datasets/default/triggers/onnewfile```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna|Especificación de una carpeta|
+|folderId|string|yes|query|Ninguna|Especificación de una carpeta|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -240,11 +234,11 @@ Cuando se modifica un archivo: desencadena un flujo al modificarse un archivo en
 
 ```GET: /datasets/default/triggers/onupdatedfile```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna|Especificación de una carpeta|
+|folderId|string|yes|query|Ninguna|Especificación de una carpeta|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -257,11 +251,11 @@ Enumerar archivos de la carpeta: enumera los archivos en una carpeta de OneDrive
 
 ```GET: /datasets/default/folders/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Especificación de la carpeta|
+|id|string|yes|path|Ninguna|Especificación de la carpeta|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -275,7 +269,7 @@ Enumerar carpeta raíz: enumera los archivos en la carpeta raíz de OneDrive par
 ```GET: /datasets/default/folders```
 
 No hay parámetros para esta llamada
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -288,13 +282,13 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 
 ```POST: /datasets/default/extractFolderV2```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso de OneDrive para la Empresa para extraer el contenido del archivo|
+|de origen|string|yes|query|Ninguna|Ruta de acceso al archivo de almacenamiento|
+|de destino|string|yes|query|Ninguna|Ruta de acceso de OneDrive para la Empresa para extraer el contenido del archivo|
 |overwrite|boolean|no|query|false|Sobrescribe los archivos de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -319,11 +313,11 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|de origen|cadena|No |
-|DisplayName|cadena|No |
-|urlEncoding|cadena|No |
-|tableDisplayName|cadena|No |
-|tablePluralName|cadena|No |
+|de origen|string|No |
+|DisplayName|string|No |
+|urlEncoding|string|No |
+|tableDisplayName|string|No |
+|tablePluralName|string|No |
 
 
 
@@ -332,9 +326,9 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|de origen|cadena|No |
-|DisplayName|cadena|No |
-|urlEncoding|cadena|No |
+|de origen|string|No |
+|DisplayName|string|No |
+|urlEncoding|string|No |
 
 
 
@@ -343,16 +337,16 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|Id|cadena|No |
-|Nombre|cadena|No |
-|DisplayName|cadena|No |
-|Ruta de acceso|cadena|No |
-|LastModified|cadena|No |
+|Id|string|No |
+|Nombre|string|No |
+|DisplayName|string|No |
+|Ruta de acceso|string|No |
+|LastModified|string|No |
 |Tamaño|integer|No |
-|MediaType|cadena|No |
+|MediaType|string|No |
 |IsFolder|boolean|No |
-|ETag|cadena|No |
-|FileLocator|cadena|No |
+|ETag|string|No |
+|FileLocator|string|No |
 
 
 
@@ -366,4 +360,4 @@ Extraer carpeta: extrae una carpeta a OneDrive para la Empresa
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

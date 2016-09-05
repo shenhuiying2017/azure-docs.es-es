@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
-| 12 | [Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure](sql-server-stretch-database-encryption-tde.md) | Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure |
-| 13 | [Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure](sql-server-stretch-database-tde-tsql.md) | Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure TSQL |
+| 12 | [Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure](sql-server-stretch-database-encryption-tde.md) | Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure |
+| 13 | [Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure TSQL |
 
 
 
@@ -72,4 +72,4 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 14 | [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md) | Obtenga información sobre cómo realizar una copia de seguridad de bases de datos habilitadas para Stretch. |
 | 15 | [Restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-restore.md) | Obtenga información sobre cómo restaurar bases de datos habilitadas para Stretch. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

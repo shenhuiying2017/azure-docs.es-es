@@ -1,26 +1,26 @@
 
-<properties 
+<properties
    pageTitle="Información general sobre el equilibrador de carga interno | Microsoft Azure"
    description="Información general sobre el equilibrador de carga interno y sus características. Cómo funciona un equilibrador de carga en Azure y posibles escenarios para configurar extremos internos"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Información general sobre el equilibrador de carga interno
 
 El equilibrador de carga interno (ILB) es una mejora de seguridad del actual equilibrador de carga accesible desde Internet que se ofrece en Azure. El acceso a ILB solo puede realizarse por medio de los recursos dentro del servicio en la nube o mediante VPN para el acceso a la infraestructura de Azure y comunicarse con ILB.
-			
+
 La infraestructura restringe la accesibilidad y crea un límite de confianza entre las direcciones IP virtuales con equilibrio de carga y un servicio en la nube o una red virtual, y nunca se expondrá directamente a un extremo de Internet. Esto permite que las aplicaciones de línea de negocio internas se ejecuten en Azure y se tenga acceso a ellas dentro de la nube o localmente.
 
 ## Escenarios del equilibrador de carga interno
@@ -40,7 +40,7 @@ ILB permite los siguientes nuevos tipos de equilibrio de carga:
 El equilibrio de carga de Azure existente solo proporciona equilibrio de carga entre equipos basados en Internet y máquinas virtuales de un servicio en la nube. ILB permite nuevas capacidades para hospedar máquinas virtuales en Azure.
 
 - Aplicaciones de niveles múltiples accesibles desde Internet en las que los niveles back-end no son accesibles desde Internet, sino que requieren equilibrio de carga para el tráfico que procede del nivel accesible desde Internet.
-- Equilibrio de carga para las aplicaciones de línea de negocio (LOB) hospedadas en Azure sin requerir hardware ni software adicional de equilibrador de carga. Se incluyen los servidores locales del conjunto de equipos de cuyo tráfico se va a equilibrar la carga. 
+- Equilibrio de carga para las aplicaciones de línea de negocio (LOB) hospedadas en Azure sin requerir hardware ni software adicional de equilibrador de carga. Se incluyen los servidores locales del conjunto de equipos de cuyo tráfico se va a equilibrar la carga.
 - En las siguientes secciones se describen estas configuraciones con más detalle.
 
 ## Aplicaciones de niveles múltiples accesibles desde Internet
@@ -90,6 +90,4 @@ Otro escenario para el LOB es tener una VPN de sitio a sitio a la red virtual do
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

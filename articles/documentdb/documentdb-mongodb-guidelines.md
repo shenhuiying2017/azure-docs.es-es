@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Obtenga una vista previa de las instrucciones de desarrollo para cuentas de DocumentDB con soporte de protocolo para MongoDB.
@@ -70,9 +70,9 @@ BulkWrite| |bulkWrite()|
 De comparación|-todo-| | 
 Lógicos|-todo-| | 
 Consulta de elementos| |-todo-| 
-Evaluación|$mod|$regex, $text, $where| 
+Evaluación|$mod, $regex |$text, $where| 
 Geoespaciales|2dsphere, 2d, polygon|Todo lo demás| 
-Array|$all, $size|$elemMatch| 
+Array|$all, $size, $elemMatch|| 
 Bit a bit| |-todo-| 
 Comentario|-todo-| | 
 Proyección| |-todo-| 
@@ -95,9 +95,9 @@ Diagnóstico|listDatabases, collStats, dbStats| |Todo lo demás
 
 ## Pasos siguientes
 
-- Obtenga información acerca de cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
+- Obtenga información sobre cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
 - Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md) de MongoDB.
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
@@ -26,9 +26,9 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 ## <a name="register"> </a>Registro de la aplicación con Google
 
-1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Google.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **URL**, que se utilizará más adelante para configurar la aplicación de Google.
 
-2. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
+2. Vaya al sitio web de [API de Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto** y haga clic en **Crear**.
 
 3. Bajo **Social APIs** (API sociales), haga clic en **Google+ API** (API de Google+") y en **Habilitar**.
 
@@ -81,4 +81,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

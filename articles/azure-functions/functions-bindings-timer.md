@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Desencadenador de temporizador de funciones de Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artículo explica cómo configurar desencadenadores de temporizador en funciones de Azure. El temporizador desencadena las funciones de llamada según una programación, una hora o de forma periódica.
 
@@ -26,7 +28,7 @@ Este artículo explica cómo configurar desencadenadores de temporizador en func
 
 ## function.json con desencadenador de temporizador
 
-El archivo *function.json* proporciona una expresión de programación.
+El archivo *function.json* proporciona una expresión de programación. Por ejemplo, la siguiente programación ejecuta la función cada minuto:
 
 ```json
 {
@@ -46,9 +48,11 @@ El desencadenador de temporizador controla el escalado horizontal de varias inst
 
 ## Formato de expresión de programación
 
-La expresión de programación es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye 6 campos: {segundo} {minuto} {hora} {día} {mes} {día de la semana}. Muchos de los documentos de la expresión CRON que puede encontrar en Internet omiten el campo {segundo}, por lo que si copia uno de ellos tendrá que ajustar el campo adicional.
+La expresión de programación es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incorpora 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-Estos son algunos ejemplos de expresiones de programación.
+Tenga en cuenta que muchas de las expresiones CRON que puede encontrar en Internet omiten el campo {second}, por lo que si copia uno de ellos tendrá que ajustar el campo adicional.
+
+Estos son algunos otros ejemplos de expresiones de programación.
 
 Para desencadenar una vez cada cinco minutos:
 
@@ -56,10 +60,34 @@ Para desencadenar una vez cada cinco minutos:
 "schedule": "0 */5 * * * *"
 ```
 
+Para desencadenar una vez al principio de cada hora:
+
+```json
+"schedule": "0 0 * * * *",
+```
+
 Para desencadenar una vez cada dos horas:
 
 ```json
 "schedule": "0 0 */2 * * *",
+```
+
+Para desencadenar una vez cada hora de las 9:00 a las 17:00:
+
+```json
+"schedule": "0 0 9-17 * * *",
+```
+
+Para desencadenar a las 9:30 cada día:
+
+```json
+"schedule": "0 30 9 * * *",
+```
+
+Para desencadenar a 9:30 cada día comprendido entre lunes y viernes:
+
+```json
+"schedule": "0 30 9 * * 1-5",
 ```
 
 ## Ejemplo de código de C# de desencadenador de temporizador
@@ -77,4 +105,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

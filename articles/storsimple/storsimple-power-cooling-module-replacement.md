@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
@@ -65,7 +65,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
 
      **Figura 1** Panel frontal del dispositivo
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:---|:-----------|
     |1|Botón Silencio|
     |2|Alimentación del sistema|
@@ -79,7 +79,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
 
      **Figura 2** Parte posterior del PCM con LED indicadores
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:---|:-----------|
     |1|Error de corriente alterna|
     |2|Error del ventilador|
@@ -94,7 +94,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
 
      **Figura 3** Parte posterior de dispositivo con módulos de complementos
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:---|:-----------|
     |1|PCM 0|
     |2|PCM 1|
@@ -155,4 +155,4 @@ Siga estas instrucciones para instalar un PCM en el dispositivo StorSimple. Aseg
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

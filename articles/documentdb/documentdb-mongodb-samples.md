@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Soporte de protocolo de DocumentDB para ejemplos de MongoDB
@@ -175,4 +175,4 @@ Puede usar el tutorial [Creación de una aplicación web de Azure que se conecta
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

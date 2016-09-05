@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Usar Windows PowerShell para StorSimple para administrar su dispositivos
@@ -60,7 +60,7 @@ Asegúrese de usar la siguiente configuración de PuTTY para conectarse a la int
  	|Elemento de teclado|Seleccionar|
  	|---|---|
  	|Tecla retroceso|Control-? (127)|
-	|Teclas de inicio y fin|Standard|
+	|Teclas de inicio y fin|Estándar|
 	|Teclas de función y teclado numérico|ESC[n~|
 	|Estado inicial de las teclas de dirección|Normal|
 	|Estado inicial del teclado numérico|Normal|
@@ -106,13 +106,13 @@ Puede elegir entre las siguientes opciones:
 
 2. **Iniciar sesión en el controlador del mismo nivel con acceso completo**: esta opción es igual a la opción 1, excepto que permite la conexión (con las credenciales apropiadas) al espacio de ejecución **SSAdminConsole** en el controlador del mismo nivel. Dado que el dispositivo StorSimple es un dispositivo de alta disponibilidad con dos controladores en una configuración activo/pasivo, el mismo nivel hace referencia al otro controlador en el dispositivo al que accede a través de la consola en serie). Similar a la opción 1, esta opción puede utilizarse para permitir que el servicio técnico de Microsoft tenga acceso a un espacio de ejecución sin restricciones en un controlador del mismo nivel.
 
-3. **Conectarse con acceso limitado**: esta opción se utiliza para tener acceso a la interfaz de Windows PowerShell en modo limitado. No se le solicitarán las credenciales de acceso. Esta opción se conecta a un espacio de ejecución más restringido en comparación con las opciones 1 y 2. Algunas de las tareas que están disponibles a través de la opción 1 que no se pueden realizar en este espacio de ejecución son:
+3. **Conectarse con acceso limitado**: esta opción se utiliza para tener acceso a la interfaz de Windows PowerShell en modo limitado. No se le solicitarán las credenciales de acceso. Esta opción se conecta a un espacio de ejecución más restringido en comparación con las opciones 1 y 2. Algunas de las tareas que están disponibles por medio de la opción 1 que **no se pueden* realizar en este espacio de ejecución son:
 
 	- Restablecer la configuración de fábrica
 	- Cambiar la contraseña
 	- Habilitar o deshabilitar el acceso de soporte
 	- Aplicar actualizaciones
-	- Instalar revisiones 
+	- Instalar revisiones
 												
 
 	>[AZURE.NOTE] **Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.**
@@ -175,7 +175,7 @@ La siguiente es una breve descripción de los tipos de ayuda para esta interfaz 
 
 - Para obtener ayuda en línea para cualquier cmdlet, use el cmdlet anterior con el parámetro `-Online`: `Get-Help <cmdlet-name> -Online`
 
-- Para obtener ayuda completa, puede usar el parámetro `–Examples` y, para ver ejemplos, use el parámetro `–Full`.
+- Para obtener ayuda completa, puede usar el parámetro `–Full` y, para ver ejemplos, use el parámetro `–Examples`.
 
 #### Para actualizar la Ayuda
 
@@ -192,9 +192,9 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 1. Una vez instalados los archivos de ayuda, escriba: `Get-Help Get-Command`. Esto mostrará una lista de cmdlets para que la Ayuda está disponible.
 
 
->[AZURE.NOTE] Para obtener una lista de todos los cmdlets disponibles en cualquiera de los espacios de ejecución, inicie sesión en la opción de menú correspondiente y ejecute el cmdlet `Get-Command`.
+>[AZURE.NOTE] Para obtener una lista de todos los cmdlets disponibles en un espacio de ejecución, inicie sesión en la opción de menú correspondiente y ejecute el cmdlet `Get-Command`.
 
 ## Pasos siguientes
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -6,10 +6,11 @@ Azure ofrece soluciones de nube excelentes, integradas en máquinas virtuales y 
 **Pero eso son viejas noticias.** La *nueva* noticia es que Azure ofrece incluso más adecuación Docker:
 
 - [Muchas](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) formas [diferentes](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) de crear hosts Docker para que los contenedores se adapten a su situación
+- [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) crea clústeres de hosts de contenedor con orquestadores como **marathon** y **swarm**.
 - [Administrador de recursos de Azure](../articles/resource-group-overview.md) y las [plantillas de grupo de recursos](../articles/resource-group-authoring-templates.md) para simplificar la implementación y actualización de aplicaciones distribuidas complejas
 - integración con una matriz grande de ambas herramientas de administración de configuración patentadas y de código abierto
 
-Y dado que se pueden crear mediante programación máquinas virtuales y contenedores Linux en Azure, también puede usar máquinas virtuales y herramientas de *orquestación* de contenedor para crear grupos de máquinas virtuales (VM) e implementar aplicaciones dentro de los contenedores de Linux y pronto en [contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Y dado que se pueden crear mediante programación máquinas virtuales y contenedores de Linux en Azure, también puede usar herramientas de *orquestación* de contenedores y máquinas virtuales para crear grupos de máquinas virtuales e implementar aplicaciones dentro de contenedores de Linux y ahora [contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 Este artículo no solo explica estos conceptos en un nivel alto, también contiene cientos de vínculos para obtener más información, tutoriales y productos relacionados con el uso del contenedor y el clúster en Azure. Si ya sabe todo esto y solo desea los vínculos, estos se encuentran aquí en las [herramientas para trabajar con contenedores](#tools-for-working-with-containers).
 
@@ -23,7 +24,7 @@ Puesto que en este modelo de aislamiento y ejecución se comparte el kernel del 
 
 Está bastante bien.
 
-Los contenedores Windows proporcionan las mismas ventajas que los contenedores de Linux para las aplicaciones que se ejecutan en Windows. Los contenedores de Windows admiten el formato de imagen de Docker y la API de Docker; sin embargo, también se pueden administrar con PowerShell. Se encuentran disponibles dos tiempos de ejecución de contenedores con los contenedores de Windows, de Windows Server y de Hyper-V. Los contenedores de Hyper-V proporcionan un nivel adicional de aislamiento alojando cada contenedor en una máquina virtual súperoptimizada. Para obtener más información sobre los contenedores de Windows, consulte [Acerca de los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Para probar los contenedores de Windows, consulte el [inicio rápido de Azure sobre los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
+Los contenedores de Windows proporcionan las mismas ventajas que los de Linux para las aplicaciones que se ejecutan en Windows. Los contenedores de Windows admiten el formato de imagen de Docker y la API de Docker, pero también se pueden administrar con PowerShell. Se encuentran disponibles dos tiempos de ejecución de contenedores con los contenedores de Windows, de Windows Server y de Hyper-V. Los contenedores de Hyper-V proporcionan un nivel adicional de aislamiento al hospedar cada contenedor en una máquina virtual superoptimizada. Para obtener más información sobre los contenedores de Windows, consulte [Acerca de los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Para probar los contenedores de Windows, consulte el [inicio rápido de Azure sobre los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
 
 Eso también está bastante bien.
 
@@ -39,7 +40,7 @@ Dicho esto, recuerde que los contenedores se ejecutan en un host de contenedor, 
 
 ## ¿Para qué son buenos los contenedores?
 
-Son excelentes para muchas cosas, pero favorecen, al igual que los [Servicios en la nube de Azure](https://azure.microsoft.com/services/cloud-services/) y [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md), la creación de aplicaciones distribuidas de un solo servicio y orientadas a [microservicio], en las que el diseño de la aplicación está basado en partes más pequeñas y que admiten composición en lugar de en componentes más grandes y con acoplamiento más fuerte.
+Son excelentes para muchas cosas, pero favorecen, al igual que los [Servicios en la nube de Azure](https://azure.microsoft.com/services/cloud-services/) y [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md), la creación de aplicaciones distribuidas de un solo servicio y orientadas a microservicio. En ellas, el diseño de la aplicación está basado en partes más pequeñas que admiten composición en lugar de en componentes más grandes y con acoplamiento más fuerte.
 
 Esto es especialmente cierto en entornos de nube pública como Azure, en los que se alquilan máquinas virtuales cuando y donde lo desea. No sólo obtiene aislamiento y una implementación rápida y herramientas de orquestación, pero puede tomar decisiones de infraestructura de aplicaciones más eficaces.
 
@@ -51,9 +52,9 @@ Además, hay muchos escenarios que no se prestan a un enfoque de microservicios;
 
 ### Ventajas del contenedor para los desarrolladores
 
-En general, es fácil darse cuenta de que la tecnología de contenedores es un paso adelante, pero también ofrece ventajas más específicas. Veamos el ejemplo de los contenedores de Docker. En este tema no profundizaremos a fondo en Docker por ahora (lea [¿Qué es Docker?](https://www.docker.com/whatisdocker/) para ese caso, o la [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), pero Docker y su ecosistema ofrecen enormes ventajas a los desarrolladores y profesionales de TI.
+En general, es fácil darse cuenta de que la tecnología de contenedores es un paso adelante, pero también ofrece ventajas más específicas. Veamos el ejemplo de los contenedores de Docker. En este tema no profundizaremos a fondo en Docker por ahora (lea [What is Docker?](https://www.docker.com/whatisdocker/) [¿Qué es Docker?] para ese caso o la [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), pero Docker y su ecosistema ofrecen enormes ventajas a los desarrolladores y profesionales de TI.
 
-Los desarrolladores recurren a contenedores Docker rápidamente, porque por encima de todo, facilitan el uso de contenedores de Linux:
+Los desarrolladores se acostumbran rápidamente a los contenedores de Docker porque, ante todo, facilitan el uso de contenedores de Linux y Windows:
 
 - Pueden usar comandos incrementales simplificados para crear una imagen fija que sea fácil de implementar y que pueda automatizar la creación de esas imágenes mediante un dockerfile
 - Pueden compartir esas imágenes fácilmente mediante comandos simples de estilo [git](https://git-scm.com/) de inserción y extracción en registros de docker [privados](https://registry.hub.docker.com/) o [públicos](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
@@ -97,7 +98,7 @@ En la siguiente tabla se describe a muy alto nivel el tipo de diferencias de car
 
 En este momento, cualquier arquitecto, desarrollador o especialista en operaciones de TI podrá pensar: "Puedo automatizar TODO esto; esta es realmente un centro de datos como servicio".
 
-Tiene razón, puede serlo, y puede haber un número indeterminado de sistemas, muchos de las cuales es posible que ya esté usando, que puedan administrar grupos de máquinas virtuales de Azure e inyectar código personalizado mediante scripts, a menudo con la [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension para Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Puede automatizar&mdash;es posible que ya lo haya hecho&mdash; sus implementaciones de Azure mediante PowerShell o scripts de CLI de Azure [como este](../articles/virtual-machines/virtual-machines-windows-ps-create.md).
+Tiene razón, puede serlo, y puede haber un número indeterminado de sistemas, muchos de las cuales es posible que ya esté usando, que puedan administrar grupos de máquinas virtuales de Azure e inyectar código personalizado mediante scripts, a menudo con la [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension para Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Puede automatizar &mdash;es posible que ya lo haya hecho&mdash; sus implementaciones de Azure mediante PowerShell o scripts de la CLI de Azure.
 
 Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet](https://puppetlabs.com/) y [Chef](https://www.chef.io/) para automatizar la creación y configuración de máquinas virtuales a escala. (Consulte algunos vínculos sobre [cómo usar estas herramientas con Azure](#tools-for-working-with-containers)).
 
@@ -109,14 +110,13 @@ Más recientemente, Azure presentó la API de REST de [Administración de recurs
 - la [CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 - los [módulos de Azure PowerShell](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
-
 ### Implementación y administración de todos los grupos de máquinas virtuales y contenedores de Azure
 
 Hay varios sistemas conocidos que pueden implementar todos los grupos de máquinas virtuales e instalar Docker (u otros sistemas de host del contenedor de Linux) en ellos como un grupo automatizable. Para obtener vínculos directos, consulte la sección [contenedores y herramientas](#containers-and-vm-technologies) disponible a continuación. Existen varios sistemas para hacer esto en mayor o menor medida, y esta lista no es exhaustiva. Dependiendo de su conjunto de habilidades y escenarios, puede que resulten útiles o no.
 
 Docker tiene su propio conjunto de herramientas de creación de máquinas virtuales ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) y una herramienta de administración de clúster docker-container de equilibrio de carga ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Además, la [Extensión de máquina virtual de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) incluye compatibilidad predeterminada con [`docker-compose`](https://docs.docker.com/compose/), que puede implementar contenedores de aplicaciones configurados en varios contenedores.
 
-Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedor) y [Chronos](https://mesos.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web.
+Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedor) y [Chronos](https://mesos.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web. También puede usar **swarm** como motor de orquestaciones.
 
 Además, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) es un sistema de código abierto para la administración de grupos de máquinas virtuales y contenedores derivado de las lecciones aprendidas en Google. Incluso puede usar [kubernetes con trama para proporcionar compatibilidad con red](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
@@ -130,7 +130,7 @@ Ubuntu, otra distribución de Linux muy popular, admite Docker muy bien, pero ta
 
 Para trabajar con contenedores y máquinas virtuales de Azure se usan herramientas. En esta sección se proporciona una lista de algunos de los conceptos y herramientas más útiles o importantes acerca de contenedores, grupos y las herramientas de configuración y de orquestación más importantes que se usan con ellos.
 
-> [AZURE.NOTE] Esta área está cambiando muy rápidamente, y mientras hacemos lo posible para mantener actualizado este tema y sus vínculos, podría ser una tarea imposible. Asegúrese de buscar temas interesantes para mantenerse al día.
+> [AZURE.NOTE] Esta área está cambiando muy rápidamente, y aunque hacemos lo posible para mantener actualizado este tema y sus vínculos, podría ser una tarea imposible. Asegúrese de buscar temas interesantes para mantenerse al día.
 
 ### Contenedores y tecnologías de máquina virtual
 
@@ -208,7 +208,7 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows](https://m
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
-[microservicio]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

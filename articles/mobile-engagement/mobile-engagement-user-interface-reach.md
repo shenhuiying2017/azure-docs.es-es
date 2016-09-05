@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="03/08/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -26,7 +26,7 @@ La sección de cobertura de la interfaz de usuario es la herramienta de administ
 >[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## Cuatro tipos de notificaciones de inserción
-1.    Anuncios: le permiten enviar mensajes de publicidad a los usuarios que los redireccionan a otra ubicación dentro de la aplicación o enviarlos a una página web o tienda fuera de la aplicación. 
+1.    Anuncios: le permiten enviar mensajes de publicidad a los usuarios que los redireccionan a otra ubicación dentro de la aplicación o enviarlos a una página web o tienda fuera de la aplicación.
 2.    Sondeos: le permiten reunir información de los usuarios finales formulándoles preguntas.
 3.    Inserciones de datos: le permiten enviar un archivo de datos binario o base64. La información contenida en una inserción de datos se envía a la aplicación para modificar la actual experiencia del usuario en la aplicación. La aplicación debe ser capaz de procesar los datos de una inserción de datos.
 
@@ -40,24 +40,24 @@ Puede editar, clonar, eliminar o activar las campañas que no se han activado to
 
 Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertura. La vista **sencilla** proporciona una representación visual en forma de un gráfico de barras de columnas de lo que ha ocurrido después de que se activara una campaña. La vista **avanzada** proporciona detalles más específicos sorbe la campaña de inserción. Estos detalles no estarán disponibles si va a enviar una campaña de prueba, es decir, se envía una inserción a un dispositivo de prueba. A continuación le mostramos cómo interpretar estos detalles:
 
-1. **Insertados**: especifica el número de mensajes insertados en los dispositivos. Este número dependerá de la audiencia de destino que especificara al crear la campaña de inserción. Si no especifica ninguna audiencia de destino, se enviará esta inserción a todos los dispositivos registrados. Al igual que sucede con todos los demás servicios de inserción, no inserte las notificaciones directamente en el dispositivo, insértelas en los servicios de notificaciones de inserción específicos de la plataforma respectiva (PNS: APNs/GCM/WNS) para que puedan entregar las notificaciones a los dispositivos. 
+1. **Insertados**: especifica el número de mensajes insertados en los dispositivos. Este número dependerá de la audiencia de destino que especificara al crear la campaña de inserción. Si no especifica ninguna audiencia de destino, se enviará esta inserción a todos los dispositivos registrados. Al igual que sucede con todos los demás servicios de inserción, no inserte las notificaciones directamente en el dispositivo, insértelas en los servicios de notificaciones de inserción específicos de la plataforma respectiva (PNS: APNs/GCM/WNS) para que puedan entregar las notificaciones a los dispositivos.
 
 2.	**Entregados**: especifica el número de mensajes que el PNS entrega correctamente al dispositivo y que el SDK de Mobile Engagement confirma como recibidos.
 		
 	*Razones de que el número de entregados sea inferior al número de insertados:*
 	
 	1. Si el usuario ha desinstalado la aplicación del dispositivo pero el PNS no lo sabe cuando le enviamos la inserción, el mensaje se eliminará.
-	2. Si el dispositivo tiene la aplicación, pero ha estado desconectado durante largos períodos de tiempo, el PNS no podrá entregar el mensaje al dispositivo. 
-	3. Si el mensaje se entrega al dispositivo, pero el SDK de Mobile Engagement en la aplicación no reconoce su contenido, entonces se elimina ese mensaje. Esto podría ocurrir si la personalización de la notificación en la aplicación genera una excepción que capturamos en el SDK y eliminamos el mensaje. Esto también puede ocurrir si la aplicación en el dispositivo utiliza una versión del SDK de Mobile Engagement que no es capaz de entender la versión más reciente del mensaje de inserción enviado desde la plataforma. Pero esto solo sucede, si la aplicación se ha actualizado después de que la notificación se distribuyera desde la plataforma de servicio. La pestaña **Avanzadas** indicará cuántos mensajes se han eliminado. 
-	4. En dispositivos iOS, los mensajes a veces no se entregan si el dispositivo tiene poca batería o si la aplicación consume demasiada energía al procesar las notificaciones remotas. Se trata de una limitación de los dispositivos iOS.   
+	2. Si el dispositivo tiene la aplicación, pero ha estado desconectado durante largos períodos de tiempo, el PNS no podrá entregar el mensaje al dispositivo.
+	3. Si el mensaje se entrega al dispositivo, pero el SDK de Mobile Engagement en la aplicación no reconoce su contenido, entonces se elimina ese mensaje. Esto podría ocurrir si la personalización de la notificación en la aplicación genera una excepción que capturamos en el SDK y eliminamos el mensaje. Esto también puede ocurrir si la aplicación en el dispositivo utiliza una versión del SDK de Mobile Engagement que no es capaz de entender la versión más reciente del mensaje de inserción enviado desde la plataforma. Pero esto solo sucede, si la aplicación se ha actualizado después de que la notificación se distribuyera desde la plataforma de servicio. La pestaña **Avanzadas** indicará cuántos mensajes se han eliminado.
+	4. En dispositivos iOS, los mensajes a veces no se entregan si el dispositivo tiene poca batería o si la aplicación consume demasiada energía al procesar las notificaciones remotas. Se trata de una limitación de los dispositivos iOS.
 
 3.	**Mostrados**: especifica el número de mensajes que se muestran correctamente al usuario de la aplicación en el dispositivo en forma de una notificación push del sistema o de fuera de aplicación en el centro de notificaciones, o en forma de una notificación en aplicación dentro de la aplicación móvil. La pestaña **Avanzadas** le indicará cuántas eran notificaciones del sistema y cuántas notificaciones en aplicación.
 	
 	*Razones para que el recuento mostrado sea menor que el recuento entregado (esperando a que se muestre)*
 	
-	1. Si la campaña de notificación tenía una fecha de finalización, es posible que la notificación se entregara, pero en el momento de abrirla y mostrarla al usuario de la aplicación ya había expirado, por lo que nunca se mostró.   
-	2. Si la notificación es una notificación en aplicación, se muestra solo cuando el usuario abre la aplicación. Si el usuario no ha abierto la aplicación, el SDK informará de que la notificación se entregó pero no se mostrará hasta que la aplicación se abra. 
-	2. Si la notificación es una notificación en aplicación y está configurada para mostrarse en una pantalla o actividad específica, también se notificará como entregada, pero no se entregará hasta que el usuario abra la aplicación en una pantalla específica. 
+	1. Si la campaña de notificación tenía una fecha de finalización, es posible que la notificación se entregara, pero en el momento de abrirla y mostrarla al usuario de la aplicación ya había expirado, por lo que nunca se mostró.
+	2. Si la notificación es una notificación en aplicación, se muestra solo cuando el usuario abre la aplicación. Si el usuario no ha abierto la aplicación, el SDK informará de que la notificación se entregó pero no se mostrará hasta que la aplicación se abra.
+	2. Si la notificación es una notificación en aplicación y está configurada para mostrarse en una pantalla o actividad específica, también se notificará como entregada, pero no se entregará hasta que el usuario abra la aplicación en una pantalla específica.
 	
 4.	**Interacciones de usuario**: especifica el número de mensajes con los que ha interactuado el usuario de la aplicación e incluye los mensajes que están accionados o cerrados.
 
@@ -69,9 +69,9 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 	
 	- *El usuario de la aplicación puede cerrar una notificación de las siguientes formas:*
 	
-		1. Haciendo clic directamente en el botón Cerrar en la notificación. 
-		2. Con el gesto de deslizarla hacia afuera o eliminándola. 
-		3. Las notificaciones en aplicación con contenido de texto o web y sondeos normalmente se muestran al usuario de la aplicación en un proceso de dos pasos. Primero ven una notificación y, cuando hacen clic en ella, ven el contenido de texto, web o sondeo subsiguiente. El usuario de la aplicación puede cerrar una notificación en cualquiera de estos pasos y los detalles de la vista avanzada capturan esta acción. 
+		1. Haciendo clic directamente en el botón Cerrar en la notificación.
+		2. Con el gesto de deslizarla hacia afuera o eliminándola.
+		3. Las notificaciones en aplicación con contenido de texto o web y sondeos normalmente se muestran al usuario de la aplicación en un proceso de dos pasos. Primero ven una notificación y, cuando hacen clic en ella, ven el contenido de texto, web o sondeo subsiguiente. El usuario de la aplicación puede cerrar una notificación en cualquiera de estos pasos y los detalles de la vista avanzada capturan esta acción.
 
 5.	**Accionados**: especifica el número de mensajes que el usuario de la aplicación accionó explícitamente. Es el número más interesante ya que le indica cuántos usuarios de la aplicación estuvieron interesados en el mensaje que se expulsó en la notificación.
  
@@ -80,7 +80,7 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 
 ![Reach2][19]
 
-## Consulte también
+## Otras referencias
 
 - [Conceptos][Link 6]
 - [Guía de solución de problemas de servicios][Link 24]
@@ -177,4 +177,4 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	documentationCenter=""
 	description="Aprenda a usar PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows"
 	authors="sbtron"
-	manager=""
+ 	manager="timlt"
 	editor=""/>
 
 <tags
@@ -82,7 +82,7 @@ Se puede utilizar el siguiente XML para la configuración pública de diagnósti
 La configuración debe actualizarse para incluir lo siguiente:
 
 - El atributo *resourceID* del elemento **Métricas** tiene que actualizarse con el identificador de recurso de la VM.
-	- El identificador de recursos puede crearse mediante el siguiente patrón: "/ subscriptions / {*identificador de la suscripción para la suscripción con la VM*} / ResourceGroups / {*El nombre del grupo de recursos para la máquina virtual*} / providers/Microsoft.Compute/virtualMachines/ {*El nombre de la VM*}".
+	- El identificador de recursos puede crearse mediante el siguiente patrón: "/subscriptions/{*Identificador de suscripción para la suscripción con la VM*}/resourceGroups/{*Nombre del grupo de recursos para la VM*}/providers/Microsoft.Compute/virtualMachines/{*Nombre de la VM*}".
 	- Por ejemplo, si el identificador de suscripción para la suscripción donde se está ejecutando la VM es **11111111-1111-1111-1111-111111111111**, el nombre del grupo de recursos para el grupo de recursos es **MyResourceGroup** y el nombre de la VM es **MyWindowsVM**, el valor de *resourceID* sería:
 
 		```
@@ -201,4 +201,4 @@ La configuración debe actualizarse para incluir lo siguiente:
 - Para obtener orientación adicional sobre el uso de la funcionalidad Diagnósticos de Azure y otras técnicas para solucionar problemas, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 - En el [Esquema de configuración de diagnósticos](https://msdn.microsoft.com/library/azure/mt634524.aspx) se explican las distintas opciones de configuración XML para la extensión de diagnósticos.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

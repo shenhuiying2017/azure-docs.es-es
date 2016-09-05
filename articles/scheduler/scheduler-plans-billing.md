@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Planes y facturación en Programador de Azure
@@ -21,10 +21,10 @@
 
 Las colecciones de trabajos son la entidad facturable en Programador de Azure. Las colecciones de trabajos contienen varios trabajos y vienen en tres planes que se describen a continuación: Gratis, Standard y Premium.
 
-|**Plan de colección de trabajos**|**Nº máximo de trabajos por colección de trabajos**|**Periodicidad máxima**|**Nº máximo de colecciones de trabajo por suscripción**|**Límites**|
+|**Plan de colección de trabajos**|**Nº máximo de trabajos por colección de trabajos**|**Periodicidad máxima**|**N.º máximo de colecciones de trabajo por suscripción**|**Límites**|
 |:---|:---|:---|:---|:---|
-|**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
-|**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo|Acceso al conjunto completo de características de Programador|
+|**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo.|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
+|**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo.|Acceso al conjunto completo de características de Programador|
 |**Premium P10**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium P10 como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
 |**Premium P20**|1000 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium P20 como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
 
@@ -32,7 +32,7 @@ Las colecciones de trabajos son la entidad facturable en Programador de Azure. L
 
 Puede actualizar o degradar un plan de colección de trabajos siempre que quiera entre los planes Gratis, Standard y Premium. Sin embargo, al degradar a una colección de trabajos gratuita, puede que la degradación genere un error por uno de los siguientes motivos:
 
-- Ya existe una colección de trabajos gratuita en la suscripción
+- Ya existe una colección de trabajos gratuita en la suscripción.
 - Un trabajo de la colección de trabajos tiene una periodicidad superior a la permitida para los trabajos de colecciones de trabajos gratuitas. La periodicidad máxima permitida en una colección de trabajos gratuita es una vez por hora
 - Hay más de 5 trabajos en la colección de trabajos
 - Un trabajo de la colección de trabajos tiene una acción HTTP o HTTPS que usa un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
@@ -51,7 +51,7 @@ Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará 1 uni
 
 ## Unidades facturables premium P10
 
-Una unidad facturable premium P10 puede incluir como máximo 10 000 colecciones de trabajos premium P10. Puesto que una colección de trabajos premium P10 puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500 000 trabajos: casi 22 mil millones de ejecuciones de trabajos al mes.
+Una unidad facturable premium P10 puede incluir como máximo 10 000 colecciones de trabajos premium P10. Puesto que una colección de trabajos premium P10 puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500 000 trabajos: casi 22 000 millones de ejecuciones de trabajos al mes.
 
 Si tiene entre 1 y 10 000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium P10. Si tiene entre 10 001 y 20 000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium P10.
 
@@ -59,7 +59,7 @@ Por lo tanto, las colecciones de trabajos premium P10 tienen la misma funcionali
 
 ## Unidades facturables premium P20
 
-Una unidad facturable premium P20 puede incluir como máximo 5000 colecciones de trabajos premium P20. Puesto que una colección de trabajos premium P20 puede tener hasta 1000 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 5 000 000 trabajos: casi 220 mil millones de ejecuciones de trabajos al mes.
+Una unidad facturable premium P20 puede incluir como máximo 5000 colecciones de trabajos premium P20. Puesto que una colección de trabajos premium P20 puede tener hasta 1000 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 5 000 000 trabajos: casi 220 000 millones de ejecuciones de trabajos al mes.
 
 Las colecciones de trabajos premium P20 proporcionan las mismas funcionalidades que las de los trabajos premium P10. Sin embargo, también admiten un mayor número de trabajos por colección de trabajos y más trabajos globales que los de premium P10, con lo que puede obtener una mayor escalabilidad.
 
@@ -92,4 +92,4 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

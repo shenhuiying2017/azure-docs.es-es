@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="08/17/2016" 
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
+
+> Se trata de documentación para la API de recomendaciones antigua del mercado de datos, que quedará en desuso a partir del 31/12/2016. Ahora debe empezar a usar la [API de recomendaciones de Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+
+
 
 En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure. Puede encontrar más detalles en la API de recomendaciones de la [galería](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
@@ -27,7 +31,7 @@ En este documento se describe cómo incorporar su servicio o aplicación para us
 Para usar las recomendaciones de Aprendizaje automático de Azure, debe hacer lo siguiente:
 
 * Crear un modelo: un modelo es un contenedor de los datos de uso, datos del catálogo y el modelo de recomendación.
-* Importar datos del catálogo: un catálogo contiene información de metadatos sobre los elementos. 
+* Importar datos del catálogo: un catálogo contiene información de metadatos sobre los elementos.
 * Importar datos de uso: los datos de uso se pueden cargar en una de las dos formas siguientes (o ambas):
 	* Mediante la carga de un archivo que contiene los datos de uso.
 	* Mediante el envío de eventos de adquisición de datos. Normalmente, carga un archivo de uso para poder crear un modelo de recomendación inicial (arranque) y usarlo hasta que el sistema reúne suficientes datos con el formato de adquisición de datos.
@@ -70,7 +74,7 @@ Conviértalo en Base64 (JavaScript)
 ###URI de servicio
 El URI raíz de servicio para cada una de las API de recomendaciones de Aprendizaje automático de Azure se encuentra [aquí](https://api.datamarket.azure.com/amla/recommendations/v2/).
 
-El URI del servicio completo se expresa mediante elementos de la especificación de OData.
+El URI de servicio completo se expresa mediante elementos de la especificación de OData.
 
 ###Versión de API
 Cada llamada a la API tendrá al final un parámetro de consulta denominado apiVersion que debe estar establecido en "1.0".
@@ -87,10 +91,10 @@ Creación de una solicitud de "creación de modelo":
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 | 
-| apiVersion | 1.0 | 
-||| 
-| Cuerpo de la solicitud | NONE |
+|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
+|	apiVersion | 1\.0 |
+|||
+| Cuerpo de la solicitud | NINGUNA |
 
 
 **Respuesta**:
@@ -99,7 +103,7 @@ código de estado HTTP: 200
 
 - `feed/entry/content/properties/id`: contiene el id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -141,10 +145,10 @@ Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 | 
-| apiVersion | 1.0 | 
-||| 
-| Cuerpo de la solicitud | Datos del catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 50</td><td>Identificador único de un elemento</td></tr><tr><td>Nombre del elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 255</td><td>El nombre del elemento</td></tr><tr><td>Categoría del elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 255</td><td> La categoría a la que pertenece este elemento (p. ej. libros de cocina, Drama…)</td></tr><tr><td>Descripción</td><td>No</td><td>Alfanumérico, longitud máx. 4000</td><td>una descripción de este elemento</td></tr></table><br>El tamaño máximo del archivo 200MB<br><br>Ejemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
+|	apiVersion | 1\.0 |
+|||
+| Cuerpo de la solicitud | Datos del catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 50</td><td>Identificador único de un elemento</td></tr><tr><td>Nombre del elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 255</td><td>Nombre del elemento</td></tr><tr><td>Categoría del elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 255</td><td>La categoría a la que pertenece este elemento (p. ej., libros de cocina, dramáticos…)</td></tr><tr><td>Descripción</td><td>No</td><td>Alfanumérico, longitud máx. 4000</td><td>Una descripción de este elemento</td></tr></table><br>El tamaño máximo del archivo es de 200 MB.<br><br>Ejemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Respuesta**:
@@ -154,7 +158,7 @@ código de estado HTTP: 200
 - `Feed\entry\content\properties\LineCount`: número de líneas aceptadas.
 - `Feed\entry\content\properties\ErrorCount`: número de líneas que no se insertaron debido a un error.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -190,10 +194,10 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 | 
-| apiVersion | 1.0 | 
-||| 
-| Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>Alfanumérico</td><td>Identificador único de un usuario</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 50</td><td>Identificador único de un elemento</td></tr><tr><td>Hora</td><td>No</td><td>Fecha con formato: AAAA/MM/DDTHH:MM:SS (p. ej., 2013/06/20T10:00:00)</td><td>Hora de datos</td></tr><tr><td>Evento</td><td>No; si también se debe colocar la fecha proporcionada</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200MB.<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
+|	apiVersion | 1\.0 |
+|||
+| Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>Alfanumérico</td><td>Identificador único de un usuario</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>Alfanumérico, longitud máx. 50</td><td>Identificador único de un elemento</td></tr><tr><td>Time</td><td>No</td><td>Fecha con formato: AAAA/MM/DDTHH:MM:SS (p. ej., 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Evento</td><td>No; si también se debe colocar la fecha proporcionada</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>El tamaño máximo del archivo es de 200 MB.<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
@@ -204,7 +208,7 @@ código de estado HTTP: 200
 - `Feed\entry\content\properties\FileId`: identificador de archivo.
 
 
-XML de OData
+OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -370,7 +374,7 @@ Estado de compilación válido:
 
 Tenga en cuenta que el Id. de compilación se puede encontrar en la ruta siguiente: `Feed\entry\content\properties\Id`
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -458,7 +462,7 @@ Valores válidos para el tipo de compilación:
 - Recomendación: compilación de recomendación.
 - Fbt: compilación que con frecuencia se compra junta.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -521,7 +525,7 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
 - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
-XML de OData
+OData XML
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados:
 
@@ -695,7 +699,7 @@ Este mecanismo le permite tener un modelo de recomendación en producción para 
 
 código de estado HTTP: 200
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/UpdateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -710,4 +714,4 @@ XML de OData
 Este documento se ofrece "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

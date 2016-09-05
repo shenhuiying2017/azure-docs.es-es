@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Lista de comprobación de alta disponibilidad
@@ -79,4 +79,4 @@ __¿Qué sucede si no utiliza una red CDN?__ Si no usa una red CDN, todo el trá
 ##Pasos siguientes:
 Para más información sobre cómo diseñar las aplicaciones para que tengan alta disponibilidad, consulte [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/17/2016"
  ms.author="danlep"/>
 
 # Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
@@ -21,9 +21,9 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Aprenda cómo configurar un clúster de Linux RDMA en Azure con [máquinas virtuales de tamaño A8 y A9](virtual-machines-linux-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Al configurar un clúster de máquinas virtuales de tamaño A8 y A9 para ejecutar una distribución Linux HPC compatible y una implementación de MPI compatible, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento en Azure basada en tecnología de acceso directo a memoria remota (RDMA).
+Aprenda a configurar un clúster de Linux RDMA en Azure con máquinas virtuales de tamaño A8 y A9 para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Cuando las máquinas virtuales A8 y A9 de Azure ejecutan una distribución Linux HPC compatible y una implementación de MPI compatible, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento basada en tecnología de acceso directo a memoria remota (RDMA).
 
->[AZURE.NOTE] Actualmente Azure Linux RDMA es compatible con la versión 5 de Intel MPI Library que se ejecuta en máquinas virtuales de tamaño A8 y A9 creadas a partir de una imagen SUSE Linux Enterprise Server 12 (SLES) o una imagen HPC 6.5 o 7.1 basada en CentOS de Azure Marketplace. Las imágenes de Marketplace de HPC basadas en CentOS instalan la versión MPI Intel 5.1.3.181.
+>[AZURE.NOTE] Para la compatibilidad con Linux RDMA en Azure, actualmente se requiere Intel MPI Library versión 5 en máquinas virtuales creadas a partir de imágenes HPC basadas en SUSE Linux Enterprise Server 12 o CentOS 6.5 o 7.1 en Azure Marketplace. Consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-linux-a8-a9-a10-a11-specs.md) para más información y consideraciones.
 
 
 
@@ -33,29 +33,29 @@ A continuación se facilitan métodos que puede usar para crear un clúster de L
 
 * **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de proceso de tamaño A8 y A9 que ejecuten distribuciones de Linux compatibles para acceder a la red RDMA. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md)
 
-* **Scripts de CLI de Azure**: como se muestra en los pasos del resto del artículo, use la [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para crear los scripts de implementación de una red virtual y los demás componentes necesarios para crear un clúster de máquinas virtuales de Linux de tamaño A8 y A9. La CLI en modo de Administración de servicios crea los nodos del clúster en serie en el modelo de implementación clásica, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación.
+* **Scripts de la CLI de Azure**: como se muestra más adelante en este artículo, use la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para automatizar la implementación de un clúster de máquinas virtuales Linux de tamaño A8 o A9. La CLI en modo de Administración de servicios crea los nodos del clúster en serie en el modelo de implementación clásica, por lo que la implementación de muchos nodos de proceso puede tardar varios minutos. En el modelo de implementación clásica, las máquinas virtuales A8 o A9 tienen que implementarse en el mismo servicio en la nube para conectarse a través de la red RDMA.
 
-* **Plantillas de Azure Resource Manager**: use el modelo de implementación de Resource Manager para implementar varias máquinas virtuales de Linux A8 y A9 y defina redes virtuales, direcciones IP estáticas, configuraciones DNS y otros recursos para crear un clúster de proceso que pueda aprovechar la red RDMA y ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar [las plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos proporcionan una manera rápida y confiable de implementar un clúster de Linux.
+* **Plantillas de Azure Resource Manager**: use el modelo de implementación de Resource Manager para implementar varias máquinas virtuales Linux A8 y A9 en un clúster de proceso que aproveche las ventajas de la red RDMA para ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar [las plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos proporcionan una manera rápida y confiable de implementar un clúster de Linux. En el modelo de implementación de Resource Manager, las máquinas virtuales A8 o A9 tienen que implementarse en el mismo conjunto de disponibilidad para conectarse a través de la red RDMA.
 
 ## Implementación de ejemplo en el modelo clásico
 
-Los pasos siguientes le ayudarán a usar la CLI de Azure para implementar una máquina virtual de HPC de SUSE Linux Enterprise Server 12 desde Azure Marketplace, instalar la biblioteca MPI Intel y otras personalizaciones, crear una imagen de máquina virtual personalizada y después los script para implementar un clúster de máquinas virtuales A8 o A9.
+Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una máquina virtual de HPC de SUSE Linux Enterprise Server 12 (SLES) desde Azure Marketplace, instalar la biblioteca Intel MPI y otras personalizaciones, y crear una imagen de máquina virtual personalizada. Después, use la imagen para automatizar la implementación de un clúster de máquinas virtuales A8 o A9.
 
 >[AZURE.TIP]  Siga los mismos pasos para implementar un clúster de máquinas virtuales A8 o A9 basadas en la imagen de HPC 6.5 o 7.1 basada en CentOS en Azure Marketplace. Las diferencias se indican en los pasos. Por ejemplo, dado que las imágenes HPC basadas en CentOS incluyen Intel MPI, es necesario instalar Intel MPI por separado en las máquinas virtuales creadas desde esas imágenes.
 
 ### Requisitos previos
 
-*   **Equipo cliente**: necesitará un equipo cliente basado en Mac, Linux o Windows para comunicarse con Azure. Estos pasos se supone que está usado un cliente Linux.
+*   **Equipo cliente**: necesita un equipo cliente basado en Mac, Linux o Windows para comunicarse con Azure. Estos pasos se supone que está usado un cliente Linux.
 
-*   **Suscripción de Azure**: si no tiene ninguna, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
+*   **Suscripción de Azure**: si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
 
-*   **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales A8 o A9. Por ejemplo, necesitará al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+*   **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales A8 o A9. Por ejemplo, necesita al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 *   **CLI de Azure**: [instale](../xplat-cli-install.md) la CLI de Azure y [conéctela a su suscripción de Azure](../xplat-cli-connect.md) en el equipo cliente.
 
-*   **Intel MPI**: para personalizar una imagen de máquina virtual de HPC de SLE 12 para el clúster (consulte los detalles más adelante en este artículo), descargue e instale el tiempo de ejecución actual de Intel MPI Library 5 desde el sitio [Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). Para prepararse, después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
+*   **Intel MPI**: para personalizar una imagen de máquina virtual de HPC de SLE 12 para el clúster, descargue e instale un entorno de ejecución actual de Intel MPI Library 5 desde el sitio [Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). Verá más detalles más adelante en este artículo. Para prepararse para la instalación, después de registrarse con Intel, copie el vínculo de descarga para el archivo .tgz de la versión adecuada de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
 
-    >[AZURE.NOTE] Si utiliza la imagen HPC de CentOS 6.5 o CentOS 7.1 en Azure Marketplace para crear los nodos del clúster, se preinstala Intel MPI versión 5.1.3.181 en la máquina virtual.
+    >[AZURE.NOTE] Si utiliza la imagen de HPC de CentOS 6.5 o CentOS 7.1 en Azure Marketplace para crear los nodos del clúster, se preinstala Intel MPI versión 5.1.3.181.
 
 ### Aprovisionar una máquina virtual SLES 12
 
@@ -70,44 +70,44 @@ Escriba lo siguiente para enumerar todas las suscripciones que está autorizado 
 
     azure account list
 
-La suscripción activa actual se identificará con `Current` establecido en `true`. Si esta no es la suscripción que desea usar para crear el clúster, establezca el número de suscripción adecuado como la suscripción activa:
+La suscripción activa actual se identifica con `Current` establecido en `true`. Si esta suscripción no es la que desea usar para crear el clúster, establezca el id. de suscripción adecuado como la suscripción activa:
 
-    azure account set <subscription-number>
+    azure account set <subscription-Id>
 
 Para ver las imágenes de SLES 12 HPC disponibles públicamente en Azure, ejecute un comando similar al siguiente, asumiendo que el entorno de shell admite **grep**:
 
 
     azure vm image list | grep "suse.*hpc"
 
-Ahora aprovisione una máquina virtual de tamaño A9 con una imagen de SLES 12 HPC disponible mediante la ejecución de un comando similar al siguiente:
+Ahora aprovisione una máquina virtual de tamaño A9 con una imagen de HPC de SLES 12 ejecutando un comando similar al siguiente:
 
     azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 
 donde
 
-* el tamaño (A9 en este ejemplo) puede ser A8 o A9
+* El tamaño (A9 en este ejemplo) puede ser A8 o A9.
 
-* el número de puerto externo de SSH (22 en este ejemplo, que es el valor predeterminado de SSH) es cualquier número de puerto válido; el número de puerto interno de SSH se establecerá en 22
+* El número de puerto externo de SSH (22 en este ejemplo, que es el valor predeterminado de SSH) es cualquier número de puerto válido. El número de puerto interno de SSH se establece en 22.
 
-* se creará un nuevo servicio en la nube en la región de Azure especificada por la ubicación; especifique una ubicación como "Oeste de EE. UU." en la que estén disponibles las instancias A8 y A9
+* Se crea un servicio en la nube en la región de Azure especificada por la ubicación. Especifique una ubicación en la que haya instancias A8 y A9 disponibles.
 
-* el nombre de la imagen de SLES 12 puede ser `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` o `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` para que disponga de compatibilidad con SUSE (se aplican cargos)
+* El nombre de la imagen de SLES 12 puede ser `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` o `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` para que disponga de soporte prioritario para SUSE (se aplican cargos adicionales)
 
     >[AZURE.NOTE]Si desea utilizar una imagen HPC basada en CentOS, los nombres de la imagen actual son `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408` y `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408`.
 
 ### Personalización de la máquina virtual
 
-Después de que la máquina virtual complete el aprovisionamiento, SSH a la máquina virtual con la dirección IP externa de la máquina virtual (o el nombre DNS) y el número de puerto externo que ha configurado y personalícelo. Para obtener detalles de la conexión, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-classic-log-on.md). Debe ejecutar los comandos como usuario que haya configurado en la máquina virtual, a menos que se requiera el acceso a la raíz para completar un paso.
+Después de que la máquina virtual complete el aprovisionamiento, SSH a la máquina virtual con la dirección IP externa de la máquina virtual (o el nombre DNS) y el número de puerto externo que ha configurado y personalícelo. Para obtener detalles de la conexión, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-mac-create-ssh-keys.md). Ejecute los comandos como el usuario que haya configurado en la máquina virtual, a menos que se requiera el acceso a la raíz para completar un paso.
 
 >[AZURE.IMPORTANT]Microsoft Azure no proporciona acceso a la raíz a máquinas virtuales de Linux. Para obtener acceso administrativo al conectarse como un usuario a la máquina virtual, ejecute los comandos mediante `sudo`.
 
 * **Actualizaciones**: instale las actualizaciones mediante **zypper**. También puede instalar utilidades NFS.
 
-    >[AZURE.IMPORTANT]Si ha implementado un clúster HPC V de SLES 12, en este momento es recomendable no aplicar actualizaciones de kernel, que pueden causar problemas con los controladores de RDMA de Linux.
+    >[AZURE.IMPORTANT]Si ha implementado una máquina virtual de HPC de SLES 12, es recomendable que no aplique actualizaciones de kernel, que pueden causar problemas con los controladores Linux RDMA.
     >
-    >En las imágenes HPC basadas en CentOS desde Marketplace, las actualizaciones del núcleo están deshabilitadas en el archivo de configuración **yum**. Esto se debe a que los controladores Linux RDMA se distribuyen en forma de paquete RPM y sus actualizaciones de estos podrían no funcionar si se actualiza el kernel.
+    >En las imágenes HPC basadas en CentOS desde Marketplace, las actualizaciones del núcleo están deshabilitadas en el archivo de configuración **yum**. Como los controladores Linux RDMA se distribuyen en forma de paquete RPM, las actualizaciones de controladores podrían no funcionar si se actualiza el kernel.
 
-* **Actualizaciones de controladores Linux RDMA**: si implementa una máquina virtual de HPC de SLES 12, tendrá que actualizar los controladores RDMA. Consulte [Acerca del uso de las instancias de proceso intensivo A8, A9, A10 y A11 con Windows](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12), para más información.
+* **Actualizaciones de controladores Linux RDMA**: si implementa una máquina virtual de HPC de SLES 12, debe actualizar los controladores RDMA. Consulte [Acerca del uso de las instancias de proceso intensivo A8, A9, A10 y A11 con Windows](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12), para más información.
 
 * **Intel MPI**: si ha implementado una máquina virtual de HPC de SLES 12, descargue e instale el tiempo de ejecución de Intel MPI Library 5 desde el sitio Intel.com mediante la ejecución de comandos similar a la siguiente. Este paso no es necesario si implementa una máquina virtual de HPC basada en CentOS 6.5 o 7.1.
 
@@ -121,7 +121,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
     Acepte la configuración predeterminada para instalar Intel MPI en la máquina virtual.
 
-* **Bloquear memoria**: para que los códigos de MPI bloqueen la memoria disponible para RDMA, necesitará agregar o cambiar la configuración siguiente en el archivo /etc/security/limits.conf: (Necesitará acceso de raíz para editar este archivo). Si implementa una máquina virtual de HPC basada en CentOS 6.5 o 7.1, la configuración ya se ha agregado a este archivo.
+* **Bloquear memoria**: para que los códigos de MPI bloqueen la memoria disponible para RDMA, necesitará agregar o cambiar la configuración siguiente en el archivo /etc/security/limits.conf: (Necesita acceso a la raíz para editar este archivo). Si implementa una máquina virtual de HPC basada en CentOS 6.5 o 7.1, la configuración ya se ha agregado a este archivo.
 
         <User or group name> hard    memlock <memory required for your application in KB>
 
@@ -131,7 +131,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
 * **Claves SSH para máquinas virtuales de SLES 12**: genere claves SSH para establecer la confianza para la cuenta de usuario entre todos los nodos de proceso del clúster HPC de SLES 12 al ejecutar trabajos MPI. (Si ha implementado una máquina virtual de HPC basada en CentOS, no siga este paso. Consulte las instrucciones más adelante en este artículo para establecer una relación de confianza de SSH sin contraseña entre los nodos del clúster después de capturar la imagen y de implementar el clúster).
 
-    Ejecute el comando siguiente para crear claves SSH. Presione Entrar para generar las claves en la ubicación predeterminada sin tener que establecer una frase de contraseña.
+    Ejecute el comando siguiente para crear claves SSH. Cuando se le pida una entrada, presione Entrar para generar las claves en la ubicación predeterminada sin tener que establecer una frase de contraseña.
 
         ssh-keygen
 
@@ -139,7 +139,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-    En el directorio ~/.ssh, edite o cree el archivo "config". Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure (10.32.0.0/16 en este ejemplo):
+    En el directorio ~/.ssh, edite o cree el archivo "config". Proporcione el intervalo de direcciones IP de la red privada que planea usar en Azure (10.32.0.0/16 en este ejemplo):
 
         host 10.32.0.*
         StrictHostKeyChecking no
@@ -155,13 +155,13 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
      StrictHostKeyChecking no
     ```
 
-    >[AZURE.NOTE]Configurar `StrictHostKeyChecking no` puede crear un riesgo de seguridad si no se especifica una dirección IP específica o un intervalo como se mostró en estos ejemplos.
+    >[AZURE.NOTE]Configurar `StrictHostKeyChecking no` puede crear un posible riesgo de seguridad cuando no se especifica una dirección IP o un intervalo concretos.
 
 * **Aplicaciones**: instale todas las aplicaciones que necesite en esta máquina virtual o realice otras personalizaciones antes de capturar la imagen.
 
 ### Capturar la imagen
 
-Para capturar la imagen, primero ejecute el comando siguiente en la máquina virtual de Linux: Esto desaprovisiona la máquina virtual, pero mantiene las cuentas de usuario y las claves SSH que configure.
+Para capturar la imagen, primero ejecute el comando siguiente en la máquina virtual de Linux: Este comando desaprovisiona la máquina virtual, pero mantiene las cuentas de usuario y las claves SSH que configure.
 
 ```
 sudo waagent -deprovision
@@ -217,13 +217,13 @@ done
 
 ## Confianza SSH sin contraseña en un clúster de CentOS
 
-Si ha implementado un clúster con una imagen HPC basada en CentOS, existen dos métodos para establecer la confianza entre los nodos de proceso: la autenticación basada en host y la autenticación basada en usuario. La autenticación basada en host está fuera del ámbito de este artículo y por lo general debe realizarse a través de un script de extensión durante la implementación. La autenticación basada en usuario es conveniente para establecer la confianza después de la implementación y requiere la generación y el uso compartido de claves SSH entre los nodos de proceso en el clúster. Esto se suele conocer como inicio de sesión SSH sin contraseña y es necesario al ejecutar trabajos de MPI.
+Si ha implementado un clúster con una imagen HPC basada en CentOS, existen dos métodos para establecer la confianza entre los nodos de proceso: la autenticación basada en host y la autenticación basada en usuario. La autenticación basada en host está fuera del ámbito de este artículo y por lo general debe realizarse a través de un script de extensión durante la implementación. La autenticación basada en usuario es conveniente para establecer la confianza después de la implementación y requiere la generación y el uso compartido de claves SSH entre los nodos de proceso en el clúster. Este método se suele conocer como inicio de sesión SSH sin contraseña y es necesario al ejecutar trabajos de MPI.
 
-Está disponible un script de ejemplo proporcionado por la comunidad en [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para habilitar la autenticación de usuario sencilla en un clúster HPC basado en CentOS. Puede descargar y usar este script mediante los siguientes pasos. También puede modificar este script o utilizar cualquier otro método para establecer la autenticación de SSH sin contraseña entre los nodos del clúster de proceso.
+Está disponible un script de ejemplo proporcionado por la comunidad en [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para habilitar la autenticación de usuario sencilla en un clúster HPC basado en CentOS. Descargue y use este script mediante los siguientes pasos. También puede modificar este script o utilizar cualquier otro método para establecer la autenticación de SSH sin contraseña entre los nodos del clúster de proceso.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
     
-Para ejecutar el script, debe conocer el prefijo para las direcciones IP de subred. Se puede obtener ejecutando el siguiente comando en uno de los nodos del clúster. El resultado debe ser similar al de 10.1.3.5, y el prefijo es la parte 10.1.3.
+Para ejecutar el script, debe conocer el prefijo para las direcciones IP de subred. Para obtener el prefijo, ejecute el siguiente comando en uno de los nodos del clúster. El resultado debe ser similar al de 10.1.3.5, y el prefijo es la parte 10.1.3.
 
     ifconfig eth0 | grep -w inet | awk '{print $2}'
 
@@ -235,9 +235,9 @@ Ahora ejecute el script con tres parámetros: el nombre de usuario común en los
 El script hace lo siguiente:
 
 * Crea un directorio en el nodo de host de host denominado .ssh, que es necesario para el inicio de sesión sin contraseña.
-* Crea un archivo de configuración en el directorio .ssh, que indica el inicio de sesión sin contraseña para permitir el inicio de sesión desde cualquier nodo del clúster.
-* Crea archivos que contienen los nombres de nodo y las direcciones IP de nodo para todos los nodos del clúster. Estos archivos se mantienen después de ejecutar el script de referencia por el usuario.
-* Crea un par de claves público y privado para cada nodo de clúster, incluido el nodo de host y comparte la información sobre el par de claves, y crea una entrada en el archivo authorized\_keys.
+* Crea un archivo de configuración en el directorio .ssh que indica el inicio de sesión sin contraseña para permitir el inicio de sesión desde cualquier nodo del clúster.
+* Crea archivos que contienen los nombres de nodo y las direcciones IP de nodo para todos los nodos del clúster. Estos archivos se mantienen después de ejecutar el script como referencia futura.
+* Crea un par de claves pública y privada para cada nodo de clúster, incluido el nodo de host, y crea entradas en el archivo authorized\_keys.
 
 >[AZURE.WARNING]La ejecución de este script puede crear un posible riesgo de seguridad. Asegúrese de que no se distribuye la información de clave pública en ~/.ssh.
 
@@ -302,12 +302,12 @@ source /opt/intel/impi_latest/bin64/mpivars.sh
 
 ### Ejecución de un comando simple de MPI
 
-Ejecute un comando simple de MPI en uno de los nodos de proceso para mostrar que MPI se instaló correctamente y puede comunicarse entre al menos dos nodos de proceso. El siguiente comando **mpirun** ejecuta el comando **hostname** en los dos nodos.
+Ejecute un comando simple de MPI en uno de los nodos de proceso para mostrar que MPI se instaló correctamente y puede comunicarse entre al menos dos nodos de proceso. El siguiente comando **mpirun** ejecuta el comando **hostname** en dos nodos.
 
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
-La salida debe enumerar los nombres de todos los nodos que se pasaron como entrada para `-hosts`. Por ejemplo, un comando **mpirun** con dos nodos devolverá un resultado similar al siguiente:
+La salida debe enumerar los nombres de todos los nodos que se pasaron como entrada para `-hosts`. Por ejemplo, un comando **mpirun** con dos nodos devuelve una salida similar a la siguiente:
 
 ```
 cluster11
@@ -396,6 +396,6 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-* Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS.
+* Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS. Consulte esta [entrada de blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) para más información.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

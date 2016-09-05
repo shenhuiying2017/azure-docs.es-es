@@ -72,11 +72,11 @@ Por esta razón, se necesita tener los archivos binarios (después de extraerlos
 ¡Ya está! Ahora dispone de los archivos binarios que necesita para automatizar la instalación del servicio de movilidad con DSC de Automatización de OMS.
 
 ### Frase de contraseña
-A continuación, debe determinar dónde desea colocar esta carpeta comprimida. En el presente caso, se muestra más adelante que se usa una cuenta de almacenamiento de Azure, donde también se ha colocado la frase de contraseña necesaria para la instalación. De esta forma, el agente se registrará en el servidor de administración como parte del proceso.
+A continuación, debe determinar dónde desea colocar esta carpeta comprimida. Puede utilizar una cuenta de almacenamiento de Azure, como se muestra más adelante, para almacenar la frase de contraseña que necesita para la instalación, de modo que el agente se registrará en el servidor de administración como parte del proceso.
 
 La frase de contraseña que recibió al implementar el servidor de administración se puede guardar en un archivo txt como passphrase.txt.
 
-Aquí, tanto la carpeta comprimida como la frase de contraseña se han colocado en un contenedor dedicado en la cuenta de almacenamiento de Azure.
+Colocación de la carpeta comprimida y la frase de contraseña en un contenedor dedicado en la cuenta de almacenamiento de Azure
 
 ![ubicación de la carpeta](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
@@ -85,7 +85,7 @@ Si prefiere mantener estos archivos en un recurso compartido de la red, puede ha
 ## Paso 2: Creación de la configuración de DSC
 La instalación depende de WMF 5.0, lo que significa que, para que la máquina aplique correctamente la configuración mediante DSC de Automatización de OMS, WMF 5.0 debe estar presente.
 
-Se utiliza la siguiente configuración de DSC en este entorno:
+Se usa el siguiente ejemplo de configuración de DSC en este entorno:
 
 ```powershell
 configuration ASRMobilityService {
@@ -192,15 +192,15 @@ La configuración hará lo siguiente:
 - El recurso "Package AzureAgent" instalará al agente de máquina virtual de Azure que se recomienda en cada máquina virtual que se ejecuta en Azure y también permite agregar extensiones a la máquina virtual después de una conmutación por error.
 - El recurso o los recursos "Service" garantizarán que los servicios de movilidad relacionados y los servicios de Azure siempre se estén ejecutando.
 
-Aquí se ha guardado la configuración como **ASRMobilityService** en una carpeta del equipo.
+Guarde la configuración como **ASRMobilityService**.
 
 (No olvide reemplazar CSIP en la configuración para que refleje el servidor de administración real, de forma que el agente se conecte sin problemas y con la frase de contraseña correcta).
 
 ## Paso 3: Carga en DSC de Automatización de OMS
 
-Puesto que la configuración de DSC que se ha creado antes importará un módulo de recursos de DSC necesario (xPSDesiredStateConfiguration), debe importar ese módulo en Automatización de OMS antes de cargar la configuración de DSC.
+Puesto que la configuración de DSC que ha realizado va a importar un módulo de recursos de DSC necesario (xPSDesiredStateConfiguration), debe importar ese módulo en Automatización de OMS antes de cargar la configuración de DSC.
 
-Inicie sesión en la cuenta de automatización, vaya a Recursos > Módulos y haga clic en Examinar la galería.
+Inicie sesión en la cuenta de automatización y vaya a Recursos > Módulos y haga clic en Examinar la galería.
 
 Aquí puede buscar el módulo e importarlo en su cuenta.
 
@@ -215,7 +215,7 @@ En PowerShell, inicie sesión en su suscripción de Azure y modifique los cmdlet
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-En primer lugar, se carga la configuración a DSC de Automatización de OMS mediante el siguiente cmdlet:
+En primer lugar, cargue la configuración en DSC de Automatización de OMS mediante el siguiente cmdlet:
 
 ```powershell
 $ImportArgs = @{
@@ -226,7 +226,7 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-A continuación, hay que compilar la configuración en DSC de Automatización de OMS, para poder comenzar a registrar los nodos en ella.
+A continuación, debe compilar la configuración en DSC de Automatización de OMS, para poder comenzar a registrar los nodos en ella.
 
 ### Compilación de la configuración en DSC de Automatización de OMS
 
@@ -242,18 +242,18 @@ Una vez completado el proceso, puede recuperar la información del trabajo media
 
 ![Recuperar trabajo](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-Se ha publicado y cargado correctamente la configuración de DSC en DSC de Automatización de OMS.
+Ahora ya ha publicado y cargado correctamente la configuración de DSC en DSC de Automatización de OMS.
 
 ## Paso 4: Incorporación de máquinas a DSC de Automatización de OMS
 *Uno de los requisitos previos para completar este escenario es que las máquinas Windows estén actualizadas con la versión más reciente de WMF. Puede descargar e instalar la versión correcta para su plataforma desde esta dirección URL: https://www.microsoft.com/download/details.aspx?id=50395*
 
-Ahora se va a crear una metaconfiguración de DSC que se aplicará a los nodos. Para hacerlo correctamente, se debe recuperar la dirección URL del punto de conexión y la clave principal para la cuenta de Automatización seleccionada en Azure.
+Ahora creará una metaconfiguración de DSC que se aplicará a los nodos. Para hacerlo correctamente, se debe recuperar la dirección URL del punto de conexión y la clave principal para la cuenta de Automatización seleccionada en Azure.
 
 Estos valores se encuentran en "Claves", en la hoja "Toda la configuración" de la cuenta de Automatización.
 
 ![Valores clave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-En este entorno, hay un servidor físico con Windows Server 2012 R2 que se desea proteger con Site Recovery de OMS.
+En este ejemplo, tenemos un servidor físico con Windows Server 2012 R2 que queremos proteger con Site Recovery de OMS.
 
 Antes de empezar a asociar el servidor con el punto de conexión de DSC de Automatización, se recomienda comprobar si quedan pendientes operaciones de cambio de nombre de archivos en el Registro, ya que esto puede impedir que se complete la instalación debido a un reinicio pendiente.
 
@@ -266,7 +266,7 @@ Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Sel
 ```
 Si no aparecen resultados, puede continuar. Si no es así, debe resolverlo reiniciando el servidor durante una ventana de mantenimiento.
 
-Para aplicar la configuración en el servidor, se inicia PowerShell ISE y se ejecuta el script siguiente. Esencialmente, se trata de una configuración local de DSC que indicará al motor del administrador de configuración local que se registre con el servicio DSC de Automatización de OMS y recupere la configuración específica (ASRMobilityService.localhost)
+Para aplicar la configuración en el servidor, inicie PowerShell ISE y ejecute el script siguiente. Esencialmente, se trata de una configuración local de DSC que indicará al motor del administrador de configuración local que se registre con el servicio DSC de Automatización de OMS y recupere la configuración específica (ASRMobilityService.localhost)
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -313,11 +313,11 @@ Una vez que se ejecuta, el nodo debería empezar a registrarse con DSC de Automa
 
 ![Registrar nodo](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-De vuelta en portal.azure.com, se ve que el nodo recién registrado ahora aparece en el portal.
+Si regresa al portal.azure.com, puede ver que el nodo recién registrado aparece ahora en el portal.
 
 ![Registrar nodo](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-En el servidor, se puede ejecutar el siguiente cmdlet de PowerShell para comprobar que se haya registrado correctamente:
+En el servidor, puede ejecutar el siguiente cmdlet de PowerShell para comprobar que se ha registrado correctamente:
 
 ```powershell
 Get-DscLocalConfigurationManager
@@ -335,7 +335,7 @@ La salida muestra que el servidor ha extraído correctamente su configuración:
 
 Además, la instalación de Mobility Service tiene su propio registro, que se encuentra en "<unidadDelSistema>\\ProgramData\\ASRSetupLogs".
 
-Eso es todo. Se ha implementado y registrado correctamente Mobility Service en la máquina que se quiere proteger con Site Recovery y, gracias a DSC, se puede confiar en que siempre se estarán ejecutando los servicios necesarios.
+Y ya está. Ahora ha implementado y registrado correctamente Mobility Service en la máquina que se quiere proteger con Site Recovery y, gracias a DSC, puede confiar en que siempre se estarán ejecutando los servicios necesarios.
 
 ![Registrar nodo](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
@@ -347,7 +347,7 @@ Si las máquinas no están conectadas a Internet, todavía se puede usar DSC par
 
 Puede crear instancias de su propio servidor de extracción de DSC en su entorno, las cuales proporcionarán esencialmente las mismas funcionalidades que obtiene de DSC de Automatización de OMS. En este caso, los clientes extraerán la configuración una vez registrados en el punto de conexión de DSC. Sin embargo, existe otra opción que consiste en usar la inserción: se inserta manualmente la configuración de DSC en las máquinas, de forma local o remota.
 
-Tenga en cuenta que, en este ejemplo, se ha agregado un parámetro para computername y los archivos remotos se encuentran ahora en un recurso compartido remoto que debería resultar accesible a las máquinas que desea proteger. Al final del script, se establece la configuración y después se empieza a aplicar la configuración de DSC en el equipo de destino.
+Tenga en cuenta que, en este ejemplo, se ha agregado un parámetro para computername y los archivos remotos se encuentran ahora en un recurso compartido remoto que debería resultar accesible a las máquinas que quiere proteger. Al final del script, se establece la configuración y después se empieza a aplicar la configuración de DSC en el equipo de destino.
 
 ### Requisitos previos
 
@@ -474,7 +474,7 @@ Si desea crear una instancia de su propio servidor de extracción de DSC dentro 
 
 ## Opcional: Implementación de la configuración de DSC mediante una plantilla de Azure Resource Manager
 
-Hasta ahora, este artículo se ha centrado en cómo crear su propia configuración de DSC para implementar automáticamente Mobility Service y el agente de máquina virtual de Azure, y asegurarse de que se están ejecutando en las máquinas que desea proteger. Como extra, también se dispone de una plantilla de Azure Resource Manager## ## que implementará esta configuración de DSC en una cuenta de Automatización de Azure nueva o existente y creará recursos de automatización que contendrán las variables para su entorno por medio de parámetros de entrada en la plantilla.
+Este artículo se ha centrado en cómo crear su propia configuración de DSC para implementar automáticamente Mobility Service y el agente de máquina virtual de Azure, y asegurarse de que se están ejecutando en las máquinas que quiere proteger. Como extra, también se dispone de una plantilla de Azure Resource Manager## ## que implementará esta configuración de DSC en una cuenta de Automatización de Azure nueva o existente y creará recursos de automatización que contendrán las variables para su entorno por medio de parámetros de entrada en la plantilla.
 
 Una vez implementada, basta con consultar el paso 4 de esta guía para incorporar las máquinas.
 
@@ -517,4 +517,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 Después de implementar los agentes de Mobility Service, puede proceder a [habilitar la replicación](site-recovery-vmware-to-azure.md#step-6-replicate-applications) para las máquinas virtuales.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

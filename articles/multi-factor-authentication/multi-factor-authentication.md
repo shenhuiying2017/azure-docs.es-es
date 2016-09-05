@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # ¿Qué es Azure Multi-Factor Authentication?
@@ -80,12 +80,12 @@ Para obtener información adicional sobre cómo funciona, vea el vídeo siguient
 ## Métodos disponibles para la autenticación multifactor
 Cuando un usuario inicia sesión, se envía una comprobación adicional al usuario. Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
 
-Método de comprobación | Descripción
+Método de comprobación | Description
 ------------- | ------------- |
 Llamada de teléfono | Se realiza una llamada al smartphone del usuario para solicitarle que compruebe que ha iniciado sesión presionando el signo #. Esto completará el proceso de comprobación. Esta opción es configurable y puede cambiarse por un código que especifique.
 Mensaje de texto | Se enviará un mensaje de texto al smartphone del usuario con un código de 6 dígitos. Escriba este código para completar el proceso de comprobación.
-Notificación de aplicación móvil | Se enviará al smartphone del usuario una solicitud de comprobación solicitándole que complete la comprobación mediante la selección de Comprobar en la aplicación móvil. Esto ocurrirá si ha seleccionado la notificación de aplicación como su método de comprobación principal. Si los usuarios lo reciben cuando no han iniciado sesión, pueden notificarlo como fraude.
-Código de comprobación con la aplicación móvil | Se enviará un código de comprobación a la aplicación móvil que se ejecuta en el smartphone del usuario. Esto ocurrirá si ha seleccionado un código de verificación como su método de comprobación principal.
+Notificación de aplicación móvil | Se enviará al smartphone del usuario una solicitud de comprobación solicitándole que complete la comprobación mediante la selección de Comprobar en la aplicación móvil. Esto ocurrirá si ha seleccionado la notificación de aplicación como su método de comprobación principal. Si los usuarios lo reciben cuando no han iniciado sesión, pueden notificarlo como fraude.</li><br><p> La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Código de comprobación con la aplicación móvil | Se enviará un código de comprobación a la aplicación móvil que se ejecuta en el smartphone del usuario. Esto ocurrirá si ha seleccionado un código de verificación como su método de comprobación principal.</li><br><p> La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 
 ## Versiones disponibles de Azure Multi-Factor Authentication
@@ -134,8 +134,8 @@ Si desea disponer de todas las funcionalidades que ofrece Azure Multi-Factor Aut
 Al usar un proveedor de Azure Multi-Factor Authentication, existen dos modelos de uso disponibles que se facturan a través de la suscripción a Azure:
 
 
-- **Por usuario**. Generalmente para empresas que quieren habilitar la autenticación multifactor para un número fijo de empleados que con frecuencia necesitan autenticación.
-- **Por autenticación**. Generalmente para empresas que quieren habilitar la autenticación multifactor para un número mayor de usuarios externos que no suelen necesitar frecuentemente autenticación.
+- **Por usuario**. Destinado a empresas que quieren habilitar la autenticación multifactor para un número fijo de empleados que con frecuencia necesitan autenticación.
+- **Por autenticación**. Destinado a empresas que quieren habilitar la autenticación multifactor para un número mayor de usuarios externos que no suelen necesitar frecuentemente autenticación.
 
 Azure Multi-Factor Authentication proporciona métodos de comprobación seleccionables tanto para la nube y como para servidor. Esto significa que puede elegir qué métodos hay disponibles para que los usuarios los utilicen con Multi-Factor Authentication. Esta característica es actualmente una versión preliminar pública para la versión en la nube de Multi-Factor Authentication. Para obtener más información, consulte [Métodos de verificación seleccionables](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
@@ -209,4 +209,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

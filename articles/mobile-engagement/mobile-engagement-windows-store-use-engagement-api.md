@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Cómo usar la API de Engagement en Windows Universal
@@ -48,7 +48,7 @@ Sin embargo, las *actividades* también se pueden controlar manualmente mediante
 
 Debe llamar a `StartActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-> [AZURE.IMPORTANT] El SDK llaman automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
+> [AZURE.IMPORTANT] El SDK llama automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
 
 #### Ejemplo
 
@@ -160,7 +160,7 @@ Los eventos de trabajo se suelen usar para notificar las acciones que realiza un
 
 ##Informes de errores
 
-Hay tres tipos de errores:
+Existen tres tipos de errores:
 
 -   Errores independientes
 -   Errores de sesión
@@ -329,7 +329,7 @@ Los datos adicionales están limitados a **1024** caracteres por llamada.
 
 Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función SendAppInfo().
 
-Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada. Al igual que los datos adicionales de evento, use un elemento Dictionary<object, object> para adjuntar información.
+Tenga en cuenta que estos datos se pueden enviar de forma incremental: para un dispositivo concreto solo se conservará el último valor de una clave determinada. Al igual que los datos adicionales de evento, use un elemento Dictionary<object, object> para adjuntar datos.
 
 ### Ejemplo
 
@@ -368,4 +368,4 @@ El SDK puede configurarse para generar registros de prueba en la consola del IDE
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

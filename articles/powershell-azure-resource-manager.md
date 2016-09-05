@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell con Azure Resource Manager
-
-> [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md)
-- [CLI de Azure](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 
 Administrador de recursos de Azure presenta un concepto totalmente nuevo acerca de los recursos de Azure. En lugar de crear y administrar recursos individuales, empiece por imaginar una solución entera, como un blog, una galería de fotos, un portal de SharePoint o un wiki. Use una plantilla, una representación declarativa de la solución, para crear un grupo de recursos que contiene todos los recursos que necesita para respaldar la solución. Luego, administre e implemente ese grupo de recursos como una unidad lógica.
 
@@ -50,7 +39,7 @@ Para completar este tutorial, necesita:
   + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
   
   + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-- Azure PowerShell 1.0. Para más información acerca de esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0. Para obtener información acerca de esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
 Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones.
 
@@ -86,7 +75,7 @@ Para obtener toda la ayuda posible para un cmdlet, escriba un comando con el for
 
 Antes de trabajar en la solución, debe iniciar sesión en su cuenta.
 
-Para iniciar sesión en su cuenta de Azure, use el cmdlet **Add-AzureRmAccount**.
+Para iniciar sesión en la cuenta de Azure, use el cmdlet **Add-AzureRmAccount**.
 
     Add-AzureRmAccount
 
@@ -102,7 +91,7 @@ Si tiene más de una suscripción, proporcione el identificador de suscripción 
 
 ## Crear un grupo de recursos
 
-Antes de implementar los recursos en su suscripción, debe crear un grupo de recursos que contendrá los recursos.
+Antes de implementar los recursos en la suscripción, debe crear un grupo de recursos que contendrá los recursos.
 
 Para crear un grupo de recursos, use el cmdlet **New-AzureRmResourceGroup**.
 
@@ -122,7 +111,7 @@ Su grupo de recursos se ha creado correctamente.
 
 ## Implementación de la solución
 
-En este tema no se muestra cómo crear una plantilla ni se analiza su estructura. Para más información, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md) y [Tutorial de la plantilla de Azure Resource Manager](resource-manager-template-walkthrough.md). Implementará la plantilla predefinida [Aprovisionamiento de una aplicación web con una base de datos SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) de [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
+En este tema no se muestra cómo crear una plantilla ni se analiza su estructura. Para más información, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md) y [Tutorial de la plantilla de Azure Resource Manager](resource-manager-template-walkthrough.md). Implementará la plantilla predefinida [Aprovisionamiento de una aplicación web con una base de datos SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) de [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
 Tiene el grupo de recursos y tiene la plantilla, así que ahora está listo para implementar en el grupo de recursos la infraestructura definida en la plantilla. Los recursos se implementan con el cmdlet **New-AzureRmResourceGroupDeployment**. La plantilla especifica muchos valores predeterminados, que se usarán para que no tenga que proporcionar valores para esos parámetros. La sintaxis básica se parece a esta:
 
@@ -178,7 +167,7 @@ Con tan solo unos pasos, hemos creado e implementado los recursos necesarios par
 
 ### Registro de información de depuración
 
-Al implementar una plantilla, puede registrar información adicional sobre la solicitud y la respuesta especificando el parámetro **- DeploymentDebugLogLevel** al ejecutar **New-AzureRmResourceGroupDeployment**. Esta información puede ayudarle a solucionar errores de implementación. El valor predeterminado es **None**, lo que significa que no se registra ningún contenido de la solicitud o la respuesta. Puede especificar que se registre el contenido de la solicitud, la respuesta o ambos. Para más información sobre cómo solucionar problemas de implementación y registrar información de depuración, consulte [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). En el ejemplo siguiente, se registra el contenido de la solicitud y el contenido de la respuesta para la implementación.
+Al implementar una plantilla, puede registrar información adicional sobre la solicitud y la respuesta especificando el parámetro **- DeploymentDebugLogLevel** al ejecutar **New-AzureRmResourceGroupDeployment**. Esta información puede ayudarle a solucionar errores de implementación. El valor predeterminado es **None**, lo que significa que no se registra ningún contenido de la solicitud o la respuesta. Puede especificar que se registre el contenido de la solicitud, la respuesta o ambos. Para más información sobre cómo solucionar problemas de implementación y registrar información de depuración, vea [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). En el ejemplo siguiente, se registra el contenido de la solicitud y el contenido de la respuesta para la implementación.
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -189,7 +178,7 @@ Al implementar una plantilla, puede registrar información adicional sobre la so
 
 Después de crear un grupo de recursos, puede usar los cmdlets del módulo Administrador de recursos para administrar los grupos de recursos.
 
-- Para obtener un grupo de recursos de su suscripción, use el cmdlet **Get-AzureRmResourceGroup**:
+- Para obtener un grupo de recursos de la suscripción, use el cmdlet **Get-AzureRmResourceGroup**:
 
 		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
 	
@@ -222,7 +211,7 @@ Después de crear un grupo de recursos, puede usar los cmdlets del módulo Admin
         Tags              : {System.Collections.Hashtable}
         ...
 	        
-- Puede usar etiquetas para organizar lógicamente los recursos de su suscripción y recuperar recursos con los cmdlets **Find-AzureRmResource** y **Find-AzureRmResourceGroup**.
+- Puede usar etiquetas para organizar lógicamente los recursos de la suscripción y recuperar recursos con los cmdlets **Find-AzureRmResource** y **Find-AzureRmResourceGroup**.
 
         Find-AzureRmResource -TagName displayName -TagValue Website
 
@@ -242,7 +231,7 @@ Para agregar un recurso al grupo de recursos, puede usar el cmdlet **New-AzureRm
 
 ## Movimiento de un recurso
 
-Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
+Puede mover recursos existentes a un nuevo grupo de recursos. Para consultar ejemplos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
 ## Exportación de la plantilla
 
@@ -387,4 +376,4 @@ Los ejemplos de implementación anteriores en este tema solo mostraban los cmdle
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

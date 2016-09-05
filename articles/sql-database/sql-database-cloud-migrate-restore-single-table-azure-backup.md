@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/24/2016"
 	ms.author="daleche"/>
 
 
 # Restauración de una única tabla a partir de una copia de seguridad de Base de datos SQL de Azure
 
-Puede pasarle que haya modificado algunos datos por error en una base de datos SQL y ahora desee recuperar la única tabla afectada. En este artículo se describe cómo restaurar una única tabla de una base de datos de una de las [copias de seguridad que Base de datos SQL de Azure realiza automáticamente](sql-database-automated-backups.md), en función del nivel de rendimiento que haya seleccionado.
+Puede pasarle que haya modificado algunos datos por error en una base de datos SQL y ahora desee recuperar la única tabla afectada. En este artículo se describe cómo restaurar una única tabla de una base de datos desde una de las [copias de seguridad automáticas](sql-database-automated-backups.md) de Base de datos SQL.
 
 ## Pasos de preparación: cambiar el nombre de la tabla y restaurar una copia de la base de datos
 1. Identifique la tabla en la base de datos SQL de Azure que desee reemplazar por la copia restaurada. Use Microsoft SQL Management Studio para cambiar el nombre de la tabla. Por ejemplo, cambie el nombre de la tabla como &lt;nombre de la tabla&gt;\_old.
 
 	**Nota** Para evitar que se bloquee, asegúrese de que no haya ninguna actividad ejecutándose en la tabla a la que le está cambiando el nombre. Si encuentra algún problema, realice este procedimiento durante una ventana de mantenimiento.
 
-2. Restaure una copia de seguridad de su base de datos de un punto temporal anterior que desee recuperar. Para ello, consulte los pasos de [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
+2. Restaure una copia de seguridad de su base de datos al punto temporal que desee recuperar; para ello, siga los pasos descritos en [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Notas**:
-	- El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012\_2016-01-01T22-12Z**. Con este paso no se sobrescribirá el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitir que el usuario compruebe la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
+	- El nombre de la base de datos restaurada tendrá el formato nombreBaseDeDatos+MarcaDeTiempo; por ejemplo, **AdventureWorks2012\_2016-01-01T22-12Z**. Con este paso no se sobrescribirá el nombre de la base de datos existente en el servidor. Se trata de una medida de seguridad, diseñada para permitirle comprobar la base de datos restaurada antes de deshacerse de su base de datos actual y cambiar el nombre de la base de datos restaurada para su uso en producción.
 	- En todos los niveles de rendimiento, del Basic al Premium, el servicio realiza una copia de seguridad automática, con métricas variables de retención de copia de seguridad, dependiendo del nivel:
 
 | Restauración de BD | Nivel Basic | Niveles Standard | Niveles Premium |
@@ -71,4 +71,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

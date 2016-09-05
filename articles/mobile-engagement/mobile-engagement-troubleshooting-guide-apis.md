@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de la API
@@ -29,11 +29,11 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 
 - Problemas de sintaxis:
     - Asegúrese de comprobar la sintaxis de la API específica que se utiliza para confirmar que la opción está disponible.
-    - Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción (la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción). 
+    - Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción (la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción).
     - Otro problema común con la integración del SDK y el uso de la API es confundir la clave del SDK y la clave de la API.
     - Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera (especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
 
-### Consulte también
+### Otras referencias
  
 - [Documentación de la API][Link 4]
 - [Información del protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
@@ -47,7 +47,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 
 - Confirmar que puede realizar la misma acción desde la interfaz de usuario de Azure Mobile Engagement muestra que ha integrado correctamente esta función de Azure Mobile Engagement con el SDK.
 
-### Consulte también
+### Otras referencias
  
 - [Documentación de la interfaz de usuario][Link 1]
  
@@ -80,7 +80,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### Consulte también
+### Otras referencias
 
 - [Documentación de API: para errores detallados en cada API específica][Link 4]
  
@@ -94,7 +94,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 - Muchos elementos se deshabilitarán en la interfaz de usuario de Azure Mobile Engagement si no se integran correctamente, pero se producirá un error silenciosamente a través de la API, por lo tanto, no olvide probar la misma funcionalidad desde la interfaz de usuario para ver si funciona.
 - Azure Mobile Engagement y muchas funciones avanzadas de Azure Mobile Engagement que está intentando usar necesitan integrarse individualmente en su aplicación con el SDK en pasos distintos para poder utilizarlas.
 
-### Consulte también
+### Otras referencias
 
 - [Guía de solución de problemas: SDK][Link 25]
  
@@ -130,4 +130,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

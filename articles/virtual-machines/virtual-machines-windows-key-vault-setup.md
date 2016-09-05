@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -27,7 +27,7 @@ En la pila de Azure Resource Manager, los certificados o secretos se modelan com
 >
 >1. Para que un Almacén de claves se utilice con máquinas virtuales de Azure Resource Manager, la propiedad **EnabledForDeployment** del Almacén de claves se debe establecer en true. Puede hacer esto en varios clientes.
 >
->2. El almacén de claves debe crearse en la misma ubicación y suscripción que la máquina virtual.
+>2. El Almacén de claves debe crearse en la misma ubicación y suscripción que la máquina virtual.
 
 ## Uso de PowerShell para configurar el Almacén de claves
 Para crear un almacén de claves usando PowerShell, consulte [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md#vault).
@@ -64,4 +64,4 @@ Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` e
 
 Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Creación de un almacén de claves).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

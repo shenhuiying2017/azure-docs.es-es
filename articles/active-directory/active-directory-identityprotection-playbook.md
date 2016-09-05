@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 #Guía de Azure Active Directory Identity Protection 
@@ -43,7 +43,7 @@ Este tipo de evento de riesgo identifica los usuarios que han iniciado sesión c
 **Para simular un inicio de sesión desde una IP anónima, realice los siguientes pasos**:
 
 1.	Descargue el [explorador Tor](https://www.torproject.org/projects/torbrowser.html.en).
-2.	Mediante el explorador Tor, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2.	Mediante el explorador Tor, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 3.	Escriba las credenciales de la cuenta que desee que aparezcan en el informe **Inicios de sesión desde direcciones IP anónimas**.
 
 El inicio de sesión se mostrará en el panel de Identity Protection en un plazo máximo de 5 minutos.
@@ -63,7 +63,7 @@ Para simular ubicaciones desconocidas, debe iniciar sesión desde una ubicación
 
 **Para simular un inicio de sesión desde una ubicación desconocida, realice los siguientes pasos**:
 
-1.	Elija una cuenta que tenga al menos un historial de inicios de sesión de 14 días. 
+1.	Elija una cuenta que tenga al menos un historial de inicios de sesión de 14 días.
 
 2.	Realice uno de estos pasos:
 	
@@ -78,7 +78,7 @@ Simular la condición de viaje imposible es complicado porque el algoritmo utili
 
 **Para simular un viaje imposible a una ubicación inusual, realice los pasos siguientes**:
 
-1.	Mediante el explorador estándar, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1.	Mediante el explorador estándar, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2.	Escriba las credenciales de la cuenta para la que desea generar un evento de riesgo de viaje imposible.
 
@@ -96,7 +96,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 
 -	Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
 -	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
--	[Privileged Identity Management](active-directory-privileged-identity-management-configure.md) de Azure AD. 
+-	[Privileged Identity Management](active-directory-privileged-identity-management-configure.md) de Azure AD.
 
 
 
@@ -165,8 +165,8 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 <br> ![Guía](./media/active-directory-identityprotection-playbook/200.png "Guía") <br>
 
 
-## Consulte también
+## Otras referencias
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

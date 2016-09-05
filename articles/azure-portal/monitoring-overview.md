@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Información general sobre la supervisión en Microsoft Azure | Microsoft Azure"
-	description="Introducción general a la supervisión y el diagnóstico de las alertas de Azure a otros sistemas que no son de Azure."
+	description="Información general de la supervisión y los diagnósticos de Microsoft Azure, incluidas las alertas, los webhooks, el escalado automático, etc."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -138,4 +138,4 @@ Más información acerca de
 - [Solución de problemas de Almacenamiento de Azure](../storage/storage-e2e-troubleshooting.md): si usa almacenamiento de blobs, tablas o colas.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

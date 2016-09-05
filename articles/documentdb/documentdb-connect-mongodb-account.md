@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Conexión de una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB
@@ -24,7 +24,7 @@ Obtenga información acerca de cómo conectar una cuenta de Azure DocumentDB con
 ## Obtención de información de la cadena de conexión de la cuenta
 
 1. En una nueva ventana, inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la hoja **Toda la configuración**, haga clic en **Cadena de conexión**. Para ir a **Toda la configuración**, en la barra de accesos directos, haga clic en **Examinar** y en las cuentas de **DocumentDB**, y seleccione la cuenta con compatibilidad de protocolo para MongoDB.
+2. En la barra de **navegación izquierda** de la hoja Cuenta, haga clic en **Cadena de conexión**. Para ir a la hoja **Cuenta**, en la barra de accesos directos, haga clic en **More Services** (Más servicios) y en **DocumentDB (NoSQL)**; por último, seleccione la cuenta con compatibilidad de protocolo para MongoDB.
 
 	![Captura de pantalla de la hoja Toda la configuración](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
@@ -84,4 +84,4 @@ Como ya se mencionó, todas las cuentas de DocumentDB requieren la autenticació
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

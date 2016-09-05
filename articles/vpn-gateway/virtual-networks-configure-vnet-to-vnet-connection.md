@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,25 +25,26 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Este artículo le guiará por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como administración de servicios). Los pasos siguientes utilizan el Portal de Azure clásico para crear redes virtuales y puertas de enlace, así como PowerShell para configurar la conexión de red virtual a red virtual. No puede configurar una conexión de red virtual a red virtual en el Portal.
+Este artículo le guía por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como Service Management). Los pasos siguientes utilizan el Portal de Azure clásico para crear redes virtuales y puertas de enlace, así como PowerShell para configurar la conexión de red virtual a red virtual. No puede configurar la conexión en el Portal.
 
-**Información sobre los modelos de implementación de Azure**
+![Diagrama de conectividad VNet a VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
+
+
+### Modelos de implementación y herramientas para la conexión de red virtual a red virtual
+
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-**Modelos de implementación y herramientas para la conexión de red virtual a red virtual**
-
-En ambos modelos de implementación se puede configurar una conexión de red virtual a red virtual a través de varias herramientas distintas. Consulte la tabla siguiente para obtener más información. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
+En ambos modelos de implementación se puede configurar una conexión de red virtual a red virtual a través de varias herramientas distintas. Para obtener más información, vea la tabla siguiente. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## Acerca de conexiones de red virtual a red virtual
 
-La conexión de una red virtual a otra (de red virtual a red virtual) es muy parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE.
+La conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE.
 
-Las redes virtuales que se conecten pueden estar pueden estar en suscripciones y regiones distintas. Puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
+Las redes virtuales que se conecten pueden estar en suscripciones y regiones distintas. Puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-![Diagrama de conectividad VNet a VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/vnet2vnet.png)
 
 ### ¿Por qué debería conectarse a redes virtuales?
 
@@ -54,7 +55,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 	- Con Azure Load Balancer y Microsoft, o con una tecnología de agrupación en clústeres de otros fabricantes, puede configurar cargas de trabajo de alta disponibilidad y redundancia geográfica en varias regiones de Azure. Por ejemplo, puede configurar AlwaysOn de SQL con grupos de disponibilidad distribuidos en varias regiones de Azure.
 
 - **Aplicaciones regionales de varios niveles con límite de aislamiento sólido**
-	- En la misma región se pueden configurar aplicaciones de varios niveles con múltiples redes virtuales conectadas entre sí, con un aislamiento sólido y una comunicación entre niveles segura.
+	- En la misma región se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí, con un aislamiento sólido y una comunicación entre niveles segura.
 
 - **Comunicación entre suscripciones y entre organizaciones en Azure**
 	- Si tiene varias suscripciones a Azure, puede conectar cargas de trabajo de distintas suscripciones simultáneamente entre redes virtuales de forma segura.
@@ -68,28 +69,28 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
 - Un servicio en la nube o un punto de conexión de equilibrio de carga no puede abarcar varias redes virtuales, aunque estas estén conectadas entre sí.
 
-- La conexión simultánea de varias redes virtuales no requiere puertas de enlace de VPN locales, a menos que sea necesaria la conectividad entre locales.
+- La conexión simultánea de varias redes virtuales no requiere dispositivos VPN locales.
 
 - VNet a VNet admite la conexión a redes virtuales de Azure. No admite la conexión de máquinas virtuales o servicios en la nube que no estén implementados en una red virtual.
 
 - Red virtual a red virtual requiere puertas de enlace de enrutamiento dinámico. No se admiten puertas de enlace de enrutamiento estático de Azure.
 
-- La conectividad de red virtual se puede usar de forma simultánea con VPN de varios sitios, con un máximo de 10 túneles de VPN para una puerta de enlace de VPN de red virtual conectada a otras redes virtuales o sitios locales.
+- La conectividad de red virtual se puede usar de forma simultánea con VPN de varios sitios. Existe un máximo de 10 túneles de VPN para una puerta de enlace de VPN de red virtual conectada a otras redes virtuales o sitios locales.
 
 - Los espacios de direcciones de las redes virtuales y de los sitios de red local no se pueden solapar. Los espacios de direcciones solapados provocarán un error al crear redes virtuales o al cargar archivos de configuración netcfg.
 
 - No se admiten los túneles redundantes entre un par de redes virtuales.
 
-- Todos los túneles de VPN de la red virtual, incluidas las VPN de punto a sitio (P2S) comparten el ancho de banda disponible en la puerta de enlace de VPN de Azure y en el mismo SLA de tiempo de actividad de puerta de enlace de VPN en Azure.
+- Todos los túneles de VPN para la red virtual, incluidas las VPN de punto a sitio (P2S), comparten el ancho de banda disponible para la puerta de enlace de VPN y el mismo Acuerdo de Nivel de Servicio de tiempo de actividad de puerta de enlace de VPN de Azure.
 
 - El tráfico VNet a VNet viaja a través de la red troncal de Azure.
 
 
 ## <a name="step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
-Es importante decidir los intervalos que usará para configurar las redes virtuales. Tenga en cuenta que, para esta configuración, debe asegurarse de que ninguno de los intervalos de red virtual se superponen entre sí o con cualquiera de las redes locales a las que se conectan.
+Es importante decidir los intervalos que usará para configurar las redes virtuales. Para esta configuración, debe asegurarse de que ninguno de los intervalos de red virtual se superpongan entre sí o con cualquiera de las redes locales a las que se conectan.
 
-En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales. Use los intervalos siguientes solo como directriz. Escriba los intervalos que usará para las redes virtuales. Necesitará esta información en pasos posteriores.
+En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales. Use los intervalos solo como referencia. Escriba los intervalos para las redes virtuales. Necesitará esta información en pasos posteriores.
 
 **Configuración de ejemplo**
 
@@ -100,15 +101,15 @@ En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales
   
 ## Paso 2: Creación de VNet1
 
-En este paso, se va a crear VNet1. Cuando se utiliza cualquiera de los ejemplos, asegúrese de sustituir sus propios valores. Si ya existe la red virtual, no es necesario realizar este paso. Pero debe comprobar que los intervalos de direcciones IP no se superponen con los intervalos de la segunda red virtual o con cualquiera de las redes virtuales a las que desea conectarse.
+En este paso, se crea VNet1. Cuando se utiliza cualquiera de los ejemplos, asegúrese de sustituir sus propios valores. Si ya existe la red virtual, no es necesario realizar este paso. No obstante, debe comprobar que los intervalos de direcciones IP no se superpongan con los intervalos de la segunda red virtual o con cualquiera de las demás redes virtuales a las que desea conectarse.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com). Tenga en cuenta que en estos pasos no se utiliza el Portal de Azure más nuevo.
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com). En este artículo, se usa el Portal clásico porque algunos de los valores de configuración necesarios no están aún disponibles en el Portal de Azure.
 
-2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo** > **Servicios de red** > **Red virtual** > **Creación personalizada** para iniciar el asistente para la configuración. Mientras navega por el asistente, agregue los valores especificados enumerados a continuación para cada página.
+2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo** > **Servicios de red** > **Red virtual** > **Creación personalizada** para iniciar el asistente para la configuración. Mientras navega por el asistente, agregue los valores especificados para cada página.
 
 ### Detalles de red virtual
 
-En la página Detalles de la red virtual escriba la siguiente información.
+En la página Detalles de la red virtual, escriba la siguiente información:
 
   ![Detalles de red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -121,41 +122,41 @@ En la página sobre servidores DNS y conectividad VPN, especifique la informaci�
 
   ![Servidores DNS y conectividad VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
-- **Servidores DNS**: escriba el nombre y la dirección IP del servidor DNS o seleccione un servidor DNS previamente registrado de la lista desplegable. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual. Si desea tener resolución de nombres entre las redes virtuales, deberá configurar su propio servidor DNS, en vez de usar la resolución de nombres que proporciona Azure.
-- No seleccione ninguna de las casillas para conectividad P2S o S2S. Tan solo haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
+- **Servidores DNS**: escriba el nombre y la dirección IP del servidor DNS o seleccione un servidor DNS previamente registrado de la lista desplegable. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual. Si desea tener resolución de nombres entre las redes virtuales, debe configurar su propio servidor DNS, en vez de usar la resolución de nombres que proporciona Azure.
+- No seleccione ninguna de las casillas para conectividad P2S o S2S. Haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
 
 ### Espacios de direcciones de la red virtual
 
 En la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.
 
-Si va a crear una máquina virtual que también va a tener una conexión a la red local, es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos utilizados para la red local. En este caso, necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+Si va a crear una máquina virtual que también va a tener una conexión a la red local, es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos utilizados para la red local. En este caso, necesita coordinarse con el administrador de red. Es posible que el administrador de red necesite definir un intervalo de direcciones IP desde el espacio de direcciones de la red local para que los use en la red virtual.
 
   ![Página Espacios de direcciones de la red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  - **Espacio de direcciones**: incluidas Dirección IP de inicio y Recuento de direcciones. Compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. En este ejemplo, usaremos 10.1.0.0/16 para VNet1.
+  - **Espacio de direcciones**: incluidas Dirección IP de inicio y Recuento de direcciones. Compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. En este ejemplo, se usa 10.1.0.0/16 para VNet1.
   - **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tendrán DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
  
 **Haga clic en la marca de verificación** de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando finalice, verá "Creado" listado bajo Estado en la página Redes.
 
 ## Paso 3: Creación de VNet2
 
-A continuación, repita los pasos anteriores para crear otra red virtual. Más adelante, deberá conectar esas dos redes virtuales. Puede hacer referencia a la [configuración de ejemplo](#step1) del paso 1. Si ya existe la red virtual, no es necesario realizar este paso. Pero debe comprobar que los intervalos de direcciones IP no se superponen con los de las otras redes virtuales o redes locales a las que quiere conectarse.
+A continuación, repita los pasos anteriores para crear otra red virtual. En pasos posteriores, conectará las dos redes virtuales. Puede hacer referencia a la [configuración de ejemplo](#step1) del paso 1. Si ya existe la red virtual, no es necesario realizar este paso. No obstante, debe comprobar que los intervalos de direcciones IP no se superpongan con los de las demás redes virtuales o redes locales a las que quiere conectarse.
 
 ## Paso 4: Adición de sitios de redes locales
 
-Cuando se crea una configuración de red virtual a red virtual, debe configurar sitios de red local, que se muestran en la página **Redes locales** del portal. Azure usa la configuración especificada en cada sitio de red local para determinar cómo enrutar el tráfico entre las redes virtuales. Puede determinar el nombre que quiere utilizar para hacer referencia a cada sitio de red local. Es mejor utilizar un nombre descriptivo, ya que seleccionará el valor en una lista desplegable.
+Cuando se crea una configuración de red virtual a red virtual, debe configurar sitios de red local, que se muestran en la página **Redes locales** del portal. Azure usa la configuración especificada en cada sitio de red local para determinar cómo enrutar el tráfico entre las redes virtuales. Puede determinar el nombre que quiere utilizar para hacer referencia a cada sitio de red local. Es mejor utilizar un nombre descriptivo, ya que seleccionará el valor en una lista desplegable en pasos posteriores.
 
-Por ejemplo, en este ejercicio, VNet1 se conectará a un sitio de red local que cree con el nombre "VNet2Local". La configuración de VNet2Local contendrá los prefijos de dirección de VNet2, así como una dirección IP pública para la puerta de enlace de VNet2. VNet2 se conectará a un sitio de red local que ha creado con el nombre "VNet1Local" que contiene los prefijos de direcciones para VNet1 y la dirección IP pública para la puerta de enlace de VNet1.
+Por ejemplo, VNet1 se conecta a un sitio de red local que cree con el nombre "VNet2Local". La configuración de VNet2Local contiene los prefijos de dirección para VNet2 y una dirección IP pública para la puerta de enlace de VNet2. VNet2 se conecta a un sitio de red local que ha creado con el nombre "VNet1Local" que contiene los prefijos de dirección para VNet1 y la dirección IP pública para la puerta de enlace de VNet1.
 
 ### <a name="localnet"></a>Adición del sitio de red local VNet1
 
 1. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo** > **Servicios de red** > **Red virtual** > **Agregar red local**.
 
-2. En la página **Especificar los detalles de la red local**, en **Nombre**, escriba el nombre que quiera usar para representar la red a la que quiere conectarse. En este ejemplo, puede utilizar "VNet1Local" para hacer referencia a los intervalos de direcciones IP y a la puerta de enlace para VNet1.
+2. En la página **Especifique los datos de la red local**, en **Nombre**, escriba el nombre que quiera usar para representar la red a la que quiere conectarse. En este ejemplo, puede utilizar "VNet1Local" para hacer referencia a los intervalos de direcciones IP y a la puerta de enlace para VNet1.
 
-3. En **Dirección IP del dispositivo VPN (opcional)**, escriba cualquier dirección IP pública válida. Normalmente, se usaría la dirección IP externa real para un dispositivo VPN. Para las configuraciones de red virtual a red virtual, utilizará la dirección IP pública asignada a la puerta de enlace para la red virtual. Sin embargo, dado que aún no ha creado la puerta de enlace, especifique cualquier dirección IP pública válida como marcador de posición. No lo deje en blanco: no es opcional para esta configuración. Después volverá a estos parámetros y los configurará con las direcciones IP de puerta de enlace correspondientes que genera Azure. Haga clic en la flecha para avanzar a la siguiente pantalla.
+3. En **Dirección IP del dispositivo VPN (opcional)**, escriba cualquier dirección IP pública válida. Normalmente, se usaría la dirección IP externa real para un dispositivo VPN. Para las configuraciones de red virtual a red virtual, utilice la dirección IP pública asignada a la puerta de enlace para la red virtual. Sin embargo, dado que aún no ha creado la puerta de enlace, puede especificar cualquier dirección IP pública válida como marcador de posición. No lo deje en blanco: no es opcional para esta configuración. En un paso posterior, volverá a estos parámetros y los configurará con las direcciones IP de puerta de enlace correspondientes que genera Azure. Haga clic en la flecha para avanzar a la siguiente pantalla.
 
-4. En la **página Especificar la dirección**, escribirá el intervalo de direcciones IP real y el recuento de direcciones para VNet1. Se debe corresponder exactamente con el intervalo configurado para VNet1. Azure usará el intervalo de direcciones IP que especifique para enrutar el tráfico destinado a VNet1. Haga clic en la marca de verificación para crear la red local.
+4. En la página **Especifique el espacio de direcciones**, indique el intervalo de direcciones IP y el recuento de direcciones para VNet1. Se debe corresponder exactamente con el intervalo configurado para VNet1. Azure usa los intervalos de direcciones IP que especifique para enrutar el tráfico destinado a VNet1. Haga clic en la marca de verificación para crear la red local.
 
 ### Adición del sitio de red local VNet2Local
 
@@ -168,22 +169,22 @@ Cada red virtual debe señalar a la red local correspondiente a la que se desea 
 #### Para VNet1
 
 1. Desplácese a la página **Configurar** para la red virtual **VNet1**.
-2. En Conectividad de sitio a sitio, seleccione "Conectar a la red local" y después seleccione **VNet2Local** como la red local en el menú desplegable.
+2. En Conectividad de sitio a sitio, seleccione "Conectar con la red local" y elija **VNet2Local** como red local en el menú desplegable.
 3. Guarde la configuración.
 
 #### Para VNet2
 
 1. Desplácese a la página **Configurar** para la red virtual **VNet2**.
-2. En Conectividad de sitio a sitio, seleccione "Conectar a la red local" y seleccione **VNet1Local** en el menú desplegable como la red local.
+2. En Conectividad de sitio a sitio, seleccione "Conectar con la red local" y elija **VNet1Local** como red local en el menú desplegable.
 3. Guarde la configuración.
 
 ## Paso 5: Configuración de una puerta de enlace para cada red virtual
 
-Configure una puerta de enlace de enrutamiento dinámico para cada red virtual. Esta configuración no es compatible con las puertas de enlace de enrutamiento estático. Si usa redes virtuales que se habían configurado previamente y que aún tienen las puertas de enlace de enrutamiento dinámico, no es necesario realizar este paso. Si las puertas de enlace son estáticas, debe eliminarlas y volver a crearlas como puertas de enlace de enrutamiento dinámico. Tenga en cuenta que si elimina una puerta de enlace, se liberará la dirección IP pública asignada y debería retroceder y volver a configurar cualquiera de las redes locales y dispositivos VPN con la nueva dirección IP pública para la nueva puerta de enlace.
+Configure una puerta de enlace de enrutamiento dinámico para cada red virtual. Esta configuración no es compatible con las puertas de enlace de enrutamiento estático. Si usa redes virtuales que se habían configurado previamente y que aún tienen las puertas de enlace de enrutamiento dinámico, no es necesario realizar este paso. Si las puertas de enlace son de enrutamiento estático, debe eliminarlas y volver a crearlas como puertas de enlace de enrutamiento dinámico. Si elimina una puerta de enlace, se libera la dirección IP pública asignada y debe retroceder y volver a configurar cualquiera de las redes locales y dispositivos VPN con la nueva dirección IP pública para la nueva puerta de enlace.
 
 1. En la página **Redes**, compruebe que la columna de estado de la red virtual sea **Creada**.
 
-2. En la columna **Nombre**, haga clic en el nombre de la red virtual. En este ejemplo, usaremos VNet1.
+2. En la columna **Nombre**, haga clic en el nombre de la red virtual. En este ejemplo, se usa VNet1.
 
 3. En la página **Panel**, observe que esta red virtual aún no tiene configurada una puerta de enlace. Verá que este estado cambia a medida que avance por los pasos para configurar la puerta de enlace.
 
@@ -195,7 +196,7 @@ Configure una puerta de enlace de enrutamiento dinámico para cada red virtual. 
 
 6. Repita los mismos pasos para VNet2. No es necesario completar la primera puerta de enlace de red virtual para empezar a crear la puerta de enlace de la otra.
 
-7. Cuando el estado de la puerta de enlace cambia a "Conectando", la dirección IP pública para cada puerta de enlace será visible en el panel. Anote la dirección IP que corresponde a cada red virtual, teniendo cuidado para no mezclarlas. Estas son las direcciones IP que se utilizarán al editar las direcciones IP de marcador de posición para el dispositivo VPN para cada red local.
+7. Cuando el estado de la puerta de enlace cambia a "Conectando", la dirección IP pública para cada puerta de enlace está visible en el panel. Anote la dirección IP que corresponde a cada red virtual, teniendo cuidado para no mezclarlas. Estas son las direcciones IP que se utilizan al editar las direcciones IP de marcador de posición para el dispositivo VPN de cada red local.
 
 ## Paso 6 : Editar la red local
 
@@ -205,13 +206,18 @@ Configure una puerta de enlace de enrutamiento dinámico para cada red virtual. 
 
 ## Paso 7: Creación de la conexión VPN
 
-Una vez completados los pasos anteriores, definirá las claves compartidas previamente de IPsec/IKE. Haremos esto con PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de Azure PowerShell. Asegúrese de descargar la versión más reciente de los cmdlets de Service Management (SM).
+Una vez completados todos los pasos anteriores, defina las claves compartidas previamente de IPsec/IKE y cree la conexión. Esta serie de pasos usa PowerShell y no se puede configurar en el Portal. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de Azure PowerShell. Asegúrese de descargar la versión más reciente de los cmdlets de Service Management (SM).
 
 1. Abra Windows PowerShell e inicie sesión.
 
 		Add-AzureAccount
 
-2. Cree las conexiones. En los ejemplos siguientes, tenga en cuenta que la clave compartida es exactamente el mismo. Siempre debe coincidir con la clave compartida.
+2. Seleccione la suscripción en la que residen las redes virtuales.
+
+		Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+		Select-AzureSubscription -SubscriptionName "<Subscription Name>"
+
+3. Cree las conexiones. En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre debe coincidir con la clave compartida.
 
 
 	Conexión VNet1 a VNet2
@@ -222,7 +228,7 @@ Una vez completados los pasos anteriores, definirá las claves compartidas previ
 
 		Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-3. Espere a que se inicialicen las conexiones. Una vez inicializada la puerta de enlace, esta tendrá un aspecto similar al gráfico siguiente y las redes virtuales estarán conectadas.
+4. Espere a que se inicialicen las conexiones. Una vez inicializada la puerta de enlace, esta es similar a la que aparece en la ilustración siguiente.
 
 	![Estado de la puerta de enlace: conectada](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
 
@@ -238,4 +244,4 @@ Puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentac
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

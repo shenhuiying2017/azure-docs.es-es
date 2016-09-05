@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Introducción al conector AS2 y su incorporación a una aplicación lógica
@@ -36,7 +36,7 @@ Recibir y descodificar | Codificar y enviar
 ## Requisitos de inicio
 El usuario debe crear los siguientes elementos para que el conector AS2 pueda utilizarlos:
 
-Requisito | Descripción
+Requisito | Description
 --- | ---
 Aplicación de API TPM | Antes de crear un conector AS2, debe crear un [conector de administración de asociados comerciales de BizTalk][1]. <br/><br/>**Nota**: conozca el nombre de su aplicación de API TPM. 
 Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API B2B requiere su propia Base de datos SQL de Azure. <br/><br/>**Nota**: Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una Base de datos SQL Azure](../sql-database/sql-database-get-started.md)
@@ -89,12 +89,12 @@ El desencadenador se activa cuando una carga de AS2 es un COMENTARIO a https://{
 
 	Los parámetros son:
 
-	Parámetro | Tipo | Descripción
+	Parámetro | Tipo | Description
 --- | --- | ---
 Carga | objeto| El contenido de la carga para codificar y registrar en el extremo configurado. La carga debe suministrarse como un objeto JSON.
-AS2 desde | cadena | La identidad de AS2 del remitente del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
-AS2 hasta | cadena | La identidad de AS2 del destinatario del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
-URL de asociado | cadena | El extremo del socio al que debe enviarse el mensaje.
+AS2 desde | string | La identidad de AS2 del remitente del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
+AS2 hasta | string | La identidad de AS2 del destinatario del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
+URL de asociado | string | El extremo del socio al que debe enviarse el mensaje.
 Habilitar archivado | boolean | Determina si se debe archivar el mensaje saliente.
 
 La acción devuelve un código de respuesta HTTP 200 de finalización satisfactoria.
@@ -122,4 +122,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

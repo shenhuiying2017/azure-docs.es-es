@@ -123,9 +123,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png)
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Birst Agile Business Analytics con el siguiente patrón: **"https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID"**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Birst Agile Business Analytics con el siguiente patrón: **"https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**. La dirección URL depende del centro de datos en el que se encuentre la cuenta de Birst. En el caso de uno ubicado en los EE. UU., use **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**. En cambio, si se encuentra en Europa, utilice **“https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**
 
-	b. Haga clic en **Siguiente**.
+	b. Haga clic en **Next**.
 
 
 4. En la página **Configurar inicio de sesión único en Birst Agile Business Analytics**, siga estos pasos:
@@ -134,10 +134,10 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
-5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Birst Agile Business Analytics mediante [info@birst.com](emailTo:info@birst.com) y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
+5. Si quiere configurar el SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Birst Agile Business Analytics a través de [info@birst.com](emailTo:info@birst.com) y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
 
 
 > [AZURE.NOTE] Indique al equipo de Birst que esta integración necesita el algoritmo SHA256 (no se admite SHA1) para que pueda establecer el SSO en el servidor adecuado, como **app2101**, etc.
@@ -173,7 +173,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_04.png)
 
@@ -185,9 +185,9 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_06.png)
 
@@ -211,7 +211,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -282,4 +282,4 @@ Al hacer clic en el icono de Birst Agile Business Analytics en el panel de acces
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

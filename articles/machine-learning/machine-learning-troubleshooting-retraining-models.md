@@ -43,11 +43,12 @@ Con todos los elementos en su lugar, estos son los pasos principales que debe se
 3.	Actualice el punto de conexión agregado en el servicio web de puntuación con el nuevo modelo entrenado: use el código de ejemplo proporcionado en el tema Volver a entrenar modelos de aprendizaje automático mediante programación para actualizar el nuevo punto de conexión que agregó al modelo de puntuación con el modelo recién entrenado en el servicio web de aprendizaje.
 
 ## Obstáculos más comunes
+
 ### Compruebe si el valor de PATCH URL es el correcto
 
 El valor de PATCH URL que use deberá ser el único asociado con el nuevo punto de conexión de puntuación que agregó al servicio web de puntuación. Hay dos maneras de obtener el valor de PATCH URL:
 
-Opción 1: mediante C#
+**Opción 1: mediante C#**
 
 Para obtener valor de PATCH URL correcto:
 
@@ -59,14 +60,16 @@ Para obtener valor de PATCH URL correcto:
 3.	Pegue la dirección URL en un explorador para ir a una página que proporciona vínculos de ayuda para el servicio web.
 4.	Haga clic en el vínculo **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
 
-Opción 2: mediante el portal de Azure
+**Opción 2: mediante el Portal de Azure**
 
-1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1.	Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com) clásico.
 2.	Vaya a la pestaña Aprendizaje automático. ![Pestaña Aprendizaje automático.][image4]
-3.	Haga clic en el nombre del área de trabajo, **Servicios Web**.
-4.	Haga clic en el servicio web de puntuación con el que está trabajando. (Si no modificó el nombre predeterminado del servicio web, suele terminar en [Scoring Exp.]).
+3.	Haga clic en el nombre del área de trabajo y, luego, en **Servicios web**.
+4.	Haga clic en el servicio web de puntuación con el que está trabajando. (Si no modificó el nombre predeterminado del servicio web, terminará en [Scoring Exp.]).
 5.	Haga clic en Agregar punto de conexión.
-6.	Una vez agregado el punto de conexión, haga clic en el nombre del mismo. Después, haga clic en **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
+6.	Una vez agregado el punto de conexión, haga clic en su nombre. Después, haga clic en **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
+
+>[AZURE.NOTE] Si ha agregado el punto de conexión al servicio web de entrenamiento en lugar de predictivo, verá el siguiente mensaje de error al hacer clic en el vínculo **Actualizar recurso**: Lo sentimos, pero esta característica no se admite ni está disponible en este contexto. Este servicio web no tiene ningún recurso actualizable. Sentimos las molestias. Estamos trabajando en mejorar este flujo de trabajo.
 
 ![Panel del nuevo punto de conexión.][image3]
 
@@ -74,16 +77,16 @@ La página de ayuda sobre PATCH contiene el valor de PATCH URL que debe usar y p
 
 ![PATCH URL.][image5]
 
-
 ### Compruebe que está actualizando el punto de conexión de puntuación correcto.
+
 * No aplique revisiones al servicio web de aprendizaje: la operación de revisión debe realizarse en el servicio web de puntuación.
 * No aplique revisiones al punto de conexión predeterminado en el servicio web: la operación de revisión debe realizarse en el nuevo punto de conexión del servicio web de puntuación que agregó.
 
-Compruebe que agregó el punto de conexión al servicio web correcto.
+Para comprobar en qué servicio web está el punto de conexión, visite el Portal de Azure clásico.
 
-El punto de conexión que use para volver a entrenar el modelo debe estar en el servicio web de puntuación, no el servicio web de aprendizaje. Para comprobar en qué servicio web está el punto de conexión, visite el Portal de Azure clásico.
+>[AZURE.NOTE] Asegúrese de agregar el punto de conexión al servicio web predictivo y no al de entrenamiento. Si ha implementado correctamente un servicio web predictivo y otro de entrenamiento, debería ver dos servicios web independientes. El servicio web predictivo debe terminar con "[predictive exp.]".
 
-1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1.	Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com) clásico.
 2.	Vaya a la pestaña Aprendizaje automático. ![Interfaz de usuario del área de trabajo de Aprendizaje automático.][image4]
 3.	Seleccione su área de trabajo.
 4.	Haga clic en **Servicios web**.
@@ -92,10 +95,9 @@ El punto de conexión que use para volver a entrenar el modelo debe estar en el 
 
 ### Compruebe el área de trabajo donde está en el servicio web para asegurarse de que está en la región correcta.
 
-1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1.	Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com) clásico.
 2.	Seleccione Aprendizaje automático en el menú. ![Interfaz de usuario de la región de Aprendizaje automático.][image4]
 3.	Compruebe la ubicación del área de trabajo.
-
 
 <!-- Image Links -->
 
@@ -106,4 +108,4 @@ El punto de conexión que use para volver a entrenar el modelo debe estar en el 
 [image5]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-help-page-patch-url.png
 [image6]: ./media/machine-learning-troubleshooting-retraining-a-model/retraining-output.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

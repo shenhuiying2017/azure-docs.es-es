@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Compatibilidad de protocolo de DocumentDB con MongoDB
@@ -38,4 +38,4 @@ El soporte de protocolo de DocumentDB para MongoDB habilita las funciones princi
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

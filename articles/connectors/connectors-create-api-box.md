@@ -14,20 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Introducción al conector de Box
-Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. El conector de Box se puede utilizar desde:
-
-- Aplicaciones lógicas (descritas en este tema)
-- PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
+Conéctese a Box y cree y elimine archivos, entre muchas otras cosas.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Box, puede hacer lo siguiente:
 
-- Compilar el flujo de negocio en función de los datos que obtiene de Box. 
+- Compilar el flujo de negocio en función de los datos que obtiene de Box.
 - Usar desencadenadores para cuando se crea o actualiza un archivo.
 - Usar acciones que copian o eliminan archivos, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se modifique un archivo en Box, puede tomar ese archivo y enviarlo por correo electrónico mediante Office 365.
 
@@ -47,7 +44,7 @@ Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas par
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a Box](../../includes/connectors-create-api-box.md)]
 
-Después de crear la conexión, escriba las propiedades de Box. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+Después de crear la conexión, escriba las propiedades de Box. La **referencia de la API de REST** de este tema describe estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Box en otras aplicaciones lógicas.
 
@@ -57,13 +54,13 @@ Se aplica a la versión: 1.0.
 ### Crear archivo
 Carga un archivo en Box. ```POST: /datasets/default/files```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderPath|cadena|Sí|query|None |Ruta de acceso de la carpeta para cargar el archivo en Box|
-|name|cadena|Sí|query|None |Nombre del archivo que se va a crear en Box|
+|folderPath|string|Sí|query|None |Ruta de acceso de la carpeta para cargar el archivo en Box|
+|name|string|Sí|query|None |Nombre del archivo que se va a crear en Box|
 |body|string(binary) |Sí|body|None |Contenido del archivo que se va a cargar en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -73,11 +70,11 @@ Carga un archivo en Box. ```POST: /datasets/default/files```
 ### Cuando se crea un archivo
 Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de Box. ```GET: /datasets/default/triggers/onnewfile```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderId|cadena|Sí|query|None |Identificador único de la carpeta en Box|
+|folderId|string|Sí|query|None |Identificador único de la carpeta en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -87,13 +84,13 @@ Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de Box. ```G
 ### Copiar archivo
 Copia un archivo en Box. ```POST: /datasets/default/copyFile```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|Sí|query|None |Dirección URL al archivo de origen|
-|de destino|cadena|Sí|query| None|Ruta de acceso al archivo de destino en Box, incluido el nombre del archivo de destino|
+|de origen|string|Sí|query|None |Dirección URL al archivo de origen|
+|de destino|string|Sí|query| None|Ruta de acceso al archivo de destino en Box, incluido el nombre del archivo de destino|
 |overwrite|boolean|No|query| None|Sobrescribe el archivo de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -104,11 +101,11 @@ Copia un archivo en Box. ```POST: /datasets/default/copyFile```
 Elimina un archivo de Box. ```DELETE: /datasets/default/files/{id}```
 
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|Sí|path|None |Identificador único del archivo que se va a eliminar de Box|
+|id|string|Sí|path|None |Identificador único del archivo que se va a eliminar de Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -118,13 +115,13 @@ Elimina un archivo de Box. ```DELETE: /datasets/default/files/{id}```
 ### Extraer archivo en la carpeta
 Extrae un archivo de almacenamiento en una carpeta de Box (ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|Sí|query| |Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|Sí|query| |Ruta de acceso de Box para extraer el contenido del archivo|
+|de origen|string|Sí|query| |Ruta de acceso al archivo de almacenamiento|
+|de destino|string|Sí|query| |Ruta de acceso de Box para extraer el contenido del archivo|
 |overwrite|boolean|No|query| |Sobrescribe los archivos de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -134,11 +131,11 @@ Extrae un archivo de almacenamiento en una carpeta de Box (ejemplo: .zip). ```PO
 ### Obtener contenido de archivo mediante el identificador
 Recupera el contenido del archivo de Box mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|Sí|path|None |Identificador único del archivo en Box|
+|id|string|Sí|path|None |Identificador único del archivo en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -148,11 +145,11 @@ Recupera el contenido del archivo de Box mediante el identificador. ```GET: /dat
 ### Obtener contenido de archivo mediante la ruta de acceso
 Recupera el contenido del archivo de Box mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|Sí|query|None |Ruta de acceso única al archivo en Box|
+|path|string|Sí|query|None |Ruta de acceso única al archivo en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -162,11 +159,11 @@ Recupera el contenido del archivo de Box mediante la ruta de acceso. ```GET: /da
 ### Obtener metadatos de archivo mediante el identificador
 Recupera los metadatos del archivo de Box mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|Sí|path| None|Identificador único del archivo en Box|
+|id|string|Sí|path| None|Identificador único del archivo en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -176,11 +173,11 @@ Recupera los metadatos del archivo de Box mediante el identificador de archivo. 
 ### Obtener metadatos de archivo mediante la ruta de acceso
 Recupera los metadatos del archivo de Box mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|Sí|query|None |Ruta de acceso única al archivo en Box|
+|path|string|Sí|query|None |Ruta de acceso única al archivo en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -190,12 +187,12 @@ Recupera los metadatos del archivo de Box mediante la ruta de acceso. ```GET: /d
 ### Actualizar archivo
 Actualiza un archivo en Box. ```PUT: /datasets/default/files/{id}```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|Sí|path| None|Identificador único del archivo que se va a actualizar en Box|
+|id|string|Sí|path| None|Identificador único del archivo que se va a actualizar en Box|
 |body|string(binary) |Sí|body|None |Contenido del archivo que se va a actualizar en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -205,11 +202,11 @@ Actualiza un archivo en Box. ```PUT: /datasets/default/files/{id}```
 ### Cuando se modifica un archivo
 Desencadena un flujo cuando se modifica un archivo en una carpeta de Box. ```GET: /datasets/default/triggers/onupdatedfile```
 
-| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderId|cadena|Sí|query|None |Identificador único de la carpeta en Box|
+|folderId|string|Sí|query|None |Identificador único de la carpeta en Box|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -229,37 +226,37 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Box. ```GET
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
+|de origen|string|no|
+|DisplayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
 #### BlobDataSetsMetadata
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
+|de origen|string|no|
+|DisplayName|string|no|
+|urlEncoding|string|no|
 
 #### BlobMetadata
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
+|Id|string|no|
+|Nombre|string|no|
+|DisplayName|string|no|
+|Ruta de acceso|string|no|
+|LastModified|string|no|
 |Tamaño|integer|no|
-|MediaType|cadena|no|
+|MediaType|string|no|
 |IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 ## Pasos siguientes
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

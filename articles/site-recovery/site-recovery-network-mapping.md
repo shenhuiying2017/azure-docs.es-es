@@ -55,7 +55,7 @@ Este es un ejemplo para ilustrar este mecanismo. Vamos a utilizar una organizaci
 Nueva York | VMM-NewYork| VMNetwork1-NewYork | Asignado a VMNetwork1-Chicago
  | | VMNetwork2-NewYork | No asignado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Asignado a VMNetwork1-NewYork
- | | VMNetwork1-Chicago | No asignado
+ | | VMNetwork2-Chicago | No asignado
 
 Con este ejemplo:
 
@@ -123,4 +123,4 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 Ahora que dispone de más información sobre la asignación de red, [comience con la implementación de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

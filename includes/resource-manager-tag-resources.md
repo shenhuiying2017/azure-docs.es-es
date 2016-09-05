@@ -6,7 +6,7 @@
 
      ![Recursos de etiqueta con pares de nombre/valor](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. Para ver la taxonomía de etiquetas en el portal, seleccione **Examinar** y **Etiquetas**.
+1. Para ver la taxonomía de etiquetas en el portal, seleccione **Más servicios** y **Etiquetas**.
 
      ![Buscar etiquetas mediante el centro de exploración](./media/resource-manager-tag-resources/browse-tags.png)
 
@@ -22,4 +22,4 @@
 
      ![Anclar etiquetas al Panel de inicio](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

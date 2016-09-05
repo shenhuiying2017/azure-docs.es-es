@@ -3,7 +3,7 @@
    description="Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Consideraciones de rendimiento sobre el Administrador de tráfico
@@ -28,7 +28,7 @@ En esta página se explican las consideraciones de rendimiento relacionadas con 
 - El Administrador de tráfico básicamente solo hace una cosa: la resolución de DNS. Esto significa que el único impacto en el rendimiento que puede tener el Administrador de tráfico en su sitio web es la búsqueda de DNS inicial.
 - Un punto de aclaración sobre la búsqueda de DNS del Administrador de tráfico. Administrador de tráfico rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft basados en su directiva y en los resultados del sondeo. Por lo tanto, incluso durante la búsqueda de DNS inicial no hay ninguna participación por parte del Administrador de tráfico ya que la solicitud DNS la controlan los servidores de raíz DNS de Microsoft normales. Si el Administrador se vuelve inactivo (por ejemplo, se produce un error en las máquinas virtuales que realizan el sondeo de directivas y la actualización de DNS), no habrá ningún impacto en su nombre de DNS de Administrador de tráfico, ya que las entradas de los servidores DNS de Microsoft se mantendrán; el único impacto será que el sondeo y la actualización basados en políticas no se producirán (por ejemplo, si su sitio principal deja de funcionar, Administrador de tráfico no podrá actualizar DNS para señalar su sitio de conmutación por error).
 - El tráfico NO fluye a través del Administrador de tráfico. No hay ningún servidor de Administrador de tráfico que actúe como intermediario entre los clientes y su servicio hospedado de Azure. Una vez finalizada la búsqueda de DNS, Administrador de tráfico se eliminará completamente de la comunicación entre cliente y servidor.
-- La búsqueda de DNS es muy rápida y se almacena en la memoria caché. La búsqueda de DNS inicial dependerá del cliente y de sus servidores DNS configurados. Normalmente, un cliente puede realizar una búsqueda de DNS en ~ 50 ms (consulte http://www.solvedns.com/dns-comparison/)). Una vez que se realice la primera búsqueda, los resultados se almacenarán en la memoria caché para el TTL de DNS, que para Administrador de tráfico es un valor predeterminado de 300 segundos.
+- La búsqueda de DNS es muy rápida y se almacena en la memoria caché. La búsqueda de DNS inicial dependerá del cliente y de sus servidores DNS configurados. Normalmente, un cliente puede realizar una búsqueda de DNS en ~50 ms (consulte http://www.solvedns.com/dns-comparison/). Una vez que se realice la primera búsqueda, los resultados se almacenarán en la memoria caché para el TTL de DNS, que para Administrador de tráfico es un valor predeterminado de 300 segundos.
 - La directiva de Administrador de tráfico que elija (rendimiento, conmutación por error, round robin) no influye en el rendimiento de DNS. La directiva de rendimiento puede afectar negativamente a la experiencia del usuario, por ejemplo, si envía a usuarios de Estados Unidos a un servicio alojado en Asia, pero este problema de rendimiento no está causado por el Administrador de tráfico.
 
   
@@ -84,4 +84,4 @@ http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este mue
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

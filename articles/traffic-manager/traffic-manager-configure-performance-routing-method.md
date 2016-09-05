@@ -3,7 +3,7 @@
    description="Este artículo le ayudará a configurar el método de enrutamiento del tráfico de rendimiento en el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configuración del método de enrutamiento del tráfico de rendimiento
 
@@ -25,7 +25,7 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 2. En el panel Administrador de tráfico del Portal de Azure clásico, localice el perfil del Administrador de tráfico que contiene la configuración que desea modificar y haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
 3. En la página del perfil,haga clic en **Extremos** y compruebe que están presentes los extremos del servicio que desea incluir en la configuración. Para saber cómo agregar o quitar extremos del perfil, consulte [Administración de extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
 4. En la página del perfil, haga clic en **Configurar** en la parte superior, para abrir la página de configuración.
-5. En **Configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Rendimiento*. Si no es así, haga clic en **Rendimiento** en la lista desplegable.
+5. Para la **configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Rendimiento*. Si no es así, haga clic en **Rendimiento** en la lista desplegable.
 6. Compruebe que la **Configuración de supervisión** sea correcta. La supervisión garantiza que no se envíe tráfico a los extremos sin conexión. Para supervisar los extremos, debe especificar una ruta de acceso y un nombre de archivo. Tenga en cuenta que una barra diagonal “/“ es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). Para obtener más información acerca de la supervisión, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 7. Una vez que haya terminado de cambiar la configuración, haga clic en **Guardar** en la parte inferior de la página.
 8. Pruebe los cambios de la configuración. Para obtener más información, consulte [Comprobación de la configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
@@ -49,4 +49,4 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->
