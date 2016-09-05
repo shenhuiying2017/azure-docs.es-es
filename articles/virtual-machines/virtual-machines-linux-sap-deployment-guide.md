@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -463,7 +463,7 @@ Una vez que abre una de las plantillas anteriores, el Portal de Azure le dirige 
 * **adminUsername** y **adminPassword**: el nombre de usuario y la contraseña.
     * Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
 * **newOrExistingSubnet**: determina si es necesario crear una red virtual y subred nuevas o si se debe usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione la existente.
-* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /suscripciones/`<subscription id`>/GruposRecursos/`<resource group name`>/proveedores/Microsoft.Network/RedesVirtuales/`<virtual network name`>/subredes/`<subnet name`>.
+* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 Una vez que escriba todos los parámetros, seleccione la suscripción y el grupo de recursos que quiere usar. Puede seleccionar un grupo de recursos existente o crear uno nuevo; para ello, seleccione "+ Nuevo" en el menú desplegable. Si crea un grupo de recursos nuevo, también puede seleccionar la región en la que se creará el grupo de recursos y la máquina virtual.
 
@@ -519,7 +519,7 @@ Una vez que abre una de las plantillas anteriores, el Portal de Azure le dirige 
 * **userImageVhdUri**: el URI del VHD de la imagen de SO privada; por ejemplo, https://`<accountname`>.blob.core.windows.net/vhds/userimage.vhd
 * **userImageStorageAccount**: el nombre de la cuenta de almacenamiento en que se almacena la imagen de SO privada; por ejemplo, `<accountname`> en el URI de ejemplo anterior.
 * **newOrExistingSubnet**: determina si es necesario crear una red virtual y subred nuevas o si se debe usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione la existente.
-* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /suscripciones/`<subscription id`>/GruposRecursos/`<resource group name`>/proveedores/Microsoft.Network/RedesVirtuales/`<virtual network name`>/subredes/`<subnet name`>.
+* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 Una vez que escriba todos los parámetros, seleccione la suscripción y el grupo de recursos que quiere usar. Puede seleccionar un grupo de recursos existente o crear uno nuevo; para ello, seleccione "+ Nuevo" en el menú desplegable. Si crea un grupo de recursos nuevo, también puede seleccionar la región en la que se creará el grupo de recursos y la máquina virtual.
 
@@ -582,7 +582,7 @@ Una vez que abre la plantilla anterior, el Portal de Azure le dirige al panel Ed
         * [Introducción a Almacenamiento de Microsoft Azure][storage-introduction]
 * **osDiskVhdUri**: el URI del disco de SO privado; por ejemplo, https://`<accountname`>.blob.core.windows.net/vhds/osdisk.vhd
 * **newOrExistingSubnet**: determina si es necesario crear una red virtual y subred nuevas o si se debe usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione la existente.
-* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /suscripciones/`<subscription id`>/GruposRecursos/`<resource group name`>/proveedores/Microsoft.Network/RedesVirtuales/`<virtual network name`>/subredes/`<subnet name`>.
+* **subnetId**: el id. de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el id. tiene un aspecto similar al siguiente: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 Una vez que escriba todos los parámetros, seleccione la suscripción y el grupo de recursos que quiere usar. Puede seleccionar un grupo de recursos existente o crear uno nuevo; para ello, seleccione "+ Nuevo" en el menú desplegable. Si crea un grupo de recursos nuevo, también puede seleccionar la región en la que se creará el grupo de recursos y la máquina virtual.
 
@@ -979,4 +979,4 @@ Consulte la nota de SAP [1999351] con información adicional sobre la solución 
 
 Si la solución de problemas que se describe en la nota de SAP [1999351] no funcionó, vuelva a ejecutar el script de configuración Set-AzureRmVMAEMExtension según lo descrito en el capítulo [Configurar la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Puede que tenga que esperar una hora porque los contadores de diagnóstico o el análisis de almacenamiento probablemente no se creen de inmediato una vez habilitados. Si el problema continúa, abra un mensaje de servicio al cliente de SAP en el componente BC-OP-NT-AZR para una máquina virtual de Windows o BC-OP-LNX-AZR para una máquina virtual de Linux.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

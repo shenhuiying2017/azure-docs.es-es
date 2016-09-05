@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -31,7 +31,7 @@ El proceso de cifrado y descifrado sigue la técnica de sobres.
 ### Cifrado a través de la técnica de sobres  
 El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 
-1.	La biblioteca de cliente de almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.  
+1.	La biblioteca de cliente de almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.
 
 2.	Los datos de usuario se cifran mediante esta CEK.
 
@@ -42,7 +42,7 @@ El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 ### Descifrado a través de la técnica de sobres  
 El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 
-1.	La biblioteca de cliente asume que el usuario está administrando la clave de cifrado de claves (KEK), ya sea localmente o en almacenes de claves de Azure. El usuario no necesita conocer la clave específica que se usó para el cifrado. En su lugar, se puede configurar y usar una resolución de clave que resuelva distintos identificadores de clave para las claves.  
+1.	La biblioteca de cliente asume que el usuario está administrando la clave de cifrado de claves (KEK), ya sea localmente o en almacenes de claves de Azure. El usuario no necesita conocer la clave específica que se usó para el cifrado. En su lugar, se puede configurar y usar una resolución de clave que resuelva distintos identificadores de clave para las claves.
 
 2.	La biblioteca de cliente descarga los datos cifrados junto con cualquier material de cifrado que esté almacenado en el servicio.
 
@@ -60,7 +60,7 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 
 >[AZURE.WARNING] Si está modificando o cargando sus propios metadatos para el blob, deberá asegurarse de que estos metadatos se conserven. Si carga nuevos metadatos sin estos metadatos, la CEK encapsulada, IV y otros metadatos se perderán y el contenido del blob nunca podrá recuperarse nuevamente.
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **download*/openInputStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los métodos de conveniencia **download*/openInputStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
 Descargar un intervalo arbitrario (métodos **downloadRange***) en el blob cifrado, implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que puedan usarse para descifrar correctamente el intervalo solicitado.
 
@@ -82,7 +82,7 @@ La biblioteca de cliente admite el cifrado de propiedades de entidad para operac
 
 El cifrado de datos de tabla funciona de la siguiente forma:
 
-1.	Los usuarios especifican las propiedades que se van a cifrar.  
+1.	Los usuarios especifican las propiedades que se van a cifrar.
 
 2.	La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se van a cifrar derivando un nuevo vector de inicialización por propiedad. La propiedad de cifrado se almacena como datos binarios.
 
@@ -92,7 +92,7 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 
 	Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-	Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [Encrypt] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+	Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [Encrypt] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### Operaciones por lotes  
 En las operaciones por lotes, se usará la misma KEK en todas las filas de esa operación por lotes porque la biblioteca de cliente solo permite un objeto de opciones (y, por lo tanto, una directiva/KEK) por cada operación por lotes. Sin embargo, la biblioteca de cliente generará internamente un nuevo vector de inicialización aleatorio y una CEK aleatoria por cada fila del lote. Los usuarios también pueden optar por cifrar diferentes propiedades para cada operación del lote mediante la definición de este comportamiento en la resolución de cifrado.
@@ -109,16 +109,16 @@ La biblioteca de cliente de almacenamiento utiliza la biblioteca básica del Alm
 Hay tres paquetes del Almacén de claves:
 
 - azure-keyvault-core contiene IKey e IKeyResolver. Es un paquete pequeño sin dependencias. La biblioteca de cliente de almacenamiento para Java lo define como dependencia.
-- azure-keyvault contiene el cliente de REST del Almacén de claves.  
-- azure-keyvault-extensions contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar el Almacén de claves de Azure para almacenar sus claves o utilizar las extensiones del Almacén de claves para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.  
+- azure-keyvault contiene el cliente de REST del Almacén de claves.
+- azure-keyvault-extensions contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar el Almacén de claves de Azure para almacenar sus claves o utilizar las extensiones del Almacén de claves para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.
 
   El Almacén de claves está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada Almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con el Almacén de claves, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en el Almacén de claves y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:
 
-1.	Crear un secreto sin conexión y cargarlo en el Almacén de claves.  
+1.	Crear un secreto sin conexión y cargarlo en el Almacén de claves.
 
 2.	Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).
 
-3.	Utilizar la resolución de caché como una entrada al crear la directiva de cifrado. Puede encontrar más información acerca del uso del Almacén de claves, en los ejemplos de código de cifrado. <fix URL>
+3.	Utilizar la resolución de caché como una entrada al crear la directiva de cifrado. Puede encontrar más información acerca del uso del Almacén de claves en los ejemplos de código de cifrado. <fix URL>
 
 ## Prácticas recomendadas  
 La compatibilidad con el cifrado solo está disponible en la biblioteca de cliente de almacenamiento para Java.
@@ -136,12 +136,12 @@ La compatibilidad con el cifrado solo está disponible en la biblioteca de clien
 ## Interfaz/API de cliente  
 Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo una clave (implementación de IKey), solo una resolución (implementación de IKeyResolver) o ambas. IKey es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. IKeyResolver se utiliza para resolver una clave durante el proceso de descifrado. Define un método ResolveKey que devuelve un IKey concreto (identificador de clave). Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
 
-- Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.  
-- Para el descifrado:  
-	- La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.  
-	- Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.  
+- Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.
+- Para el descifrado:
+	- La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
+	- Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.
 
-	  Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración del Almacén de claves.
+	  Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>muestran un escenario completo más detallado para blobs, colas y tablas, junto con la integración del Almacén de claves.
 
 ### Modo RequireEncryption  
 Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. La marca **requireEncryption** del objeto de opciones de solicitud es la que controla este comportamiento. Si la aplicación va a cifrar todos los objetos almacenados en el Almacenamiento de Azure, puede establecer la propiedad **requireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio.
@@ -240,11 +240,11 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes  
 
-- Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage).  
-- Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java).   
+- Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage).
+- Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java).
 - Descargue la biblioteca Maven del Almacén de claves de Azure para los paquetes Maven de Java:
 	- Paquete [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
 	- Paquete de [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-- Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).  
+- Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

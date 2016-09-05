@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/20/2016"
+    ms.date="08/23/2016"
     ms.author="raynew"/>
 
 # Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
@@ -22,7 +22,7 @@
 
 Azure funciona en varias ubicaciones geográficas del mundo. Una ubicación geográfica de Azure es un área definida del mundo que contiene al menos una región de Azure. Una región de Azure es un área dentro de una ubicación geográfica que contiene uno o varios centros de datos.
 
-Cada región de Azure se empareja con otra región dentro de la misma ubicación geográfica (a excepción del Sur de Brasil, que se corresponde con un área fuera de su ubicación geográfica) y ambas forman una pareja regional.
+Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un emparejamiento regional. La excepción es el Sur de Brasil, ya que se trata de una región emparejada con otra que se encuentra fuera de su ubicación geográfica.
 
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
@@ -32,17 +32,17 @@ Ilustración 1: Diagrama de pareja regional de Azure
 
 
 | Geography | Regiones emparejadas | |
-| :-------------| :-------------   | :-------------   |
+| :-------------| :-------------   | :-------------      |
 | Norteamérica | Centro-Norte de EE. UU | Centro-Sur de EE. UU |
-| Norteamérica | Este de EE. UU. | Oeste de EE. UU. |
-| Norteamérica | Este de EE. UU. - 2 | Centro de EE. UU. |
+| Norteamérica | Este de EE. UU. | Oeste de EE. UU. |
+| Norteamérica | Este de EE. UU. - 2 | Centro de EE. UU. |
 |Norteamérica | Oeste de EE. UU. 2 | Centro occidental de EE.UU. |
 | Europa | Europa del Norte | Europa occidental |
 | Asia | Sudeste de Asia | Asia oriental |
 | China | Este de China | Norte de China |
 | Japón | Este de Japón | Oeste de Japón |
 | Brasil | Sur de Brasil (1) | Centro-Sur de EE. UU |
-| Australia | Australia Oriental | Sudeste de Australia|
+| Australia | Australia Oriental | Sudeste de Australia |
 | Gobierno de Estados Unidos | Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia |
 | India | India Central | Sur de la India |
 | Canadá | Centro de Canadá | Este de Canadá |
@@ -50,7 +50,7 @@ Ilustración 1: Diagrama de pareja regional de Azure
 
 Tabla 1: Asignación de las parejas regionales de Azure
 
-> Sur de Brasil (1) es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. Tenga en cuenta que la región secundaria del Sur de Brasil es Centro-Sur de EE. UU, pero la región secundaria de esta última no es Sur de Brasil.
+> Sur de Brasil (1) es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es centro-sur de EE. UU, pero la región secundaria de esta última no es el Sur de Brasil.
 
 Se recomienda que replique las cargas de trabajo entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Por ejemplo, las actualizaciones planeadas del sistema de Azure se implementan de forma secuencial (no al mismo tiempo) entre regiones emparejadas. Esto significa que, incluso en el caso excepcional de una actualización defectuosa, ambas regiones no se verán afectadas al mismo tiempo. Además, en el improbable caso de una interrupción amplia, se da prioridad a la recuperación de al menos una región de cada pareja.
 
@@ -77,7 +77,7 @@ Como se indica en la ilustración 2.
 ## Ventajas de las regiones emparejadas
 Como se indica en la ilustración 2.
 
-![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Aislamiento físico**: cuando sea posible, Azure prefiere por lo menos 300 millas de separación entre los centros de datos de una pareja regional, aunque esto no será práctico o posible en todo el mundo. La separación del centro de datos físico reduce la probabilidad de que los desastres naturales, los disturbios civiles, los cortes del suministro eléctrico o las interrupciones de la red física afecten simultáneamente a ambas regiones. El aislamiento está sujeto a las restricciones geográficas (tamaño de la ubicación geográfica, disponibilidad de la infraestructura de red/energía, normativas, etc.).
+![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Aislamiento físico**: cuando sea posible, Azure prefiere por lo menos 300 millas de separación entre los centros de datos de un emparejamiento regional, aunque esto no será práctico o posible en todo el mundo. La separación del centro de datos físico reduce la probabilidad de que los desastres naturales, los disturbios civiles, los cortes del suministro eléctrico o las interrupciones de la red física afecten simultáneamente a ambas regiones. El aislamiento está sujeto a las restricciones geográficas (tamaño de la ubicación geográfica, disponibilidad de la infraestructura de red/energía, normativas, etc.).
 
 ![6Orange](./media/best-practices-availability-paired-regions/6Orange.png)**Replicación proporcionada por la plataforma**: algunos servicios, como el almacenamiento con redundancia geográfica ofrecen replicación automática a la región emparejada.
 
@@ -88,4 +88,4 @@ Como se indica en la ilustración 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residencia de datos**: una región reside dentro de la misma ubicación geográfica que su pareja (a excepción del Sur de Brasil) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

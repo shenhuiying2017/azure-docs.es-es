@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="hascipio"/>
 
 # Crear una cuenta de desarrollador de Microsoft
@@ -172,7 +172,7 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
 
   > [AZURE.TIP] Las directivas de participación se describen en el [sitio web de Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Pasos para agregar coadministradores en el Portal de publicación
+## 4\. Pasos para agregar coadministradores en el Portal de publicación
 **Si damos por hecho que usted es el administrador**, siga estos pasos para agregar un coadministrador.
 
 >[AZURE.NOTE] **Para los nuevos usuarios,** antes de agregar un coadministrador en el Portal de publicación, asegúrese de que ha creado, al menos, una aplicación en el Portal de publicación. Esto es necesario porque la pestaña **PUBLICADORES** solo se muestra después de crear, como mínimo, una aplicación en el Portal de publicación.
@@ -184,6 +184,15 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
 5. Vaya a Publicadores -> seleccione la cuenta -> Administradores -> Agregar nuevo coadministrador (consulte la captura de pantalla siguiente).
 
   ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+
+## 5\. Pasos para eliminar a un coadministrador en el portal de publicación
+**Dando por hecho que usted es el administrador**, siga estos pasos para eliminar a un coadministrador.
+
+1. Inicie sesión en el portal de publicación con el identificador de correo electrónico de administrador.
+2. Vaya a **Publicadores** -> seleccione su cuenta -> **Administradores** -> **Co-Admins** (Coadministradores).
+3. Haga clic en el botón **X** situado junto al coadministrador que desee eliminar (consulte la captura de pantalla siguiente).
+
+    ![dibujo](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## Pasos siguientes
 Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos no técnicos](marketplace-publishing-pre-requisites.md) para asegurarse de cumplir o satisfacer todos los requisitos previos no técnicos para publicar su oferta.
@@ -218,4 +227,4 @@ Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

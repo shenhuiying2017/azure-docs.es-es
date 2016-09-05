@@ -5,7 +5,7 @@
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
-  manager="" 
+  manager="timlt"
   tags="azure-service-management,azure-resource-manager" />
 
 <tags
@@ -100,4 +100,4 @@ Una vez configurado el registro, es hora de usarlo más. Comience con [registry-
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

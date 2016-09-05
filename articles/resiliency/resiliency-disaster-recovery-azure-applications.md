@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Recuperación ante desastres para aplicaciones generadas en Microsoft Azure
@@ -71,7 +71,7 @@ Otra opción es almacenar los datos en una ubicación alternativa hasta que se r
 
 ###Error de un servicio dependiente
 
-Azure proporciona muchos servicios que pueden experimentar tiempos de inactividad periódicamente. Por ejemplo, piense en [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Este servicio multiinquilino proporciona funcionalidades de almacenamiento en caché a su aplicación. Es importante tener en cuenta lo que ocurre en la aplicación si el servicio dependiente no está disponible. En muchos sentidos, este escenario es similar al escenario de interrupción de la red. Sin embargo, si se considera cada servicio de forma independiente, se consiguen mejoras potenciales en el plan global.
+Azure proporciona muchos servicios que pueden experimentar tiempos de inactividad periódicamente. Por ejemplo, piense en [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). El servicio multiinquilino proporciona funcionalidades de almacenamiento en caché a su aplicación. Es importante tener en cuenta lo que ocurre en la aplicación si el servicio dependiente no está disponible. En muchos sentidos, este escenario es similar al escenario de interrupción de la red. Sin embargo, si se considera cada servicio de forma independiente, se consiguen mejoras potenciales en el plan global.
 
 Caché en Redis de Azure proporciona almacenamiento en caché a una aplicación desde la implementación del servicio en la nube, lo que proporciona beneficios en la recuperación ante desastres. En primer lugar, el servicio se ejecuta en roles locales de cara a la implementación. Por consiguiente, tiene mayor capacidad para supervisar y administrar el estado de la memoria caché como parte de los procesos de administración global del servicio en la nube. Este tipo de almacenamiento en caché también expone nuevas características. Una de estas nuevas características es la alta disponibilidad de los datos almacenados en la caché. Esto ayuda a conservar los datos almacenados en la memoria caché en caso de que se produzca un error en un nodo individual, mediante el mantenimiento de copias duplicadas en otros nodos.
 
@@ -305,4 +305,4 @@ Hay otras técnicas que puede usar para probar los planes de recuperación ante 
 
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). El anterior artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

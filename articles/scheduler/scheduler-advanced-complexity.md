@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Creación de programaciones complejas y periodicidad avanzada con Programador de Azure  
@@ -197,4 +197,4 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

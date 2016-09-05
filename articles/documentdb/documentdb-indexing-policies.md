@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/05/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
 
 
@@ -461,7 +461,7 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 
 Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echemos un vistazo a las opciones que podemos usar para configurar la directiva de indexación en una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
-- Tipo de datos: **Cadena**, **Número** o **Punto** (solo puede contener una entrada por tipo de datos y ruta de acceso)
+- Tipo de datos: **cadena**, **número** o **punto** (solo puede contener una entrada por tipo de datos y ruta de acceso). En la versión preliminar privada, se admiten **polígono** y **LineString**.
 - Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales)
 - Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
 
@@ -475,6 +475,8 @@ DocumentDB admite los tipos de índice Hash e Intervalo para cada ruta de acceso
 DocumentDB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto. El valor en la ruta especificada debe ser un punto de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Espacial** admite consultas espaciales eficaces (internas y a distancia).
+
+>[AZURE.NOTE] DocumentDB admite la indexación automática de puntos, polígonos (versión preliminar privada) y LineStrings (versión preliminar privada). Para tener acceso a la versión preliminar, envíe un correo electrónico a askdocdb@microsoft.com o póngase en contacto con nosotros a través del soporte técnico de Azure.
 
 Estos son las variantes de índice admitidas, con ejemplos de consultas que se pueden usar para atenderlas:
 
@@ -759,4 +761,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

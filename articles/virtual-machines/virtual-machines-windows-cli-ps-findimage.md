@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
 # Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o CLI
@@ -41,4 +41,4 @@ En este tema se describe cómo buscar publicadores de imágenes de máquina virt
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

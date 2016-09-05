@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="01/11/2015"
+   ms.date="08/22/2016"
    ms.author="ruturajd"/>
 
 # Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
@@ -39,7 +39,7 @@ Use esta arquitectura cuando el servidor de procesos sea local y se esté usando
 
 Use esta arquitectura cuando el servidor de procesos esté en Azure y tenga una VPN o una conexión de ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 Para ver la lista completa de puertos y el diagrama de la arquitectura de la conmutación por recuperación, consulte la imagen siguiente.
 
@@ -120,10 +120,10 @@ Para configurar el servidor de administración que ejecuta el servidor de destin
 
 #### Instalación de CentOS 6.6
 
-1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, seleccione **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga ningún dato importante y haga clic en **Sí** para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Conectar automáticamente** y agregue una configuración de dirección IP estática, red y DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración.
+1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, elija **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga información importante y haga clic en **Sí** para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Conectar automáticamente** y agregue una dirección IP estática, una red y parámetros de configuración de DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración.
 2.	Cuando se le pregunte por el tipo de instalación que quiere, seleccione **Create Custom Layout** (Crear diseño personalizado) como partición. Tras hacer clic en **Siguiente**, seleccione **Gratis** y haga clic en Crear. Cree **/**, **/var/crash** and **/home partitions** with **FS Type:** **ext4** (Tipo FS: ext4). Cree la partición de intercambio como **FS Type: swap** (Tipo FS: intercambio).
 3.	Si se encuentran dispositivos ya existentes, aparecerá un mensaje de advertencia. Haga clic en **Formato** para formatear la unidad con la configuración de partición. Haga clic en **Write change to disk** (Escribir cambios en el disco) para aplicar los cambios de partición.
-4.	Seleccione **Install boot loader** (Instalar cargador de arranque) > **Next** (Siguiente) para instalar el cargador de arranque en la partición raíz.
+4.	Seleccione **Install boot loader** (Instalar cargador de arranque) > **Siguiente** para instalar el cargador de arranque en la partición raíz.
 5.	Cuando la instalación se haya completado, haga clic en **Reiniciar**.
 
 
@@ -153,8 +153,8 @@ Debe descargar e instalar algunos paquetes adicionales.
 
 Lleve a cabo los siguientes pasos para aplicar cambios personalizados después de haber completado los pasos posteriores a la instalación y haber instalado los paquetes:
 
-1.	Copie al binario de RHEL 6-64 Unified Agent en la máquina virtual. Ejecute este comando para descomprimir el binario: **tar - zxvf <nombre de archivo>**
-2.	Ejecute este comando para conceder permisos: **# chmod 755 ./ApplyCustomChanges.sh**
+1.	Copie al binario de RHEL 6-64 Unified Agent en la máquina virtual. Ejecute este comando para extraer el archivo binario: **tar - zxvf <nombre de archivo>**.
+2.	Ejecute este comando para conceder permisos: **# chmod 755 ./ApplyCustomChanges.sh**.
 3.	Ejecute el script: **# ./ApplyCustomChanges.sh**. Solo debe ejecutar el script una vez. Después de que el script se haya ejecutado correctamente, reinicie el servidor.
 
 
@@ -204,4 +204,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 - ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 - Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

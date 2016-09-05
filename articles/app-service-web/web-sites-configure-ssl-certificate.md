@@ -27,7 +27,7 @@
 
 En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para el Servicio de aplicaciones](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De forma predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes puedan acceder a su aplicación en **https://*&lt;appname>*.azurewebsites.net**. Pero si desea utilizar un dominio personalizado, como **contoso.com**, **www.contoso.com** y **\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como utilizar un dominio personalizado y un certificado para él.
+Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De forma predeterminada, Azure protege el dominio con comodín ***.azurewebsites.net** con un certificado SSL único para que los clientes puedan acceder a su aplicación en **https://*&lt;appname>*.azurewebsites.net**. Pero si desea utilizar un dominio personalizado, como **contoso.com**, **www.contoso.com** y ***.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como utilizar un dominio personalizado y un certificado para él.
 
 >[AZURE.NOTE] Puede obtener ayuda de expertos de Azure en cualquier momento en los [foros de Azure](https://azure.microsoft.com/support/forums/). Para obtener un soporte técnico más personalizado, vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -423,26 +423,22 @@ Antes de continuar, revise la sección [Lo que necesita](#bkmk_domainname) y com
 - Tiene un dominio personalizado que se asigna a la aplicación de Azure.
 - La aplicación se ejecuta en un nivel **Básico** o superior.
 - Tiene un certificado SSL para el dominio personalizado de una entidad de certificación.
- 
-1.	En el [portal de Azure](https://portal.azure.com), vaya a la hoja **Dominios personalizados y SSL** de la aplicación.
 
-7.	Haga clic en **Más** > **Cargar certificados**.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)
+1. En el explorador, abra el **[Portal de Azure](https://portal.azure.com/)**.
+2.	Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
+3.	Haga clic en el nombre de la aplicación a la que desea asignar este certificado.
+4.	En la hoja **Configuración**, haga clic en **Certificados y enlaces SSL**.
+5.	Haga clic en **Cargar certificado**.
+6.	Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. Después, haga clic en **Cargar** para cargar el certificado. Ahora debería ver los certificados que haya cargado en la hoja **Certificados y enlaces SSL**.
+7. En la sección **Enlaces SSL**, haga clic en **Agregar enlace**.
+8. En la hoja **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL, así como el certificado que pretende utilizar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
 
-8.	Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. A continuación, haga clic en **Guardar** para cargar el certificado. Ahora debería ver su certificado cargado en la hoja **Dominios personalizados y SSL**.
+    ![insertar imagen de enlaces de SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
-
-9. En la sección **Enlaces SSL**, seleccione el nombre de dominio y el certificado SSL que se enlazarán. También puede seleccionar si desea utilizar SSL SNI o SSL basada en IP.
-
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)
-
-	* **SSL basada en IP** enlaza un certificado a un nombre de dominio mediante una dirección IP pública dedicada de la aplicación al nombre de dominio. Este es el método tradicional de realizar enlaces SSL y el Servicio de aplicaciones crea una dirección IP dedicada para el enlace.
-
-	* [**SSL SNI**](https://en.wikipedia.org/wiki/Server_Name_Indication) permite realizar enlaces de varios certificados a varios dominios. Los exploradores más modernos (incluidos Internet Explorer, Chrome, Firefox y Safari) son compatibles con ella; pero es posible que los exploradores más antiguos no lo sean.
- 
-10. Haga clic en **Guardar** para finalizar.
+       • SSL basada en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web. • SSL basada en SNI es una extensión de SSL y **[Seguridad de la capa de transporte](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para más información sobre la extensión SNI, consulte el artículo **[Indicación de nombre de servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** en Wikipedia.
+     
+9. Haga clic en **Agregar enlace** para guardar los cambios y habilitar SSL.
 
 ## Paso 3: Cambiar la asignación de nombres de dominio (solo SSL basada en IP)
 
@@ -450,9 +446,9 @@ Si solo utiliza enlaces **SSL SNI**, omita esta sección. Varios enlaces **SSL S
 
 - Ha [usado un registro A para asignar su dominio personalizado](web-sites-custom-domain-name.md#a) a la aplicación de Azure y acaba de agregar un enlace **SSL basada en IP**. En este escenario, debe reasignar el registro A existente para que apunte a la dirección IP dedicada siguiendo estos pasos:
 
-	1. Después de haber configurado un enlace SSL basada en IP, busque la nueva dirección IP en la hoja **Configuración** > **Propiedades** de la aplicación (la dirección IP virtual que se muestra en la hoja **Traer dominios externos** puede no estar actualizada):
+	1. Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a la aplicación. Podrá encontrar esta dirección IP en la página **Dominio personalizado** de la configuración de su aplicación, justo arriba de la sección **Nombre de host**. Figurará como **Dirección IP externa**:
     
-	    ![Dirección IP virtual](./media/web-sites-configure-ssl-certificate/staticip.png)
+	    ![Dirección IP virtual](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
 	2. [Reasigne el registro A de su nombre de dominio personalizado para esta nueva dirección IP](web-sites-custom-domain-name.md#a).
 
@@ -551,4 +547,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,11 @@
 
 ## Notas de la versión de 17/08/2016 para R Server en HDInsight
 
-• R Server 8.0.5: básicamente, una versión con corrección de errores. Consulte [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) (Notas de la versión de R Server) para más información. • Paquete AzureML en el nodo perimetral: [este paquete de R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que se publiquen modelos de R y se consuman como servicio web de Aprendizaje automático de Azure. Consulte la sección ["Uso de modelos"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) de nuestro artículo ["Información general de R Server en HDInsight"](hdinsight-hadoop-r-server-overview.md) para más información. • Dependencias de Linux de los [100 paquetes de R más populares](https://github.com/metacran/cranlogs): estas dependencias de paquete de Linux se instalan previamente. • Opción de usar el repositorio CRAN al agregar paquetes de R a los nodos de datos. Consulte la sección ["Instalar paquetes de R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) de nuestro artículo ["Introducción al uso de R Server en HDInsight"](hdinsight-hadoop-r-server-get-started.md) para más información. • Se mejoró la confiabilidad del aprovisionamiento de R Server cuando se crean clústeres.
+- R Server 8.0.5: básicamente, una versión con corrección de errores. Consulte [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) (Notas de la versión de R Server) para obtener más información.
+- Paquete AzureML en el nodo perimetral: [este paquete de R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que se publiquen modelos de R y se consuman como servicio web de Aprendizaje automático de Azure. Consulte la sección [Uso de modelos](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) del artículo [Información general de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-overview.md) para obtener más información.
+- Dependencias de Linux de los [100 paquetes de R más populares](https://github.com/metacran/cranlogs): estas dependencias de paquete de Linux vienen ahora preinstaladas.
+- Opción de usar el repositorio CRAN al agregar paquetes de R a los nodos de datos. Consulte la sección [Instalar paquetes de R](hdinsight-hadoop-r-server-get-started.md#install-r-packages) del artículo [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md) para obtener más información.
+- Se ha mejorado la confiabilidad del aprovisionamiento de R Server cuando se crean clústeres.
 
 
 ## Notas de la versión del 08/01/2016 de HDInsight
@@ -1684,4 +1688,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

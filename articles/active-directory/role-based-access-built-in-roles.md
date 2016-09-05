@@ -1,10 +1,10 @@
 <properties
 	pageTitle="RBAC: roles integrados | Microsoft Azure"
-	description="Este tema describe los roles integrados para el control de acceso basado en rol"
+	description="En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC)."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Roles integrados
@@ -22,11 +22,11 @@ El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes r
 
 ## Roles de Azure
 
-La tabla siguiente proporciona breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** del rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
+En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** del rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
 
 >[AZURE.NOTE] Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
 
-| Nombre de rol | Descripción |
+| Nombre de rol | Description |
 | --------- | ----------- |
 | [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios de administración de API |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
@@ -42,12 +42,12 @@ La tabla siguiente proporciona breves descripciones de los roles integrados. Hag
 | [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Puede administrar aplicaciones y cuentas de New Relic Application Performance Management |
 | [Propietario](#owner) | Puede administrar todo el contenido, incluido el acceso |
 | [Lector](#reader) | Puede ver todo el contenido, pero no puede realizar cambios |
-| [Colaborador de la memoria caché de Redis](#redis-cache-contributor]) | Puede administrar memorias caché en Redis |
+| [Colaborador de la memoria caché de Redis](#redis-cache-contributor) | Puede administrar memorias caché en Redis |
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Puede administrar las colecciones de trabajo de Programador |
 | [Colaborador del servicio de búsqueda](#search-service-contributor) | Puede administrar los servicios de búsqueda |
 | [Administrador de seguridad](#security-manager) | Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
-| [Colaborador de Base de datos de SQL](#sql-db-contributor) | Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad |
-| [Administrador de seguridad SQL](#sql-security-manager) | Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL |
+| [Colaborador de Base de datos de SQL](#sql-db-contributor) | Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad. |
+| [Administrador de seguridad SQL](#sql-security-manager) | Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL. |
 | [Colaborador de SQL Server](#sql-server-contributor) | Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con la seguridad |
 | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Puede administrar las cuentas de almacenamiento clásico |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Puede administrar las cuentas de almacenamiento |
@@ -147,8 +147,8 @@ Puede administrar todo el contenido, excepto el acceso
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |  
 | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
-| Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
 
 ### Colaborador de factoría de datos
 Puede administrar las factorías de datos
@@ -260,7 +260,7 @@ Puede ver todo el contenido, pero no puede realizar cambios
 
 | **Acciones** ||
 | ------- | ------ |
-| **/read | Leer recursos de todos los tipos, excepto secretos. |
+| */read | Leer recursos de todos los tipos, excepto secretos. |
 
 ### Colaborador de la memoria caché de Redis
 Puede administrar memorias caché en Redis
@@ -284,7 +284,8 @@ Puede administrar las colecciones de trabajo de Programador
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Scheduler/jobcollections/* | Crear y administrar colecciones de trabajos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Scheduler/jobcollections/* | Crear y administrar colecciones de trabajos |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador del servicio de búsqueda
@@ -296,11 +297,12 @@ Puede administrar los servicios de búsqueda
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Search/searchServices/* | Crear y administrar servicios de búsqueda |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Search/searchServices/* | Crear y administrar servicios de búsqueda |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Administrador de seguridad
-Puede administrar los componentes y las directivas, además de las máquinas virtuales
+Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales
 
 | **Acciones** ||
 | ------- | ------ |
@@ -311,11 +313,12 @@ Puede administrar los componentes y las directivas, además de las máquinas vir
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Security/* | Crear y administrar las directivas y los componentes de seguridad |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Security/* | Crear y administrar las directivas y los componentes de seguridad |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la base de datos de SQL
-Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad
+Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad.
 
 | **Acciones** ||
 | ------- | ------ |
@@ -323,7 +326,8 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Sql/servers/databases/* | Crear y administrar bases de datos SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Sql/servers/databases/* | Crear y administrar bases de datos SQL |
 | Microsoft.Sql/servers/read | Leer los servidores SQL Server |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -331,13 +335,14 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
 | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría |
+| Microsoft.Sql/servers/databases/auditRecords/read | No puede leer los registros de auditoría. |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | No puede editar las directivas de enmascaramiento |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | No puede editar las directivas de alerta de seguridad |
 | Microsoft.Sql/servers/databases/securityMetrics/* | No puede editar las métricas de seguridad |
 
 ### Administrador de seguridad SQL
-Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL
+Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL.
 
 | **Acciones** ||
 | ------- | ------ |
@@ -345,10 +350,12 @@ Puede administrar las directivas relacionadas con la seguridad de las bases de d
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Sql/servers/auditingPolicies/* | Crear y administrar directivas de auditoría de SQL Server |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Sql/servers/auditingPolicies/* | Crear y administrar directivas de auditoría de SQL Server |
 | Microsoft.Sql/servers/auditingSettings/* | Crear y administrar configuración de auditoría de SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Crear y administrar directivas de auditoría de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Crear y administrar configuración de auditoría de bases de datos de SQL Server |
+| Microsoft.Sql/servers/databases/auditRecords/read | Leer registros de auditoría |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Crear y administrar directivas de conexión de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Crear y administrar directivas de enmascaramiento de datos de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/read | Leer bases de datos SQL |
@@ -362,7 +369,7 @@ Puede administrar las directivas relacionadas con la seguridad de las bases de d
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de SQL Server
-Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con la seguridad
+Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con su seguridad
 
 | **Acciones** ||
 | ------- | ------ |
@@ -370,7 +377,8 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Sql/servers/* | Crear y administrar servidores de SQL Server |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Sql/servers/* | Crear y administrar servidores de SQL Server |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 | **NotActions** ||
@@ -379,6 +387,7 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Sql/servers/auditingSettings/* | No puede editar la configuración de auditoría de SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría de bases de datos de SQL Server |
+| Microsoft.Sql/servers/databases/auditRecords/read | No puede leer los registros de auditoría. |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | No puede editar las directivas de enmascaramiento de datos de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | No puede editar las directivas de alerta de seguridad de bases de datos de SQL Server |
@@ -395,10 +404,11 @@ Puede administrar las cuentas de almacenamiento clásico
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la cuenta de almacenamiento
-Permite administrar cuentas de almacenamiento, pero no el acceso a ellas.
+Puede administrar cuentas de almacenamiento, pero no acceder a ellas.
 
 | **Acciones** ||
 | ------- | ------ |
@@ -407,7 +417,8 @@ Permite administrar cuentas de almacenamiento, pero no el acceso a ellas.
 | Microsoft.Insights/diagnosticSettings/* | Administrar la configuración de diagnóstico |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Administrador de acceso de usuario
@@ -416,7 +427,7 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 | **Acciones** ||
 | ------- | ------ |
 | */read | Leer recursos de todos los tipos, excepto secretos. |
- | Microsoft.Authorization/* | Administrar la autorización |
+| Microsoft.Authorization/* | Administrar la autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual clásica
@@ -439,7 +450,8 @@ Puede administrar máquinas virtuales clásicas, pero no la cuenta de almacenami
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual
 Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas
@@ -455,7 +467,7 @@ Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la 
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Unir grupos de direcciones de back-end de puerta de enlace de aplicaciones de red |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Unirse a los grupos de direcciones de back-end de equilibrador de carga |
 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Unirse a conjuntos NAT de entrada del equilibrador de carga |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Unirse a reglas NAT de entrada del equilibrador de carga |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Unir las reglas NAT de entrada del equilibrador de carga |
 | Microsoft.Network/loadBalancers/read | Leer equilibradores de carga |
 | Microsoft.Network/locations/* | Crear y administrar ubicaciones de red |
 | Microsoft.Network/networkInterfaces/* | Crear y administrar interfaces de red |
@@ -467,7 +479,8 @@ Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la 
 | Microsoft.Network/virtualNetworks/subnets/join/action | Unirse a subredes de redes virtuales |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuentas de almacenamiento |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuentas de almacenamiento |
 | Microsoft.Storage/storageAccounts/read | Leer cuentas de almacenamiento |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -481,7 +494,8 @@ Puede administrar IP reservadas y redes virtuales clásicas
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de plan web
 Puede administrar planes web
@@ -492,7 +506,8 @@ Puede administrar planes web
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 | Microsoft.Web/serverFarms/* | Crear y administrar granjas de servidores |
 
 ### Colaborador de sitio web
@@ -505,17 +520,18 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos |  
+| Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 | Microsoft.Web/certificates/* | Crear y administrar certificados de sitios web |
 | Microsoft.Web/listSitesAssignedToHostName/read | Leer sitios asignados a un nombre de host |
 | Microsoft.Web/serverFarms/join/action | Unir granjas de servidores |
 | Microsoft.Web/serverFarms/read | Leer las granjas de servidores |
 | Microsoft.Web/sites/* | Crear y administrar sitios web |
 
-## Consulte también
-- [Control de acceso basado en roles](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
-- [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): información acerca de cómo crear roles personalizados que se ajusten a sus necesidades de acceso.
+## Otras referencias
+- [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
+- [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 - [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
 - [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
 # Codificación y comprobación de las funciones de Azure en Visual Studio
 
@@ -222,4 +222,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

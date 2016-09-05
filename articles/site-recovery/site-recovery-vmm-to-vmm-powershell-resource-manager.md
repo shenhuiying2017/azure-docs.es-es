@@ -214,7 +214,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
 2. Con los siguientes comandos se obtiene la red de recuperación del sitio para los servidores VMM de origen y de destino.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Paso 6: Habilitación de la protección en máquinas virtuales
+## Paso 6: Configuración de la asignación de almacenamiento
+
+1. El comando siguiente introduce la lista de clasificaciones de almacenamiento en la variable $storageclassifications.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. Los siguientes comandos introducen la clasificación de origen en la variable $SourceClassification y la de destino en $TargetClassification.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] Las clasificaciones de origen y de destino pueden ser cualquier elemento de la matriz. Consulte el resultado del siguiente comando para calcular el índice de clasificaciones de origen y destino de la matriz $storageclassifications.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. El siguiente cmdlet crea una asignación entre la clasificación de origen y la de destino.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Paso 7: Habilitación de la protección para las máquinas virtuales
 
 Una vez configurados correctamente los servidores, las nubes y las redes, puede habilitar la protección para las máquinas virtuales en la nube.
 
@@ -331,4 +354,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 Obtenga [más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

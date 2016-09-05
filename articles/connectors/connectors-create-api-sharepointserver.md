@@ -1,6 +1,6 @@
 <properties
-pageTitle="Uso del conector de SharePoint Online en las aplicaciones lógicas o en PowerApps | Microsoft Azure"
-description="Introducción al uso del conector de SharePoint Online del Servicio de aplicaciones de Azure en las aplicaciones lógicas y en PowerApps."
+pageTitle="Uso del conector de SharePoint Online en las aplicaciones lógicas | Microsoft Azure"
+description="Introducción al uso del conector de SharePoint Online del Servicio de aplicaciones de Azure en las aplicaciones lógicas."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector de SharePoint Online 
@@ -23,12 +23,8 @@ El conector de SharePoint ofrece una manera de trabajar con listas en SharePoint
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Con SharePoint, puede:
 
-* Usarlo para crear aplicaciones lógicas
-* Usarlo para crear PowerApps
-
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Hablemos de acciones y desencadenadores
 
@@ -39,7 +35,7 @@ El conector de SharePoint tiene las siguientes acciones o desencadenadores dispo
 ### Acciones de SharePoint
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |GetFileMetadata|Se usa para obtener los metadatos de un archivo en la biblioteca de documentos|
 |UpdateFile|Se usa para actualizar un archivo en la biblioteca de documentos|
@@ -57,7 +53,7 @@ Puede realizar estas acciones:
 ### Desencadenadores de SharePoint
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Descripción|
+|Desencadenador | Description|
 |--- | ---|
 |OnNewFile|Desencadena un flujo al crear un archivo en una carpeta de SharePoint|
 |OnUpdatedFile|Desencadena un flujo al modificar un archivo en una carpeta de SharePoint|
@@ -68,23 +64,22 @@ Se pueden escuchar estos eventos:
 ## Creación de una conexión a SharePoint
 Para usar el conector de SharePoint, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
+|Propiedad| Obligatorio|Description|
 | ---|---|---|
-|Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de SharePoint|
+|SWT|Sí|Proporcionar credenciales de SharePoint|
 
-Para poder efectuar la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar el conector de SharePoint Online en la aplicación lógica.
+Para poder establecer la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar el conector de SharePoint Online en la aplicación lógica.
 
-Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** para su uso en la aplicación lógica:
+Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** que usará en la aplicación lógica:
 
 1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre: ![Configurar SharePoint][1]
 2. Seleccione **SharePoint Online - When a file is created** (SharePoint Online - cuando se crea un archivo).
-3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online): ![Configurar SharePoint][2]
-4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint ![Configurar SharePoint][3]
+3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en SharePoint Online): ![Configurar SharePoint][2]
+4. Especifique sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint ![Configurar SharePoint][3]
 5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el cuadro de diálogo de SharePoint **When a file is created** (Cuando se crea un archivo). ![Configurar SharePoint][4]
 6. A continuación, puede agregar otros desencadenadores y acciones que necesita para completar la aplicación lógica.
 7. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.
 
->[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas, en PowerApps o en ambas.
 
 ## Referencia de la API de REST de SharePoint
 #### Esta documentación corresponde a la versión: 1.0
@@ -95,10 +90,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|id|string|yes|path|Ninguna|Identificador único del archivo|
 
 
 ### Estas son las posibles respuestas:
@@ -116,10 +111,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|id|string|yes|path|Ninguna|Identificador único del archivo|
 |body| |yes|body|Ninguna|Contenido del archivo:|
 
 
@@ -138,10 +133,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|id|string|yes|path|Ninguna|Identificador único del archivo|
 
 
 ### Estas son las posibles respuestas:
@@ -159,10 +154,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|path|cadena|yes|query|Ninguna|Ruta de acceso del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|path|string|yes|query|Ninguna|Ruta de acceso del archivo|
 
 
 ### Estas son las posibles respuestas:
@@ -180,10 +175,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|path|cadena|yes|query|Ninguna|Ruta de acceso del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|path|string|yes|query|Ninguna|Ruta de acceso del archivo|
 
 
 ### Estas son las posibles respuestas:
@@ -201,10 +196,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|id|cadena|yes|path|Ninguna|Identificador único del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|id|string|yes|path|Ninguna|Identificador único del archivo|
 
 
 ### Estas son las posibles respuestas:
@@ -222,11 +217,11 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|folderPath|cadena|yes|query|Ninguna|Ruta de acceso a la carpeta|
-|name|cadena|yes|query|Ninguna|Nombre del archivo|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|folderPath|string|yes|query|Ninguna|Ruta de acceso a la carpeta|
+|name|string|yes|query|Ninguna|Nombre del archivo|
 |body| |yes|body|Ninguna|Contenido del archivo:|
 
 
@@ -245,11 +240,11 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de origen|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso al archivo de destino|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|de origen|string|yes|query|Ninguna|Ruta de acceso al archivo de origen|
+|de destino|string|yes|query|Ninguna|Ruta de acceso al archivo de destino|
 |overwrite|boolean|no|query|false|Especifica si se sobrescribe un archivo existente|
 
 
@@ -268,10 +263,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint|
-|folderId|cadena|yes|query|Ninguna|Identificador único de la carpeta en SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint|
+|folderId|string|yes|query|Ninguna|Identificador único de la carpeta en SharePoint|
 
 
 ### Estas son las posibles respuestas:
@@ -289,10 +284,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint|
-|folderId|cadena|yes|query|Ninguna|Identificador único de la carpeta en SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint|
+|folderId|string|yes|query|Ninguna|Identificador único de la carpeta en SharePoint|
 
 
 ### Estas son las posibles respuestas:
@@ -310,11 +305,11 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
-|de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de origen|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso a la carpeta de destino|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
+|de origen|string|yes|query|Ninguna|Ruta de acceso al archivo de origen|
+|de destino|string|yes|query|Ninguna|Ruta de acceso a la carpeta de destino|
 |overwrite|boolean|no|query|false|Especifica si se sobrescribe un archivo existente|
 
 
@@ -333,14 +328,14 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |$skip|integer|no|query|Ninguna|Número de entradas para omitir (valor predeterminado = 0)|
 |$top|integer|no|query|Ninguna|Número máximo de entradas para recuperar (valor predeterminado = 256)|
-|$filter|cadena|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
-|$orderby|cadena|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
+|$filter|string|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
+|$orderby|string|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
 
 
 ### Estas son las posibles respuestas:
@@ -358,14 +353,14 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |$skip|integer|no|query|Ninguna|Número de entradas para omitir (valor predeterminado = 0)|
 |$top|integer|no|query|Ninguna|Número máximo de entradas para recuperar (valor predeterminado = 256)|
-|$filter|cadena|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
-|$orderby|cadena|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
+|$filter|string|no|query|Ninguna|Consulta de filtro de ODATA para restringir el número de entradas|
+|$orderby|string|no|query|Ninguna|Consulta orderBy de ODATA para especificar el orden de las entradas|
 
 
 ### Estas son las posibles respuestas:
@@ -383,10 +378,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |item| |yes|body|Ninguna|Elemento que se va a crear|
 
 
@@ -405,10 +400,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |id|integer|yes|path|Ninguna|Identificador único del elemento que se va a recuperar|
 
 
@@ -427,10 +422,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |id|integer|yes|path|Ninguna|Identificador único del elemento que se va a eliminar|
 
 
@@ -449,10 +444,10 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
-|table|cadena|yes|path|Ninguna|Nombre de lista de SharePoint|
+|dataset|string|yes|path|Ninguna|Dirección URL del sitio de SharePoint (ejemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table|string|yes|path|Ninguna|Nombre de lista de SharePoint|
 |id|integer|yes|path|Ninguna|Identificador único del elemento que se va a actualizar|
 |item| |yes|body|Ninguna|Elemento con propiedades cambiadas|
 
@@ -500,11 +495,11 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|de origen|cadena|
-|DisplayName|cadena|
-|urlEncoding|cadena|
-|tableDisplayName|cadena|
-|tablePluralName|cadena|
+|de origen|string|
+|DisplayName|string|
+|urlEncoding|string|
+|tableDisplayName|string|
+|tablePluralName|string|
 
 
 
@@ -521,9 +516,9 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|de origen|cadena|
-|DisplayName|cadena|
-|urlEncoding|cadena|
+|de origen|string|
+|DisplayName|string|
+|urlEncoding|string|
 
 
 
@@ -540,20 +535,20 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
+|Id|string|
+|Nombre|string|
+|DisplayName|string|
+|Ruta de acceso|string|
+|LastModified|string|
 |Tamaño|integer|
-|MediaType|cadena|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
 
- **Objeto**:
+ **Object**:
 
 Propiedades obligatorias para Object:
 
@@ -582,9 +577,9 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|name|cadena|
-|título|cadena|
-|x-ms-permission|cadena|
+|name|string|
+|título|string|
+|x-ms-permission|string|
 |schema|not defined|
 
 
@@ -619,8 +614,8 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|Nombre|cadena|
-|DisplayName|cadena|
+|Nombre|string|
+|DisplayName|string|
 
 
 
@@ -637,8 +632,8 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|Nombre|cadena|
-|DisplayName|cadena|
+|Nombre|string|
+|DisplayName|string|
 
 
 
@@ -655,7 +650,7 @@ Ninguna de las propiedades es obligatoria.
 
 | Nombre | Tipo de datos |
 |---|---|
-|ItemInternalId|cadena|
+|ItemInternalId|string|
 
 
 
@@ -693,7 +688,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 ## Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Crear una PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +696,4 @@ Ninguna de las propiedades es obligatoria.
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

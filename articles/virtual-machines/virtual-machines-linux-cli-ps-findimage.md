@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
 # Selección de imágenes de máquinas virtuales con la CLI de Azure
 
-Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada ubicación en la que puede implementar. Para dar un ejemplo, algunas imágenes de máquina virtual Linux más utilizadas son:
+En este tema se describe cómo buscar publicadores, ofertas, SKU y versiones de cada ubicación en la que puede implementar. Para dar un ejemplo, algunas imágenes de máquina virtual Linux más utilizadas son:
 
 **Tabla de imágenes de Linux más usadas**
 
@@ -38,4 +38,4 @@ Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada u
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

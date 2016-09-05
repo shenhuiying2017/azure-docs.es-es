@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/23/2016"
 	ms.author="rasquill"/>
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure
@@ -24,4 +24,4 @@ En este artículo se muestra cómo usar las plantillas del Administrador de recu
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación de Windows
@@ -129,7 +129,7 @@ En esta sección, se interrumpe la conexión con el back-end de aplicación móv
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. También puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
+	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. Además, puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
 
 2. Presione **F5** para compilar y ejecutar la aplicación. Observe que la sincronización no se pudo actualizar cuando se inició la aplicación.
  
@@ -162,20 +162,17 @@ En esta sección se vuelve a conectar al back-end de aplicación móvil. De este
 
 Para admitir las características sin conexión de Servicios móviles, se usa la interfaz [IMobileServiceSyncTable] y se inicializa [MobileServiceClient.SyncContext][synccontext] con una base de datos SQLite local. En el modo sin conexión, las operaciones CRUD normales para Aplicaciones móviles funcionan como si la aplicación siguiera conectada y todas las operaciones se producen en el almacén local. Cuando se quiera sincronizar el almacén local con el servidor, se usan los métodos siguientes:
 
-*  **[PushAsync]**:  
-   como este método es miembro de [IMobileServicesSyncContext], los cambios de todas las tablas se insertan en el back-end. Solo se envían al servidor los registros con cambios locales.
+*  **[PushAsync]**: como este método es miembro de [IMobileServicesSyncContext], los cambios de todas las tablas se insertan en el back-end. Solo se envían al servidor los registros con cambios locales.
 
-* **[PullAsync]**:    
-   se inicia una extracción desde [IMobileServiceSyncTable]. Cuando haya cambios marcados en la tabla, se ejecuta una inserción implícita para asegurarse de que todas las tablas del almacén local junto con las relaciones siguen siendo coherentes. El parámetro *pushOtherTables* controla si se insertan otras tablas del contexto en una inserción implícita. El parámetro *query* toma [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o la cadena de consulta de OData para filtrar los datos devueltos. El parámetro *queryId* se utiliza para definir la sincronización incremental. Para obtener más información, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PullAsync]**: se inicia una extracción desde [IMobileServiceSyncTable]. Cuando haya cambios marcados en la tabla, se ejecuta una inserción implícita para asegurarse de que todas las tablas del almacén local junto con las relaciones siguen siendo coherentes. El parámetro *pushOtherTables* controla si se insertan otras tablas del contexto en una inserción implícita. El parámetro *query* toma [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o la cadena de consulta de OData para filtrar los datos devueltos. El parámetro *queryId* se utiliza para definir la sincronización incremental. Para obtener más información, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 
-* **[PurgeAsync]**:  
-   su aplicación debe llamar periódicamente a este método para purgar datos obsoletos del almacén local. Utilice el parámetro *force* cuando necesite purgar todos los cambios que aún no se hayan sincronizado.
+* **[PurgeAsync]**: su aplicación debe llamar periódicamente a este método para purgar datos obsoletos del almacén local. Utilice el parámetro *force* cuando necesite purgar todos los cambios que aún no se hayan sincronizado.
 
 Para obtener más información sobre estos conceptos, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 
 ## Más información
 
-Los temas siguientes ofrecen información de fondo adicional sobre la característica de sincronización sin conexión de Aplicaciones móviles:
+En los temas siguientes se ofrece información de fondo adicional sobre la característica de sincronización sin conexión de Aplicaciones móviles:
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 * [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] (tenga en cuenta que el vídeo es para Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
@@ -214,4 +211,4 @@ Los temas siguientes ofrecen información de fondo adicional sobre la caracterí
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cambio de la suscripción de Azure a otra oferta | Microsoft Azure"
-	description="Obtenga información acerca de cómo cambiar su suscripción de Azure y cambiar a otra oferta de Azure mediante el portal de administración de suscripción"
+	description="Obtenga información sobre cómo cambiar la suscripción de Azure y cambiar a otra oferta de Azure mediante el portal de administración de suscripción"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Cambio de la suscripción de Azure a otra oferta
@@ -23,6 +23,8 @@ Puede cambiar la suscripción existente a una oferta más favorable sin ningún 
 
 -	Si descubre que tiene un alto gasto de Azure, es posible que tenga derecha a un descuento si cambia a la oferta de compromiso monetario. Haga clic [aquí](billing-usage-rate-card-overview.md) para más información sobre los detalles del consumo que hace de recursos de Microsoft Azure.
 -	Si desea aprovechar ventajas de pertenencia, como MSDN o BizSpark, después de haberse registrado con una suscripción de pago por uso.
+
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## Guía para el cambio de la suscripción a otra oferta
 
@@ -42,21 +44,21 @@ Puede cambiar la suscripción existente a una oferta más favorable sin ningún 
 6.	Tiene la posibilidad de cambiar el nombre de la suscripción. De forma predeterminada, este se establece en el nombre de la nueva oferta. Haga clic en el Cambiar oferta para completar el proceso.
 
 	![confirmpage](.\media\billing-how-to-switch-azure-offer\confirmpage.png)
-7.	¡Éxito! Su suscripción cambia ahora a la nueva oferta.
+7.	¡Éxito! Ya se ha cambiado la suscripción a la nueva oferta.
 
 ## Preguntas más frecuentes
 
 **¿Qué cambios de oferta admite?**
 
-Consulte la lista de [ofertas disponibles a las que puede cambiar](#available-offers-you-can-switch-to).
+Vea la lista de [ofertas disponibles a las que puede cambiar](#available-offers-you-can-switch-to).
 
 **¿Tendrán las ofertas de cambio consecuencias en el servicio?**
 
-No hay ningún tiempo de inactividad del servicio. Pero es posible que la oferta a la que cambie tenga restricciones. Por ejemplo, algunas ofertas prohíben el uso en producción. Por lo que tendrá que mover los recursos de producción a otra suscripción.
+No hay ningún tiempo de inactividad del servicio. Pero es posible que la oferta a la que cambie tenga restricciones. Por ejemplo, algunas ofertas prohíben el uso en producción. Por tanto, tendrá que mover los recursos de producción a otra suscripción.
 
 **¿Tendrán las ofertas de cambio consecuencias en los administradores del servicio?**
 
-No hay consecuencias en los usuarios asociados a la suscripción.
+No repercuten en los usuarios asociados a la suscripción.
 
 **¿Qué cambios relacionados con la facturación puedo esperar al cambiar de oferta?**
 
@@ -75,6 +77,8 @@ A continuación se muestran las rutas de acceso que se admiten actualmente en el
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a la [Oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a cualquiera de las [ofertas de crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-Para otros cambios de oferta, [póngase en contacto con soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
+Para otros cambios de oferta, [póngase en contacto con el soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

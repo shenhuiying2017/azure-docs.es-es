@@ -250,6 +250,8 @@ Para poder ejecutar una aplicación de Cordova en iOS mediante Visual Studio, si
 
 Asegúrese de que puede compilar la aplicación para iOS. Los pasos de la guía son necesarios para compilar para iOS desde Visual Studio. Si no tiene un equipo Mac, puede compilar para iOS mediante el agente remotebuild en un servicio como MacInCloud. Para más información, consulte la sección sobre la [ejecución de su aplicación iOS en la nube](http://taco.visualstudio.com/es-ES/docs/build_ios_cloud/).
 
+>[AZURE.NOTE] Se requiere XCode 7 o superior para usar el complemento de inserción de iOS.
+
 ####Búsqueda del identificador que se va a usar como id. de la aplicación
 
 Antes de registrar la aplicación para las notificaciones de inserción, abra config.xml en su aplicación de Cordova, busque el valor del atributo `id` en el elemento de widget y cópielo para su uso posterior. En el siguiente XML, el identificador es `io.cordova.myapp7777777`.
@@ -320,7 +322,7 @@ Para utilizar las opciones de Tienda en Visual Studio, seleccione un destino de 
 
 Abra el Diseñador de configuraciones (haga clic con el botón derecho en el archivo config.xml y seleccione **Diseñador de vistas**), seleccione la pestaña **Windows** y elija **Windows 10** en **Versión de Windows de destino**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Si utiliza una versión de Cordova previa a Cordova 5.1.1 (se recomienda la 6.1.1), también debe establecer la marca de capacidad de aviso (Toast Capable) en true en el archivo config.xml.
 
 Para admitir las notificaciones push en sus compilaciones (depuración) predeterminadas (depurar), abra el archivo build.json. Copie la configuración de la "versión" en la configuración de depuración.
 
@@ -383,4 +385,4 @@ Obtenga información sobre cómo usar los SDK.
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

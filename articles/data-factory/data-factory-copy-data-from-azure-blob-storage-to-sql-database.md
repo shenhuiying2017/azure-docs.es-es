@@ -24,11 +24,12 @@
 - [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 En este tutorial, creará una factoría de datos con una canalización para copiar datos de Almacenamiento de blobs en Base de datos SQL.
 
-La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
+La actividad de copia realiza el movimiento de datos en Data Factory de Azure. Funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
 
 > [AZURE.NOTE] Para información general más detallada sobre el servicio Data Factory, consulte el artículo [Introducción al servicio Data Factory de Azure][data-factory-introduction].
 
@@ -41,7 +42,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **SQL Server 2012/2014 o Visual Studio 2013**. Usará SQL Server Management Studio o Visual Studio para crear una base de datos de ejemplo y ver los datos de resultados de la base de datos.
 
 ## Obtención del nombre y la clave de la cuenta de Almacenamiento de blobs 
-Para realizar este tutorial necesitará el nombre de cuenta y la clave de cuenta de su cuenta de Almacenamiento de Azure. Anote el **nombre de cuenta** y la **clave de cuenta** para su cuenta de almacenamiento de Azure siguiendo las siguientes instrucciones:
+Para realizar este tutorial necesitará el nombre de cuenta y la clave de cuenta de su cuenta de Almacenamiento de Azure. Anote el **nombre de cuenta** y la **clave de cuenta** para su cuenta de almacenamiento de Azure.
 
 1. Inicie sesión en el [Portal de Azure][azure-portal].
 2. Haga clic en el centro **EXAMINAR** de la izquierda y seleccione **Cuentas de almacenamiento**.
@@ -52,7 +53,7 @@ Para realizar este tutorial necesitará el nombre de cuenta y la clave de cuenta
 7. Haga clic en **X** para cerrar todas las hojas.
 
 ## Recopilación de nombres de usuario, bases de datos y servidores SQL Server
-Necesitará los nombres de servidor SQL de Azure, la base de datos y el usuario para realizar este tutorial. Anote los nombres de **servidor**, **base de datos** y **usuario** para la base de datos SQL de Azure siguiendo las siguientes instrucciones:
+Necesitará los nombres de servidor SQL de Azure, la base de datos y el usuario para realizar este tutorial. Anote los nombres del **servidor**, la **base de datos** y el **usuario** de su base de datos SQL de Azure.
 
 1. En el **Portal de Azure**, haga clic en **EXAMINAR** a la izquierda y seleccione **Bases de datos SQL**.
 2. En la **hoja de bases de datos SQL**, seleccione la **base de datos** que desea usar en este tutorial. Anote el **nombre de la base de datos**.
@@ -93,9 +94,9 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. Tenga en cuenta que en este artículo se usa el [Portal de Azure clásico](http://manage.windowsazure.com) en lugar del [Portal de Azure](https://portal.azure.com) para configurar el firewall para un servidor SQL de Azure.
+	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. En este artículo se usa el [Portal de Azure](http://manage.windowsazure.com) en lugar del [Portal de Azure](https://portal.azure.com) para configurar el firewall para un servidor SQL de Azure.
 
-	**Si tiene instalado Visual Studio 2013 en el equipo:** en el [Portal de Azure](https://portal.azure.com), haga clic en el concentrador **EXAMINAR** a la izquierda, en **Servidores SQL**, seleccione su base de datos y haga clic en el botón **Abrir en Visual Studio** en la barra de herramientas para conectarse a su servidor SQL de Azure y ejecutar el script. Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte el artículo anterior para conocer los pasos para configurar el firewall para el servidor SQL de Azure.
+	Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte [este artículo](../sql-database/sql-database-configure-firewall-settings.md) a fin de conocer los pasos de configuración del firewall para el servidor SQL de Azure.
 
 
 Haga lo siguiente:
@@ -117,4 +118,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

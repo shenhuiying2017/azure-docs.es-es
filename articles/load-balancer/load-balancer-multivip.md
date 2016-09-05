@@ -1,21 +1,22 @@
-<properties 
+<properties
    pageTitle="Varias direcciones VIP por servicio en la nube"
    description="Información general sobre multiVIP y cómo establecer varias direcciones VIP en un servicio en la nube"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Varias direcciones VIP por servicio en la nube
+
 Puede tener acceso a los servicios en la nube de Azure a través de la Internet pública mediante una dirección IP proporcionada por Azure. Esta dirección IP pública se conoce como una dirección VIP (IP virtual) dado que está vinculada al Equilibrador de carga de Azure y no realmente a las instancias de máquina virtual dentro del servicio en la nube. Con una sola dirección VIP puede tener acceso a cualquier instancia de máquina virtual dentro de un servicio en la nube.
 
 Sin embargo, hay escenarios en los que puede que necesite más de una dirección VIP como punto de entrada al mismo servicio en la nube. Por ejemplo, el servicio en la nube podría hospedar varios sitios web que requieren conectividad SSL usando el puerto predeterminado de 443, y cada sitio hospedarse para un cliente o inquilino diferente. En este escenario, deberá tener una dirección IP accesible de forma pública diferente para cada sitio web. El siguiente diagrama muestra un hospedaje web multiempresa típico en el que se necesitan varios certificados SSL en el mismo puerto público.
@@ -26,7 +27,7 @@ En el escenario anterior, todas las direcciones VIP usan el mismo puerto públic
 
 >[AZURE.NOTE] Otro escenario de uso de varias direcciones VIP es el hospedaje de varios agentes de escucha de grupo de disponibilidad SQL AlwaysOn en el mismo conjunto de máquinas virtuales.
 
-Las direcciones VIP son dinámicas de forma predeterminada, lo que significa que la dirección IP real asignada al servicio en la nube puede cambiar con el tiempo. Para evitar que esto suceda, puede reservar una dirección VIP para su servicio. Para obtener más información sobre las direcciones VIP reservadas, consulte [IP pública reservada](../virtual-networks-reserved-public-ip).
+Las direcciones VIP son dinámicas de forma predeterminada, lo que significa que la dirección IP real asignada al servicio en la nube puede cambiar con el tiempo. Para evitar que esto suceda, puede reservar una dirección VIP para su servicio. Para obtener más información sobre las direcciones VIP reservadas, consulte [IP pública reservada](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 >[AZURE.NOTE] Consulte [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obtener información sobre los precios de las direcciones VIP y las direcciones IP reservadas.
 
@@ -43,6 +44,7 @@ En este momento, la funcionalidad de VIP múltiples se limita a los siguientes e
 
 
 ## Agregar una dirección VIP a un servicio en la nube
+
 Para agregar una dirección VIP a su servicio, ejecute el siguiente comando de PowerShell:
 
     Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -54,6 +56,7 @@ El comando anterior mostrará un resultado similar al siguiente:
     Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
 ## Eliminación de una dirección VIP de un servicio en la nube
+
 Para quitar la dirección VIP agregada al servicio en el ejemplo anterior, ejecute el siguiente comando de PowerShell:
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -61,6 +64,7 @@ Para quitar la dirección VIP agregada al servicio en el ejemplo anterior, ejecu
 >[AZURE.IMPORTANT] Solo puede quitar una dirección VIP si no tiene ningún extremo asociado a ella.
 
 ## Recuperación de la información de dirección VIP de un servicio en la nube
+
 Para recuperar las direcciones VIP asociadas a un servicio en la nube, ejecute el siguiente script de PowerShell:
 
     $deployment = Get-AzureDeployment -ServiceName myService
@@ -91,9 +95,10 @@ En este ejemplo, el servicio en la nube tiene 3 direcciones VIP:
 - **Vip1** es la dirección VIP predeterminada. Se sabe porque el valor de IsDnsProgrammedName está establecido en true.
 - **Vip2** y **Vip3** no se usan, ya que no tienen ninguna dirección IP. Solo se usarán si asocia un extremo a la dirección VIP.
 
->[AZURE.NOTE] Solo se cobrarán las direcciones VIP adicionales de su suscripción una vez que estén asociadas a un extremo. Para obtener más información sobre los precios, consulte [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Solo se cobrarán las direcciones VIP adicionales de su suscripción una vez que estén asociadas a un punto de conexión. Para obtener más información sobre los precios, consulte [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Asociación de una dirección VIP a un extremo
+
 Para asociar una dirección VIP de un servicio en la nube a un extremo, ejecute el siguiente comando de PowerShell:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
@@ -128,6 +133,7 @@ El resultado será similar al siguiente:
     ExtensionData   :
 
 ## Habilitación del equilibrio de carga en una dirección VIP específica
+
 Puede asociar una sola dirección VIP a varias máquinas virtuales con el fin de equilibrar la carga. Por ejemplo, suponga que tiene un servicio en la nube denominado *myService* y dos máquinas virtuales denominadas *myVM1* y *myVM2*. Y el servicio en la nube tiene varias direcciones VIP, una de ellas denominada *Vip2*. Si desea asegurarse de que todo el tráfico al puerto *81* en *Vip2* se equilibre entre *myVM1* y *myVM2* en el puerto *8181*, ejecute el siguiente script de PowerShell:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
@@ -153,6 +159,5 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
- 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

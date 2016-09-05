@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -237,4 +237,4 @@ Para obtener más información sobre DNS de Azure, consulte [Introducción a DNS
 
 Para obtener más información sobre los registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
 
-Los resúmenes siguientes le ayudarán a comprender las diferencias entre SQL Server y Almacenamiento de datos SQL para que le resulte más fácil migrar la base de datos.
+Los resúmenes siguientes lo ayudan a comprender las diferencias entre SQL Server y Almacenamiento de datos SQL para que le resulte más fácil migrar la base de datos.
 
 ### Características de tabla
 Almacenamiento de datos SQL no usa ni admite estas características:
@@ -107,8 +107,8 @@ En lugar de:
 - **image**, **text**, **ntext**, use varchar/nvarchar (cuanto menor, mejor)
 - **sql\_variant**, divida la columna en varias columnas fuertemente tipadas
 - **table**, convierta en tablas temporales
-- **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
-- **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
+- **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede configurar current\_timestamp como el límite predeterminado. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
+- **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible.
 - **xml**, use varchar(max) o más pequeño para un mejor rendimiento. Dividir en columnas si es necesario
 
 Para mejorar el rendimiento, en lugar de:
@@ -120,10 +120,10 @@ Compatibilidad parcial:
 
 - Las restricciones DEFAULT solo admiten literales y constantes. No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE] Si usa PolyBase para cargar sus tablas, defínalas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32 767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, así como cargar filas con BCP, por ahora no podrá usar PolyBase para cargar estos datos. El soporte técnico de PolyBase para filas anchas se agregará en breve. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
+> [AZURE.NOTE] Defina las tablas para que el tamaño máximo de fila no supere los 32 767 bytes cuando se use PolyBase para realizar la carga. Es importante recordar que el tamaño máximo de fila engloba la longitud total de todas las columnas de longitud variable. Aunque puede definir una fila con datos de longitud variable que supere esta cifra, no podría usar PolyBase para cargar estos datos hoy. Como medida provisional, use BCP para cargar filas amplias. Por último, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
 
 ## Pasos siguientes
-Una vez migrado correctamente el esquema de base de datos a SQLDW puede continuar con uno de los siguientes artículos:
+Una vez migrado correctamente el esquema de base de datos al Almacenamiento de datos SQL, continúe con uno de los siguientes artículos:
 
 - [Migración de los datos][]
 - [Migración del código][]
@@ -142,4 +142,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

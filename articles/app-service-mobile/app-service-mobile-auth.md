@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Autenticación y autorización en Aplicaciones móviles de Azure
 
 ## ¿Qué es la autenticación o autorización del Servicio de aplicaciones?
 
-> [AZURE.NOTE] Este tema se migrará a un tema de [Autenticación/autorización del servicio de aplicaciones](../app-service/app-service-authentication-overview.md) consolidado, que abarca la web, los móviles y las aplicaciones de API.
+> [AZURE.NOTE] Este tema se migrará al artículo consolidado [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md), que abarca las aplicaciones web, móviles y de API.
 
 La autenticación o autorización del Servicio de aplicaciones es una característica que permite que los usuarios inicien sesión en la aplicación sin necesidad de realizar cambios en el código del back-end de la misma. Ofrece una forma fácil de proteger su aplicación y trabajar con datos por usuario.
 
@@ -62,7 +62,7 @@ El código necesario para iniciar este flujo se trata en el tutorial de autentic
 
 ### Funcionamiento de la autenticación con un SDK del proveedor
 
-Trabajar con un SDK del proveedor permite que la experiencia de inicio de sesión interactúe de manera más estrecha con el SO de la plataforma donde se ejecuta la aplicación. También le proporciona un token del proveedor e información de usuario sobre el cliente, lo que facilita en gran medida el consumo de API de gráficos y la personalización de la experiencia del usuario. En ocasiones, en blogs y foros encontrará que se hace referencia a este como "flujo de cliente" o "flujo dirigido al cliente", pues el código del cliente controla el inicio de sesión y tiene acceso a un token del proveedor.
+Trabajar con un SDK del proveedor permite que la experiencia de inicio de sesión interactúe de manera más estrecha con el sistema operativo de la plataforma donde se ejecuta la aplicación. También le proporciona un token del proveedor e información de usuario sobre el cliente, lo que facilita en gran medida el consumo de API de gráficos y la personalización de la experiencia del usuario. En ocasiones, en blogs y foros encontrará que se hace referencia a este como "flujo de cliente" o "flujo dirigido al cliente", pues el código del cliente controla el inicio de sesión y tiene acceso a un token del proveedor.
 
 Una vez que se obtiene un token del proveedor, debe enviarse al Servicio de aplicaciones para su validación. Al final del flujo, el SDK del cliente tiene un token del Servicio de aplicaciones que se adjunta automáticamente a todas las solicitudes para el back-end. El desarrollador también puede mantener una referencia al token del proveedor si así lo desea.
 
@@ -104,4 +104,4 @@ Si desea usar un sistema de identidades diferente a los proporcionados aquí, ta
 [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

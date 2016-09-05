@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurar CHAP para el dispositivo StorSimple
@@ -53,7 +53,7 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
     
 	3. Confirme la contraseña.
 
-4. Haga clic en **Guardar**. Aparecerá un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
+4. Haga clic en **Save**. Aparecerá un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
 
 #### Para configurar la autenticación unidireccional en el servidor host de Windows
 
@@ -85,7 +85,7 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
 
 	4. Haga clic en **Aceptar**.
 
-		![Generalidades de configuración avanzada](./media/storsimple-configure-chap/IC740946.png)
+		![General - Configuración avanzada](./media/storsimple-configure-chap/IC740946.png)
 
 5. En la pestaña **Destinos** de la ventana **Propiedades del iniciador iSCSI**, el estado del dispositivo debe aparecer como **Conectado**. Si usa un dispositivo StorSimple 1200, cada volumen se montará como un destino iSCSI como se muestra a continuación. Por lo tanto, los pasos 3 y 4 deberán repetirse para cada volumen.
 
@@ -198,4 +198,4 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

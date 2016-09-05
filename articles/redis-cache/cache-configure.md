@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/25/2016"
+	ms.date="08/18/2016"
 	ms.author="sdanie" />
 
 # Configuración de Caché en Redis de Azure
@@ -35,9 +35,7 @@ Caché en Redis de Azure ofrece la siguiente configuración en la hoja **Configu
 -	[Configuración general](#general-settings)
 	-	[Propiedades](#properties)
 	-	[Claves de acceso](#access-keys)
-	-	[Puertos de acceso](#access-ports)
-	-	[Directiva Maxmemory](#maxmemory-policy-and-maxmemory-reserved)
-	-	[Configuración avanzada (notificaciones de Keyspace)](#keyspace-notifications-advanced-settings)
+	-	[Configuración avanzada](#advanced-settings)
 	-	[Asesor de caché en Redis](#redis-cache-advisor)
 -	[Configuración de escala](#scale-settings)
 	-	[Nivel de precios](#pricing-tier)
@@ -64,21 +62,19 @@ Haga clic en **Registros de auditoría** para ver las acciones realizadas en la 
 
 El **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../resource-health/resource-health-overview.md).
 
->[AZURE.NOTE] El servicio Estado de los recursos no puede actualmente informar sobre el estado de las instancias de Caché en Redis de Azure hospedadas en una red virtual. Para más información, consulte la sección [¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+>[AZURE.NOTE] El servicio Estado de los recursos no puede actualmente informar sobre el estado de las instancias de Caché en Redis de Azure hospedadas en una red virtual. Para más información, consulte [¿Funcionarán todas las características al alojar una caché en una red virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-Haga clic en **Nueva solicitud de soporte** para abrir una solicitud de soporte técnico para su memoria caché.
+Haga clic en **Nueva solicitud de soporte técnico** para abrir una solicitud de soporte técnico para la memoria caché.
 
 ## Configuración general
 
-La configuración de la sección **General** permite obtener acceso y configurar la siguiente configuración de la memoria caché.
+La configuración de la sección **General** permite acceder a los siguientes ajustes de la memoria caché y configurarlos.
 
 ![Configuración general](./media/cache-configure/redis-cache-general-settings.png)
 
 -	[Propiedades](#properties)
 -	[Claves de acceso](#access-keys)
--	[Puertos de acceso](#access-ports)
--	[Directiva Maxmemory](#maxmemory-policy-and-maxmemory-reserved)
--	[Configuración avanzada (notificaciones de Keyspace)](#keyspace-notifications-advanced-settings)
+-	[Configuración avanzada](#advanced-settings)
 -	[Asesor de caché en Redis](#redis-cache-advisor)
 
 ### Propiedades
@@ -93,15 +89,29 @@ Haga clic en **Claves de acceso** para ver o volver a generar las claves de acce
 
 ![Caché en Redis - Claves de acceso](./media/cache-configure/redis-cache-manage-keys.png)
 
+
+
+
+
+
+### Configuración avanzada
+
+Los siguientes ajustes se configuran en la hoja **Configuración avanzada**.
+
+-	[Puertos de acceso](#access-ports)
+-	[Maxmemory-policy y maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+-	[Notificaciones de espacio de claves (configuración avanzada)](#keyspace-notifications-advanced-settings)
+
+
 ### Puertos de acceso
 
-El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cachés. Para habilitar el puerto no SSL, haga clic en la hoja **Acceder a los puertos** y luego en **No**.
+El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cachés. Para habilitar el puerto no SSL, haga clic en **No** en la opción **Permitir el acceso solo mediante SSL** de la **hoja Configuración avanzada** y, después, haga clic en **Guardar**.
 
 ![Caché en Redis - Puertos de acceso](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy y maxmemory-reserved
 
-Haga clic en **Directiva Maxmemory** para configurar las directivas de memoria para la memoria caché. La opción **maxmemory-policy** configura la directiva de expulsión para la memoria caché y **maxmemory-reserved** configura la memoria reservada para los procesos ajenos a la memoria caché.
+Los ajustes **maxmemory-policy** y **maxmemory-reserved** de la hoja **Configuración avanzada** configuran las directivas de memoria de la memoria caché. La opción **maxmemory-policy** configura la directiva de expulsión para la memoria caché y **maxmemory-reserved** configura la memoria reservada para los procesos ajenos a la memoria caché.
 
 ![Caché en Redis - Directiva Maxmemory](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -122,7 +132,7 @@ La opción **maxmemory-reserved** configura la cantidad de memoria en MB que se 
 
 ### Notificaciones de espacio de claves (configuración avanzada)
 
-Haga clic en **Configuración avanzada** para configurar las notificaciones de espacio de claves de Redis. Las notificaciones de espacio de claves permiten que los clientes reciban notificaciones cuando se producen determinados eventos.
+Las notificaciones de espacio de claves de Redis se configuran en la hoja **Configuración avanzada**. Las notificaciones de espacio de claves permiten que los clientes reciban notificaciones cuando se producen determinados eventos.
 
 ![Caché en Redis - Configuración avanzada](./media/cache-configure/redis-cache-advanced-settings.png)
 
@@ -137,7 +147,7 @@ La hoja **Recomendaciones** muestra recomendaciones para la memoria caché. Dura
 
 ![Recomendaciones](./media/cache-configure/redis-cache-no-recommendations.png)
 
-Si se produce cualquier condición durante las operaciones de la memoria caché, como un uso elevado de la memoria, el ancho de banda de red o la carga del servidor, se muestra una alerta en la hoja **Caché en Redis**.
+Si se produce cualquier problema durante las operaciones de la memoria caché, como un uso elevado de la memoria, el ancho de banda de red o la carga del servidor, se muestra una alerta en la hoja **Caché en Redis**.
 
 ![Recomendaciones](./media/cache-configure/redis-cache-recommendations-alert.png)
 
@@ -145,9 +155,9 @@ Puede encontrar más información en la hoja **Recomendaciones**.
 
 ![Recomendaciones](./media/cache-configure/redis-cache-recommendations.png)
 
-Puede supervisar estas métricas en las secciones [Gráficos de supervisión](cache-how-to-monitor.md#monitoring-charts) y [Gráficos de uso](cache-how-to-monitor.md#usage-charts) de la hoja **Caché en Redis**.
+Estas métricas se pueden supervisar en las secciones [Gráficos de supervisión](cache-how-to-monitor.md#monitoring-charts) y [Gráficos de uso](cache-how-to-monitor.md#usage-charts) de la hoja **Caché en Redis**.
 
-Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si la caché se aproxima a la capacidad máxima para estas métricas durante un período prolongado, se crea una recomendación. Para más información sobre las métricas y los límites revisados mediante la herramienta **Recomendaciones**, consulte la tabla siguiente.
+Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si la caché se aproxima a la capacidad máxima para estas métricas durante un período prolongado, se crea una recomendación. Para más información acerca de las métricas y los límites que se revisan mediante la herramienta **Recomendaciones**, consulte la tabla siguiente.
 
 | Métrica de Caché en Redis | Para obtener más información, vea: |
 |-------------------------|---------------------------------------------------------------------------|
@@ -156,11 +166,11 @@ Cada plan de tarifa tiene distintos límites para las conexiones de cliente, mem
 | Carga de servidor | [Gráficos de uso: carga del servidor Redis](cache-how-to-monitor.md#usage-charts) |
 | Uso de la memoria | [Rendimiento y tamaño de la memoria caché](cache-faq.md#cache-performance) |
 
-Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el [plan de tarifa](#pricing-tier) y escalar la memoria caché. Para más información sobre cómo determinar un plan de tarifa, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el [plan de tarifa](#pricing-tier) y escalar la memoria caché. Para más información acerca de cómo elegir un plan de tarifa, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ## Configuración de escala
 
-La configuración de la sección **Escala** permite obtener acceso y establecer la siguiente configuración de la memoria caché.
+La configuración de la sección **Escala** permite acceder a los siguientes ajustes de la memoria caché y configurarlos.
 
 ![Red](./media/cache-configure/redis-cache-scale.png)
 
@@ -189,7 +199,7 @@ Para cambiar el tamaño del clúster, use el control deslizante o escriba un nú
 
 ## Configuración de administración de datos
 
-La configuración de la sección **Administración de datos** permite obtener acceso a la siguiente configuración de la memoria caché y establecer sus valores.
+La configuración de la sección **Administración de datos** permite acceder a los siguientes ajustes de la memoria caché y configurarlos.
 
 ![Administración de datos](./media/cache-configure/redis-cache-data-management.png)
 
@@ -225,7 +235,7 @@ La exportación permite exportar los datos almacenados en la Caché en Redis de 
 
 ## Configuración de administración
 
-La configuración de la sección **Administración** le permite realizar las siguientes tareas administrativas de la caché premium.
+La configuración de la sección **Administración** permite realizar las siguientes tareas administrativas en la memoria caché premium.
 
 ![Administración](./media/cache-configure/redis-cache-administration.png)
 
@@ -236,7 +246,7 @@ La configuración de la sección **Administración** le permite realizar las sig
 
 ### Reboot
 
-La hoja **Reboot** (Reiniciar) permite reiniciar uno o varios nodos de la caché. De este modo, podrá probar la resistencia de la aplicación en caso de error.
+La hoja **Reiniciar** permite reiniciar uno o varios nodos de la memoria caché. De este modo, podrá probar la resistencia de la aplicación en caso de error.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -244,21 +254,21 @@ Si tiene una caché premium con la agrupación en clústeres habilitada, puede s
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Para reiniciar uno o varios nodos de la memoria caché, seleccione los nodos deseados y haga clic en **Reiniciar**. Si tiene una caché premium con la agrupación en clústeres habilitada, seleccione las particiones para reiniciar y haga clic en **Reboot** (Reiniciar). Después de unos minutos, los nodos seleccionados se reinician y vuelven a estar en línea poco tiempo después.
+Para reiniciar uno o varios nodos de la memoria caché, selecciónelos y haga clic en **Reiniciar**. Si tiene una memoria caché premium con la agrupación en clústeres habilitada, seleccione las particiones para reiniciar y haga clic en **Reiniciar**. Después de unos minutos, los nodos seleccionados se reinician y vuelven a estar en línea poco tiempo después.
 
->[AZURE.IMPORTANT] El reinicio solo está disponible para las memorias caché de nivel premium. Para más información e instrucciones, consulte [Azure Redis Cache administration - Reboot](cache-administration.md#reboot) (Administración de Caché en Redis de Azure - Reinicio).
+>[AZURE.IMPORTANT] El reinicio solo está disponible para las memorias caché de nivel premium. Para más información e instrucciones, consulte [Administración de Caché en Redis de Azure - Reboot](cache-administration.md#reboot).
 
-### Programar actualizaciones
+### Programación de actualizaciones
 
-La hoja **Programar actualizaciones** le permite designar una ventana de mantenimiento para las actualizaciones del servidor de Redis de la caché.
+La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para las actualizaciones del servidor de Redis para la caché.
 
 >[AZURE.IMPORTANT] Tenga en cuenta que la ventana de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a cualquier actualización o actualizaciones de Azure para el sistema operativo de las máquinas virtuales que hospedan la memoria caché.
 
 ![Programar actualizaciones](./media/cache-configure/redis-schedule-updates.png)
 
-Para especificar una ventana de mantenimiento, compruebe los días deseados y especifique la hora de inicio de la ventana de mantenimiento para cada día; a continuación, haga clic en **Aceptar**. Tenga en cuenta que la hora de la ventana de mantenimiento está en formato UTC.
+Para especificar una ventana de mantenimiento, compruebe los días deseados, especifique la hora de inicio de la ventana de mantenimiento para cada día y haga clic en **Aceptar**. Tenga en cuenta que la hora del período de mantenimiento está en formato UTC.
 
->[AZURE.IMPORTANT] Las actualizaciones de programación solo están disponibles para las memorias caché de nivel premium. Para más información e instrucciones, consulte [Azure Redis Cache administration - Schedule updates](cache-administration.md#schedule-updates) (Administración de Caché en Redis de Azure - Programar actualizaciones).
+>[AZURE.IMPORTANT] Las actualizaciones de programación solo están disponibles para las memorias caché de nivel premium. Para más información e instrucciones, consulte [Administración de la Caché en Redis de Azure - Programación de actualizaciones](cache-administration.md#schedule-updates).
 
 ## Configuración de diagnóstico
 
@@ -266,22 +276,22 @@ La sección **Diagnóstico** permite configurar los diagnósticos de Caché en R
 
 ![Diagnóstico](./media/cache-configure/redis-cache-diagnostics.png)
 
-Haga clic en **Diagnóstico** para [configurar la cuenta de almacenamiento](cache-how-to-monitor.md#enable-cache-diagnostics) que se usa para almacenar diagnósticos de caché.
+Haga clic en **Diagnóstico** para [configurar la cuenta de almacenamiento](cache-how-to-monitor.md#enable-cache-diagnostics) que se usa para almacenar los diagnósticos de la memoria caché.
 
 ![Caché en Redis - Diagnóstico](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
-Haga clic en **Métricas de Redis** para [ver las métricas](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) de la memoria caché, y en **Reglas de alerta** para [configurar las reglas de alerta](cache-how-to-monitor.md#operations-and-alerts).
+Haga clic en **Métricas de Redis** para [ver las métricas](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) de la memoria caché y en **Reglas de alerta** para [configurar las reglas de alerta](cache-how-to-monitor.md#operations-and-alerts).
 
 Para más información sobre los diagnósticos de Caché en Redis de Azure, consulte [Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md).
 
 
 ## Configuración de red
 
-La configuración de la sección **Red** permite obtener acceso a la siguiente configuración de la memoria caché y establecer sus valores.
+La configuración de la sección **Red** permite acceder a los siguientes ajustes de la memoria caché y configurarlos.
 
 ![Red](./media/cache-configure/redis-cache-network.png)
 
->[AZURE.IMPORTANT] La configuración de red virtual solo está disponible para las memorias cachés premium que se configuraron con la compatibilidad de la red virtual durante la creación de la memoria caché. Para más información sobre cómo crear una caché premium con compatibilidad de la red virtual y actualizar su configuración, consulte [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+>[AZURE.IMPORTANT] La configuración de red virtual solo está disponible para las memorias cachés premium que se configuraron con la compatibilidad de la red virtual durante la creación de la memoria caché. Para más información sobre cómo crear una caché premium con compatibilidad para red virtual y cómo actualizar su configuración, consulte [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Configuración de administración de recursos
 
@@ -289,11 +299,11 @@ La configuración de la sección **Red** permite obtener acceso a la siguiente c
 
 La sección **Etiquetas** le ayuda a organizar sus recursos. Para obtener más información, vea [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
 
-La sección **Bloqueos** permite bloquear una suscripción, un grupo de recursos o un recurso para impedir que otros usuarios de su organización eliminen o modifiquen por error recursos esenciales. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../resource-group-lock-resources.md).
+La sección **Bloqueos** permite bloquear una suscripción, un grupo de recursos o un recurso para evitar que otros usuarios de la organización eliminen o modifiquen por error recursos críticos. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../resource-group-lock-resources.md).
 
-La sección **Usuarios** del Portal de Azure ofrece compatibilidad con el control de acceso basado en roles (RBAC) con el fin de que las organizaciones satisfagan sus requisitos de administración de acceso de forma simple y precisa. Para obtener más información, consulte [Control de acceso basado en roles en el Portal de Azure](../active-directory/role-based-access-control-configure.md).
+La sección **Usuarios** ofrece compatibilidad con el control de acceso basado en roles (RBAC) en el Portal de Azure pata ayudar a las organizaciones a satisfacer sus requisitos de administración de acceso de forma simple y precisa. Para más información, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
 
-Haga clic en **Exportar plantilla** para generar y exportar una plantilla de recursos implementados para futuras implementaciones. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con las plantillas de Azure Resource Manager](../resource-group-template-deploy.md).
+Haga clic en **Exportar plantilla** para generar y exportar una plantilla de los recursos implementados para futuras implementaciones. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../resource-group-template-deploy.md).
 
 ## Configuración predeterminada del servidor Redis
 
@@ -305,9 +315,9 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 >  
 >Es posible configurar aquellos valores que permitan esta opción, como **max-memory-policy**, a través del Portal de Azure o las herramientas de administración de la línea de comandos como la CLI de Azure o PowerShell.
 
-|Configuración|Valor predeterminado|Descripción|
+|Configuración|Valor predeterminado|Description|
 |---|---|---|
-|bases de datos|16|El número de bases de datos predeterminado es 16, pero puede configurar otro número en función del plan de tarifa.<sup>1</sup> La base de datos predeterminada es DB 0. Se puede seleccionar otra diferente por conexión mediante `connection.GetDatabase(dbid)`, donde dbid es un número entre `0` y `databases - 1`.|
+|bases de datos|16|El número predeterminado de bases de datos es 16, pero se puede configurar otro número en función del plan de tarifa.<sup>1</sup> La base de datos predeterminada es DB 0, pero se puede seleccionar otra por conexión mediante `connection.GetDatabase(dbid)`, donde dbid es un número entre `0` y `databases - 1`.|
 |maxclients|Depende del plan de tarifa<sup>2</sup>|Se trata del número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cerrará todas las nuevas conexiones y enviará un error de "número máximo de clientes alcanzado".|
 |maxmemory-policy|volatile-lru|Directiva Maxmemory es la opción que configura el modo en que Redis seleccionará lo que se debe quitar cuando se alcanza el valor de maxmemory (el tamaño de la oferta de memoria caché que seleccionó al crear la memoria caché). Con Caché en Redis de Azure la opción predeterminada es volatile-lru, que quita las claves con una fecha de expiración definida mediante un algoritmo LRU. Esta opción puede configurarse en el Portal de Azure. Para más información, vea [Maxmemory-policy y maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Los algoritmos LRU y TTL mínimo no son precisos sino aproximados (con el fin de ahorrar memoria), para que también pueda seleccionar el tamaño de muestra para comprobar. Por ejemplo, Redis comprobará de manera predeterminada tres claves y seleccionará la usada menos recientemente.|
@@ -315,7 +325,7 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 |lua-event-limit|500|Se trata del tamaño máximo de la cola de eventos de script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para más información, vea [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-<a name="databases"></a> <sup>1</sup>El límite de `databases` es diferente para cada plan de tarifa de Caché en Redis de Azure, y se puede establecer al crear la memoria caché. Si no se especifica la configuración de `databases` al crear la memoria caché, el valor predeterminado es 16.
+<a name="databases"></a> <sup>1</sup>El límite de `databases` es diferente para cada plan de tarifa de Caché en Redis de Azure y se puede establecer al crear la memoria caché. Si no se especifica la configuración de `databases` al crear la memoria caché, el valor predeterminado es 16.
 
 -	Cachés Basic y Standard
 	-	Memoria caché C0 (250 MB): hasta 16 bases de datos
@@ -330,10 +340,10 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 	-	P2 (13 GB - 130 GB): hasta 32 bases de datos
 	-	P3 (26 GB - 260 GB): hasta 48 bases de datos
 	-	P4 (53 GB - 530 GB): hasta 64 bases de datos
-	-   Todas las cachés premium con clúster de Redis habilitado: el clúster de Redis solo admite el uso de la base de datos 0 con el fin de que el límite `databases` para cualquier caché premium con clúster de Redis habilitado sea 1; el comando [Select](http://redis.io/commands/select) no se admite. Para más información, consulte [¿Es necesario realizar algún cambio en mi aplicación cliente para usar la agrupación en clústeres?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+	-   Todas las memorias caché premium con clúster de Redis habilitado: el clúster de Redis solo admite el uso de la base de datos 0 con el fin de que el límite `databases` para cualquier caché premium con clúster de Redis habilitado sea 1; el comando [Select](http://redis.io/commands/select) no se admite. Para más información, consulte [Configuración de Caché en Redis de Azure](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 
->[AZURE.NOTE] La configuración `databases` solo puede establecerse al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché con PowerShell, consulte [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+>[AZURE.NOTE] El ajuste `databases` solo se puede configurar al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché mediante PowerShell, consulte [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 
 
 <a name="maxclients"></a> <sup>2</sup>`maxclients` es diferente para cada plan de tarifa de Caché en Redis de Azure.
@@ -376,7 +386,7 @@ Puede emitir comandos de forma segura para sus instancias de Caché en Redis de 
 >
 >-	[Red virtual](cache-how-to-premium-vnet.md): cuando la memoria caché forma parte de una red virtual, solo los clientes de la red virtual pueden tener acceso a la memoria caché. Dado que la Consola de Redis usa al cliente de redis-cli.exe hospedado en máquinas virtuales que no forman parte de su red virtual, no se puede conectar a su memoria caché.
 >-	[Agrupación en clústeres](cache-how-to-premium-clustering.md): la Consola de Redis usa el cliente de redis-cli.exe que no es compatible con la agrupación en clústeres en este momento. La utilidad redis-cli de la rama [inestable](http://redis.io/download) del repositorio de Redis en GitHub implementa compatibilidad básica cuando se inicia con el conmutador `-c`. Para más información, vea [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [http://redis.io](http://redis.io) en el [Tutorial del clúster de Redis](http://redis.io/topics/cluster-tutorial).
->-	La Consola de Redis realiza una nueva conexión a la base de datos 0 cada vez que envía un comando. No se puede utilizar el comando `SELECT` para seleccionar otra base de datos, ya que se restablece a 0 con cada comando. Para obtener información sobre cómo ejecutar comandos de Redis, además de cambiar a otra base de datos, consulte [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
+>-	La Consola de Redis realiza una nueva conexión a la base de datos 0 cada vez que envía un comando. No se puede utilizar el comando `SELECT` para seleccionar otra base de datos, ya que se restablece a 0 con cada comando. Para obtener información acerca de cómo ejecutar comandos de Redis, incluyendo el cambio de base de datos, consulte [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
 Para el acceso a la Consola de Redis, haga clic en **Consola** desde la hoja **Caché en Redis**.
 
@@ -390,13 +400,13 @@ Para obtener una lista de los comandos de Redis deshabilitados para Caché en Re
 
 ## Traslado de la memoria caché a una nueva suscripción
 
-Puede trasladar la memoria caché a una nueva suscripción haciendo clic en **Mover**.
+Para mover la memoria caché a una nueva suscripción, haga clic en **Mover**.
 
 ![Traslado de Caché en Redis](./media/cache-configure/redis-cache-move.png)
 
-Para obtener información sobre cómo trasladar recursos de un grupo de recursos a otro y de una suscripción a otra, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+Para obtener información acerca de cómo mover recursos de un grupo de recursos a otro y de una suscripción a otra, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
 
 ## Pasos siguientes
 -	Para más información sobre cómo trabajar con los comandos de Redis, vea [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

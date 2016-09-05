@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -26,10 +26,10 @@
 Desea tener un ejemplo de código completo de una manera eficaz para capturar y notificar información de un evento extendido.
 
 
-En Microsoft SQL Server, el [destino de archivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) se usa para almacenar los resultados de un evento en un archivo del disco duro local. Sin embargo, esos archivos no están disponibles para Base de datos SQL de Azure. En su lugar, usamos el servicio de Almacenamiento de Azure para admitir el destino de archivo de evento.
+En Microsoft SQL Server, el [destino de archivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) se usa para almacenar las salidas de evento en un archivo del disco duro local. Sin embargo, esos archivos no están disponibles para Base de datos SQL de Azure. En su lugar, usamos el servicio de Almacenamiento de Azure para admitir el destino de archivo de evento.
 
 
-Este tema presenta un ejemplo de código de dos fases:
+En este tema se presenta un ejemplo de código de dos fases:
 
 
 - PowerShell, para crear un contenedor de Almacenamiento de Azure en la nube.
@@ -49,10 +49,9 @@ Este tema presenta un ejemplo de código de dos fases:
  - De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](sql-database-get-started.md) en cuestión de minutos.
 
 
-- SQL Server Management Studio (ssms.exe), la versión preliminar de agosto de 2015 o una versión posterior. Puede descargar la versión más reciente de ssms.exe desde:
+- SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. Puede descargar la versión más reciente de ssms.exe desde:
  - El tema titulado [Descarga de SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Un vínculo directo a la descarga.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recomienda actualizar periódicamente el archivo ssms.exe. En algunos casos, ssms.exe se actualizará de manera mensual.
 
 
 - Debe tener instalados los [módulos de Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
@@ -64,7 +63,7 @@ Este tema presenta un ejemplo de código de dos fases:
 
 Esta es la fase 1 del ejemplo de código de dos fases.
 
-El script comienza con comandos que realizan un limpieza después de una posible ejecución anterior y está diseñado para volverse a ejecutar.
+El script comienza con comandos que realizan una limpieza después de una posible ejecución anterior y se puede volver a ejecutar.
 
 
 
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -270,7 +269,7 @@ Anote los valores con nombre que el script de PowerShell imprime cuando finaliza
 - A continuación, en la fase 2, el siguiente script de Transact-SQL debe usar el contenedor.
 
 
-El script comienza con comandos que realizan un limpieza después de una posible ejecución anterior y está diseñado para volverse a ejecutar.
+El script comienza con comandos que realizan una limpieza después de una posible ejecución anterior y se puede volver a ejecutar.
 
 
 El script de PowerShell imprimió algunos valores con nombre cuando finalizó. Debe editar el script de Transact-SQL para que use esos valores. Busque **TODO** en el script de Transact-SQL para ubicar los puntos de edición.
@@ -569,7 +568,7 @@ El script Transact-SQL anterior utiliza la siguiente función de sistema para le
 
 En la siguiente página encontrará una explicación de las opciones avanzadas de la visualización de datos de eventos extendidos:
 
-- [Advanced Viewing of Target Data from Extended Events](http://msdn.microsoft.com/library/mt752502.aspx) (Visualización avanzada de datos de destino de eventos extendidos)
+- [Advanced Viewing of Target Data from Extended Events (Visualización avanzada de datos de destino de eventos extendidos)](http://msdn.microsoft.com/library/mt752502.aspx)
 
 &nbsp;
 
@@ -583,7 +582,7 @@ Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL 
 - Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Almacenamiento de Azure por un archivo simple, como **C:\\myeventdata.xel**. El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
 
 
-- No necesitaría ninguna clase de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
+- No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
 
 
 - En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** con una cadena de ruta de acceso completa, como **C:\\myfile.xel**.
@@ -610,4 +609,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

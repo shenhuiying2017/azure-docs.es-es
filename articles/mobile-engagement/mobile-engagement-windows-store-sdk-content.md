@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Contenido del SDK de Windows Universal Apps
@@ -47,4 +47,4 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementPageOverlay.cs` : La página de superposición responsable de agregar la IU en aplicación de Engagement Reach a su hijo.
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

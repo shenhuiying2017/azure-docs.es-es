@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/17/2016"
 	ms.author="luisca"/>
 
 # Obtención de recomendaciones por lotes
@@ -198,4 +198,4 @@ El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abrevi
 -	Solo se puede llamar a un único trabajo por lotes por cada suscripción.
 -	El tamaño de los archivos de entrada del trabajo por lotes no puede ser superior a 2 MB.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

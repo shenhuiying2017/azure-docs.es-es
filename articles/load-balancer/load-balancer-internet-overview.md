@@ -1,10 +1,10 @@
 
 <properties 
-   pageTitle="Información general sobre el equilibrador de carga accesible desde Internet | Microsoft Azure"
+   pageTitle="Información general sobre el equilibrador de carga accesible desde Internet | Microsoft Azure "
    description="Información general sobre el equilibrador de carga accesible desde Internet y sus características. Cómo funciona un Equilibrador de carga de Azure mediante máquinas virtuales y servicios en la nube."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Equilibrador de carga accesible desde Internet entre varias máquinas virtuales o servicios
@@ -48,4 +48,4 @@ Si la aplicación necesita mantener conexiones activas para servidores detrás d
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

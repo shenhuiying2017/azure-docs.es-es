@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # ¿Qué hago si se deshabilita mi suscripción de Azure?
 
-Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla. Su suscripción de Azure puede deshabilitarse por las razones siguientes:
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
+
+Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla. La suscripción de Azure puede deshabilitarse por las razones siguientes.
 
 ## Se ha alcanzado el límite de gasto
 
@@ -35,9 +37,9 @@ A continuación se indica cómo puede quitar el límite de gasto:
 3. Seleccione una suscripción.
 
 4. Si ve el mensaje *La suscripción alcanzó un límite de gastos y se deshabilitó para evitar cargos*, haga clic en él.
-	
+
 	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área ** Estado de la suscripción**.
-	
+
 5. Seleccione una de las siguientes opciones que sea adecuada para usted:
 
 |Opción|Efecto|
@@ -71,4 +73,6 @@ Si no puede acceder al portal, envíe la solicitud de soporte técnico desde el 
 
 Para más información, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

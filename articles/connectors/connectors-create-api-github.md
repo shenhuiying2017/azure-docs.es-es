@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector GitHub
 
-
-
-El conector GitHub se puede usar desde:
-
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flujo](http://flows.microsoft.com)
+GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece toda la funcionalidad de administración de código fuente (SCM) y control de revisiones distribuidas de Git, además de agregar sus propias características.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
@@ -40,13 +34,13 @@ El conector GitHub se puede usar como acción; tiene desencadenadores. Todos los
 ### Acciones de GitHub
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |[CreateIssue](connectors-create-api-github.md#createissue)|Crea un problema|
 ### Desencadenadores de GitHub
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Descripción|
+|Desencadenador | Description|
 |--- | ---|
 |Cuando se abre un problema|Se abre un problema|
 |Cuando se cierra un problema|Se cierra un problema|
@@ -54,11 +48,11 @@ Se pueden escuchar estos eventos:
 
 
 ## Creación de una conexión a GitHub
-Para crear aplicaciones lógicas con GitHub, primero debe crear una **conexión** y, a continuación, proporcionar los detalles de las siguientes propiedades:
+Para crear aplicaciones lógicas con GitHub, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
+|Propiedad| Obligatorio|Description|
 | ---|---|---|
-|Se necesita el cifrado de tokens|Sí|Proporcionar las credenciales de GitHub|
+|SWT|Sí|Proporcionar las credenciales de GitHub|
 Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a GitHub](../../includes/connectors-create-api-github.md)]
@@ -73,13 +67,13 @@ Crear un problema: se crea un problema
 
 ```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|repositoryOwner|cadena|yes|path|Ninguna|Propietario del repositorio|
-|repositoryName|cadena|yes|path|Ninguna|Nombre del repositorio|
+|repositoryOwner|string|yes|path|Ninguna|Propietario del repositorio|
+|repositoryName|string|yes|path|Ninguna|Nombre del repositorio|
 |issueBasicDetails| |yes|body|Ninguna|Detalles del problema|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -98,7 +92,7 @@ Cuando se abre un problema: se abre un problema
 ```GET: /trigger/issueOpened```
 
 No hay parámetros para esta llamada
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -117,7 +111,7 @@ Cuando se cierra un problema: se cierra un problema
 ```GET: /trigger/issueClosed```
 
 No hay parámetros para esta llamada
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -136,7 +130,7 @@ Cuando se asigna un problema: se asigna un problema
 ```GET: /trigger/issueAssigned```
 
 No hay parámetros para esta llamada
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -156,9 +150,9 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|título|cadena|Sí |
-|body|cadena|Sí |
-|assignee|cadena|Sí |
+|título|string|Sí |
+|body|string|Sí |
+|assignee|string|Sí |
 
 
 
@@ -167,16 +161,16 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|título|cadena|Sí |
-|body|cadena|Sí |
-|assignee|cadena|Sí |
-|número|cadena|No |
-|state|cadena|No |
-|created\_at|cadena|No |
-|repository\_url|cadena|No |
+|título|string|Sí |
+|body|string|Sí |
+|assignee|string|Sí |
+|número|string|No |
+|state|string|No |
+|created\_at|string|No |
+|repository\_url|string|No |
 
 
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

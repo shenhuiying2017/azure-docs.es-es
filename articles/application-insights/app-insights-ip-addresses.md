@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Direcciones IP que emplea Application Insights | Microsoft Azure"
-	description="Lista de direcciones estáticas" 
+	description="Excepciones para el firewall del servidor requeridas por Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Direcciones IP que emplea Application Insights
 
-El servicio [Application Insights de Visual Studio](app-insights-overview.md) utiliza un número de direcciones IP que le recomendamos que conozca, por ejemplo, si va a supervisar una aplicación que se ejecuta detrás de un firewall.
+El servicio [Application Insights de Visual Studio](app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
 
 > [AZURE.NOTE] Aunque estas direcciones son estáticas, es posible que tengamos que cambiarlas de vez en cuando.
 
@@ -46,11 +46,11 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 
 Esta lista puede cambiar de forma esporádica.
 
-## Disponibilidad
+## Pruebas de disponibilidad
 
-Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md).
+Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md). Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
 
-Abra los puertos 80 (http) y 443 (https).
+Abra los puertos 80 (http) y 443 (https) para asumir el tráfico entrante de estas direcciones:
 
 ```
 
@@ -184,4 +184,4 @@ Abra los puertos 80 (http) y 443 (https).
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-service-management"
    keywords=""/>
@@ -35,4 +35,4 @@ Actualización: diciembre de 2015
 
 [Este artículo se puede encontrar aquí](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

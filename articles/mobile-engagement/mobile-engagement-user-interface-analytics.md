@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Cómo analizar datos históricos acerca de la aplicación
@@ -70,7 +70,7 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 5.    Se trata de un minigráfico del historial de los valores de retención. Permite ver los valores del pasado para tener una visión amplia de cómo ha evolucionado.
 
 
-## Consulte también
+## Otras referencias
 
 - [Conceptos][Link 6]
 - [Guía de solución de problemas de servicios][Link 24]
@@ -170,4 +170,4 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

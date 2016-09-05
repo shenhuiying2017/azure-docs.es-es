@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos con la CLI de Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet con la CLI de Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -35,7 +35,7 @@ Aquí se tratará la secuencia de tareas individuales que debe realizarse para c
 
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes.
 
-- Configuración de direcciones IP front-end: contiene direcciones IP públicas para el tráfico de red entrante. 
+- Configuración de direcciones IP front-end: contiene direcciones IP públicas para el tráfico de red entrante.
 
 - Grupo de direcciones de back-end: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
 
@@ -63,7 +63,7 @@ Para más información sobre los componentes del equilibrador de carga con el Ad
 
 ### Paso 1
 
-Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
+Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
 
 	azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
 
@@ -82,7 +82,7 @@ Cree una dirección IP pública llamada *NRPPublicIP* para que la use un grupo d
 
 ## Crear un equilibrador de carga
 
-En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
+En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
 
 	azure network lb create NRPRG NRPlb eastus
 
@@ -123,9 +123,9 @@ Cree las reglas NAT.
 Parámetros:
 
 - **-g**: nombre del grupo de recursos
-- **-l**: nombre del equilibrador de carga 
+- **-l**: nombre del equilibrador de carga
 - **-n**: nombre del recurso, ya sea una regla NAT, una regla de equilibrador de carga o un sondeo
-- **-p**: protocolo (puede ser TCP o UDP)  
+- **-p**: protocolo (puede ser TCP o UDP)
 - **-f**: el puerto front-end que se usará (el comando probe usa -f para definir la ruta de acceso de sondeo)
 - **-b**: el puerto de back-end que se usará
 
@@ -145,7 +145,7 @@ Cree un sondeo de estado.
 
 **-g** -grupo de recursos **-l**: nombre del conjunto de equilibrador de carga **- n**: nombre del sondeo de estado **-p** -protocolo usado por sondeo de estado **i -**: intervalo de sondeo en segundos **- c**: número de comprobaciones
 
-### Paso 4
+### Paso 4
 
 Compruebe la configuración.
 
@@ -226,10 +226,10 @@ Parámetros:
 
 - **-g**: nombre del grupo de recursos
 - **-n**: nombre del recurso de NIC
-- **--subnet-name**: nombre de la subred 
+- **--subnet-name**: nombre de la subred
 - **--subnet-vnet-name**: nombre de la red virtual
-- **-d**: el Id. del recurso del grupo de back-end. Comienza con /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool> 
-- **-e**: el Id. de la regla NAT que se asociará con el recurso de NIC. Comienza con /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-d**: id. del grupo de recursos back-end. Comienza por /subscription/{subscriptionID/resourcegroups/<nombre-del-grupo-de-recursos>/providers/Microsoft.Network/loadbalancers/<nombre-del-equilibrador-de-carga>/backendaddresspools/<nombre-del-grupo-de-back-end>
+- **-e**: id. de la regla NAT que se asociará al recurso NIC. Empieza por /subscriptions/####################################/resourceGroups/<nombre-del-grupo-de-recursos>/providers/Microsoft.Network/loadBalancers/<nombre-del-equilibrador-de-carga>/inboundNatRules/<nombre-de-la-regla-NAT>
 
 
 Resultado esperado:
@@ -295,7 +295,7 @@ El resultado será el siguiente:
 
 Como la NIC *lb-nic1-be* está asociada con la regla NAT *rdp1*, es posible conectarse a *web1* con RDP a través del puerto 3441 en el equilibrador de carga.
 
-### Paso 4
+### Paso 4
 
 Cree una máquina virtual llamada *web2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 
@@ -328,4 +328,4 @@ donde **nrprg** es el grupo de recursos y **nrplb** el nombre del equilibrador d
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="MehrdadMzfr" />
 
 #Integración de Engagement en iOS
@@ -32,21 +32,18 @@ Los siguientes pasos son suficientes para activar el informe de los registros ne
 
 ##Incrustación del SDK de Engagement en su proyecto de iOS
 
-Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj).
-Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
+Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj). Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
 
 Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Fases de compilación"** en el menú **"Enlace binario con bibliotecas"** y agregue estos marcos:
 
-> -   `AdSupport.framework` - configure el vínculo como `Optional`
+> -   `AdSupport.framework`- configure el vínculo como `Optional`
 > -   `SystemConfiguration.framework`
 > -   `CoreTelephony.framework`
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-<br\>
-
-> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar \<ios-sdk-engagement-idfa\> para cumplir con la nueva directiva de Apple con respecto a este identificador.
+> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar <ios-sdk-engagement-idfa> para cumplir con la nueva directiva de Apple con respecto a este identificador.
 
 ##Inicializar el SDK de Engagement
 
@@ -210,4 +207,4 @@ El siguiente ejemplo de `Settings.bundle` muestra el proceso de implementación:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

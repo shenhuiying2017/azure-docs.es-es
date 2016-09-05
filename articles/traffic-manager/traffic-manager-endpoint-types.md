@@ -3,7 +3,7 @@
    description="En este artículo, se explican los diferentes tipos de puntos de conexión que pueden utilizarse con el Administrador de tráfico de Azure."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Puntos de conexión del Administrador de tráfico
 
@@ -144,4 +144,4 @@ En el caso de las aplicaciones web, los puntos de conexión de Azure del Adminis
 
 - Conozca los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

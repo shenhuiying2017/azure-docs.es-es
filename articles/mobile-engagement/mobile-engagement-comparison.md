@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Comparación de Azure Mobile Engagement con otros servicios similares de Azure
@@ -44,7 +44,7 @@ Al desglosar esta definición, tenemos las siguientes características clave que
  
 Con este conjunto de características diferenciadoras en la mano, esta es la comparación entre la nuestra y otras ofertas aparentemente similares de Azure; tenga en cuenta que el artículo no hace una comparación de las características, sino que usa un enfoque basado en escenarios para definir qué producto funciona mejor:
  
-1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) es la solución móvil de DevOps de Microsoft. Con ella, podrá distribuir compilaciones a evaluadores de la versión beta, recopilar datos de bloqueo y obtener comentarios de los usuarios. También se integra en Visual Studio Team Services, lo que facilita las implementaciones de compilaciones y la integración de elementos de trabajo. 
+1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) es la solución móvil de DevOps de Microsoft. Con ella, podrá distribuir compilaciones a evaluadores de la versión beta, recopilar datos de bloqueo y obtener comentarios de los usuarios. También se integra en Visual Studio Team Services, lo que facilita las implementaciones de compilaciones y la integración de elementos de trabajo.
 	
 	Aquí el foco está en DevOps y en la recopilación de datos de análisis de rendimiento acerca de las aplicaciones móviles. Podría terminar integrando tanto HockeyApps como Mobile Engagement en su aplicación y no sería inusual porque, aunque hay cierta superposición en los datos recopilados, el foco principal de los productos es diferente y ayudan a lograr objetivos diferentes.
 
@@ -56,7 +56,7 @@ Con este conjunto de características diferenciadoras en la mano, esta es la com
 
 Observemos algunos escenarios:
 
-1.	Tim forma parte del equipo de marketing digital de la tienda de Adventure Works, que publica aplicaciones móviles para usuarios. El objetivo de Tim es asegurarse de que los usuarios que descargan sus aplicaciones móviles seguirán usándola y con frecuencia. Esto no solo aumenta la lealtad a la marca por parte de los usuarios de la aplicación, sino que también aumenta monetización cuando los usuarios de la aplicación realizan compras mediante la aplicación móvil. Para ello, Tim tendrá que enviar notificaciones dirigidas a los usuarios de la aplicación, que les resulten útiles, para fomentar que abran la aplicación y vuelvan a consultarla con frecuencia. Aquí es cuando Mobile Engagement le resultará útil a Tim. 
+1.	Tim forma parte del equipo de marketing digital de la tienda de Adventure Works, que publica aplicaciones móviles para usuarios. El objetivo de Tim es asegurarse de que los usuarios que descargan sus aplicaciones móviles seguirán usándola y con frecuencia. Esto no solo aumenta la lealtad a la marca por parte de los usuarios de la aplicación, sino que también aumenta la monetización cuando los usuarios de la aplicación realizan compras mediante la aplicación móvil. Para ello, Tim tendrá que enviar notificaciones dirigidas a los usuarios de la aplicación, que les resulten útiles, para fomentar que abran la aplicación y vuelvan a consultarla con frecuencia. Aquí es cuando Mobile Engagement le resultará útil a Tim.
 
 2.	Joann forma parte del equipo de desarrollo de aplicaciones móviles en Adventure Works y está buscando un producto que registre los detalles acerca de los bloqueos y las excepciones, y que obtenga telemetría sobre el rendimiento de una aplicación. HockeyApp puede ayudar en esto a Joann. Joann podría integrar en la misma aplicación HockeyApp para sus escenarios como desarrolladora y Azure Mobile Engagement para Tim para obtener lo mejor de ambas.
 
@@ -64,6 +64,6 @@ Observemos algunos escenarios:
  
 Resumiendo, el propósito de Mobile Engagement no es simplemente recopilar los análisis, no es "otro producto de análisis de Microsoft". Se encarga de enviar notificaciones push dirigidas y, para ello, recopilamos datos de análisis del comportamiento, pero el foco sigue estando en el envío de notificaciones push con más sentido para los usuarios de la aplicación, para que no lo consideren como correo no deseado.
 
-Para obtener más detalles, eche un vistazo en este [breve vídeo](mobile-engagement-overview.md) sobre Mobile Engagement en una breve descripción.
+Para obtener más detalles, eche un vistazo a este [corto vídeo](mobile-engagement-overview.md) donde se resume Mobile Engagement.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

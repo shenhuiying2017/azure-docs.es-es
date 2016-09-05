@@ -14,12 +14,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/16/2016"
+    ms.date="08/23/2016"
     ms.author="curtand"/>
 
 # ¿Qué es la licencia de Microsoft Azure Active Directory?
 
-##Descripción
+##Description
 Azure Active Directory (Azure AD) es la plataforma y la solución de identidad como un servicio de Microsoft. Azure AD se ofrece en distintas versiones técnicas o funcionales que van desde Azure AD Free, que se encuentra disponible con cualquier servicio de Microsoft como Office 365, Dynamics, Microsoft Intune y Azure (Azure AD no genera ningún gasto de consumo en este modo), hasta las versiones de pago de Azure AD como Enterprise Mobility Suite (EMS), Azure AD Premium y Basic y Azure Multi-Factor Authentication (MFA). Al igual que muchos de los servicios en línea de Microsoft, la mayoría de las versiones de pago de Azure AD se proporcionan a través de derechos por usuario, como ocurre en Office 365, Microsoft Intune y Azure AD. En estos casos, la compra de servicio se representa con una o varias suscripciones, y cada suscripción incluye un número de preventa de licencias en el inquilino. Los derechos de usuario se logran a través de la asignación de licencias, creando un vínculo entre el usuario y el producto, habilitando los componentes del servicio para el usuario y consumiendo una de las licencias de prepagadas.
 
 [Probar Azure AD Premium ahora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
@@ -52,7 +52,7 @@ Las características de Azure AD de pago dividen el alcance del directorio. Algu
 - Detección de aplicaciones de nube que se muestra en el Portal de Azure en Identidad.
 
 ###Asignación de licencias
-Cuando obtiene una suscripción, todo lo que tiene que hacer es configurar las capacidades de pago. El uso de características de pago de Azure AD requiere la distribución de licencias a las personas adecuadas. Por regla general, se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility Suite.
+Cuando obtiene una suscripción, todo lo que tiene que hacer es configurar las opciones de pago. El uso de características de pago de Azure AD requiere la distribución de licencias a las personas adecuadas. Por regla general, se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility Suite.
 
 Administrar qué usuarios del directorio deben tener una licencia es sencillo. Puede realizarse mediante la asignación a un grupo para crear reglas de asignación a través del portal de administración de Azure AD, o asignando licencias directamente a las personas adecuadas a través de un portal, PowerShell o API. Al asignar licencias a un grupo, se asignará una licencia a todos los miembros del grupo. Si se agregan usuarios o se quitan de un grupo, se asignarán a la licencia adecuada o se quitarán de ella. La asignación de grupo puede utilizar cualquier administración de grupo disponible para usted y que sea coherente con la asignación basada en grupo para las aplicaciones. Con ese enfoque, puede configurar reglas como que todos los usuarios del directorio se asignen automáticamente, garantizar que todas las personas con el puesto adecuado dispongan de licencia o incluso delegar la decisión a otros administradores de la organización.
 
@@ -126,7 +126,7 @@ Las extensiones de prueba para los clientes están disponibles como autoservicio
 
 ![Ampliación de una versión de prueba de licencia en el Portal de Office](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
-Los clientes también pueden solicitar una extensión de prueba enviando una solicitud de soporte técnico. Un administrador de clientes puede navegar a la [página de soporte técnico](http://aka.ms/extendAADtrial) del Portal de Office 365 (el acceso depende de los permisos para la página de soporte técnico de Office). En esta página, seleccione "Suscripciones y versiones de prueba" en Características y "Preguntas de prueba" en Síntoma. Por último, escriba la información sobre las circunstancias.
+Los clientes también pueden solicitar una extensión de prueba enviando una solicitud de soporte técnico. Un administrador de clientes puede navegar a la [página de soporte técnico](http://aka.ms/extendAADtrial) del Portal de Office 365 (el acceso depende de los permisos para la página de soporte técnico de Office). En esta página, seleccione "Subscriptions and Trials" (Suscripciones y versiones de prueba) en Características y "Trial questions" (Preguntas sobre versión de prueba) en Síntoma. Por último, escriba la información sobre las circunstancias.
 
 ![Ampliación de una versión de prueba de licencia mediante una solicitud de soporte técnico](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 
@@ -141,4 +141,4 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

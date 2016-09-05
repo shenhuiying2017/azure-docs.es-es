@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de la cuenta Microsoft
@@ -24,7 +24,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
 ## <a name="register-microsoft-account"> </a>Registro de la aplicación con la cuenta de Microsoft
 
-1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación con la cuenta Microsoft.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **URL**, que posteriormente utilizará para configurar la aplicación con su cuenta Microsoft.
 
 2. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
 
@@ -76,4 +76,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

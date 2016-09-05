@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Introducción a Azure Active Directory Identity Protection y Microsoft Graph
@@ -23,7 +23,7 @@ Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde s
 
 Hay tres pasos para acceder a los datos de Identity Protection a través de Microsoft Graph:
 
-1. Agregar una aplicación con un secreto de cliente. 
+1. Agregar una aplicación con un secreto de cliente.
 
 2. Use este secreto y otro tipo de información para autenticarse en Microsoft Graph, donde recibirá un token de autenticación.
 
@@ -39,7 +39,7 @@ Antes de comenzar, necesitará lo siguiente:
 ## Agregar una aplicación con un secreto de cliente
 
 
-1. [Inicie sesión](https://manage.windowsazure.com) como administrador en el Portal de Azure clásico. 
+1. [Inicie sesión](https://manage.windowsazure.com) como administrador en el Portal de Azure clásico.
 
 1. En el panel de navegación izquierdo,haga clic en **Active Directory**.
 
@@ -91,7 +91,7 @@ Ahora puede configurar la aplicación.
 ## Conceder a la aplicación permiso para usar la API
 
 
-1. En la página de la aplicación, en el menú de la parte superior, haga clic en **Configurar**. 
+1. En la página de la aplicación, en el menú de la parte superior, haga clic en **Configurar**.
 
 	![Creación de una aplicación](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -155,9 +155,9 @@ Para autenticarse, envíe una solicitud post a `https://login.microsoft.com` con
 
 - resource: “**https://graph.microsoft.com**”
 
-- client\_id: <your client ID>
+- client\_id: <su id. de cliente>
 
-- client\_secret: <your key>
+- client\_secret: <su clave>
 
 
 > [AZURE.NOTE] Debe proporcionar valores para los parámetros **client\_id** y **client\_secret**.
@@ -208,7 +208,7 @@ Este es el código de ejemplo para autenticar y llamar a la API mediante Powersh
 
 Enhorabuena, acaba de hacer la primera llamada a Microsoft Graph. Ahora puede consultar los eventos de riesgo de identidad y utilizar los datos cuando lo estime necesario.
 
-Para más información acerca de Microsoft Graph y cómo crear aplicaciones con la API Graph, consulte la [documentación](https://graph.microsoft.io/docs) y mucha más información en el [sitio web de Microsoft Graph](https://graph.microsoft.io/). Además, asegúrese de marcar la página [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root), que enumera todas las API de protección de identidad disponibles en Graph. A medida que se agreguen nuevas formas de trabajar con Identity Protection a través de la API, los verá en la página.
+Para obtener más información sobre Microsoft Graph y cómo crear aplicaciones con la API Graph, consulte la [documentación](https://graph.microsoft.io/docs) y muchos más detalles en el [sitio web de Microsoft Graph](https://graph.microsoft.io/). Además, asegúrese de guardar en sus favoritos la página de las [API de Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root), donde se enumeran todas las API de Identity Protection disponibles en Graph. A medida que se agreguen nuevas formas de trabajar con Identity Protection a través de la API, los verá en la página.
 
 
 ## Recursos adicionales
@@ -219,8 +219,8 @@ Para más información acerca de Microsoft Graph y cómo crear aplicaciones con 
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Overview of Microsoft Graph](https://graph.microsoft.io/docs) (Información general de Microsoft Graph)
+- [Overview of Microsoft Graph (Información general de Microsoft Graph)](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) (Raíz del servicio de Azure AD Identity Protection)
+- [Azure AD Identity Protection Service Root (Raíz del servicio de Azure AD Identity Protection)](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

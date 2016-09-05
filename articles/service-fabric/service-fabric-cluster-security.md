@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="chackdan"/>
 
 # Escenarios de seguridad de los clústeres de Service Fabric
 
-Un clúster de Service Fabric es un recurso que usted posee. Para evitar el acceso no autorizado al recurso, debe protegerlo, especialmente cuando se están ejecutando en él cargas de trabajo de producción. En este artículo se proporciona información general sobre los escenarios de seguridad de los clústeres que se ejecutan en Azure o de forma independiente, así como sobre las diversas tecnologías que se utilizan para implementar estos escenarios. Estos son los escenarios de seguridad de clúster:
+Un clúster de Service Fabric es un recurso que usted posee. Los clústeres siempre deben estar protegidos para evitar que usuarios no autorizados se conecten a su clúster, especialmente cuando en él se están ejecutando cargas de trabajo de producción. Aunque es posible crear un clúster no protegido, si lo hace, permitirá que cualquier usuario anónimo se conecte a él si expone los puntos de conexión de administración al Internet público.
+
+En este artículo se proporciona información general sobre los escenarios de seguridad de los clústeres que se ejecutan en Azure o de forma independiente, así como sobre las diversas tecnologías que se utilizan para implementar estos escenarios. Estos son los escenarios de seguridad de clúster:
 
 - Seguridad de nodo a nodo
 - Seguridad de cliente a nodo
@@ -35,7 +37,7 @@ Service Fabric usa certificados de servidor X.509 que se especifican como parte 
 
 La seguridad basada en certificados se configura al crear el clúster mediante el Portal de Azure, las plantillas de Azure Resource Manager o una plantilla JSON independiente. Puede especificar un certificado principal y uno secundario opcional que se utiliza para la sustitución del certificado. Los certificados principales y secundarios que especifique deben ser diferentes de los certificados de cliente de solo lectura y los de cliente de administración que determine para la [seguridad de cliente a nodo](#client-to-node-security).
 
-Para Azure, lea [Protección de clústeres de Service Fabric mediante certificados](service-fabric-secure-azure-cluster-with-certs.md) o [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para aprender a configurar la seguridad basada en certificados en un clúster.
+En el caso de Azure, lea [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para descubrir cómo configurar la seguridad de certificado en un clúster.
 
 Para Windows Server de modo independiente, lea [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md).
 
@@ -54,12 +56,12 @@ Los clústeres que se ejecutan en Azure o los independientes que se ejecutan en 
 
 Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Es decir, estos certificados se usan para el control de acceso basado en rol (RBAC) que se describen más adelante en este artículo.
 
-Para aprender a configurar la seguridad basada en certificados en un clúster de Azure, lea [Protección de clústeres de Service Fabric de Azure mediante certificados](service-fabric-secure-azure-cluster-with-certs.md) o [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+En el caso de Azure, lea [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para descubrir cómo configurar la seguridad de certificado en un clúster.
 
 Para Windows Server de modo independiente, lea [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md).
 
 ### Seguridad de Azure Active Directory (AAD) de cliente a nodo en Azure
-Los clústeres que se ejecutan en Azure también pueden proteger el acceso a los puntos de conexión de administración con Azure Active Directory (AAD). Consulte [Creación de un clúster de Service Fabric con Azure Active Directory para la autenticación de cliente](service-fabric-cluster-security-client-auth-with-aad.md) para información sobre cómo crear los artefactos de AAD necesarios, cómo rellenarlos durante la creación de los clústeres y cómo conectarse a estos clústeres posteriormente.
+Los clústeres que se ejecutan en Azure también pueden proteger el acceso a los puntos de conexión de administración con Azure Active Directory (AAD). Consulte [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obtener más información sobre cómo crear los artefactos de AAD necesarios, cómo rellenarlos durante la creación de clústeres y cómo conectar dichos clústeres después.
 
 ## Recomendaciones de seguridad
 Para los clústeres de Azure, se recomienda utilizar la seguridad de AAD para autenticar clientes y certificados para la seguridad de nodo a nodo.
@@ -104,23 +106,10 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 
 ## Pasos siguientes
 
-Aprender a configurar un clúster seguro:
-
-- [Protección de clústeres de Service Fabric de Azure mediante certificados](service-fabric-secure-azure-cluster-with-certs.md)
-
-Cuando el clúster esté configurado, obtenga sobre las actualizaciones del clúster:
-
-- [Proceso de actualización del clúster de Service Fabric y expectativas](service-fabric-cluster-upgrade.md)
-- [Agregar o quitar certificados para un clúster de Service Fabric de Azure](service-fabric-cluster-security-update-certs-azure.md)
-
-Más información sobre la seguridad de las aplicaciones:
-
-- [Seguridad de las aplicaciones y RunAs](service-fabric-application-runas-security.md)
-
-- [Comunicaciones seguras del servicio](service-fabric-reliable-services-secure-communication.md)
+En este artículo se proporciona información conceptual sobre la seguridad de los clústeres. Después, [cree un clúster de Azure mediante una plantilla de Resource Manager](service-fabric-cluster-creation-via-arm.md) o a través del [Portal de Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

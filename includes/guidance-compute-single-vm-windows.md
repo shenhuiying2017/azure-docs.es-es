@@ -171,7 +171,7 @@ El script hace referencia a los siguientes archivos de parámetros para compilar
   }
 	```
 
-- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Este archivo contiene las definiciones de NSG y reglas de NSG. El parámetro `name` del bloque `virtualNetworkSettings` especifica la red virtual a la que está asociada el NSG. El parámetro `subnets` del bloque `networkSecurityGroupSettings` identifica las subredes que aplican las reglas de NSG en la red virtual. Estos elementos se deben definir en el archivo **virtualNetwork.parameters.json**.
+- **[networkSecurityGroups.parameters.json][nsg-parameters]**. Este archivo contiene las definiciones de NSG y reglas de NSG. El parámetro `name` del bloque `virtualNetworkSettings` especifica la red virtual a la que está asociada el NSG. El parámetro `subnets` del bloque `networkSecurityGroupSettings` identifica las subredes que aplican las reglas de NSG en la red virtual. Estos elementos se deben definir en el archivo **virtualNetwork.parameters.json**.
 
 	Tenga en cuenta que la regla de seguridad predeterminada que se muestra en el ejemplo permite al usuario conectarse a la máquina virtual a través de una conexión a Escritorio remoto (RDP). Puede abrir puertos adicionales (o denegar el acceso a través de puertos específicos) si agrega más elementos a la matriz `securityRules`.
 
@@ -313,7 +313,7 @@ Para ejecutar el script que implementa la solución:
 
 	- [virtualNetwork.parameters.json][vnet-parameters]
 
-	- [networkSecurityGroup.parameters.json][nsg-parameters]
+	- [networkSecurityGroups.parameters.json][nsg-parameters]
 
 	- [virtualMachineParameters.json][vm-parameters]
 
@@ -386,11 +386,11 @@ Para que se aplique el [Acuerdo de Nivel de Servicio para máquinas virtuales][v
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/es-ES/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
-[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura de una única máquina virtual Windows en Azure"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

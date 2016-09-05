@@ -3,14 +3,17 @@
    description="Este artículo le ayudará a trabajar con sus perfiles del Administrador de tráfico."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Deshabilitación, habilitación o eliminación de un perfil
 
@@ -35,7 +38,7 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 
 1. Asegúrese de que el registro de recursos DNS del servidor DNS de Internet ya no usa un registro de recursos CNAME que señale al nombre de dominio del perfil del Administrador de tráfico.
-1. Seleccione el perfil que desea eliminar. Para seleccionar el perfil, en la página Administrador de tráfico, resalte el perfil 
+1. Seleccione el perfil que desea eliminar. Para seleccionar el perfil, en la página Administrador de tráfico, resalte el perfil
 1. haciendo clic en la columna situada junto al perfil. No haga clic en el nombre del perfil ni en la flecha que aparece junto al nombre, ya que esto le llevará a la página de configuración del perfil.
 1. Después de seleccionar el perfil, haga clic en Eliminar en la parte inferior de la página.
 
@@ -51,4 +54,4 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

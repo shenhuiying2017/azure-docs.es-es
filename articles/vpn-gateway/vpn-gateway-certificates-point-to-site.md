@@ -42,7 +42,7 @@ Makecert es una forma de crear un certificado autofirmado. Los siguientes pasos 
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. El certificado autofirmado se utiliza para crear certificados de cliente. Al cargar el archivo .cer para el certificado autofirmado como parte de la configuración de P2S, le está indicando a Azure que confíe en los certificados que usan los equipos cliente.<br><br>Cualquier equipo con un certificado de cliente instalado que también esté configurado con los valores de cliente de VPN adecuados puede conectarse a la red virtual mediante P2S. Por ese motivo, querrá asegurarse de que los certificados de cliente solo se generen e instalen cuando sea adecuado, y que este certificado autofirmado tenga una copia de seguridad y esté almacenado de forma seguridad.
+4. El certificado autofirmado se utiliza para crear certificados de cliente. Al cargar el archivo .cer para el certificado autofirmado como parte de la configuración de P2S, le está indicando a Azure que confíe en los certificados que usan los equipos cliente.<br><br>Cualquier equipo con un certificado de cliente instalado que también esté configurado con los valores de cliente de VPN adecuados puede conectarse a la red virtual mediante P2S. Por ese motivo, querrá asegurarse de que los certificados de cliente solo se generen e instalen cuando sea adecuado, y que este certificado autofirmado tenga una copia de seguridad y esté almacenado de forma seguridad. Si es necesario, más adelante puede instalar este certificado autofirmado en otro equipo y generar más certificados de cliente o exportar el archivo .cer.
  
 
 ## Creación e instalación de certificados de cliente
@@ -98,4 +98,4 @@ Continúe con la configuración de punto a sitio.
 - Para ver los pasos del modelo de implementación de **Resource Manager**, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 - Para ver los pasos del modelo de implementación **clásica**, consulte [Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico](vpn-gateway-point-to-site-create.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

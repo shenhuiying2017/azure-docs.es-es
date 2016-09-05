@@ -39,7 +39,7 @@ En este artículo se ofrecen instrucciones generales para usar un nombre de domi
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
-## Incorporación de un registro DNS al dominio personalizado
+## Incorporación de un registro DNS para el dominio personalizado
 
 > [AZURE.NOTE] Si ha adquirido el dominio a través de Aplicaciones web del Servicio de aplicaciones de Azure, omita los pasos siguientes y consulte el paso final del artículo [Comprar dominio para Aplicaciones web](custom-dns-web-site-buydomains-web-app.md).
 
@@ -55,7 +55,7 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 
 1. Aunque los detalles varían en función del registrador que se esté utilizando, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**,) *hasta* el nombre de dominio del Administrador de tráfico (**contoso.trafficmanager.net**) usado para la aplicación web.
 
-> [AZURE.NOTE] Si ya hay un registro en uso y necesita enlazar las aplicaciones de forma preventiva, asigne **awverify.contoso.com** a **contoso.trafficmanager.net**.
+> [AZURE.NOTE] Como alternativa, si ya hay un registro en uso y necesita enlazar las aplicaciones de forma preventiva, cree un registro TXT para asignar **awverify.contoso.com** a **contoso.trafficmanager.net**.
 
 1. Una vez que haya terminado de agregar o modificar registros DNS en su registrador, guarde los cambios.
 
@@ -72,4 +72,4 @@ Para más información, vea el [Centro para desarrolladores de Node.js](/develop
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

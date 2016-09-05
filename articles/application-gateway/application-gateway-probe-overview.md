@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace" />
 
 # Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
@@ -34,7 +34,7 @@ Por ejemplo: configura la puerta de enlace de aplicaciones para usar los servido
 
 Si la comprobación de sondeo predeterminado da error en el servidor A, la puerta de enlace de aplicaciones lo elimina de su grupo de back-end y el tráfico de red deja de fluir a este servidor. El sondeo predeterminado sigue comprobando el servidor A cada 30 segundos. Cuando el servidor A responde correctamente a una solicitud de un sondeo de estado predeterminado, se considera que está en buen estado y se agrega de nuevo al grupo de back-end; el tráfico comienza a fluir de nuevo a él.
 
-El sondeo predeterminado solo examina http://127.0.0.1:<port> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe a continuación.
+El sondeo predeterminado solo examina http://127.0.0.1:\<port> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe a continuación.
 
 ### Configuración de sondeo de estado predeterminado
 
@@ -67,4 +67,4 @@ Los sondeos personalizados permiten un control más específico sobre la supervi
 
 Como ya ha aprendido sobre la supervisión de estado de la puerta de enlace de aplicaciones, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) para Azure Resource Manager o un [sondeo de estado personalizado](application-gateway-create-probe-classic-ps.md) para el modelo de implementación clásica de Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

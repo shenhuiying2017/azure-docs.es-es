@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Solución de problemas de compatibilidad de bases de datos de SQL Server mediante SQL Server Management Studio antes de la migración a la Base de datos SQL
@@ -47,4 +47,4 @@ Use SQL Server Management Studio para corregir los problemas de compatibilidad c
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

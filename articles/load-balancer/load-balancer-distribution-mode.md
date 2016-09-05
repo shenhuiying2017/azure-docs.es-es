@@ -3,7 +3,7 @@
    description="Cómo configurar el modo de distribución del equilibrador de carga de Azure para admitir la afinidad de IP de origen"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Modo de distribución del equilibrador de carga (afinidad de IP de origen)
@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

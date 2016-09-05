@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Uso de una cuenta de Office 365 con una suscripción de Azure y viceversa
@@ -22,12 +22,14 @@ Escenario: Ya dispone de una suscripción de Office 365 y desea obtener una susc
 
 > [AZURE.NOTE] Este artículo no es aplicable para clientes del contrato Enterprise (EA).
 
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
+
 ## Guía rápida
 
 - Si ya tiene una suscripción de Office 365 y desea suscribirse a Azure, use la opción **Inicie sesión con su cuenta de organización** y complete el registro en Azure con su cuenta de Office 365. Consulte los [pasos detallados](#s1).
 - Si ya tiene una suscripción de Azure y desea obtener una suscripción de Office 365, inicie sesión en Office 365 con su cuenta de Azure y complete los pasos de registro. Una vez completados, la suscripción de Office 365 se agrega a la misma cuenta de Azure Active Directory a la que pertenece su suscripción de Azure. Consulte los [pasos detallados](#s2).
 
->[AZURE.NOTE] Para obtener una suscripción de Office 365, la cuenta que use para iniciar sesión debe ser miembro del rol de directorio de administrador global o de administrador de facturación en el inquilino de Azure AD. [Aprenda a identificar el rol en Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory).
+>[AZURE.NOTE] Para obtener una suscripción de Office 365, la cuenta que use para iniciar sesión debe ser miembro del rol de directorio de administrador global o de administrador de facturación en el inquilino de Azure AD. [Aprenda a identificar el rol en Azure Active Directory.](#how-to-know-your-role-in-your-azure-active-directory)
 
 Para comprender qué ocurre cuando agrega una suscripción a una cuenta, consulte la [información de contexto](#background-information) más adelante en este artículo.
 
@@ -80,7 +82,7 @@ Listo. En el portal de Azure, verá que aparecen los mismos usuarios en el mismo
 
 En este escenario, Kelley Wall es una usuaria que tiene una suscripción de Azure con la cuenta admin@contoso.onmicrosoft.com. Kelley desea suscribirse a Office 365 y usar el mismo directorio que ya tiene con Azure.
 
->[AZURE.NOTE] Para obtener una suscripción de Office 365, la cuenta que use para iniciar sesión debe ser miembro del rol de directorio de administrador global o de administrador de facturación en el inquilino de Azure AD. [Aprenda a identificar el rol en Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory).
+>[AZURE.NOTE] Para obtener una suscripción de Office 365, la cuenta que use para iniciar sesión debe ser miembro del rol de directorio de administrador global o de administrador de facturación en el inquilino de Azure AD. [Aprenda a identificar el rol en Azure Active Directory.](#how-to-know-your-role-in-your-azure-active-directory)
 
 ![azure-portal-settings-subscription](./media/billing-use-existing-office-365-account-azure-subscription/10-azure-portal-settings-subscription.png)
 
@@ -88,7 +90,7 @@ En este escenario, Kelley Wall es una usuaria que tiene una suscripción de Azur
 
 Para suscribirse a Office 365, siga estos pasos:
 
-1. Vaya a la [página de producto de Office 365](https://products.office.com/business) y luego seleccione un plan que se ajuste a sus necesidades.
+1. Vaya a la [página de productos de Office 365](https://products.office.com/business) y luego seleccione un plan que se ajuste a sus necesidades.
 2. Después de seleccionar el plan, se muestra la página siguiente. No rellene el formulario. Haga clic en **Iniciar sesión** en la parte superior derecha de la página.
 
 	![office-365-trial-page](./media/billing-use-existing-office-365-account-azure-subscription/12-office-365-trial-page.png)
@@ -137,7 +139,7 @@ Office 365 y Azure usan el servicio Azure Active Directory (AAD) para administra
 
 ![background-information](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
 
-Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+Para obtener más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 **Notas:**
 
@@ -145,6 +147,8 @@ Para más información, consulte [Asociación de las suscripciones de Azure con 
 - Las suscripciones de Office 365 pertenecen al propio directorio. Los usuarios del directorio pueden trabajar con estas suscripciones si disponen de los permisos necesarios.
 
 ##Pasos siguientes
-Hay un escenario relacionado donde adquirió las suscripciones de Azure y Office 365 por separado en el pasado y desea poder acceder al inquilino de Office 365 desde la suscripción de Azure. Para aprender cómo realizar esta tarea, consulte [Asociación del inquilino de Office 365 con una suscripción de Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+Hay un escenario relacionado donde adquirió las suscripciones de Azure y Office 365 por separado en el pasado y desea tener acceso al inquilino de Office 365 desde la suscripción de Azure. Para aprender a realizar esta tarea, consulte [Asociación del inquilino de Office 365 con una suscripción de Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

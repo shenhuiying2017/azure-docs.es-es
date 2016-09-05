@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de análisis, supervisión, segmentación y panel
@@ -36,7 +36,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo reúne Azu
 - La mejor manera de probar la información que falta en la supervisión es configurar un dispositivo de prueba y desinstalar o volver a instalar la aplicación en el dispositivo de prueba.
 - La información se actualiza cada 24 horas para analizarla, segmentarla o para los paneles.
 - Es posible que la información de los segmentos nuevos no se muestre hasta 24 horas después de que se creen, aunque si el segmento se base en información anterior.
-- Filtrar los datos de análisis de la interfaz de usuario mostrará todos los ejemplos de este tipo, independientemente de la versión de la aplicación (p. ej., "se bloquea" filtrado por nombre mostrará desde las versiones 1 y 2 de la aplicación).
+- Filtrar los datos de análisis de la interfaz de usuario mostrará todos los ejemplos de este tipo, independientemente de la versión de la aplicación (p. ej., "se bloquea" filtrado por nombre mostrará desde las versiones 1 y 2 de la aplicación).
 - El período de tiempo de análisis se basa en la fecha de la configuración de dispositivo de los usuarios, por lo que un usuario cuyo teléfono tiene la fecha establecida incorrectamente podría aparecer en el período de tiempo incorrecto.
 - No se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
 
@@ -49,7 +49,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo reúne Azu
 
 ### Causas
 
-- Algunos elementos integrados y etiquetas de información de aplicación solo están disponibles como criterios de inserción, pero puede que no se agreguen a un segmento o no estén visibles desde el análisis, la supervisión o el panel. 
+- Algunos elementos integrados y etiquetas de información de aplicación solo están disponibles como criterios de inserción, pero puede que no se agreguen a un segmento o no estén visibles desde el análisis, la supervisión o el panel.
 - Para los elementos integrados y las etiquetas de información de aplicación que no se pueden agregar a un segmento, necesitará configurar la lista de criterios de destinatarios en cada campaña para realizar la misma función que la orientación en función de un segmento.
 - Consulte los menús contextuales en las secciones de análisis, supervisión, segmentación y paneles de la interfaz de usuario de Azure Mobile Engagement para obtener más ayuda e información práctica.
 
@@ -61,8 +61,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo reúne Azu
 ### Causas
 
 - Para solucionar problemas de bloqueos de aplicaciones vistos en el análisis, la supervisión o el panel, asegúrese de comprobar las notas de la versión para obtener información sobre problemas conocidos con las versiones anteriores del SDK.
-- Para solucionar más bloqueos de la aplicación, realice un evento desde un dispositivo de prueba con la aplicación instalada y buscar el identificador del dispositivo en la sección "Monitor – eventos" de la interfaz de usuario de Azure Mobile Engagement. Después, realice el evento que causa que la aplicación se bloquee y busque información adicional en la sección "Supervisión – Bloqueo" de la interfaz de usuario de Azure Mobile Engagement. 
+- Para solucionar más bloqueos de la aplicación, realice un evento desde un dispositivo de prueba con la aplicación instalada y buscar el identificador del dispositivo en la sección "Monitor – eventos" de la interfaz de usuario de Azure Mobile Engagement. Después, realice el evento que causa que la aplicación se bloquee y busque información adicional en la sección "Supervisión – Bloqueo" de la interfaz de usuario de Azure Mobile Engagement.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

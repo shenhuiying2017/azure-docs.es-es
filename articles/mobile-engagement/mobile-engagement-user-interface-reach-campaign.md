@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -46,44 +46,44 @@ Puede utilizar el menú desplegable de idiomas para enviar una versión diferent
 - Prueba: se puede enviar a cada idioma a la vez
  
 ### Idiomas admitidos
-- Árabe (ar) 
-- Búlgaro (bg) 
-- Catalán (ca) 
-- Chino (zh) 
-- Croata (hr) 
-- Checo (cs) 
-- Danés (da) 
-- Neerlandés (Países Bajos) 
-- Español (es) 
-- Finés (fi) 
-- Francés (fr) 
-- Alemán (de) 
-- Griego (el) 
-- Hebreo (he) 
-- Hindi (hi) 
-- Húngaro (hu) 
-- Indonesio (id) 
-- Italiano (it) 
-- Japonés (ja) 
-- Coreano (ko) 
-- Letón (lv) 
-- Lituano (lt) 
-- Malayo (macroidioma) (ms) 
-- Noruego Bokmål (nb) 
-- Polaco (pl) 
-- Portugués (pt) 
-- Rumano (ro) 
-- Ruso (ru) 
-- Serbio (sr) 
-- Eslovaco (sk) 
-- Esloveno (sl) 
-- Español (es) 
-- Sueco (sv) 
-- Tagalo (tl) 
-- Tailandés (th) 
-- Turco (tr) 
-- Ucraniano (uk) 
-- Vietnamita (vi) 
+- Árabe (ar)
+- Búlgaro (bg)
+- Catalán (ca)
+- Chino (zh)
+- Croata (hr)
+- Checo (cs)
+- Danés (da)
+- Neerlandés (Países Bajos)
+- Español (es)
+- Finés (fi)
+- Francés (fr)
+- Alemán (de)
+- Griego (el)
+- Hebreo (he)
+- Hindi (hi)
+- Húngaro (hu)
+- Indonesio (id)
+- Italiano (it)
+- Japonés (ja)
+- Coreano (ko)
+- Letón (lv)
+- Lituano (lt)
+- Malayo (macroidioma) (ms)
+- Noruego Bokmål (nb)
+- Polaco (pl)
+- Portugués (pt)
+- Rumano (ro)
+- Ruso (ru)
+- Serbio (sr)
+- Eslovaco (sk)
+- Esloveno (sl)
+- Español (es)
+- Sueco (sv)
+- Tagalo (tl)
+- Tailandés (th)
+- Turco (tr)
+- Ucraniano (uk)
+- Vietnamita (vi)
  
 ## Campaña
 Puede utilizar la sección Campaña para establecer el nombre y la categoría de la campaña, así como si planea pasar por alto la sección de audiencia de una campaña de inserción y enviar esta campaña a través de la API de cobertura (y algunos elementos de la API de inserción de nivel bajo) en su lugar. Las categorías se pueden utilizar con una plantilla de notificación personalizada para controlar las notificaciones de aplicaciones basadas en configuraciones predefinidas. Puede obtener una lista de las "Categorías" existentes mediante la API de cobertura.
@@ -116,7 +116,7 @@ Puede utilizar la sección Notificación para establecer la configuración bási
 ## Contenido
 Puede utilizar la sección de contenido para modificar el contenido de los anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone). La configuración del contenido de las campañas de inserción es específica del tipo de campaña.
 
-### Consulte también
+### Otras referencias
 - [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Link 29]
  
 ![Reach-Campaign5][24]
@@ -130,7 +130,7 @@ Puede utilizar la sección de audiencia para definir una lista estándar de elem
 - Como máximo, inicie solamente cuatro campañas de cada vez.
 - Realice la inserción únicamente a sus usuarios activos (casilla de verificación "Atraer solo a los usuarios con los que se pueda contactar mediante inserción nativa" y "Atraer solo a usuarios activos") para que solo se tengan que analizar los usuarios que aún tienen la aplicación instalada y la utilicen. Una vez definida la audiencia, puede utilizar el botón de simulación para averiguar cuántos usuarios recibirán esta inserción. Esto calculará el número de usuarios conocidos a los que se dirige potencialmente este público (esta es una estimación basada en una muestra aleatoria de usuarios). Tenga en cuenta que los usuarios que han desinstalado la aplicación también forman parte de esta audiencia, pero no se puede contactar con ellos.
 
-### Consulte también
+### Otras referencias
 - [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ![Reach-Campaign6][25]
@@ -151,8 +151,8 @@ Puede utilizar la sección de intervalo de tiempo para establecer cuándo se env
 
 > Nota: sin una fecha de finalización puede almacenar en caché inserciones localmente y todavía mostrarlas después de completar manualmente las campañas. Para evitar este comportamiento, especifique una hora de finalización para campañas.
 
-### Consulte también
-- [Cobertura - Guía práctica - Programación][Link 3] 
+### Otras referencias
+- [Cobertura - Guía práctica - Programación][Link 3]
  
 ![Reach-Campaign8][27]
 
@@ -163,7 +163,7 @@ Puede utilizar la sección de intervalo de tiempo para establecer cuándo se env
 Puede utilizar la sección de prueba para enviar esta inserción a su propio dispositivo de prueba antes de guardar la campaña. Si ha configurado algún idioma personalizado para esta campaña, puede probar la inserción en cada idioma. Puede configurar un dispositivo de prueba desde "Mi cuenta".
 > Nota: no se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
 
-### Consulte también
+### Otras referencias
 - [Documentación de la interfaz de usuario - Mi cuenta][Link 14]
  
 ![Reach-Campaign9][28]
@@ -260,4 +260,4 @@ Puede utilizar la sección de prueba para enviar esta inserción a su propio dis
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

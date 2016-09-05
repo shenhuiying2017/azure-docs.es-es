@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Procedimientos de actualización del SDK de aplicaciones Windows Universal
@@ -37,7 +37,7 @@ Se ha mejorado la superposición de Reach. Forma parte de los recursos del paque
 
 Al actualizar a la nueva versión del SDK puede elegir si desea conservar o no los archivos existentes de la carpeta de superposición de los recursos:
 
-* Si la superposición anterior funciona o va a integrar los elementos `WebView` manualmente, entonces puede decidir mantener los archivos de salida, lo cual seguirá funcionando. 
+* Si la superposición anterior funciona o va a integrar los elementos `WebView` manualmente, entonces puede decidir mantener los archivos de salida, lo cual seguirá funcionando.
 * Si desea actualizar a la nueva superposición, simplemente reemplace toda la carpeta `overlay` de sus recursos por la nueva desde el paquete del SDK (aplicaciones UWP: tras la actualización, puede obtener la nueva carpeta de superposición desde %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
 
 > [AZURE.WARNING] El uso de la nueva superposición sobrescribirá todas las personalizaciones realizadas en la versión anterior.
@@ -314,4 +314,4 @@ Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidad
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

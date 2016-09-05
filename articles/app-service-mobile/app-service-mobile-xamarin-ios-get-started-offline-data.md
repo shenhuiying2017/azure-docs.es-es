@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.iOS
@@ -57,7 +57,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
     En el ejemplo proporcionado, se consultan todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a `PushAsync`. Para obtener más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
+	-->
 
 
 		// QSTodoService.cs
@@ -135,7 +135,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- ##Summary
 
@@ -157,4 +157,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

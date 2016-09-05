@@ -20,7 +20,7 @@ Las direcciones IP en Azure se dividen en dos categorías: dinámicas y reservad
 
 Para impedir que cambien las direcciones IP, puede reservar una dirección IP. La IP reservadas únicamente puede usarse como una VIP, lo que garantiza que la dirección IP para el servicio en la nube sea la misma incluso cuando se cierran o desasignan recursos. Además, se puede convertir direcciones IP dinámicas existentes utilizadas como una VIP en una IP reservada.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información sobre cómo reservar una dirección IP pública estática con el [modelo de implementación de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Asegúrese de que comprende cómo funcionan las [direcciones IP](virtual-network-ip-addresses-overview-classic.md) en Azure.
 
@@ -130,4 +130,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 
 - Obtenga más información acerca de las [direcciones IP públicas de nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

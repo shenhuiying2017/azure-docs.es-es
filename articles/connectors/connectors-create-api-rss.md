@@ -14,22 +14,15 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector RSS
-
-
-
-El conector RSS puede usarse desde:
-
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flujo](http://flows.microsoft.com)
+RSS es un formato de distribución web popular que se usa para publicar contenido de frecuente actualización, como entradas de blog y titulares de noticias. Muchos editores de contenido ofrecen una fuente RSS para permitir que los usuarios se suscriban a ella. Use el conector RSS para recuperar la información de la fuente y desencadenar flujos cuando se publiquen nuevos elementos en una fuente RSS.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
@@ -40,13 +33,13 @@ El conector RSS se puede usar como acción; tiene desencadenadores. Todos los co
 ### Acciones de RSS
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Obtiene todos los elementos de fuente RSS.|
 ### Desencadenadores de RSS
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Descripción|
+|Desencadenador | Description|
 |--- | ---|
 |Cuando se publica un nuevo elemento de fuente|Desencadena un flujo de trabajo cuando se publica una nueva fuente.|
 
@@ -65,11 +58,11 @@ Cuando se publica un nuevo elemento de fuente: desencadena un flujo de trabajo c
 
 ```GET: /OnNewFeed```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|feedUrl|cadena|yes|query|Ninguna|URL de la fuente|
+|feedUrl|string|yes|query|Ninguna|URL de la fuente|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -88,11 +81,11 @@ Enumerar todos los elementos de fuente RSS: obtiene todos los elementos de fuent
 
 ```GET: /ListFeedItems```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|feedUrl|cadena|yes|query|Ninguna|URL de la fuente|
+|feedUrl|string|yes|query|Ninguna|URL de la fuente|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -122,14 +115,14 @@ Enumerar todos los elementos de fuente RSS: obtiene todos los elementos de fuent
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|id|cadena|Sí |
-|título|cadena|Sí |
-|contenido|cadena|Sí |
+|id|string|Sí |
+|título|string|Sí |
+|contenido|string|Sí |
 |links|array|No |
-|updatedOn|cadena|No |
+|updatedOn|string|No |
 
 
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

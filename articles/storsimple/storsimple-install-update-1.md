@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Instalación la actualización 1.2 en el dispositivo StorSimple
@@ -125,4 +125,4 @@ Realice los pasos siguientes para deshabilitar la interfaz de red con la puerta 
 
 Obtenga más información sobre el [lanzamiento de la actualización 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

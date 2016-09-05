@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo crear un equilibrador de carga interno mediante una plantilla en el Administrador de recursos"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,13 +15,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la creación de un equilibrador de carga interno mediante una plantilla
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
-<BR>
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -35,12 +33,12 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
 
 2. Descargue el archivo de [parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) en el disco local.
 3. Edite el archivo y guárdelo.
-4. Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para crear un grupo de recursos mediante esta plantilla. 
+4. Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para crear un grupo de recursos mediante esta plantilla.
 
 
 		New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
@@ -75,4 +73,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

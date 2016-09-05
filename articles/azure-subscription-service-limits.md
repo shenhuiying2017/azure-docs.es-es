@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure"
-	description="Proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Esto incluye información acerca de cómo aumentar los límites junto con los valores máximos."
+	description="Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Esto incluye información acerca de cómo aumentar los límites junto con los valores máximos."
 	services=""
 	documentationCenter=""
 	authors="rothja"
@@ -10,19 +10,19 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/18/2016"
 	ms.author="btardif"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
 ## Información general
 
-En este documento se especifican algunos de los límites más comunes de Microsoft Azure. Tenga en cuenta que actualmente esto no cubre todos los servicios de Azure. Con el tiempo, estos límites se expandirán y actualizarán para abarcar más de la plataforma.
+En este documento se especifican algunos de los límites más comunes de Microsoft Azure. Actualmente esto no cubre todos los servicios de Azure. Con el tiempo, estos límites se expandirán y actualizarán para abarcar más de la plataforma.
 
 > [AZURE.NOTE] Si desea aumentar el límite por encima del **Límite predeterminado**, [abra una solicitud de servicio al cliente en línea sin cargo alguno](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Los límites no se pueden subir por encima del valor de **Límite máximo** que figura en las tablas siguientes. Si la columna **Límite máximo** no existe, el recurso especificado no tiene límites ajustables.
 
@@ -30,7 +30,7 @@ En este documento se especifican algunos de los límites más comunes de Microso
 
 Ahora es posible combinar varios recursos de Azure en un único grupo de recursos de Azure. Al utilizar grupos de recursos, los límites que una vez fueron globales se convierten en administrados a nivel regional con el Administrador de recursos de Azure. Para más información sobre los grupos de recursos de Azure, consulte [Información general de Azure Resource Manager](resource-group-overview.md).
 
-En los límites siguientes, se ha agregado una nueva tabla para reflejar las diferencias en los límites cuando se usa el Administrador de recursos de Azure. Por ejemplo, hay una tabla de **Límites de suscripción** y una tabla de **Límites de suscripción - Administrador de recursos de Azure**. Cuando un límite se aplica a ambos escenarios, solo se muestra en la primera tabla. A menos que se indique lo contrario, los límites son globales en todas las regiones.
+En los límites siguientes, se ha agregado una nueva tabla para reflejar las diferencias en los límites cuando se usa el Administrador de recursos de Azure. Por ejemplo, hay una tabla de **Límites de suscripción** y una tabla de **Límites de suscripción - Azure Resource Manager**. Cuando un límite se aplica a ambos escenarios, solo se muestra en la primera tabla. A menos que se indique lo contrario, los límites son globales en todas las regiones.
 
 > [AZURE.NOTE] Es importante destacar que las cuotas de los recursos de los grupos de recursos de Azure son accesibles para su suscripción en función de la región y no en función de la suscripción, como las cuotas de administración de servicios. Usemos las cuotas de núcleo como ejemplo. Si necesita solicitar un aumento de cuota con compatibilidad para núcleos, deberá decidir el número de núcleos que desea usar en las distintas regiones y, a continuación, realizar una solicitud específica para las cuotas principales del grupo de recursos de Azure para las cantidades y regiones que desee. Por lo tanto, si necesita usar 30 núcleos en Europa Occidental para ejecutar la aplicación, deberá solicitar específicamente 30 núcleos en Europa Occidental. Pero no tendrá un aumento de la cuota de núcleos en ninguna otra región: solo Europa Occidental tendrá la cuota de 30 núcleos.
 <!-- -->
@@ -84,7 +84,7 @@ Como resultado, puede que le resulte útil considerar decidir cuáles deben ser 
 #### Límites de suscripción
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### Límites de suscripción: Administrador de recursos de Azure
+#### Límites de suscripción: Azure Resource Manager
 
 Los límites siguientes se aplican al usar el Administrador de recursos de Azure y los grupos de recursos de Azure. Los límites que no han cambiado con el Administrador de recursos de Azure no se enumeran a continuación. Consulte la tabla anterior para obtener información acerca de esos límites.
 
@@ -192,7 +192,7 @@ Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en c
 Los planes de tarifa determinan la capacidad y los límites de su servicio de búsqueda. Los planes incluyen:
 
 - El servicio multiempresa *Gratis*, compartido con otros suscriptores de Azure, se ha diseñado para proyectos de evaluación y de desarrollo de pequeña envergadura.
-- El nivel *Básico* proporciona recursos informáticos dedicados para cargas de trabajo de producción en una escala menor, con hasta 3 réplicas para cargas de trabajo de consulta de alta disponibilidad.
+- El nivel *Básico* proporciona recursos informáticos dedicados para cargas de trabajo de producción en una escala menor, con hasta tres réplicas para cargas de trabajo de consulta de alta disponibilidad.
 - El nivel *Estándar (S1, S2, S3, S3 de alta densidad)* es para mayores cargas de trabajo de producción. Existen varios niveles en el nivel estándar para que pueda elegir una configuración de recursos para escenarios específicos.
 
 **Límites por suscripción**
@@ -295,7 +295,7 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
 
-## Consulte también
+## Otras referencias
 
 [Concepto de límites de Azure y aumento de los mismos](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
@@ -303,4 +303,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

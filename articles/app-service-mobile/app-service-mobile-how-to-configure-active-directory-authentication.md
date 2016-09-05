@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory
@@ -61,11 +61,11 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
 7. En el cuadro **URL DE INICIO DE SESIÓN**, pegue la dirección URL que copió anteriormente. Escriba esa misma dirección URL en el cuadro **URI de id. de aplicación**. A continuación, haga clic para continuar.
 
-8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite la **URL de respuesta** en **Inicio de sesión único** para que sea la URL de la aplicación anexada a la ruta de acceso, _/.auth/login/aad/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de que está utilizando el esquema HTTPS.
+8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite el valor de **URL de respuesta**, que encontrará en **Inicio de sesión único**, para que sea la URL de la aplicación anexada a la ruta de acceso, _/.auth/login/aad/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
     ![][3]
 
-9. Haga clic en **Guardar**. A continuación, copie **Id. de cliente** de la aplicación. Más adelante configurará la aplicación para usar este valor.
+9. Haga clic en **Save**. A continuación, copie **Id. de cliente** de la aplicación. Más adelante configurará la aplicación para usar este valor.
 
 10. En la barra de comandos, haga clic en **Ver extremos** y luego copie la URL del **documento de metadatos de federación** y descargue ese documento o vaya a él en un explorador.
 
@@ -101,7 +101,7 @@ Azure Active Directory también permite registrar a los clientes nativos, lo que
 
 4. En el Asistente para agregar aplicaciones, escriba el **nombre** de la aplicación y haga clic en el tipo **Aplicación de cliente nativo**. A continuación, haga clic para continuar.
 
-5. En el **URI de redireccionamiento** especifique el punto de conexión del sitio _/.auth/login/done_, con el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_. Si crea una aplicación de Windows, en su lugar, use el valor de [SID del paquete](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
+5. En el **URI de redireccionamiento** especifique el punto de conexión del sitio _/.auth/login/done_, con el esquema HTTPS. Este valor debería ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_. Si crea una aplicación de Windows, en su lugar, use el valor de [SID del paquete](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
 
 6. Una vez que haya agregado la aplicación nativa, haga clic en la pestaña **Configurar**. Busque el **Identificador de cliente** y tome nota de este valor.
 
@@ -130,4 +130,4 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [alternative method]: #advanced
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

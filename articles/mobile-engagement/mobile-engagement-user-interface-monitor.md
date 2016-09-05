@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# Cómo supervisar datos en tiempo real acerca de la aplicación
+# Supervisión de datos en tiempo real sobre la aplicación
 
 Este artículo describe la pestaña **SUPERVISIÓN** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**.
 
 
-La sección de supervisión de la interfaz de usuario proporciona información de análisis en tiempo real y le permite establecer alertas cuando se alcanzan los umbrales de la mayor parte de la misma información que está disponible históricamente en la sección [ANÁLISIS](mobile-engagement-user-interface-analytics.md) de la interfaz de usuario. Vea la sección **Glosario** en el tema [Conceptos](http://go.microsoft.com/fwlink/?LinkId=525555) para las definiciones de términos y abreviaturas en análisis y supervisión, (como las siguientes: usuario activo, nuevo usuario, usuario conservado, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de aplicación).
+La sección de supervisión de la interfaz de usuario proporciona información de análisis en tiempo real y le permite establecer alertas cuando se alcanzan los umbrales de la mayor parte de la misma información que está disponible históricamente en la sección [ANÁLISIS](mobile-engagement-user-interface-analytics.md) de la interfaz de usuario. Vea la sección **Glosario** en el tema [Conceptos](http://go.microsoft.com/fwlink/?LinkId=525555) para las definiciones de términos y abreviaturas en análisis y supervisión (como las siguientes: usuario activo, nuevo usuario, usuario retenido, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de aplicación).
 
 >[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
@@ -48,12 +48,14 @@ Para obtener más información, consulte [Documentación de SDK - notas de la ve
 ![Monitor3][16]
 
 ## Supervisión - Alertas
-También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico. También puede especificar una tasa de detección mínima, que es la cantidad mínima de tiempo que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada X minutos.
+También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico.
+
+También puede especificar una tasa de detección mínima, que es la cantidad mínima de minutos que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada intervalo especificado.
 
 ![Monitor4][17]
 
 
-## Consulte también
+## Otras referencias
 
 - [Conceptos][Link 6]
 - [Guía de solución de problemas de servicios][Link 24]
@@ -153,4 +155,4 @@ También puede especificar condiciones para las alertas que se le enviarán auto
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga: vista previa | Microsoft Azure"
+   pageTitle="Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga: vista previa | Microsoft Azure "
    description="Uso de PowerShell para el Equilibrador de carga con el Administrador de recursos de Azure (ARM) en vista previa. Uso de plantillas para el equilibrador de carga"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
-# Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga 
+# Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga
 
 El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure.
 
@@ -40,13 +40,14 @@ Con ARM, el Equilibrador de carga de Azure contiene los siguientes recursos secu
 
 
 ## Plantillas de inicio rápido
+
 El Administrador de recursos de Azure le permite aprovisionar sus aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.
 
 Las plantillas incluyen Máquinas virtuales, Redes virtuales, Conjuntos de disponibilidad, Interfaces de red (NIC), Cuentas de almacenamiento, Equilibradores de carga, Grupos de seguridad de red y Direcciones IP públicas. Con las plantillas puede crear todo lo que necesita para una aplicación compleja con un simple archivo que puede proteger y también colaborar en él.
 
 [Más información sobre las plantillas](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Más información sobre los recursos de red](../virtual-network/resource-groups-networking)
+[Más información sobre los recursos de red](../virtual-network/resource-groups-networking.md)
 
 Las plantillas que usan el Equilibrador de carga de Azure se pueden encontrar en un [repositorio de GitHub](https://github.com/Azure/azure-quickstart-templates) que hospeda un conjunto de plantillas generadas por la comunidad.
 
@@ -76,4 +77,4 @@ También puede [empezar a crear un equilibrador de carga orientado a Internet](l
 
 Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, obtenga información sobre la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

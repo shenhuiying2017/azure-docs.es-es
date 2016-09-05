@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Cómo administrar la configuración global de la aplicación
@@ -21,7 +21,7 @@
 Las opciones del menú **Configuración** disponibles para una aplicación varían, dependiendo de la plataforma de la aplicación y de los permisos que se le hayan concedido para la aplicación. En la configuración se incluyen lo siguiente: Detalles, Proyectos, Inserción nativa, Velocidad de inserción, Etiquetas de información de la aplicación y Presión comercial. La opción de menú Etiquetas de información de la aplicación de la sección de Configuración puede administrarse mediante la aplicación (con el SDK) o mediante el back-end (con la API del dispositivo).
 
 
->[AZURE.NOTE]Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+>[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## Detalles
 
@@ -74,7 +74,7 @@ Para más información, consulte:
  
 ### Mensajería de dispositivos de Amazon para Android (ADM)
 
-Para habilitar la inserción nativa con ADM, debe proporcionar <OAuth credentials> de Amazon compuesta de un identificador de cliente y el secreto del cliente (requiere la integración con el SDK de Android v2.1.0+).
+Para habilitar la inserción nativa con ADM, debe proporcionar las <credenciales de OAuth> de Amazon compuesta de un identificador de cliente y el secreto del cliente (requiere la integración con el SDK de Android v2.1.0+).
 
 Para más información, consulte:
 
@@ -99,7 +99,7 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 ![settings12][57]
 
 
-## Consulte también
+## Otras referencias
 
 - [Conceptos][Link 6]
 - [Guía de solución de problemas de servicios][Link 24]
@@ -202,4 +202,4 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0824_2016-->

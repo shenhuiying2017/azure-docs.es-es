@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/22/2016" 
 	ms.author="spelluru"/>
 
 # Programación y ejecución con Factoría de datos
   
-En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. En este artículo se basa en los artículos [Creación de canalizaciones](data-factory-create-pipelines.md) y [Creación de conjuntos de datos](data-factory-create-datasets.md) y asume que se conocen los conceptos básicos de los conceptos del modelo de aplicación de Factoría de datos: actividad, canalizaciones, servicios vinculados y conjuntos de datos.
+En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. Este artículo se basa en los artículos sobre la [creación de canalizaciones](data-factory-create-pipelines.md) y la [creación de conjuntos de datos](data-factory-create-datasets.md) y asume que se conocen los conceptos básicos del modelo de aplicación de Data Factory: actividad, canalizaciones, servicios vinculados y conjuntos de datos.
 
 ## Programación de actividades
 
@@ -31,13 +31,13 @@ Con la sección **scheduler** de JSON de la actividad, puede especificar una pro
     
 ![Ejemplo de programador](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Como se indicó anteriormente, especificando una programación para la actividad crea una serie de ventanas de saltos. Las ventanas de saltos son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos. Estas ventanas de saltos lógicas para la actividad se denominan **ventanas de actividad**.
+Como se muestra en el diagrama, al especificar una programación para la actividad se crea una serie de ventanas de saltos. Las ventanas de saltos son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos. Estas ventanas de saltos lógicas para la actividad se denominan **ventanas de actividad**.
  
-Para la ventana de actividad actualmente en ejecución, se puede acceder al intervalo de tiempo asociado a la ventana de actividad con las variables del sistema [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) y [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad y en scripts asociados con la actividad, incluido la selección de datos de a partir de conjuntos de datos de entrada y de salida que representan datos de serie temporal.
+Para la ventana de actividad actualmente en ejecución, se puede acceder al intervalo de tiempo asociado a la ventana de actividad con las variables del sistema [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) y [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad; por ejemplo, para seleccionar datos de los conjuntos de datos de entrada y salida que representan los datos de la serie temporal.
 
-La propiedad **scheduler** es compatible con las mismas subpropiedades que la propiedad **availability** en un conjunto de datos. Para obtener más información sobre las diferentes propiedades disponibles para el programador como, por ejemplo, la programación con una diferencia horaria específica y el establecimiento del modo para alinear el procesamiento al principio del intervalo de la ventana de actividad o al final, consulte el artículo [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability).
+La propiedad **scheduler** admite las mismas subpropiedades que la propiedad **availability** en un conjunto de datos. Consulte el artículo [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para más información. Ejemplos: programar con un desplazamiento de tiempo específico, establecer el modo para alinear el procesamiento al principio del intervalo de la ventana de actividad o al final.
 
-La especificación de las propiedades del programador para una actividad es opcional actualmente. Si las especifica, deben coincidir con la cadencia que indique en la definición del conjunto de datos de salida. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
+Especificar las propiedades del programador para una actividad es opcional. Si las especifica, deben coincidir con la cadencia que indique en la definición del conjunto de datos de salida. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
 
 ## Conjuntos de datos y segmentos de datos de series temporales
 
@@ -50,21 +50,21 @@ Con Factoría de datos de Azure, puede procesar datos de series temporales por l
       "interval": 1
     },
 
-Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina **segmento** de datos. El diagrama siguiente muestra un ejemplo de una actividad con un conjunto de datos de series temporales y un conjunto de datos de series temporales de salida cada uno con la disponibilidad establecida en una frecuencia de cada hora.
+Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina **segmento** de datos. El siguiente diagrama muestra un ejemplo de una actividad con un conjunto de datos de entrada y un conjunto de datos de salida cada uno con la disponibilidad establecida en una frecuencia de cada hora.
 
 ![Programador de disponibilidad](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Los segmentos de datos de cada hora para el conjunto de datos de entrada y salida se muestran en el diagrama anterior. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento y la ejecución de la actividad 10-11 AM en curso que produce el segmento de salida 10-11 AM.
+Los segmentos de datos de cada hora para el conjunto de datos de entrada y salida se muestran en el diagrama. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento y la ejecución de la actividad 10-11 AM en curso que produce el segmento de salida 10-11 AM.
 
 Se puede acceder al intervalo de tiempo asociado al segmento actual que se está produciendo en el JSON del conjunto de datos con las variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) y [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
 
-Actualmente Factoría de datos requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Esto significa que WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período de tiempo y un segmento de salida única.
+Actualmente, Data Factory requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Por tanto, WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período y un segmento de salida único.
 
-Para obtener más información sobre las diferentes propiedades disponibles para la sección availability, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md).
+Para más información sobre las diferentes propiedades disponibles para la sección availability, consulte el artículo sobre la [creación de conjuntos de datos](data-factory-create-datasets.md).
 
 ## Ejemplo: Actividad de copia que mueve datos de SQL Azure a un blob de Azure
 
-Reunamos todo y pongámoslo en marcha volviendo a revisar el ejemplo de la actividad de copia mostrado en el artículo [Creación de canalizaciones](data-factory-create-pipelines.md) que copia datos de una tabla de SQL Azure en un blob de Azure cada hora.
+Reunamos todo y pongámoslo en marcha creando una canalización que copia datos de una tabla de SQL Azure en un blob de Azure cada hora.
 
 **Entrada: Conjunto de datos de SQL Azure**
 
@@ -87,7 +87,7 @@ Reunamos todo y pongámoslo en marcha volviendo a revisar el ejemplo de la activ
 	}
 
 
-Tenga en cuenta que **frequency** está establecido en **Hour** e **interval** está establecido en **1** en la sección **availability**.
+**frequency** está establecido en **Hour** e **interval** está establecido en **1** en la sección **availability**.
 
 **Salida: conjunto de datos de blob de Azure**
 	
@@ -145,7 +145,7 @@ Tenga en cuenta que **frequency** está establecido en **Hour** e **interval** e
 	}
 
 
-Tenga en cuenta que **frequency** está establecido en **Hour** e **interval** está establecido en **1** en la sección **availability**.
+**frequency** está establecido en **Hour** e **interval** está establecido en **1** en la sección **availability**.
 
 
 
@@ -193,36 +193,34 @@ Tenga en cuenta que **frequency** está establecido en **Hour** e **interval** e
 	}
 
 
-El ejemplo anterior muestra las secciones de programación de la actividad y de disponibilidad del conjunto de datos establecidas en una frecuencia de cada hora. El ejemplo muestra cómo se pueden aprovechar las variables **WindowStart** y **WindowEnd** para seleccionar los datos pertinentes para la ejecución de la actividad determinada y enviarlas a un blob con una **folderPath** dinámica apropiada con parámetros para tener la carpeta durante cada hora.
+El ejemplo anterior muestra las secciones de programación de la actividad y de disponibilidad del conjunto de datos establecidas en una frecuencia de cada hora. El ejemplo muestra cómo puede usar **WindowStart** y **WindowEnd** para seleccionar datos pertinentes para la ejecución de una actividad y copiarlos en un blob con el valor de **folderPath** adecuado. folderPath se parametriza para tener una carpeta independiente para cada hora.
 
-Cuando se ejecutan tres de los segmentos entre 8 – 11 a.m., este es el aspecto en una tabla y blob de Azure de ejemplo.
-
-Suponga que los datos de SQL Azure son los siguientes:
+Cuando se ejecutan tres de los segmentos entre las 8:00 y las 11:00 y los datos en SQL de Azure son los siguientes:
 
 ![Entrada de ejemplo](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
-Al implementar la canalización anterior, el blob de Azure se rellenará como sigue:
+Al implementar la canalización, el blob de Azure se rellena como sigue:
 
-1.	Archivo mypath/2015/1/1/8/Data.<Guid>.txt con datos
+1.	Archivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con datos:
 
-		10002345,334,2,2015-01-01 08:24:00.3130000
-		10002345,347,15,2015-01-01 08:24:00.6570000
-		10991568,2,7,2015-01-01 08:56:34.5300000
+			10002345,334,2,2015-01-01 08:24:00.3130000
+			10002345,347,15,2015-01-01 08:24:00.6570000
+			10991568,2,7,2015-01-01 08:56:34.5300000
 
-	**Nota:** <Guid> se reemplazará con el guid real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	Archivo mypath/2015/1/1/9/Data.<Guid>.txt con datos:
+	> [AZURE.NOTE] &lt;Guid&gt; se reemplaza con el identificador único global real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+2.	Archivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con datos:
 
-		10002345,334,1,2015-01-01 09:13:00.3900000
-		24379245,569,23,2015-01-01 09:25:00.3130000
-		16777799,21,115,2015-01-01 09:47:34.3130000
-3.	Archivo mypath/2015/1/1/10/Data.<Guid>.txt sin datos.
+			10002345,334,1,2015-01-01 09:13:00.3900000
+			24379245,569,23,2015-01-01 09:25:00.3130000
+			16777799,21,115,2015-01-01 09:47:34.3130000
+3.	Archivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sin datos.
 
 
 ## Segmentos de datos, período activo de canalización y ejecución de segmentos simultáneos
 
-El artículo [Creación de canalizaciones](data-factory-create-pipelines.md) introdujo el concepto de período activo para una canalización especificada mediante la configuración de las propiedades **start** y **end** de la canalización.
+El artículo sobre la [creación de canalizaciones](data-factory-create-pipelines.md) introdujo el concepto de período activo para una canalización especificada mediante la configuración de las propiedades **start** y **end**.
  
-Puede establecer la fecha de inicio para el período activo de la canalización en el pasado y la factoría de datos calculará automáticamente (rellenará) todos los segmentos de datos en el pasado y comenzará a procesarlos.
+Puede establecer la fecha de inicio para el período activo de la canalización en el pasado. En ese caso, Data Factory calcula automáticamente (rellena hacia atrás) todos los segmentos de datos en el pasado y empieza a procesarlos.
 
 Con los segmentos de datos con el fondo relleno, es posible configurarlos para que se ejecuten en paralelo. Puede hacerlo estableciendo la propiedad [concurrency](data-factory-create-pipelines.md) en la sección **policy** del JSON de la actividad, tal como se muestra en el artículo de **creación de canalizaciones**.
 
@@ -230,22 +228,22 @@ Con los segmentos de datos con el fondo relleno, es posible configurarlos para q
 
 Puede supervisar la ejecución de los segmentos de manera visual enriquecida. Consulte **Supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) [Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para más información.
 
-Considere el ejemplo siguiente, que muestra dos actividades. Activity1 produce un conjunto de datos de series temporales con segmentos de salida que se han consumido como entrada por Activity2 para generar el conjunto de datos de series temporales de salida final.
+Observe el ejemplo siguiente, que muestra dos actividades. Activity1 produce un conjunto de datos de series temporales con segmentos de salida que se han consumido como entrada por Activity2 para generar el conjunto de datos de series temporales de salida final.
 
 ![Segmento con errores](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
 <br/>
 
-El diagrama anterior muestra que en tres segmentos recientes se produjo un error al generar el segmento 9-10 AM para **Dataset2**. Factoría de datos realiza automáticamente un seguimiento de la dependencia para el conjunto de datos de series temporales y, como resultado, retiene el comienzo de la ejecución de la actividad para el segmento de nivel inferior de 9-10 AM.
+El diagrama muestra que en tres segmentos recientes se produjo un error al generar el segmento 9-10 AM para **Dataset2**. Factoría de datos realiza automáticamente un seguimiento de la dependencia para el conjunto de datos de series temporales y, como resultado, retiene el comienzo de la ejecución de la actividad para el segmento de nivel inferior de 9-10 AM.
 
 
-Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para más información sobre cómo iniciar las repeticiones y entender las transiciones de estado para segmentos de datos, consulte **Supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) [Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
+Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para más información sobre cómo repetir la ejecución y entender las transiciones de estado para segmentos de datos, consulte el artículo sobre la **supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) la [aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
-Cuando haya iniciado la repetición de la ejecución y el segmento 9-10 AM para dataset2 esté preparado, la factoría de datos inicia la ejecución del segmento dependiente 9-10 AM en el conjunto de datos final, tal como se muestra en el diagrama siguiente.
+Una vez que haya repetido la ejecución del segmento 9-10 AM para dataset2 y esté preparado, Data Factory inicia la ejecución del segmento dependiente de 9-10 AM en el conjunto de datos final, como se muestra en el diagrama siguiente.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-Para profundizar en la especificación de la dependencia y en el seguimiento de las dependencias para la cadena compleja de actividades y conjuntos de datos, consulte las secciones siguientes.
+Para un análisis más profundo de la especificación y el seguimiento de dependencias para una cadena de actividades, consulte las secciones siguientes.
 
 ## Encadenamiento de actividades
 Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
@@ -255,13 +253,13 @@ Por ejemplo, considere el siguiente caso:
 1.	La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de **salida** **D2**.
 2.	La canalización P2 incluye la actividad A2 que requiere una **entrada** del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
  
-En este escenario, la actividad A1 se ejecutará cuando los datos externos estén disponibles y se alcance la frecuencia de disponibilidad programada. La actividad A2 se ejecutará cuando estén disponibles los segmentos programados de D2 y se alcance la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecutará para ese segmento hasta que esté disponible.
+En este escenario, la actividad A1 se ejecuta cuando los datos externos están disponibles y se alcanza la frecuencia de disponibilidad programada. La actividad A2 se ejecuta cuando están disponibles los segmentos programados de D2 y se alcanza la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecuta para ese segmento hasta que está disponible.
 
-La Vista Diagrama tendría el aspecto siguiente:
+La Vista de diagrama tendría un aspecto similar al siguiente diagrama:
 
 ![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-La Vista Diagrama con ambas actividades en la misma canalización tendría el aspecto siguiente:
+La Vista de diagrama con ambas actividades en la misma canalización tendría un aspecto similar al siguiente diagrama:
 
 ![Encadenamiento de las actividades de la misma canalización](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
@@ -274,7 +272,7 @@ ActividadCopia2: entrada: ConjuntoDatos2; salida: ConjuntoDatos4
 
 ActividadCopia2 solo se ejecutaría si ActividadCopia1 se hubiera ejecutado correctamente y ConjuntoDatos2 estuviera disponible.
 
-En el ejemplo anterior, ActividadCopia2 puede tener una entrada distinta, como ConjuntoDatos3, pero también deberá especificar ConjuntoDatos2 como una entrada de ActividadCopia2 para que la actividad no se ejecute hasta que se haya completado ActividadCopia1. Por ejemplo:
+En el ejemplo, CopyActivity2 puede tener una entrada distinta, como Dataset3, pero también debe especificar Dataset2 como una entrada de CopyActivity2 para que la actividad no se ejecute hasta que se haya completado CopyActivity1. Por ejemplo:
 
 ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
 
@@ -282,20 +280,20 @@ ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos
 
 Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
 
-- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.
+- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usa al copiar datos en Dataset4. Solo actúa como una dependencia de programación de ActividadCopia2.
 - ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.
 
 
 
 ## Modelado de conjuntos de datos con distintas frecuencias
 
-En los ejemplos anteriores, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Factoría de datos admite el modelado de estos escenarios.
+En los ejemplos, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Factoría de datos admite el modelado de estos escenarios.
 
 ### Ejemplo 1: Generar un informe de salida diario para los datos de entrada que está disponibles cada hora
 
-Considere un escenario donde hemos introducido datos de medición desde sensores disponibles cada hora en el Blob de Azure y queremos generar un informe agregado diario con estadísticas como promedio, máximo o mínimo del día con la [actividad Hive](data-factory-hive-activity.md) de Factoría de datos.
+Considere un escenario donde hemos introducido datos de medición desde sensores disponibles cada hora en el Blob de Azure. Desea generar un informe agregado diario con estadísticas como media, máx., mín., etc., para el día con la [Actividad de Hive](data-factory-hive-activity.md) de Data Factory.
 
-Aquí es cómo puede modelarlo con Factoría de datos:
+A continuación, se muestra cómo puede modelar este escenario con Data Factory:
 
 **Conjunto de datos del blob de Azure de entrada:**
 
@@ -327,7 +325,7 @@ Se quitan los archivos de entrada de cada hora en la carpeta para el día especi
 
 **Conjunto de datos de blob de Azure de salida**
 
-Cada día se colocará un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en diariamente (frecuencia: día e intervalo: 1).
+Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en diariamente (frecuencia: día e intervalo: 1).
 
 
 	{
@@ -355,7 +353,7 @@ Cada día se colocará un archivo de salida en la carpeta del día. La disponibi
 
 **Actividad: actividad de Hive en una canalización**
 
-El script de Hive recibe la información de fecha y hora adecuada como parámetros que se aprovechan de la variable **WindowStart**, como se muestra a continuación. El script de Hive usa esta variable para cargar los datos de la carpeta correcta para el día y ejecutar la agregación para generar la salida.
+El script de Hive recibe la información de fecha y hora adecuada como parámetros que usan la variable **WindowStart** como se muestra a continuación. El script de Hive usa esta variable para cargar los datos de la carpeta correcta para el día y ejecutar la agregación para generar la salida.
 
 		{  
 		    "name":"SamplePipeline",
@@ -402,20 +400,20 @@ El script de Hive recibe la información de fecha y hora adecuada como parámetr
 		   }
 		}
 
-Así es como se muestra desde el punto de vista de la dependencia de datos.
+El diagrama siguiente muestra el escenario desde el punto de vista de la dependencia de datos.
 
-![Dependencia de datos](./media/data-factory-scheduling-and-execution/data-dependency.png)
+![Dependencia de los datos](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
-El segmento de salida para cada día depende de 24 segmentos por hora desde el conjunto de datos de entrada. Factoría de datos calcula automáticamente estas dependencias al determinar los segmentos de datos de entrada que se encuentran en el mismo período de tiempo que el segmento de salida que se va a producir. Si alguno de los 24 segmentos de entrada no está disponible (debido al procesamiento que ocurre en una actividad de nivel superior que genera dicho segmento, por ejemplo), Factoría de datos esperará que el segmento de entrada esté listo antes de empezar la ejecución de la actividad diaria.
+El segmento de salida para cada día depende de 24 segmentos por hora desde el conjunto de datos de entrada. Factoría de datos calcula automáticamente estas dependencias al determinar los segmentos de datos de entrada que se encuentran en el mismo período de tiempo que el segmento de salida que se va a producir. Si cualquiera de los 24 segmentos de entrada no está disponible, Data Factory espera a que el segmento de entrada esté listo antes de empezar la ejecución de la actividad diaria.
 
 
 ### Ejemplo 2: Especificar la dependencia con expresiones y funciones de Factoría de datos
 
 Consideremos otro escenario. Supongamos que tiene una actividad de Hive que procesa dos conjuntos de datos de entrada, uno de ellos tiene nuevos datos diariamente pero el otro obtiene datos nuevos cada semana. Supongamos que desea combinar las dos entradas y producir una salida diariamente.
  
-El método sencillo hasta ahora según el cual Factoría de datos determinaba automáticamente los segmentos de entrada correctos que se iban a procesar mediante la inclusión de segmentos de datos de entrada alineados con el período de tiempo de los segmentos de datos de salida ya no funciona.
+El enfoque sencillo, en el que Data Factory determina automáticamente los segmentos de entrada correctos que se van a procesar al alinearlos con el período de los segmentos de datos de salida, no funciona.
 
-Necesita una manera de especificar para cada ejecución de actividad la Factoría de datos que debe usar el segmento de datos de la semana pasada para el conjunto de datos de entrada semanal. Puede hacerlo con ayuda de las funciones de Factoría de datos de Azure, tal como se muestra a continuación.
+Necesita una manera de especificar para cada ejecución de actividad la Factoría de datos que debe usar el segmento de datos de la semana pasada para el conjunto de datos de entrada semanal. Puede hacerlo con ayuda de las funciones de Data Factory de Azure, como se muestra en el siguiente fragmento.
 
 **Input1: blob de Azure**
 
@@ -475,7 +473,7 @@ La segunda entrada es el blob de Azure actualizado **semanalmente**.
 
 **Salida: blob de Azure**
 
-Cada día se colocará un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en diariamente (frecuencia: día, intervalo: 1).
+Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en diariamente (frecuencia: día, intervalo: 1).
 	
 	{
 	  "name": "AzureBlobOutputDaily",
@@ -561,11 +559,11 @@ Para conocer la lista de funciones y variables del sistema que admite Data Facto
 
 ## Profundización de la dependencia de datos
 
-Para generar un segmento de conjunto de datos por una ejecución de actividad, Factoría de datos usa el siguiente **modelo de dependencia** para determinar las relaciones entre los conjuntos de datos usados por una actividad y los conjuntos de datos generados por una actividad.
+Con el fin de generar un segmento del conjunto de datos mediante la ejecución de una actividad, Data Factory usa el siguiente **modelo de dependencia** para determinar las relaciones entre los conjuntos de datos usados y los generados por una actividad.
 
-El intervalo de tiempo de los conjuntos de datos de entrada necesarios para generar el segmento del conjunto de datos de salida se denomina **período de dependencia**.
+El intervalo de tiempo de los conjuntos de datos de entrada necesario para generar el segmento del conjunto de datos de salida se denomina **período de dependencia**.
 
-La ejecución de una actividad genera un segmento de conjunto de datos solo después de que estén disponibles los segmentos de datos de los conjuntos de datos de entrada dentro del período de dependencia. Significa que todos los segmentos de entrada que comprenden el período de dependencia deben tener el estado **Listo** en el segmento de los conjuntos de datos de salida para ser producidos por una ejecución de actividad.
+La ejecución de una actividad genera un segmento del conjunto de datos solo después de que estén disponibles los segmentos de datos de los conjuntos de datos de entrada dentro del período de dependencia. Significa que todos los segmentos de entrada que comprenden el período de dependencia deben tener el estado **Listo** en el segmento de los conjuntos de datos de salida para ser producidos por una ejecución de actividad.
 
 Para generar el segmento de conjunto de datos [inicio, fin], se necesita una función para asignar el segmento de conjunto de datos a su período de dependencia. Esta función es básicamente una fórmula que convierte el principio y el final del segmento del conjunto de datos en el comienzo y final del período de dependencia. Dicho más formalmente,
 	
@@ -574,11 +572,11 @@ Para generar el segmento de conjunto de datos [inicio, fin], se necesita una fun
 
 donde f y g están asignando funciones que calculan el comienzo y el final del período de dependencia para cada entrada de la actividad.
 
-Tal como se muestra en los ejemplos anteriores, en la mayoría de los casos el período de dependencia es el mismo que el período en el que se va a producir el segmento de datos. En estos casos Factoría de datos calcula automáticamente los segmentos de entrada que se encuentran en el período de dependencia.
+Tal como se ve en los ejemplos, el período de dependencia es el mismo que el período en el que se va a producir el segmento de datos. En estos casos, la factoría de datos calcula automáticamente los segmentos de entrada que se encuentran en el período de dependencia.
 
-Por ejemplo: en el ejemplo de agregación anterior donde la salida se produce diariamente y los datos de entrada están disponibles cada hora, el período del segmento de datos es de 24 horas. Factoría de datos busca los segmentos de entrada relevantes de cada hora para este período de tiempo y hace que el segmento de salida sea dependiente del segmento de entrada.
+Por ejemplo: en el ejemplo de agregación anterior, en el que la salida se produce diariamente y los datos de entrada están disponibles cada hora, el período del segmento de datos es de 24 horas. Factoría de datos busca los segmentos de entrada relevantes de cada hora para este período de tiempo y hace que el segmento de salida sea dependiente del segmento de entrada.
 
-También puede proporcionar su propia asignación para el período de dependencia tal como se muestra en el ejemplo anterior, donde una de las entradas es semanal y el segmento de salida se produce diariamente.
+También puede proporcionar su propia asignación para el período de dependencia, como se muestra en el ejemplo, donde una de las entradas es semanal y el segmento de salida se produce diariamente.
    
 ## Dependencia y validación de datos
 
@@ -586,13 +584,13 @@ Un conjunto de datos puede tener una directiva de validación definida que espec
 
 En estos casos, cuando el segmento ha terminado de ejecutarse, el estado del mismo cambia a **En espera** con un subestado de **Validación**. Una vez validados los segmentos, el estado del segmento cambia a **Listo**.
    
-Si se ha generado un segmento de datos pero no ha pasado la validación, no se procesarán las ejecuciones de actividad de los segmentos de nivel inferior, dependiendo del segmento que no se pudo validar.
+Si se ha generado un segmento de datos, pero no ha pasado la validación, no se procesan las ejecuciones de actividad de los segmentos de nivel inferior, en función del segmento que no se pudo validar.
 
 En el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) se tratan los diversos estados de los segmentos de datos en Factoría de datos.
 
 ## Datos externos
 
-Un conjunto de datos se puede marcar como externo (tal como se muestra en el JSON siguiente), lo que implica que no se generó con Factoría de datos de Azure. En tal caso, la directiva de conjunto de datos puede tener un conjunto de parámetros adicional que describe la validación adicional y la directiva de reintento para el conjunto de datos. Consulte [Creación de canalizaciones](data-factory-create-pipelines.md) para obtener una descripción de todas las propiedades.
+Un conjunto de datos se puede marcar como externo (como se muestra en el fragmento de JSON), lo que implica que no se generó con Data Factory de Azure. En tal caso, la directiva de conjunto de datos puede tener un conjunto de parámetros adicional que describe la validación adicional y la directiva de reintento para el conjunto de datos. Consulte el artículo sobre la [creación de canalizaciones](data-factory-create-pipelines.md) para una descripción de todas las propiedades.
 
 De forma similar a los conjuntos de datos que produce Factoría de datos, los segmentos de datos de datos externos deben estar preparados antes de que se puedan procesar los segmentos dependientes.
 
@@ -626,7 +624,7 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
 
 ## Canalización de una vez
-Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution). También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
+Puede crear y programar una canalización que se ejecute periódicamente (por ejemplo, cada hora y diariamente) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution). También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización,como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -664,9 +662,9 @@ Puede crear y programar una canalización que se ejecute periódicamente (cada h
 
 Tenga en cuenta lo siguiente:
  
-- No tiene que especificar las horas de **inicio** y **finalización** de la canalización.
-- En este momento, tiene que especificar la disponibilidad de los conjuntos de datos de entrada y salida (frecuencia e intervalo), aunque Data Factory no use los valores.
-- La vista Diagrama no muestra las canalizaciones de una vez. Esto es así por diseño.
+- No se especifican las horas de **inicio** y **finalización** de la canalización.
+- La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (frecuencia e intervalo), incluso aunque Data Factory no use los valores.
+- La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 - Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
   
@@ -702,4 +700,4 @@ Tenga en cuenta lo siguiente:
 
   
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

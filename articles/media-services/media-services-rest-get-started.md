@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la entrega de contenido a petición mediante la API de REST" 
+	pageTitle="Introducción a la entrega de contenido a petición mediante REST | Microsoft Azure" 
 	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido a petición con Servicios multimedia de Azure mediante la API de REST." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/17/2016" 
 	ms.author="juliako"/>
 
-#Introducción a la entrega de contenido a petición mediante la API de REST
+#Introducción a la entrega de contenido a petición mediante REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -66,12 +66,12 @@ En este tutorial rápido se muestran las siguientes tareas.
 
 	Una vez que la cuenta se crea correctamente, el estado cambia a Activo.
 	
-	En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra un cuadro de diálogo con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesitará el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
+	En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra un cuadro de diálogo con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesita el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
 
 	
 	![Página de Servicios multimedia](./media/media-services-rest-get-started/wams-mediaservices-page.png)
 
-	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de inicio rápido de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
+	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de Inicio rápido de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
 
 
 ## <a id="connect"></a>Conexión a la cuenta de Servicios multimedia con API de REST
@@ -346,7 +346,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 
 ### Creación de AccessPolicy con permiso de escritura. 
 
-Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes durante la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes tras la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
 		
@@ -544,14 +544,14 @@ Si se realiza correctamente, se devuelve lo siguiente:
 
 Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
+Servicios multimedia proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos.
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - obtener al menos una unidad de streaming a petición para el **punto de conexión de streaming ** desde el que planea entregar el contenido (como se describe en esta sección).
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),
 
-Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
 
 >[AZURE.NOTE] Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -670,11 +670,11 @@ Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,
 - obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
 
-En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podrá crear localizadores necesarios para obtener acceso a los recursos.
+En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podrá crear los localizadores necesarios para acceder a los recursos.
 
 ### Obtención de un procesador multimedia
 
-En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Para la tarea de codificación que se muestra en este tutorial, usaremos el Estándar de codificador multimedia.
+En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Para la tarea de codificación que se muestra en este tutorial, usaremos el Codificador multimedia estándar.
 
 El código siguiente solicita el identificador del codificador.
 
@@ -721,7 +721,7 @@ El código siguiente solicita el identificador del codificador.
 
 ### Creación de un trabajo
 
-Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Servicios multimedia usa el procesamiento por lotes; sin embargo, para la legibilidad de los ejemplos de código de este tema, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Servicios multimedia usa el procesamiento por lotes; sin embargo, para que sea fácil entender los ejemplos de código de este tema, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](http://msdn.microsoft.com/library/mt269960) admitidos por el procesador de Codificador multimedia estándar.
 
@@ -831,7 +831,7 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 >[AZURE.NOTE] Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
 
 - InputMediaAssets se asigna a uno o más recursos que ha creado en Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
-- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso de que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
+- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor de texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso de que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
 
 	En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
 	
@@ -840,7 +840,7 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 
 - Para habilitar el encadenamiento de tareas:
 
-	- Un trabajo debe tener al menos 2 tareas
+	- Un trabajo debe tener al menos dos tareas.
 	- Debe haber al menos una tarea cuya entrada sea salida de otra tarea del trabajo.
 
 Para obtener más información, consulte [Creación de un trabajo de codificación con la API de REST de Servicios multimedia](http://msdn.microsoft.com/library/azure/jj129574.aspx).
@@ -1106,7 +1106,7 @@ Como resultado del trabajo de codificación que realizó anteriormente (codifica
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Creación de una URL de streaming para transmitir contenido
+### Creación de una URL de streaming para transmitir contenido
 
 
 El siguiente código muestra cómo crear un localizador de direcciones URL de streaming:
@@ -1203,4 +1203,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 <!-- URLs. -->
   [Portal de Azure clásico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

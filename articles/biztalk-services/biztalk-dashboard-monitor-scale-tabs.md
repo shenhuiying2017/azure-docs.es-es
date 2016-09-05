@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/23/2016" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ Después de crear su servicio de BizTalk e implementar su aplicación, puede cam
 
 Al abrir el Portal de Azure clásico, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS**. Para ver su servicio de BizTalk, selecciónelo en la pestaña **TODOS LOS ELEMENTOS** o seleccione la pestaña **SERVICIOS DE BIZTALK** y, a continuación, haga clic en el nombre de su servicio de BizTalk.
 
-De este modo se abre una nueva ventana con las pestañas siguientes. El tema describe estas pestañas.
+De este modo se abre una nueva ventana con las pestañas siguientes. En el tema se describen estas pestañas.
 
 ## Inicio rápido (![Inicio rápido][QuickStart])
 En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas.
@@ -166,7 +166,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> proporciona detalles en la cuenta de almacenamiento.</td>
 </tr>
 <tr>
-<td><strong>Nombre de suscripción</strong></td>
+<td><strong>Nombre de la suscripción</strong></td>
 <td>Muestra la suscripción que hospeda el Servicio de BizTalk. La suscripción rige el acceso al Portal de Azure clásico.</td>
 </tr>
 <tr>
@@ -233,17 +233,14 @@ También puede elegir los valores **Relativo** o **Absoluto** y el intervalo de 
 
 ##### Para eliminar o mostrar métricas en el gráfico:
 1. Seleccione la pestaña **Monitor**.
-2. Haga clic en **Agregar métricas** en la barra de tareas:
-![Seleccione Agregar métricas][AddMetrics]
+2. Haga clic en **Agregar métricas** en la barra de tareas: ![Seleccione Agregar métricas][AddMetrics]
 3. Compruebe las métricas de rendimiento que quiera mostrar.
 4. Seleccione la marca de verificación para volver a la pestaña **Monitor**.
-5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.  
+5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.
 
-	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico:  
-![La métrica Uso de CPU está atenuada][GrayedMetric]  
+	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico: ![La métrica Uso de CPU está atenuada][GrayedMetric]
 
-	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico:  
-![La métrica Uso de CPU está habilitada][EnabledMetric]
+	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico: ![La métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Para agregar la métrica a lista otra vez, seleccione **Agregar métricas** en la barra de tareas, compruebe la métrica y seleccione la marca de verificación para volver a la pestaña **Monitor**. Seleccione el círculo gris para habilitar la métrica.
 
@@ -300,7 +297,7 @@ En un escenario de respuesta de solicitud, la métrica se incrementa cuando el d
 </tr>
 <tr>
 <td><strong>Mensajes recibidos</strong></td>
-<td>Muestra el número total de mensajes recibidos por el servicio de BizTalk en todos los puentes dentro de un intervalo de tiempo. Esta métrica se incrementa cuando el proceso recibe un nuevo mensaje.</td>
+<td>Muestra el número total de mensajes recibidos por el Servicio de BizTalk en todos los puentes dentro de un intervalo de tiempo. Esta métrica se incrementa cuando el proceso recibe un nuevo mensaje.</td>
 </tr>
 <tr>
 <td><strong>Mensajes en proceso</strong></td>
@@ -308,7 +305,7 @@ En un escenario de respuesta de solicitud, la métrica se incrementa cuando el d
 </tr>
 <tr>
 <td><strong>Mensajes procesados</strong></td>
-<td>Muestra el número total de mensajes procesados correctamente por el servicio de BizTalk en todos los puentes dentro de un intervalo de tiempo. Esta métrica se incrementa cuando el proceso recibe correctamente un mensaje y lo envía al destino.</td>
+<td>Muestra el número total de mensajes procesados correctamente por el Servicio de BizTalk en todos los puentes dentro de un intervalo de tiempo. Esta métrica se incrementa cuando el proceso recibe correctamente un mensaje y lo envía al destino.</td>
 </tr>
 </table>
 
@@ -345,15 +342,15 @@ Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, 
 ## Pasos siguientes
 Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener más información acerca de las características de los servicios de BizTalk de Azure:
 
-- [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)  
-- [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)  
+- [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)
+- [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)
 - [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)
 
 ## Otras referencias
-- [Conexiones híbridas](integration-hybrid-connection-overview.md)  
-- [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](biztalk-editions-feature-chart.md)  
-- [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](biztalk-provision-services.md)  
-- [Servicios de BizTalk: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)  
+- [Conexiones híbridas](integration-hybrid-connection-overview.md)
+- [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](biztalk-editions-feature-chart.md)
+- [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](biztalk-provision-services.md)
+- [Servicios de BizTalk: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -362,4 +359,4 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

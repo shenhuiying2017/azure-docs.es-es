@@ -130,7 +130,7 @@ Como solución alternativa, guarde una copia local del archivo RDP desde el port
 
 Si no necesita más de dos conexiones simultáneas de Escritorio remoto a la máquina virtual, puede usar el administrador del servidor para quitar el rol de servidor de Escritorio remoto.
 
-Para obtener más información, consulte la entrada de blog [Azure VM fails with "No Remote Desktop License Servers available"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx) (Error de la máquina virtual de Azure: "No hay servidores de licencias de Escritorio remoto disponibles").
+Para obtener más información, consulte la entrada de blog [Azure VM fails with "No Remote Desktop License Servers available"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/) (Error de la máquina virtual de Azure: "No hay servidores de licencias de Escritorio remoto disponibles").
 
 <a id="rdpname"></a>
 ### Remote Desktop can't find the computer "name" (Escritorio remoto no puede encontrar el equipo "nombre").
@@ -156,7 +156,7 @@ La parte de la dirección de este archivo RDP tiene:
 
 Causa: la VM de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
 
-Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones:
 
@@ -173,8 +173,8 @@ Causa: la VM de destino no pudo validar el nombre y la contraseña de la cuenta.
 
 Un equipo con Windows puede validar las credenciales de una cuenta local o de una cuenta de dominio.
 
-- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
-- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\\*nombreDeUsuario* (ejemplo: CONTOSO\\peterodman).
+- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
+- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\*nombreDeUsuario* (ejemplo: CONTOSO\\peterodman).
 
 Si promovió su máquina virtual a un controlador de dominio de un nuevo bosque de Active Directory, la cuenta de administrador local con la que inició sesión se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. A continuación, se elimina la cuenta local.
 
@@ -210,4 +210,4 @@ Si no se ha producido ninguno de estos errores y sigue sin poder conectarse a la
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

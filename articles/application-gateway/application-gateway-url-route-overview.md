@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/18/2016"
    ms.author="gwallace"/>
 
 # Información general del enrutamiento basado en URL
@@ -21,11 +21,11 @@ El enrutamiento basado en URL le permite enrutar el tráfico a los grupos de ser
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Las solicitudes de http://contoso.com/video* se enrutarán a VideoServerPool y las de http://contoso.com/images* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+Las solicitudes de http://contoso.com/video* se enrutan a VideoServerPool y las de http://contoso.com/images* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 ## Elemento de configuración UrlPathMap
 
-El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso para las asignaciones de grupos de servidores back-end. Este es el fragmento de código del elemento urlPathMap del archivo de plantilla.
+El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso para las asignaciones de grupos de servidores back-end. A continuación se muestra el fragmento de código del elemento urlPathMap del archivo de plantilla.
 
 	"urlPathMaps": [
 	{
@@ -58,9 +58,9 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 	}
 	
 
->[AZURE.NOTE] PathPattern: la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter * es al final, después de un carácter '/'. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
+>[AZURE.NOTE] PathPattern: esta opción es una lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
 
-Para más información, puede desproteger una [plantilla de ARM mediante el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
+Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
 
 ## Regla de PathBasedRouting
 
@@ -84,6 +84,6 @@ RequestRoutingRule de tipo PathBasedRouting se usa para enlazar un agente de esc
 	
 ## Pasos siguientes 
 
-Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](application-gateway-create-url-route-arm-ps.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
+Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](application-gateway-create-url-route-portal.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

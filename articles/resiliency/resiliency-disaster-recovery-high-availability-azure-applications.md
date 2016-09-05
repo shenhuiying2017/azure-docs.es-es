@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure
@@ -131,4 +131,4 @@ Al crear el plan de recuperación ante desastres y disponibilidad de la aplicaci
 
 Este artículo forma parte de una serie enfocada a la recuperación ante desastres y la alta disponibilidad para las aplicaciones de Azure. El siguiente artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

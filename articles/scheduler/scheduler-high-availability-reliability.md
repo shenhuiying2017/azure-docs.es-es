@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/16/2016"
  ms.author="krisragh"/>
 
 
@@ -56,7 +56,7 @@ Por ejemplo, en el diagrama siguiente, Programador de Azure sigue su directiva d
 
 ![][2]
 
-Tenga en cuenta que se aplica la misma directiva de reintentos a la acción original y la acción de error alternativa. También es posible que el tipo de acción de la acción de error alternativa sea distinto del tipo de acción de la acción principal. Por ejemplo, mientras que la acción principal puede ser invocar un extremo HTTP, es posible que la acción de error sea una acción de la cola de almacenamiento, la cola del bus de servicio o el tema de bus de servicio que sí realiza el registro de errores.
+Tenga en cuenta que se aplica la misma directiva de reintentos a la acción original y la acción de error alternativa. También es posible que el tipo de acción de la acción de error alternativa sea distinto del tipo de acción de la acción principal. Por ejemplo, mientras que la acción principal puede ser invocar un punto de conexión HTTP, es posible que la acción de error sea una acción de la cola de almacenamiento, la cola del bus de servicio o el tema de bus de servicio que sí realiza el registro de errores.
 
 Para obtener información sobre cómo configurar un extremo alternativo, consulte [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

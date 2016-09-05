@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Reemplazo de los componentes de hardware de StorSimple
@@ -88,7 +88,7 @@ Los módulos de complementos en el dispositivo se resaltan en los siguientes dia
 
 **Figura 1** Parte frontal del dispositivo
 
-|Etiqueta|Descripción|
+|Etiqueta|Description|
 |:----|:----------|
 |0 - 11|Unidades de discos (total de 12)|
 
@@ -98,7 +98,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 2** Parte posterior del gabinete principal
 
-|Etiqueta|Descripción|
+|Etiqueta|Description|
 |:----|:----------|
 |1|PCM 0|
 |2|PCM 1|
@@ -109,7 +109,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 3** Parte posterior del gabinete EBOD
 
-|Etiqueta|Descripción|
+|Etiqueta|Description|
 |:----|:----------|
 |1|PCM 0|
 |2|PCM 1|
@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

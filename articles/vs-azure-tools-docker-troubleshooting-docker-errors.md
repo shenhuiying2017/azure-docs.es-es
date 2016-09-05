@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="08/18/2016"
    ms.author="allclark" />
 
 # Solución de problemas de desarrollo de Docker en Visual Studio
@@ -21,7 +21,7 @@ Cuando se trabaja con la versión preliminar de Visual Studio Tools para Docker,
 
 ##No se pudo configurar la compatibilidad de Program.cs con Docker
 
-Si se agrega compatibilidad con Docker, es preciso agregar `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` a WebHostBuilder(). Si no se han encontrado la función `Main()` de Program.cs o una nueva clase de WebHostBuilder, se mostrará una advertencia. `.UseUrls()` es necesario para habilitar Kestrel para que escuche el tráfico entrante, más allá de localhost, cuando se ejecuta en un contenedor de Docker. Al finalizar, el código típico tendrá un aspecto similar al siguiente:
+Si se agrega compatibilidad con Docker, es preciso agregar `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` a WebHostBuilder(). Si no se han encontrado la función `Main()` o una nueva clase de WebHostBuilder en `Program.cs`, se muestra una advertencia. `.UseUrls()` es necesario para habilitar Kestrel para que escuche el tráfico entrante, más allá de localhost, cuando se ejecuta en un contenedor de Docker. Al finalizar, el código típico tendrá un aspecto similar al siguiente:
 
 ```
 public class Program
@@ -41,8 +41,8 @@ public class Program
 }
 ```
 
-UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.
-[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.  
+Las [herramientas de Docker para Visual Studio](http://aka.ms/DockerToolsForVS) configurarán la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```
 # Configure the listening port to 80
@@ -53,8 +53,8 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 Para habilitar las funcionalidades de edición y actualización, la asignación de volúmenes está configurada para compartir el código fuente del proyecto con la carpeta .app dentro del contenedor. Como los archivos se cambian en el equipo host, el directorio de la aplicación o contenedores usa el mismo directorio. En docker-compose.debug.yml, la siguiente configuración habilita la asignación de volúmenes
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
 
 Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente comando:
@@ -84,13 +84,13 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Nota:** *Al trabajar con máquinas virtuales Linux, el sistema de archivos del contenedor distingue mayúsculas de minúsculas.*
+> [AZURE.NOTE] Al trabajar con máquinas virtuales Linux, el sistema de archivos del contenedor distingue entre mayúsculas y minúsculas.
 
 Si no puede ver el contenido, pruebe lo siguiente:
 
 **Versión beta de Docker para Windows**
-- Compruebe que se ejecuta la aplicación de escritorio de Docker para Windows, para lo que debe buscar el icono de la ballena en la bandeja del sistema y asegurarse de que es de color blanco y de que funciona.
-- Compruebe que está configurada la asignación de volúmenes, para lo que debe hacer clic con el botón derecho en el icono de la ballena en la bandeja del sistema, seleccionar la configuración y hacer clic en **Manage shared drives...** (Administrar unidades compartidas).
+- Compruebe que se ejecuta la aplicación de escritorio de Docker para Windows, para lo que debe buscar el icono `moby` en la bandeja del sistema y asegurarse de que es de color blanco y de que funciona.
+- Compruebe que está configurada la asignación de volúmenes, para lo que debe hacer clic con el botón derecho en el icono `moby` en la bandeja del sistema, seleccionar la configuración y hacer clic en **Manage shared drives...** (Administrar unidades compartidas).
 
 **Docker Toolbox con VirtualBox**
 
@@ -113,14 +113,14 @@ Si utiliza el Explorador de Microsoft Edge, puede que el sitio no se abra ya que
 1. Seleccione **Sitios**.
 1. Agregue la dirección IP de la máquina virtual (en este caso, el host de Docker) en la lista.
 1. Actualice la página en Edge; debería ver que el sitio está en funcionamiento.
-1. Para más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox).
+1. Para obtener más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox).
 
 ##Solución de problemas de la versión 0.15, o de las versiones anteriores
 
 
 ###La ejecución de la aplicación hace que PowerShell se abra, muestre un error y se cierre. La página del explorador no se abre.
 
-Podría tratarse de un error durante `docker-compose-up`. Para ver el error, realice los pasos siguientes:
+La imposibilidad de abrir el navegador puede deberse a un error durante `docker-compose-up`. Para ver el error, realice los pasos siguientes:
 
 1. Abra el archivo `Properties\launchSettings.json`.
 1. Busque la entrada Docker.
@@ -130,10 +130,10 @@ Podría tratarse de un error durante `docker-compose-up`. Para ver el error, rea
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
     ```
 	
-1. Agregue el parámetro `-noexit` para que la línea sea como la siguiente. De esta forma PowerShell se mantendrá abierto y podrá ver el error.
+1. Agregue el parámetro `-noexit` para que la línea se asemeje a la siguiente. Este código permite que PowerShell se mantenga abierto, con lo que podrá ver el error.
 
     ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

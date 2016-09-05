@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integración del SDK de Windows Universal Apps Engagement
 
 > [AZURE.SELECTOR] 
-- [Windows universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Windows universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 En este procedimiento se describe la manera más sencilla de activar las funciones de análisis y supervisión de Engagement en su aplicación de Windows Universal.
 
@@ -34,7 +34,7 @@ El SDK de Mobile Engagement para aplicaciones Windows Universal solo se puede in
 
 -   Windows 8
 -   Windows 8.1
--   Windows Phone 8.1
+-   Windows Phone 8,1
 -   Windows 10 (familias de escritorio y portátiles)
 
 > [AZURE.NOTE] Si va a desarrollar para Windows Phone Silverlight, vea entonces el [procedimiento de integración de Windows Universal Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
@@ -54,7 +54,7 @@ NuGet implementa automáticamente los recursos SDK en la carpeta `Resources` en 
 NuGet no implementa automáticamente los recursos SDK en su aplicación UWP todavía. Tiene que hacerlo manualmente hasta que la implementación de recursos se vuelva a insertar en NuGet:
 
 1.  Abra el Explorador de archivos.
-2.  Vaya a la siguiente ubicación (**x.x.x** es la versión de Engagement que está instalando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
+2.  Vaya a la siguiente ubicación (**x.x.x** es la versión de Engagement que está instalando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*.
 3.  Arrastre y coloque la carpeta **Recursos** del explorador de archivos en la raíz del proyecto en Visual Studio.
 4.  En Visual Studio, seleccione el proyecto y active el icono **Mostrar todos los archivos** en la parte superior del **Explorador de soluciones**.
 5.  Algunos archivos no se incluyen en el proyecto. Para importarlos a la vez, haga clic con el botón derecho en la carpeta **Recursos**, **Excluir del proyecto** y, a continuación, haga clic de nuevo con el botón derecho en la carpeta **Recursos**, **Incluir en el proyecto** para volver a incluir toda la carpeta. Todos los archivos de la carpeta **Recursos** estarán ahora incluidos en su proyecto.
@@ -283,4 +283,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

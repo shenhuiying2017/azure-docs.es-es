@@ -90,7 +90,7 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 
 ### Transact-SQL
 
-|Comando|Descripción|
+|Comando|Description|
 |-------|-----------|
 |[ALTER DATABASE (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos|
 |[ALTER DATABASE (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Se utiliza FAILOVER o FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error
@@ -114,7 +114,7 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 
 ### API de REST
 
-|API|Descripción|
+|API|Description|
 |---|-----------|
 |[Crear o actualizar base de datos (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, actualiza o restaura una base de datos principal o secundaria.|
 |[Obtener el estado de creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Devuelve el estado durante una operación de creación.|
@@ -133,4 +133,4 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

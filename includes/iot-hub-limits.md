@@ -14,7 +14,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure | 10 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure | 1 |
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada | 1000 |
-| Retención máxima de mensajes del Centro de IoT | 7 días |
+| Retención máxima de mensajes del Centro de IoT para los mensajes de dispositivo a la nube | 7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube | 256 KB |
 | Tamaño máximo de lote de dispositivo a la nube | 256 KB |
 | Número máximo de mensajes en lote del dispositivo a la nube | 500 |
@@ -35,6 +35,6 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 | Envíos de dispositivo a nube | 6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. |
 | Envíos de nube a dispositivo | 5000/min/unidad (para S3), 100/min/unidad (para S1 y S2). |
 | Recepciones de nube a dispositivo | 50000/min/unidad (para S3), 1000/min/unidad (para S1 y S2). |
-| Operaciones de carga de archivos | Notificaciones de carga de 5000 archivos/min/unidad (para S3), notificaciones de carga de 100 archivos/min/unidad (para S1 y S2). <br/> 10000 URI de SAS pueden estar fuera de una cuenta de almacenamiento al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| Operaciones de carga de archivos | Notificaciones de carga de 5000 archivos/min/unidad (para S3), notificaciones de carga de 100 archivos/min/unidad (para S1 y S2). <br/> 10 000 URI de SAS pueden estar fuera de una cuenta de almacenamiento al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

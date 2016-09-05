@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -21,7 +21,7 @@
 
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización. La sintaxis de las funciones se expresa con el siguiente formato: `<output type> FunctionName(<input type> <position name>, ..)`
 
-Si una función está sobrecargada y acepta varias sintaxis, se enumeran todas las sintaxis válidas. Las funciones están fuertemente tipadas y comprueban que el tipo pasado coincide con el tipo documentado. Se produce un error si el tipo no coincide.
+Si una función está sobrecargada y acepta varias sintaxis, se enumeran todas las sintaxis válidas. Las funciones están fuertemente tipadas y comprueban que el tipo pasado coincide con el tipo documentado. Si el tipo no coincide, se produce un error.
 
 Los tipos se expresan con la siguiente sintaxis:
 
@@ -34,10 +34,12 @@ Los tipos se expresan con la siguiente sintaxis:
 - **mvstr**: cadena multivalor
 - **mvref**: referencia multivalor
 - **num**: numérico
-- **ref**: referencia de valor único
-- **str**: cadena de valor único
+- **ref**: referencia
+- **str** : cadena
 - **var**: una variante de (casi) cualquier otro tipo
 - **void**: no devuelve un valor
+
+Las funciones con los tipos **mvbin**, **mvstr** y **mvref** solo pueden funcionar en atributos con varios valores. Las funciones con **bin**, **str** y **ref** funcionan en atributos con un solo valor y con varios valores.
 
 ## Referencia de funciones
 
@@ -141,15 +143,15 @@ Devuelve True si ambos atributos tienen el mismo valor.
 
 **Descripción**: la función Contains busca una cadena dentro de un atributo multivalor.
 
-**Sintaxis**: `num Contains (mvstring attribute, str search)`: distingue mayúsculas y minúsculas `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)`: distingue mayúsculas y minúsculas.
+**Sintaxis:**`num Contains (mvstring attribute, str search)` - distingue mayúsculas y minúsculas `num Contains (mvstring attribute, str search, enum Casetype)``num Contains (mvref attribute, str search)` - distingue mayúsculas y minúsculas
 
-- atributo: el atributo con varios valores de búsqueda.<br>
-- búsqueda: cadena para buscar en el atributo.<br>
-- Casetype: CaseInsensitive o CaseSensitive.<br>
+- attribute: el atributo con varios valores de búsqueda.
+- search: cadena para buscar en el atributo.
+- Casetype: CaseInsensitive o CaseSensitive.
 
 Devuelve el índice en el atributo de varios valores donde se ha encontrado la cadena. Si no se encuentra la cadena, se devuelve 0.
 
-**Comentarios**: para los atributos de cadena multivalor, la búsqueda encontrará subcadenas en los valores. Para los atributos de referencia, la cadena de búsqueda debe coincidir exactamente con el valor para que se considere una coincidencia.
+**Comentarios**: para los atributos de cadena multivalor, la búsqueda encuentra subcadenas en los valores. Para los atributos de referencia, la cadena de búsqueda debe coincidir exactamente con el valor para que se considere una coincidencia.
 
 **Ejemplo**: `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` si el atributo proxyAddresses tiene una dirección de correo electrónico principal (indicada mediante las mayúsculas "SMTP:"), devuelve el atributo proxyAddress. De lo contrario, devuelve un error.
 
@@ -158,7 +160,7 @@ Devuelve el índice en el atributo de varios valores donde se ha encontrado la c
 
 **Descripción**: la función ConvertFromBase64 convierte el valor codificado en base64 especificado en una cadena normal.
 
-**Sintaxis**: `str ConvertFromBase64(str source)` da por hecho que se usará Unicode para la codificación de <br> `str ConvertFromBase64(str source, enum Encoding)`.
+**Sintaxis**: `str ConvertFromBase64(str source)` da por hecho que se usará Unicode para la codificación de `str ConvertFromBase64(str source, enum Encoding)`.
 
 - source: cadena codificada en Base64
 - Codificación: Unicode, ASCII, UTF8
@@ -178,7 +180,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 **Comentarios:** la diferencia entre esta función y ConvertFromBase64(,UTF8) es que el resultado es descriptivo para el atributo DN. Azure Active Directory utiliza este formato como DN.
 
-**Ejemplo:** `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")` devuelve "*Hola a todos*".
+**Ejemplo:** `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")` devuelve "*Hello world!*".
 
 ----------
 ### ConvertToBase64
@@ -228,7 +230,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 **Descripción**: la función CStr se convierte en un tipo de datos de cadena.
 
-**Sintaxis**: `str CStr(num value)` `str CStr(ref value)` `str CStr(bool value)`
+**Sintaxis:** `str CStr(num value)` `str CStr(ref value)` `str CStr(bool value)`
 
 - value: puede ser un valor numérico, un atributo de referencia o un valor booleano.
 
@@ -342,10 +344,10 @@ Ambos ejemplos devuelven "*Hola a todos*"
 **Sintaxis:** `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition: cualquier valor o expresión que pueda evaluarse en True o False.
-- valueIfTrue: un valor que se devolverá si se evalúa una condición en True.
-- valueIfFalse: un valor que se devolverá si se evalúa una condición en False.
+- valueIfTrue: si la condición se evalúa como true, el valor devuelto.
+- valueIfTrue: si la condición se evalúa como false, el valor devuelto.
 
-**Ejemplo**: `IIF([employeeType]="Intern","t-" & [alias],[alias])` devuelve el alias de un usuario al que agrega "t-" al principio si el usuario está en prácticas. De lo contrario, el alias del usuario se queda como está.
+**Ejemplo**: `IIF([employeeType]="Intern","t-" & [alias],[alias])` si el usuario está en prácticas, devuelve el alias de un usuario al que agrega "t-" al principio. De lo contrario, el alias del usuario se queda como está.
 
 ----------
 ### InStr
@@ -372,7 +374,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 **Descripción**: la función InStrRev busca la última repetición de una subcadena en una cadena.
 
-**Sintaxis**: `num InstrRev(str stringcheck, str stringmatch)` `num InstrRev(str stringcheck, str stringmatch, num start)` `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
+**Sintaxis:** `num InstrRev(str stringcheck, str stringmatch)` `num InstrRev(str stringcheck, str stringmatch, num start)` `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck: cadena que se va a buscar
 - stringmatch: cadena que se tiene que encontrar
@@ -381,163 +383,163 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 **Comentarios**: devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
-**Ejemplo**: `InStrRev("abbcdbbbef","bb")` devuelve 7.
+**Ejemplo:** `InStrRev("abbcdbbbef","bb")` devuelve 7.
 
 ----------
 ### IsBitSet
 
-**Descripción**: la función IsBitSet prueba si un bit se establece o no.
+**Descripción:** la función IsBitSet prueba si un bit se establece o no.
 
 **Sintaxis:** `bool IsBitSet(num value, num flag)`
 
 - value: un valor numérico que es evaluated.flag: un valor numérico que tiene el bit que se va a evaluar
 
-**Ejemplo**: `IsBitSet(&HF,4)` devuelve True porque el bit "4" se establece en el valor hexadecimal "F".
+**Ejemplo:** `IsBitSet(&HF,4)` devuelve True porque el bit "4" se establece en el valor hexadecimal "F".
 
 ----------
 ### IsDate
 
-**Descripción**: la función IsDate se evalúa en True si la expresión se puede evaluar como un tipo DateTime.
+**Descripción:** si la expresión se puede evaluar como un tipo DateTime, la función IsDate se evalúa en True.
 
 **Sintaxis:** `bool IsDate(var Expression)`
 
-**Comentarios**: se usa para determinar si CDate() será correcto.
+**Comentarios:** se usa para determinar si CDate() será correcto.
 
 ----------
 ### IsEmpty
 
-**Descripción**: la función IsEmpty se evalúa en True si el atributo está presente en CS o MV, pero se evalúa en una cadena vacía.
+**Descripción:** si el atributo está presente en CS o MV, pero se evalúa en una cadena vacía, la función IsEmpty se evalúa en True.
 
 **Sintaxis:** `bool IsEmpty(var Expression)`
 
 ----------
 ### IsGuid
 
-**Descripción**: la función IsGuid evaluada en True si la cadena se pudo convertir en un GUID.
+**Descripción:** si la cadena se pudo convertir en un GUID, la función IsGuid evaluada en True.
 
 **Sintaxis:** `bool IsGuid(str GUID)`
 
-**Comentarios**: un GUID se define como una cadena que sigue uno de estos patrones: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx o {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.
+**Comentarios:** un GUID se define como una cadena que sigue uno de estos patrones: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.
 
 Se usa para determinar si CGuid() es correcto.
 
-**Ejemplo**: `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` si StrAttribute tiene un formato GUID, devuelve una representación binaria. De lo contrario, devuelve un valor Null.
+**Ejemplo:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` si StrAttribute tiene un formato GUID, devuelve una representación binaria. De lo contrario, devuelve un valor Null.
 
 ----------
 ### IsNull
 
-**Descripción**: la función IsNull devuelve True si la expresión se evalúa como Null.
+**Descripción:** si la expresión se evalúa como Null, la función IsNull devuelve True.
 
 **Sintaxis:** `bool IsNull(var Expression)`
 
-**Comentarios**: para un atributo, un valor Null se expresa mediante la ausencia del atributo.
+**Comentarios:** para un atributo, un valor Null se expresa mediante la ausencia del atributo.
 
-**Ejemplo**: `IsNull([displayName])` devuelve True si el atributo no está presente en CS o MV.
+**Ejemplo:** `IsNull([displayName])` devuelve True si el atributo no está presente en CS o MV.
 
 ----------
 ### IsNullOrEmpty
 
-**Descripción**: la función IsNullOrEmpty devuelve True si la expresión es Null o una cadena vacía.
+**Descripción:** si la expresión es Null o una cadena vacía, la función IsNullOrEmpty devuelve True.
 
 **Sintaxis:** `bool IsNullOrEmpty(var Expression)`
 
-**Comentarios:** para un atributo, esto se evaluaría como True si el atributo no está presente o está presente, pero es una cadena vacía.<br> La función contraria a esta es IsPresent.
+**Comentarios:** para un atributo, esto se evaluaría como True si el atributo no está presente o está presente, pero es una cadena vacía. La función contraria a esta es IsPresent.
 
-**Ejemplo**: `IsNullOrEmpty([displayName])` devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
+**Ejemplo:** `IsNullOrEmpty([displayName])` devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
 
 ----------
 ### IsNumeric
 
-**Descripción**: la función IsNumeric devuelve un valor booleano que indica si una expresión se puede evaluar como un tipo de número.
+**Descripción:** la función IsNumeric devuelve un valor booleano que indica si una expresión se puede evaluar como un tipo de número.
 
 **Sintaxis:** `bool IsNumeric(var Expression)`
 
-**Comentarios**: se usa para determinar si CNum() analizará correctamente la expresión.
+**Comentarios:** se usa para determinar si CNum() analizará correctamente la expresión.
 
 ----------
 ### IsString
 
-**Descripción**: la función IsString se evalúa en True si la expresión se puede evaluar en un tipo de cadena.
+**Descripción:** si la expresión se puede evaluar en un tipo de cadena, la función IsString se evalúa en True.
 
 **Sintaxis:** `bool IsString(var expression)`
 
-**Comentarios**: se usa para determinar si CStr() analizará correctamente la expresión.
+**Comentarios:** se usa para determinar si CStr() puede analizar correctamente la expresión.
 
 ----------
 ### IsPresent
 
-**Descripción**: la función IsPresent devuelve True si la expresión se evalúa como una cadena que no es Null y no está vacía.
+**Descripción:** si la expresión se evalúa como una cadena que no es Null y no está vacía, la función IsPresent devuelve True.
 
 **Sintaxis:** `bool IsPresent(var expression)`
 
-**Comentarios**: la función contraria a esta es IsNullOrEmpty.
+**Comentarios:** la función contraria a esta es IsNullOrEmpty.
 
 **Ejemplo:** `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ----------
 ### Elemento
 
-**Descripción**: la función Item devuelve un elemento de un atributo o una cadena multivalor.
+**Descripción:** la función Item devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:** `var Item(mvstr attribute, num index)`
 
 - attribute: atributo de varios valores
 - index: índice para un elemento en la cadena de varios valores.
 
-**Comentarios**: la función Item es útil con la función Contains puesto que esta última función devolverá el índice a un elemento en el atributo multivalor.
+**Comentarios:** la función Item es útil con la función Contains puesto que esta última función devuelve el índice a un elemento en el atributo de varios valores.
 
 Se produce un error si el índice está fuera de los límites.
 
-**Ejemplo**: `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` devuelve la dirección de correo electrónico principal.
+**Ejemplo:** `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` devuelve la dirección de correo electrónico principal.
 
 ----------
 ### ItemOrNull
 
-**Descripción**: la función ItemOrNull devuelve un elemento de un atributo o una cadena multivalor.
+**Descripción:** la función ItemOrNull devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:** `var ItemOrNull(mvstr attribute, num index)`
 
 - attribute: atributo de varios valores
 - index: índice para un elemento en la cadena de varios valores.
 
-**Comentarios**: la función ItemOrNull es útil con la función Contains, puesto que esta última función devolverá el índice a un elemento en el atributo multivalor.
+**Comentarios:** la función ItemOrNull es útil con la función Contains puesto que esta última función devuelve el índice a un elemento en el atributo de varios valores.
 
-Devuelve un valor Null si el índice está fuera de los límites.
+Si el índice está fuera de los límites, devuelve un valor Null.
 
 ----------
 ### Join
 
-**Descripción**: la función Join toma una cadena multivalor y devuelve una cadena de valor único con un separador especificado insertado entre cada elemento.
+**Descripción:** la función Join toma una cadena de varios valores y devuelve una cadena de valor único con un separador especificado insertado entre cada elemento.
 
 **Sintaxis:** `str Join(mvstr attribute)` `str Join(mvstr attribute, str Delimiter)`
 
 - attribute: atributo de varios valores que contiene cadenas para combinar.
 - delimiter: cualquier cadena utilizada para separar las subcadenas en la cadena devuelta. Si se omite, se usa el carácter de espacio (""). Si delimitador es una cadena de longitud cero ("") o nada, todos los elementos de la lista se concatenan sin delimitadores.
 
-**Comentarios**: hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
+**Comentarios:** hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
 
 **Ejemplo:** `Join([proxyAddresses],",")` podría devolver: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
 ----------
 ### LCase
 
-**Descripción**: la función LCase convierte todos los caracteres de una cadena a minúsculas.
+**Descripción:** la función LCase convierte todos los caracteres de una cadena a minúsculas.
 
 **Sintaxis:** `str LCase(str value)`
 
-**Ejemplo**: `LCase("TeSt")` devuelve "Test".
+**Ejemplo:** `LCase("TeSt")` devuelve "test".
 
 ----------
 ### Left
 
-**Descripción**: la función Left devuelve un número especificado de caracteres de la izquierda de una cadena.
+**Descripción:** la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
 
 **Sintaxis:** `str Left(str string, num NumChars)`
 
 - string: la cadena desde la que devolver los caracteres
 - NumChars: un número que identifica el número de caracteres que devolver desde el principio (izquierdo) de la cadena
 
-**Comentarios**: una cadena que contiene los primeros caracteres numChars de la cadena.
+**Comentarios:** una cadena que contiene los primeros caracteres numChars de la cadena:
 
 - Con numChars = 0, se devuelve una cadena vacía.
 - Con numChars < 0, se devuelve una cadena de entrada.
@@ -545,7 +547,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
 
 Si la cadena contiene menos caracteres que el número especificado en numChars, se devuelve una cadena idéntica a la cadena (es decir, que contiene todos los caracteres en el parámetro 1).
 
-**Ejemplo**: `Left("John Doe", 3)` devuelve "Joh".
+**Ejemplo:** `Left("John Doe", 3)` devuelve “Joh”.
 
 ----------
 ### Len
@@ -554,21 +556,21 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 
 **Sintaxis:** `num Len(str value)`
 
-**Ejemplo**: `Len("John Doe")` devuelve 8.
+**Ejemplo:** `Len("John Doe")` devuelve 8.
 
 ----------
 ### LTrim
 
-**Descripción**: la función LTrim quita los espacios en blanco del principio de una cadena.
+**Descripción:** la función LTrim quita los espacios en blanco del principio de una cadena.
 
 **Sintaxis:** `str LTrim(str value)`
 
-**Ejemplo**: `LTrim(" Test ")` devuelve "Test".
+**Ejemplo:** `LTrim(" Test ")` devuelve "Test".
 
 ----------
 ### Mid
 
-**Descripción**: la función Mid devuelve un número especificado de caracteres desde una posición especificada de una cadena.
+**Descripción:** la función Mid devuelve un número especificado de caracteres desde una posición especificada en una cadena.
 
 **Sintaxis:** `str Mid(str string, num start, num NumChars)`
 
@@ -576,7 +578,7 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 - start: un número que identifica la posición de inicio en una cadena desde la que devolver los caracteres
 - NumChars: un número que identifica el número de caracteres que devolver desde la posición en una cadena
 
-**Comentarios**: devuelve caracteres numChars que comienzan por la posición de inicio de una cadena. Una cadena que contiene caracteres numChars de la posición de inicio en una cadena:
+**Comentarios:** devuelve caracteres numChars que comienzan por la posición de inicio en una cadena. Una cadena que contiene caracteres numChars de la posición de inicio en una cadena:
 
 - Con numChars = 0, se devuelve una cadena vacía.
 - Con numChars < 0, se devuelve una cadena de entrada.
@@ -584,32 +586,32 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 - Con start <= 0, se devuelve la cadena de entrada.
 - Si la cadena es null, se devuelve una cadena vacía.
 
-Si no hay caracteres numChar restantes en la cadena de la posición de inicio, se devuelve el máximo de caracteres que puede devolverse.
+Si no hay caracteres numChar restantes en la cadena de la posición de inicio, se devuelve el máximo de caracteres posible.
 
-**Ejemplo**: `Mid("John Doe", 3, 5)` devuelve "hn Do".
+**Ejemplo:** `Mid("John Doe", 3, 5)` devuelve “hn Do”.
 
 `Mid("John Doe", 6, 999)` Devuelve "Doe".
 
 ----------
 ### Now
 
-**Descripción**: la función Now devuelve DateTime que especifica la fecha y hora actuales, según la fecha y hora del sistema del equipo.
+**Descripción:** la función Now devuelve DateTime que especifica la fecha y hora actuales, según la fecha y hora del sistema del equipo.
 
 **Sintaxis:** `dt Now()`
 
 ----------
 ### NumFromDate
 
-**Descripción**: la función NumFromDate devuelve una fecha en formato de fecha de AD.
+**Descripción:** la función NumFromDate devuelve una fecha en formato de fecha de AD.
 
 **Sintaxis:** `num NumFromDate(dt value)`
 
-**Ejemplo**: `NumFromDate(CDate("2012-01-01 23:00:00"))` devuelve 129699324000000000.
+**Ejemplo:** `NumFromDate(CDate("2012-01-01 23:00:00"))` devuelve 129699324000000000.
 
 ----------
 ### PadLeft
 
-**Descripción**: la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
+**Descripción:** la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:** `str PadLeft(str string, num length, str padCharacter)`
 
@@ -626,12 +628,12 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 - Si la longitud de cadena es menor que la longitud, se devuelve una cadena nueva de la longitud deseada que contiene una cadena rellenada con un padCharacter.
 - Si la cadena es Null, la función devuelve una cadena vacía.
 
-**Ejemplo**: `PadLeft("User", 10, "0")` devuelve "000000User".
+**Ejemplo:** `PadLeft("User", 10, "0")` devuelve "000000User".
 
 ----------
 ### PadRight
 
-**Descripción**: la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
+**Descripción:** la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:** `str PadRight(str string, num length, str padCharacter)`
 
@@ -648,12 +650,12 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 - Si la longitud de cadena es menor que la longitud, se devuelve una cadena nueva de la longitud deseada que contiene una cadena rellenada con un padCharacter.
 - Si la cadena es Null, la función devuelve una cadena vacía.
 
-**Ejemplo**: `PadRight("User", 10, "0")` devuelve "User000000".
+**Ejemplo:** `PadRight("User", 10, "0")` devuelve "User000000".
 
 ----------
 ### PCase
 
-**Descripción**: la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
+**Descripción:** la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
 
 **Sintaxis:** `String PCase(string)`
 
@@ -661,35 +663,35 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 
 - Esta función no proporciona por el momento un uso de mayúsculas correcto para convertir una palabra que esté completamente en mayúsculas, como un acrónimo.
 
-**Ejemplo**: `PCase("TEsT")` devuelve "Test".
+**Ejemplo:** `PCase("TEsT")` devuelve "Test".
 
 `PCase(LCase("TEST"))` devuelve "Test".
 
 ----------
 ### RandomNum
 
-**Descripción**: la función RandomNum devuelve un número aleatorio entre un intervalo especificado.
+**Descripción:** la función RandomNum devuelve un número aleatorio entre un intervalo especificado.
 
 **Sintaxis:** `num RandomNum(num start, num end)`
 
 - start: un número que identifica el límite inferior del valor aleatorio que se va a generar
 - end: un número que identifica el límite superior del valor aleatorio que generar
 
-**Ejemplo**: `Random(100,999)` puede devolver 734.
+**Ejemplo:** `Random(100,999)` puede devolver 734.
 
 ----------
 ### RemoveDuplicates
 
-**Descripción**: la función RemoveDuplicates toma una cadena multivalor y garantiza que cada valor es único.
+**Descripción:** la función RemoveDuplicates toma una cadena multivalor y garantiza que cada valor es único.
 
 **Sintaxis:** `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Ejemplo**: `RemoveDuplicates([proxyAddresses])` devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
+**Ejemplo:** `RemoveDuplicates([proxyAddresses])` devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
 
 ----------
 ### Sustituya
 
-**Descripción**: la función Replace reemplaza todas las apariciones de una cadena por otra cadena.
+**Descripción:** la función Replace reemplaza todas las apariciones de una cadena por otra cadena.
 
 **Sintaxis:** `str Replace(str string, str OldValue, str NewValue)`
 
@@ -697,18 +699,18 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 - OldValue: la cadena que se va a buscar y reemplazar.
 - NewValue: la cadena que reemplazar.
 
-**Comentarios**: la función reconoce los siguientes monikers especiales:
+**Comentarios:** la función reconoce los siguientes monikers especiales:
 
 - \\n: nueva línea
 - \\r: retorno de carro
 - \\t: tabulación
 
-**Ejemplo**: `Replace([address],"\r\n",", ")` reemplaza CRLF por una coma y un espacio, y podría originar "One Microsoft Way, Redmond, WA, USA".
+**Ejemplo:** `Replace([address],"\r\n",", ")` reemplaza CRLF por una coma y un espacio, y podría originar "One Microsoft Way, Redmond, WA, USA".
 
 ----------
 ### ReplaceChars
 
-**Descripción**: la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
+**Descripción:** la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
 
 **Sintaxis:** `str ReplaceChars(str string, str ReplacePattern)`
 
@@ -737,14 +739,14 @@ El formato es {source1}:{target1},{source2}:{target2},{sourceN},{targetN} donde 
 ----------
 ### Right
 
-**Descripción**: la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
+**Descripción:** la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
 
 **Sintaxis:** `str Right(str string, num NumChars)`
 
 - string: la cadena desde la que devolver los caracteres
 - NumChars: un número que identifica el número de caracteres que devolver desde el final (derecho) de la cadena
 
-**Comentarios**: los caracteres NumChars se devuelven a partir de la última posición de la cadena.
+**Comentarios:** los caracteres NumChars se devuelven a partir de la última posición de la cadena.
 
 Una cadena que contiene los últimos caracteres numChars de la cadena:
 
@@ -754,55 +756,55 @@ Una cadena que contiene los últimos caracteres numChars de la cadena:
 
 Si la cadena contiene menos caracteres que el número especificado en NumChars, se devuelve una cadena idéntica a la cadena.
 
-**Ejemplo**: `Right("John Doe", 3)` devuelve "Doe".
+**Ejemplo:** `Right("John Doe", 3)` devuelve "Doe".
 
 ----------
 ### RTrim
 
-**Descripción**: la función RTrim quita los espacios en blanco del final de una cadena.
+**Descripción:** la función RTrim quita los espacios en blanco del final de una cadena.
 
 **Sintaxis:** `str RTrim(str value)`
 
-**Ejemplo**: `RTrim(" Test ")` devuelve "Test".
+**Ejemplo:** `RTrim(" Test ")` devuelve "Test".
 
 ----------
 ### Dividir
 
-**Descripción**: la función Split toma una cadena separada por un delimitador y la convierte en una cadena multivalor.
+**Descripción:** la función Split toma una cadena separada por un delimitador y la convierte en una cadena multivalor.
 
 **Sintaxis:** `mvstr Split(str value, str delimiter)` `mvstr Split(str value, str delimiter, num limit)`
 
 - value: la cadena con un carácter delimitador que separar.
 - delimiter: carácter único que usar como delimitador.
-- limit: número máximo de valores que se devolverá.
+- limit: número máximo de valores que se pueden devolver.
 
-**Ejemplo**: `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` devuelve una cadena multivalor con dos elementos útiles para el atributo proxyAddress.
+**Ejemplo:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` devuelve una cadena multivalor con dos elementos útiles para el atributo proxyAddress.
 
 ----------
 ### StringFromGuid
 
-**Descripción**: la función StringFromGuid toma un GUID binario y lo convierte en una cadena.
+**Descripción:** la función StringFromGuid toma un GUID binario y lo convierte en una cadena.
 
 **Sintaxis:** `str StringFromGuid(bin GUID)`
 
 ----------
 ### StringFromSid
 
-**Descripción**: la función StringFromSid convierte una matriz de bytes o una matriz de bytes multivalor que contiene un identificador de seguridad en una cadena o en una cadena multivalor.
+**Descripción:** la función StringFromSid convierte una matriz de bytes o una matriz de bytes multivalor que contiene un identificador de seguridad en una cadena o en una cadena multivalor.
 
-**Sintaxis:** `str StringFromSid(bin ObjectSID)` `mvstr StringFromSid(mvbin ObjectSID)`
+**Sintaxis:** `str StringFromSid(bin ObjectSID)`
 
 ----------
 ### Switch
 
-**Descripción**: la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
+**Descripción:** la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
 
 **Sintaxis:** `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
 - expr: expresión variante que desea evaluar.
 - value: valor que se va a devolver si la expresión correspondiente es True.
 
-**Comentarios**: la lista de argumentos de la función Switch consta de pares de expresiones y valores. Las expresiones se evalúan de izquierda a derecha y se devuelve el valor asociado a la primera expresión que evaluar en True. Si los elementos no están emparejados correctamente, se produce un error en tiempo de ejecución.
+**Comentarios:** la lista de argumentos de la función Switch consta de pares de expresiones y valores. Las expresiones se evalúan de izquierda a derecha y se devuelve el valor asociado a la primera expresión que evaluar en True. Si los elementos no están emparejados correctamente, se produce un error en tiempo de ejecución.
 
 Por ejemplo, si expr1 es True, Switch devuelve value1. Si expr-1 es False, pero expr-2 es True, Switch devuelve value-2, etc.
 
@@ -815,14 +817,14 @@ Switch evalúa todas las expresiones, aunque devuelva solo una de ellas. Por est
 
 El valor puede ser también la función Error que devolvería una cadena personalizada.
 
-**Ejemplo**: `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
+**Ejemplo:** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
 
 ----------
 ### Trim
 
-**Descripción**: la función Trim quita los espacios en blanco del principio y del final de una cadena.
+**Descripción:** la función Trim quita los espacios en blanco del principio y del final de una cadena.
 
-**Sintaxis:** `str Trim(str value)` `mvstr Trim(mvstr value)`
+**Sintaxis:** `str Trim(str value)`
 
 **Ejemplo**: `Trim(" Test ")` devuelve "Test".
 
@@ -845,7 +847,7 @@ El valor puede ser también la función Error que devolvería una cadena persona
 **Sintaxis:** `str Word(str string, num WordNumber, str delimiters)`
 
 - string: la cadena desde la que devolver una palabra.
-- WordNumber: un número que identifica qué número de palabras debe devolverse.
+- WordNumber: un número que identifica qué número de palabras debe devolver.
 - delimiters: una cadena que representa los delimitadores que deben usarse para identificar palabras
 
 **Comentarios**: cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras:
@@ -865,4 +867,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

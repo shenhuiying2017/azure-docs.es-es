@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación de datos dañados o de eliminaciones accidentales
@@ -45,7 +45,7 @@ Hay varias opciones de [continuidad empresarial](../sql-database/sql-database-bu
 
 ###Copia de seguridad de Base de datos SQL
 
-Las copias de seguridad de un estado anterior de la Base de datos SQL de Microsoft Azure se consiguen mediante [la copia de la Base de datos SQL de Azure](../sql-database/sql-database-copy.md). Este comando se puede usar para crear una copia transaccionalmente coherente de una base de datos en el mismo servidor de bases de datos lógicas o en otro. En cualquier caso, la copia de la base de datos es totalmente funcional y completamente independiente de la base de datos de origen. Cada copia que cree representa una opción de recuperación de un estado anterior. Puede recuperar completamente el estado de la base de datos cambiando el nombre de la nueva base de datos con el nombre de la base de datos de origen. De forma alternativa, puede recuperar un subconjunto específico de datos de la nueva base de datos mediante consultas de Transact-SQL. Para más información acerca de Base de datos SQL, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](../sql-database/sql-database-business-continuity.md).
+Las copias de seguridad de un estado anterior de la Base de datos SQL de Microsoft Azure se consiguen mediante [la copia de la Base de datos SQL de Azure](../sql-database/sql-database-copy.md). Este comando se puede usar para crear una copia transaccionalmente coherente de una base de datos en el mismo servidor de bases de datos lógicas o en otro. En cualquier caso, la copia de la base de datos es totalmente funcional y completamente independiente de la base de datos de origen. Cada copia que cree representa una opción de recuperación de un estado anterior. Puede recuperar completamente el estado de la base de datos cambiando el nombre de la nueva base de datos con el nombre de la base de datos de origen. De forma alternativa, puede recuperar un subconjunto específico de datos de la nueva base de datos mediante consultas de Transact-SQL. Para obtener más información sobre la base de datos SQL, consulte [Introducción a la continuidad empresarial con Base de datos SQL de Azure](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server en la copia de seguridad de Máquinas virtuales
 
@@ -60,35 +60,41 @@ Para los Sitios web y los Servicios móviles de Azure, debe realizar la copia de
 ##Listas de comprobación de datos dañados o eliminados accidentalmente
 
 ##Lista de comprobación de Máquinas virtuales
-  1. Consulte la sección [Máquinas virtuales](#virtual-machines) de este documento.
+
+  1. Revise la sección Máquinas virtuales de este documento.
   2. Realice una copia de seguridad y mantenga los discos de las máquinas virtuales mediante Copia de seguridad de Azure (o a través de su propio sistema de copias de seguridad mediante Almacenamiento de blobs de Azure y las instantáneas de disco duro virtual).
 
 ##Lista de comprobación de almacenamiento
-  1. Revise la sección [Almacenamiento](#storage) de este documento.
+
+  1. Revise la sección Almacenamiento de este documento.
   2. Realice copias de seguridad de recursos de almacenamiento críticos de forma regular.
   3. Considere el uso de la característica de instantáneas de blobs.
 
 ##Lista de comprobación de base de datos
-  1. Consulte la sección [Base de datos](#database) de este documento.
+
+  1. Revise la sección Base de datos de este documento.
   2. Cree copias de seguridad en un momento dado mediante el comando Database Copy.
 
 ##Lista de comprobación de SQL Server en la copia de seguridad de Máquinas virtuales
-  1. Consulte la sección [SQL Server en la copia de seguridad de Máquinas virtuales](#sql-server-on-virtual-machines-backup) de este documento.
+
+  1. Consulte la sección SQL Server en la copia de seguridad de Máquinas virtuales de este documento.
   2. Use técnicas tradicionales de copia de seguridad y restauración.
   3. Cree una sesión de trasvase de registros con retraso.
 
 ##Lista de comprobación de las aplicaciones web
+
   1. Realice una copia de seguridad y mantenga la base de datos asociada, si hay alguna.
 
 ##Lista de comprobación de Servicios multimedia
+
   1. Realice una copia de seguridad y mantenga los recursos de almacenamiento asociados.
 
 ##Más información
 
-Para más información acerca de las características de copia de seguridad y restauración de Azure, consulte [Escenarios de almacenamiento, copia de seguridad y recuperación](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
+Para obtener más información acerca de las características de copia de seguridad y restauración de Azure, consulte [Copia de seguridad y archivado](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
 
 ##Pasos siguientes
 
-Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). Si busca más recursos de resistencia, recuperación ante desastres y alta disponibilidad, consulte los [recursos adicionales](./resiliency-technical-guidance.md#additional-resources) de la guía técnica sobre resistencia en Azure.
+Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). Si busca más recursos de resistencia, recuperación ante desastres y alta disponibilidad, consulte los [recursos adicionales](./resiliency-technical-guidance.md#additional-resources) de la Guía técnica sobre resistencia en Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

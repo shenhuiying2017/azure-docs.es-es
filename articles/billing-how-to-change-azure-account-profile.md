@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
@@ -26,6 +26,8 @@
 
 -	[Cómo cambiar la información de perfil](#how-to-change-your-profile-information)
 -	[Respuestas a problemas y preguntas comunes](#frequently-asked-questions)
+
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## Información importante sobre la dirección de correo electrónico del perfil
 
@@ -61,4 +63,6 @@ Debido a limitaciones técnicas, no se puede cambiar el país de una cuenta exis
 
 Si se suscribe a la nueva característica de vista previa Alertas de facturación de Azure, recibirá correos electrónicos de Alertas de facturación de Azure en la dirección que especifique, independientemente de si ha cambiado la dirección de correo electrónico del Administrador de cuenta.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

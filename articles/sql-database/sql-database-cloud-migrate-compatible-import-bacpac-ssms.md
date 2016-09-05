@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Importar desde BACPAC a la Base de datos SQL con SSMS
@@ -36,11 +36,11 @@ En este artículo se muestra cómo importar desde un archivo [BACPAC](https://ms
 
     ![Importar elemento de menú de aplicación de capa de datos](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-3.	En el Asistente para importación, importe el archivo BACPAC desde el disco local o seleccione la cuenta de almacenamiento de Azure y el contenedor en el que cargó el archivo BACPAC para crear la nueva base de datos en Base de datos SQL de Azure.
+3.	Para crear la base de datos en Base de datos SQL de Azure, importe el archivo BACPAC desde el disco local o seleccione la cuenta de almacenamiento de Azure y el contenedor en el que cargó el archivo BACPAC.
 
     ![Importar configuración](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-    ***Importante***: Al importar un archivo BACPAC a Almacenamiento de blobs de Azure, utilice el almacenamiento estándar. No se admite la importación de un archivo BACPAC de Almacenamiento premium.
+	 > [AZURE.IMPORTANT] Al importar un archivo BACPAC a Almacenamiento de blobs de Azure, utilice el almacenamiento estándar. No se admite la importación de un archivo BACPAC de Almacenamiento premium.
 
 4.	Proporcione el **Nuevo nombre de base de datos** para la base de datos en Base de datos SQL de Azure, establezca **Edición de Base de datos SQL de Microsoft Azure** (nivel de servicio), **Tamaño máximo de la base de datos** y **Objetivo de servicio** (nivel de rendimiento).
 
@@ -50,7 +50,7 @@ En este artículo se muestra cómo importar desde un archivo [BACPAC](https://ms
 
 6. Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
 
-6.	Mediante el Portal de Azure, vea la base de datos y sus propiedades.
+6.	Use el Portal de Azure para ver la base de datos y sus propiedades.
 
 ## Pasos siguientes
 
@@ -63,4 +63,4 @@ En este artículo se muestra cómo importar desde un archivo [BACPAC](https://ms
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

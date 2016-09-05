@@ -4,11 +4,11 @@ Las suscripciones y los temas del Bus de servicio son compatibles con el modelo 
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación de uno a varios mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción para la administración o el procesamiento de manera independiente.
+A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación "uno a varios" mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción de modo que se administra o procesa de manera independiente.
 
 Una suscripción a un tema se asemeja a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Opcionalmente, puede registrar reglas de filtros para un tema por suscripción, lo que le permite filtrar o restringir qué mensajes para un tema reciben las suscripciones a un tema.
 
-Las suscripciones y temas del Bus de servicio le permiten escalar y procesar un número muy elevado de mensajes por muchos usuarios y aplicaciones.
+Las suscripciones y los temas del Bus de servicio le permiten escalar y procesar un número muy elevado de mensajes entre muchos usuarios y aplicaciones.
 
 ## Creación de un espacio de nombres
 
@@ -16,42 +16,41 @@ Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero
 
 Para crear un espacio de nombres:
 
-1.  Inicie sesión en el [Portal de Azure clásico][].
+1. Inicie sesión en el [Portal de Azure][].
 
-2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
+2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, a continuación, haga clic en **Enterprise integration** y, a continuación, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal, haga clic en **Crear**. ![][0]
+4. En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][2]
+5. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Básico, Estándar o Premium).
 
-5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
+7. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
 
-	> [AZURE.IMPORTANT] seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+9. En el campo **Grupo de recursos**, elija un grupo de recursos existente en el que residirá el espacio de nombres o cree uno.
 
-6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación Aceptar. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+8. En **Ubicación**, elija el país o región donde se debe hospedar el espacio de nombres.
 
-	![][6]
+	![Crear espacio de nombres][create-namespace]
 
-## Obtención de credenciales de administración predeterminadas para el espacio de nombres
+6. Haga clic en el botón **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+ 
+### Obtención de las credenciales
 
-Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal.
+1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
+ 
+3. En la hoja **Espacio de nombres del Bus de servicio**, haga clic en **Directivas de acceso compartido**.
 
-### Obtención de credenciales de administración en el Portal
+4. En la hoja **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![][0]
+	![información de conexión][connection-info]
 
-2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable: ![][3]
+5. En la hoja **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar junto a **Cadena de conexión: clave principal**, para copiar la cadena de conexión en el portapapeles para su uso posterior.
 
-3.  Haga clic en **Información de conexión**. ![][4]
+	![connection-string][connection-string]
 
-4.  En el cuadro de diálogo **Información de conexión de acceso**, busque la cadena de conexión que contiene la clave SAS y el nombre de la clave. Anote estos valores, ya que usará la información más adelante para realizar operaciones con el espacio de nombres.
+[Portal de Azure]: https://portal.azure.com
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-  [Portal de Azure clásico]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
-
+<!---HONumber=AcomDC_0824_2016-->

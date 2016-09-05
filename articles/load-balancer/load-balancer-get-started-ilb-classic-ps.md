@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Creación de un equilibrador de carga interno mediante PowerShell con el modelo de implementación clásica | Microsoft Azure"
    description="Información sobre cómo crear un equilibrador de carga interno mediante PowerShell con el modelo de implementación clásica"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante PowerShell
 
@@ -58,7 +58,7 @@ Tenga en cuenta que en este cmdlet [Add-AzureEndpoint](https://msdn.microsoft.co
 
 ### Paso 2: agregar extremos a la instancia de Equilibrio de carga interno
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="mytestcloud"
 	$vmname="DB1"
@@ -82,7 +82,7 @@ Si especificaste la dirección IP durante la creación de la instancia de Equili
 
 
 
-Para usar estos comandos, rellene los valores y quite el elemento < and >. Aquí tiene un ejemplo:
+Para usar estos comandos, rellene los valores y quite el elemento < and >. Este es un ejemplo:
 
 	$svc="mytestcloud"
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
@@ -116,7 +116,7 @@ Los comandos siguientes configuran una nueva instancia de Equilibrio de carga in
 
 	$svc="mytestcloud"
 	$ilb="ilbset"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb 
+	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
 	$prot="tcp"
 	$locport=1433
 	$pubport=1433
@@ -141,7 +141,7 @@ Para quitar una máquina virtual como punto de conexión de una instancia de equ
 
 Para usar estos comandos, rellene los valores y quite el elemento < and >.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="mytestcloud"
 	$vmname="DB1"
@@ -155,7 +155,7 @@ Para quitar una instancia de equilibrador de carga interno de un servicio en la 
 
 Para usar estos comandos, rellene el valor y quite el elemento < and >.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="mytestcloud"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
@@ -181,4 +181,4 @@ Para obtener información adicional sobre los cmdlets de Equilibrio de carga int
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

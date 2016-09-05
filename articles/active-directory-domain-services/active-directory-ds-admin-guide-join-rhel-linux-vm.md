@@ -71,7 +71,7 @@ Realice los pasos siguientes para aprovisionar una máquina virtual de RHEL 7 me
 ## Conexión remota a la máquina virtual de Linux recién aprovisionada
 Se ha aprovisionado la máquina virtual de RHEL 7.2 en Azure. La siguiente tarea es conectarse de forma remota a la máquina virtual.
 
-**Conexión a la máquina virtual de RHEL 7.2**: siga las instrucciones del artículo [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+**Conéctese a la máquina virtual de RHEL 7.2**: siga las instrucciones del artículo [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 En los demás pasos se considera que está utilizando PuTTY como el cliente SSH para conectarse a la máquina virtual de RHEL. Para más información, consulte la página [PuTTY Download Page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Página de descarga de PuTTY).
 
@@ -173,8 +173,8 @@ Consulte el artículo [Solución de problemas de unión al dominio](active-direc
 
 
 ## Más información
-- [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Installing Kerberos](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalación de Kerberos)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: guía de integración de Windows)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

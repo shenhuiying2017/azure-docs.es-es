@@ -146,7 +146,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
-            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
+            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones
@@ -159,26 +159,27 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 1.	En el explorador, abra el **[Portal de Azure](https://portal.azure.com/)**.
 2.	Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
 3.	Haga clic en el nombre de la aplicación a la que desea asignar este certificado.
-4.	Haga clic en **Configuración** y, después, en **Dominios personalizados y SSL**.
-5.	En la **sección de certificados**, haga clic en **Importar certificado** y seleccione el certificado que acaba de comprar.
+4.	En la hoja **Configuración**, haga clic en **Certificados y enlaces SSL**.
+5.	Haga clic en **Import App Service Certificate** (Importar Certificado del Servicio de aplicaciones) y seleccione el certificado que acaba de adquirir.
 
-    ![insertar imagen de Importar certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
+    ![insertar imagen de Importar certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. En la sección **Enlaces SSL** de la pestaña **Configuración de SSL**, use las listas desplegables para seleccionar el nombre de dominio que desea proteger con SSL y el certificado que va a usar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
+6. En la sección **Enlaces SSL**, haga clic en **Agregar enlace**.
+7. En la hoja **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL, así como el certificado que pretende utilizar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
 
-    ![insertar imagen de enlaces de SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
+    ![insertar imagen de enlaces de SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
        • SSL basada en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web. • SSL basada en SNI es una extensión de SSL y **[Seguridad de la capa de transporte](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para más información sobre la extensión SNI, consulte el artículo **[Indicación de nombre de servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** en Wikipedia.
        
-7. Haga clic en *Guardar* para guardar los cambios y habilitar SSL.
+7. Haga clic en **Agregar enlace** para guardar los cambios y habilitar SSL.
 
 
 
 Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configurado con un registro D, debe realizar los siguientes pasos adicionales:
 
-* Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a la aplicación. Esta dirección IP se puede encontrar en la página **Panel** de la aplicación, en la sección **vista rápida**. Se mostrará como **Dirección IP virtual**:
+* Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a la aplicación. Podrá encontrar esta dirección IP en la página **Dominio personalizado** de la configuración de su aplicación, justo arriba de la sección **Nombre de host**. Figurará como **Dirección IP externa**:
     
-    ![insertar imagen de SSL de IP](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
+    ![insertar imagen de SSL de IP](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
     Tenga en cuenta que esta dirección IP será distinta de la dirección IP virtual que ha usado previamente para configurar el registro D de su dominio. Si lo ha configurado para usar un cifrado SSL basado en SNI, o no lo ha configurado para usar SSL, esta entrada no contendrá ninguna dirección.
     
@@ -208,4 +209,4 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

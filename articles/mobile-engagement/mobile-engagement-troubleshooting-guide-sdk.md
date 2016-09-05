@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de la integración de SDK
@@ -31,8 +31,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 ### Causas
 
-- La mayoría de errores que necesitan resolverse con el SDK de Azure Mobile Engagement se descubrirán mediante un fallo en su aplicación (por ejemplo, un error de recopilación de datos de interfaz de usuario, un error de inserción, un error de función avanzada, un error de API, bloqueos de aplicación o una interrupción del servicio aparente).  
-- Si una función determinada de Azure Mobile Engagement nunca ha funcionado en la aplicación antes, deberá completar la integración. 
+- La mayoría de errores que necesitan resolverse con el SDK de Azure Mobile Engagement se descubrirán mediante un fallo en su aplicación (por ejemplo, un error de recopilación de datos de interfaz de usuario, un error de inserción, un error de función avanzada, un error de API, bloqueos de aplicación o una interrupción del servicio aparente).
+- Si una función determinada de Azure Mobile Engagement nunca ha funcionado en la aplicación antes, deberá completar la integración.
 - Si una función determinada de Azure Mobile Engagement funcionaba y se detuvo, puede que necesite actualizar a la última versión con el SDK de Azure Mobile Engagement. Recuerde que hay una versión diferente del SDK de Azure Mobile Engagement para cada plataforma compatible con Azure Mobile Engagement (Android, iOS, Windows y Windows Phone).
 
 #### Integración de SDK
@@ -47,7 +47,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 **Consulte también:**
 
-- [Documentación del SDK - Guías de integración][Link 5] 
+- [Documentación del SDK - Guías de integración][Link 5]
 - [Guía de solución de problemas - Push][Link 23]
 
 #### Actualización del SDK
@@ -57,7 +57,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 **Consulte también:**
 
-- [Documentación del SDK - Notas de la versión](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [Documentación del SDK - Notas de la versión](http://go.microsoft.com/fwlink/?LinkId= 525554)
 - [Documentación del SDK - Guía de actualización](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### Otros errores del SDK
@@ -77,15 +77,15 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 ### Causas
 
 - Muchos problemas de codificación avanzada con Azure Mobile Engagement están provocados por códigos específicos de plataforma escritos incorrectamente no relacionados directamente con Azure Mobile Engagement. Deberá consultar la documentación específica de la plataforma para la que está desarrollando además de la documentación de Azure Mobile Engagement (Android, iOS, Web, Windows y Windows Phone).
-- No configurar correctamente las "categorías" impide la vinculación desde una notificación a otra ubicación dentro o fuera de la aplicación (solo Android). 
+- No configurar correctamente las "categorías" impide la vinculación desde una notificación a otra ubicación dentro o fuera de la aplicación (solo Android).
 - No establecer "UIKit.framework" en "opcional" en el código de iOS provoca que se muestre un "Error de símbolo no encontrado" o bloqueos en los dispositivos iOS antiguos (únicamente en iOS).
 - Los certificados caducados o que no usan la versión de DEV o PROD correctamente causan errores de inserción (únicamente iOS).
 - Existen algunas limitaciones inherentes a una plataforma que Azure Mobile Engagement no puede controlar (por ejemplo, cómo funciona el centro del sistema para las inserciones fuera de la aplicación en iOS y Android).
 - Azure Mobile Engagement publica una lista completa de los paquetes internos utilizados por Azure Mobile Engagement para iOS y Android a modo de referencia. Tenga en cuenta que algunas funciones de Azure Mobile Engagement son específicas de la plataforma (Android, iOS, Web, Windows y Windows Phone).
 
-### Consulte también
+### Otras referencias
 
- - [Guía de solución de problemas - Push][Link 23] 
+ - [Guía de solución de problemas - Push][Link 23]
  - [Documentación del SDK - Notas de la versión][Link 5]
  - [Documentación del SDK - Guía de actualización][Link 5]
 
@@ -100,7 +100,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Puede encontrar el identificador del dispositivo de su dispositivo de prueba y realizar la misma acción que provocó que la aplicación se bloquee para un usuario final para ayudar a identificar la causa de su bloqueo.
 - Los problemas conocidos con el SDK de Azure Mobile Engagement que provocan que las aplicaciones se bloqueen a veces se resuelven con la actualización a la versión más reciente del SDK. Asegúrese de comprobar las notas de la versión de la plataforma cuando investigue los bloqueos.
 
-### Consulte también
+### Otras referencias
 
 - [Documentación del SDK - Notas de la versión][Link 5]
 - [Documentación del SDK - Guía de actualización][Link 5]
@@ -112,7 +112,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 ### Causas
 
-- Las tiendas de aplicaciones a veces bloquean aplicaciones con ciertas funciones habilitadas (por ejemplo, Apple Store impide el uso de IDFV en las aplicaciones de la tienda y la tienda GooglePlay impide el uso compartido de información de la aplicación entre las aplicaciones). 
+- Las tiendas de aplicaciones a veces bloquean aplicaciones con ciertas funciones habilitadas (por ejemplo, Apple Store impide el uso de IDFV en las aplicaciones de la tienda y la tienda GooglePlay impide el uso compartido de información de la aplicación entre las aplicaciones).
 - Asegúrese de comprobar las notas de la versión acerca de la plataforma y la versión actual del SDK si tiene dificultades para cargar una aplicación en la tienda.
 
 <!--Link references-->
@@ -147,4 +147,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

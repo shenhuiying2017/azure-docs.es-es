@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/26/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Administración de unidades administrativas en Azure AD: vista previa pública
@@ -37,4 +37,4 @@ Para obtener más información sobre los requisitos de software y la instalació
 ## Pasos siguientes
 [Ediciones de Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

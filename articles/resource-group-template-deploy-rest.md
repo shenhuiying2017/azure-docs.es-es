@@ -23,17 +23,12 @@
 - [CLI de Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API DE REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 En este artículo se explica cómo usar la API de REST de Resource Manager con plantillas de Resource Manager para implementar sus recursos en Azure.
 
 > [AZURE.TIP] Para obtener ayuda con la depuración de un error durante la implementación, consulte:
 >
-> - [Visualización de operaciones de implementación con la API de REST de Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) para obtener información que le ayudará a solucionar el error
+> - Consulte [Visualización de operaciones de implementación con la API de REST de Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) para obtener información que lo ayude a solucionar el error
 > - [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
 
 La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
@@ -42,7 +37,7 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
 
 ## Implementación con la API de REST
 1. Establezca los [encabezados y parámetros comunes](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), incluidos los tokens de autenticación.
-2. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el identificador de la suscripción, el nombre del grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](https://msdn.microsoft.com/library/azure/dn790525.aspx).
+2. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](https://msdn.microsoft.com/library/azure/dn790525.aspx).
 
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
           <common headers>
@@ -55,7 +50,7 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
    
 3. Valide la implementación antes de ejecutarla. Para ello, ejecute la operación de [validación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790547.aspx). Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación (como se muestra en el paso siguiente).
 
-3. Cree una nueva implementación. Proporcione el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y un vínculo a su plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
+3. Cree una implementación. Especifique el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y un vínculo a su plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
     
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
           <common headers>
@@ -79,7 +74,7 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
           "detailLevel": "requestContent, responseContent"
         }
 
-      Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para más información, consulte [Delegación del acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/ee395415.aspx).
+      Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx) (Delegación del acceso con una firma de acceso compartido).
 
 4. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
@@ -94,4 +89,4 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

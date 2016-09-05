@@ -66,7 +66,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Planeación del mantenimiento de máquinas virtuales de Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Creación de un conjunto de disponibilidad para máquinas virtuales](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Administración de las máquinas virtuales con Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Conexión de redes virtuales clásicas a redes virtuales nuevas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [Acerca de las extensiones y del agente de máquina virtual](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

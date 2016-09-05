@@ -50,7 +50,7 @@ info:    vm disk attach-new command OK
 
 ## Conexión a la máquina virtual con Linux para montar el nuevo disco
 
-> [AZURE.NOTE] En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para usar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Uso de SSH con Linux y Mac en Azure](virtual-machines-linux-ssh-from-linux.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso.
+> [AZURE.NOTE] En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para usar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Uso de SSH con Linux y Mac en Azure](virtual-machines-linux-mac-create-ssh-keys.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso.
 
 Necesita SSH en la máquina virtual de Azure para particionar, formatear y montar el disco nuevo para que la máquina virtual con Linux pueda usarlo. Si no está familiarizado con la conexión con **ssh**, el comando toma la forma `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` y tiene el aspecto siguiente:
 
@@ -277,4 +277,4 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 - Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 - Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

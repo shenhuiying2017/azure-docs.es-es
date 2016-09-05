@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Conexión a Almacenamiento de Azure en una aplicación Xamarin.Forms
@@ -36,7 +36,7 @@ En este tutorial, creará una cuenta de almacenamiento y agregará una cadena de
 
 ## Crear una cuenta de almacenamiento
 
-1. Cree una cuenta de almacenamiento siguiendo el tutorial [Creación de una cuenta de almacenamiento de Azure]. 
+1. Cree una cuenta de almacenamiento siguiendo el tutorial [Creación de una cuenta de almacenamiento de Azure].
 
 2. En el Portal de Azure, navegue hasta la cuenta de almacenamiento recién creada y haga clic en el icono **Claves**. Copie la **Cadena de conexión principal**.
 
@@ -160,7 +160,7 @@ Para mayor comodidad, en este ejemplo se usa la biblioteca [PCLStorage], pero no
 
 ###<a name="add-iplatform"></a>Agregar la interfaz IPlatform
 
-Cree una nueva interfaz `IPlatform` en el proyecto de biblioteca portable principal. Aquí se sigue el patrón [Xamarin.Forms DependencyService] para cargar la clase correcta específica de la plataforma en tiempo de ejecución. Más tarde agregará implementaciones específicas de la plataforma en cada uno de los proyectos de cliente.
+Cree una nueva interfaz `IPlatform` en el proyecto de biblioteca portable principal. Aquí se sigue el patrón [Xamarin.Forms DependencyService] para cargar la clase correcta específica de la plataforma en tiempo de ejecución. Más tarde, agregará implementaciones específicas de la plataforma en cada uno de los proyectos de cliente.
 
 1. Agregue las siguientes instrucciones using:
 
@@ -622,7 +622,7 @@ Agregue código específico de la plataforma al proyecto iOS.
 
 ###<a name="update-windows"></a>Actualización del proyecto Windows
 
-1. Instale la extensión de Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para más información, consulte el tutorial [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Instale la extensión de Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para más información, consulte el tutorial [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md).
 
 2. Edite **Package.appxmanifest** y active la funcionalidad **Webcam**.
 
@@ -705,7 +705,7 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 
 - `MobileServiceFile` se puede usar en modo en línea o sin conexión, para lo que deben utilizarse `IMobileServiceTable` o `IMobileServiceSyncTable`, respectivamente. En el escenario sin conexión, la carga se producirá cuando la aplicación llame a `PushFileChangesAsync`. Esto hace que se procese la cola de operaciones sin conexión; para cada operación de archivo, el SDK de cliente de Azure Mobile invocará el método `GetDataSource` en la instancia `IFileSyncHandler` para recuperar el contenido del archivo para la carga.
 
-- Para recuperar los archivos de un elemento, llame al método ``GetFilesAsync` de la instancia `IMobileServiceTable<T>` o IMobileServiceSyncTable<T>`. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y devolverá los archivos en función del estado que tenía el objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
+- Para recuperar los archivos de un elemento, llame al método `GetFilesAsync` de la instancia `IMobileServiceTable<T>` o IMobileServiceSyncTable<T>. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y devolverá los archivos en función del estado que tenía el objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
@@ -717,7 +717,7 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
 
-- Es posible agregar o quitar archivos de un registro modificando directamente el almacenamiento de blobs, ya que la asociación se logra a través de una convención de nomenclatura. Sin embargo, en este caso se debe **actualizar la marca de tiempo del registro cuando se modifican los blobs asociados**. El SDK de cliente de Azure Mobile siempre actualiza un registro al agregar o quitar un archivo.
+- Es posible agregar o quitar archivos de un registro modificando directamente el almacenamiento de blobs, ya que la asociación se logra a través de una convención de nomenclatura. Sin embargo, en este caso se debe **actualizar la marca de tiempo del registro cuando se modifiquen los blobs asociados**. El SDK de cliente de Azure Mobile siempre actualiza un registro al agregar o quitar un archivo.
 
     El motivo de este requisito es que algunos clientes móviles ya tendrán el registro en el almacenamiento local. Cuando estos clientes realicen un extracción incremental, este registro no se devolverá y el cliente no consultará los nuevos archivos asociados. Para evitar este problema, se recomienda que actualice la marca de tiempo del registro al realizar un cambio en el almacenamiento de blobs que no use el SDK de cliente de Azure Mobile.
 
@@ -734,4 +734,4 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Creación de una cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

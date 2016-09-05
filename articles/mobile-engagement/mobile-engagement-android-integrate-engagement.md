@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Integración de Engagement en Android
@@ -136,7 +136,7 @@ Si no puede o no quiere sobrecargar sus clases `Activity`, puede iniciar y final
 
 > [AZURE.IMPORTANT] El SDK de Android nunca llama al método `endActivity()`, incluso cuando la aplicación está cerrada (en Android, las aplicaciones nunca se cierran realmente). Por tanto, es *MUY* recomendable llamar al método `startActivity()` en la devolución de llamada `onResume` de *TODAS* las actividades y al método `endActivity()` en la devolución de llamada `onPause()` de *TODAS* las actividades. Esta es la única manera de asegurarse de que las sesiones no se pierdan. Si una sesión se pierde, el servicio Engagement nunca se desconectará del back-end de Engagement (dado que el servicio permanece conectado mientras una sesión esté pendiente).
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 			public class MyActivity extends Some3rdPartyActivity
 			{
@@ -384,4 +384,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

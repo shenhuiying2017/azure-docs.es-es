@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
@@ -96,7 +96,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
         const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
-	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. También puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
+	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. Además, puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
 
 2. Actualice `ToDoActivity.SyncAsync` para que se detecten y simplemente se omitan `MobileServicePushFailedException` por asumirse que está sin conexión.
 
@@ -123,7 +123,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 5. (Opcional) Use Visual Studio para ver la tabla de base de datos SQL de Azure y observar que los datos de la base de datos de back-end no han cambiado.
 
-   En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
+   	En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 
 6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
@@ -170,4 +170,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->
