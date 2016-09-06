@@ -42,7 +42,7 @@ Se admiten las siguientes conexiones entre locales:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute es una conexión directa a Azure desde la WAN, no a través de la red Internet pública. Si desea más información consulte la [ Información técnica de ExpressRoute ](../expressroute/expressroute-introduction.md) y [P+F de ExpressRoute](../expressroute/expressroute-faqs.md).
 
-Para más información acerca de las conexiones, consulte los [diagramas de conexión de Puerta de enlace de VPN](vpn-gateway-topology.md).
+Para más información acerca de las conexiones, consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 ### ¿Cuál es la diferencia entre una conexión de sitio a sitio y una de punto a sitio?
 
@@ -72,7 +72,7 @@ Si el dispositivo no aparece como un dispositivo VPN de compatibilidad conocida 
 
 ### ¿Por qué mi túnel de VPN basado en directivas deja de funcionar cuando el tráfico está inactivo?
 
-Este es el comportamiento esperado para puertas de enlace de VPN basadas en directivas (también conocido como enrutamiento estático). Cuando el tráfico a través del túnel está inactivo durante más de 5 minutos, este túnel se cancelará. Pero en cuanto el tráfico comience a fluir en cualquier dirección, el túnel se restablecerá inmediatamente. Si tiene una puerta de enlace VPN basada en enrutamiento (también conocida como dinámica), no experimentará este comportamiento.
+Este es el comportamiento esperado para puertas de enlace de VPN basadas en directivas (también conocido como enrutamiento estático). Cuando el tráfico a través del túnel está inactivo durante más de 5 minutos, este túnel se cancelará. Cuanto el tráfico comience a fluir en cualquier dirección, el túnel se restablecerá inmediatamente. Si tiene una puerta de enlace VPN basada en enrutamiento (también conocida como dinámica), no experimentará este comportamiento.
 
 ### ¿Puedo usar una VPN de software para conectarme a Azure?
 
@@ -126,7 +126,7 @@ Las VPN de punto a sitio no admiten la reconexión automática y el DDNS.
 
 ### ¿Puedo tener configuraciones de sitio a sitio y de punto a sitio coexistiendo en la misma red virtual?
 
-Sí. Ambas soluciones funcionarán si tiene un tipo de VPN basada en enrutamiento para la puerta de enlace. Para el modelo de implementación clásica, necesitará una puerta de enlace dinámica. No se admite la configuración de punto a sitio para puertas de enlace de VPN de enrutamiento estáticas o puertas de enlace que usan -VpnType PolicyBased.
+Sí. Ambas soluciones funcionarán si tiene un tipo de VPN basada en enrutamiento para la puerta de enlace. Para el modelo de implementación clásica, necesita una puerta de enlace dinámica. No se admite la configuración de punto a sitio para puertas de enlace de VPN de enrutamiento estáticas o puertas de enlace que usan -VpnType PolicyBased.
 
 ### ¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 
@@ -166,11 +166,11 @@ Las opciones están limitadas al uso de claves precompartidas (PSK) para la aute
 
 Existe un servicio de puerta de enlace que se ejecuta para habilitar la conectividad entre locales.
 
-Deberá crear una subred de puerta de enlace para la red virtual para configurar una puerta de enlace de VPN. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben denominar GatewaySubnet. No denomine de ninguna otra forma la subred de puerta de enlace. Y no implemente máquinas virtuales ni nada más en la subred de puerta de enlace.
+Deberá crear una subred de puerta de enlace para la red virtual para configurar una puerta de enlace de VPN. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. No denomine de ninguna otra forma la subred de puerta de enlace. Y no implemente máquinas virtuales ni nada más en la subred de puerta de enlace.
 
 El tamaño mínimo de la subred de puerta de enlace depende por completo de la configuración que desee crear. Aunque es posible crear una puerta de enlace tan pequeña como /29 para algunas configuraciones, le recomendamos que cree una puerta de enlace de /28 o mayor (/28, /27, /26 etc.).
 
-## ¿Puedo implementar máquinas virtuales o instancias de rol en mi subred de puerta de enlace?
+### ¿Puedo implementar máquinas virtuales o instancias de rol en mi subred de puerta de enlace?
 
 Nº
 
@@ -195,7 +195,7 @@ Una puerta de enlace de VPN es básicamente un dispositivo de hosts múltiples c
 
 ### Más información acerca de los tipos de puerta de enlace, los requisitos y el rendimiento
 
-Para más información, consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+Para más información consulte [Acerca de la configuración de puerta de enlace de VPN](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Conectividad multisitio y de red virtual a red virtual
 
@@ -229,7 +229,7 @@ No, no se admiten túneles redundantes entre una red virtual de Azure y un sitio
 
 ### ¿Puede haber espacios de direcciones superpuestos entre las redes virtuales conectadas y los sitios locales?
 
-No. Los espacios de direcciones superpuestos harían que fallara la carga del archivo netcfg o la creación de una red virtual.
+No. Los espacios de direcciones superpuestos harían que fallara la carga del archivo de configuración de red o la creación de una red virtual.
 
 ### ¿Tengo más ancho de banda con más VPN de sitio a sitio que si tengo una única red virtual?
 
@@ -237,7 +237,7 @@ No, todos los túneles VPN, incluidas las VPN de punto a sitio, comparten la mis
 
 ### ¿Puedo usar la puerta de enlace de VPN de Azure para el tráfico en tránsito entre mis sitios locales o a otra red virtual?
 
-El tráfico en tránsito a través de puerta de enlace de VPN de Azure es posible, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración netcfg. BGP aún no se admite con instancias de Red virtual de Azure y puertas de enlace VPN. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.
+**Modelo de implementación clásica**<br> el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.<br> **Modelo de implementación de Resource Manager**<br> Si usa el modelo de implementación de Resource Manager, consulte la sección [BGP](#bgp) para más información.
 
 ### ¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 
@@ -252,7 +252,7 @@ Para el tráfico entre distintas redes virtuales de Azure, se cobra solo por el 
 
 Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
@@ -262,23 +262,18 @@ Sí, este procedimiento se admite. Para más información, consulte [Configurar 
 
 ### Si mi máquina virtual está en una red virtual y tengo una conexión entre locales, ¿cómo debo conectar a la máquina virtual?
 
-Dispone de varias opciones. Si tiene RDP habilitado y ha creado un extremo, puede conectarse a la máquina virtual mediante la VIP. En ese caso, especificaría la VIP y el puerto al que desea conectarse. Tendrá que configurar el puerto en la máquina virtual para el tráfico. Normalmente, tendrá que ir al Portal de Azure clásico y guardar la configuración de la conexión RDP en el equipo. La configuración contendrá la información de conexión necesaria.
+Dispone de varias opciones. Si tiene RDP habilitado y ha creado un extremo, puede conectarse a la máquina virtual mediante la VIP. En ese caso, especificaría la VIP y el puerto al que desea conectarse. Tendrá que configurar el puerto en la máquina virtual para el tráfico. Normalmente, tendrá que ir al Portal de Azure clásico y guardar la configuración de la conexión RDP en el equipo. La configuración contiene la información de conexión necesaria.
 
 Si tiene configurada una red virtual con conectividad entre locales, puede conectarse a la máquina virtual mediante la DIP interna o una dirección IP privada. También puede conectarse a la máquina virtual mediante la DIP interna desde otra máquina virtual que se encuentre en la misma red virtual. Si se conecta desde una ubicación fuera de la red virtual no podrá usar RDP en la máquina virtual mediante la DIP. Por ejemplo, si tiene configurada una red virtual de punto a sitio y no establece una conexión desde su equipo, no podrá conectarse a la máquina virtual mediante la DIP.
 
 ### ¿Si mi máquina virtual está en una red virtual con conectividad entre locales, todo el tráfico de mi máquina virtual pasa a través de esa conexión?
 
-No. Únicamente el tráfico que tiene como destino una IP que se encuentra en los intervalos de direcciones IP de red local de la red virtual que haya especificado pasará a través de la puerta de enlace de red virtual. El tráfico que tenga una IP de destino ubicada dentro de la red virtual permanecerá en la red virtual. El resto del tráfico se envía a través del equilibrador de carga a las redes públicas, o si se usa la tunelización forzada, se envía a través de la puerta de enlace VPN de Azure. Si está solucionando problemas, es importante asegurarse de que en la red local tiene especificados todos los intervalos que desee enviar a través de la puerta de enlace. Compruebe que los intervalos de direcciones de red local no se superponen con ninguno de los intervalos de direcciones de la red virtual. Además, deberá comprobar que el servidor DNS que está utilizando está resolviendo el nombre a la dirección IP correcta.
+No. Únicamente el tráfico que tiene como destino una IP que se encuentra en los intervalos de direcciones IP de red local de la red virtual que haya especificado pasará a través de la puerta de enlace de red virtual. El tráfico que tenga una IP de destino ubicada dentro de la red virtual permanecerá en la red virtual. El resto del tráfico se envía a través del equilibrador de carga a las redes públicas, o si se usa la tunelización forzada, se envía a través de la puerta de enlace VPN de Azure. Si está solucionando problemas, es importante asegurarse de que en la red local tiene especificados todos los intervalos que desee enviar a través de la puerta de enlace. Compruebe que los intervalos de direcciones de red local no se superponen con ninguno de los intervalos de direcciones de la red virtual. Además, debe comprobar que el servidor DNS que está utilizando está resolviendo el nombre a la dirección IP correcta.
 
 
 ## P+F de Red virtual
 
 Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
-
-## Pasos siguientes
-
-Puede ver más información sobre las puertas de enlace de VPN en la [Página de documentación de la puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Administración de la seguridad en Azure | Microsoft Azure"
-   description="En este artículo se describen los pasos para mejorar la seguridad en la administración remota de entornos de Microsoft Azure, incluidos servicios en la nube, Máquinas virtuales y aplicaciones personalizadas."
+   description=" En este artículo se describen los pasos para mejorar la seguridad en la administración remota de entornos de Microsoft Azure, incluidos servicios en la nube, Máquinas virtuales y aplicaciones personalizadas."
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Administración de la seguridad en Azure
 
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
 
-Aunque estas diversas funciones de administración y acceso proporcionan un amplio conjunto de opciones, esta variabilidad puede suponer un riesgo importante para una implementación en la nube y dificulta la administración, el seguimiento y la auditoría de las acciones administrativas. Esta variabilidad también puede presentar amenazas para la seguridad debidas al acceso no regulado a los puntos de conexión de cliente que se usan para administrar los servicios en la nube. El uso de estaciones de trabajo personales o generales para desarrollar y administrar infraestructuras abre la puerta a amenazas impredecibles que se producen tanto en la exploración web (por ejemplo, ataques a los sitios web más utilizados) como en el correo electrónico (tales como ingeniería social y suplantación de identidad [phishing]).
+Aunque las diversas funcionalidades de administración y acceso proporcionan un amplio conjunto de opciones, esta variabilidad puede suponer un riesgo importante para una implementación en la nube y dificultar la administración, el seguimiento y la auditoría de las acciones administrativas. Esta variabilidad también puede presentar amenazas para la seguridad debidas al acceso no regulado a los puntos de conexión de cliente que se usan para administrar los servicios en la nube. El uso de estaciones de trabajo personales o generales para desarrollar y administrar infraestructuras abre la puerta a amenazas impredecibles que se producen tanto en la exploración web (por ejemplo, ataques a los sitios web más utilizados) como en el correo electrónico (tales como ingeniería social y suplantación de identidad [phishing]).
 
 ![][1]
 
@@ -247,4 +247,4 @@ Los siguientes recursos proporcionan más información general acerca de los ser
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

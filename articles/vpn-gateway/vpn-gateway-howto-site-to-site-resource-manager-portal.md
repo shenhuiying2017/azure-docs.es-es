@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Resource Manager y el Portal de Azure | Microsoft Azure"
-   description="Cómo crear una red virtual con el modelo de Resource Manager y conectarla a la red local mediante una conexión de puerta de enlace de VPN S2S."
+   description="Cómo crear una red virtual con el modelo de implementación de Resource Manager y conectarla a la red local mediante una conexión de puerta de enlace de VPN de sitio a sitio."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/22/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure y Azure Resource Manager
+# Creación de una red virtual con una conexión de sitio a sitio mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,7 +25,7 @@
 - [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artículo lo guía por la creación de una red virtual y una conexión VPN de sitio a sitio a una red local mediante el modelo de implementación de Azure Resource Manager y el Portal de Azure.
+Este artículo lo guía por la creación de una red virtual y una conexión VPN de sitio a sitio a una red local mediante el **modelo de implementación de Azure Resource Manager** y el Portal de Azure. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
 
 ![Diagrama](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
@@ -154,4 +154,4 @@ Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de Powe
 
 - Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

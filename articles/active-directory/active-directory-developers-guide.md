@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -23,15 +23,15 @@
 Al ser una plataforma de administración de identidades como servicio (IDMaaS), Azure Active Directory (AD) proporciona a los desarrolladores una manera eficaz de integrar la administración de identidades en sus aplicaciones. Los siguientes artículos ofrecen información general sobre la implementación y las características clave de Azure AD. Se recomienda leerlos por orden o, si desea profundizar en el tema, ir directamente a [Introducción](#getting-started).
 
 
-1. [Ventajas de la integración con Azure Active Directory](active-directory-how-to-integrate.md): descubra por qué la integración con Azure AD ofrece la mejor solución de seguridad para la autorización y el inicio de sesión.
+1. [Beneficios de la integración con Azure AD](active-directory-how-to-integrate.md): descubra por qué la integración con Azure AD ofrece la mejor solución para lograr una autorización y un inicio de sesión seguros.
 
-1. [Escenarios de autenticación para Active Directory](active-directory-authentication-scenarios.md): aproveche la autenticación simplificada de Azure AD para el inicio de sesión en la aplicación.
+1. [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md): aproveche la autenticación simplificada de Azure AD para el inicio de sesión en la aplicación.
 
-1. [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md): obtenga información sobre cómo agregar, actualizar y quitar aplicaciones de Azure AD, y acerca de las directrices de personalización de marca para aplicaciones integradas.
+1. [Integración de aplicaciones con Azure AD](active-directory-integrating-applications.md): obtenga información sobre cómo agregar, actualizar y quitar aplicaciones de Azure AD, y acerca de las directrices de personalización de marca para aplicaciones integradas.
 
-1. [API Graph de Azure Active Directory](active-directory-graph-api.md): use la API Graph de Azure AD para acceder mediante programación a Azure AD a través de los puntos de conexión de API de REST. Tenga en cuenta que la API Graph de Azure AD también es accesible a través de [Microsoft Graph](https://graph.microsoft.io/), una API unificada que permite el acceso a varias API del servicio de Microsoft Cloud a través de un punto de conexión de API de REST único y con un token de acceso único.
+1. [API Graph de Azure AD](active-directory-graph-api.md): use la API Graph de Azure AD para acceder mediante programación a Azure AD a través de los puntos de conexión de API de REST. También es accesible a través de la API Graph de Azure AD a través de [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph proporciona una API unificada que permite el acceso a varias API del servicio Microsoft Cloud a través de un punto de conexión de API de REST único y con un token de acceso único.
 
-1. [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md): autentique a los usuarios fácilmente para obtener tokens de acceso mediante las bibliotecas de autenticación de Azure para .NET, JavaScript, Objective-C, Android, etc.
+1. [Bibliotecas de autenticación de Azure AD](active-directory-authentication-libraries.md): autentique a los usuarios fácilmente para obtener tokens de acceso mediante las bibliotecas de autenticación de Azure para .NET, JavaScript, Objective-C, Android, etc.
 
 
 ## Introducción
@@ -84,6 +84,7 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 ###  Soporte técnico
 - [Preguntas con etiquetas](http://stackoverflow.com/questions/tagged/azure-active-directory): encuentre soluciones de Azure Active Directory en el sitio de Stack Overflow buscando las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) y [adal](http://stackoverflow.com/questions/tagged/adal).
+- Consulte el [glosario para desarrolladores de Azure AD](active-directory-dev-glossary.md) para obtener definiciones de algunos de los términos más habituales relacionados con la integración y el desarrollo de aplicaciones.
 
 ### Código
 
@@ -101,13 +102,13 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 ### Protocolos de autenticación y autorización
 
-- [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md): aprenda sobre la cadencia de sustitución de claves de firma de Azure AD y sobre cómo actualizar la clave en los escenarios de aplicación más comunes.
+- [Sustitución de claves de firma de Azure AD](active-directory-signing-key-rollover.md): aprenda sobre la cadencia de sustitución de claves de firma de Azure AD y sobre cómo actualizar la clave en los escenarios de aplicación más comunes.
 
 - [Protocolo OAuth 2.0: uso de la concesión de código de autorización](active-directory-protocols-oauth-code.md): puede usar la concesión de código del protocolo de OAuth 2.0 para autorizar el acceso a aplicaciones web y API web en su inquilino de Azure Active Directory.
 
 - [Protocolo OAuth 2.0: descripción del flujo de concesión implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): aprenda más sobre la concesión de autorización implícita y si es adecuada para su aplicación.
 
-- [Protocolo OAuth 2.0: llamadas de servicio a servicio con las credenciales del cliente](active-directory-protocols-oauth-service-to-service.md): el flujo de concesión de credenciales del cliente de OAuth 2.0 permite a un servicio web (un cliente confidencial) usar sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente normalmente es un servicio web de nivel intermedio, un servicio demonio o un sitio web.
+- [Protocolo OAuth 2.0: llamadas de servicio a servicio con las credenciales del cliente](active-directory-protocols-oauth-service-to-service.md): la concesión de credenciales del cliente de OAuth 2.0 permite a un servicio web (un cliente confidencial) usar sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente normalmente es un servicio web de nivel intermedio, un servicio demonio o un sitio web.
 
 - [Protocolo OpenID Connect 1.0: inicio de sesión y autenticación](active-directory-protocols-openid-connect-code.md): el protocolo OpenID Connect 1.0 amplía OAuth 2.0 para su uso como protocolo de autenticación. Una aplicación cliente puede recibir un elemento id\_token para administrar el proceso de inicio de sesión o aumentar el flujo del código de autorización para recibir el código de autorización y un elemento id\_token.
 
@@ -145,4 +146,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

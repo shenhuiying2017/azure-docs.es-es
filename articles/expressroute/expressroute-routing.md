@@ -78,15 +78,15 @@ El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen s
 
 ## Números de sistema autónomo
 
-Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
+Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits. En el lado del emparejamiento (cliente o proveedor), el AS puede ser un ASN público si se puede comprobar que usted es el propietario, o un número ASN privado para el emparejamiento privado, y requiere un ASN público para los emparejamientos públicos y de Microsoft.
 
-No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
+No hay requisitos con respecto a la simetría de transferencia de datos en las rutas de acceso principal y secundario de cualquier circuito determinado. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde los lados principal o secundario en los pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
 ## Límites de agregación y prefijo de ruta
 
 Se admiten hasta 4000 prefijos cuyo anuncio se ha recibido a través de la configuración de pares privados de Azure. Esta cifra puede aumentar hasta los 10.000 prefijos si está habilitado el complemento Premium de ExpressRoute. Se aceptan hasta 200 prefijos por sesión BGP para la configuración de pares públicos de Azure y de Microsoft.
 
-Si el número de prefijos supera el límite, se eliminará la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor debe eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de las rutas de acceso de la configuración de pares públicos de Azure y de Microsoft.
+Si el número de prefijos supera el límite, se eliminará la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor o el cliente deben eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de sus anuncios de BGP a las rutas de acceso pública de Azure y de emparejamiento de Microsoft.
 
 ## Enrutamiento de tránsito y enrutamiento entre regiones
 
@@ -175,4 +175,4 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 	- [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
 	- [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

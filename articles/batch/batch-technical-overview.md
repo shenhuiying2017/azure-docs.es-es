@@ -58,7 +58,7 @@ Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuent
 
 - **Cuenta de Azure y suscripción**: si aún no tiene una suscripción a Azure, puede activar su [crédito de Azure para suscriptores de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se crea automáticamente una suscripción predeterminada.
 
-- **Cuenta de Lote**: cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear y administrar una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
+- **Cuenta de Lote**: cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 
 - **Cuenta de Almacenamiento**: Lote incluye compatibilidad integrada para trabajar con archivos en [Almacenamiento de Azure][azure_storage]. Casi todos los escenarios de Lote usan Almacenamiento de Azure (tanto para el almacenamiento provisional de los programas que ejecutan las tareas como de los datos que procesan, así como para el almacenamiento de los datos de salida que generan). Para crear una cuenta de Almacenamiento, consulte [Acerca de las cuentas de Almacenamiento de Azure](./../storage/storage-create-storage-account.md).
 
@@ -71,7 +71,7 @@ Las aplicaciones y los servicios pueden emitir llamadas de API de REST directas,
 | **REST de Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET de Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
 | **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Administración de recursos de Lote
@@ -161,4 +161,4 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
@@ -26,7 +26,7 @@ Para obtener información sobre escenarios de limitación avanzados mediante las
 
 ## <a name="create-product"> </a>Para crear un producto
 
-En este paso, creará un producto Prueba gratuita que no requiere aprobación de suscripción.
+En este paso, creará un producto de evaluación gratuita que no requiere aprobación de suscripción.
 
 >[AZURE.NOTE] Si ya tiene un producto configurado y desea usarlo para este tutorial, puede pasar la sección [Configurar directivas de cuota y límite de frecuencia][] y seguir el tutorial a partir de ahí con su producto en lugar de con el producto Prueba gratuita.
 
@@ -50,7 +50,7 @@ En el cuadro **Descripción**, escriba **Los suscriptores podrán realizar 10 ll
 
 Los productos de Administración de API pueden estar abiertos o protegidos. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Asegúrese de que la opción **Requerir suscripción** está seleccionada para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
 
-Si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto, active **Requerir aprobación de suscripción**. Si la casilla no está seleccionada, los intentos de suscripción se autoaprobarán. En este ejemplo, las suscripciones se aprueban automáticamente, por lo que no tiene que seleccionar la casilla.
+Si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto, active **Requerir aprobación de suscripción**. Si la casilla no está seleccionada, los intentos de suscripción se aprobarán automáticamente. En este ejemplo, las suscripciones se aprueban automáticamente, por lo que no tiene que seleccionar la casilla.
 
 Para permitir que las cuentas de desarrollador se suscriban varias veces al nuevo producto, active la casilla **Permitir varias suscripciones simultáneas**. En este tutorial no se usan varias suscripciones simultáneas; por tanto, no active la casilla.
 
@@ -195,7 +195,7 @@ Seleccione **Evaluación gratuita** y, después, haga clic en **Suscribirse**.
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE] En este tutorial, no está habilitada la posibilidad de varias suscripciones simultáneas para el producto Prueba gratuita. Si lo estuvieran, se le pediría que pusiera un nombre a la suscripción, tal como se muestra en el ejemplo siguiente.
+>[AZURE.NOTE] En este tutorial, no está habilitada la posibilidad de varias suscripciones simultáneas para el producto de evaluación gratuita. Si lo estuvieran, se le pediría que pusiera un nombre a la suscripción, tal como se muestra en el ejemplo siguiente.
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -217,7 +217,7 @@ Haga clic en **Recurso GET** y, a continuación, en **Probarlo**.
 
 ![Open console][api-management-open-console]
 
-Mantenga los valores predeterminados de los parámetros y seleccione la clave de suscripción para el producto Prueba gratuita.
+Mantenga los valores predeterminados de los parámetros y seleccione la clave de suscripción para el producto de evaluación gratuita.
 
 ![Subscription key][api-management-select-key]
 
@@ -237,7 +237,6 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 -	Vea una demostración de la configuración de cuotas y límites de frecuencia en el siguiente vídeo.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -288,9 +287,8 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # ¿Qué es el centro de IoT de Azure?
@@ -53,7 +53,7 @@ El Centro de IoT de Azure aborda las dificultades de conectividad de dispositivo
 
 -   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia [clave de seguridad][lnk-devguide-security] para permitirle conectarse al Centro de IoT. El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede agregar dispositivos individuales para permitir o denegar listas que permitan controlar por completo el acceso a los dispositivos.
 
--   **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite que la solución de IoT identifique fácilmente los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
+-   **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite que la solución de IoT identifique los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
 
 -   **Amplio conjunto de bibliotecas de dispositivos**. Los [SDK de dispositivo IoT de Azure][lnk-device-sdks] están disponibles y son compatibles con varios lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 
@@ -92,7 +92,7 @@ El Centro de IoT de Azure implementa el modelo de [comunicación asistida por se
 - La comunicación bidireccional de dispositivos con conexión esporádica debido a problemas de alimentación o de conectividad puede realizarse mediante el mantenimiento de comandos y notificaciones en los dispositivos hasta que uno de ellos se conecte para recibirlos. El Centro de IoT mantiene colas específicas de dispositivos para los comandos que envía.
 - Los datos de carga de aplicaciones se protegen por separado para proteger el tránsito a través de las puertas de enlace a un servicio determinado.
 
-El sector móvil ha usado correctamente el patrón de comunicación asistida por servicio a gran escala para implementar servicios de notificación push como, por ejemplo, los [Servicios de notificaciones de inserción de Windows ][lnk-wns], el [Servicio de mensajería en la nube de Google][lnk-google-messaging] y el [Servicio de notificaciones push de Apple][lnk-apple-push].
+El sector de la telefonía móvil ha usado el patrón de comunicación asistida por servicio a una escala enorme para implementar servicios de notificación push como, por ejemplo, los [Servicios de notificaciones de inserción de Windows ][lnk-wns], el [Servicio de mensajería en la nube de Google][lnk-google-messaging] y el [Servicio de notificaciones push de Apple][lnk-apple-push].
 
 ## Pasos siguientes
 
@@ -123,4 +123,4 @@ Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutori
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

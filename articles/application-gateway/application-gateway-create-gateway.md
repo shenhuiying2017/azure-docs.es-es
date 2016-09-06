@@ -24,7 +24,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
-
+- [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -36,24 +36,24 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Si tiene una red virtual existente, seleccione una subred vacía existente o cree una nueva subred en la red virtual existente, únicamente para uso de la puerta de enlace de aplicaciones. No se puede implementar la puerta de enlace de la aplicación en una red virtual diferente de los recursos que se van a implementar detrás de la puerta de enlace de aplicaciones.
 3. Compruebe que tiene una red virtual de trabajo con una subred válida. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
-3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
+3. Los servidores que configure para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
 ## ¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
 
 
-Si se usa el comando **New-AzureApplicationGateway** para crear la puerta de enlace de aplicaciones, no se define ninguna configuración en ese momento y el recurso recién creado tendrá que configurarse con XML o con un objeto de configuración.
+Si se usa el comando **New-AzureApplicationGateway** para crear la puerta de enlace de aplicaciones, no se define ninguna configuración en ese momento y el recurso recién creado se configura con XML o con un objeto de configuración.
 
 
 Los valores son:
 
-- **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
+- **Grupo de servidores back-end**: lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
 - **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-- **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto.
+- **Agente de escucha**: tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
+- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto.
 
 
-## Creación de una nueva puerta de enlace de aplicaciones
+## Creación de una puerta de enlace de aplicaciones
 
 Para crear una Puerta de enlace de aplicaciones:
 
@@ -66,7 +66,7 @@ Para crear una Puerta de enlace de aplicaciones:
 
 ### Creación de un recurso de puerta de enlace de aplicaciones
 
-Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway** y reemplace los valores por los suyos. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
+Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. La facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
 En el ejemplo siguiente se crea una Puerta de enlace de aplicaciones nueva mediante una red virtual denominada "testvnet1" y una subred denominada "subnet-1".
 
@@ -110,7 +110,7 @@ La Puerta de enlace de aplicaciones se puede configurar con un archivo XML o con
 
 ## Configuración de una Puerta de enlace de aplicaciones mediante XML
 
-En el ejemplo siguiente, se utiliza un archivo XML para configurar todos los valores de la Puerta de enlace de aplicaciones y confirmarlos en el recurso de dicha puerta de enlace.
+En el ejemplo siguiente, se usa un archivo XML para configurar todos los valores de la puerta de enlace de aplicaciones y confirmarlos en el recurso de dicha puerta de enlace.
 
 ### Paso 1  
 
@@ -163,7 +163,7 @@ Edite los valores entre paréntesis de los elementos de configuración. Guarde e
 
 >[AZURE.IMPORTANT] El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
 
-En el ejemplo siguiente se muestra cómo utilizar un archivo de configuración para configurar la Puerta de enlace de aplicaciones para que equilibre la carga de tráfico HTTP en el puerto público 80 y envíe el tráfico de red al puerto back-end 80 entre dos direcciones IP.
+En el ejemplo siguiente se muestra cómo usar un archivo de configuración para configurar Puerta de enlace de aplicaciones. La carga de ejemplo equilibra el tráfico HTTP en el puerto público 80 y envía tráfico de red al puerto 80 de back-end entre dos direcciones IP.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -224,9 +224,9 @@ Después, establezca la Puerta de enlace de aplicaciones. Utilice el cmdlet **Se
 
 ## Configuración de la Puerta de enlace de aplicaciones con un objeto de configuración
 
-En el ejemplo siguiente, se muestra cómo configurar la Puerta de enlace de aplicaciones con objetos de configuración. Todos los elementos de configuración deben configurarse individualmente y, a continuación, se deben agregar a un objeto de configuración de la Puerta de enlace de aplicaciones. Después de crear el objeto de configuración, utilizará el comando **Set-AzureApplicationGateway** para confirmar la configuración del recurso de la puerta de enlace de aplicaciones creado anteriormente.
+En el ejemplo siguiente, se muestra cómo configurar la Puerta de enlace de aplicaciones con objetos de configuración. Todos los elementos de configuración deben configurarse individualmente y, a continuación, se deben agregar a un objeto de configuración de la Puerta de enlace de aplicaciones. Después de crear el objeto de configuración, utiliza el comando **Set-AzureApplicationGateway** para confirmar la configuración del recurso de la puerta de enlace de aplicaciones creado anteriormente.
 
->[AZURE.NOTE] Antes de asignar un valor a cada objeto de configuración, es preciso declarar el tipo de objeto que usa PowerShell para el almacenamiento. La primera línea para crear los elementos individuales define qué Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nombre de objeto) se utilizará.
+>[AZURE.NOTE] Antes de asignar un valor a cada objeto de configuración, es preciso declarar el tipo de objeto que usa PowerShell para el almacenamiento. La primera línea para crear los elementos individuales define qué Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nombre de objeto) se utiliza.
 
 ### Paso 1
 
@@ -247,7 +247,7 @@ Cree el puerto front-end, como se muestra en el ejemplo siguiente.
 
 Cree el grupo de servidores back-end.
 
- Defina las direcciones IP que se agregarán al grupo de servidores back-end como se muestra en el siguiente ejemplo.
+ Defina las direcciones IP que se agregan al grupo de servidores back-end como se muestra en el siguiente ejemplo.
 
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -415,4 +415,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->
