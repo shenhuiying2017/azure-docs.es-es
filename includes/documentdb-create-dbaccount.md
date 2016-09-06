@@ -18,7 +18,8 @@
 	
     - Para proporcionar un acceso cómodo a su cuenta y a los recursos que se crearán en el futuro, seleccione la opción **Anclar al panel**.
 
-4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. Para comprobar el estado de la implementación, puede supervisar el progreso en el Panel de inicio. ![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. Para comprobar el estado de la implementación, puede supervisar el progreso en el Panel de inicio. 
+	![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	O bien, puede supervisar su progreso en el centro de notificaciones.
 

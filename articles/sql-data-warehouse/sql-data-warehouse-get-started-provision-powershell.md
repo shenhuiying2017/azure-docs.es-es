@@ -71,7 +71,7 @@ Los parámetros opcionales son:
 - **MaxSizeBytes**: el tamaño máximo predeterminado de una base de datos es 10 GB.
 
 
-Para más información sobre las opciones de parámetros, consulte [New-AzureRmSqlDatabase][] y [Create Database (Azure SQL Data Warehouse)][] (Creación de base de datos [Almacenamiento de datos SQL de Azure]).
+Para más información sobre las opciones de parámetros, consulte [New-AzureRmSqlDatabase][] y [Create Database (Azure SQL Data Warehouse)][] \(Creación de base de datos [Almacenamiento de datos SQL de Azure]).
 
 ## Pasos siguientes
 

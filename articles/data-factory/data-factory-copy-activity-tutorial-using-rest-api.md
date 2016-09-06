@@ -51,7 +51,7 @@ Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referenc
 	2. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
 			Get-AzureRmSubscription 
-	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **& lt; NameOfAzureSubscription**& gt; por el nombre de su suscripción de Azure.
+	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription** &gt; por el nombre de su suscripción de Azure.
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 	1. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
