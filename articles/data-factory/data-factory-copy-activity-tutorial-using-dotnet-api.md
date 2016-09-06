@@ -106,7 +106,7 @@ Debe tener los cuatro valores siguientes de estos pasos:
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Esta configuración la usa el método auxiliar: **GetAuthorizationHeader**.
 
-	Reemplace los valores de **& lt; Identificador de aplicación & gt;**, **& lt; Contraseña & gt;**, **& lt; Id. de suscripción & gt;** e **& lt; Id. de inquilino**& gt; por sus propios valores.
+	Reemplace los valores de **&lt;Identificador de aplicación&gt;**, **&lt;Contraseña&gt;**, **&lt;Id. de suscripción&gt;** e **&lt;Id. de inquilino&gt;** por sus propios valores.
 
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -458,4 +458,4 @@ Debe tener los cuatro valores siguientes de estos pasos:
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

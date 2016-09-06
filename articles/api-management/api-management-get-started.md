@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Administración de su primera API en Administración de API de Azure
@@ -67,7 +67,7 @@ El primer paso para trabajar con Administración de API es crear una instancia d
 
 En **URL**, especifique el nombre de subdominio único que desee usar para la dirección URL de servicio.
 
-Elija la **Suscripción** y la **Región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón **Siguiente**.
+Elija la **suscripción** y la **región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón **Siguiente**.
 
 ![New API Management service][api-management-create-instance-step1]
 
@@ -186,7 +186,7 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
+- Aprenda a [Proteger su API con límites de tarifa](api-management-howto-product-with-rules.md).
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 [Precios de Administración de API]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
@@ -245,4 +244,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

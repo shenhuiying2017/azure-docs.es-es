@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="08/25/2016"
 	ms.author="wesmc"/>
 
 
@@ -21,9 +21,9 @@
 
 ##Información general
 
-Los Centros de notificaciones de Azure son una infraestructura fácil de usar que le permite enviar notificaciones de inserción móviles desde cualquier back-end (en la nube o de forma local) a cualquier plataforma móvil.
+Los Centros de notificaciones de Azure son una infraestructura fácil de usar que permite enviar notificaciones de inserción móviles desde cualquier back-end (en la nube o de forma local) a cualquier plataforma móvil.
 
-Con los Centros de notificaciones puede enviar fácilmente notificaciones de inserción personalizadas entre plataformas, resumiendo los detalles de los distintos Sistemas de notificación de plataforma (PNS). Con una única llamada API, puede dirigirse a usuarios individuales o a segmentos completos con millones de usuarios, entre todos sus dispositivos.
+Con los Centros de notificaciones se pueden enviar fácilmente notificaciones push personalizadas entre plataformas, resumiendo los detalles de los distintos sistemas de notificación de plataforma (PNS). Con una única llamada API, puede dirigirse a usuarios individuales o a segmentos completos con millones de usuarios, entre todos sus dispositivos.
 
 Los Centros de notificaciones se pueden usar tanto para escenarios empresariales como de consumidores. Por ejemplo:
 
@@ -37,11 +37,11 @@ Los Centros de notificaciones se pueden usar tanto para escenarios empresariales
 
 ##¿Qué son las notificaciones de inserción?
 
-Los smartphones y las tabletas cuentan con la posibilidad de "notificar" a los usuarios cuando se ha producido un evento. Estas notificaciones pueden adoptar muchas formas.
+Tanto los smartphones como las tabletas pueden "enviar una notificación" a los usuarios cuando se haya producido un evento. Estas notificaciones pueden adoptar muchas formas.
 
-En las aplicaciones de la Tienda Windows y de Windows Phone, la notificación puede adoptar la forma de una _notificación del sistema_: una ventana sin modo que aparece, sin sonido, para indicar una nueva notificación. Se admiten otros tipos de notificación, como notificaciones de tipo _icono_, _sistema_ y _distintivo_. Para obtener más información sobre los tipos de notificaciones que se admiten, consulte [Mosaicos, distintivos y notificaciones](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
+En las aplicaciones de la Tienda Windows y de Windows Phone, la notificación puede adoptar la forma de una _notificación del sistema_: una ventana sin modo que aparece, sin sonido, para indicar una nueva notificación. Se admiten otros tipos de notificación, como notificaciones _de icono_, _sin procesar_ y _de rótulo informativo_. Para más información acerca de los tipos de notificaciones que admiten los dispositivos Windows, consulte [Iconos, distintivos y notificaciones (aplicaciones de Windows en tiempo de ejecución)](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
 
-En los dispositivos con iOS de Apple, la notificación de inserción notifica manera similar con un cuadro de diálogo, que solicita al usuario que vea o cierre la notificación. Un clic en **Ver** abre la aplicación que está recibiendo el mensaje. Para obtener más información sobre las notificaciones de iOS, consulte [Notificaciones de iOS](http://go.microsoft.com/fwlink/?LinkId=615245).
+En los dispositivos con iOS de Apple, la notificación de inserción notifica manera similar con un cuadro de diálogo, que solicita al usuario que vea o cierre la notificación. Un clic en **Ver** abre la aplicación que está recibiendo el mensaje. Para más información acerca de las notificaciones de iOS, consulte [Notificaciones de iOS](http://go.microsoft.com/fwlink/?LinkId=615245).
 
 Las notificaciones de inserción ayudan a que los dispositivos móviles muestren información actualizada mientras ahorran energía. Las notificaciones pueden enviarse por sistemas de back-end a los dispositivos móviles, incluso cuando las aplicaciones correspondientes en un dispositivo no están activas. Las notificaciones de inserción son un componente esencial de las aplicaciones de consumidor, donde se utilizan para aumentar el uso y la interacción con la aplicación. Las notificaciones también son útiles para las empresas cuando la información actualizada aumenta la capacidad de respuesta de los empleados ante eventos empresariales.
 
@@ -53,7 +53,7 @@ Algunos ejemplos específicos de escenarios de interacción móvil son:
 
 ##Funcionamiento de las notificaciones de inserción
 
-Las notificaciones de inserción se entregan a través de infraestructuras específicas para la plataforma llamadas _Sistemas de notificación de plataforma_ (PNS). Un PNS ofrece funciones estrictamente esenciales (es decir, sin compatibilidad para difusión, personalización) y no tiene una interfaz común. Por ejemplo, para enviar una notificación a una aplicación de la Tienda Windows, un desarrollador debe ponerse en contacto con el Servicio de notificaciones de Windows (WNS) para enviar una notificación a un dispositivo iOS; luego, el mismo desarrollador debe ponerse en contacto con el Servicio de notificaciones push de Apple (APNS) y volver a enviar el mensaje. Los Centros de notificaciones de Azure ayudan a proporcionar una interfaz común, junto con otras características para admitir las notificaciones push en cada plataforma.
+Las notificaciones de inserción se entregan a través de infraestructuras específicas para la plataforma llamadas _Sistemas de notificación de plataforma_ (PNS). Un PNS ofrece funciones estrictamente esenciales (es decir, sin compatibilidad para difusión, personalización) y no tiene una interfaz común. Por ejemplo, para enviar una notificación a una aplicación de la Tienda Windows, los desarrolladores deben ponerse en contacto con el WNS (Servicio de notificaciones de Windows). Para enviar una notificación a un dispositivo iOS, el mismo desarrollador debe ponerse en contacto con APNS (Servicio de notificaciones push de Apple) y enviar el mensaje una segunda vez. Los Centros de notificaciones de Azure ayudan a proporcionar una interfaz común, junto con otras características para admitir las notificaciones push en cada plataforma.
 
 Sin embargo, en un alto nivel, todos los sistemas de notificación de plataforma siguen el mismo patrón:
 
@@ -75,7 +75,7 @@ Las notificaciones de inserción son una de las características más solicitada
 - **Escala.** Escalar esta infraestructura tiene dos aspectos:
 	+ Según las directrices de PNS, se deben actualizar los tokens de dispositivo cada vez que se inicia la aplicación. Esto genera una gran cantidad de tráfico (y los consecuentes accesos a la base de datos) solo para mantener actualizados los tokens de dispositivo. Cuando la cantidad de dispositivos crece (posiblemente a millones), no es posible pasar por alto el costo de crear y mantener esta infraestructura.
 
-	+ La mayoría de los PNS no son compatibles con la difusión a varios dispositivos. Más allá de eso, la difusión a millones de dispositivos resulta en millones de llamadas a los PNS. La capacidad de escalar estas solicitudes no es algo trivial, porque normalmente los desarrolladores de aplicaciones desean mantener baja la latencia total (por ejemplo, el último dispositivo que recibe el mensaje no debería recibir la notificación 30 minutos después de enviadas las notificaciones, porque en muchos casos eso iría en contra del propósito de las propias notificaciones de inserción).
+	+ La mayoría de los PNS no son compatibles con la difusión a varios dispositivos. Más allá de eso, la difusión a millones de dispositivos resulta en millones de llamadas a los PNS. La capacidad para escalar estas solicitudes no es algo trivial, ya que normalmente los desarrolladores de aplicaciones desean mantener baja la latencia total. Por ejemplo, el último dispositivo que recibe el mensaje no debería recibir la notificación 30 minutos después de enviadas las notificaciones, porque en muchos casos eso iría en contra del propósito de las propias notificaciones push.
 - **Enrutamiento.** Los PNS brindan una forma de enviar un mensaje a un dispositivo. Sin embargo, en la mayoría de las aplicaciones, las notificaciones se dirigen a usuarios y/o grupos de interés (por ejemplo, todos los empleados asignados a cierta cuenta de cliente). De tal modo, a fin de enrutar las notificaciones a los dispositivos correctos, el back-end de la aplicación debe mantener un registro que asocie grupos de interés con tokens de dispositivo. Esta sobrecarga se agrega al tiempo plazo de comercialización total y a los costos de mantenimiento de una aplicación.
 
 ##¿Por qué usar los Centros de notificaciones?
@@ -118,7 +118,7 @@ Los Centros de notificaciones proporcionan una infraestructura de notificaciones
 
 ##Integración con las Aplicaciones móviles del Servicio de aplicaciones
 
-Para facilitar una experiencia perfecta y unificadora en servicios de Azure, [Aplicaciones móviles del Servicio de aplicaciones] tiene compatibilidad integrada para notificaciones push con centros de notificaciones. Las [Aplicaciones móviles del Servicio de aplicaciones] ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
+Para facilitar una experiencia perfecta y unificadora entre servicios de Azure, [Aplicaciones móviles del Servicio de aplicaciones] tiene compatibilidad integrada con notificaciones push mediante centros de notificaciones. Las [Aplicaciones móviles del Servicio de aplicaciones] ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
 
 Los desarrolladores de aplicaciones móviles pueden usar centros de notificaciones con el siguiente flujo de trabajo:
 
@@ -128,18 +128,22 @@ Los desarrolladores de aplicaciones móviles pueden usar centros de notificacion
 3. Enviar notificaciones desde su back-end de aplicación con los centros de notificaciones
 
 Estas son algunas ventajas para los desarrolladores de esta integración:
+
 - **SDK de cliente de Aplicaciones móviles.** Estos SDK de multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no tienen que indagar en las credenciales de los Centros de notificaciones y trabajar con un servicio adicional.
     + Los SDK etiquetan automáticamente el dispositivo específico con un identificador de usuario autenticado de Aplicaciones móviles para habilitar la inserción en un escenario de usuario.
     + Los SDK utilizan automáticamente el identificador de instalación de Aplicaciones móviles como GUID para registrarse con Centros de notificaciones, lo que permite que los desarrolladores no tengan que mantener varios GUID de servicio.
+    
 - **Modelo de instalación.** Aplicaciones móviles funciona con el modelo de inserción más reciente de los Centros de notificaciones para representar todas las propiedades de inserción asociadas a un dispositivo en una instalación de JSON que se alinea con los servicios de notificaciones push y resulta fácil de usar.
+
 - **Flexibilidad.** Los desarrolladores siempre pueden elegir trabajar con los Centros de notificaciones directamente, incluso con la integración implementada.
-- **Experiencia en integrada en el [Portal de Azure].** La inserción como capacidad se representa visualmente en Aplicaciones móviles y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Aplicaciones móviles.
+
+- **Experiencia integrada en el [Portal de Azure].** La inserción como capacidad se representa visualmente en Aplicaciones móviles y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Aplicaciones móviles.
 
 
 
 ##Pasos siguientes
 
-Obtenga más información acerca de los Centros de notificaciones en estos temas:
+Más información acerca de los Centros de notificaciones en estos temas:
 
 + **[Cómo utilizan los clientes los Centros de notificaciones]**
 
@@ -171,4 +175,4 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Portal de Azure]: https://portal.azure.com
   [etiquetas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

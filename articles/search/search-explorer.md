@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"
 />
 # Realización de una consulta en el índice de Búsqueda de Azure mediante el Portal de Azure
@@ -47,4 +47,4 @@ Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda d
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

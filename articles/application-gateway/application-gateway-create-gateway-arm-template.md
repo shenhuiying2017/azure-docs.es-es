@@ -26,6 +26,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
+- [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 	| **backendaddress2** | Dirección IP del segundo servidor web |
 
 
->[AZURE.IMPORTANT] Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
+	>[AZURE.IMPORTANT] Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
 
 6. Compruebe el contenido en **resources** y observe lo siguiente:
 
@@ -147,8 +148,6 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, crea un grupo de recursos nuevo denominado AppgatewayRG en la ubicación East US.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

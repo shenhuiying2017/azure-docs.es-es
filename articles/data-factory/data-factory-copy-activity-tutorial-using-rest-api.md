@@ -39,10 +39,10 @@ Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referenc
 - Lea [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos.
 - Siga las instrucciones de [este artículo](../resource-group-create-service-principal-portal.md) para:
-	1. Cree una aplicación web denominada **ADFCopyTutotiralApp** en Azure Active Directory.
+	1. Cree una aplicación web denominada **ADFCopyTutorialApp** en Azure Active Directory.
 	2. Obtenga el **Id. de cliente** y la **Clave secreta**.
 	3. Obtenga el **Identificador de inquilino**.
-	4. Asigne la aplicación **ADFCopyTutotiralApp** al rol **Colaborador de Data Factory**.
+	4. Asigne la aplicación **ADFCopyTutorialApp** al rol **Colaborador de Data Factory**.
 - Instale [Azure PowerShell](../powershell-install-configure.md).
 - Inicie **PowerShell** y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
 	1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
@@ -298,7 +298,7 @@ En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTu
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si la factoría de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
 
-		$results
+		Write-Host $results
 
 Tenga en cuenta lo siguiente:
  
@@ -339,7 +339,7 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
   
-		$results
+		Write-Host $results
 
 ### Creación de un servicio vinculado SQL de Azure
 En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factoría de datos. Con este tutorial, usará la misma Base de datos SQL de Azure para almacenar los datos de salida.
@@ -352,7 +352,7 @@ En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factorí
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
   
-		$results
+		Write-Host $results
 
 ## Creación de conjuntos de datos
 
@@ -391,7 +391,7 @@ Realice los siguientes pasos para preparar Almacenamiento de blobs de Azure y Ba
 
 	Si tiene SQL Server 2014 instalado en el equipo: siga las instrucciones del artículo [Paso 2: Conexión con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL.
 
-	Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte [este artículo](../sql-database/sql-database-configure-firewall-settings.md) a fin de conocer los pasos de configuración del firewall para el servidor SQL de Azure.
+	Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte [este artículo](../sql-database/sql-database-configure-firewall-settings.md) para conocer los pasos que deben darse para configurar el firewall de un servidor SQL de Azure.
 		
 ### Creación de un conjunto de datos de entrada 
 En este paso, creará un conjunto de datos denominado **AzureBlobInput** que apunta a un contenedor de blobs en Almacenamiento de Azure que está representado por el servicio vinculado **AzureStorageLinkedService**. Este contenedor de blobs (**adftutorial**) contiene los datos de entrada en el archivo: **emp.txt**.
@@ -404,7 +404,7 @@ En este paso, creará un conjunto de datos denominado **AzureBlobInput** que apu
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
   
-		$results
+		Write-Host $results
 
 ### Creación del conjunto de datos de salida
 En este paso, creará una tabla de salida denominada **AzureSqlOutput**. Este conjunto de datos apunta a una tabla SQL (**emp**) de la Base de datos SQL de Azure representada por **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp**.
@@ -417,7 +417,7 @@ En este paso, creará una tabla de salida denominada **AzureSqlOutput**. Este co
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
   
-		$results 
+		Write-Host $results 
 
 ## Creación de una canalización
 En este paso, creará una canalización con una **actividad de copia** que utiliza **AzureBlobInput** como entrada y **AzureSqlOutput** como salida.
@@ -430,7 +430,7 @@ En este paso, creará una canalización con una **actividad de copia** que utili
 		$results = Invoke-Command -scriptblock $cmd;
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
 
-		$results
+		Write-Host $results
 
 **¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
 
@@ -493,4 +493,4 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

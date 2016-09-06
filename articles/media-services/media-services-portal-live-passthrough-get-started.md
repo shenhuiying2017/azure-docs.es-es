@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 #Realización de streaming en vivo con codificadores locales mediante el Portal de Azure
 
 Este tutorial le guiará por los pasos para usar el Portal de Azure para crear un **Canal** que esté configurado para una entrega de paso a través.
-
-Los Servicios multimedia de Azure del Portal de Azure se encuentran actualmente en vista previa.
 
 
 ##Requisitos previos
@@ -53,7 +51,7 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
 3. Cree un evento o programa en directo.
 
@@ -65,7 +63,7 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 1. Detenga el evento o programa cuando quiera detener el streaming y el archivo del evento.
 1. Elimine el evento o programa (y, opcionalmente, elimine el recurso).
 
->[AZURE.IMPORTANT] Revise [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.
+>[AZURE.IMPORTANT] Revise [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y las consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.
 
 ##Visualización de notificaciones y errores
 
@@ -81,13 +79,13 @@ Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una u
 
 Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
-1. En la ventana **Configuración**, haga clic en **Extremos de streaming**.
+1. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**.
 
 2. Haga clic en el punto de conexión de streaming predeterminado.
 
 	Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO**.
 
-3. Para especificar el número de unidades de streaming, deslice el control deslizante **Unidades de streaming**.
+3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming**.
 
 	![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 
@@ -117,20 +115,20 @@ Si desea conservar el contenido archivado, pero no hacerlo disponible para la tr
 
 ###Uso del portal para crear un canal 
 
-Esta sección le muestra cómo utilizar la opción **Creación rápida** para crear un canal de paso a través.
+Esta sección muestra cómo utilizar la opción **Creación rápida** para crear un canal de paso a través.
 
-Para más información sobre los canales de este tipo, consulte [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
+Para más información sobre los canales de este tipo, consulte [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
 1. En la ventana **Configuración**, haga clic en **Streaming en vivo**.
 
 	![Introducción](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
-	Aparecerá la ventana **Streaming en vivo**.
+	Aparece la ventana **Streaming en vivo**.
 
 3. Haga clic en **Creación rápida** para crear un canal de paso a través con el protocolo de introducción RTMP.
 
-	Aparecerá la ventana **CREAR UN NUEVO CANAL**.
-4. Asigne al nuevo canal un nombre y haga clic en **Crear**.
+	Aparece la ventana **CREAR UN NUEVO CANAL**.
+4. Asigne un nombre al nuevo canal y haga clic en **Crear**.
 
 	Con ello, se creará un canal de paso a través con el protocolo de introducción RTMP.
 
@@ -146,7 +144,7 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 ##Visualización de un evento
 
-Para ver el evento, haga clic en **Ver** en el Portal de Azure o copie la URL de streaming y use un reproductor de su elección.
+Para ver el evento, haga clic en **Inspección** en el Portal de Azure o copie la dirección URL de streaming y use el reproductor que prefiera.
  
 ![Creado](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
@@ -154,7 +152,7 @@ El evento en directo se convertirá automáticamente en contenido a petición cu
 
 ##Limpieza
 
-Para más información sobre los canales de este tipo, consulte [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
+Para más información sobre los canales de este tipo, consulte [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
 - Un canal se puede detener solo cuando se hayan detenido todos los eventos o programas del canal. Cuando se detiene el canal, no se incurrirá en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
 - Un canal se puede eliminar solo cuando se hayan eliminado todos los eventos en directo del canal.
@@ -163,7 +161,7 @@ Para más información sobre los canales de este tipo, consulte [Streaming en di
 
 Incluso después de detener y eliminar el evento, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso. No se puede eliminar un recurso si lo está usando un evento; primero se debe eliminar el evento.
 
-Para administrar los recursos seleccione **Configuración** y haga clic en **Activos**.
+Para administrar los recursos seleccione **Configuración** y haga clic en **Recursos**.
 
 ![Recursos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
@@ -175,4 +173,4 @@ Para administrar los recursos seleccione **Configuración** y haga clic en **Act
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->
