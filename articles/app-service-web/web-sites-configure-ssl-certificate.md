@@ -430,7 +430,7 @@ Antes de continuar, revise la sección [Lo que necesita](#bkmk_domainname) y com
 3.	Haga clic en el nombre de la aplicación a la que desea asignar este certificado.
 4.	En la hoja **Configuración**, haga clic en **Certificados y enlaces SSL**.
 5.	Haga clic en **Cargar certificado**.
-6.	Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. Después, haga clic en **Cargar** para cargar el certificado. Ahora debería ver los certificados que haya cargado en la hoja **Certificados y enlaces SSL**.
+6.	Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. Después, haga clic en **Cargar** para cargar el certificado. Ahora debería ver los certificados que haya cargado en la hoja **Certificado SSL**.
 7. En la sección **Enlaces SSL**, haga clic en **Agregar enlace**.
 8. En la hoja **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL, así como el certificado que pretende utilizar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
 
