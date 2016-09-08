@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en el Centro de seguridad de Azure
@@ -38,7 +38,13 @@ Las directivas de seguridad se pueden configurar para cada suscripción o grupo 
 
     ![Habilitación de la recopilación de datos](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. Asegúrese de que la opción **Recopilar datos de máquinas virtuales** está **Activada**. Esta opción habilita la recopilación de inicio de sesión automático para recursos nuevos y existentes.
+	Las opciones disponibles en esta hoja son:
+	- **Prevention policy** (Directiva de prevención): esta opción permite configurar directivas por cada suscripción o grupo de recursos.
+	- **Email notification** (Notificación por correo electrónico): se envía una notificación por correo electrónico en la primera repetición diaria de una alerta y solo en el caso de alertas con un elevado nivel de gravedad. Las preferencias de correo electrónico solo pueden configurarse para las directivas de suscripción. Para más información sobre cómo configurar la notificación por correo electrónico, consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](security-center-provide-security-contact-details.md).
+	- **Pricing tier** (Plan de tarifa): utilice esta opción para realizar la actualización del plan de tarifa seleccionado. Para más información acerca de las opciones de los precios, visite la [página de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+	
+4.  Asegúrese de que la opción **Recopilar datos de máquinas virtuales** está **Activada**. Esta opción habilita la recopilación de inicio de sesión automático para recursos nuevos y existentes.
 
     >[AZURE.NOTE] Es recomendable activar la recopilación de datos para cada una de las suscripciones para garantizar la disponibilidad de la supervisión de seguridad para todas las máquinas virtuales nuevas y existentes. Al habilitar la recopilación de datos se instala el agente de supervisión. Si no desea activar la recopilación de datos ahora desde esta ubicación, puede hacerlo más tarde desde las vistas de estado y recomendaciones. También puede habilitar la recopilación de datos solo para la suscripción o para determinadas máquinas virtuales. Consulte las [preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) para más información sobre VM compatibles.
 
@@ -100,4 +106,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

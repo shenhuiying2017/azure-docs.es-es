@@ -549,10 +549,10 @@ Los instaladores están disponibles en el servidor de procesos de **C:\\Archivos
 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
-Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
+Windows Server 64 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Instalar manualmente en un servidor Windows
@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL
 
 	![Servicio de movilidad](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña que se generó al ejecutar la instalación unificada. Para recuperar la frase de contraseña, ejecute **<carpetaInstalaciónSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –n** en el servidor de configuración.
+3. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña que se generó al ejecutar la instalación unificada. Para recuperar la frase de contraseña, ejecute **<carpetaInstalaciónSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –v** en el servidor de configuración.
 
 	![Servicio de movilidad](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -580,6 +580,14 @@ Donde:
 - /InstallLocation: Obligatorio. Especifica dónde instalar el servicio.
 - /PassphraseFilePath: Obligatorio. Frase de contraseña del servidor de configuración.
 - /LogFilePath: Obligatorio. Ubicación de los archivos de configuración de registro.
+
+#### Desinstalación manual de Mobility Service
+
+Es posible desinstalar Mobility Service mediante la opción Agregar o quitar programas del Panel de control o por medio de la línea de comandos.
+
+Este es el comando que debe usar para desinstalar Mobility Service con la línea de comandos:
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Instalación manual en un servidor Linux:
@@ -833,7 +841,7 @@ El servidor de procesos puede detectar automáticamente las máquinas virtuales 
 --- | --- | ---
 Rol Azure\_Site\_Recovery | Detección de máquinas virtuales de VMware |Asigne estos privilegios para el servidor vCenter:<br/><br/>Almacén de datos -> Asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo y actualizar archivos de máquina virtual<br/><br/>Red -> Asignación de red<br/><br/>Recurso -> Asignar máquina virtual a un grupo de recursos, migrar máquina virtual apagada y migrar máquina virtual encendida<br/><br/>Tareas -> Crear tarea y actualizar tarea<br/><br/>Máquina virtual -> Configuración<br/><br/>Máquina virtual -> Interactuar -> Responder pregunta, conexión de dispositivo, configurar soporte físico de CD, configurar soporte físico de disquete, apagar, encender e instalación de herramientas de VMware<br/><br/>Máquina virtual -> Inventario -> Crear, registrar y anular registro<br/><br/>Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual y permitir carga de archivos de máquina virtual<br/><br/>Máquina virtual -> Instantáneas -> Quitar instantáneas
 Rol de usuario de vCenter | Detección/conmutación por error de VMware sin apagar la máquina virtual de origen | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos –> Propagar a objeto secundario, rol = solo lectura <br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos de este. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
-Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos: Propagar a objeto secundario, rol=Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos de este. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).  
+Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto de centro de datos: Propagar a objeto secundario, rol = Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos de este. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).  
 ## Pasos siguientes
 
 - [Más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
@@ -851,4 +859,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

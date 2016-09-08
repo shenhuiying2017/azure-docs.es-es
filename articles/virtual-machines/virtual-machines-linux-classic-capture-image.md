@@ -33,7 +33,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 ## Captura de la máquina virtual
 
-1. [Conéctese a la máquina virtual](virtual-machines-linux-classic-log-on.md) mediante un cliente SSH de su elección.
+1. [Conéctese a la máquina virtual](virtual-machines-linux-mac-create-ssh-keys.md) mediante un cliente SSH de su elección.
 
 2. En la ventana SSH, escriba el siguiente comando. Tenga en cuenta que el resultado de `waagent` puede variar ligeramente según la versión de esta utilidad:
 
@@ -57,7 +57,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 	>[AZURE.NOTE] En los siguientes pasos se supone que ya ha [instalado la CLI de Azure](../xplat-cli-install.md) en el equipo cliente. Los pasos siguientes también pueden realizarse en el [Portal de Azure clásico][].
 
-5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para obtener más información, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para detalles, lea [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 6. Asegúrese de que está en modo de administración de servicios:
 
@@ -67,7 +67,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 	`azure vm shutdown <your-virtual-machine-name>`
 
-	>[AZURE.NOTE] Puede encontrar todas las máquinas virtuales creadas en su mediante `azure vm list`
+	>[AZURE.NOTE] Puede encontrar todas las máquinas virtuales creadas en su suscripción mediante `azure vm list`
 
 8. Cuando se detenga la máquina virtual, capture la imagen con el comando:
 
@@ -95,4 +95,4 @@ La imagen está lista para usarse para crear máquinas virtuales. Puede usar el 
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

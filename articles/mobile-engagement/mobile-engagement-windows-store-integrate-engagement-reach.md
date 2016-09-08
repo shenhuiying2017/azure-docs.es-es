@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integración del SDK de Cobertura de Windows Universal Apps
@@ -59,7 +59,7 @@ Engagement proporciona dos maneras de agregar las vistas intersticiales y los ba
 La elección entre las dos integraciones podía resumirse así:
 
 -   Puede elegir la integración de superposición si las páginas ya heredan desde el agente `EngagementPage`; solo es cuestión de reemplazar `EngagementPage` por `EngagementPageOverlay` y `xmlns:engagement="using:Microsoft.Azure.Engagement"` por `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` en las páginas.
--   Puede elegir la integración manual de vistas web si desea colocar de forma precisa la IU de Reach dentro de las páginas o si no desea agregar otro nivel de herencia a las páginas. 
+-   Puede elegir la integración manual de vistas web si desea colocar de forma precisa la IU de Reach dentro de las páginas o si no desea agregar otro nivel de herencia a las páginas.
 
 ### Integración de superposición
 
@@ -334,4 +334,4 @@ Ahora, para usar este protocolo, edite `App.xaml.cs` mediante el método `OnActi
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

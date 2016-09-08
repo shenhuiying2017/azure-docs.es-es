@@ -3,7 +3,7 @@
    description="Tareas de la API de REST para restaurar una instancia de Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Restauración de instancias de Almacenamiento de datos SQL de Azure (API de REST)
 
@@ -28,7 +28,7 @@ En este artículo, obtendrá información sobre cómo restaurar una instancia de
 
 ## Antes de empezar
 
-**Compruebe la capacidad DTU**. Cada instancia de Almacenamiento de datos SQL está hospedada en un servidor SQL Server (p. ej., myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Antes de que pueda restaurar una instancia de Almacenamiento de datos SQL, compruebe que su servidor SQL Server tiene suficientes cuotas de DTU restantes para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte [Request a DTU quota change][] \(Solicitar un cambio en la cuota de DTU).
+**Compruebe la capacidad DTU**. Cada instancia de Almacenamiento de datos SQL está hospedada en un servidor SQL Server (p. ej., myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Antes de que pueda restaurar una instancia de Almacenamiento de datos SQL, compruebe que su servidor SQL Server tiene suficientes cuotas de DTU restantes para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte [Request a DTU quota change][] (Solicitar un cambio en la cuota de DTU).
 
 ## Restauración de una base de datos activa o en pausa
 
@@ -78,4 +78,4 @@ Para obtener más información sobre las características de continuidad empresa
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

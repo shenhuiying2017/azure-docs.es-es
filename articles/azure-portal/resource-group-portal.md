@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso del Portal de Azure para administrar los recursos de Azure | Microsoft Azure" 
-	description="Uso del Portal de Azure y de Azure Resource Manager para implementar los recursos. Muestra cómo trabajar con paneles y mosaicos para supervisar los recursos." 
+	description="Uso del Portal de Azure y de Azure Resource Manager para implementar los recursos. Muestra cómo trabajar con paneles para supervisar recursos." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,23 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="tomfitz"/>
-
 
 # Administración de los recursos de Azure a través del Portal
 
 > [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md)
-- [CLI de Azure](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Azure PowerShell](../powershell-azure-resource-manager.md)
+- [CLI de Azure](../xplat-cli-azure-resource-manager.md)
+- [Portal](resource-group-portal.md)
+- [API DE REST](../resource-manager-rest-api.md)
 
-En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Para aprender sobre la implementación de recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
+
+Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Administración de grupos de recursos
 
@@ -69,29 +66,17 @@ En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure
 
 ## Etiquetado de recursos
 
-Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información sobre cómo trabajar con etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para más información sobre cómo trabajar con etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
 
 [AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## Supervisión de recursos
 
-Cuando se selecciona un recurso, la hoja del recurso presenta los gráficos y las tablas predeterminados para supervisar ese tipo de recurso. Puede cambiar las tablas y los gráficos que se muestran para personalizar la supervisión del recurso.
+Cuando se selecciona un recurso, la hoja del recurso presenta los gráficos y las tablas predeterminados para supervisar ese tipo de recurso.
 
-1. En la hoja de un recurso, puede agregar más gráficos y tablas; para ello, seleccione **Agregar una sección** debajo del resumen.
+1. Seleccione un recurso y observe la sección **Supervisión**. Incluye gráficos que son pertinentes para el tipo de recurso. En la imagen siguiente se muestran los datos de supervisión predeterminados para una cuenta de almacenamiento.
 
-    ![agregar sección](./media/resource-group-portal/add-section.png)
-
-1. En la galería de iconos, seleccione la información que desea incluir en la hoja. El editor filtra los iconos por el tipo de recurso. Si se selecciona un recurso diferente, cambiarán los iconos disponibles.
-
-    ![agregar sección](./media/resource-group-portal/tile-gallery.png)
-
-1. Arrastre el icono que se necesita en los espacios disponibles.
-
-    ![arrastrar icono](./media/resource-group-portal/drag-tile.png)
-
-1. Después de seleccionar **Listo** en la parte superior del Portal, la nueva vista forma parte de la hoja.
-
-    ![mostrar icono](./media/resource-group-portal/show-lens.png)
+    ![mostrar supervisión](./media/resource-group-portal/show-monitoring.png)
 
 1. Para anclar una sección de la hoja al panel, seleccione el botón de puntos suspensivos (...) que se encuentra encima de la sección. Asimismo puede personalizar el tamaño de la sección en la hoja o quitarlo. La siguiente imagen muestra cómo anclar, personalizar o quitar la sección CPU y memoria.
 
@@ -101,11 +86,23 @@ Cuando se selecciona un recurso, la hoja del recurso presenta los gráficos y la
 
     ![ver panel](./media/resource-group-portal/view-startboard.png)
 
-1. También puede crear varios paneles para supervisar y administrar los recursos, y compartir esos paneles con otros usuarios de su organización. Seleccione **Nuevo panel**.
+1. Para personalizar completamente los datos que supervisa mediante el portal, vaya al panel predeterminado y seleccione **Nuevo panel**.
 
     ![dashboard](./media/resource-group-portal/dashboard.png)
 
-     Para aprender a trabajar con paneles, vea el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Creación de paneles personalizados en el Portal de Microsoft Azure). Para ver cómo compartir el acceso a un panel publicado, consulte [Sharing Azure dashboards](azure-portal-dashboard-share-access.md) (Uso compartido de paneles de Azure).
+1. Asigne un nombre al nuevo panel y arrastre hasta ahí los iconos. Los iconos se filtran por distintas opciones.
+
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+
+     Para aprender a trabajar con paneles, vea el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Creación de paneles personalizados en el Portal de Azure). Para ver cómo compartir el acceso a un panel publicado, consulte [Sharing Azure dashboards](azure-portal-dashboard-share-access.md) (Uso compartido de paneles de Azure).
+
+## Administración de recursos
+
+En la hoja de un recurso, verá las opciones para administrar el recurso. El portal presenta opciones de administración para ese tipo de recurso en particular. Verá los comandos de administración en la parte superior de la hoja de recursos y en el lado izquierdo.
+
+![administrar recursos](./media/resource-group-portal/manage-resources.png)
+
+Desde estas opciones, puede realizar operaciones como iniciar y detener una máquina virtual o volver a configurar las propiedades de la máquina virtual.
 
 ## Traslado de recursos
 
@@ -119,9 +116,9 @@ Puede bloquear una suscripción, un grupo de recursos o un recurso para impedir 
 
 ## Consulta de sus datos de suscripción y costos
 
-Puede ver información acerca de la suscripción y los costos acumulados de todos los recursos. Seleccione **Suscripciones** y la suscripción que desea ver. Es posible que solo tenga una suscripción para seleccionar.
+Puede ver información acerca de la suscripción y los costos acumulados de todos los recursos. Seleccione **Suscripciones** y la suscripción que quiere ver. Es posible que solo tenga una suscripción para seleccionar.
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+![suscripción](./media/resource-group-portal/select-subscription.png)
 
 En la hoja de suscripciones, verá una tasa de evolución.
 
@@ -154,4 +151,4 @@ Al eliminar un grupo de recursos se eliminan todos los recursos contenidos en el
 - Para implementar recursos mediante el Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 - Para administrar el acceso a los recursos, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

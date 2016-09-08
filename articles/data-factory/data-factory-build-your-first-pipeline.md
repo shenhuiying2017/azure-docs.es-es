@@ -204,7 +204,7 @@ Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] El comando anterior crea un contenedor llamado **adfgetstarted** en Almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** desde la unidad local a la carpeta **inputdata** del contenedor.
+		> [AZURE.NOTE] El comando anterior crea un contenedor llamado **adfgetstarted** en Almacenamiento de blobs de Azure y copia el archivo **input.log** desde la unidad local a la carpeta **inputdata** del contenedor.
 	
 	5. Una vez que se ha cargado correctamente el archivo, verá un resultado similar al siguiente de AzCopy.
 	
@@ -228,4 +228,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

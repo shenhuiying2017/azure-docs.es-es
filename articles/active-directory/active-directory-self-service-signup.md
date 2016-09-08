@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
 # ¿Qué es la suscripción de autoservicio de Azure?
 
-En este tema se explica el proceso de registro de autoservicio y cómo adquirir un nombre de dominio DNS.
+En este tema se explica el proceso de registro de autoservicio y el modo de adquirir un nombre de dominio DNS.
 
 ## Razones para usar la suscripción de autoservicio
 
@@ -36,7 +36,7 @@ En este tema se explica el proceso de registro de autoservicio y cómo adquirir 
 
 ## Experiencia del usuario
 
-Por ejemplo, supongamos que un usuario cuyo correo electrónico es Dan@BellowsCollege.com recibe archivos confidenciales por correo electrónico. Los archivos se han protegido con Azure Rights Management (Azure RMS). Pero la organización de Dan, Bellows College, no se ha suscrito a Azure RMS ni ha implementado Active Directory RMS. En este caso, Dan puede suscribirse a una suscripción gratuita de RMS para usuarios a fin de leer los archivos protegidos.
+Por ejemplo, supongamos que un usuario cuyo correo electrónico es Dan@BellowsCollege.com recibe archivos confidenciales por correo electrónico. Los archivos se han protegido con Azure Rights Management (Azure RMS). Pero la organización de Dan, Bellows College, no se ha suscrito a Azure RMS ni ha implementado Active Directory RMS. En este caso, Dan puede obtener una suscripción gratuita de RMS para usuarios a fin de leer los archivos protegidos.
 
 Si Dan es el primer usuario con una dirección de correo electrónico de BellowsCollege.com en registrarse en esta oferta de autoservicio, se creará un directorio no administrado para BellowsCollege.com en Azure AD. Si otros usuarios del dominio BellowsCollege.com se registran en esta oferta o una oferta de autoservicio similar, también se crearán para ellos cuentas de usuario verificadas por correo electrónico en el mismo directorio no administrado en Azure.
 
@@ -221,7 +221,7 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 
 ## Otras referencias
 
--  [Instalación y configuración de Azure PowerShell](../powershell-install-configure/)
+-  [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región
@@ -102,11 +102,11 @@ Base de datos SQL de Azure proporciona dos tipos de recuperación, la restauraci
 
 ####Restauración geográfica
 
-La funcionalidad de [restauración geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) también está disponible en las bases de datos básicas, estándares y premium. Esta restauración proporciona la opción de recuperación predeterminada cuando la base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Al igual que la restauración a un momento dado, la restauración geográfica se basa en copias de seguridad de la base de datos en el Almacenamiento de Azure con redundancia geográfica. Realiza la restauración a partir de la copia de seguridad de replicación geográfica. Por lo tanto es resistente a las interrupciones de almacenamiento en la región principal. Para más información, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](../sql-database/sql-database-disaster-recovery.md).
+La funcionalidad de [restauración geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) también está disponible en las bases de datos básicas, estándares y premium. Esta restauración proporciona la opción de recuperación predeterminada cuando la base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Al igual que la restauración a un momento dado, la restauración geográfica se basa en copias de seguridad de la base de datos en el Almacenamiento de Azure con redundancia geográfica. Realiza la restauración a partir de la copia de seguridad de replicación geográfica. Por lo tanto es resistente a las interrupciones de almacenamiento en la región principal. Consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](../sql-database/sql-database-disaster-recovery.md).
 
 ####Replicación geográfica activa
 
-La [Replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md) está disponible para todos los niveles de base de datos. Está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Para obtener más información, consulte el artículo sobre cómo [configurar la replicación geográfica](../sql-database/sql-database-geo-replication-portal.md) y [conmutar por error a la base de datos secundaria](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Actualización de la aplicación sin tiempo de inactividad](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obtener información sobre cómo diseñar e implementar aplicaciones y actualizaciones de aplicaciones sin que se produzcan tiempos de inactividad.
+La [Replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md) está disponible para todos los niveles de base de datos. Está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Para obtener más información, consulte el artículo sobre cómo [configurar la replicación geográfica](../sql-database/sql-database-geo-replication-portal.md) y [conmutar por error a la base de datos secundaria](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de Base de datos SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obtener información sobre cómo diseñar e implementar aplicaciones y actualizaciones de aplicaciones sin que se produzcan tiempos de inactividad.
 
 ###SQL Server en máquinas virtuales
 
@@ -120,7 +120,7 @@ Al intentar ejecutar el servicio en la nube en varias regiones de Azure, debe te
 
 ###Bus de servicio
 
-Bus de servicio de Azure usa un espacio de nombres único que no abarca varias regiones de Azure. El primer requisito es configurar los espacios de nombres necesarios del bus de servicio en la región alternativa. Sin embargo, también hay consideraciones sobre la durabilidad de los mensajes en cola. Existen varias estrategias para replicar mensajes entre regiones de Azure. Si desea información detallada sobre estas estrategias de replicación y otras estrategias de recuperación ante desastres, consulte [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio](../service-bus/service-bus-outages-disasters.md). Para otras consideraciones sobre disponibilidad, consulte [Bus de servicio (disponibilidad)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
+Bus de servicio de Azure usa un espacio de nombres único que no abarca varias regiones de Azure. El primer requisito es configurar los espacios de nombres necesarios del bus de servicio en la región alternativa. Sin embargo, también hay consideraciones sobre la durabilidad de los mensajes en cola. Existen varias estrategias para replicar mensajes entre regiones de Azure. Si desea información detallada sobre estas estrategias de replicación y otras estrategias de recuperación ante desastres, consulte [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio](../service-bus/service-bus-outages-disasters.md). Para otras consideraciones sobre disponibilidad, consulte [Bus de servicio (disponibilidad)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###Aplicaciones web
 
@@ -132,7 +132,7 @@ En la región de Azure secundaria, cree un servicio móvil de copia de seguridad
 
 ###HDInsight
 
-Los datos asociados a HDInsight se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. HDInsight requiere que un clúster de Hadoop que esté procesando trabajos de MapReduce esté ubicado en la misma región que la cuenta de almacenamiento que contiene los datos analizados. Si utiliza la característica de replicación geográfica disponible en el Almacenamiento de Azure, podrá acceder a datos en la región secundaria en la que estos se replicaron si por algún motivo la región principal ya no está disponible. Puede crear un nuevo clúster de Hadoop en la región en la que se han replicado los datos y seguir procesándolo. Para otras consideraciones sobre disponibilidad, consulte [HDInsight (disponibilidad)](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight).
+Los datos asociados a HDInsight se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. HDInsight requiere que un clúster de Hadoop que esté procesando trabajos de MapReduce esté ubicado en la misma región que la cuenta de almacenamiento que contiene los datos analizados. Si utiliza la característica de replicación geográfica disponible en el Almacenamiento de Azure, podrá acceder a datos en la región secundaria en la que estos se replicaron si por algún motivo la región principal ya no está disponible. Puede crear un nuevo clúster de Hadoop en la región en la que se han replicado los datos y seguir procesándolo. Para otras consideraciones sobre disponibilidad, consulte [HDInsight (disponibilidad)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###SQL Reporting
 
@@ -149,69 +149,81 @@ Los archivos de configuración proporcionan la manera más rápida de configurar
 ##Listas de comprobación para la recuperación ante desastres.
 
 ##Lista de comprobación de los Servicios en la nube
-  1. Revise la sección [Servicios en la nube](#cloud-services) de este documento.
+
+  1. Revise la sección Servicios en la nube de este documento.
   2. Cree una estrategia de recuperación ante desastres entre regiones.
   3. Comprenda las ventajas e inconvenientes de reservar capacidad en regiones alternativas.
   4. Use herramientas de enrutamiento de tráfico, como el Administrador de tráfico de Azure.
 
 ##Lista de comprobación de Máquinas virtuales
-  1. Revise la sección [Máquinas virtuales](#virtual-machines) de este documento.
+
+  1. Revise la sección Máquinas virtuales de este documento.
   2. Utilice [Copia de seguridad de Azure](https://azure.microsoft.com/services/backup/) para crear copias de seguridad de la aplicación coherentes entre regiones.
 
 ##Lista de comprobación de almacenamiento
-  1. Revise la sección [Almacenamiento](#storage) de este documento.
+
+  1. Revise la sección Almacenamiento de este documento.
   2. No deshabilite la replicación geográfica de los recursos de almacenamiento.
   3. Conozca la región alternativa para la replicación geográfica en caso de conmutación por error.
   4. Cree estrategias de copia de seguridad personalizadas para las estrategias de conmutación por error controladas por el usuario.
 
 ##Lista de comprobación de Base de datos SQL
-  1. Revise la sección [Base de datos SQL](#sql-database) de este documento.
+
+  1. Revise la sección Base de datos SQL de este documento.
   2. Utilice la [restauración geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) o la [replicación geográfica](../sql-database/sql-database-geo-replication-overview.md) según corresponda.
 
 ##Lista de comprobación de SQL Server en Máquinas virtuales
-  1. Revise la sección [SQL Server en máquinas virtuales](#sql-server-on-virtual-machines) de este documento.
+
+  1. Revise la sección SQL Server en máquinas virtuales de este documento.
   2. Use grupos de disponibilidad AlwaysOn entre regiones o creación de reflejo de base de datos.
   3. También puede utilizar copia de seguridad y restaurar en el almacenamiento de blobs.
 
 ##Lista de comprobación del Bus de servicio
-  1. Revise la sección [Bus de servicio](#service-bus) de este documento.
+
+  1. Revise la sección Bus de servicio de este documento.
   2. Configure un espacio de nombres del Bus de servicio en una región alternativa.
   3. Considere las estrategias de replicación personalizadas para los mensajes entre regiones.
 
 ##Lista de comprobación de las aplicaciones web
-  1. Revise la sección [Aplicaciones web](#web-apps) de este documento.
+
+  1. Revise la sección Aplicaciones web de este documento.
   2. Disponga de copias de seguridad del sitio web fuera de la región principal.
   3. Si la interrupción es parcial, intente recuperar el sitio actual con FTP.
   4. Planee la implementación del sitio web en un sitio web nuevo o ya existente en una región alternativa.
   5. Planee cambios de configuración para los registros de la aplicación y los de DNS CNAME.
 
 ##Lista de comprobación de los Servicios móviles
-  1. Revise la sección [Servicios móviles](#mobile-services) de este documento.
+
+  1. Revise la sección Servicios móviles de este documento.
   2. Cree un servicio móvil de copia de seguridad en una región alternativa.
   3. Administre las copias de seguridad de la Base de datos SQL de Azure asociada para restaurar durante la conmutación por error.
   4. Use las herramientas de la línea de comandos de Azure para mover el servicio móvil.
 
 ##Lista de comprobación de HDInsight
-  1. Revise la sección [HDInsight](#hdinsight) de este documento.
+
+  1. Revise la sección HDInsight de este documento.
   2. Cree un nuevo clúster de Hadoop en la región con los datos replicados.
 
 ##Lista de comprobación de SQL Reporting
-  1. Revise la sección [SQL Reporting](#sql-reporting) de este documento.
+
+  1. Revise la sección SQL Reporting de este documento.
   2. Disponga de una instancia alternativa de SQL Reporting en una región diferente.
   3. Mantenga un plan independiente para replicar el destino en esa región.
 
 ##Lista de comprobación de Servicios multimedia
-  1. Revise la sección [Servicios multimedia](#media-services) de este documento.
+
+  1. Revise la sección Servicios multimedia de este documento.
   2. Cree una cuenta de Servicios multimedia en una región alternativa.
   3. Codifique el mismo contenido en ambas regiones para que admitan la conmutación por error del streaming.
-  4. Envíe los trabajos de codificación a una región alternativa en caso de una interrupción.
+  4. Envíe los trabajos de codificación a una región alternativa en caso de una interrupción del servicio.
 
 ##Lista de comprobación de la Red virtual
-  1. Revise la sección [Red virtual](#virtual-network) de este documento.
+
+  1. Revise la sección Red virtual de este documento.
   2. Use la configuración exportada de la red virtual para volver a crearla en otra región.
 
 ##Pasos siguientes
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie se centra en la [recuperación desde un centro de datos local a Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

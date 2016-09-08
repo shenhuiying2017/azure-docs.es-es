@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 # Arquitectura de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras
@@ -26,4 +26,4 @@ Puede descargar una versión en tamaño completo del diagrama aquí: [diagrama d
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

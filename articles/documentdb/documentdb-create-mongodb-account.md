@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Creación de una cuenta de DocumentDB con soporte de protocolo para MongoDB mediante el Portal de Azure.
@@ -78,4 +78,4 @@ Para crear una cuenta de DocumentDB con soporte de protocolo para MongoDB, reali
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Creación de un equilibrador de carga interno mediante la CLI de Azure en el Administrador de recursos | Microsoft Azure"
    description="Obtenga información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el Administrador de recursos"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno mediante la CLI de Azure
 
@@ -23,7 +23,7 @@
 <BR>
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -31,7 +31,7 @@
 
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes:
 
-- Configuración de direcciones IP front-end: configura la dirección IP privada para el tráfico de red entrante. 
+- Configuración de direcciones IP front-end: configura la dirección IP privada para el tráfico de red entrante.
 
 - Grupo de direcciones de back-end: contiene interfaces de red (NIC) para recibir tráfico proveniente del equilibrador de carga.
 
@@ -57,15 +57,15 @@ Puede obtener más información acerca de los componentes del equilibrador de ca
 
 		info:    New mode is arm
 
-## Creación paso a paso de un equilibrador de carga interno 
+## Creación paso a paso de un equilibrador de carga interno
 
 Los pasos siguientes crearán un equilibrador de carga interno basado en el escenario anterior:
 
-### Paso 1 
+### Paso 1
 
 Si no lo ha hecho todavía, descargue la versión más reciente de la [interfaz de línea de comandos de Azure](https://azure.microsoft.com/downloads/).
 
-### Paso 2 
+### Paso 2
 
 Tras su instalación, autentique la cuenta.
 
@@ -86,23 +86,23 @@ Todos los recursos del Administrador de recursos de Azure están asociados a un 
 	azure group create <resource group name> <location>
 
 
-## Crear un conjunto de equilibrador de carga interno 
+## Crear un conjunto de equilibrador de carga interno
 
 
-### Paso 1 
+### Paso 1
 
 Cree un equilibrador de carga interno mediante el comando `azure network lb create`. En el siguiente escenario, se crea un grupo de recursos denominado nrprg en la región Este de EE. UU.
- 	
+
 	azure network lb create -n nrprg -l westus
 
 >[AZURE.NOTE] Todos los recursos de un equilibrador de carga interno, como una red virtual y una subred de red virtual, deben estar en el mismo grupo de recursos y en la misma región.
 
 
-### Paso 2 
+### Paso 2
 
 Crear una dirección IP de front-end para el equilibrador de carga interno. La dirección IP usada debe estar dentro del intervalo de subred de la red virtual.
 
-	
+
 	azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
 
 Parámetros usados:
@@ -114,7 +114,7 @@ Parámetros usados:
 **-e**: nombre de la subred 
 **-m**: nombre de red virtual
 
-### Paso 3 
+### Paso 3
 
 Crear el grupo de direcciones de back-end.
 
@@ -128,7 +128,7 @@ Parámetros usados:
 
 Después de definir una dirección IP de front-end y un grupo de direcciones de back-end, puede crear reglas de equilibradores de carga, reglas NAT de entrada y personalizar sondeos de estado.
 
-### Paso 4
+### Paso 4
 
 
 Crear una regla de equilibrador de carga para el equilibrador de carga interno. Siguiendo el escenario anterior, el comando crea una regla de equilibrador de carga que escucha al puerto 1433 en el grupo de servidores front-end y envía tráfico de red con equilibrio de carga al grupo de direcciones de back-end usando también el puerto 1433.
@@ -149,7 +149,7 @@ Parámetros usados:
 Crear reglas NAT de entrada. Las reglas NAT de entrada se usan para crear puntos de conexión en un equilibrador de carga que se dirijan a una instancia de máquina virtual específica. Siguiendo el ejemplo anterior, se crearon 2 reglas NAT para el acceso de escritorio remoto.
 
 	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule1 -p TCP -f 5432 -b 3389
-	
+
 	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule2 -p TCP -f 5433 -b 3389
 
 Parámetros usados:
@@ -161,7 +161,7 @@ Parámetros usados:
 **-f**: puerto que escucha el tráfico de red entrante en el front-end del equilibrador de carga 
 **-b**: puerto que recibe el tráfico de red en el grupo de direcciones de back-end
 
-### Paso 5 
+### Paso 5
 
 Crear sondeos de estado del equilibrador de carga. Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que puede enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y el sondeo resulta correcto.
 
@@ -180,20 +180,20 @@ Crear sondeos de estado del equilibrador de carga. Los sondeos de estado comprue
 
 Debe crear tarjetas NIC (o modificar las existentes) y asociarlas a las reglas NAT, las reglas de equilibrador de carga y los sondeos.
 
-### Paso 1 
+### Paso 1
 
 Cree una NIC llamada *lb-nic1-be* y asóciela con la regla NAT *rdp1* y el grupo de direcciones de back-end *beilb*.
-	
+
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
 Parámetros:
 
 - **-g**: nombre del grupo de recursos
 - **-n**: nombre del recurso de NIC
-- **--subnet-name**: nombre de la subred 
+- **--subnet-name**: nombre de la subred
 - **--subnet-vnet-name**: nombre de la red virtual
-- **-d**: el Id. del recurso del grupo de back-end. Comienza con /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool> 
-- **-e**: el Id. de la regla NAT que se asociará con el recurso de NIC. Comienza con /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-d**: id. del grupo de recursos back-end. Comienza por /subscription/{subscriptionID/resourcegroups/<nombre-del-grupo-de-recursos>/providers/Microsoft.Network/loadbalancers/<nombre-del-equilibrador-de-carga>/backendaddresspools/<nombre-del-grupo-de-back-end>
+- **-e**: id. de la regla NAT que se asociará al recurso NIC. Empieza por /subscriptions/####################################/resourceGroups/<nombre-del-grupo-de-recursos>/providers/Microsoft.Network/loadBalancers/<nombre-del-equilibrador-de-carga>/inboundNatRules/<nombre-de-la-regla-NAT>
 
 
 Resultado esperado:
@@ -228,7 +228,7 @@ Cree una NIC llamada *lb-nic2-be* y asóciela con la regla NAT *rdp2* y el grupo
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### Paso 3 
+### Paso 3
 
 Cree una máquina virtual llamada *DB1* y asóciela con la NIC llamada *lb-nic1-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 
@@ -236,18 +236,18 @@ Cree una máquina virtual llamada *DB1* y asóciela con la NIC llamada *lb-nic1-
 
 >[AZURE.IMPORTANT] Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
 
-### Paso 4
+### Paso 4
 
 Cree una máquina virtual llamada *DB2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 
 	azure vm create --resource-group nrprg --name DB2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
-## Eliminar un equilibrador de carga 
+## Eliminar un equilibrador de carga
 
 
 Para quitar un equilibrador de carga, use el siguiente comando
 
-	azure network lb delete -g nrprg -n ilbset 
+	azure network lb delete -g nrprg -n ilbset
 
 Donde **nrprg** es el grupo de recursos y **ilbset** el nombre del equilibrador de carga interno.
 
@@ -258,4 +258,4 @@ Donde **nrprg** es el grupo de recursos y **ilbset** el nombre del equilibrador 
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

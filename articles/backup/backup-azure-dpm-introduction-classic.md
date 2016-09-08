@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
@@ -48,7 +48,7 @@ Algunas de las ventajas empresariales del uso de Copia de seguridad de Azure par
 ## Cómo funciona la copia de seguridad de servidor DPM
 Para hacer una copia de seguridad de una máquina virtual, primero se necesita una instantánea de los datos en un momento específico. El servicio de Copia de seguridad de Azure inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión para tomar una instantánea de copia de seguridad. La extensión de copia de seguridad se coordina con el servicio VSS en el invitado para conseguir coherencia y llama a la API de instantánea de blob del servicio de almacenamiento de Azure cuando se alcanza la coherencia. Esto se hace para obtener una instantánea coherente de los discos de la máquina virtual, sin tener que apagarla.
 
-Una vez tomada la instantánea, los datos se transfieren por el servicio de Copia de seguridad de Azure al almacén de copia de seguridad. El servicio se encarga de identificar y transferir solo los bloques que han cambiado desde la última copia de seguridad, lo que hace que el almacenamiento de copias de seguridad y la red sean eficaces. Una vez completada la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación. Este punto de recuperación se puede ver en el Portal de administración de Azure.
+Una vez tomada la instantánea, los datos se transfieren por el servicio de Copia de seguridad de Azure al almacén de copia de seguridad. El servicio se encarga de identificar y transferir solo los bloques que han cambiado desde la última copia de seguridad, lo que hace que el almacenamiento de copias de seguridad y la red sean eficaces. Una vez completada la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación. Este punto de recuperación se puede ver en el Portal de Azure clásico.
 
 >[AZURE.NOTE] Para las máquinas virtuales de Linux, solo es posible la copia de seguridad coherente con archivos.
 
@@ -75,7 +75,7 @@ Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos 
 - Los datos almacenados en Copia de seguridad de Azure no se pueden recuperar con la opción "copiar en cinta".
 - Necesitará una cuenta de Azure con la característica Copia de seguridad de Azure habilitada. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Lea acerca de los [Precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
 - El uso de Copia de seguridad de Azure requiere la instalación de Azure Backup Agent en los servidores de los que desee realizar una copia de seguridad. Cada servidor debe tener disponible como espacio de almacenamiento local al menos un 10 % del tamaño de los datos de los que se va a realizar la copia de seguridad. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 10 GB de espacio libre en la ubicación temporal. Aunque el mínimo sea el 10 %, se recomienda dejar libre un 15 % de espacio de almacenamiento local, que se utilizará para la ubicación de caché.
-- Los datos se almacenarán en el almacenamiento de almacén de Azure. No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Copia de seguridad de Azure; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54.400 GB.
+- Los datos se almacenarán en el almacenamiento de almacén de Azure. No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Copia de seguridad de Azure; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54 400 GB.
 
 Los siguientes tipos de archivo se admiten para la copia de seguridad en Azure:
 
@@ -96,4 +96,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE] A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

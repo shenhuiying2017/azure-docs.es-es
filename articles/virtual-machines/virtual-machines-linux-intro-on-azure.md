@@ -19,7 +19,7 @@
 
 #Introducción a Linux en Azure
 
-En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales con Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
+En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
 
 
 ## Autenticación: Nombres de usuario, contraseñas y claves SSH.
@@ -28,7 +28,7 @@ Al crear una máquina virtual Linux con el Portal de Azure clásico, se le pedir
 
 
  - Consulte [Creación de una máquina virtual que ejecuta Linux](virtual-machines-linux-quick-create-cli.md)
- - Consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-ssh-from-linux.md)
+ - Consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Obtención de privilegios de superusuario con el uso de `sudo`
@@ -98,4 +98,4 @@ En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuar
 
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar registros de control de acceso
@@ -23,13 +23,13 @@ Los registros de control de acceso (ACR) le permiten especificar qué hosts pued
 
 Este tutorial explica las siguientes tareas comunes relacionadas con los ACR comunes:
 
-- Agregar un registro de control de acceso 
-- Editar un registro de control de acceso 
-- Eliminar un registro de control de acceso 
+- Agregar un registro de control de acceso
+- Editar un registro de control de acceso
+- Eliminar un registro de control de acceso
 
 > [AZURE.IMPORTANT] 
 > 
-> - Al asignar un ACR a un volumen, tenga cuidado de que no accedan al mismo tiempo al volumen más de un host no agrupado porque esto podría dañar el volumen. 
+> - Al asignar un ACR a un volumen, tenga cuidado de que no accedan al mismo tiempo al volumen más de un host no agrupado porque esto podría dañar el volumen.
 > - Al eliminar un ACR de un volumen, asegúrese de que el host correspondiente no tiene acceso al volumen porque la eliminación podría dar lugar a una interrupción de lectura y escritura.
 
 ## Agregar un registro de control de acceso
@@ -95,4 +95,4 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

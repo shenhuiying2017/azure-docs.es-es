@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Mi tarjeta de crédito o débito se rechaza cuando trato de suscribirme a Azure
@@ -23,7 +23,7 @@ Si se rechazó su tarjeta de crédito o débito, esto puede deberse a que utiliz
 
 Si realmente utiliza una tarjeta de crédito o débito válida, asegúrese de que esta esté activa y de que su entidad bancaria no bloquee las transacciones en línea en aplicación de sus directivas de seguridad.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## ¿Es la información de su tarjeta de crédito o débito correcta y completa?
 - Su tarjeta de crédito o débito debe figurar en la lista desplegable del país que seleccione. Si no aparece, no estará disponible para su país.
@@ -39,6 +39,8 @@ También puede pagar la suscripción de Azure mediante métodos de pago de factu
 
 Para usar la opción de pago con factura, debe representar a una empresa. Esta opción no está disponible para suscriptores individuales. Tras configurar la opción de pago con factura para su empresa, no podrá cambiar a otra opción de pago posteriormente.
 
-Para iniciar el proceso de configuración de una factura, consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para obtener más información.
+Para iniciar el proceso de configuración de una factura, vea [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para obtener más información.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

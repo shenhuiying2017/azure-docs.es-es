@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Enlaces de DocumentDB en funciones de Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artículo explica cómo configurar y codificar enlaces de Azure DocumentDB en funciones de Azure.
 
@@ -36,8 +38,8 @@ El archivo *function.json* ofrece las siguientes propiedades:
 - `type`: se debe establecer en "documentdb".
 - `databaseName`: la base de datos que contiene el documento.
 - `collectionName`: la colección que contiene el documento.
-- `id`: el identificador del documento que se recupera. Esta propiedad admite enlaces similares a "{queueTrigger}", que usarán el valor de cadena del mensaje en cola como identificador del documento.
-- `connection`: esta cadena debe ser una configuración de la aplicación establecida en el punto de conexión de su cuenta de DocumentDB. Si elige la cuenta en la pestaña Integrar, se creará una nueva configuración de la aplicación con un nombre que tiene el formato siguiente: yourAccount\_DOCUMENTDB. Si necesita crear manualmente la configuración de la aplicación, la cadena de conexión real deberá tener el formato siguiente: AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `id`: el identificador del documento que se debe recuperar. Esta propiedad admite enlaces similares a "{queueTrigger}", que usarán el valor de cadena del mensaje en cola como identificador del documento.
+- `connection`: esta cadena debe ser una configuración de la aplicación establecida en el punto de conexión de su cuenta de DocumentDB. Si elige la cuenta en la pestaña Integrar, se creará una nueva configuración de la aplicación con un nombre que tiene el formato siguiente: yourAccount\_DOCUMENTDB. Si necesita crear manualmente la configuración de la aplicación, la cadena de conexión real deberá tener el formato siguiente: AccountEndpoint=<punto de conexión de su cuenta>;AccountKey=<su clave de acceso primaria>;.
 - `direction: debe establecerse en *"in"*.
 
 Ejemplo de *function.json*:
@@ -78,7 +80,7 @@ Con el ejemplo de function.json anterior, el enlace de entrada de DocumentDB rec
 
 ## <a id="docdboutput"></a> Enlaces de salida de Azure DocumentDB
 
-Las funciones pueden escribir documentos JSON en una base de datos de Azure DocumentDB mediante el enlace de salida de **documento de Azure DocumentDB**. Para obtener más información sobre Azure DocumentDB, consulte [Introducción a DocumentDB](../documentdb/documentdb-introduction.md) y [Tutorial introductorio](../documentdb/documentdb-get-started.md).
+Las funciones pueden escribir documentos JSON en una base de datos de Azure DocumentDB mediante el enlace de salida de **documento de Azure DocumentDB**. Para obtener más información sobre Azure DocumentDB, consulte [Introducción a DocumentDB: una base de datos de JSON NoSQL](../documentdb/documentdb-introduction.md) y [Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB](../documentdb/documentdb-get-started.md).
 
 #### function.json para enlace de salida de DocumentDB
 
@@ -89,8 +91,8 @@ El archivo function.json ofrece las siguientes propiedades:
 - `databaseName`: la base de datos que contiene la colección en la que se creará el nuevo documento.
 - `collectionName`: la colección en la que se creará el nuevo documento.
 - `createIfNotExists`: es un valor booleano que indica si la colección se creará si no existe. El valor predeterminado es *false*. Esto se debe a que se crean nuevas colecciones con rendimiento reservado, lo cual tiene implicaciones de precios. Para obtener más información, visite la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: esta cadena debe ser una **configuración de la aplicación** establecida en el punto de conexión de su cuenta de DocumentDB. Si elige la cuenta en la pestaña **Integrar**, se creará una nueva configuración de la aplicación con un nombre que tiene el formato siguiente: `yourAccount_DOCUMENTDB`. Si necesita crear manualmente la configuración de la aplicación, la cadena de conexión real deberá tener el formato siguiente: `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
-- `direction`: debe establecerse en *out*. 
+- `connection`: esta cadena debe ser una **configuración de la aplicación** establecida en el punto de conexión de su cuenta de DocumentDB. Si elige la cuenta en la pestaña **Integrar**, se creará una nueva configuración de la aplicación con un nombre que tiene el formato siguiente: `yourAccount_DOCUMENTDB`. Si necesita crear manualmente la configuración de la aplicación, la cadena de conexión real deberá tener el formato siguiente: `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`.
+- `direction`: debe establecerse en *out*.
  
 Function.json de ejemplo:
 
@@ -189,4 +191,4 @@ Salida de ejemplo:
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

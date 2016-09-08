@@ -30,7 +30,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 - [Preguntas más frecuentes sobre Máquinas virtuales de Azure con el modelo de implementación clásica](virtual-machines-linux-classic-faq.md)
 - [Acerca de las imágenes para las máquinas virtuales](virtual-machines-linux-classic-about-images.md)
 - [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md) (y también instrucciones para usar una [distribución aprobada por Azure](virtual-machines-linux-endorsed-distros.md))
-- [Inicio de sesión en una máquina virtual de Linux con el Portal de Azure clásico](virtual-machines-linux-classic-log-on.md)
+- [Inicio de sesión en una máquina virtual de Linux con el Portal de Azure clásico](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Instalación
 
@@ -71,7 +71,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 ## Planificación
-- [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [selección de los nombres de usuario de Linux](virtual-machines-linux-usernames.md)
 - [Configuración de un conjunto de disponibilidad para máquinas virtuales en el modelo de implementación clásica](virtual-machines-linux-classic-configure-availability.md)
 - [Programación del mantenimiento planeado en VM de Azure](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 ## Administración
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [cómo restablecer una contraseña o las propiedades SSH de Linux](virtual-machines-linux-classic-reset-access.md)
 - [uso de la raíz](virtual-machines-linux-use-root-privileges.md)
 
@@ -125,7 +125,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 ## Vínculos generales
-Los vínculos siguientes son de blogs de Microsoft, páginas de Technet y sitios externos en lugar formar parte de la documentación de Azure.com anterior. Dado que Azure y el mundo de la informática de código abierto cambian con frecuencia, los siguientes vínculos seguramente estarán actualizados, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los obsoletos. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
+Los vínculos siguientes son de blogs de Microsoft, páginas de Technet y sitios externos en lugar formar parte de la documentación de Azure.com anterior. Dado que Azure y el mundo de la informática de código abierto cambian con frecuencia, los siguientes vínculos seguramente no estarán actualizados, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminando los obsoletos. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
 
 - [ejecución de ASP.NET 5 en Linux mediante contenedores Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [Cómo implementar una imagen de máquina virtual CentOS desde OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
@@ -189,4 +189,4 @@ Dado que el mundo de DevOps, administración y optimización es bastante extenso
 
 - [Complemento de compresor para Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

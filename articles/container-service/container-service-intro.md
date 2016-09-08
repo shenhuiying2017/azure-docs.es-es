@@ -22,7 +22,9 @@
 
 El servicio Contenedor de Azure simplifica la creación, configuración y administración de un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor. Usa una configuración optimizada de herramientas de programación y orquestación de código abierto conocidas. Esto le permite usar sus conocimientos o recurrir a un importante y creciente grupo de expertos comunitarios para implementar y administrar aplicaciones basadas en contenedores en Microsoft Azure.
 
-<br /> ![El servicio Contenedor de Azure proporciona un medio para administrar aplicaciones en contenedor en varios hosts de Azure.](./media/acs-intro/acs-cluster.png) <br /><br />
+
+![El servicio Contenedor de Azure proporciona un medio para administrar aplicaciones en contenedor en varios hosts de Azure.](./media/acs-intro/acs-cluster.png)
+
 
 El servicio Contenedor de Azure usa el formato de contenedor Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon y DC/OS o Docker Swarm para que pueda escalar estas aplicaciones a miles e incluso a decenas de miles de contenedores.
 
@@ -36,7 +38,7 @@ Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Para comenzar a usar el servicio de contenedor de Azure, implemente un clúster del servicio de contenedor de Azure a través del portal (busque "servicio de contenedor de Azure") mediante una plantilla de Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) o [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)), o bien con la [CLI](/documentation/articles/xplat-cli-install/). Las plantillas de inicio rápido que se proporcionan se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio de contenedores de Azure, consulte [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md).
+Para comenzar a usar Azure Container Service, implemente un clúster del servicio de contenedor de Azure a través del portal (busque "Azure Container Service") mediante una plantilla de Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) o [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)), o bien con la [CLI](/documentation/articles/xplat-cli-install/). Las plantillas de inicio rápido que se proporcionan se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio de contenedores de Azure, consulte [Implementación de un clúster de Azure Container Service](container-service-deployment.md).
 
 Implementación de una aplicación
 ------------------------
@@ -96,12 +98,12 @@ Entre las herramientas compatibles para administrar contenedores en un clúster 
 Vídeos
 ------
 
-Introducción al servicio Contenedor de Azure:
+Introducción a Azure Container Service:
 
-> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
+> [AZURE.VIDEO azure-container-service-101]
 
-Building Applications Using the Azure Container Service (Creación de aplicaciones mediante el servicio de contenedor de Azure)
+Building Applications Using the Azure Container Service (Creación de aplicaciones mediante Azure Container Service) (Build 2016)
 
-> [https://channel9.msdn.com/Events/Build/2016/B822]
+> [AZURE.VIDEO build-2016-building-applications-using-the-azure-container-service]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

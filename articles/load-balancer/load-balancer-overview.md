@@ -3,7 +3,7 @@
    description="Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Obtenga información acerca de cómo funciona el equilibrador de carga y aproveche sus ventajas en la nube."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/19/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Información general sobre el Equilibrador de carga de Azure
@@ -36,7 +36,7 @@ En este modelo, una dirección IP pública y un FQDN se asignan a un servicio en
 
 Dicha traducción se realiza mediante puntos de conexión que establecen una relación uno a uno entre el puerto público asignado de la dirección IP pública y el puerto local asignado para enviar tráfico a una máquina virtual específica. El equilibrio de carga se realiza mediante puntos de conexión del equilibrador de carga. Dichos puntos de conexión establecen una relación uno a varios entre la dirección IP pública y los puertos locales asignados a todas las máquinas virtuales del servicio en la nube que responden al tráfico de red de carga equilibrada.
 
-La etiqueta de dominio de la dirección IP pública que usa el equilibrador de carga en este modelo de implementación es <cloud service name>.cloudapp.net. El siguiente gráfico muestra Azure Load Balancer en este modelo.
+La etiqueta de dominio de la dirección IP pública que usa el equilibrador de carga en este modelo de implementación es <nombre de servicio en la nube>.cloudapp.net. El siguiente gráfico muestra Azure Load Balancer en este modelo.
 
 ![Azure Load Balancer en el modelo de implementación clásica](./media/load-balancer-overview/asm-lb.png)
 
@@ -56,7 +56,7 @@ El siguiente gráfico muestra Azure Load Balancer en este modelo:
 
 ### Distribución basada en hash
 
-El equilibrador de carga usa un algoritmo de distribución basado en hash. De forma predeterminada, usa un hash de 5-tupla (IP de origen, puerto de origen, IP de destino, puerto de destino y tipo de protocolo) para asignar el tráfico a los servidores disponibles. De este modo, se proporciona permanencia únicamente *dentro* de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigirán a la misma instancia de IP del centro de datos tras el punto de conexión de carga equilibrada. Cuando el cliente cierra y vuelve a abrir la conexión o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia. Esto puede provocar que el tráfico vaya a un punto de conexión IP del centro de datos diferente.
+El equilibrador de carga usa un algoritmo de distribución basado en hash. De forma predeterminada, usa un hash de 5-tupla (IP de origen, puerto de origen, IP de destino, puerto de destino y tipo de protocolo) para asignar el tráfico a los servidores disponibles. Dicho algoritmo solo proporciona adherencia *dentro* de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigirán a la misma instancia de IP del centro de datos tras el punto de conexión de carga equilibrada. Cuando el cliente cierra y vuelve a abrir la conexión o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia. Esto puede provocar que el tráfico vaya a un punto de conexión IP del centro de datos diferente.
 
 Para obtener más detalles, consulte [Modo de distribución del equilibrador de carga (afinidad de IP de origen)](load-balancer-distribution-mode.md). El siguiente gráfico muestra la distribución basada en hash:
 
@@ -83,7 +83,7 @@ El equilibrador de carga puede sondear el estado de las distintas instancias de 
 Se admiten tres tipos de sondeos:
 
 - **Sonda de agente invitado (solo en máquinas virtuales de PaaS)****:** el equilibrador de carga utiliza el agente invitado en la máquina virtual. Solo escucha y contesta con una respuesta HTTP 200 OK cuando la instancia está lista (es decir, cuando su estado no es ocupada, en reciclaje o en detención). Si el agente invitado no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta y deja de enviarle tráfico. El equilibrador de carga continuará haciendo ping a la instancia. Si el agente invitado responde con HTTP 200, el equilibrador de carga le enviará tráfico nuevamente. Cuando se usa un rol web, el código de sitio web normalmente se ejecuta en w3wp.exe, que no está supervisado por el agente invitado o el tejido de Azure. Esto significa que los errores de w3wp.exe (por ejemplo, las respuestas HTTP 500) no se notificarán al agente invitado, y el equilibrador de carga no sabrá sacar esa instancia de la rotación.
-- **Sonda personalizada de HTTP:** esta invalida la sonda predeterminado (del agente invitado) predeterminada. Puede usarlo para crear su propia lógica personalizada para determinar el estado de la instancia de rol. El equilibrador de carga sondeará periódicamente el punto de conexión (de forma predeterminada, cada 15 segundos). La instancia se considerará en rotación si responde con un TCP ACK o HTTP 200 dentro del período de tiempo de espera (valor predeterminado, 31 segundos). Esto puede resultar útil para implementar su propia lógica con el fin de quitar instancias de la rotación del equilibrador de carga. Por ejemplo, puede configurar la instancia para devolver un estado no 200 si la instancia está por encima del 90% de la CPU. En el caso de los roles web que usan w3wp.exe, también dispondrá de supervisión automática de su sitio web, puesto que los errores del código de este devolverán a la sonda un estado distinto a 200.  
+- **Sonda personalizada de HTTP:** esta invalida la sonda predeterminado (del agente invitado) predeterminada. Puede usarlo para crear su propia lógica personalizada para determinar el estado de la instancia de rol. El equilibrador de carga sondeará periódicamente el punto de conexión (de forma predeterminada, cada 15 segundos). La instancia se considerará en rotación si responde con un TCP ACK o HTTP 200 dentro del período de tiempo de espera (valor predeterminado, 31 segundos). Esto puede resultar útil para implementar su propia lógica con el fin de quitar instancias de la rotación del equilibrador de carga. Por ejemplo, puede configurar la instancia para devolver un estado no 200 si la instancia está por encima del 90% de la CPU. En el caso de los roles web que usan w3wp.exe, también dispondrá de supervisión automática de su sitio web, puesto que los errores del código de este devolverán a la sonda un estado distinto a 200.
 - **Sonda personalizada de TCP:** esta se basa en el establecimiento correcto de sesiones TCP para un puerto de sondeo definido.
 
 Para obtener más información, consulte [LoadBalancerProbe schema](https://msdn.microsoft.com/library/azure/jj151530.aspx) (Esquema LoadBalancerProbe).
@@ -99,7 +99,7 @@ Todo el tráfico saliente a Internet procedente de su servicio pasa por un proce
 La configuración del equilibrador de carga admite NAT de cono completo para UDP. NAT de cono completo es un tipo de NAT en el que el puerto permite conexiones entrantes desde cualquier host externo (en respuesta a una solicitud saliente).
 
 
->[AZURE.NOTE] Tenga en cuenta que, para cada nueva conexión saliente que inicie una máquina virtual, el equilibrador de carga también asigna un puerto saliente. El host externo verá el tráfico como un puerto IP virtual (VIP) asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen direcciones [IP públicas a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) para que tengan una dirección IP saliente dedicada para SNAT. Esto reducirá el riesgo de agotamiento de puertos.
+>[AZURE.NOTE] Tenga en cuenta que, para cada nueva conexión saliente que inicie una máquina virtual, el equilibrador de carga también asigna un puerto saliente. El host externo verá el tráfico como un puerto IP virtual (VIP) asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen [direcciones IP públicas a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) para que tengan una dirección IP saliente dedicada para SNAT. Esto reducirá el riesgo de agotamiento de puertos.
 >
 >El número máximo de puertos que pueden usar las direcciones VIP o PIP (direcciones IP públicas) a nivel de instancia es 64 000. Se trata de una limitación estándar de TCP.
 
@@ -110,7 +110,7 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 
 ####Implementaciones basadas en plantilla a través del Administrador de recursos de Azure####
 
-El equilibrador de carga puede administrarse mediante las herramientas y las API basadas en Resource Manager. Para obtener más información sobre Resource Manager, consulte [Información general de Resource Manager](../resource-group-overview.md).
+El equilibrador de carga puede administrarse mediante las herramientas y las API basadas en Resource Manager. Para obtener más información sobre Resource Manager, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -122,4 +122,4 @@ El equilibrador de carga puede administrarse mediante las herramientas y las API
 
 [Introducción a la creación de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

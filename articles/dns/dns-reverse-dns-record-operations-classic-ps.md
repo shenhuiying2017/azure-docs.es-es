@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Administración de registros de DNS inversos para sus servicios usando PowerShell en el modelo de implementación clásico | Microsoft Azure"
    description="Cómo administrar registros de DNS inversos o registros PTR para servicios Azure usando PowerShell en el modelo de implementación clásico. "
    services="DNS"
@@ -8,14 +8,14 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="DNS"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="s-malone" />
+   ms.author="smalone" />
 
 # Administración de registros de DNS inversos para los servicios (clásico) mediante PowerShell
 
@@ -28,8 +28,8 @@
 ## Validación de registros de DNS inversos
 Para asegurarse de que un tercero no pueda crear registros de DNS inversos que se asignen a sus dominios DNS, Azure solo permite la creación de un registro de DNS inverso en el que se cumpla una de las siguientes condiciones:
 
-- El FQDN DNS inverso es el nombre del servicio en la nube para el que se ha especificado o cualquier nombre de servicio en la nube dentro de la misma suscripción. Por ejemplo, el DNS inverso es “contosoapp1.cloudapp.net.”.
-- El FQDN DNS inverso se resuelve directamente en el nombre o la IP del servicio en la nube para el que se ha especificado o en cualquier nombre o IP de servicio en la nube dentro de la misma suscripción. Por ejemplo, el DNS es “app1.contoso.com.”, que es un alias CNAME para contosoapp1.cloudapp.net.
+- El FQDN DNS inverso es el nombre del servicio en la nube para el que se ha especificado o cualquier nombre de servicio en la nube dentro de la misma suscripción. Por ejemplo, el DNS inverso es "contosoapp1.cloudapp.net.".
+- El FQDN DNS inverso se resuelve directamente en el nombre o la IP del servicio en la nube para el que se ha especificado, o bien en cualquier nombre o IP de servicio en la nube dentro de la misma suscripción. Por ejemplo, el DNS es "app1.contoso.com.", que es un alias CNAME para contosoapp1.cloudapp.net.
 
 Solo se realizan comprobaciones de validación cuando la propiedad DNS inversa de un servicio en la nube se define o modifica. No se llevan a cabo revalidaciones periódicas.
 
@@ -38,7 +38,7 @@ Puede agregar un registro DNS inverso a un servicio en la nube existente usando 
 
 	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Creación de un servicio en la nube con un DNS inverso  
+## Creación de un servicio en la nube con un DNS inverso
 Puede agregar un nuevo servicio en la nube con la propiedad DNS inversa especificada usando el cmdlet “Set-AzureService”.
 
 	PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
@@ -55,4 +55,4 @@ Puede quitar una propiedad DNS inversa desde un servicio en la nube existente us
 
 [AZURE.INCLUDE [P+F](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,22 +4,22 @@
 	services="virtual-network"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
 	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
 # Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure
 
-En este tema se muestra cómo instalar controladores de dominio adicionales (también conocidos como controladores de dominio de réplica) para un dominio de Active Directory local en máquinas virtuales (VM) en una red virtual de Azure.
+En este tema se muestra cómo instalar controladores de dominio adicionales (también conocidos como "controladores de dominio de réplica") para un dominio de Active Directory local en máquinas virtuales (VM) en una red virtual de Azure.
 
 Es posible que también le interesen los siguientes temas relacionados:
 
@@ -119,4 +119,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

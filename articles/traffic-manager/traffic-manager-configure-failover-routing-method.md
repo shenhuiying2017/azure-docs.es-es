@@ -3,8 +3,8 @@
    description="Este artículo le ayudará a configurar el método de enrutamiento del tráfico de conmutación por error en el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configuración del método de enrutamiento de conmutación por error
 
@@ -52,4 +52,4 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

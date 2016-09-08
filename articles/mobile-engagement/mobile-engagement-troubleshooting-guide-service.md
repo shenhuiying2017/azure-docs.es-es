@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de servicio
@@ -56,8 +56,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 4) Para probar si el problema está relacionado con el dispositivo:
 
    - Compruebe que el dispositivo puede conectarse a Azure Mobile Engagement con otra aplicación integrada en Azure Mobile Engagement.
-   - Compruebe que puede generar eventos, trabajos y bloqueos desde el teléfono que se puede ver en la interfaz de usuario de Azure Mobile Engagement. 
-   - Compruebe que puede enviar notificaciones push desde la interfaz de usuario de Azure Mobile Engagement al dispositivo según su identificador de dispositivo. 
+   - Compruebe que puede generar eventos, trabajos y bloqueos desde el teléfono que se puede ver en la interfaz de usuario de Azure Mobile Engagement.
+   - Compruebe que puede enviar notificaciones push desde la interfaz de usuario de Azure Mobile Engagement al dispositivo según su identificador de dispositivo.
 
 5) Para probar si el problema está relacionado con la aplicación:
 
@@ -89,4 +89,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
     - Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

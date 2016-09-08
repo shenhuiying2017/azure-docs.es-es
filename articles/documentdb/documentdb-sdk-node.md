@@ -149,6 +149,7 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
+| [1.9.0](#1.9.0) | 7 de julio de 2016 |---
 | [1\.8.0](#1.8.0) | 14 de junio, 2016 |---
 | [1\.7.0](#1.7.0) | 26 de abril, 2016 |---
 | [1\.6.0](#1.6.0) | 29 de marzo, 2016 |---

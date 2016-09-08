@@ -31,54 +31,7 @@ La figura anterior muestra una máquina virtual con tres NIC, cada una de ellas 
 - En estos momentos, no se admiten direcciones IP públicas (implementaciones clásicas) de nivel de instancia (LPIP) para máquinas virtuales con varias NIC.
 - El orden de las NIC desde la máquina virtual será aleatorio y también podría cambiar en todas las actualizaciones de infraestructura de Azure. Sin embargo, las direcciones IP y las direcciones MAC Ethernet correspondientes seguirán siendo las mismas. Por ejemplo, suponga que **Eth1** tiene la dirección IP 10.1.0.100 y la dirección MAC 00-0D-3A-B0-39-0D; después de una actualización de la infraestructura de Azure y de reiniciar el equipo, se podría cambiar a **Eth2**, pero el emparejamiento de la IP y la MAC seguirá siendo el mismo. Cuando es un cliente quien ejecuta un reinicio, el orden de NIC seguirá siendo el mismo.
 - La dirección de cada NIC en cada máquina virtual debe estar ubicada en una subred; las direcciones que se encuentran en la misma subred se pueden asignar a cada una de las varias NIC de una sola máquina virtual.
-- El tamaño de la máquina virtual determina el número de las NIC que se puede crear para una máquina virtual. La tabla siguiente enumera los números de NIC correspondientes al tamaño de las máquinas virtuales:
-
-|Tamaño de memoria virtual (SKU estándar)|NIC (número máximo permitido por máquina virtual)|
-|---|---|
-|Todos los tamaños básicos|1|
-|A0\\extra pequeño|1|
-|A1\\pequeño|1|
-|A2\\mediano|1|
-|A3\\grande|2|
-|A4\\extra grande|4|
-|A5|1|
-|A6|2|
-|A7|4|
-|A8|2|
-|A9|4|
-|A10|2|
-|A11|4|
-|D1|1|
-|D2|2|
-|D3|4|
-|D4|8|
-|D11|2|
-|D12|4|
-|D13|8|
-|D14|8|
-|DS1|1|
-|DS2|2|
-|DS3|4|
-|DS4|8|
-|DS11|2|
-|DS12|4|
-|DS13|8|
-|DS14|8|
-|D1\_v2|1|
-|D2\_v2|2|
-|D3\_v2|4|
-|D4\_v2|8|
-|D5\_v2|8|
-|D11\_v2|2|
-|D12\_v2|4|
-|D13\_v2|8|
-|D14\_v2|8|
-|G1|1|
-|G2|2|
-|G3|4|
-|G4|8|
-|G5|8|
-|Todos los tamaños|1|
+- El tamaño de la máquina virtual determina el número de las NIC que se puede crear para una máquina virtual. Consulte los artículos sobre el tamaño de las máquinas virtuales [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md) y [Linux](../virtual-machines/virtual-machines-linux-sizes.md) para determinar cuántos NIC admite cada tamaño de máquina virtual.
 
 ## Grupos de seguridad de red (NSG)
 En una implementación del Administrador de recursos, cualquier NIC de una máquina virtual puede asociarse a un grupo de seguridad de red (NSG), incluyendo cualquier NIC de una máquina virtual que tenga varias NIC habilitadas. Si a una NIC se le asigna una dirección dentro de una subred que está asociada a un NSG, las reglas de NSG de la subred también se aplican a esa NIC. Además de asociar subredes a NSG, también puede asociar una NIC a un NSG.
@@ -265,4 +218,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

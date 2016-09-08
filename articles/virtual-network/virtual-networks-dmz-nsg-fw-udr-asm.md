@@ -76,7 +76,7 @@ Si el destino no era aplicable a ninguno de los prefijos Null o los prefijos VNE
 
 Si hay dos prefijos idénticos en la tabla de enrutamiento, el orden de preferencia en función del atributo "source" de las rutas es el siguiente:
 
-1.	<blank> = una ruta definida por el usuario agregada manualmente a la tabla
+1.	"VirtualAppliance" = una ruta definida por el usuario agregada manualmente a la tabla
 2.	"VPNGateway" = una ruta dinámica (BGP cuando se usa con redes híbridas), agregada por un protocolo de red dinámico; estas rutas pueden cambiar con el tiempo a medida que el protocolo dinámico refleja automáticamente los cambios de red del mismo nivel.
 3.	"Default" = las rutas del sistema, la red virtual local y las entradas estáticas, tal y como se muestra en la tabla de enrutamiento anterior.
 
@@ -941,4 +941,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

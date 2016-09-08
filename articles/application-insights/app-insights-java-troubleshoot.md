@@ -33,7 +33,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 * Espere un minuto y haga clic en Actualizar, Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente. El intervalo de actualización depende del intervalo de tiempo del gráfico.
 * Compruebe que tiene una clave de instrumentación definida en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto).
 * Compruebe que no haya ningún nodo `<DisableTelemetry>true</DisableTelemetry>` en el archivo xml.
-* En el firewall, es posible que tenga que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com.
+* En el firewall, es posible que tenga que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com. Consulte la [lista completa de excepciones del firewall](app-insights-ip-addresses.md).
 * En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
 * Active el inicio de sesión en la ventana de la consola del IDE. Para ello, agregue un elemento `<SDKLogger />` bajo el nodo raíz en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto) y compruebe si hay entradas precedidas por la indicación [Error].
 * Asegúrese de que se ha cargado correctamente el archivo ApplicationInsights.xml apropiado por parte del SDK de Java, examinando para ello los mensajes de salida de la consola para ver si hay una instrucción que haga referencia a que "el archivo de configuración se ha encontrado correctamente".
@@ -48,7 +48,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 
 #### No veo todos los datos que esperaba
 
-* Abra la hoja Cuotas y precios y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
+* Abra la hoja Quotas and Pricing (Cuotas y precios) y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría.
 
 ## No aparecen datos de uso
 
@@ -140,4 +140,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

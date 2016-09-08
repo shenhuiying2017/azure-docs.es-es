@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter
@@ -29,7 +29,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Twitter.
 
-2. Desplácese hasta el sitio web para [desarrolladores de Twitter], inicie sesión con las credenciales de la cuenta de Twitter y haga clic en **Crear nueva aplicación**.
+2. Vaya al sitio web para [desarrolladores de Twitter], inicie sesión con las credenciales de la cuenta de Twitter y haga clic en **Crear nueva aplicación**.
 
 3. Escriba el **Nombre** y una **Descripción** para la nueva aplicación. Pegue la **URL** de su aplicación en el valor de **Sitio web**. Después, en **URL de devolución de llamada**, pegue la **URL de devolución de llamada** que copió anteriormente. Se trata de la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/.auth/login/twitter/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
@@ -56,7 +56,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Twitter, establezca **Acción por realizar cuando no se autentique la solicitud** en **Twitter**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Twitter para la autenticación.
 
-17. Haga clic en **Guardar**.
+17. Haga clic en **Save**.
 
 De este modo ya estará listo para usar Twitter para realizar la autenticación en la aplicación.
 
@@ -77,4 +77,4 @@ De este modo ya estará listo para usar Twitter para realizar la autenticación 
 [Portal de Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

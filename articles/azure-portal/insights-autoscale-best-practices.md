@@ -127,4 +127,4 @@ El escalado automático notifica a los administradores y a los colaboradores del
 - No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 - Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado. Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

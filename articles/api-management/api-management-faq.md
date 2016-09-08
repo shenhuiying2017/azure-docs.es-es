@@ -38,6 +38,7 @@ Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas p
 -	[¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[¿Puedo usar un certificado SSL autofirmado para un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[¿Por qué recibo el error de autenticación al intentar clonar el repositorio GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[¿Funciona la administración de API con ExpressRoute?](#does-api-management-work-with-express-route)
 
 
 ### ¿Cómo puedo formular una pregunta al equipo de Administración de API?
@@ -150,4 +151,8 @@ Sí. Siga estos pasos:
 
 Si está utilizando el Administrador de credenciales de GIT o intenta clonar el repositorio mediante Visual Studio, puede que se tope con un problema conocido con el cuadro de diálogo de credenciales de Windows que limita la longitud de la contraseña a solo 127 caracteres y, por tanto, trunca la contraseña que nosotros generamos. Estamos trabajando para acortar la contraseña. Por ahora, use GIT Bash para la clonación.
 
-<!---HONumber=AcomDC_0810_2016-->
+### ¿Funciona la administración de API con ExpressRoute?
+
+Sí.
+
+<!---HONumber=AcomDC_0824_2016-->

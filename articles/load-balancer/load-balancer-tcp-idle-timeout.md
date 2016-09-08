@@ -3,7 +3,7 @@
    description="Configuración del tiempo de espera de inactividad de TCP del equilibrador de carga"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Cambio de la configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga
 
@@ -166,4 +166,4 @@ Actualizar la configuración de los extremos de entrada de carga equilibrada esp
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

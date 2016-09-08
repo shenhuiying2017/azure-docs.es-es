@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -134,4 +134,4 @@ No se pueden eliminar conjuntos de registros SOA ni NS en el vértice de zona (n
 -   Para más información acerca de la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
 -   Para más información acerca de los registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

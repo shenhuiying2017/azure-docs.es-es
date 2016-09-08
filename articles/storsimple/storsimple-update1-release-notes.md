@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Notas de la versión de la actualización 1.2 de la serie StorSimple 8000  
@@ -35,7 +35,7 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 >[AZURE.IMPORTANT]
 > 
-- Esta actualización tarda aproximadamente 5-10 horas en instalarse (incluidas las actualizaciones de Windows). 
+- Esta actualización tarda aproximadamente 5-10 horas en instalarse (incluidas las actualizaciones de Windows).
 - La actualización 1.2 tiene actualizaciones de software, controlador LSI y firmware de disco. Para instalar, siga las instrucciones para [instalar la actualización 1.2 en el dispositivo StorSimple](storsimple-install-update-1.md).
 - Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Busque actualizaciones de nuevo en unos días ya que estas estarán disponible pronto.
 
@@ -44,7 +44,7 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 Estas características aparecieron por primera vez con la actualización 1 que se puso a disposición para un conjunto limitado de usuarios. Con la versión de la actualización 1.2, la mayoría de los usuarios de StorSimple verían las siguientes características nuevas y mejoras:
 
-- **La migración de la serie 5000-7000 a dispositivos de la serie 8000**: esta versión presenta una nueva característica de migración que permite a los usuarios de dispositivos de la serie 5000-7000 migrar sus datos a un dispositivo físico de la serie StorSimple 8000 o a un dispositivo virtual de 1100. La característica de migración tiene dos propuestas de valor claves:                                                                  
+- **La migración de dispositivos de las series 5000-7000 a la serie 8000**: esta versión incluye una nueva característica de migración que permite a los usuarios de dispositivos de las series 5000-7000 migrar sus datos a un dispositivo StorSimple físico de la serie 8000 o a un dispositivo virtual. La característica de migración tiene dos propuestas de valor claves:
 
     - **Continuidad del negocio**, mediante la habilitación de la migración de los datos existentes en los dispositivos de las series 5000-7000 a dispositivos de la serie 8000.
     - **Mejores ofertas de características de los dispositivos de la serie 8000**, como la administración centralizada eficaz de varios dispositivos a través del servicio StorSimple Manager, mejor clase de hardware y firmware actualizado, dispositivos virtuales, movilidad de datos y las características de la estrategia futura.
@@ -63,10 +63,10 @@ Estas características aparecieron por primera vez con la actualización 1 que s
 
 ## Problemas corregidos en la actualización 1.2
 
-En las tablas siguientes se ofrece un resumen de los problemas corregidos en las actualizaciones 1.2, 1.1 y 1.
+En las tablas siguientes se ofrece un resumen de los problemas corregidos en Update 1.2, 1.1 y 1.
 
 
-| N.º | Característica | Problema | Se ha corregido en la actualización | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Nº | Característica | Problema | Se ha corregido en la actualización | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|-----------------|---------------------------------|--------------------------------|
 | 1 | Windows PowerShell para StorSimple | Cuando un usuario accedió de manera remota al dispositivo StorSimple mediante Windows PowerShell para StorSimple y, a continuación, inició al Asistente para la instalación, se produjo un bloqueo en cuanto se introdujo la IP de Data 0. El error se ha corregido en la actualización 1. | Actualización 1 | Sí | Sí |
 | 2 | Restablecimiento de fábrica | En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple se bloqueó y apareció este mensaje: **El restablecimiento a los valores de fábrica está en curso (fase 8)**. Esto sucedía si se presionaba CTRL+C mientras el cmdlet estaba en curso. El error se ha corregido.| Actualización 1 | Sí | No |
@@ -86,12 +86,12 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en las
 
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| N.º | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Nº | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Cuórum de disco | En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el bloque de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. | Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
 | 2 | Identificador de controlador incorrecto | Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. | No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. | Sí | No |
 | 3 | Cuentas de almacenamiento | El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario. | Sí | Sí |
-| 4 | Conmutación por error del dispositivo | No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | | Sí | No |
+| 4 | Conmutación por error del dispositivo | No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de dispositivo desde un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | | Sí | No |
 | 5 | Instalación | Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | | Sí | No |
 | 6 | Proxy web | Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. | Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). | Sí | No |
 | 7 | Proxy web | Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | | Sí | No |
@@ -111,7 +111,7 @@ Si se aplica la actualización 1.2 de la revisión a un dispositivo físico (con
 
 Esta versión actualiza el controlador y el firmware del disco en el dispositivo.
  
-- Para obtener más información sobre la actualización del controlador SAS, consulte [Actualización 1 para los controladores SAS LSI del dispositivo Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005). 
+- Para obtener más información sobre la actualización del controlador SAS, consulte [Actualización 1 para los controladores SAS LSI del dispositivo Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005).
 
 - Para obtener más información sobre la actualización del firmware del disco, consulte [Actualización 1 del firmware del disco para el dispositivo de Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063416).
  
@@ -124,4 +124,4 @@ No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nu
 - [Instalación de la actualización 1.2 en el dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

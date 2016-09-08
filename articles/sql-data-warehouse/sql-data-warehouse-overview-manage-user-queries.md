@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Supervisión de las consultas de usuario en Almacenamiento de datos SQL de Azure
@@ -34,18 +34,18 @@ Información general de las consideraciones, prácticas recomendadas y tareas pa
 
 ## Pasos siguientes
 
-Para obtener más sugerencias de administración, consulte la información general de [administración][].
+Para obtener más sugerencias de administración, vaya a [Administración de base datos en Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Find long-running queries (Búsqueda de consultas de larga ejecución)]: sql-data-warehouse-manage-monitor.md
 [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
-[administración]: sql-data-warehouse-overview-manage.md
+[Administración de base datos en Almacenamiento de datos SQL de Azure]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

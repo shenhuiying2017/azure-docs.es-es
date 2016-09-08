@@ -3,7 +3,7 @@
    description="Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Métodos de enrutamiento de tráfico del Administrador de tráfico
 
@@ -126,4 +126,4 @@ Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

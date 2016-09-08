@@ -114,12 +114,16 @@ Se necesita una red de Azure para que las máquinas virtuales de Azure creadas d
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, va a configurar la red de Azure en [modo Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o en [modo clásico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - Es recomendable configurar una red antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery.
 
+> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+
 
 ### Configuración de una cuenta de almacenamiento de Azure
 
 - Necesitará una cuenta de almacenamiento estándar para almacenar los datos replicados en Azure. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación.
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, va a configurar una cuenta en [modo Resource Manager](../storage/storage-create-storage-account.md) o en [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
 - Es recomendable configurar una cuenta antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery.
+
+> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ### Prepare el servidor VMM
 
@@ -144,7 +148,7 @@ Debe configurar la asignación de red durante la implementación de Site Recover
 ## Creación de un almacén de Servicios de recuperación
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Nuevo** > **Administración** > **Servicios de recuperación**. También puede hacer clic en **Examinar** > **Almacén de Servicios de recuperación** > **Agregar**.
+2. Haga clic en **Nuevo** > **Administración** > **Servicios de recuperación**. También puede hacer clic en **Examinar** > **Almacenes de servicios de recuperación** > **Agregar**.
 
 	![Almacén nuevo](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
@@ -189,11 +193,11 @@ Instale el Proveedor de Azure Site Recovery en el servidor VMM y registre el ser
 
 	![Configurar origen](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. En **Preparar origen** haga clic en **+ VMM** para agregar un servidor VMM.
+2. En **Preparar origen**, haga clic en **+ VMM** para agregar un servidor VMM.
 
 	![Configurar origen](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. En la hoja **Agregar servidor** compruebe que aparece el **servidor de System Center VMM** en **Tipo de servidor** y que este cumple con los [requisitos previos y los requisitos de direcciones URL](#on-premises-prerequisites).
+3. En la hoja **Agregar servidor** compruebe que aparece el **servidor de System Center VMM** en **Tipo de servidor** y que este cumple los [requisitos previos y los requisitos de direcciones URL](#on-premises-prerequisites).
 4. Descargue el archivo de instalación del proveedor de Azure Site Recovery.
 5. Descargue la clave de registro. Se le solicitará cuando ejecute el programa de instalación. La clave será válida durante cinco días a partir del momento en que se genera.
 
@@ -567,4 +571,4 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

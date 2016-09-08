@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="genemi"/>
 
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Este tema explica cómo la implementación de eventos extendidos en Base de datos SQL de Azure es ligeramente diferente en comparación con los eventos extendidos de Microsoft SQL Server.
+En este tema se explica cómo la implementación de eventos extendidos en Base de datos SQL de Azure es ligeramente diferente en comparación con los eventos extendidos de Microsoft SQL Server.
 
 
 - La versión 12 de Base de datos SQL adquirió la característica de eventos extendidos en la segunda mitad del calendario de 2015.
@@ -48,7 +48,7 @@ Se puede encontrar información adicional sobre eventos extendidos, para Base de
 ## Requisitos previos
 
 
-En este tema asume que ya tiene algunos conocimientos sobre:
+En este tema se da por sentado que ya tiene algunos conocimientos sobre:
 
 
 - [Servicio Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/).
@@ -76,7 +76,7 @@ Los temas relacionados proporcionan dos ejemplos de código:
 
 - [Código de destino de búfer en anillo para eventos extendidos en Base de datos SQL](sql-database-xevent-code-ring-buffer.md)
  - Breve script de Transact-SQL simple.
- - Hacemos hincapié en el tema de ejemplo de código que, cuando haya terminado con un destino de búfer en anillo, debe liberar sus recursos mediante la ejecución de una instrucción `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Más adelante, puede agregar otra instancia de búfer en anillo de `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+ - En el tema de ejemplo de código, hacemos hincapié en que, cuando haya terminado con un destino de búfer en anillo, debe liberar sus recursos mediante la ejecución de una instrucción alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Más adelante, puede agregar otra instancia de búfer en anillo de `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Código de destino del archivo de evento para eventos extendidos en Base de datos SQL](sql-database-xevent-code-event-file.md)
@@ -103,7 +103,7 @@ Los temas relacionados proporcionan dos ejemplos de código:
 La característica eventos extendidos es compatible con varias [vistas de catálogo](http://msdn.microsoft.com/library/ms174365.aspx). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
 
 
-| Nombre de<br/>vista de catálogo | Descripción |
+| Nombre de<br/>vista de catálogo | Description |
 | :-- | :-- |
 | **sys.database\_event\_session\_actions** | Devuelve una fila por cada acción en cada evento de una sesión de eventos. |
 | **sys.database\_event\_session\_events** | Devuelve una fila por cada evento de una sesión de eventos. |
@@ -121,7 +121,7 @@ En Microsoft SQL Server, hay vistas de catálogo similares con nombres que inclu
 Base de datos SQL de Azure tiene [vistas de administración dinámica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas*.
 
 
-| Nombre de DMV | Descripción |
+| Nombre de DMV | Description |
 | :-- | :-- |
 | **sys.dm\_xe\_database\_session\_event\_actions** | Devuelve información acerca de las acciones de la sesión de eventos. |
 | **sys.dm\_xe\_database\_session\_events** | Devuelve información acerca de los eventos de sesión. |
@@ -217,7 +217,7 @@ Debe tener permiso de **Control** en la base de datos para emitir una instrucci�
 ### Autorizaciones de contenedor de almacenamiento
 
 
-El token SAS genere para el contenedor de Almacenamiento de Azure debe especificar **rwl** para los permisos. Esto proporciona los siguientes permisos:
+El token SAS genere para el contenedor de Almacenamiento de Azure debe especificar **rwl** para los permisos. El valor **rwl** proporciona los siguientes permisos:
 
 
 - Lectura
@@ -266,7 +266,7 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 - [Las publicaciones del blog de Jonathan Kehayias acerca de los eventos extendidos en Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-Otros temas de ejemplo de código para eventos extendidos están disponibles en los siguientes vínculos. De todas formas, debe comprobar siempre cualquier ejemplo para ver si está destinado a Microsoft SQL Server frente a Base de datos SQL de Azure. A continuación, puede decidir si es necesario algún pequeño cambio para ejecutar el ejemplo.
+Hay otros temas de ejemplo de código para eventos extendidos disponibles en los siguientes vínculos. De todas formas, debe comprobar siempre cualquier ejemplo para ver si está destinado a Microsoft SQL Server frente a Base de datos SQL de Azure. A continuación, puede decidir si es necesario algún pequeño cambio para ejecutar el ejemplo.
 
 
 <!--
@@ -276,4 +276,4 @@ Otros temas de ejemplo de código para eventos extendidos están disponibles en 
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

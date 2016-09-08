@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # ¿Por qué ha recibido una notificación de que su suscripción de Azure tiene un saldo pendiente?
 Si es el administrador de cuenta de su suscripción de Azure y no ha realizado el pago puntualmente, recibirá una notificación por correo electrónico para indicarle su saldo pendiente, o bien verá una alerta en [https://account.windowsazure.com](https://account.windowsazure.com) o [https://portal.azure.com](https://portal.azure.com).
+
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 Si no podemos procesar su pago por algún motivo, es posible que reciba un mensaje de correo electrónico con un mensaje similar al siguiente:
 
@@ -45,4 +47,6 @@ Para obtener instrucciones sobre cómo cambiar el método de pago de Azure, cons
 
 > [AZURE.NOTE] Si la suscripción de Azure se deshabilita, puede seguir los pasos de este artículo para volver a habilitarla: [¿Qué debo hacer si se deshabilita mi suscripción de Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

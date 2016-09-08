@@ -82,7 +82,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
     }
     ```
     
-    Nota: Puede copiar la dirección URL de HTTP POST tras guardar la aplicación lógica, pero, primero, debe agregar una acción.
+    > [AZURE.NOTE] Puede copiar la dirección URL de HTTP POST tras guardar la aplicación lógica, pero, primero, debe agregar una acción.
 
 8. Haga clic en __+ Nuevo paso__ en el desencadenador manual. A continuación, haga clic en **Agregar una acción**.
 
@@ -182,4 +182,4 @@ Ahora que ha utilizado una aplicación lógica para conectar la solución precon
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/17/2016"  
 	ms.author="juliako"/>
 
 
@@ -25,9 +25,9 @@ En este tema se muestra cómo usar el Portal de Azure clásico para administrar 
 En este tema se muestra cómo realizar las siguientes operaciones de contenido directamente desde el portal:
 
 - Ver información de contenido como el estado publicado, la dirección URL publicada, el tamaño, la fecha y hora de la última actualización y si el recurso está cifrado o no.
-- Cargar nuevo contenido
+- Carga de nuevo contenido
 - de contenido
-- Codificar contenido
+- contenido
 - Cifrar
 - Publicar/cancelar la publicación de contenido
 - Reproducir contenido
@@ -39,7 +39,7 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de los Servicios multimedia.
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y luego en el nombre de la cuenta de Servicios multimedia.
 2. Seleccione la página CONTENT.
 3. Haga clic en el botón **Cargar** en la página o en la parte inferior del portal.
 4. En el cuadro de diálogo **Cargar contenido**, diríjase al archivo del recurso deseado. Haga clic en el archivo y, a continuación, haga clic en **Abrir** o presione **Entrar**.
@@ -47,11 +47,11 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 	![Cuadro de diálogo de carga de contenido][uploadcontent]
 
 5. En el cuadro de diálogo de carga de contenido, haga clic en el botón de comprobación para aceptar el archivo y el nombre de contenido.
-6. La carga comenzará y podrá realizar un seguimiento del proceso desde la parte inferior del portal.
+6. Se inicia la carga. Puede seguir el progreso desde la parte inferior del portal.
 
 	![Estado del trabajo][status]
 
-Una vez que la carga se haya completado, verá el nuevo recurso en la lista de contenido. Se establecerá una convención en la que el nombre tendrá anexo "**-Source**" en la parte inferior para ayudar a realizar un seguimiento del nuevo contenido como contenido de origen para las tareas de codificación.
+Cuando la carga se haya completado, verá el nuevo recurso en la lista de contenido. Se establecerá una convención en la que el nombre tendrá anexo "**-Source**" en la parte inferior para ayudar a realizar un seguimiento del nuevo contenido como contenido de origen para las tareas de codificación.
 
 ![ContentPage][contentpage]
 
@@ -67,9 +67,12 @@ El Indizador multimedia de Azure permite que el contenido de los archivos multim
 
 Los pasos siguientes muestran cómo usar el Portal de Azure clásico para indizar el contenido.
 
-1. Seleccione el archivo que desea indizar. Si se admite la indización para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
+1. Seleccione el archivo que desea indizar.
+
+	Si se admite la indexación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
+	
 1. Presione el botón PROCESAR.
-2. En el cuadro de diálogo **Proceso**, elija el procesador **Indizador multimedia de Azure**.
+2. En el cuadro de diálogo **Proceso**, elija el procesador **Azure Media Indexer**.
 3. A continuación, rellene el cuadro de diálogo Proceso con la información detallada del **título** y **descripción** del archivo multimedia de entrada.
 
 ![Proceso][process]
@@ -85,34 +88,35 @@ Para entregar vídeo digital a través de Internet, debe comprimir los archivos 
 
 Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
+Servicios multimedia proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos.
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
 - Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
-Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
+Además de poder usar las funcionalidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancia compartido en el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
 
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia mediante el Portal de Azure clásico.
 
 1.  Seleccione el archivo que desea codificar.
 
-  Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
-4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**.
-5. Elija una de las **configuraciones de codificación**.
+	Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página CONTENIDO.
 
-![Process2][process2]
+2. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**.
+3. Elija una de las **configuraciones de codificación**.
+
+	![Process2][process2]
 
 
-En el tema sobre los [valores preestablecidos de tareas para el procesador Estándar de codificador multimedia](https://msdn.microsoft.com/library/mt269960) se explica lo que significa cada uno de estos valores.
+	En el tema sobre las [cadenas de valores preestablecidos de tareas para el Codificador multimedia estándar](https://msdn.microsoft.com/library/mt269960) se explica lo que significa cada uno de estos valores.
 
-5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
-6. Presione Aceptar.
+4. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
+5. Presione Aceptar.
 
-Después de realizar la codificación, la página de contenido contendrá el archivo codificado.
+Después de realizar la codificación, la página CONTENIDO contendrá el archivo codificado.
 
 Para ver el progreso de la tarea de codificación, cambie a la página **TRABAJOS**.
 
@@ -173,7 +177,7 @@ Los localizadores tienen fecha de caducidad. Al usar el Portal para publicar sus
 
 >[AZURE.NOTE] Si utiliza el Portal para crear los localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
 
-Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
 ###Publicar
 
@@ -222,4 +226,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

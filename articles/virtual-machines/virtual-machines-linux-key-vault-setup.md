@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -49,4 +49,4 @@ Al utilizar plantillas, debe configurar la propiedad `enabledForDeployment` como
 
 Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Creación de un almacén de claves).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Integración de cobertura para Engagement en Android
@@ -135,7 +135,7 @@ Si desea que su aplicación reciba inserciones de datos de cobertura, debe crear
 			  </intent-filter>
 			</receiver>
 
-Luego puede invalidar las devoluciones de llamada `onDataPushStringReceived` y `onDataPushBase64Received`. Aquí tiene un ejemplo:
+Luego puede invalidar las devoluciones de llamada `onDataPushStringReceived` y `onDataPushBase64Received`. Este es un ejemplo:
 
 			public class MyDataPushReceiver extends EngagementReachDataPushReceiver
 			{
@@ -644,4 +644,4 @@ Como puede ver, si llamó a `actionContent(this)` y luego finalizó la actividad
 [Servicio de mensajería en la nube de Google]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,28 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma"/>
 
-# Creación y administración de una cuenta de Lote de Azure en el Portal de Azure
+# Creación de una cuenta de Lote de Azure con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](batch-account-create-portal.md)
 - [NET de Administración de Lote](batch-management-dotnet.md)
 
-El [Portal de Azure][azure_portal] proporciona las herramientas necesarias para crear y administrar una cuenta de Lote de Azure, que se puede usar para el procesamiento paralelo de cargas de trabajo a gran escala. En este artículo, le guiaremos por el proceso de creación de una cuenta de Lote a través del portal y se analizarán algunas opciones y propiedades importantes de las cuentas de Lote. Por ejemplo, las aplicaciones y servicios que desarrolla con Lote necesitan la dirección URL de su cuenta y una clave de acceso para comunicarse con las API del servicio de Lote, que se encuentran en el Portal de Azure.
-
->[AZURE.NOTE] Actualmente, el Portal de Azure admite algunas de las características disponibles en el servicio de Lote, como la creación de cuentas, la administración de la configuración y las propiedades de la cuenta de Lote, y la creación y supervisión de grupos y trabajos. El conjunto completo de características del servicio Lote están disponibles para los desarrolladores a través de las API de Lote.
+Aprenda a crear una cuenta de Lote de Azure en el [Portal de Azure][azure_portal] y dónde encontrar propiedades de cuenta importantes, como claves de acceso y direcciones URL de la cuenta. También analizamos los precios de Lote y la vinculación de una cuenta de Almacenamiento de Azure con la cuenta de Lote, para que pueda usar [paquetes de aplicación](batch-application-packages.md) y [almacenar la salida de trabajos y tareas](batch-task-output.md).
 
 ## Crear una cuenta de lote
 
 1. Inicie sesión en el [Portal de Azure][azure_portal].
 
-2. Haga clic en **Nuevo** > **Máquinas virtuales** > **Servicio de Lote**.
+2. Haga clic en **Nuevo** > **Máquinas virtuales** > **Servicio Lote**.
 
 	![Lote en Marketplace][marketplace_portal]
 
-3. Se muestra la hoja **Nueva cuenta de Lote**. Para obtener descripciones de cada elemento de la hoja, consulte los elementos *a* a *e*.
+3. Se muestra la hoja **Nueva cuenta de Lote**. Para obtener descripciones de cada elemento de la hoja, consulte los elementos de *a* a *e*.
 
     ![Crear una cuenta de lote][account_portal]
 
@@ -44,47 +42,67 @@ El [Portal de Azure][azure_portal] proporciona las herramientas necesarias para 
 
 	c. **Grupo de recursos**: grupo de recursos existentes de la nueva cuenta de Lote (también se puede crear uno nuevo).
 
-	d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Lote. Solo se mostrarán como opciones las regiones admitidas por su suscripción y grupo de recursos.
+	d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Lote. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
-    e. **Cuenta de almacenamiento** (opcional): cuenta de almacenamiento **de uso general** que se va a asociar (vincular) a la nueva cuenta de Lote. La característica de [paquetes de aplicación](batch-application-packages.md) de Lote usará la cuenta de almacenamiento vinculada para el almacenamiento y la recuperación de paquetes de aplicación. Para más información acerca de esta característica, consulte [Implementación de aplicaciones con paquetes de aplicación de Lote de Azure](batch-application-packages.md).
-
-     > [AZURE.IMPORTANT] La regeneración de claves en una cuenta de almacenamiento vinculada requiere consideraciones especiales. Para más información, consulte [Consideraciones de las cuentas de Lote](#considerations-for-batch-accounts) más adelante.
+    e. **Cuenta de almacenamiento** (opcional): cuenta de almacenamiento **de uso general** que se va a asociar (vincular) a la nueva cuenta de Lote. Consulte [Cuenta de Almacenamiento de Azure vinculada](#linked-azure-storage-account) a continuación para más información.
 
 4. Haga clic en **Crear** para crear la cuenta.
 
-  El portal indicará que la cuenta se está **implementando** y, tras la finalización, se mostrará una notificación de **Implementaciones correctas** en *Notificaciones*.
+  El portal indica que la cuenta se está **implementando** y, tras la finalización, se muestra una notificación de **Implementaciones correctas** en *Notificaciones*.
 
 ## Visualización de propiedades de la cuenta de Lote
 
-La hoja Cuenta de lote muestra varias propiedades de la cuenta y proporciona acceso a opciones adicionales, como las teclas de acceso, las cuotas, los usuarios y la asociación de la cuenta de almacenamiento.
+Una vez creada la cuenta, puede abrir la **hoja de la cuenta de Lote** para acceder a sus propiedades y configuración. Puede tener acceso a todas las propiedades y configuración de la cuenta en el menú izquierdo de la hoja Cuenta de lote.
 
-* **Dirección URL de cuenta de Lote**: esta dirección URL proporciona acceso a su cuenta de Lote cuando se usan API, como la API de [REST de Lote][api_rest] o la biblioteca de cliente [.NET de Lote][api_net], y se ajusta al formato siguiente:
+![Hoja de la cuenta de Lote en el Portal de Azure][account_blade]
+
+* **Dirección URL de la cuenta de lote**: las aplicaciones creadas con las [API de desarrollo de Lote](batch-technical-overview.md#batch-development-apis) necesitan una dirección URL de la cuenta para administrar los recursos y ejecutar trabajos en la cuenta. Una dirección URL de la cuenta de Lote tiene el formato siguiente:
 
     `https://<account_name>.<region>.batch.azure.com`
 
-* **Claves de acceso**: para ver y administrar las claves de acceso de su cuenta de Lote, haga clic en el icono de la llave para abrir la hoja **Administrar claves** o haga clic en **Todas las opciones** > **Claves**. Se requiere una clave de acceso al comunicarse con las API del servicio Lote, como con [REST de Lote][api_rest] o la biblioteca de cliente [.NET de Lote][api_net].
+![Dirección URL de la cuenta de Lote en el Portal][account_url]
 
-    ![Claves de la cuenta de Lote][account_keys]
+* **Claves de acceso**: las aplicaciones también necesitan una clave de acceso al trabajar con los recursos en la cuenta de Lote. Para ver o volver a generar las claves de acceso de la cuenta de Lote, escriba `keys` en el cuadro de **búsqueda** del menú de la izquierda, en la hoja de cuenta de Lote, y seleccione **Claves**.
 
-* **Todas las opciones**: si desea administrar todas las opciones de la cuenta de Lote o ver sus propiedades, haga clic en **Todas las opciones** para abrir la hoja **Configuración**. Esta hoja proporciona acceso a todas las opciones y propiedades de la cuenta, entre las que se incluyen la visualización de las cuotas de la cuenta, la selección de una cuenta de Almacenamiento de Azure para vincularla a la cuenta de Lote y la administración de usuarios.
+    ![Claves de la cuenta de Lote en el Portal de Azure][account_keys]
 
-    ![Hojas de propiedades y configuración de la cuenta de Lote][5]
+## Precios
 
-## Consideraciones de las cuentas de Lote
+Las cuentas de Lote solo se ofrecen en el "nivel Gratis", lo que significa que no se le va a cobrar por la propia cuenta de Lote. Solo se cobran los recursos de proceso de Azure subyacentes que consumen sus soluciones de Lote y los recursos que consumen otros servicios cuando se ejecutan sus cargas de trabajo. Por ejemplo, se le cobrará por los nodos de proceso de los grupos y por los datos que almacene en Almacenamiento de Azure como entrada o salida de sus tareas. De igual forma, si se usa la característica [paquetes de aplicación](batch-application-packages.md), se cobran los recursos de Almacenamiento de Azure que se utilizan para almacenar los paquetes de aplicación. Para más información, consulte [Precios de Lote][batch_pricing].
 
-* Las cuentas de Lote también se pueden crear y administrar con los [cmdlets de PowerShell de Lote](batch-powershell-cmdlets-get-started.md) y la biblioteca [Batch Management .NET](batch-management-dotnet.md).
+## Cuenta de Almacenamiento de Azure vinculada
 
-* La cuenta de Lote no tiene ningún costo. Solo se cobran los recursos de proceso de Azure que consumen sus soluciones de Lote y los recursos que consumen otros servicios cuando se ejecutan sus cargas de trabajo. Por ejemplo, se cobran los nodos de proceso de los grupos y, si se usa la característica [paquetes de aplicación](batch-application-packages.md), se cobran los recursos de Almacenamiento de Azure que se utilizan para almacenar las versiones del paquete de aplicación. Para más información, consulte [Precios de Lote][batch_pricing].
+Como se ha mencionado antes, puede asociar (opcionalmente) una cuenta de almacenamiento **de uso general** a su nueva cuenta de Lote. La característica de [paquetes de aplicación](batch-application-packages.md) de Lote utiliza el almacenamiento de blobs en un cuenta de almacenamiento de uso general, al igual que la biblioteca [.NET de convenciones de archivo de Lote](batch-task-output.md). Estas características opcionales le ayudan a implementar las aplicaciones que ejecutan las tareas de Lote y a conservar los datos que generan.
 
-* Puede ejecutar varias cargas de trabajo de Lote en una sola cuenta de Lote, o bien distribuir las cargas de trabajo entre cuentas de Lote situadas en diferentes regiones de Azure.
+Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md). Cuando vincula una cuenta de Almacenamiento de Azure a su cuenta de Lote, asegúrese de que vincula *solo* una cuenta de almacenamiento de **uso general**.
 
-* Si va a ejecutar varias cargas de trabajo de Lote a gran escala, tenga en cuenta que se aplican algunas [cuotas y límites de servicio de Lote](batch-quota-limit.md) a la suscripción de Azure y a cada cuenta de Lote. Las cuotas actuales de una cuenta de Lote aparecen en el portal de vista previa en las propiedades de la cuenta.
+![Creación de una cuenta de almacenamiento "de uso general"][storage_account]
 
-* Si asocia (vincula) una cuenta de almacenamiento con su cuenta de Lote, tenga cuidado al volver a generar las claves de acceso de la cuenta de almacenamiento. Solo debe volver a generar una única clave de la cuenta de almacenamiento. Para ello, haga clic en **Sincronizar claves** en la hoja de la cuenta de almacenamiento vinculada y espere 5 minutos hasta que las claves se propaguen a los nodos de proceso de los grupos; a continuación, vuelva a generar la otra clave y sincronícela si fuera necesario. Si vuelve a generar las dos claves al mismo tiempo, los nodos de proceso no podrán sincronizar ninguna de las claves y perderán el acceso a la cuenta de almacenamiento.
+Le recomendamos que cree una cuenta de almacenamiento para uso exclusivo con su cuenta de Lote.
+
+>[AZURE.WARNING] Tenga cuidado al volver a generar las claves de acceso de una cuenta de almacenamiento vinculada. Vuelva a generar solo una clave de la cuenta de almacenamiento y haga clic en **Sincronizar claves** en la hoja de la cuenta de almacenamiento vinculada. Espere cinco minutos para que las claves se propaguen a los nodos de proceso de los grupos, y después vuelva a generar y sincronizar la otra clave si es necesario. Si vuelve a generar las dos claves al mismo tiempo, los nodos de proceso no podrán sincronizar ninguna de las claves y perderán el acceso a la cuenta de Almacenamiento.
 
   ![Regeneración de claves de cuenta de almacenamiento][4]
 
-> [AZURE.IMPORTANT] Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md). Cuando vincula una cuenta de Almacenamiento de Azure a su cuenta de Lote, *solo* se vincula una cuenta de almacenamiento **de uso general**.
+## Límites y cuotas del servicio Lote
+
+Tenga en cuenta que como con su suscripción de Azure y otros servicios de Azure, se aplican ciertas [cuotas y límites](batch-quota-limit.md) a las cuentas de Lote. Las cuotas actuales de una cuenta de Lote aparecen en el portal en las **propiedades** de la cuenta.
+
+![Cuotas de la cuenta de Lote en el Portal de Azure][quotas]
+
+Tenga presente estas cuotas cuando diseñe y escale las cargas de trabajo de Lote. Por ejemplo, si su grupo no alcanza el número objetivo de nodos de proceso especificado, es posible que se haya alcanzado el límite de cuota de núcleos de la cuenta de Lote.
+
+Además, tenga en cuenta que no está restringido a una única cuenta de Lote para la suscripción de Azure. Puede ejecutar varias cargas de trabajo de Lote en una sola cuenta de Lote, o bien distribuir las cargas de trabajo entre cuentas de Lote en la misma suscripción pero en diferentes regiones de Azure.
+
+Muchas de estas cuotas se pueden aumentar simplemente con una solicitud gratuita de soporte técnico de producto enviada en el Portal de Azure. Para más información sobre la solicitud de aumentos de cuotas, consulte [Cuotas y límites del servicio Lote de Azure](batch-quota-limit.md).
+
+## Otras opciones de administración de la cuenta de Lote
+
+Además de usar el Portal de Azure, también puede crear y administrar cuentas de Lote con lo siguiente:
+
+* [Cmdlets de PowerShell de Lote](batch-powershell-cmdlets-get-started.md)
+* [CLI de Azure](../xplat-cli-install.md)
+* [NET de Administración de Lote](batch-management-dotnet.md)
 
 ## Pasos siguientes
 
@@ -99,9 +117,12 @@ La hoja Cuenta de lote muestra varias propiedades de la cuenta y proporciona acc
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
 [4]: ./media/batch-account-create-portal/batch_acct_04.png "Regeneración de claves de cuenta de almacenamiento"
-[5]: ./media/batch-account-create-portal/batch_acct_05.png "Hojas de propiedades y configuración de la cuenta de Lote"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
+[account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+[account_url]: ./media/batch-account-create-portal/account_url.png
+[storage_account]: ./media/batch-account-create-portal/storage_account.png
+[quotas]: ./media/batch-account-create-portal/quotas.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="06/09/2016" 
+	ms.date="08/25/2016" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -286,4 +286,4 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [Cómo funcionan las cadenas de aplicación y las cadenas de conexión]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/17/2016" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
 
-Este documento describe las API de recomendaciones de Aprendizaje automático de Microsoft Azure.
+En este documento se representan las Recommendations API de Aprendizaje automático de Microsoft Azure expuestas mediante Marketplace.
+
+
+> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -93,9 +96,9 @@ Crea una solicitud "crear modelo".
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
-| apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | NONE |
+| Cuerpo de la solicitud | NINGUNA |
 
 
 **Respuesta**:
@@ -104,7 +107,7 @@ código de estado HTTP: 200
 
 - `feed/entry/content/properties/id`: contiene el Id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -165,7 +168,7 @@ Los datos del modelo pueden encontrarse en los siguientes elementos:
 - `feed/entry/content/properties/Mpr`: clasificación percentil de promedio del modelo (MPR, consulte ModelInsight para obtener más información).
 - `feed/entry/content/properties/UserName`: nombre de usuario interno del modelo.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -302,7 +305,7 @@ Elimina un modelo existente por el Id.
 
 código de estado HTTP: 200
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
@@ -800,7 +803,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 ##7\. Reglas de negocio de modelo
 
 Estos son los tipos de reglas admitidas:
-- <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no quiera que se devuelvan en los resultados de la recomendación. 
+- <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no quiera que se devuelvan en los resultados de la recomendación.
 
 - <strong>FeatureBlockList</strong>: le permite bloquear los elementos en función de los valores de sus características.
 
@@ -984,15 +987,15 @@ Los datos del catálogo deben seguir el siguiente formato:
 
 Nota: el tamaño máximo de archivo es de 200 MB.
 
-** Detalles de formato **
+**Detalles de formato**
 
-| Nombre | Obligatorio | Tipo | Descripción |
+| Nombre | Obligatorio | Tipo | Description |
 |:---|:---|:---|:---|
-| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
-| Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. |
-| Categoría de elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | Categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Arte dramático...); puede estar vacía. |
-| Descripción | No, a menos que las características estén presentes (pero pueden estar vacías) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
-| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista separada por comas de nombre de característica=valor de característica que puede usarse para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics). |
+| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
+| Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. | 
+| Categoría del elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
+| Description | No, a menos que haya características (pero puede estar vacía) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
+| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista de nombres de característica = valores de característica separados por coma que se pueden usar para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
@@ -1003,8 +1006,8 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y guion bajo (\_).<br>Longitud máxima: 50 |
-| apiVersion | 1.0 |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
+|	apiVersion | 1\.0 |
 |||
 | Cuerpo de la solicitud | Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
@@ -1017,7 +1020,7 @@ La API devuelve un informe de la importación.
 - `feed\entry\content\properties\LineCount`: número de líneas aceptadas.
 - `feed\entry\content\properties\ErrorCount`: número de líneas que no se insertaron debido a un error.
 
-XML de OData
+OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -1170,7 +1173,7 @@ La respuesta incluye una entrada por cada elemento de catálogo. Cada entrada ti
 - `feed/entry/content/properties/Metadata` – (para un uso futuro)
 - `feed/entry/content/properties/FormattedRating` – (para un uso futuro)
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -1209,10 +1212,10 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_) (_).<br>Longitud máxima: 50 |
-| apiVersion | 1.0 |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
+|	apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>[A-z], [a-z], [0-9], [_] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máxima: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máxima: 50</td><td>Identificador único de un elemento.</td></tr><tr><td>Hora</td><td>No</td><td>Fecha con formato: AAAA/MM/DDTHH:MM:SS (por ejemplo. 2013/06/20T10:00:00)</td><td>Hora de datos.</td></tr><tr><td>Evento</td><td>No; también se debe indicar la fecha cuando se proporciona</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200 MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td></td><td>[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Longitud máx.: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td></td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máx.: 50</td><td>Identificador único de un elemento.</td></tr><tr><td></td><td>No</td><td>Fecha en formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)</td><td>.</td></tr><tr><td>Evento</td><td>No; también se debe indicar la fecha cuando se proporciona</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200 MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
@@ -1222,7 +1225,7 @@ código de estado HTTP: 200
 - `Feed\entry\content\properties\ErrorCount`: número de líneas que no se insertaron debido a un error.
 - `Feed\entry\content\properties\FileId`: identificador de archivo.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -1824,12 +1827,12 @@ El objetivo de la compilación de recomendación es generar un modelo de recomen
 
 Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado para un modelo de recomendación que implique características, debe seguir estos pasos:
 - Desencadenar una compilación de rango (a menos que la puntuación de sus características sea estable) y esperar hasta que se obtenga la puntuación de la característica.
-- Recupere el rango de las funciones mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
+- Recuperar el rango de las características mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
 - Configurar una compilación de recomendación con los parámetros siguientes:
-	- `useFeatureInModel` - Establecer en True.
-	- `ModelingFeatureList` - Establecer en una lista de características separada por comas con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
-	- `AllowColdItemPlacement` - Establecer en True.
-	- Opcionalmente, puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea utilizar para obtener una explicación (normalmente la misma lista de características del modelado o de una sublista).
+	- `useFeatureInModel`: se establece en true.
+	- `ModelingFeatureList`: se establece en una lista de características separadas por coma con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
+	- `AllowColdItemPlacement`: se establece en True.
+	- Opcionalmente, puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que quiere utilizar para obtener una explicación (normalmente la misma lista de características usada en el modelado o una sublista).
 - Desencadene la compilación de recomendación con los parámetros configurados.
 
 Nota: si no configura ningún parámetro (por ejemplo, invoca la compilación de recomendación sin parámetros) o no deshabilita explícitamente el uso de características (por ejemplo, `UseFeatureInModel` se establece en False), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
@@ -1872,13 +1875,13 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
-| Descripción | Descripción de la compilación. | Cadena | Cualquier texto, máximo 512 caracteres |
+| Descripción| Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
-| ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | Cadena | Nombres de características, hasta 512 caracteres |
+| ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | String | Nombres de características, hasta 512 caracteres |
 | AllowColdItemPlacement | Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características. | Booleano | True/False |
 | EnableFeatureCorrelation | Indica si se pueden utilizar características en el razonamiento. | Booleano | True/False |
-| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | Cadena | Nombres de características, hasta 512 caracteres |
+| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | String | Nombres de características, hasta 512 caracteres |
 | EnableU2I | Permite la recomendación personalizada también llamada U2I (recomendaciones de usuario a elemento). | Booleano | True/False (true de forma predeterminada) |
 
 #####11\.1.4. Parámetros de compilación FBT
@@ -1908,7 +1911,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo, como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecuta con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo, como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -1931,7 +1934,7 @@ Estado de compilación válido:
 
 Tenga en cuenta que el Id. de compilación se puede encontrar en la ruta siguiente: `Feed\entry\content\properties\Id`
 
-XML de OData
+OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -1984,7 +1987,7 @@ XML de OData
 | buildType | Tipo de la compilación que se invocará: <br/> - 'Recomendación' para compilación de recomendación <br> - 'Rango' para compilación de rango <br/> - 'Fbt' para compilación FBT
 | apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación y una lista completa de los mismos).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecuta con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación y una lista completa de los mismos).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -2006,7 +2009,7 @@ Estado de compilación válido:
 
 Tenga en cuenta que el Id. de compilación se puede encontrar en la ruta siguiente: `Feed\entry\content\properties\Id`
 
-XML de OData
+OData XML
 
     <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -2097,7 +2100,7 @@ Valores válidos para el tipo de compilación:
 - Recomendación: compilación de recomendación.
 
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -2182,7 +2185,7 @@ Valores válidos para el tipo de compilación:
 - Recomendación: compilación de recomendación.
 
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -2274,7 +2277,7 @@ Esta API devuelve una colección de elementos de clave y valor. Cada elemento re
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
-|Clave|Descripción|Tipo|Valor válido|
+|Clave|Description|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
@@ -2282,13 +2285,13 @@ En la tabla siguiente se muestra el valor que representa cada clave.
 |ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
-| Descripción | Descripción de la compilación. | Cadena | Cualquier texto, máximo 512 caracteres |
+| Description | Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
-| ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | Cadena | Nombres de características, hasta 512 caracteres |
+| ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | String | Nombres de características, hasta 512 caracteres |
 | AllowColdItemPlacement | Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características. | Booleano | True/False |
 | EnableFeatureCorrelation | Indica si se pueden utilizar características en el razonamiento. | Booleano | True/False |
-| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | Cadena | Nombres de características, hasta 512 caracteres |
+| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | String | Nombres de características, hasta 512 caracteres |
 
 
 OData XML
@@ -2483,12 +2486,12 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -2664,8 +2667,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2696,12 +2699,12 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
 - `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
@@ -2788,8 +2791,8 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
 - `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2823,8 +2826,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2860,8 +2863,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2895,8 +2898,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2933,8 +2936,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2969,7 +2972,7 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 - `Feed\entry\content\properties\Rating`: N/D.
 - `Feed\entry\content\properties\Reasoning`: N/D.
 
-XML de OData
+OData XML
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
@@ -3022,7 +3025,7 @@ Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 
 código de estado HTTP: 200
 
-XML de OData
+OData XML
 
     The response includes one entry per notification. Each entry has the following data:
 		* feed\entry\content\properties\UserName – Internal user name identification.
@@ -3099,4 +3102,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

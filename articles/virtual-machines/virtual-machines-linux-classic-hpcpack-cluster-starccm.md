@@ -4,7 +4,7 @@
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
- manager="kateh"
+ manager="timlt"
  editor=""
  tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
@@ -38,7 +38,7 @@ La salida muestra la ubicación en que están disponibles estas imágenes y el n
 
 Antes de implementar el clúster, tendrá que crear un archivo de plantilla de implementación de HPC Pack. Dado que nos vamos a centrar en un clúster pequeño, el nodo principal será el controlador de dominio y hospedará una base de datos SQL local.
 
-La plantilla siguiente implementará tal nodo principal, creará un archivo XML llamado **MyCluster.xml** y reemplazará los valores de **SubscriptionId**, **StorageAccount**, **Location**, **VMName** y **ServiceName** por los suyos.
+La plantilla siguiente implementará ese nodo principal, creará un archivo XML llamado **MyCluster.xml** y reemplazará los valores de **SubscriptionId**, **StorageAccount**, **Location**, **VMName** y **ServiceName** por los suyos.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -345,4 +345,4 @@ Pruebe a ejecutar otras cargas de trabajo Linux. Por ejemplo, consulte:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

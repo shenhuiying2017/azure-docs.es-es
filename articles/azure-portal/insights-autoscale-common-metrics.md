@@ -166,12 +166,21 @@ Puede escalar por la longitud de la cola de almacenamiento, que es el número de
 
 Puede configurar esto en el Portal de Azure, en la hoja **Configuración**. Para los conjuntos de escalado de VM, puede actualizar la configuración Escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
+Por ejemplo, con una cuenta de almacenamiento clásico el parámetro de escalado automático metricTrigger incluiría lo siguiente:
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger incluiría lo siguiente:
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## Métricas más usadas de Bus de servicio
 
@@ -187,4 +196,4 @@ Para los conjuntos de escalado de VM, puede actualizar la configuración Escalad
 
 >[AZURE.NOTE] Para Bus de servicio, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

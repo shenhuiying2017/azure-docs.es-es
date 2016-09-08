@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="08/01/2016"
+  ms.date="08/18/2016"
   ms.author="hascipio"/>
 
 # Requisitos previos generales para crear una oferta para Azure Marketplace
@@ -42,9 +42,18 @@ Los administradores del Portal de publicación podrán agregar como coadministra
 7. En cuanto al registro del Centro de desarrollo, evite usar una cuenta asociada a una sola persona. Esto se recomienda para tener que dejar de depender de una persona.
 8. Si experimenta problemas con el registro en el Centro de desarrollo, cree una incidencia haciendo clic en este [vínculo](https://developer.microsoft.com/es-ES/windows/support).
 
+## Pasos para eliminar a un coadministrador en el portal de publicación
+**Dando por hecho que usted es el administrador**, siga estos pasos para eliminar a un coadministrador.
+
+1. Inicie sesión en el portal de publicación con el identificador de correo electrónico de administrador.
+2. Vaya a **Publicadores** -> seleccione su cuenta -> **Administradores** -> **Co-Admins** (Coadministradores).
+3. Haga clic en el botón **X** situado junto al coadministrador que desee eliminar (consulte la captura de pantalla siguiente).
+
+    ![dibujo](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
+
 > [AZURE.IMPORTANT] No tiene que completar la información bancaria y fiscal de la compañía si solo va a publicar ofertas gratuitas (o de tipo traiga su propia licencia).
 
-> Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [Portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
+> Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
 
 ## Adquisición de una suscripción de Azure de "pago por uso"
 Se trata de la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si no tiene una suscripción existente, inicie sesión aquí en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
@@ -59,7 +68,7 @@ Una vez cumplidos los requisitos previos no técnicos, nos encontramos los requi
 - [Requisitos previos técnicos de la máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md)
 - [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## Consulte también
+## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -243,7 +243,7 @@ No hay ningún elemento de acción para usted en esta sección.
 
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a QuickHelp.
 
-	![Asignar usuario][200]
+![Asignar usuario][200]
 
 **Para asignar a Britta Simon a QuickHelp, realice los pasos siguientes:**
 
@@ -269,7 +269,8 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de QuickHelp en el panel de acceso, debería iniciar sesión automáticamente en la aplicación.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
+Al hacer clic en el icono de QuickHelp en el panel de acceso, debería iniciar sesión automáticamente en la aplicación.
 
 
 ## Recursos adicionales
@@ -317,3 +318,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
 <!---HONumber=AcomDC_0817_2016-->
+

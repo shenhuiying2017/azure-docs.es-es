@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Carga de datos en Búsqueda de Azure
@@ -45,4 +45,4 @@ En Búsqueda de Azure, esta funcionalidad se implementa mediante *indexadores*, 
 
 La funcionalidad de indexador se expone en el [Portal de Azure](search-import-data-portal.md) así como en la [API de REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

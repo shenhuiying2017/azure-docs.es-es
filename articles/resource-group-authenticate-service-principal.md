@@ -23,9 +23,9 @@
 - [CLI de Azure](resource-group-authenticate-service-principal-cli.md)
 - [Portal](resource-group-create-service-principal-portal.md)
 
-Cuando tenga una aplicación o un script que necesite acceder a recursos, lo más probable es que no desee ejecutar este proceso con las credenciales del usuario. Ese usuario puede tener permisos diferentes que desearía asignar al proceso y las responsabilidades del trabajo del usuario podrían cambiar. En su lugar, puede crear una identidad para la aplicación que incluye credenciales de autenticación y asignaciones de roles. La aplicación inicia sesión con esta identidad cada vez que se ejecuta. Este tema le muestra cómo usar [Azure PowerShell](powershell-install-configure.md) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
+Cuando tenga una aplicación o un script que necesite acceder a recursos, lo más probable es que no desee ejecutar este proceso con las credenciales del usuario. Ese usuario puede tener permisos diferentes que desearía asignar al proceso y las responsabilidades del trabajo del usuario podrían cambiar. En su lugar, puede crear una identidad para la aplicación que incluye credenciales de autenticación y asignaciones de roles. La aplicación inicia sesión con esta identidad cada vez que se ejecuta. En este tema se explica cómo usar [Azure PowerShell](powershell-install-configure.md) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
 
-En este artículo, creará dos objetos: la aplicación de Active Directory (AD) y la entidad de servicio. La aplicación de AD contiene las credenciales (un id. de aplicación y una contraseña o certificado). La entidad de servicio contiene la asignación de roles. Desde la aplicación de AD puede crear muchas identidades de servicio. Este tema se centra en una aplicación de inquilino único donde la aplicación está diseñada para ejecutarse en solo una organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización. También puede crear aplicaciones multiinquilino cuando la aplicación debe ejecutarse en muchas organizaciones. En general, utiliza aplicaciones multiinquilino para aplicaciones de software como servicio (SaaS). Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
+En este artículo, creará dos objetos: la aplicación de Active Directory (AD) y la entidad de servicio. La aplicación de AD contiene las credenciales (un id. de aplicación y una contraseña o certificado). La entidad de servicio contiene la asignación de roles. Desde la aplicación de AD puede crear muchas identidades de servicio. Este tema se centra en una aplicación de inquilino único donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización. También puede crear aplicaciones multiinquilino cuando la aplicación debe ejecutarse en muchas organizaciones. En general, utiliza aplicaciones multiinquilino para aplicaciones de software como servicio (SaaS). Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
 Hay muchos conceptos que se deben entender al trabajar con Active Directory. Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](./active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
@@ -84,11 +84,11 @@ En esta sección, llevará a cabo los pasos necesarios para crear la aplicación
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-3. Conceda los permisos de la entidad de servicio en su suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, ofrezca el valor de **ApplicationId** o **IdentifierUris** que usó al crear la aplicación. Para más información sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Para asignar un rol, debe tener acceso `Microsoft.Authorization/*/Write` que se concede a través del rol [Propietario](./active-directory/role-based-access-built-in-roles.md#owner) o del rol [Administrador de acceso de usuario](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+3. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, ofrezca el valor de **ApplicationId** o **IdentifierUris** que usó al crear la aplicación. Para más información sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Para asignar un rol, debe tener acceso `Microsoft.Authorization/*/Write` que se concede a través del rol [Propietario](./active-directory/role-based-access-built-in-roles.md#owner) o del rol [Administrador de acceso de usuario](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-Eso es todo. La aplicación de AD y la entidad de servicio ya están configuradas. La siguiente sección muestra cómo iniciar sesión con las credenciales a través de PowerShell; sin embargo, si desea utilizar las credenciales en la aplicación de código, ya no necesita continuar con este tema. Puede ir a [Aplicaciones de ejemplo](#sample-applications) para obtener ejemplos de inicio de sesión con su Id. de aplicación y contraseña.
+Eso es todo. La aplicación de AD y la entidad de servicio ya están configuradas. En la siguiente sección se muestra cómo iniciar sesión con las credenciales a través de PowerShell; sin embargo, si desea utilizar las credenciales en la aplicación de código, ya no necesita continuar con este tema. Puede ir a [Aplicaciones de ejemplo](#sample-applications) para obtener ejemplos de inicio de sesión con su Id. de aplicación y contraseña.
 
 ### Proporcionar credenciales a través de PowerShell
 
@@ -149,7 +149,7 @@ En esta sección, llevará a cabo los pasos necesarios para crear una aplicació
 
 4. Cree una aplicación en el directorio.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
         
     Examine el nuevo objeto de aplicación.
 
@@ -171,7 +171,7 @@ En esta sección, llevará a cabo los pasos necesarios para crear una aplicació
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-6. Conceda los permisos de la entidad de servicio en su suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, ofrezca el valor de **ApplicationId** o **IdentifierUris** que usó al crear la aplicación. Para más información sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Para asignar un rol, debe tener acceso `Microsoft.Authorization/*/Write` que se concede a través del rol [Propietario](./active-directory/role-based-access-built-in-roles.md#owner) o del rol [Administrador de acceso de usuario](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+6. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, ofrezca el valor de **ApplicationId** o **IdentifierUris** que usó al crear la aplicación. Para más información sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Para asignar un rol, debe tener acceso `Microsoft.Authorization/*/Write` que se concede a través del rol [Propietario](./active-directory/role-based-access-built-in-roles.md#owner) o del rol [Administrador de acceso de usuario](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
@@ -228,4 +228,4 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
   
 - Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

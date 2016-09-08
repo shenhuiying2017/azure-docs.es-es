@@ -14,22 +14,17 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the MailChimp connector (Introducción al conector MailChimp)
 
+MailChimp es un servicio SaaS que permite a las empresas a administrar y automatizar actividades de marketing por correo electrónico, incluido el envío de correos electrónicos de marketing, mensajes automatizados y campañas de destino.
 
-
-El conector MailChimp puede usarse desde:
-
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flujo](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
@@ -40,7 +35,7 @@ El conector MailChimp se puede usar como acción; tiene desencadenadores. Todos 
 ### Acciones de MailChimp
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |[newcampaign](connectors-create-api-mailchimp.md#newcampaign)|Creación de una nueva campaña basada en un tipo de campaña, lista de destinatarios y configuración de la campaña (línea de asunto, título, from\_name and reply\_to)|
 |[newlist](connectors-create-api-mailchimp.md#newlist)|Creación de una nueva lista en su cuenta de MailChimp|
@@ -50,18 +45,18 @@ Puede realizar estas acciones:
 ### Desencadenadores de MailChimp
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Descripción|
+|Desencadenador | Description|
 |--- | ---|
 |Cuando se ha agregado un miembro a una lista|Desencadena un flujo de trabajo cuando se ha agregado un nuevo miembro a una lista|
 |Cuando se crea una nueva lista|Desencadena un flujo de trabajo cuando se crea una nueva lista|
 
 
 ## Creación de una conexión a MailChimp
-Para crear aplicaciones lógicas con MailChimp, primero debe crear una **conexión** y, a continuación, proporcionar los detalles de las siguientes propiedades:
+Para crear aplicaciones lógicas con MailChimp, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
+|Propiedad| Obligatorio|Description|
 | ---|---|---|
-|Se necesita el cifrado de tokens|Sí|Proporcionar las credenciales de MailChimp|
+|SWT|Sí|Proporcionar las credenciales de MailChimp|
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
@@ -75,11 +70,11 @@ Nueva campaña: creación de una nueva campaña basada en un tipo de campaña, l
 
 ```POST: /campaigns```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
 |newCampaignRequest| |yes|body|Ninguna|Objeto JSON que se va a enviar en el cuerpo con los nuevos parámetros de solicitud de la campaña|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -97,11 +92,11 @@ Nueva lista: creación de una nueva lista en su cuenta de MailChimp
 
 ```POST: /lists```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
 |newListRequest| |yes|body|Ninguna|Objeto JSON que se va a enviar en el cuerpo con los nuevos parámetros de solicitud de la campaña|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -119,12 +114,12 @@ Agregar miembro a lista: adición o actualización de un miembro de la lista
 
 ```POST: /lists/{list_id}/members```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|list\_id|cadena|yes|path|Ninguna|El identificador único de la lista|
+|list\_id|string|yes|path|Ninguna|El identificador único de la lista|
 |newMemberInList| |yes|body|Ninguna|Objeto JSON que se va a enviar en el cuerpo con la información del nuevo miembro|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -142,12 +137,12 @@ Quitar miembro de la lista: eliminación de un miembro de una lista.
 
 ```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|list\_id|cadena|yes|path|Ninguna|El identificador único de la lista|
-|member\_email|cadena|yes|path|Ninguna|La dirección de correo electrónico del miembro que se va a eliminar|
+|list\_id|string|yes|path|Ninguna|El identificador único de la lista|
+|member\_email|string|yes|path|Ninguna|La dirección de correo electrónico del miembro que se va a eliminar|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -165,13 +160,13 @@ Actualizar información del miembro: actualización de información de un miembr
 
 ```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|list\_id|cadena|yes|path|Ninguna|El identificador único de la lista|
-|member\_email|cadena|yes|path|Ninguna|La dirección de correo electrónico única del miembro que se va a actualizar|
+|list\_id|string|yes|path|Ninguna|El identificador único de la lista|
+|member\_email|string|yes|path|Ninguna|La dirección de correo electrónico única del miembro que se va a actualizar|
 |updateMemberInListRequest| |yes|body|Ninguna|Objeto JSON que se va a enviar en el cuerpo con la información actualizada del miembro|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -189,11 +184,11 @@ Cuando se ha agregado un miembro a una lista: desencadena un flujo de trabajo cu
 
 ```GET: /trigger/lists/{list_id}/members```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|list\_id|cadena|yes|path|Ninguna|El identificador único de la lista|
+|list\_id|string|yes|path|Ninguna|El identificador único de la lista|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -213,7 +208,7 @@ Cuando se crea una nueva lista: desencadena un flujo de trabajo cuando se crea u
 ```GET: /trigger/lists```
 
 No hay parámetros para esta llamada
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -234,7 +229,7 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|type|cadena|Sí |
+|type|string|Sí |
 |recipients|not defined|Sí |
 |configuración|not defined|Sí |
 |variate\_settings|not defined|No |
@@ -249,7 +244,7 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|list\_id|cadena|Sí |
+|list\_id|string|Sí |
 |segment\_opts|not defined|No |
 
 
@@ -259,12 +254,12 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|subject\_line|cadena|Sí |
-|título|cadena|No |
-|from\_name|cadena|Sí |
-|reply\_to|cadena|Sí |
+|subject\_line|string|Sí |
+|título|string|No |
+|from\_name|string|Sí |
+|reply\_to|string|Sí |
 |use\_conversation|boolean|No |
-|to\_name|cadena|No |
+|to\_name|string|No |
 |folder\_id|integer|No |
 |authenticate|boolean|No |
 |auto\_footer|boolean|No |
@@ -280,7 +275,7 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|winner\_criteria|cadena|No |
+|winner\_criteria|string|No |
 |wait\_time|integer|No |
 |test\_size|integer|No |
 |subject\_lines|array|No |
@@ -300,8 +295,8 @@ No hay parámetros para esta llamada
 |text\_clicks|boolean|No |
 |goal\_tracking|boolean|No |
 |ecomm360|boolean|No |
-|google\_analytics|cadena|No |
-|clicktale|cadena|No |
+|google\_analytics|string|No |
+|clicktale|string|No |
 |salesforce|not defined|No |
 |highrise|not defined|No |
 |capsule|not defined|No |
@@ -313,9 +308,9 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|feed\_url|cadena|No |
-|frequency|cadena|No |
-|constrain\_rss\_img|cadena|No |
+|feed\_url|string|No |
+|frequency|string|No |
+|constrain\_rss\_img|string|No |
 |schedule|not defined|No |
 
 
@@ -325,9 +320,9 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|image\_url|cadena|No |
-|description|cadena|No |
-|título|cadena|No |
+|image\_url|string|No |
+|description|string|No |
+|título|string|No |
 
 
 
@@ -337,7 +332,7 @@ No hay parámetros para esta llamada
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
 |saved\_segment\_id|integer|No |
-|match|cadena|No |
+|match|string|No |
 
 
 
@@ -377,7 +372,7 @@ No hay parámetros para esta llamada
 |---|---|---|
 |hour|integer|No |
 |daily\_send|not defined|No |
-|weekly\_send\_day|cadena|No |
+|weekly\_send\_day|string|No |
 |monthly\_send\_date|número|No |
 
 
@@ -402,14 +397,14 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|id|cadena|No |
-|type|cadena|No |
-|create\_time|cadena|No |
-|archive\_url|cadena|No |
-|status|cadena|No |
+|id|string|No |
+|type|string|No |
+|create\_time|string|No |
+|archive\_url|string|No |
+|status|string|No |
 |emails\_sent|integer|No |
-|send\_time|cadena|No |
-|content\_type|cadena|No |
+|send\_time|string|No |
+|content\_type|string|No |
 |recipient|array|No |
 |configuración|not defined|No |
 |variate\_settings|not defined|No |
@@ -428,20 +423,20 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|split\_test|cadena|No |
-|pick\_winner|cadena|No |
-|wait\_units|cadena|No |
+|split\_test|string|No |
+|pick\_winner|string|No |
+|wait\_units|string|No |
 |wait\_time|integer|No |
 |split\_size|integer|No |
-|from\_name\_a|cadena|No |
-|from\_name\_b|cadena|No |
-|reply\_email\_a|cadena|No |
-|reply\_email\_b|cadena|No |
-|subject\_a|cadena|No |
-|subject\_b|cadena|No |
-|send\_time\_a|cadena|No |
-|send\_time\_b|cadena|No |
-|send\_time\_winner|cadena|No |
+|from\_name\_a|string|No |
+|from\_name\_b|string|No |
+|reply\_email\_a|string|No |
+|reply\_email\_b|string|No |
+|subject\_a|string|No |
+|subject\_b|string|No |
+|send\_time\_a|string|No |
+|send\_time\_b|string|No |
+|send\_time\_winner|string|No |
 
 
 
@@ -466,7 +461,7 @@ No hay parámetros para esta llamada
 |---|---|---|
 |enabled|boolean|No |
 |can\_cancel|boolean|No |
-|status|cadena|No |
+|status|string|No |
 |emails\_sent|integer|No |
 |emails\_canceled|integer|No |
 
@@ -477,11 +472,11 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|rel|cadena|No |
-|href|cadena|No |
-|estático|cadena|No |
-|targetSchema|cadena|No |
-|schema|cadena|No |
+|rel|string|No |
+|href|string|No |
+|estático|string|No |
+|targetSchema|string|No |
+|schema|string|No |
 
 
 
@@ -490,15 +485,15 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|name|cadena|Sí |
+|name|string|Sí |
 |contact|not defined|Sí |
-|permission\_reminder|cadena|Sí |
+|permission\_reminder|string|Sí |
 |use\_archive\_bar|boolean|No |
 |campaign\_defaults|not defined|Sí |
-|notify\_on\_subscribe|cadena|No |
-|notify\_on\_unsubscribe|cadena|No |
+|notify\_on\_subscribe|string|No |
+|notify\_on\_unsubscribe|string|No |
 |email\_type\_option|boolean|Sí |
-|visibility|cadena|No |
+|visibility|string|No |
 
 
 
@@ -507,14 +502,14 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|company|cadena|Sí |
-|address1|cadena|Sí |
-|address2|cadena|No |
-|city|cadena|Sí |
-|state|cadena|Sí |
-|zip|cadena|Sí |
-|country|cadena|Sí |
-|phone|cadena|Sí |
+|company|string|Sí |
+|address1|string|Sí |
+|address2|string|No |
+|city|string|Sí |
+|state|string|Sí |
+|zip|string|Sí |
+|country|string|Sí |
+|phone|string|Sí |
 
 
 
@@ -523,10 +518,10 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|from\_name|cadena|Sí |
-|from\_email|cadena|Sí |
-|subject|cadena|No |
-|language|cadena|Sí |
+|from\_name|string|Sí |
+|from\_email|string|Sí |
+|subject|string|No |
+|language|string|Sí |
 
 
 
@@ -535,21 +530,21 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|id|cadena|Sí |
-|name|cadena|Sí |
+|id|string|Sí |
+|name|string|Sí |
 |contact|not defined|Sí |
-|permission\_reminder|cadena|Sí |
+|permission\_reminder|string|Sí |
 |use\_archive\_bar|boolean|No |
 |campaign\_defaults|not defined|Sí |
-|notify\_on\_subscribe|cadena|No |
-|notify\_on\_unsubscribe|cadena|No |
-|date\_created|cadena|No |
+|notify\_on\_subscribe|string|No |
+|notify\_on\_unsubscribe|string|No |
+|date\_created|string|No |
 |list\_rating|integer|No |
 |email\_type\_option|boolean|Sí |
-|subscribe\_url\_short|cadena|No |
-|subscribe\_url\_long|cadena|No |
-|beamer\_address|cadena|No |
-|visibility|cadena|No |
+|subscribe\_url\_short|string|No |
+|subscribe\_url\_long|string|No |
+|beamer\_address|string|No |
+|visibility|string|No |
 |modules|array|No |
 |stats|not defined|No |
 |\_links|array|No |
@@ -575,8 +570,8 @@ No hay parámetros para esta llamada
 |target\_sub\_rate|número|No |
 |open\_rate|número|No |
 |click\_rate|número|No |
-|last\_sub\_date|cadena|No |
-|last\_unsub\_date|cadena|No |
+|last\_sub\_date|string|No |
+|last\_unsub\_date|string|No |
 
 
 
@@ -595,14 +590,14 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|email\_type|cadena|No |
-|status|cadena|Sí |
+|email\_type|string|No |
+|status|string|Sí |
 |merge\_fields|not defined|No |
-|interests|cadena|No |
-|language|cadena|No |
+|interests|string|No |
+|language|string|No |
 |vip|boolean|No |
 |location|not defined|No |
-|email\_address|cadena|Sí |
+|email\_address|string|Sí |
 
 
 
@@ -611,8 +606,8 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|FNAME|cadena|No |
-|LNAME|cadena|No |
+|FNAME|string|No |
+|LNAME|string|No |
 
 
 
@@ -631,26 +626,26 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|id|cadena|No |
-|email\_address|cadena|No |
-|unique\_email\_id|cadena|No |
-|email\_type|cadena|No |
-|status|cadena|No |
+|id|string|No |
+|email\_address|string|No |
+|unique\_email\_id|string|No |
+|email\_type|string|No |
+|status|string|No |
 |merge\_fields|not defined|No |
-|interests|cadena|No |
+|interests|string|No |
 |stats|not defined|No |
-|ip\_signup|cadena|No |
-|timestamp\_signup|cadena|No |
-|ip\_opt|cadena|No |
-|timestamp\_opt|cadena|No |
+|ip\_signup|string|No |
+|timestamp\_signup|string|No |
+|ip\_opt|string|No |
+|timestamp\_opt|string|No |
 |member\_rating|integer|No |
-|last\_changed|cadena|No |
-|language|cadena|No |
+|last\_changed|string|No |
+|language|string|No |
 |vip|boolean|No |
-|email\_client|cadena|No |
+|email\_client|string|No |
 |location|not defined|No |
 |last\_note|not defined|No |
-|list\_id|cadena|No |
+|list\_id|string|No |
 |\_links|array|No |
 
 
@@ -661,9 +656,9 @@ No hay parámetros para esta llamada
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
 |note\_id|integer|No |
-|created\_at|cadena|No |
-|created\_by|cadena|No |
-|note|cadena|No |
+|created\_at|string|No |
+|created\_by|string|No |
+|note|string|No |
 
 
 
@@ -673,7 +668,7 @@ No hay parámetros para esta llamada
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
 |members|array|No |
-|list\_id|cadena|No |
+|list\_id|string|No |
 |total\_items|integer|No |
 
 
@@ -691,12 +686,12 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|email\_address|cadena|No |
-|email\_type|cadena|No |
-|status|cadena|Sí |
+|email\_address|string|No |
+|email\_type|string|No |
+|status|string|Sí |
 |merge\_fields|not defined|No |
-|interests|cadena|No |
-|language|cadena|No |
+|interests|string|No |
+|language|string|No |
 |vip|boolean|No |
 |location|not defined|No |
 
@@ -708,7 +703,7 @@ No hay parámetros para esta llamada
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
 |members|array|No |
-|list\_id|cadena|No |
+|list\_id|string|No |
 |total\_items|integer|No |
 
 
@@ -718,30 +713,30 @@ No hay parámetros para esta llamada
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|id|cadena|Sí |
-|email\_address|cadena|Sí |
-|unique\_email\_id|cadena|No |
-|email\_type|cadena|No |
-|status|cadena|No |
+|id|string|Sí |
+|email\_address|string|Sí |
+|unique\_email\_id|string|No |
+|email\_type|string|No |
+|status|string|No |
 |merge\_fields|not defined|Sí |
-|interests|cadena|No |
+|interests|string|No |
 |stats|not defined|No |
-|ip\_signup|cadena|No |
-|timestamp\_signup|cadena|No |
-|ip\_opt|cadena|No |
-|timestamp\_opt|cadena|No |
+|ip\_signup|string|No |
+|timestamp\_signup|string|No |
+|ip\_opt|string|No |
+|timestamp\_opt|string|No |
 |member\_rating|integer|No |
-|last\_changed|cadena|No |
-|language|cadena|No |
+|last\_changed|string|No |
+|language|string|No |
 |vip|boolean|No |
-|email\_client|cadena|No |
+|email\_client|string|No |
 |location|not defined|No |
 |last\_note|not defined|No |
-|list\_id|cadena|No |
+|list\_id|string|No |
 |\_links|array|No |
 
 
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

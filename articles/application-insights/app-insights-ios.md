@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Análisis para aplicaciones de iOS"
+    pageTitle="Análisis para aplicaciones de iOS | Microsoft Azure"
     description="Analice el uso y el rendimiento de la aplicación de iOS."
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/20/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Análisis para aplicaciones de iOS
@@ -31,8 +31,16 @@ Vaya a:
 
 Si la aplicación tiene un lado servidor, utilice [Application Insights](app-insights-overview.md) para supervisar el lado servidor web de la aplicación en [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md).
 
-> [AZURE.NOTE] Pronto podrá usar [Analytics de Application Insights](app-insights-analytics.md) y [Exportación continua](app-insights-export-telemetry.md) con telemetría enviada desde el SDK de HockeyApp.
->
-> [Más información acerca de este cambio.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0622_2016-->
+## Analytics, exportación y acceso de la API a los datos de HockeyApp 
+
+[Configuración de un puente de HockeyApp](app-insights-hockeyapp-bridge-app.md) en Application Insights. Esto le permite:
+
+* Usar el eficaz lenguaje de consulta [Analytics](app-insights-analytics.md) en los datos de telemetría
+* [Exportar telemetría](app-insights-export-telemetry.md) a Almacenamiento de blobs de Azure
+
+## Pasos siguientes
+
+* [Get started with HockeyApp for iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios) (Introducción con HockeyApp para iOS)
+
+<!---HONumber=AcomDC_0831_2016-->

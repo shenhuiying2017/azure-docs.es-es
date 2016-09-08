@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Reemplazar un controlador EBOD en el dispositivo StorSimple
@@ -54,7 +54,7 @@ Antes de reemplazar el módulo de controladores EBOD defectuoso en el dispositiv
 
      **Figura 1** Parte posterior del módulo EBOD
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:----|:----------|
     |1|LED de error|
     |2|LED de encendido|
@@ -89,9 +89,9 @@ El procedimiento y la tabla siguientes explican cómo instalar el módulo de con
 
     ![Cableado del dispositivo 4U para alimentación](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figura 4** Reconexión de los cables
+    **Figura 4**. Reconexión de los cables
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:----|:----------|
     |1|Receptáculo principal|
     |2|PCM 0|
@@ -107,4 +107,4 @@ El procedimiento y la tabla siguientes explican cómo instalar el módulo de con
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/22/2016"
 	ms.author="stefsch"/>
 
 # Opciones de configuración personalizada para Entornos del Servicio de aplicaciones
 
 ## Información general ##
 Puesto que los entornos del Servicio de aplicaciones están aislados en un solo cliente, hay ciertas opciones de configuración que se pueden aplicar exclusivamente a ellos. En este artículo se documentan las distintas personalizaciones específicas disponibles para los entornos del Servicio de aplicaciones.
+
+Si no cuenta con un entorno de Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
 Puede almacenar las personalizaciones del entorno del Servicio de aplicaciones mediante el uso de una matriz en el nuevo atributo **clusterSettings**. Este atributo se encuentra en el diccionario de "Propiedades" de la entidad *hostingEnvironments* de Azure Resource Manager.
 
@@ -95,4 +97,4 @@ El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una p
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

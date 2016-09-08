@@ -62,7 +62,7 @@ Necesitará especificar la red a la que desea que pertenezca la máquina virtual
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.
-- [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
+- [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 
 Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md); esta le ayudará a solucionar el problema.
@@ -110,7 +110,7 @@ Detalles adicionales:
 
 ## ¿Puede Azure ejecutar antivirus en las máquinas virtuales?
 
-Azure ofrece varias opciones para soluciones antivirus, pero la administración depende de usted. Por ejemplo, podría necesitar una suscripción independiente para el software antimalware y tendrá que decidir cuándo ejecutar análisis e instalar las actualizaciones. Puede agregar soporte antivirus con una extensión de máquina virtual de Microsoft Antimalware, Symantec Endpoint Protection o TrendMicro Deep Security Agent al crear una máquina virtual de Windows o en un momento posterior. Las extensiones de Symantec y TrendMicro le permiten usar una suscripción de prueba gratuita de tiempo limitado o una suscripción existente de empresa. Microsoft Antimalware es gratuito. Para obtener información, consulte:
+Azure ofrece varias opciones para soluciones antivirus, pero la administración depende de usted. Por ejemplo, podría necesitar una suscripción distinta para el software antimalware y tendrá que decidir cuándo ejecutar exámenes e instalar las actualizaciones. Puede agregar soporte antivirus con una extensión de máquina virtual de Microsoft Antimalware, Symantec Endpoint Protection o TrendMicro Deep Security Agent al crear una máquina virtual de Windows o en un momento posterior. Las extensiones de Symantec y Trend Micro le permiten usar una suscripción de prueba gratuita de tiempo limitado o una suscripción existente de empresa. Microsoft Antimalware es gratuito. Para obtener información, consulte:
 
 - [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
@@ -140,7 +140,7 @@ En ocasiones Azure reinicia la máquina virtual como parte de las actualizacione
 
 Es posible que se produzcan eventos de mantenimiento no planeados cuando Azure detecte un problema grave de hardware que afecte a la máquina virtual. Para los eventos no planeados, Azure migra la máquina virtual a un host correcto automáticamente y reinicia la máquina virtual.
 
-Para cualquier máquina virtual independiente (es decir, la máquina virtual no forma parte de un conjunto de disponibilidad), Azure envía una notificación al administrador de servicios de la suscripción por correo electrónico al menos una semana antes de efectuar las tareas de mantenimiento planeadas porque las máquinas virtuales pueden reiniciarse durante la actualización. Las aplicaciones que se ejecutan en las máquinas virtuales podrían experimentar tiempos de inactividad.
+Para cualquier máquina virtual independiente (es decir, la máquina virtual no forma parte de un conjunto de disponibilidad), Azure envía una notificación por correo electrónico al administrador de servicios de la suscripción al menos una semana antes de efectuar las tareas de mantenimiento planeadas porque las máquinas virtuales podrían reiniciarse durante la actualización. Las aplicaciones que se ejecutan en las máquinas virtuales podrían experimentar tiempos de inactividad.
 
 Asimismo, también puede usar el Portal de Azure clásico o Azure PowerShell para ver los registros de reinicio cuando este se produjo debido a una tarea de mantenimiento planificada. Para obtener más información, consulte [Visualización de registros de reinicio de máquina virtual](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
@@ -156,4 +156,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2016" 
+	ms.date="08/18/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -27,6 +27,7 @@ Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar un
 
 -	Puede publicar una pregunta en el [hilo de Disqus](#comments) al final de estas preguntas más frecuentes y ponerse en contacto con el equipo de Caché de Microsoft Azure y otros miembros de la comunidad con cualquier tema que tenga relación con este artículo.
 -	Para llegar a más público, puede publicar una pregunta en el [foro de MSDN de Caché de Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) y ponerse en contacto con el equipo Caché de Microsoft Azure y otros miembros de la Comunidad.
+-	Si desea presentar una solicitud para una característica, puede enviar sus solicitudes e ideas al [foro de voz del usuario de Caché en Redis de Azure](https://feedback.azure.com/forums/169382-cache).
 -	También puede enviarnos un mensaje de correo electrónico a [Comentarios externos de Caché de Microsoft Azure](mailto:azurecache@microsoft.com).
 
 ## Conceptos básicos de Caché en Redis de Azure
@@ -448,4 +449,4 @@ Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea 
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

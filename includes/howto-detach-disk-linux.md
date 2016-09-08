@@ -1,6 +1,6 @@
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Con esto se quita el disco de la máquina virtual, pero no se quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede volver a conectarlo a la misma máquina virtual (o a otra).
 
-> [AZURE.NOTE] Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+> [AZURE.NOTE] Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). No puede desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
 
 
 ## Buscar el disco
@@ -9,8 +9,7 @@ Antes de poder desconectar un disco de una máquina virtual, es necesario conoce
 
 1. 	Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
 
-2. 	Compruebe qué discos están conectados a la máquina virtual mediante `azure vm disk list
-	<virtual-machine-name>`:
+2. 	Compruebe qué discos están conectados a la máquina virtual mediante `azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list
@@ -28,9 +27,9 @@ Antes de poder desconectar un disco de una máquina virtual, es necesario conoce
 
 ## Supresión de las referencias al sistema operativo en el disco
 
-Antes de desvincular el disco del invitado Linux, debe identificar todas las particiones del disco que no están en uso y asegurarse de que el sistema operativo no intentará volver a montarlos tras un reinicio. Estos pasos deshacen la configuración que probablemente se creó al [asociar](../articles/virtual-machines-linux-classic-attach-disk.md) el disco.
+Antes de desconectar el disco del invitado de Linux, debe asegurarse de que todas las particiones del disco no están en uso. Asegúrese de que el sistema operativo no intenta volver a montarlas después de un reinicio. Estos pasos deshacen la configuración que probablemente se creó al [asociar](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) el disco.
 
-1. Use el comando `lsscsi` para detectar el identificador de dispositivo. `lsscsi` puede instalarse mediante `yum install lsscsi` (en distribuciones basadas en Red Hat) o mediante `apt-get install lsscsi` (en distribuciones basadas en Debian). Puede encontrar el identificador de disco que está buscando utilizando el número de LUN anterior. El último número de la tupla en cada fila es el LUN. En el ejemplo siguiente LUN 0 se asigna a _/dev/sdc_.
+1. Use el comando `lsscsi` para detectar el identificador de dispositivo. `lsscsi` puede instalarse mediante `yum install lsscsi` (en distribuciones basadas en Red Hat) o mediante `apt-get install lsscsi` (en distribuciones basadas en Debian). Puede encontrar el identificador de disco que está buscando utilizando el número de LUN. El último número de la tupla en cada fila es el LUN. En el ejemplo siguiente LUN 0 se asigna a _/dev/sdc_.
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -97,4 +96,4 @@ Después de encontrar el número LUN del disco y de quitar las referencias del s
 
 El disco desacoplado permanece en el almacenamiento pero ya no estará acoplado a una máquina virtual.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

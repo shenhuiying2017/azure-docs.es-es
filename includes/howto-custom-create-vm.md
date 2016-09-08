@@ -5,7 +5,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 - Numerosas opciones para la imagen utilizada para crear una máquina virtual (VM)
 - Conexión de la VM a una red virtual
 - Adición de la VM a un servicio en la nube existente
-- Adición de la VM a un conjunto de disponibilidad
+- Incorporación de la máquina virtual a un conjunto de disponibilidad
 
 > [AZURE.IMPORTANT] Si desea que la máquina virtual use una red virtual, con el fin de poder conectarse a ella directamente mediante un nombre de host o configurar conexiones entre locales, asegúrese de que especifica la red virtual al crear la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -55,7 +55,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 ##Pasos siguientes##
 Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el portal se muestre el estado como en ejecución, podrá iniciar sesión en la máquina virtual. Si desea instrucciones, consulte uno de los artículos siguientes:
 
-- [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

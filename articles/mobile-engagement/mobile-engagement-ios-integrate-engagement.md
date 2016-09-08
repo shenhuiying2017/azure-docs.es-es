@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="MehrdadMzfr" />
 
 #Integración de Engagement en iOS
@@ -43,8 +43,6 @@ Engagement requiere la contratación de marcos adicionales para trabajar: en el 
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
-
-<br\>
 
 > [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar \<ios-sdk-engagement-idfa\> para cumplir con la nueva directiva de Apple con respecto a este identificador.
 
@@ -210,4 +208,4 @@ El siguiente ejemplo de `Settings.bundle` muestra el proceso de implementación:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

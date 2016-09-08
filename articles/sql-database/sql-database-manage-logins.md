@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/06/2016"
+   ms.date="08/24/2016"
    ms.author="rickbyh"/>
 
 # Autorización y autenticación de Base de datos SQL: concesión de acceso 
@@ -37,7 +37,7 @@ Hay dos posibles cuentas administrativas con permisos sin restricciones para acc
 Cuando se crea una instancia lógica de SQL, se crea también una cuenta de inicio de sesión único, que se denomina Cuenta de suscriptor de Base de datos SQL. Esta cuenta se conecta mediante la autenticación de SQL Server (nombre de usuario y contraseña). Esta cuenta es un administrador en la instancia del servidor lógico y en todas las bases de datos de usuario asociadas a dicha instancia. Los permisos de la cuenta del suscriptor no se pueden restringir. Solo puede existir una de estas cuentas.
 
 ### Administrador de Azure Active Directory
-Una cuenta de Azure Active Directory también se puede configurar como administrador. Esta cuenta puede ser un usuario individual de Azure AD, o bien puede ser un grupo de Azure AD con varios usuarios individuales de Azure AD. Opcionalmente, se puede configurar un administrador de Azure AD, pero es obligatorio configurarlo si desea utilizar la autenticación de Windows para que las cuentas de Azure AD se conecten a Base de datos SQL. Para más información acerca de cómo configurar el acceso a Azure Active Directory, consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
+Una cuenta de Azure Active Directory también se puede configurar como administrador. Esta cuenta puede ser un usuario individual de Azure AD, o bien puede ser un grupo de Azure AD con varios usuarios individuales de Azure AD. Opcionalmente, se puede configurar un administrador de Azure AD, pero es obligatorio configurarlo si desea utilizar la autenticación de Windows para que las cuentas de Azure AD se conecten a Base de datos SQL. Para más información acerca de cómo configurar el acceso a Azure Active Directory, consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md) y [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](sql-database-ssms-mfa-authentication.md).
 
 ### Configuración del firewall
 Cuando hay un firewall de nivel de servidor configurado, tanto la cuenta de suscriptor de Base de datos SQL de Azure como la cuenta de Azure Active Directory pueden conectarse a la base de datos maestra virtual y a las bases de datos de usuario. El firewall de nivel de servidor se puede configurar a través del portal. Una vez que se establece una conexión, también se pueden configurar reglas de firewall de nivel de servidor adicionales, para lo que se debe usar la instrucción [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) de Transact-SQL. Para más información acerca de cómo configurar el firewall, consulte [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md).
@@ -68,7 +68,7 @@ Las cuentas administrativas pueden crear nuevas bases de datos. Para crear una c
      CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
      ```
 
-     > [AZURE.NOTE] Al crear un inicio de sesión o un usuario de una base de datos independiente, es preciso usar una contraseña segura. Para obtener más información, consulte [Contraseñas seguras](https://msdn.microsoft.com/library/ms161962.aspx).
+     > [AZURE.NOTE] Al crear un inicio de sesión o un usuario de una base de datos independiente, use una contraseña segura. Para obtener más información, consulte [Contraseñas seguras](https://msdn.microsoft.com/library/ms161962.aspx).
 
 3.	En la base de datos maestra virtual, cree un usuario mediante la instrucción [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). El usuario puede ser un usuario de base de datos independiente de Azure Active Directory (si ha configurado el entorno para la autenticación de Azure AD), o un usuario de base de datos independiente de autenticación de SQL Server o un usuario de autenticación de SQL Server basándose en un inicio de sesión de autenticación de SQL Server (creado en el paso anterior). Instrucciones de ejemplo:
 
@@ -93,13 +93,13 @@ Ahora el usuario puede conectarse a la base de datos maestra virtual y puede cre
 
 ### Administradores de inicio de sesión
 
-Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra virtual. En la mayoría de los casos no es necesario, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra virtual. Normalmente no es necesario, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Usuarios no administradores
 
 Por lo general, las cuentas que no sean de administrador no necesitan acceso a la base de datos maestra virtual. Cree usuarios de una base de datos independiente en el nivel de base de datos con la instrucción [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). El usuario puede ser un usuario de base de datos independiente de Azure Active Directory (si ha configurado el entorno para la autenticación de Azure AD), o un usuario de base de datos independiente de autenticación de SQL Server o un usuario de autenticación de SQL Server basándose en un inicio de sesión de autenticación de SQL Server (creado en el paso anterior). Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-Para crear usuarios, conectarse a la base de datos y ejecutar instrucciones similares a estas:
+Para crear usuarios, conectarse a la base de datos y ejecutar instrucciones similares a los siguientes ejemplos:
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
@@ -133,7 +133,7 @@ Si se utiliza la autenticación de SQL Server:
 
 - Cree usuarios de bases de datos independientes en la base de datos. Coloque uno o varios usuarios de base de datos en un rol de base de datos. Y, a continuación, asigne permisos al rol de base de datos.
 
-Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, y **db\_denydatareader**. **db\_owner** se suele utilizar para conceder permiso total a solo unos pocos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db\_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar cuidadosamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realizará la agregación de los permisos de todos ellos.
+Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, y **db\_denydatareader**. **db\_owner** se suele utilizar para conceder permiso total a solo unos pocos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db\_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar cuidadosamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realiza la agregación de los permisos de todos ellos.
 
 ## Permisos
 
@@ -161,4 +161,4 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

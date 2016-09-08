@@ -93,6 +93,11 @@ Todas las versiones del SDK de Azure DocumentDB para Python anteriores a la vers
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
+| [1.9.0](#1.9.0) | 07 de julio de 2016 |---
+| [1.8.0](#1.8.0) | 14 de julio de 2016 |---
+| [1.7.0](#1.7.0) | 26 de abril de 2016 |---
+| [1.6.1](#1.6.1) | 08 de abril de 2016 |---
+| [1.6.0](#1.6.0) | 29 de marzo de 2016 |---
 | [1\.5.0](#1.5.0) | 03 de enero de 2016 |--- 
 | [1\.4.2](#1.4.2) | 06 de octubre de 2015 |--- 
 | [1\.4.1](#1.4.1) | 06 de octubre de 2015 |--- 

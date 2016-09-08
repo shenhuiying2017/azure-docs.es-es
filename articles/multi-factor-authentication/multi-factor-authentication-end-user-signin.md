@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
@@ -28,10 +28,10 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 
 ¿Qué hace normalmente?|Description
 :------------- | :------------- | 
-<a href="#1">Inicio de sesión con el teléfono de la oficina o con un móvil</a> | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
-<a href="#2">Inicio de sesión con la aplicación móvil mediante la notificación</a> | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y las notificaciones.
-<a href="#3">Inicio de sesión con la aplicación móvil mediante el código de comprobación</a> | Esto es lo que puede esperar al inicio de sesión con la aplicación móvil y un código de comprobación.
-<a href="#4">Inicio de sesión con un método alternativo</a> | Esto le mostrará qué esperar si desea usar un método alternativo.
+[Inicio de sesión con el teléfono de la oficina o con un móvil](#signing-in-with-mobile-or-office-phone) | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
+[Inicio de sesión en la aplicación Microsoft Authenticator mediante una notificación](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con notificaciones.
+[Inicio de sesión en la aplicación Microsoft Authenticator mediante un código de verificación](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con un código de verificación.
+[Inicio de sesión con un método alternativo](#signing-in-with-an-alternate-method)|Esto le mostrará qué esperar si desea usar un método alternativo.
 
 <h2 id="1">Inicio de sesión con el teléfono de la oficina o con un móvil</h2>
 
@@ -50,11 +50,11 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 - Con esto debe haber iniciado sesión.</li>
 
-<h2 id="2">Inicio de sesión con la aplicación móvil mediante la notificación</h2>
+## Inicio de sesión en la aplicación Microsoft Authenticator mediante una notificación
 
-La siguiente información describe la experiencia de uso de la autenticación multifactor con su aplicación móvil a través del envío de una notificación.
+La siguiente información describe la experiencia de uso de la autenticación multifactor con la aplicación Microsoft Authenticator cuando se le envía una notificación.
 
-### Para iniciar sesión con una notificación enviada a la aplicación móvil
+### Para iniciar sesión con una notificación enviada a aplicación Authenticator de Microsoft
 
 - Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
 - Microsoft le enviará una notificación.
@@ -70,18 +70,18 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 - Con esto debe haber iniciado sesión.
 
 
-<h2 id="3">Inicio de sesión con la aplicación móvil mediante el código de comprobación</h2>
+## Inicio de sesión en la aplicación Microsoft Authenticator mediante un código de verificación
 
-La siguiente información describe la experiencia de uso de la autenticación multifactor con su aplicación móvil a través del uso de un código de comprobación.
+La siguiente información describe la experiencia de uso de la autenticación multifactor con la aplicación Microsoft Authenticator cuando la usa con un código de verificación.
 
-### Para iniciar sesión con un código de comprobación con su aplicación móvil
+### Para iniciar sesión en la aplicación Microsoft Authenticator con un código de verificación
 
 - Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
 - Microsoft le pedirá un código de verificación.
 
 ![Escribir el código de comprobación](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
 
-- Abra la aplicación Azure Authenticator en el teléfono y escriba el código en el cuadro donde está iniciando sesión.
+- Abra la aplicación Microsoft Authenticator en el teléfono y escriba el código en el cuadro donde está iniciando sesión.
 
 ![Obtener código](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
@@ -104,4 +104,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

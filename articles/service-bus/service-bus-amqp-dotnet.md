@@ -25,7 +25,7 @@ La compatibilidad con AMQP 1.0 está disponible en el SDK del Bus de servicio ve
 
 ## Configuración de aplicaciones .NET para usar AMQP 1.0
 
-De manera predeterminada, la biblioteca de clientes .NET del bus de servicio se comunica con el servicio del bus de servicio utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión del Bus de servicio tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación prácticamente permanece invariable al utilizar AMQP 1.0.
+De manera predeterminada, la biblioteca de clientes .NET del bus de servicio se comunica con el servicio del bus de servicio utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión del Bus de servicio tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación permanece invariable al utilizar AMQP 1.0.
 
 La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección [Características no admitidas, restricciones y diferencias de comportamiento](#unsupported-features-restrictions-and-behavioral-differences). Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
 
@@ -45,7 +45,7 @@ El valor del parámetro `Microsoft.ServiceBus.ConnectionString` es la cadena de 
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Donde `[namespace]` y `SharedAccessKey` se obtienen en el [Portal de Azure clásico][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
+Donde `[namespace]` y `SharedAccessKey` se obtienen en el [Portal de Azure][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
 
 Al usar AMQP, anexe la cadena de conexión a `;TransportType=Amqp`. Esta notación informa a la biblioteca de cliente que realice la conexión con el Bus de servicio mediante AMQP 1.0.
 
@@ -75,11 +75,11 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | DateTime | timestamp | Valor de AMQP |
 | Guid | uuid | Valor de AMQP |
 | byte | binary | Valor de AMQP |
-| cadena | cadena | Valor de AMQP |
+| string | string | Valor de AMQP |
 | System.Collections.IList | list | Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Array | array | Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Collections.IDictionary | map | Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. Nota: solo se admiten claves de cadena. |
-| URI | Cadena descrita (consulte la tabla siguiente) | Valor de AMQP |
+| Identificador URI | Cadena descrita (consulte la tabla siguiente) | Valor de AMQP |
 | DateTimeOffset | Longitud descrita (consulte la tabla siguiente) | Valor de AMQP |
 | TimeSpan | Longitud descrita (consulte a continuación) | Valor de AMQP |
 | Stream | binary | Datos de AMQP (pueden ser varios) Las secciones de datos contienen los bytes sin formato que se leen desde el objeto de secuencia. |
@@ -87,7 +87,7 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 
 | Tipo .NET | Mapped AMQP Described Type | Notas |
 |----------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------|
-| URI | `<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` | Uri.AbsoluteUri |
+| Identificador URI | `<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` | Uri.AbsoluteUri |
 | DateTimeOffset | `<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` | DateTimeOffset.UtcTicks |
 | TimeSpan | `<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` | TimeSpan.Ticks |
 
@@ -134,9 +134,9 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Portal de Azure]: https://portal.azure.com
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

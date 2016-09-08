@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
-   manager="dwrede" 
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -26,7 +26,7 @@ Orientar su audiencia según criterios específicos mediante el botón "Nuevos c
 - [Documentación de la interfaz de usuario - Alcance - Nueva campaña de inserción][Link 27]
 
 ## Dentro de los criterios de audiencia se pueden incluir:
-- ****Aspectos técnicos:** puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también**: [Documentación de la interfaz de usuario - Análisis][Link 15], [Documentación de la interfaz de usuario - Supervisión][Link 16]
+- **Aspectos técnicos:** puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también**: [Documentación de la interfaz de usuario - Análisis][Link 15], [Documentación de la interfaz de usuario - Supervisión][Link 16]
 - **Ubicación:** las aplicaciones que usan "informes de ubicación en tiempo real" con Geofencing pueden usar la geolocalización como criterio para orientarse a una audiencia desde la ubicación de GPS. La llamada "Informes de ubicación de área diferida" también se puede usar para orientarse a una audiencia desde la ubicación del teléfono móvil ("Informes de ubicación en tiempo real" e " Informes de ubicación de área diferida" deben activarse desde el SDK) **Consulte también:** [Documentación del SDK - iOS -][Link 5], [Documentación del SDK - Android - Integración][Link 5]
 - **Comentarios sobre la cobertura:** puede tener como destino su audiencia según sus comentarios de notificaciones de cobertura anteriores a través de comentarios sobre la cobertura de Anuncios, Sondeos e Inserciones de datos. Esto le permite orientarse mejor a la audiencia después de dos o tres campañas de cobertura que la primera vez. También puede usarse para filtrar los usuarios que ya han recibido una notificación con contenido similar, al establecer una campaña para NO enviarse a los usuarios que ya han recibido una determinada campaña anterior. Incluso puede excluir a los usuarios incluidos en una campaña específica que está todavía activa para recibir inserciones nuevas. **Vea también:** [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Link 29]
 - **Seguimiento de la instalación:** puede realizar un seguimiento de información basada en dónde instalaron los usuarios su aplicación. **Consulte también:** [Documentación de interfaz de usuario - Configuración][Link 20]
@@ -37,7 +37,7 @@ Orientar su audiencia según criterios específicos mediante el botón "Nuevos c
 ## Ejemplo: 
 Si desea insertar un anuncio solo en el subconjunto de los usuarios que han realizado una acción de compra en la aplicación.
 
-1. Vaya a la página de configuración de la aplicación, seleccione el menú "Información de la aplicación" y seleccione "Nueva información de la aplicación"
+1. Vaya a la página de configuración de la aplicación, seleccione el menú "App info" (Información de la aplicación) y seleccione "New app info" (Nueva información de la aplicación).
 2. Registre una nueva información de aplicación de booleano denominada "inAppPurchase"
 3. Haga que la aplicación establezca esta información de aplicación en "true" cuando el usuario realice correctamente una compra en la aplicación (mediante el uso de la función sendAppInfo ("inAppPurchase",...))
 4. Si no desea hacerlo desde la aplicación, puede hacerlo desde el backend mediante el uso de la API del dispositivo)
@@ -48,7 +48,7 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 ![Reach-Criterion1][29]
 
 ## Las opciones de criterios se aplican a:
-- **Notas técnicas**     
+- **Notas técnicas**
 - Nombre del firmware: nombre del firmware
 - Versión del firmware: versión del firmware
 - Modelo del dispositivo: modelo del dispositivo
@@ -59,27 +59,27 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 - Tipo de red: tipo de red
 - Configuración regional: configuración regional
 - Tamaño de pantalla: tamaño de pantalla
-- **Ubicación**      
+- **Ubicación**
 - Última área conocida: país, región, localidad
 - Geofencing en tiempo real: lista de puntos de interés (nombre, acciones), punto de interés circular (nombre, latitud, longitud, radio en metros)
-- **Comentarios sobre la cobertura**     
+- **Comentarios sobre la cobertura**
 - Comentarios de anuncio: anuncio, comentarios
 - Comentarios de sondeo: sondeo, comentarios
 - Comentarios de respuesta de sondeo: comentarios de respuesta de sondeo, pregunta, opción
 - Comentarios de inserción de datos: inserción de datos, comentarios
-- **Seguimiento de la instalación**     
+- **Seguimiento de la instalación**
 - Tienda: tienda, sin definir
 - Origen: origen, sin definir
-- **Perfil de usuario**     
+- **Perfil de usuario**
 - Género: hombre o mujer, sin definir
 - Fecha de nacimiento: operador, fecha, sin definir
 - Participar: verdadero o falso, sin definir
-- **Información de la aplicación**      
+- **Información de la aplicación**
 - Cadena: cadena, sin definir
 - Fecha: operador, fecha, sin definir
 - Entero: operador, número, sin definir
 - Booleano: verdadero o falso, sin definir
-- **Segmento**    
+- **Segmento**
 - Nombre de segmentos (de la lista desplegable), exclusión (usuarios de destino que no forman parte de este segmento).
 
 <!--Image references-->
@@ -174,4 +174,4 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

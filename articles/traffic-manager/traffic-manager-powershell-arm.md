@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Compatibilidad de Azure Resource Manager con el Administrador de tráfico | Microsoft Azure"
+   pageTitle="Compatibilidad de Azure Resource Manager con el Administrador de tráfico | Microsoft Azure "
    description="Uso de PowerShell para el Administrador de tráfico con Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Compatibilidad de Azure Resource Manager con el Administrador de tráfico de Azure
 El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. Los perfiles del Administrador de tráfico de Azure ahora pueden administrarse mediante las herramientas y las API basadas en el Administrador de recursos de Azure.
@@ -66,7 +66,7 @@ Elección de la suscripción de Azure que se va a usar.
 
 	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
-Para ver una lista de las suscripciones disponibles, use el cmdlet 'Get-AzureRmSubscription'.
+Para ver una lista de las suscripciones disponibles, use el cmdlet "Get-AzureRmSubscription".
 
 ### Paso 4
 
@@ -309,4 +309,4 @@ Se puede canalizar igualmente esta secuencia:
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

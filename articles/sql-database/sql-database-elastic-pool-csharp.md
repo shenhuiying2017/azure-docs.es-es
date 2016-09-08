@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/03/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # C&#x23; desarrollo de bases de datos: crear y configurar un grupo de bases de datos elásticas para una base de datos SQL
@@ -36,7 +36,7 @@ En los ejemplos usaremos la [Biblioteca de Base de datos SQL de Azure para .NET]
 
 
 
-Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva a este artículo. Asimismo, para obtener una copia gratuita de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si no tiene una suscripción a Azure, simplemente haga clic en la opción **EVALUACIÓN GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva a este artículo. Asimismo, para obtener una copia gratuita de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Instalación de las bibliotecas necesarias
 
@@ -51,13 +51,13 @@ Obtenga las bibliotecas de administración necesarias instalando los siguientes 
 
 Antes de comenzar a desarrollar SQL en C#, debe completar algunas tareas en el Portal de Azure. Primero, debe habilitar su aplicación para que tenga acceso a la API de REST configurando la autenticación necesaria.
 
-Las [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usan Azure Active Directory para la autenticación, en lugar de los certificados usados por las API de REST de administración de servicios de Azure anteriores.
+Las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) usan Azure Active Directory para la autenticación, en lugar de los certificados usados por el modelo de implementación clásico anterior.
 
-Para autenticar la aplicación de cliente basada en el usuario actual, primero debe registrar su aplicación en el dominio de AAD asociado a la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tendrá un dominio de AAD predeterminado. El registro de la aplicación se puede realizar en el [portal clásico](https://manage.windowsazure.com/).
+Para autenticar la aplicación cliente basada, primero debe registrar su aplicación en el dominio de AAD de la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tiene un dominio de AAD predeterminado. Registre la aplicación en el [portal clásico](https://manage.windowsazure.com/).
 
-Para crear una nueva aplicación y registrarla en el directorio activo correcto, haga lo siguiente:
+Para crear una aplicación y registrarla en el directorio activo correcto, haga lo siguiente:
 
-1. Desplace el menú del lado izquierdo para buscar el servicio de **Active Directory** y ábralo.
+1. Busque el servicio **Active Directory** y ábralo.
 
     ![Desarrollo de bases de datos SQL de C#: programa de instalación de Active Directory][1]
 
@@ -69,7 +69,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Haga clic en Aplicaciones.][5]
 
-4. Haga clic en **AGREGAR** para crear una nueva aplicación.
+4. Haga clic en **AGREGAR** para crear una aplicación.
 
     ![Haga clic en el botón Agregar: crear una aplicación de C#.][6]
 
@@ -83,7 +83,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Agregar aplicación][8]
 
-7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesitará en su código).
+7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesita en su código).
 
     ![Obtener el id. de cliente][9]
 
@@ -104,7 +104,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 Se requiere el nombre de dominio para su código. Para identificar de manera sencilla el nombre de dominio adecuado:
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
-2. Mantenga el puntero sobre su nombre en la esquina superior derecha y anote el dominio que aparece en la ventana emergente. Reemplace **domain.onmicrosoft.com** en el fragmento de código siguiente por el valor que encontrará en su cuenta.
+2. Mantenga el puntero sobre su nombre en la esquina superior derecha y anote el dominio que aparece en la ventana emergente. Reemplace **domain.onmicrosoft.com** en el fragmento de código por el valor que encontrará en su cuenta.
 
     ![Identificar nombre de dominio][3]
 
@@ -117,7 +117,7 @@ Encontrará información adicional sobre el uso de Azure Active Directory para l
 
 ### Recuperar el token de acceso para el usuario actual
 
-La aplicación cliente debe recuperar el token de acceso de la aplicación para el usuario actual. La primera vez que un usuario ejecuta el código se le pedirá que escriba sus credenciales de usuario y el token resultante se almacenará en caché localmente. Las ejecuciones posteriores recuperarán el token de la memoria caché y solo pedirán al usuario que inicie sesión si el token ha expirado.
+La aplicación cliente debe recuperar el token de acceso de la aplicación para el usuario actual. La primera vez que se ejecuta el código, se le pedirá que escriba sus credenciales y el token resultante se almacenará en caché localmente. Las ejecuciones posteriores recuperan el token de la memoria caché y solo le pedirán que inicie sesión si el token ha expirado.
 
 
     private static AuthenticationResult GetAccessToken()
@@ -161,7 +161,7 @@ Con el Administrador de recursos, todos los recursos se deben crear en un grupo 
 
 ## Creación de un servidor
 
-Los grupos de bases de datos elásticas se encuentran en servidores de Base de datos SQL de Azure; así pues, el paso siguiente consiste en crear un servidor. El nombre de servidor debe ser único globalmente entre todos los servidores SQL de Azure de manera que obtendrá un error aquí si el nombre del servidor ya existe. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Para permitir que una aplicación pueda conectarse al servidor, también debe crear una regla de firewall en el servidor para así poder abrir el acceso desde la dirección IP del cliente.
+Los grupos de bases de datos elásticas se encuentran en servidores de Base de datos SQL de Azure; así pues, el paso siguiente consiste en crear un servidor. El nombre de servidor debe ser único globalmente entre todos los servidores SQL de Azure de manera que obtiene un error aquí si el nombre del servidor ya existe. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Para permitir que una aplicación pueda conectarse al servidor, también debe crear una regla de firewall en el servidor para así poder abrir el acceso desde la dirección IP del cliente.
 
 
     // Create a SQL Database management client
@@ -206,7 +206,7 @@ En el ejemplo siguiente, crearemos una regla de firewall de servidor que permiti
 
 
 
-Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esta opción permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
+Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Esto permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
 
 
 ## Creación de una base de datos
@@ -573,4 +573,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="mahthi"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -46,7 +46,7 @@ Puede encontrar las suscripciones disponibles mediante el siguiente comando.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establecezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
+Establezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -71,7 +71,7 @@ Puede encontrar las suscripciones disponibles mediante el siguiente comando.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establecezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
+Establezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
@@ -181,4 +181,4 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

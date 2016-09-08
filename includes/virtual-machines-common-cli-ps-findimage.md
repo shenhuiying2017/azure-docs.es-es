@@ -10,16 +10,17 @@ La manera más fácil y rápida de buscar una imagen para usar con `azure vm qui
     info:    Executing command vm image list
     warn:    The parameter --sku if specified will be ignored
     + Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn
-    data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
-    data:    canonical  ubuntuserver  12.04-DAILY  12.04.201504201  westus    canonical:ubuntuserver:12.04-DAILY:12.04.201504201
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201302250  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201302250
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201303250  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201303250
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201304150  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201304150
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201305160  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201305160
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201305270  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201305270
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306030  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306030
-    data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306240  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306240
+    data:    Publisher  Offer         Sku                OS     Version          Location  Urn
+    data:    ---------  ------------  -----------------  -----  ---------------  --------  --------------------------------------------------------
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201604203  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201605161  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606100  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606270  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201607210  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
+    data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201608150  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
+    data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607220  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607220
+    data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607230  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607230
+    data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607240
 
 La columna **Urn** será el formulario que pase a `azure vm quick-create`.
 
@@ -28,7 +29,7 @@ A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
     Location: westus
-    + Getting virtual machine image publishers (Location: "westus")
+    + Getting virtual machine and/or extension image publishers (Location: "westus")
     data:    Publisher                                       Location
     data:    ----------------------------------------------  --------
     data:    a10networks                                     westus  
@@ -44,9 +45,14 @@ Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterio
     Location: westus
     Publisher: canonical
     + Getting virtual machine image offers (Publisher: "canonical" Location:"westus")
-    data:    Publisher  Offer         Location
-    data:    ---------  ------------  --------
-    data:    canonical  UbuntuServer  westus  
+    data:    Publisher  Offer                      Location
+    data:    ---------  -------------------------  --------
+    data:    canonical  Ubuntu15.04Snappy          westus
+    data:    canonical  Ubuntu15.04SnappyDocker    westus
+    data:    canonical  UbunturollingSnappy        westus
+    data:    canonical  UbuntuServer               westus
+    data:    canonical  Ubuntu_Snappy_Core         westus
+    data:    canonical  Ubuntu_Snappy_Core_Docker  westus
     info:    vm image list-offers command OK
 
 Ahora ya sabemos que, en la región Oeste de EE. UU., Canonical publica la oferta **UbuntuServer** en Azure. Pero, ¿con qué SKU? Para obtenerlas, se llama a `azure vm image list-skus` y se responde a la solicitud con la ubicación, el publicador y la oferta que haya encontrado.
@@ -57,47 +63,60 @@ Ahora ya sabemos que, en la región Oeste de EE. UU., Canonical publica la ofer
     Publisher: canonical
     Offer: ubuntuserver
     + Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-    data:    Publisher  Offer         sku          Location
-    data:    ---------  ------------  -----------  --------
-    data:    canonical  ubuntuserver  12.04-DAILY  westus  
-    data:    canonical  ubuntuserver  12.04.2-LTS  westus  
-    data:    canonical  ubuntuserver  12.04.3-LTS  westus  
-    data:    canonical  ubuntuserver  12.04.4-LTS  westus  
-    data:    canonical  ubuntuserver  12.04.5-LTS  westus  
-    data:    canonical  ubuntuserver  12.10        westus  
-    data:    canonical  ubuntuserver  14.04-beta   westus  
-    data:    canonical  ubuntuserver  14.04-DAILY  westus  
-    data:    canonical  ubuntuserver  14.04.0-LTS  westus  
-    data:    canonical  ubuntuserver  14.04.1-LTS  westus  
-    data:    canonical  ubuntuserver  14.04.2-LTS  westus  
-    data:    canonical  ubuntuserver  14.10        westus  
-    data:    canonical  ubuntuserver  14.10-beta   westus  
-    data:    canonical  ubuntuserver  14.10-DAILY  westus  
-    data:    canonical  ubuntuserver  15.04        westus  
-    data:    canonical  ubuntuserver  15.04-beta   westus  
-    data:    canonical  ubuntuserver  15.04-DAILY  westus  
+    data:    Publisher  Offer         sku                Location
+    data:    ---------  ------------  -----------------  --------
+    data:    canonical  ubuntuserver  12.04.2-LTS        westus
+    data:    canonical  ubuntuserver  12.04.3-LTS        westus
+    data:    canonical  ubuntuserver  12.04.4-LTS        westus
+    data:    canonical  ubuntuserver  12.04.5-DAILY-LTS  westus
+    data:    canonical  ubuntuserver  12.04.5-LTS        westus
+    data:    canonical  ubuntuserver  12.10              westus
+    data:    canonical  ubuntuserver  14.04-beta         westus
+    data:    canonical  ubuntuserver  14.04.0-LTS        westus
+    data:    canonical  ubuntuserver  14.04.1-LTS        westus
+    data:    canonical  ubuntuserver  14.04.2-LTS        westus
+    data:    canonical  ubuntuserver  14.04.3-LTS        westus
+    data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  westus
+    data:    canonical  ubuntuserver  14.04.4-LTS        westus
+    data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  westus
+    data:    canonical  ubuntuserver  14.04.5-LTS        westus
+    data:    canonical  ubuntuserver  14.10              westus
+    data:    canonical  ubuntuserver  14.10-beta         westus
+    data:    canonical  ubuntuserver  14.10-DAILY        westus
+    data:    canonical  ubuntuserver  15.04              westus
+    data:    canonical  ubuntuserver  15.04-beta         westus
+    data:    canonical  ubuntuserver  15.04-DAILY        westus
+    data:    canonical  ubuntuserver  15.10              westus
+    data:    canonical  ubuntuserver  15.10-alpha        westus
+    data:    canonical  ubuntuserver  15.10-beta         westus
+    data:    canonical  ubuntuserver  15.10-DAILY        westus
+    data:    canonical  ubuntuserver  16.04-alpha        westus
+    data:    canonical  ubuntuserver  16.04-beta         westus
+    data:    canonical  ubuntuserver  16.04.0-DAILY-LTS  westus
+    data:    canonical  ubuntuserver  16.04.0-LTS        westus
+    data:    canonical  ubuntuserver  16.10-DAILY        westus
     info:    vm image list-skus command OK
 
 Con esta información, ahora puede buscar con precisión la imagen que desee mediante una llamada a la llamada original en la parte superior.
 
-    azure vm image list westus canonical ubuntuserver 14.04.2-LTS
+    azure vm image list westus canonical ubuntuserver 16.04.0-LTS
     info:    Executing command vm image list
-    + Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "14.04.2-LTS" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn
-    data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
-    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201503090  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201503090
-    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.20150422   westus    canonical:ubuntuserver:14.04.2-LTS:14.04.20150422
-    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
+    + Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "16.04.0-LTS" Location:"westus")
+    data:    Publisher  Offer         Sku          OS     Version          Location  Urn
+    data:    ---------  ------------  -----------  -----  ---------------  --------  --------------------------------------------------
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201604203  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201605161  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606100  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201607210  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
+    data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
     info:    vm image list command OK
 
 Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, vea [Uso de la CLI de Azure CLI para Mac, Linux y Windows con el Administrador de recursos de Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Vea [Uso de la CLI de Azure con el Administrador de recursos](../articles/xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con el Administrador de recursos de Azure](../articles/powershell-azure-resource-manager.md) para más información completa sobre la configuración y actualización.
-
-> [AZURE.NOTE] Con los módulos de Azure PowerShell posteriores a la versión 1.0, se ha quitado el cmdlet `Switch-AzureMode`. Con esa versión y más reciente, reemplace los siguientes comandos con la posición `Azure` reemplazada por `AzureRm`. Si usa los módulos de Azure PowerShell inferiores a la versión 1.0, usará los comandos siguiente, pero primero deberá `Switch-AzureMode AzureResourceManager`.
-
+> [AZURE.NOTE] Instale y configure la [versión más reciente de Azure PowerShell](../articles/powershell-install-configure.md). Si usa módulos de Azure PowerShell anteriores a la versión 1.0, seguirá usando estos comandos, pero primero debe `Switch-AzureMode AzureResourceManager`.
 
 Al crear una nueva máquina virtual con el Administrador de recursos de Azure, en algunos casos deberá especificar una imagen con la combinación de las propiedades de imagen siguientes:
 
@@ -105,7 +124,7 @@ Al crear una nueva máquina virtual con el Administrador de recursos de Azure, e
 - Oferta
 - SKU
 
-Por ejemplo, estos valores son necesarios para el cmdlet **Set-AzureVMSourceImage** de PowerShell o con un archivo de plantilla de grupo de recursos en el que debe especificar el tipo de máquina virtual que se creará.
+Por ejemplo, estos valores son necesarios para el cmdlet `Set-AzureRMVMSourceImage` de PowerShell o con un archivo de plantilla de grupo de recursos en el que debe especificar el tipo de máquina virtual que se creará.
 
 Si necesita determinar estos valores, puede explorar las imágenes para determinar estos valores:
 
@@ -113,69 +132,79 @@ Si necesita determinar estos valores, puede explorar las imágenes para determin
 2. Para un publicador determinado, enumeración de sus ofertas.
 3. Para una oferta determinada, enumeración de sus SKU.
 
-Para hacer esto en PowerShell, en primer lugar cambie al modo de Administrador de recursos de Azure PowerShell.
 
-	Switch-AzureMode AzureResourceManager
+En primer lugar, muestre los publicadores con los siguientes comandos:
 
-Para el primer paso, enumere los publicadores con estos comandos.
+```powershell
+$locName="<Azure location, such as West US>"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+```
 
-	$locName="<Azure location, such as West US>"
-	Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+Rellene el nombre del publicador elegido y ejecute los siguientes comandos:
 
-Rellene el nombre del publicador elegido y ejecute estos comandos.
+```powershell
+$pubName="<publisher>"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
-	$pubName="<publisher>"
-	Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Rellene el nombre de la oferta elegida y ejecute los siguientes comandos:
 
-Rellene el nombre de la oferta elegida y ejecute estos comandos.
+```powershell
+$offerName="<offer>"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
-	$offerName="<offer>"
-	Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+En la pantalla del comando `Get-AzureRMVMImageSku`, tiene toda la información que necesita para especificar la imagen para una nueva máquina virtual.
 
-En la pantalla del comando **Get-AzureVMImageSku** tiene toda la información que necesita para especificar la imagen para una nueva máquina virtual.
+A continuación se muestra un ejemplo completo:
 
-Aquí tiene un ejemplo.
+```powershell
+PS C:\> $locName="West US"
+PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
-
-	PublisherName
-	-------------
-	a10networks
-	aiscaler-cache-control-ddos-and-url-rewriting-
-	alertlogic
-	AlertLogic.Extension
-	Barracuda.Azure.ConnectivityAgent
-	barracudanetworks
-	basho
-	boxless
-	bssw
-	Canonical
-	...
+PublisherName
+-------------
+a10networks
+aiscaler-cache-control-ddos-and-url-rewriting-
+alertlogic
+AlertLogic.Extension
+Barracuda.Azure.ConnectivityAgent
+barracudanetworks
+basho
+boxless
+bssw
+Canonical
+...
+```
 
 Para el publicador de "MicrosoftWindowsServer":
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```powershell
+PS C:\> $pubName="MicrosoftWindowsServer"
+PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 
-	Offer
-	-----
-	WindowsServer
+Offer
+-----
+WindowsServer
+```
 
 Para la oferta "WindowsServer":
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```powershell
+PS C:\> $offerName="WindowsServer"
+PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 
-	Skus
-	----
-	2008-R2-SP1
-	2012-Datacenter
-	2012-R2-Datacenter
-	Windows-Server-Technical-Preview
+Skus
+----
+2008-R2-SP1
+2012-Datacenter
+2012-R2-Datacenter
+2016-Nano-Server-Technical-Previe
+2016-Technical-Preview-with-Conta
+Windows-Server-Technical-Preview
+```
 
-En esta lista, copie el nombre de SKU elegido y tiene toda la información para el cmdlet de PowerShell **Set-AzureVMSourceImage** o para un archivo de plantilla de grupo de recursos que requiere que especifique el publicador, la oferta y la SKU de una imagen.
-
+En esta lista, copie el nombre de SKU elegido, y ya tiene toda la información para el cmdlet `Set-AzureRMVMSourceImage` de PowerShell o una plantilla de grupo de recursos.
 
 
 <!--Image references-->
@@ -189,4 +218,4 @@ En esta lista, copie el nombre de SKU elegido y tiene toda la información para 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

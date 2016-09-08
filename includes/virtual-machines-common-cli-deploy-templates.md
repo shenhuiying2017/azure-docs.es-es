@@ -30,13 +30,13 @@ También puede ejecutar la CLI de Azure como un contenedor de Docker con la sigu
 
 ### Definición de su cuenta y suscripción de Azure
 
-Si aún no tiene una suscripción de Azure pero tiene una suscripción a MSDN, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+Si aún no tiene una suscripción de Azure pero la tiene a MSDN, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Ahora [inicie sesión de manera interactiva en su cuenta de Azure](../articles/xplat-cli-connect.md#use-the-log-in-method). Para ello, escriba `azure login` y siga las indicaciones para obtener una experiencia de inicio de sesión interactiva en su cuenta de Azure.
 
 > [AZURE.NOTE] Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, **también** puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión *sin* una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) para iniciar sesión de la misma manera.
 
-La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones escribiendo `azure account list`, que podría ser algo similar a lo siguiente:
+La cuenta puede tener más de una suscripción. Puede mostrar las suscripciones si escribe `azure account list`, que podría ser algo similar a lo siguiente:
 
     azure account list
     info:    Executing command account list
@@ -47,7 +47,7 @@ La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones
     data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 
-Puede establecer la suscripción de Azure actual escribiendo lo siguiente. Use el nombre de la suscripción o el identificador que tiene los recursos que desea administrar.
+Puede establecer la suscripción de Azure actual si escribe lo siguiente. Use el nombre de la suscripción o el identificador que tenga los recursos que desea administrar.
 
 	azure account set <subscription name or ID> true
 
@@ -223,7 +223,7 @@ En este caso, la plantilla siguiente solicitará:
 - Un nombre de dominio para que lo usen los usuarios externos
 - Un número de versión de Ubuntu Server, pero solo uno, de una lista
 
-Una vez haya decidido estos valores, estará preparado para crear un grupo e implementar esta plantilla en la suscripción de Azure.
+Una vez que haya decidido estos valores, estará preparado para crear un grupo e implementar esta plantilla en la suscripción de Azure.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -743,7 +743,7 @@ Siga estos pasos para implementar una aplicación de varias máquinas virtuales 
 
 ### Paso 1: Examen en el archivo JSON de la plantilla
 
-Este es el contenido del archivo JSON de la plantilla. Si desea la última versión, se encuentra [en el repositorio de plantillas de Github](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Este tema se usa el modificador `--template-uri` para llamar a la plantilla, pero también puede utilizar el modificador `--template-file` para pasar a una versión local.
+Este es el contenido del archivo JSON de la plantilla. Si desea la última versión, se encuentra [en el repositorio de plantillas de Github](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). En este tema se usa el modificador `--template-uri` para llamar a la plantilla, pero también puede utilizar el modificador `--template-file` para pasar una versión local.
 
 
     {
@@ -1240,7 +1240,7 @@ Y, después, buscar myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarea: Inicio de sesión en una máquina virtual Linux
 
-Normalmente los equipos Linux están conectados a través de SSH. Para obtener más información, consulte [Uso de SSH con Linux en Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+Normalmente los equipos Linux están conectados a través de SSH. Para obtener más información, consulte [Usar SSH con Linux en Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarea: Detención de una máquina virtual
 
@@ -1278,4 +1278,4 @@ Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, cons
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

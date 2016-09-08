@@ -24,25 +24,12 @@ Las funciones de Azure comparten algunos componentes y conceptos técnicos bási
 
 Este artículo presupone que ya ha leído la [información general de las funciones de Azure](functions-overview.md) y está familiarizado con [conceptos de SDK de WebJobs como desencadenadores, enlaces y el tiempo de ejecución de JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Las funciones de Azure se basan en el SDK de WebJobs.
 
-## function
 
-Una *función* es el concepto principal en las funciones de Azure. Escriba código para una función en el lenguaje que elija y guarde los archivos de código y un archivo de configuración en la misma carpeta. La configuración se encuentra en JSON y el archivo se denomina `function.json`. Se admiten diferentes lenguajes, y cada uno de ellos tiene una experiencia ligeramente diferente optimizada para que funcione mejor para ese lenguaje: Estructura de carpetas de ejemplo:
+## Código de función
 
-```
-mynodefunction
-| - function.json
-| - index.js
-| - node_modules
-| | - ... packages ...
-| - package.json
-mycsharpfunction
-| - function.json
-| - run.csx
-```
+Una *función* es el concepto principal en las funciones de Azure. Escriba código para una función en el lenguaje que elija y guarde los archivos de código y un archivo de configuración en la misma carpeta. La configuración se encuentra en JSON y el archivo se denomina `function.json`. Se admiten diferentes lenguajes, y cada uno de ellos tiene una experiencia ligeramente diferente optimizada para que funcione mejor para ese lenguaje:
 
-## function.json y enlaces
-
-El `function.json` archivo contiene la configuración específica de una función, incluidos sus enlaces. El tiempo de ejecución lee este archivo para determinar qué eventos desencadenar, qué datos incluir cuando se llama a la función y dónde enviar los datos que se transfieren desde la propia función.
+El archivo `function.json` contiene la configuración específica de una función, incluidos sus enlaces. El tiempo de ejecución lee este archivo para determinar qué eventos desencadenar, qué datos incluir cuando se llama a la función y dónde enviar los datos que se transfieren desde la propia función.
 
 ```json
 {
@@ -59,63 +46,49 @@ El `function.json` archivo contiene la configuración específica de una funció
 }
 ```
 
-Puede impedir que el tiempo de ejecución ejecute la función estableciendo la propiedad `disabled` en `true`.
+Puede impedir que la función se ejecute en tiempo de ejecución si establece la propiedad `disabled` en `true`.
 
 La propiedad `bindings` es donde configura los enlaces y los desencadenadores. Cada enlace comparte unos ajustes de configuración comunes y algunos parámetros que son específicos de un determinado tipo de enlace. Cada enlace requiere la siguiente configuración:
 
 |Propiedad|Valores/tipos|Comentarios|
 |---|-----|------|
-|`type`|cadena|Tipo de enlace. Por ejemplo: `queueTrigger`.
+|`type`|string|Tipo de enlace. Por ejemplo: `queueTrigger`.
 |`direction`|'in', 'out'| Indica si el enlace está disponible para recibir datos en la función o enviar datos de la función.
-| `name` | cadena | El nombre que se usará para los datos enlazados en la función. Para C# será un nombre de argumento; para JavaScript será la clave en una lista de clave-valor.
+| `name` | string | El nombre que se usará para los datos enlazados en la función. Para C# será un nombre de argumento; para JavaScript será la clave en una lista de clave-valor.
+
+## Aplicación de función
+
+Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en el Servicio de aplicaciones de Azure. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Las funciones escritas en varios lenguajes pueden compartir la misma aplicación de función. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva.
 
 ## Tiempo de ejecución (host de script y host web)
 
-El tiempo de ejecución, conocido también como el host de script, es el host de SDK de WebJobs subyacente que escucha los eventos, recopila y envía los datos y, finalmente, ejecuta el código.
+El tiempo de ejecución, o host de script, es el host del SDK de WebJobs subyacente que escucha eventos, recopila y envía datos y, finalmente, ejecuta el código.
 
 Para facilitar los desencadenadores HTTP, también hay un host web que se ha diseñado para colocarse delante el host de script en escenarios de producción. Esto ayuda a aislar el host de script del tráfico front-end administrado por el host web.
 
 ## Estructura de carpetas
 
-Un host de script apunta a una carpeta que contiene un archivo de configuración y una o más funciones.
+[AZURE.INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-```
-parentFolder (for example, wwwroot in a function app)
- | - host.json
- | - mynodefunction
- | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
- | | - function.json
- | | - run.csx
-```
+Al configurar un proyecto para la implementación de funciones en una aplicación de función en el Servicio de aplicaciones de Azure, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
 
-El archivo *host.json* contiene alguna configuración específica del host de script y se coloca en la carpeta principal. Para obtener información sobre las opciones que están disponibles, consulte [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en la wiki de repositorio de WebJobs.Script.
-
-Cada función tiene una carpeta que contiene los archivos de código, *function.json* y otras dependencias.
-
-Al configurar un proyecto para la implementación de funciones en un contenedor de funciones en Servicio de aplicaciones de Azure, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
-
-## <a id="fileupdate"></a> Actualización de los archivos del contenedor de funciones
+## <a id="fileupdate"></a> Actualización de los archivos de aplicación de función
 
 El editor de funciones integrado en el Portal de Azure le permite actualizar el archivo *function.json* y el archivo de código de una función. Para cargar o actualizar otros archivos como *package.json* o *project.json* u otras dependencias, tendrá que usar otros métodos de implementación.
 
-Los contenedores de funciones se integran en el Servicio de aplicaciones, por lo que todas las [opciones de implementación disponibles para las aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para las aplicaciones de la función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones.
+Las aplicaciones de función se integran en el Servicio de aplicaciones, por lo que todas las [opciones de implementación disponibles para las aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para las aplicaciones de función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones.
 
 #### Para usar Visual Studio Online (Monaco)
 
-1. En el portal de Funciones de Azure, haga clic en **Configuración del contenedor de funciones**.
+1. En el portal de Funciones de Azure, haga clic en **Function app settings** (Configuración de Function App).
 
-2. En la sección **Configuración avanzada**, haga clic en **Ir a la configuración del Servicio de aplicaciones**.
+2. En la sección **Configuración avanzada**, haga clic en **Go to App Service Settings** (Ir a la configuración del Servicio de aplicaciones).
 
 3. Haga clic en **Herramientas**.
 
 4. En **Desarrollar**, haga clic en **Visual Studio Online**.
 
-5. **Actívelo** si no está ya habilitado y haga clic en **Ir**.
+5. Haga clic en **Activar** si no está ya habilitado y en **Ir**.
 
 	Después de que se cargue Visual Studio Online, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*.
 
@@ -123,7 +96,7 @@ Los contenedores de funciones se integran en el Servicio de aplicaciones, por lo
 
 #### Para usar el punto de conexión de SCM (Kudu) del contenedor de funciones
 
-1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
+1. Vaya a `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Haga clic en **Consola de depuración > CMD**.
 
@@ -137,9 +110,13 @@ Los contenedores de funciones se integran en el Servicio de aplicaciones, por lo
 
 2. Cuando esté conectado al sitio de aplicaciones de función, copie el archivo *host.json* actualizado en `/site/wwwroot` o copie los archivos de funciones en `/site/wwwroot/<function_name>`.
 
+#### Para usar la implementación continua
+
+Siga las instrucciones que se indican en el tema [Continuous deployment for Azure Functions](functions-continuous-deployment.md) (Implementación continua para Funciones de Azure).
+
 ## Ejecución en paralelo
 
-Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo. Si una aplicación de función usa el [plan de servicio dinámico](functions-scale.md#dynamic-service-plan), esta aplicación podría escalarse horizontalmente a hasta 10 instancias simultáneas de forma automática. Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de servicio dinámico como en el [plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos. El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tamaño de la memoria del contenedor de funciones.
+Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo. Si una aplicación de función usa el [plan de servicio dinámico](functions-scale.md#dynamic-service-plan), esta aplicación podría escalarse horizontalmente de forma automática. Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de servicio dinámico como en el [plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos. El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tamaño de la memoria del contenedor de funciones.
 
 ## Impulso de funciones de Azure  
 
@@ -174,4 +151,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

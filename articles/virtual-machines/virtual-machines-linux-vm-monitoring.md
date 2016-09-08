@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -52,10 +52,10 @@ Para habilitar la supervisión de una máquina virtual de Azure:
 
 [Azure.Note] En caso de estar disponible, puede cambiar de la versión 2.0 a una versión posterior.
 
-Para obtener más información detallada sobre la configuración de las métricas de supervisión y obtener ejemplos, visite el documento **[Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM](virtual-machines-linux-diagnostic-extension/) (Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de la máquina virtual Linux).
+Para más información sobre la configuración de las métricas de supervisión y ejemplos, visite el documento **[Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
@@ -23,7 +23,7 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-En este artículo se mostrará cómo crear un Almacenamiento de datos SQL mediante PowerShell.
+En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante PowerShell.
 
 ## Requisitos previos
 
@@ -34,7 +34,7 @@ Para empezar, necesitará lo siguiente:
 - **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server de Azure o consulte [Creación de un grupo de recursos][].
 - **PowerShell versión 1.0.3 o posterior**: para comprobar la versión, ejecute **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
-> [AZURE.NOTE] La creación de una nueva instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
+> [AZURE.NOTE] La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
 
 ## Creación de Almacenamiento de datos SQL
 
@@ -51,22 +51,27 @@ Para empezar, necesitará lo siguiente:
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Cree la base de datos. En este ejemplo se crea una nueva base de datos denominada "mynewsqldw", con el nivel de objetivo de servicio "DW400", en el servidor llamado "sqldwserver1" que se encuentra en el grupo de recursos denominado "mywesteuroperesgp1".
+4.  Cree la base de datos. En este ejemplo se crea una base de datos denominada "mynewsqldw", con el nivel de objetivo de servicio "DW400", en el servidor llamado "sqldwserver1" que se encuentra en el grupo de recursos denominado "mywesteuroperesgp1".
 
 	```Powershell
-	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
 	```
 
-Los parámetros necesarios para este cmdlet son los siguientes:
+Los parámetros obligatorios son:
 
 - **RequestedServiceObjectiveName**: la cantidad de [DWU][] solicitada. Los valores admitidos son: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 y DW6000.
 - **DatabaseName**: el nombre del Almacenamiento de datos SQL que está creando.
 - **ServerName**: el nombre del servidor que se usa para la creación (tiene que ser V12).
 - **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
-- **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL.
+- **Edition**: la edición debe ser "DataWarehouse" para crear un Almacenamiento de datos SQL.
 
-Para más información sobre las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)][] [Creación de base de datos (Almacenamiento de datos SQL de Azure)].
-Para ver la referencia de comandos, consulte [New-AzureRmSqlDatabase][]
+Los parámetros opcionales son:
+
+- **CollationName**: la intercalación predeterminada cuando no se especifica otra es SQL\_Latin1\_General\_CP1\_CI\_AS. No se puede cambiar la intercalación de una base de datos.
+- **MaxSizeBytes**: el tamaño máximo predeterminado de una base de datos es 10 GB.
+
+
+Para más información sobre las opciones de parámetros, consulte [New-AzureRmSqlDatabase][] y [Create Database (Azure SQL Data Warehouse)][] \(Creación de base de datos [Almacenamiento de datos SQL de Azure]).
 
 ## Pasos siguientes
 
@@ -102,4 +107,4 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

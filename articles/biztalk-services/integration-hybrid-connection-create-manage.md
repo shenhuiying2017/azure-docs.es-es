@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/23/2016" 
 	ms.author="mandia"/>
 
 
@@ -56,7 +56,7 @@ Una conexión híbrida se puede crear en el Portal de Azure mediante Aplicacione
 	Propiedad | Descripción
 --- | ---
 Nombre | El nombre de la conexión híbrida debe ser único y no puede ser el mismo que el servicio de BizTalk. Puede escribir cualquier nombre pero sea concreto con su finalidad. Algunos ejemplos son:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Algunos ejemplos son:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>Si usa la dirección IPv4, tenga en cuenta que su cliente o el código de aplicación podrían no resolver la dirección IP. Vea la nota importante al principio de este tema.
+Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Algunos ejemplos son:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>Si usa la dirección IPv4, tenga en cuenta que su cliente o el código de aplicación podrían no resolver la dirección IP. Consulte la nota importante situada al principio de este tema.
 Port | Escriba el número de puerto del recurso local. Por ejemplo, si utiliza Aplicaciones web, escriba los puertos 80 o 443. Si utiliza SQL Server, escriba el puerto 1433.
 
 5. Seleccione la marca de verificación para completar la configuración.
@@ -160,4 +160,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

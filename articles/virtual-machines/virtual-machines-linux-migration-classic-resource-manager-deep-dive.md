@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="mahthi"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -64,4 +64,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

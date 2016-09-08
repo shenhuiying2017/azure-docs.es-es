@@ -14,20 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Incorporación o cambio de roles de administrador de Azure
 
 Hay tres tipos de roles de administrador en Microsoft Azure:
 
-| Rol administrativo | Límite | Descripción
+| Rol administrativo | Límite | Description
 | ------------- | ------------- |---------------|
 |Administrador de cuenta (AA) | 1 por cuenta de Azure |Es la persona que se registró en una suscripción de Azure o que compró una, y está autorizada para tener acceso al [Centro de cuentas](https://account.windowsazure.com/Home/Index) y realizar diversas tareas de administración. Entre estas se incluyen poder crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción y cambiar el administrador de servicios.
 | Administrador de servicios (SA) | 1 por cada suscripción de Azure |Este rol está autorizado a administrar servicios en el [Portal de Azure](https://portal.azure.com). De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.|
 |Coadministrador (CA) en el [Portal de Azure clásico](https://manage.windowsazure.com)|200 por suscripción| Este rol tiene los mismos privilegios de acceso que el administrador de servicios, pero no puede cambiar la asociación de suscripciones a directorios de Azure. |
 
 > [AZURE.NOTE] Control de acceso basado en roles de Azure Active Directory (RBAC) permite que se agreguen usuarios a varios roles. Para más información, consulte [Control de acceso basado en roles de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## Adición de un administrador para una suscripción
 
@@ -73,7 +75,7 @@ Se puede agregar la siguiente dirección de correo electrónico como coadministr
 
 ### Limitaciones y restricciones
 
- * Cada suscripción está asociada a un directorio de Azure AD (el directorio predeterminado). Para encontrar el directorio predeterminado al que está asociada la suscripción, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/) y seleccione **Configuración** > **Suscripciones**. Compruebe el identificador de la suscripción para encontrar el directorio predeterminado.
+ * Cada suscripción está asociada a un directorio de Azure AD (conocido también como el directorio predeterminado). Para encontrar el directorio predeterminado al que está asociada la suscripción, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/) y seleccione **Configuración** > **Suscripciones**. Compruebe el identificador de la suscripción para encontrar el directorio predeterminado.
 
  * Si ha iniciado sesión con una cuenta Microsoft, solo puede agregar otras cuentas Microsoft o usuarios del directorio predeterminado como coadministrador.
 
@@ -92,7 +94,7 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) como administrador de cuenta.
 
-2. Seleccione la suscripción que desea cancelar.
+2. Seleccione la suscripción que desea cambiar.
 
 3. En la parte derecha, haga clic en **Editar detalles de suscripción**. </br>
 
@@ -104,7 +106,7 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 ## Cambio del administrador de cuenta
 
-Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de la propiedad de una suscripción de Azure](billing-subscription-transfer.md).
+Para transferir la propiedad de la cuenta de Azure a otra cuenta, vea [Transferencia de la propiedad de una suscripción de Azure](billing-subscription-transfer.md).
 
 ## Pasos siguientes
 
@@ -112,6 +114,8 @@ Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Tran
 
 * Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-* Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asignación de roles de administrador en Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
+* Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, vea [Asignación de roles de administrador en Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

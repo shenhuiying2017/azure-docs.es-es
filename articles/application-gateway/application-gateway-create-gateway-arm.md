@@ -26,7 +26,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
-
+- [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -50,7 +50,7 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 - **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
 - **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-- **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
+- **Agente de escucha**: tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
 - **Regla**: enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico que llegue a un agente de escucha concreto.
 
 
@@ -62,13 +62,7 @@ La diferencia entre el uso del Portal de Azure clásico y Azure Resource Manager
 Con Resource Manager, todos los elementos que componen una puerta de enlace de aplicaciones se configurarán individualmente y, luego, se unirán para crear el recurso de la Puerta de enlace de aplicaciones.
 
 
-Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
-
-1. Cree un grupo de recursos para el Administrador de recursos.
-2. Cree una red virtual, una subred y una IP pública para la puerta de enlace de aplicaciones.
-3. Cree un objeto de configuración de la Puerta de enlace de aplicaciones.
-4. Cree un recurso de Puerta de enlace de aplicaciones.
-
+A continuación se muestran los pasos necesarios para crear una puerta de enlace de aplicaciones.
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
@@ -93,11 +87,11 @@ Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
+El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
 En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
 
->[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
 
 
 
@@ -146,7 +140,7 @@ Cree una configuración de IP de puerta de enlace de aplicaciones denominada "ga
 
 ### Paso 2
 
-Configure el grupo de direcciones IP del back-end denominado "pool01" con las direcciones IP "134.170.185.46,134.170.188.221,134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
+Configure el grupo de direcciones IP del back-end denominado "pool01" con las direcciones IP "134.170.185.46,134.170.188.221,134.170.185.50". Estas direcciones IP son las direcciones que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplaza las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -227,10 +221,6 @@ Recupere los detalles sobre DNS y VIP de la puerta de enlace de aplicaciones del
 
 Para eliminar una Puerta de enlace de aplicaciones, siga estos pasos:
 
-1. Utilice el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
-2. Utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
-3. Para comprobar que se ha quitado la puerta de enlace, use el cmdlet **Get-AzureRmApplicationGateway**.
-
 ### Paso 1
 
 Obtenga el objeto de puerta de enlace de aplicaciones y asócielo a una variable "$getgw".
@@ -271,4 +261,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

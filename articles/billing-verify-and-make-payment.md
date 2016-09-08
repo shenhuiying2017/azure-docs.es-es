@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cómo comprobar su método de pago y realizar pagos por una suscripción de Azure | Microsoft Azure"
-	description="Describe cómo comprobar su método de pago y realizar pagos por una suscripción de Azure"
+	description="Se describe cómo comprobar su método de pago y realizar pagos por una suscripción de Azure"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Cómo comprobar su método de pago y realizar pagos por una suscripción de Azure
 
 >[AZURE.NOTE] Si recibe un error después de enviar la información de su tarjeta de crédito, vea el artículo [No se acepta mi tarjeta de crédito cuando intento suscribirme a Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## Comprobar el método de pago actual
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
@@ -45,4 +45,6 @@ Si ha configurado una tarjeta de crédito o una tarjeta de débito como forma de
 
 Si se encuentra en un método de factura de pago, envíe el pago a la ubicación indicada en la parte inferior de la factura. Para ayuda adicional, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

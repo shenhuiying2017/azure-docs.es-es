@@ -25,7 +25,7 @@ Todos los pasos de este artículo son necesarios para crear una máquina virtual
 
 ## Paso 1: Instalación de Azure PowerShell
 
-Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure.
         
 ## Paso 2: Creación de un grupo de recursos
 
@@ -122,7 +122,7 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    La contraseña tiene que tener de 12 a 123 caracteres y contener al menos una minúscula, una mayúscula, un número y un carácter especial.
+    La contraseña debe tener entre 8 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Obtenga más información acerca de los [requisitos de usuario y la contraseña](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Reemplace el valor de **$vmName** por el nombre de la máquina virtual. Cree la variable y la configuración de la máquina virtual.
 
@@ -168,8 +168,8 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
                                   
 ## Pasos siguientes
 
-- Si hay problemas con la implementación, el paso siguiente sería mirar en [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Aprenda a administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
+- Si se produjeron problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Obtenga más información sobre cómo administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 - Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

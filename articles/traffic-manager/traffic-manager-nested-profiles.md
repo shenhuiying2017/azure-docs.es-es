@@ -3,7 +3,7 @@
    description="En este artículo se explica la característica ";Perfiles anidados"; del Administrador de tráfico de Azure."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Perfiles anidados del Administrador de tráfico
 
@@ -136,11 +136,11 @@ En la tabla siguiente se describe el comportamiento de las comprobaciones de est
 
 |Estado de supervisión de perfiles secundarios|Estado de supervisión de extremos principales|Notas|
 |---|---|---|
-|Deshabilitado. El usuario ha deshabilitado el perfil secundario.|Detenido|El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal.|
+|Deshabilitado. El usuario ha deshabilitado el perfil secundario.|Stopped|El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal.|
 |Degradado. Al menos un punto de conexión de perfil secundario se encuentra en estado Degradado.|En línea: el número de puntos de conexión en línea en el perfil secundario es, como mínimo, el valor de MinChildEndpoints. CheckingEndpoint: el número de puntos de conexión en línea más CheckingEndpoint en el perfil secundario es, como mínimo, el valor de MinChildEndpoints. Degradado: en caso contrario.|El tráfico se enruta a un punto de conexión con estado CheckingEndpoint. Si MinChildEndpoints se establece demasiado alto, el punto de conexión siempre se degradará.|
 |En línea. Como mínimo, hay un punto de conexión de perfil secundario en estado En línea y ninguno en estado Degradado.|Consulte más arriba.||
 |CheckingEndpoints. Como mínimo, hay un punto de conexión de perfil secundario en estado "CheckingEndpoint" y ninguno en estado "En línea" o "Degradado"|Igual que el anterior.||
-|Inactivo. Todos los puntos de conexión de perfil secundario están en estado "Deshabilitado" o "Detenido", o bien se trata de un perfil sin ningún punto de conexión|Detenido||
+|Inactivo. Todos los puntos de conexión de perfil secundario están en estado "Deshabilitado" o "Detenido", o bien se trata de un perfil sin ningún punto de conexión|Stopped||
 
 
 ## Pasos siguientes
@@ -161,4 +161,4 @@ Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

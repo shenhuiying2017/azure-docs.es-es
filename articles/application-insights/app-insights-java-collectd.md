@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # collectd: métricas de rendimiento de Unix en Application Insights
 
 *Application Insights se encuentra en su versión de vista previa.*
 
-Para explorar las métricas de rendimiento del sistema de Unix en [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) junto con su complemento Application Insights. Esta solución de código abierto recopila una serie de estadísticas de red y del sistema.
+Para explorar las métricas de rendimiento del sistema de Unix en [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) junto con su complemento Application Insights. Esta solución de código abierto recopila diversas estadísticas de red y del sistema.
 
-Normalmente, usará collectd si ya ha [instrumentado el servicio web de Java con Application Insights][java] para disponer de más datos que le ayuden a mejorar el rendimiento de la aplicación o a diagnosticar problemas.
+Normalmente, usará collectd si ya ha [instrumentado el servicio web de Java con Application Insights][java]. Así obtendrá más datos para ayudarlo a mejorar el rendimiento de la aplicación o a diagnosticar los problemas.
 
 ![Gráficos de ejemplo](./media/app-insights-java-collectd/sample.png)
 
@@ -31,7 +31,7 @@ En el [Portal de Microsoft Azure](https://portal.azure.com), abra el recurso [Ap
 
 Realice una copia de la clave de instrumentación, que identifica al recurso.
 
-![Examine todo, abra el recurso y, en la lista desplegable de Esssentials, seleccione y copie la clave de instrumentación.](./media/app-insights-java-collectd/02-props.png)
+![Examine todo, abra el recurso y, en la lista desplegable de Essentials, seleccione y copie la clave de instrumentación.](./media/app-insights-java-collectd/02-props.png)
 
 
 
@@ -86,7 +86,7 @@ A continuación se muestra un archivo de configuración de ejemplo:
     </Plugin>
 . ...
 
-Configure otros[complementos de collectd](https://collectd.org/wiki/index.php/Table_of_Plugins) que pueden recopilar una gran variedad de datos de orígenes diferentes.
+Configure otros[complementos de collectd](https://collectd.org/wiki/index.php/Table_of_Plugins) que pueden recopilar diversos datos de orígenes diferentes.
 
 Reinicie collectd según su [manual](https://collectd.org/wiki/index.php/First_steps).
 
@@ -101,7 +101,7 @@ De forma predeterminada, las métricas se agregan en todos los equipos host desd
 
 ## Para excluir la carga de estadísticas específicas
 
-De forma predeterminada, el complemento de Application Insights enviará todos los datos recopilados por todos los complementos de lectura de collectd habilitados.
+De forma predeterminada, el complemento de Application Insights envía todos los datos recopilados por todos los complementos de lectura de collectd habilitados.
 
 Para excluir los datos de orígenes de datos o complementos específicos:
 
@@ -121,6 +121,7 @@ Separar directivas con una nueva línea.
 *No veo datos en el portal*
 
 * Abra [Buscar][diagnostic] para ver si han llegado los eventos sin procesar. A veces tardan más en aparecer en el Explorador de métricas.
+* Es posible que deba [establecer excepciones del firewall para los datos salientes](app-insights-ip-addresses.md).
 * Habilite el seguimiento en el complemento Application Insights. Agregue esta línea en `<Plugin ApplicationInsightsWriter>`:
  *  `SDKLogger true`
 * Abra un terminal e inicie collectd en modo detallado para ver cualquier problema que esté notificando:
@@ -143,4 +144,4 @@ Separar directivas con una nueva línea.
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

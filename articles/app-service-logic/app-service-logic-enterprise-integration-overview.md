@@ -49,6 +49,9 @@ Enterprise Integration Pack admite estos estándares del sector:
 - Disponer de Visual Studio 2015 para crear esquemas y asignaciones
 - [Herramientas de integración de empresas de Aplicaciones Lógicas de Microsoft Azure para la versión 2.0 de Visual Studio 2015](https://aka.ms/vsmapsandschemas)
 
+## Inténtelo usted mismo
+¿Por qué no probarlo? Haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implementar sus propias aplicaciones lógicas de envío y recepción AS2 completamente operativas mediante las características B2B de Logic Apps.
+
 ## Más información sobre:
 - [Contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
 - [Escenarios de negocio a negocio (B2B)](./app-service-logic-enterprise-integration-b2b.md "Aprenda a crear Aplicaciones lógicas con características B2B.")
@@ -61,4 +64,4 @@ Enterprise Integration Pack admite estos estándares del sector:
 - [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
 - [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

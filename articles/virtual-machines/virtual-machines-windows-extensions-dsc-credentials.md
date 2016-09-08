@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Cómo pasar las credenciales al controlador de extensiones de la DSC de Azure #
@@ -56,7 +56,7 @@ configuration Main
 } 
 ```
 
-Es importante incluir *node localhost* como parte de la configuración. El controlador de extensiones busca específicamente la instrucción node localhost y no funcionará sin ella. También es importante incluir la conversión de tipo *[PsCredential]*, ya que este tipo específico desencadena la extensión para cifrar la credencial, tal y como se describe a continuación.
+Es importante incluir *node localhost* como parte de la configuración. Si falta esta instrucción, lo que sigue no funcionará ya que el controlador de extensiones busca específicamente la instrucción node localhost. También es importante incluir la conversión de tipo *[PsCredential]*, ya que este tipo específico desencadena la extensión para cifrar la credencial.
 
 Publique este script en el almacenamiento de blobs:
 
@@ -76,17 +76,17 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-Al ejecutar este código se solicitará una credencial. Una vez proporcionada, se almacena brevemente en la memoria. Cuando se publica con el cmdlet `Set-AzureVmDscExtension`, se transmite a través de HTTPS a la máquina virtual, donde Azure la almacena cifrada en disco mediante el certificado de máquina virtual local. A continuación, se descifra brevemente en la memoria y se vuelve a cifrar para pasarla a DSC.
+Al ejecutar este código, se solicita una credencial. Una vez proporcionada, se almacena brevemente en la memoria. Cuando se publica con el cmdlet `Set-AzureVmDscExtension`, se transmite a través de HTTPS a la máquina virtual, donde Azure la almacena cifrada en disco mediante el certificado de máquina virtual local. Se descifra brevemente en la memoria y se vuelve a cifrar para pasarla a DSC.
 
-Este procedimiento no es el mismo que cuando se usan configuraciones seguras sin el controlador de extensiones. El entorno de Azure proporciona una manera de transmitir los datos de configuración de forma segura a través de certificados; de este modo, cuando se usa el controlador de extensiones de DSC, no es necesario indicar $CertificatePath ni ninguna entrada $CertificateID/$Thumbprint en ConfigurationData.
+Este comportamiento no es el mismo que cuando se [usan configuraciones seguras sin el controlador de extensiones](https://msdn.microsoft.com/powershell/dsc/securemof). El entorno de Azure ofrece una manera de transmitir datos de configuración de forma segura mediante certificados. Cuando se utiliza el controlador de extensiones DSC, no es necesario proporcionar $CertificatePath o una entrada $CertificateID / $Thumbprint en ConfigurationData.
 
 
 ## Pasos siguientes ##
 
-Para obtener más información sobre el controlador de extensiones del DSC de Azure, consulte [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md) (Introducción al controlador de extensiones de la configuración de estado deseado de Azure).
+Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
-Para obtener más información sobre la DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
-Para buscar más funcionalidades que se puedan administrar con la DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para obtener más recursos de DSC.
+Para buscar otras funcionalidades que se puedan administrar con DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para encontrar más recursos de DSC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

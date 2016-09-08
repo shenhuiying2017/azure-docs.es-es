@@ -22,7 +22,7 @@ En este artículo se ofrece información que ayuda a los profesionales de TI a c
 
 ## Conectividad de red
 
-Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante una variedad de protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
+Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante diversos protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
 
 | Protocol | Puertos |
 | -------- | ------- |
@@ -32,11 +32,11 @@ Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante una v
 | MQTT | 8883 |
 | LWM2M (Administración de dispositivos) | 5684 |
 
-Una vez creado un Centro de IoT en una región de Azure, el centro mantendrá la misma dirección IP durante toda su existencia. Sin embargo, para mantener la calidad de servicio, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asignará una nueva dirección IP.
+Una vez creado un Centro de IoT en una región de Azure, el centro mantiene la misma dirección IP durante toda su existencia. Sin embargo, para mantener la calidad de servicio, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asigna una nueva dirección IP.
 
 ## Centro de IoT y seguridad
 
-Solo los dispositivos registrados con un Centro de IoT están autorizados a comunicarse con ese Centro de IoT. A un dispositivo registrado se le debe conceder el permiso *DeviceConnect*. Un dispositivo se identifica mediante la inclusión de un token que encapsula el identificador único de los dispositivos en cada solicitud que realiza, y el centro comprueba la validez del token y que el dispositivo no está en la lista negra (permiso *DeviceConnect* revocado). Para obtener información sobre los tokens compatibles con el Centro de IoT, consulte [Uso de tokens de seguridad del Centro de IoT y certificados X.509][lnk-tokens].
+Solo los dispositivos registrados con un Centro de IoT están autorizados a comunicarse con ese Centro de IoT. A un dispositivo registrado se le debe conceder el permiso *DeviceConnect*. Un dispositivo se identifica a sí mismo mediante la inclusión de un token que encapsula su identificador único en cada solicitud que realiza. A continuación, el centro comprueba la validez del token y que el dispositivo no figure en ninguna lista de denegación (permiso *DeviceConnect* revocado). Para obtener información sobre los tokens compatibles con el Centro de IoT, consulte [Uso de tokens de seguridad del Centro de IoT y certificados X.509][lnk-tokens].
 
 El acceso a otros extremos de administración en un Centro de IoT también se controla a través de un conjunto de permisos: *iothubowner*, *service*, *registryRead*, y *registryReadWrite*. Cualquier aplicación de administración cliente que se conecta a un Centro de IoT debe incluir un token con los permisos adecuados.
 
@@ -59,4 +59,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

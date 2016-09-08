@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure
@@ -160,23 +160,23 @@ Las aplicaciones que se basan en Azure se benefician de las capacidades de la pl
 
 ###Bus de servicio
 
-Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus/service-bus-performance-improvements.md) y [Bus de servicio (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para obtener más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus/service-bus-performance-improvements.md) y [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Servicios móviles
 
 Hay dos consideraciones que debe tener en cuenta sobre la disponibilidad de los Servicios móviles de Azure. En primer lugar, realice regularmente copias de seguridad de la base de datos SQL asociada con su servicio móvil. En segundo lugar, realice también una copia de seguridad de los scripts del servicio móvil. Para más información, consulte [Recuperación del servicio móvil en caso de un desastre](../mobile-services/mobile-services-disaster-recovery.md).
 
-Si los Servicios móviles experimentan una interrupción temporal, es posible que deba usar un centro de datos de Azure alternativo de forma transitoria. Para más información, consulte [Servicios móviles (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+Si los Servicios móviles experimentan una interrupción temporal, es posible que deba usar un centro de datos de Azure alternativo de forma transitoria. Para obtener más información, consulte [Servicios móviles (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###HDInsight
 
-Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. Almacenamiento de Azure especifica las propiedades de durabilidad y alta disponibilidad de Almacenamiento de blobs. El procesamiento de varios nodos asociado a los trabajos MapReduce de Hadoop se realiza en un sistema de archivos distribuido Hadoop (HDFS) transitorio que se aprovisiona cuando HDInsight lo necesita. Los resultados de un trabajo MapReduce también se almacenan de forma predeterminada en Almacenamiento de blobs de Azure, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster de Hadoop se desaprovisione. Para más información, consulte [HDInsight (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. Almacenamiento de Azure especifica las propiedades de durabilidad y alta disponibilidad de Almacenamiento de blobs. El procesamiento de varios nodos asociado a los trabajos MapReduce de Hadoop se realiza en un sistema de archivos distribuido Hadoop (HDFS) transitorio que se aprovisiona cuando HDInsight lo necesita. Los resultados de un trabajo MapReduce también se almacenan de forma predeterminada en Almacenamiento de blobs de Azure, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster de Hadoop se desaprovisione. Para obtener más información, consulte [HDInsight (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ##Listas de comprobación para errores locales
 
 ###Servicios en la nube
 
-  1. Revise la sección [Servicios en la nube](#cloud-services) de este documento.
+  1. Revise la sección Servicios en la nube de este documento.
   2. Configure al menos dos instancias para cada rol.
   3. Conserve el estado en un almacenamiento durable, no en instancias de rol.
   4. Controle correctamente el evento StatusCheck.
@@ -187,40 +187,40 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 ###Máquinas virtuales
 
-  1. Revise la sección [Máquinas virtuales](#virtual-machines) de este documento.
+  1. Revise la sección Máquinas virtuales de este documento.
   2. No utilice la unidad D para el almacenamiento persistente.
   3. Agrupe las máquinas de un nivel de servicio en un conjunto de disponibilidad.
   4. Configure el equilibrio de carga y los sondeos opcionales.
 
 ###Almacenamiento
 
-  1. Revise la sección [Almacenamiento](#storage) de este documento.
+  1. Revise la sección Almacenamiento de este documento.
   2. Utilice varias cuentas de almacenamiento cuando los datos o el ancho de banda superen las cuotas.
 
 ###Base de datos SQL
 
-  1. Revise la sección [Base de datos SQL](#sql-database) de este documento.
+  1. Revise la sección Base de datos SQL de este documento.
   2. Implemente una directiva de reintentos para controlar los errores transitorios.
   3. Utilice el particionamiento como estrategia de escalado horizontal.
 
 ###SQL Server en máquinas virtuales
 
-  1. Revise la sección [SQL Server en máquinas virtuales](#sql-server-on-virtual-machines) de este documento.
+  1. Revise la sección SQL Server en máquinas virtuales de este documento.
   2. Siga las recomendaciones anteriores para Máquinas virtuales.
   3. Use las características de alta disponibilidad de SQL Server, como AlwaysOn.
 
 ###Bus de servicio
 
-  1. Revise la sección [Bus de servicio](#service-bus) de este documento.
+  1. Revise la sección Bus de servicio de este documento.
   2. Considere la creación de una cola duradera en el lado del cliente como copia de seguridad.
 
 ###HDInsight
 
-  1. Revise la sección [HDInsight](#hdinsight) de este documento.
+  1. Revise la sección HDInsight de este documento.
   2. Para los errores locales no se requieren más pasos de disponibilidad.
 
 ##Pasos siguientes
 
-Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->
