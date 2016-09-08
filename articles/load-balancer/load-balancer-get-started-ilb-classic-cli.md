@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Creación de un equilibrador de carga interno mediante la CLI de Azure el modelo de implementación clásica | Microsoft Azure"
    description="Información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el modelo de implementación clásica"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante la CLI de Azure
 
@@ -42,7 +42,7 @@ Para crear un conjunto con equilibrio de carga interno y los servidores que envi
 
 Esta guía muestra cómo crear un equilibrador de carga interno basado en el escenario anterior.
 
-1. Si nunca usaste la CLI de Azure, consulta [Instalar y configurar la CLI de Azure](../../articles/xplat-cli-install.md) y sigue las instrucciones hasta el punto donde tienes que seleccionar tu cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../../articles/xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecute el comando **azure config mode** para cambiar al modo clásico, como se muestra a continuación.
 
@@ -53,7 +53,7 @@ Esta guía muestra cómo crear un equilibrador de carga interno basado en el esc
 		info:    New mode is asm
 
 
-## Crear punto de conexión y conjunto de equilibrador de carga 
+## Crear punto de conexión y conjunto de equilibrador de carga
 
 En el escenario se supone la presencia de las máquinas virtuales "DB1" y "DB2" en un servicio en la nube denominado "mytestcloud". Ambas máquinas virtuales usan una red virtual denominada mi "testvnet" con la subred "subnet-1".
 
@@ -62,7 +62,7 @@ Esta guía creará un conjunto de equilibrador de carga interno mediante el puer
 Se trata de un escenario común donde hay máquinas virtuales de SQL en el back-end que usan un equilibrador de carga interno para garantizar que los servidores de base de datos no se exponen directamente mediante una dirección IP pública.
 
 
-### Paso 1 
+### Paso 1
 
 Crear un conjunto de equilibrador de carga interno mediante `azure network service internal-load-balancer add`.
 
@@ -73,7 +73,7 @@ Parámetros usados:
 **-r**: nombre del servicio en la nube<BR> **-n**: nombre del equilibrador de carga interno<BR> **-t**: nombre de la subred (misma subred de las máquinas virtuales que se va a agregar al equilibrador de carga interno)<BR> **-a**: (opcional) agregar una dirección IP privada estática<BR>
 
 Para obtener más información, consulte `azure service internal-load-balancer --help`.
- 
+
 Puede comprobar las propiedades del equilibrador de carga interno mediante el comando `azure service internal-load-balancer list` *nombre de servicio en la nube*.
 
 A continuación se sigue un ejemplo de la salida:
@@ -87,7 +87,7 @@ A continuación se sigue un ejemplo de la salida:
 	info:    service internal-load-balancer list command OK
 
 
-## Paso 2 
+## Paso 2
 
 Configurar el conjunto del equilibrador de carga interno al agregar el primer punto de conexión. En este paso se asociará el punto de conexión, la máquina virtual y el puerto de sondeo al conjunto del equilibrador de carga interno.
 
@@ -98,11 +98,11 @@ Parámetros usados:
 **-k**: puerto de la máquina virtual local<BR> **-t**: puerto de sondeo<BR> **- r**: protocolo de sondeo<BR> **-e**: intervalo de sondeo en segundos<BR> **-f**: intervalo de tiempo de espera en segundos <BR> **-i**: nombre del equilibrador de carga interno <BR>
 
 
-## Paso 3 
+## Paso 3
 
 Comprobar la configuración del equilibrador de carga mediante el `azure vm show` *nombre de la máquina virtual*
 
-	azure vm show DB1 
+	azure vm show DB1
 
 El resultado será:
 
@@ -132,7 +132,7 @@ El resultado será:
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@ El resultado será:
 
 Puede crear un punto de conexión de escritorio remoto para reenviar el tráfico de red desde un puerto público a un puerto local para una máquina virtual específica mediante `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Quitar máquina virtual del equilibrador de carga
@@ -179,4 +179,4 @@ Para obtener más información, consulte `azure vm endpoint --help`.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

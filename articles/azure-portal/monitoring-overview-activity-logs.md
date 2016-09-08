@@ -29,7 +29,7 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 - Verlo y realizar consultas en él en el **Portal de Azure**.
 - Consultarlo por medio de la API de REST, un cmdlet de PowerShell o la CLI.
 - [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](./insights-auditlog-to-webhook-email.md)
-- Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente. Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
+- [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](./monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
 - Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Transmitirlo a un **centro de eventos**](./monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 
@@ -223,4 +223,4 @@ Cada evento en el registro de actividad tiene un blob JSON como este:
 - [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
 - [Transmisión del registro de actividad de Azure a centros de eventos](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

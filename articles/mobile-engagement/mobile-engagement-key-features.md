@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement: características principales
@@ -22,19 +22,19 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 
 ## **General**
 
-- **Encuentre SDK para las principales plataformas.** Encontrará SDK disponibles para las principales plataformas: iOS, Android, Windows universal, Windows Phone Silverlight, Kindle o Cordova. Proporcionamos SDK fáciles de integrar y documentación útil para que comience a trabajar en cualquier plataforma de su elección. 
+- **Encuentre SDK para las principales plataformas.** Encontrará SDK disponibles para las principales plataformas: iOS, Android, Windows universal, Windows Phone Silverlight, Kindle o Cordova. Proporcionamos SDK fáciles de integrar y documentación útil para que comience a trabajar en cualquier plataforma de su elección.
 
 - **Portal de SaaS independiente.** Le facilita el acceso al equipo de marketing, sin que tenga que pasar por el Portal de administración de Azure.
 
 - **Disponibilidad de API de REST abiertas.** Para permitir la integración y la automatización con sistemas de CRM, CMS y TI mediante API de plataforma abierta, proporcionamos API de REST abiertas y SDK de .NET para que pueda usar estas API, que permiten una fácil integración y automatización con Mobile Engagement. Consulte [este artículo](mobile-engagement-api-authentication.md) para obtener más información.
 
-- **Conector de Power BI disponible.** También puede extraer los gráficos de análisis clave a un panel de Power BI. Consulte esta [guía](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/).
+- **Conector de Power BI disponible.** También puede extraer los gráficos de análisis clave a un panel de Power BI. Consulte esta [guía](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-mobile/).
 
 - **Garantía de seguridad y privacidad** Dado que Azure Mobile Engagement forma parte de la familia de Azure, sigue todos los procedimientos recomendados estándar de seguridad y privacidad que se esperan de un servicio en la nube.
 
 ## **Análisis accionable**
 
-- **Supervise datos en tiempo real** Puede realizar un seguimiento del análisis en tiempo real con el módulo Supervisar, que muestra en tiempo real detalles como sesiones, eventos, errores y bloqueos. Eche un vistazo a este [artículo](mobile-engagement-concepts.md) para entender los conceptos básicos. 
+- **Supervise datos en tiempo real** Puede realizar un seguimiento del análisis en tiempo real con el módulo Supervisar, que muestra en tiempo real detalles como sesiones, eventos, errores y bloqueos. Eche un vistazo a este [artículo](mobile-engagement-concepts.md) para entender los conceptos básicos.
 
 	![][1]
 
@@ -164,4 +164,4 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

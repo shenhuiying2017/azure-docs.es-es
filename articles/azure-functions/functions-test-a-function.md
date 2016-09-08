@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/19/2016"
    ms.author="wesmc"/>
 
 # Prueba de las funciones de Azure
@@ -135,8 +135,8 @@ La herramienta recomendada para probar la mayoría de las funciones es Postman. 
 
 > [AZURE.TIP] Use el cliente REST que le resulte más cómodo. Estas son algunas alternativas a Postman:
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
 Para probar la función con un cuerpo de solicitud en Postman:
 
@@ -238,7 +238,7 @@ Para demostrar este enfoque, en primer lugar crearemos una función de desencade
 > [AZURE.NOTE] Si usa un nombre de cola diferente, asegúrese de que se ajuste a las reglas en [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx). De lo contrario, obtendrá un código de estado HTTP 400: Solicitud incorrecta.
 
 1. En el [Portal de Azure] para el contenedor de funciones, haga clic en **Nueva función** > **QueueTrigger - C#**.
-2. Escriba el nombre de cola que se va a supervisar con la función de cola. 
+2. Escriba el nombre de cola que se va a supervisar con la función de cola.
 
 		queue-newusers 
 
@@ -439,4 +439,4 @@ En la ventana del explorador para la función de cola, verá cada mensaje que se
 
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
@@ -21,7 +21,7 @@
 Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.
 
 ## Creación de la primera campaña de notificación de inserción
--    Confirme que tiene integrado Reach en la aplicación con el SDK. 
+-    Confirme que tiene integrado Reach en la aplicación con el SDK.
 -    Seleccione la aplicación.
  
 ![First1][1]
@@ -111,8 +111,8 @@ La personalización funciona mediante la sustitución del marcador de una etique
 
 El modo de entrega "Solo fuera de la aplicación sólo" proporciona una notificación de inserción cuando se cierra la aplicación. Se trata de la notificación de inserción estándar. Al seleccionar "Solo fuera de la aplicación", debe haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
 
-### Consulte también
--  [Servicio de notificaciones de inserción de Apple: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Servicio de mensajería en la nube de Google: certificado](http://developer.android.com/google/gcm/index.html) 
+### Otras referencias
+-  [Servicio de notificaciones de inserción de Apple: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Servicio de mensajería en la nube de Google: certificado](http://developer.android.com/google/gcm/index.html)
 
 ### Modo de entrega "Solo en la aplicación"
 ![Differentiate3][17]
@@ -127,7 +127,7 @@ Si elige el modo de entrega "En cualquier momento", se asegurará de llegar a lo
 ![Shedule1][18]
 
 Es 21 de marzo y tiene un anuncio que hacer, planeado para el 22 de marzo a medianoche. No es necesario que esté delante de la interfaz para realizar una inserción. Puede planear de antemano el minuto exacto en que se enviarán las notificaciones.
--    Desactive la casilla "Ninguna" y seleccione una hora de inicio. 
+-    Desactive la casilla "Ninguna" y seleccione una hora de inicio.
 -    Elija la fecha y la hora en que desea iniciar la campaña de inserción.
 
 ### Planeación del fin de una campaña
@@ -297,4 +297,4 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

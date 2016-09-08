@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/05/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace"/>
 
 # Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
@@ -22,7 +22,7 @@
 - [Pasos en PowerShell de Resource Manager](application-gateway-ilb-arm.md)
 
 
-La Puerta de enlace de aplicaciones se puede configurar con una IP virtual accesible desde Internet o con un punto de conexión interno no expuesto a Internet, lo que se conoce también como punto de conexión de Equilibrador de carga interno (ILB). Configurar la puerta de enlace con un ILB es útil para la línea interna de aplicaciones empresariales que no se exponen en Internet. También es útil para los servicios o niveles dentro de una aplicación de varios niveles que se asientan en un límite de seguridad no expuesto a Internet, pero siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL. Este artículo le guiará por los pasos necesarios para configurar una puerta de enlace de la aplicaciones con un ILB.
+La Puerta de enlace de aplicaciones se puede configurar con una IP virtual accesible desde Internet o con un punto de conexión interno no expuesto a Internet, lo que se conoce también como punto de conexión de Equilibrador de carga interno (ILB). Configurar la puerta de enlace con un ILB es útil para las aplicaciones de línea de negocio internas que no se exponen en Internet. También es útil para los servicios o niveles dentro de una aplicación de varios niveles que se asientan en un límite de seguridad no expuesto a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL. Este artículo le guía por los pasos necesarios para configurar una puerta de enlace de aplicaciones con un ILB.
 
 ## Antes de empezar
 
@@ -31,9 +31,9 @@ La Puerta de enlace de aplicaciones se puede configurar con una IP virtual acces
 3. Compruebe que dispone de servidores backend, ya sea en la red virtual o con una dirección IP virtual o dirección IP pública asignada.
 
 
-Para crear una nueva puerta de enlace de aplicaciones, realice los pasos siguientes en el orden mostrado.
+Para crear una puerta de enlace de aplicaciones, realice los pasos siguientes en el orden mostrado.
 
-1. [Creación de una nueva puerta de enlace de aplicaciones](#create-a-new-application-gateway)
+1. [Creación de una puerta de enlace de aplicaciones](#create-a-new-application-gateway)
 2. [Configuración de la puerta de enlace](#configure-the-gateway)
 3. [Establecimiento de la configuración de la puerta de enlace](#set-the-gateway-configuration)
 4. [Inicio de la puerta de enlace](#start-the-gateway)
@@ -41,7 +41,7 @@ Para crear una nueva puerta de enlace de aplicaciones, realice los pasos siguien
 
 
 
-## Creación de una nueva puerta de enlace de aplicaciones:
+## Creación de una puerta de enlace de aplicaciones:
 
 **Para crear la puerta de enlace**, use el cmdlet `New-AzureApplicationGateway` y reemplace los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
@@ -96,7 +96,7 @@ Tenga en cuenta lo siguiente:
 
 - El elemento *Type* de la dirección IP del front-end debe establecerse en 'Private'
 
-- El elemento *StaticIPAddress* debe establecerse en la dirección IP interna deseada en el que la puerta de enlace recibirá el tráfico. Tenga en cuenta que el elemento *StaticIPAddress* es opcional. Si no se establece, se elige una dirección IP interna disponible de la subred implementada.
+- El elemento *StaticIPAddress* debe establecerse en la dirección IP interna deseada en el que la puerta de enlace recibe el tráfico. Tenga en cuenta que el elemento *StaticIPAddress* es opcional. Si no se establece, se elige una dirección IP interna disponible de la subred implementada.
 
 - El valor del elemento *Name* especificado en *FrontendIPConfiguration* se debe usar en el elemento *FrontendIP* de HTTPListener para hacer referencia a FrontendIPConfiguration.
 
@@ -212,4 +212,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="08/19/2016"
    ms.author="masnider"/>
 
 # Introducción a los grupos de aplicaciones
@@ -158,7 +158,7 @@ Estas restricciones se establecen con el fin de que Cluster Resource Manager pue
 -	No utilice la capacidad de aplicación para asegurarse de que dos servicios de la misma aplicación siempre se colocarán juntos. Para ello, utilice relaciones de afinidad entre servicios; la afinidad solo se puede limitar a los servicios que realmente se deben colocar juntos.
 
 ## Pasos siguientes
-- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles [Configuración de Cluster Resource Manager para los servicios de Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
+- Para obtener más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles [Configuración del Administrador de recursos de clúster para los servicios de Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
 - Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
 - Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 - Para más información sobre cómo funcionan las métricas en general, lea el artículo [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
@@ -168,4 +168,4 @@ Estas restricciones se establecen con el fin de que Cluster Resource Manager pue
 [Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

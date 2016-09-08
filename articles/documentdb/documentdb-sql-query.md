@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Sintaxis SQL y consulta SQL para DocumentDB | Microsoft Azure" 
 	description="Más información sobre la sintaxis SQL, los conceptos de base de datos y las consultas SQL para DocumentDB, una base de datos NoSQL. Puede utilizar SQL como lenguaje de consulta JSON en DocumentDB." 
-	keywords="consulta sql, consultas sql, sintaxis sql, lenguaje de consulta json, conceptos de base de datos y consultas sql"
+	keywords="consulta sql, consultas sql, sintaxis sql, lenguaje de consulta json, conceptos de base de datos y consultas sql, funciones de agregado"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/22/2016" 
 	ms.author="arramac"/>
 
 # Consulta SQL y sintaxis SQL en DocumentDB
@@ -1552,7 +1552,7 @@ Con estas funciones, ya puede ejecutar consultas similares a las siguientes:
 ### Funciones de cadena
 Las siguientes funciones escalares realizan una operación sobre un valor de entrada de cadena y devuelven una cadena, un valor numérico o un booleano. A continuación se facilita una tabla de funciones de cadena integradas:
 
-Uso|Descripción
+Uso|Description
 ---|---
 [LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Devuelve el número de caracteres de la expresión de cadena especificada.
 [CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena.
@@ -1622,7 +1622,7 @@ Las funciones de cadena también pueden usarse en la cláusula WHERE para filtra
 ### Funciones de matriz
 Las siguientes funciones escalares realizan una operación en un valor de entrada de matriz y devolver un valor numérico, booleano o de matriz. A continuación se facilita una tabla de funciones de matriz integradas:
 
-Uso|Descripción
+Uso|Description
 ---|---
 [ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|Devuelve el número de elementos de la expresión de matriz especificada.
 [ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|Devuelve una matriz que es el resultado de concatenar dos o más valores de la matriz.
@@ -2356,6 +2356,18 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 	        });
 	}
 
+## Funciones de agregado
+
+La compatibilidad nativa con funciones de agregado está en marcha. Mientras tanto, si necesita funcionalidad de recuento o suma puede conseguir el mismo resultado con distintos método.
+
+En la ruta de lectura:
+
+- Puede realizar funciones de agregado recuperando los datos y haciendo un recuento localmente. Se aconseja usar una proyección de consultas barata como `SELECT VALUE 1` en lugar de un documento completo como `SELECT * FROM c`. De esta forma, se maximiza el número de documentos procesados en cada página de resultados, lo que evita idas y vueltas adicionales al servicio en caso necesario.
+- También puede utilizar un procedimiento almacenado para minimizar la latencia de red en viajes de ida y vuelta repetidos. Para ver un procedimiento almacenado de ejemplo que calcula el recuento para una consulta de filtro dada, consulte [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). El procedimiento almacenado puede permitir a los usuarios combinar la funcionalidad de la lógica empresarial con la realización de agregaciones de forma eficaz.
+
+En la ruta de escritura:
+
+- Otro patrón común es agregar previamente los resultados en la ruta de "escritura". Esto es especialmente interesante cuando el volumen de solicitudes de "lectura" es mayor que el de "escritura". Una vez agregados previamente los resultados, están disponibles con una solicitud de lectura de un único punto. El mejor método de agregación previa en DocumentDB es configurar un desencadenador que se invoque con cada "escritura" y actualizar un documento de metadatos que tenga los últimos resultados de la consulta que se va a materializar. Por ejemplo, examine el ejemplo [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), que actualiza los valores de minSize, maxSize y totalSize del documento de metadatos para la colección. El ejemplo puede ampliarse para actualizar un contador, sumar, etc.
 
 ##Referencias
 1.	[Introducción a Base de datos de documentos de Azure][introduction]
@@ -2378,4 +2390,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

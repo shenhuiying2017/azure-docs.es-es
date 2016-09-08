@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Puente de WebView en iOS con el SDK de iOS para Mobile Engagement nativo
@@ -26,12 +26,12 @@ Algunas aplicaciones móviles están diseñadas como una aplicación híbrida en
 
 Para ello, puede seguir dos planteamientos, aunque no se documentan en este artículo:
 
-- El primero se describe en este [vínculo](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip), que requiere el registro de un `UIWebViewDelegate` en WebView y la realización de un cambio de ubicación y su posterior cancelación inmediata en Javascript. 
-- El segundo se basa en esta [sesión WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), un planteamiento que es más limpio que el primero y que seguiremos en esta guía. Tenga en cuenta que este método solo funciona en iOS7 o una versión superior. 
+- El primero se describe en este [vínculo](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip), que requiere el registro de un `UIWebViewDelegate` en WebView y la realización de un cambio de ubicación y su posterior cancelación inmediata en Javascript.
+- El segundo se basa en esta [sesión WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), un planteamiento que es más limpio que el primero y que seguiremos en esta guía. Tenga en cuenta que este método solo funciona en iOS7 o una versión superior.
 
 Siga los pasos siguientes para el ejemplo de puente de iOS.
 
-1. En primer lugar, debe asegurarse de que ha completado nuestro [tutorial de introducción](mobile-engagement-ios-get-started.md) para integrar el SDK de iOS para Mobile Engagement en la aplicación híbrida. Si lo desea, también puede habilitar el registro de pruebas del modo siguiente para ver los métodos SDK a medida que se desencadenen en WebView. 
+1. En primer lugar, debe asegurarse de que ha completado nuestro [tutorial de introducción](mobile-engagement-ios-get-started.md) para integrar el SDK de iOS para Mobile Engagement en la aplicación híbrida. Si lo desea, también puede habilitar el registro de pruebas del modo siguiente para ver los métodos SDK a medida que se desencadenen en WebView.
     
 		- (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
 		   ....
@@ -162,8 +162,8 @@ Siga los pasos siguientes para el ejemplo de puente de iOS.
 
 6. Tenga en cuenta los siguientes aspectos sobre el archivo **ViewController.m**:
 
-	- En el método `loadWebView`, se está cargando un archivo HTML local denominado **LocalPage.html** cuyo código se examinará a continuación. 
-	- En el método `webViewDidFinishLoad`, se está tomando `JsContext` y se está asociando nuestra clase de contenedor a este valor. Esto posibilitará la llamada a nuestros métodos de SDK de contenedor mediante el identificador **EngagementJs** desde WebView. 
+	- En el método `loadWebView`, se está cargando un archivo HTML local denominado **LocalPage.html** cuyo código se examinará a continuación.
+	- En el método `webViewDidFinishLoad`, se está tomando `JsContext` y se está asociando nuestra clase de contenedor a este valor. Esto posibilitará la llamada a nuestros métodos de SDK de contenedor mediante el identificador **EngagementJs** desde WebView.
 
 7. Cree un archivo llamado **LocalPage.html** con el código siguiente:
 
@@ -254,10 +254,10 @@ Siga los pasos siguientes para el ejemplo de puente de iOS.
 
 8. Tenga en cuenta los siguientes aspectos sobre el archivo HTML anterior:
 
-	- 	Contiene un conjunto de cuadros de entrada donde puede proporcionar los datos que se utilizarán como nombres para los valores de Event, Job, Error, AppInfo. Al hacer clic en el botón situado junto a él, se realiza una llamada a Javascript, que finalmente llama a los métodos desde el archivo puente para pasar esta llamada al SDK de iOS para Mobile Engagement. 
-	- 	Estamos añadiendo algo de información adicional estática a los eventos, trabajos e incluso errores para demostrar cómo podría ser este proceso. Esta información adicional se envía como una cadena JSON que, si observa el archivo `EngagementJsExports.m`, se analiza y se pasa junto con los eventos, las tareas y los errores que se envían. 
-	- 	Un trabajo de Mobile Engagement comienza con el nombre que especifique en el cuadro de entrada, se ejecuta durante 10 segundos y luego se apaga. 
-	- 	Se pasa una información de aplicación o una etiqueta de Mobile Engagement con 'customer\_name' como clave estática y el valor que especificó en la entrada como valor para la etiqueta. 
+	- 	Contiene un conjunto de cuadros de entrada donde puede proporcionar los datos que se utilizarán como nombres para los valores de Event, Job, Error, AppInfo. Al hacer clic en el botón situado junto a él, se realiza una llamada a Javascript, que finalmente llama a los métodos desde el archivo puente para pasar esta llamada al SDK de iOS para Mobile Engagement.
+	- 	Estamos añadiendo algo de información adicional estática a los eventos, trabajos e incluso errores para demostrar cómo podría ser este proceso. Esta información adicional se envía como una cadena JSON que, si observa el archivo `EngagementJsExports.m`, se analiza y se pasa junto con los eventos, las tareas y los errores que se envían.
+	- 	Un trabajo de Mobile Engagement comienza con el nombre que especifique en el cuadro de entrada, se ejecuta durante 10 segundos y luego se apaga.
+	- 	Se pasa una información de aplicación o una etiqueta de Mobile Engagement con 'customer\_name' como clave estática y el valor que especificó en la entrada como valor para la etiqueta.
  
 9. Ejecute la aplicación y verá lo siguiente. Ahora, proporcione un nombre para un evento de prueba similar al siguiente y haga clic en el botón **Send** (Enviar) que está al lado.
 
@@ -271,4 +271,4 @@ Siga los pasos siguientes para el ejemplo de puente de iOS.
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Integración del SDK de cobertura de Windows Phone Silverlight
@@ -24,7 +24,7 @@ Debe seguir el procedimiento de integración descrito en el documento [Integraci
 
 No hace falta agregar nada. Las referencias `EngagementReach` y los recursos de ya están en el proyecto.
 
-> [AZURE.TIP]Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement).
+> [AZURE.TIP]  Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement).
 
 ##Agregar las capacidades
 
@@ -73,7 +73,7 @@ Si, en cambio, quiere especificarlo en tiempo de ejecución, puede llamar al mé
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-> [AZURE.TIP]Puede especificar el nombre del canal de inserción de MPNS de la aplicación. De forma predeterminada, Engagement crea un nombre basado en el appId. No hace falta que especifique el nombre usted mismo, excepto si tiene previsto usar el canal de inserción fuera de Engagement.
+> [AZURE.TIP] Puede especificar el nombre del canal de inserción de MPNS de la aplicación. De forma predeterminada, Engagement crea un nombre basado en el appId. No hace falta que especifique el nombre usted mismo, excepto si tiene previsto usar el canal de inserción fuera de Engagement.
 
 ### Inicialización de Engagement
 
@@ -99,7 +99,7 @@ Modifique `App.xaml.cs`:
 		   EngagementReach.Instance.OnActivated(e);
 		}
 
-> [AZURE.IMPORTANT]`EngagementReach.Instance.Init` se ejecuta en un subproceso dedicado. No es necesario que lo haga usted.
+> [AZURE.IMPORTANT] `EngagementReach.Instance.Init` se ejecuta en un subproceso dedicado. No es necesario que lo haga usted.
 
 ##Consideraciones de envío de la tienda de aplicaciones
 
@@ -125,7 +125,7 @@ También puede decidir desactivar MPNS a través de la configuración de Engagem
 
 **No podemos garantizar que la aplicación aprobará el proceso de validación si no se respetan estas recomendaciones.**
 
-##Controlar la inserción de datos (opcional)
+##Control de la inserción de datos (opcional)
 
 Si desea que la aplicación pueda recibir inserciones de datos Reach, debe implementar dos eventos de la clase EngagementReach:
 
@@ -144,7 +144,7 @@ Si desea que la aplicación pueda recibir inserciones de datos Reach, debe imple
 
 Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit`. De lo contrario, será `action`. Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
 
-> [AZURE.WARNING]Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
+> [AZURE.WARNING] Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
 
 ##Personalizar la interfaz de usuario (opcional)
 
@@ -177,7 +177,7 @@ A continuación, establezca el contenido del campo `EngagementReach.Instance.Han
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`. No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
+> [AZURE.NOTE] De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`. No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
 
 ### Diseños
 
@@ -211,11 +211,11 @@ Puede invalidar los métodos `EngagementReachHandler` en la subclase para indica
 	   // return a new instance of your own notification
 	}
 
-> [AZURE.TIP]El método `CreateNotification` puede devolver un valor nulo. La notificación no se mostrará y se quitará la campaña de Reach.
+> [AZURE.TIP] El método `CreateNotification` puede devolver un valor nulo. La notificación no se mostrará y se quitará la campaña de Reach.
 
 Para simplificar la implementación del diseño, también proporcionamos nuestro propio xaml que puede servir como base para el código. Estos códigos se encuentran en el archivo de SDK de Engagement (/src/reach/).
 
-> [AZURE.WARNING]Los orígenes que proporcionamos son los mismos que usamos. Por lo tanto, si desea modificarlos directamente, no olvide cambiar el espacio de nombres y el nombre.
+> [AZURE.WARNING] Los orígenes que proporcionamos son los mismos que usamos. Por lo tanto, si desea modificarlos directamente, no olvide cambiar el espacio de nombres y el nombre.
 
 ### Posición de notificación
 
@@ -259,11 +259,11 @@ Para implementar la devolución de llamada, haga lo siguiente:
 
 Puede establecer la devolución de llamada en el método `Application_Launching` del archivo `App.xaml.cs`, preferentemente antes de la llamada `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
+> [AZURE.TIP] A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
 
 [directivas de aplicación]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [requisitos adicionales para tipos específicos de aplicación vigentes]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0824_2016-->

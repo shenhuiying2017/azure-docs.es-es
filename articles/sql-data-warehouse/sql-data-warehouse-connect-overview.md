@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/20/2016"
+   ms.date="08/27/2016"
    ms.author="sonyama;barbkess"/>
 
 # Conexión a Almacenamiento de datos SQL de Azure
@@ -27,7 +27,7 @@ Información general sobre la conexión a Almacenamiento de datos SQL de Azure.
 
 ## Detección de la cadena de conexión desde el portal
 
-El Almacenamiento de datos SQL está asociado a un servidor SQL de Azure. Para conectarse, necesita el nombre completo del servidor (***nombreDeServidor**.database.windows.net*).
+El Almacenamiento de datos SQL está asociado a un servidor SQL de Azure. Para conectarse, necesita el nombre completo del servidor. Por ejemplo, **miServidor**.database.windows.net.
 
 Para buscar el nombre del servidor completo:
 
@@ -38,86 +38,38 @@ Para buscar el nombre del servidor completo:
     ![Nombre del servidor completo][1]
 
 ## Configuración de conexión
+
 Almacenamiento de datos SQL estandariza algunas opciones de configuración durante la creación de conexiones y objetos. Estas opciones no se pueden invalidar.
 
 | Configuración de base de datos | Valor |
-| :----------------- | :--------------------------- |
-| ANSI\_NULLS | ACTIVAR |
-| QUOTED\_IDENTIFIERS | ACTIVAR |
-| NO\_COUNT | DESACTIVAR |
-| DATEFORMAT | mdy |
-| DATEFIRST | 7 |
-| Intercalación de base de datos | SQL\_Latin1\_General\_CP1\_CI\_AS |
+| :--------------------- | :--------------------------- |
+| [ANSI\_NULLS][] | ACTIVAR |
+| [QUOTED\_IDENTIFIERS][] | ACTIVAR |
+| [DATEFORMAT][] | mdy |
+| [DATEFIRST][] | 7 |
 
-## Sesiones y solicitudes
-Una vez que se ha realizado una conexión y se ha establecido una sesión, está listo para escribir y enviar consultas a Almacenamiento de datos SQL.
+## Supervisión de conexiones y consultas
 
-Cada consulta se representa mediante uno o varios identificadores de solicitud. Todas las consultas enviadas en esa conexión forman parte de una sola sesión y, por lo tanto, estarán representadas por un identificador de sesión único.
-
-Sin embargo, como Almacenamiento de datos SQL es un sistema MPP (procesamiento paralelo masivo) distribuido, tanto los identificadores de sesión como los de solicitud se exponen de manera algo diferente en comparación con SQL Server.
-
-Las sesiones y las solicitudes se representan con sus identificadores respectivos.
-
-| Identificador | Valor de ejemplo |
-| :--------- | :------------ |
-| Id. de sesión | SID123456 |
-| Id. de solicitud | QID123456 |
-
-Observe que el Id. de sesión está precedido por SID, la forma corta de Session ID, y que las solicitudes están precedidas por QID, la forma corta de Query ID.
-
-Necesitará esta información para ayudarle a identificar la consulta al supervisar el rendimiento de las consultas. Puede supervisar el rendimiento de las consultas mediante el [Portal de Azure] y las vistas de administración dinámica.
-
-Esta consulta permite identificar la sesión actual.
-
-```sql
-SELECT SESSION_ID()
-;
-```
-
-Para ver todas las consultas que están en ejecución o que se han ejecutado recientemente en el almacenamiento de datos, puede usar el siguiente ejemplo. Esto crea una vista y, a continuación, la ejecuta.
-
-```sql
-CREATE VIEW dbo.vSessionRequests
-AS
-SELECT 	 s.[session_id]									AS Session_ID
-		,s.[status]										AS Session_Status
-		,s.[login_name]									AS Session_LoginName
-		,s.[login_time]									AS Session_LoginTime
-        ,r.[request_id]									AS Request_ID
-		,r.[status]										AS Request_Status
-		,r.[submit_time]								AS Request_SubmitTime
-		,r.[start_time]									AS Request_StartTime
-		,r.[end_compile_time]							AS Request_EndCompileTime
-		,r.[end_time]									AS Request_EndTime
-		,r.[total_elapsed_time]							AS Request_TotalElapsedDuration_ms
-        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
-        ,DATEDIFF(ms,[start_time],[end_compile_time])	AS Request_CompileDuration_ms
-        ,DATEDIFF(ms,[end_compile_time],[end_time])		AS Request_ExecDuration_ms
-		,[label]										AS Request_QueryLabel
-		,[command]										AS Request_Command
-		,[database_id]									AS Request_Database_ID
-FROM    sys.dm_pdw_exec_requests r
-JOIN    sys.dm_pdw_exec_sessions s	ON	r.[session_id] = s.[session_id]
-WHERE   s.[session_id] <> SESSION_ID()
-;
-
-SELECT * FROM dbo.vSessionRequests;
-```
+Una vez que se ha realizado una conexión y se ha establecido una sesión, está listo para escribir y enviar consultas a Almacenamiento de datos SQL. Para obtener información sobre cómo supervisar las sesiones y las consultas, consulte [Supervisión de la carga de trabajo mediante DMV][].
 
 ## Pasos siguientes
 
-Para empezar a consultar el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
-
-<!--Arcticles-->
-
+<!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Supervisión de la carga de trabajo mediante DMV]: ./sql-data-warehouse-manage-monitor.md
+
+<!--MSDN references-->
+[ANSI\_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
+[QUOTED\_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
+[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
 [Portal de Azure]: https://portal.azure.com
 
 <!--Image references-->
-
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

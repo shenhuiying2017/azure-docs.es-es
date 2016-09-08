@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect: historial de versiones | Microsoft Azure"
-   description="En este tema se muestran todas las versiones de Azure AD Connect y Azure AD Sync"
+   description="En este tema se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -22,7 +22,7 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect c
 
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
 
-Esta es la lista de temas relacionados.
+Esta es la lista de temas relacionados:
 
 Tema. |  
 --------- | --------- |
@@ -134,7 +134,7 @@ Publicado: noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 - [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
-- Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-get-started.md).
+- Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
 
 **Nuevo escenarios admitido:**
 
@@ -293,4 +293,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

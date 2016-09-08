@@ -101,7 +101,7 @@ El agente de Microsoft Monitoring Agent conecta los equipos a Operations Managem
 
 Siga las instrucciones que se encuentran en [Conexión de equipos Windows a Log Analytics](../log-analytics/log-analytics-windows-agents.md) para instalar el agente en la máquina local. Puede repetir este proceso para varios equipos para agregar varios trabajos a su entorno.
 
-Cuando el agente se conecta correctamente a Operations Management Suite, se enumerará en la pestaña **Orígenes conectados** del panel **Configuración** de Operations Management Suite. Puede comprobar que el agente ha descargado correctamente la solución Automatización cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\\Program Files\\Microsoft Monitoring Agent\\Agent. Para confirmar la versión de Hybrid Runbook Worker, puede ir a C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\AzureAutomation\\ y examinar la subcarpeta \*version*.
+Cuando el agente se conecta correctamente a Operations Management Suite, se enumerará en la pestaña **Orígenes conectados** del panel **Configuración** de Operations Management Suite. Puede comprobar que el agente ha descargado correctamente la solución Automatización cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\\Program Files\\Microsoft Monitoring Agent\\Agent. Para confirmar la versión de Hybrid Runbook Worker, puede ir a C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\AzureAutomation\\ y examinar la subcarpeta \ *version*.
 
 
 ### 4\. Instalación del entorno de runbook y conexión con Automatización de Azure
@@ -181,7 +181,7 @@ Utilice el procedimiento siguiente para especificar una cuenta RunAs de un grupo
 
 1. Cree un [recurso de credencial](automation-credentials.md) con acceso a los recursos locales.
 2. Abra la cuenta de Automatización en el Portal de Azure.
-2. Seleccione el icono **Grupos de Hybrid Worker ** y luego seleccione el grupo.
+2. Seleccione el icono **Grupos de Hybrid Worker** y luego seleccione el grupo.
 3. Seleccione **Todas las opciones** y luego **Configuración del grupo de Hybrid Worker**.
 4. Cambie **Ejecutar como** de **Predeterminado** a **Personalizado**.
 5. Seleccione la credencial y haga clic en **Guardar**.
@@ -224,3 +224,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
  
 
 <!---HONumber=AcomDC_0817_2016-->
+

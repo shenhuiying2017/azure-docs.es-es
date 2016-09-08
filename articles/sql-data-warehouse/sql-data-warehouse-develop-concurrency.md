@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
@@ -26,7 +26,7 @@ Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas l
 
 Los límites de simultaneidad se rigen por dos conceptos: *consultas simultáneas* y *espacios de simultaneidad*. Para que una consulta se ejecute, lo ha de hacer tanto dentro de su límite de simultaneidad como dentro de la asignación de espacio de simultaneidad.
 
-- Las consultas simultáneas son consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 consultas simultáneas.
+- Las consultas simultáneas son consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 consultas simultáneas en los tamaños de DWU más grandes.
 - Los espacios de simultaneidad se asignan según DWU. Cada 100 DWU proporciona 4 espacios de simultaneidad. Por ejemplo, un DW100 asigna 4 espacios de simultaneidad y DW1000 asigna 40. Cada consulta consume uno o más espacios de simultaneidad, en función de la [clase de recursos](#resource-classes) de la consulta. Las consultas que se ejecutan en la clase de recurso smallrc consumen una ranura de simultaneidad. Las consultas que se ejecutan en una clase de recurso superior consumirán más ranuras de simultaneidad.
 
 La tabla siguiente describe los límites de consultas simultáneas y espacios de simultaneidad en los distintos tamaños de DWU.
@@ -241,7 +241,7 @@ Nuevamente, las siguientes instrucciones respetan las clases de recursos:
 
 ## Excepciones de la consulta a los límites de simultaneidad
 
-Algunas consultas no respetan la clase de recursos a la que está asignado el usuario. Estas excepciones a los límites de simultaneidad se realizan cuando los recursos de memoria necesarios para un determinado comando son bajos, a menudo porque el comando es una operación de metadatos. El objetivo de estas excepciones es evitar asignaciones mayores de memoria a las consultas que nunca las necesitarán. En estos casos, siempre se usa la clase de recursos predeterminada pequeña (smallrc) con independencia de la clase de recursos real asignada al usuario. Por ejemplo, `CREATE LOGIN` se ejecutará siempre en la clase smallrc. Los recursos necesarios para llevar a cabo esta operación son muy bajos, por lo que no tendría sentido incluir la consulta en el modelo de espacio de simultaneidad. Sería una pérdida de tiempo asignar previamente grandes cantidades de memoria para esta acción. Al excluir `CREATE LOGIN` del modelo de espacio de simultaneidad, el Almacenamiento de datos SQL puede ser mucho más eficaz.
+Algunas consultas no respetan la clase de recursos a la que está asignado el usuario. Estas excepciones a los límites de simultaneidad se realizan cuando los recursos de memoria necesarios para un determinado comando son bajos, a menudo porque el comando es una operación de metadatos. El objetivo de estas excepciones es evitar asignaciones mayores de memoria a las consultas que nunca las necesitarán. En estos casos, siempre se usa la clase de recursos predeterminada pequeña (smallrc) con independencia de la clase de recursos real asignada al usuario. Por ejemplo, `CREATE LOGIN` se ejecutará siempre en la clase smallrc. Los recursos necesarios para llevar a cabo esta operación son muy bajos, por lo que no tiene sentido incluir la consulta en el modelo de espacio de simultaneidad. Estas consultas tampoco están limitadas por el límite de simultaneidad de 32 usuarios; sino que puede ejecutar un número ilimitado de estas consultas hasta llegar al límite de 1024 sesiones.
 
 Las instrucciones siguientes no respetan las clases de recursos:
 
@@ -428,4 +428,4 @@ Para más información sobre cómo administrar los usuarios y la seguridad de la
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

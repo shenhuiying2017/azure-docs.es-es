@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell
 
@@ -308,4 +308,4 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0824_2016-->

@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico
+# Configuración de una conexión de punto a sitio a una red virtual mediante el portal clásico
 
 > [AZURE.SELECTOR]
 - [PowerShell: administrador de recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -25,9 +25,10 @@
 
 Una configuración de punto a sitio (P2S) permite crear una conexión segura entre un equipo cliente individual y una red virtual. Una conexión P2S resulta útil cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual.
 
+Este artículo le guiará a través de la creación de una red virtual con una conexión de punto a sitio mediante el **modelo de implementación clásica** del portal clásico. Actualmente, no se puede crear esta configuración completa en el Portal de Azure con el modelo de implementación clásica.
+
 Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. Para más información sobre las conexiones de punto a sitio, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Planeamiento y diseño](vpn-gateway-plan-design.md).
 
-En este artículo se hace referencia a las conexiones de punto a sitio con una red virtual creadas con el modelo de implementación clásica. En los pasos de este artículo se usa el Portal clásico. Actualmente, no se puede crear esta configuración mediante el Portal de Azure.
 
 **Modelos de implementación y herramientas para las conexiones de punto a sitio**
 
@@ -37,7 +38,7 @@ En este artículo se hace referencia a las conexiones de punto a sitio con una r
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-![Diagrama de punto a sitio](./media/vpn-gateway-point-to-site-create/point2site.png "De punto a sitio")
+![Diagrama de punto a sitio](./media/vpn-gateway-point-to-site-create/p2sclassic.png "De punto a sitio")
 
 ## Acerca de la creación de una conexión de punto a sitio
  
@@ -135,13 +136,13 @@ Para conectarse a la red virtual, también necesita configurar un cliente de VPN
 
 ### Parte 1: Creación del paquete de configuración de cliente de VPN
 
-1. En el Portal de Azure clásico, en la página **Panel** de la red virtual, vaya al menú de vista rápida en la esquina derecha. Para ver la lista de sistemas operativos cliente compatibles, consulte la sección [Conexiones de punto a sitio](vpn-gateway-vpn-faq.md#point-to-site-connections) de las Preguntas más frecuentes sobre la puerta de enlace de VPN.<br><br>Seleccione el paquete de descarga que se corresponda con el sistema operativo cliente en el que se va a instalar:
+1. En el Portal de Azure clásico, en la página **Panel** de la red virtual, vaya al menú de vista rápida en la esquina derecha. Para obtener la lista de sistemas operativos compatibles, consulte la sección [Conexiones de punto a sitio](vpn-gateway-vpn-faq.md#point-to-site-connections) de las preguntas más frecuentes de Puerta de enlace de VPN. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional. Los valores son específicos de la red virtual a la que desea conectarse.<br><br>Seleccione el paquete de descarga que se corresponde con el sistema operativo del cliente en el que se va a instalar:
  - Para clientes de 32 bits, seleccione **Descargar paquete de VPN de cliente de 32 bits**.
  - Para clientes de 64 bits, seleccione **Descargar paquete de VPN de cliente de 64 bits**.
 
 2. Su paquete de cliente tarda unos minutos en crearse. Una vez que se haya completado el paquete, puede descargar el archivo. El archivo *.exe* que descargue se puede almacenar de forma segura en el equipo local.
 
-3. Después de generar y descargar el paquete del cliente VPN del Portal de Azure clásico, podrá instalar el paquete del cliente en el equipo cliente desde el cual desee conectarse a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional.
+3. Después de generar y descargar el paquete del cliente VPN del Portal de Azure clásico, podrá instalar el paquete del cliente en el equipo cliente desde el cual desee conectarse a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente.
 
 ### Paso 2: Instalación del paquete de configuración de VPN en el cliente e inicio de la conexión
 
@@ -178,4 +179,4 @@ Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máqui
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

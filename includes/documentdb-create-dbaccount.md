@@ -1,9 +1,9 @@
-1.	Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com/) en línea.
-2.	En la barra de salto, haga clic en **Nuevo**, en **Datos y almacenamiento** y luego en **Azure DocumentDB**.
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+2.	En la barra de salto, haga clic en **Nuevo**, seleccione **Datos y almacenamiento** y, después, haga clic en **DocumentDB (NoSQL)**.
 
-	![Captura de pantalla del Portal de Azure de creación de bases de datos en la que está resaltado el botón Nuevo, Datos y almacenamiento en la hoja Crear y Azure DocumentDB en la hoja Datos y almacenamiento](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+	![Captura de pantalla del Portal de Azure, con Más servicios y DocumentDB (NoSQL) resaltados](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. En la hoja **Nueva cuenta de DocumentDB**, especifique la configuración que desee para la cuenta de DocumentDB.
+3. En la hoja **Nueva cuenta**, especifique la configuración que desee para la cuenta de DocumentDB.
 
 	![!Screen shot of the New DocumentDB (Preview) blade3](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -18,7 +18,8 @@
 	
     - Para proporcionar un acceso cómodo a su cuenta y a los recursos que se crearán en el futuro, seleccione la opción **Anclar al panel**.
 
-4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. Para comprobar el estado de la implementación, puede supervisar el progreso en el Panel de inicio. ![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. Para comprobar el estado de la implementación, puede supervisar el progreso en el Panel de inicio. 
+	![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	O bien, puede supervisar su progreso en el centro de notificaciones.
 
@@ -26,7 +27,7 @@
 
 	![Captura de pantalla del Centro de notificaciones, que indica que se creó correctamente la cuenta de DocumentDB y se implementó en un grupo de recursos - Notificación del creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	Después de crear la cuenta de DocumentDB, ya se puede usar con la configuración predeterminada en el portal en línea. Tenga en cuenta que la coherencia predeterminada de la cuenta de DocumentDB está establecida en **Sesión**. Puede ajustar la configuración de coherencia predeterminada haciendo clic en **Coherencia predeterminada** en el menú. Para más información acerca de los niveles de coherencia que ofrece DocumentDB, consulte el artículo [Administración de los recursos de Azure a través del Portal](../articles/azure-portal/resource-group-portal.md)
+5.	Después de crear la cuenta de DocumentDB, ya se puede usar con la configuración predeterminada. Tenga en cuenta que la coherencia predeterminada de la cuenta de DocumentDB está establecida en **Sesión**. Puede ajustar la coherencia predeterminada haciendo clic en **Coherencia predeterminada** en el menú de recursos. Para más información acerca de los niveles de coherencia que ofrece DocumentDB, consulte el artículo sobre [Niveles de coherencia en DocumentDB](../articles/azure-portal/resource-group-portal.md).
 
     ![Captura de pantalla de la hoja Grupo de recursos - comenzar el desarrollo de aplicaciones](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
@@ -36,4 +37,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

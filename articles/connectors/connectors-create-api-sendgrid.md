@@ -14,47 +14,36 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector SendGrid
 
-
-
-El conector SendGrid puede usarse desde:
-
-- [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flujo](http://flows.microsoft.com)
+El proveedor de conexión SendGrid permite enviar correo electrónico y administrar listas de destinatarios.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
 El conector SendGrid se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
 
- El conector SendGrid tiene las siguientes acciones y desencadenadores disponibles:
+ El conector de SendGrid tiene las siguientes acciones disponibles. No hay desencadenadores.
 
 ### Acciones de SendGrid
 Puede realizar estas acciones:
 
-|Acción|Descripción|
+|Acción|Description|
 |--- | ---|
 |[SendEmail](connectors-create-api-sendgrid.md#sendemail)|Envía un correo electrónico mediante la API de SendGrid (limitado a 10 000 destinatarios)|
 |[AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist)|Agrega un destinatario individual a una lista de destinatarios|
-### Desencadenadores de SendGrid
-Se pueden escuchar estos eventos:
-
-|Desencadenador | Descripción|
-|--- | ---|
 
 
 ## Creación de una conexión a SendGrid
-Para crear aplicaciones lógicas con SendGrid, primero debe crear una **conexión** y, a continuación, proporcionar los detalles de las siguientes propiedades:
+Para crear aplicaciones lógicas con SendGrid, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
+|Propiedad| Obligatorio|Description|
 | ---|---|---|
 |ApiKey|Sí|Proporciona la clave de API de SendGrid|
  
@@ -73,11 +62,11 @@ Enviar correo electrónico: envía un correo electrónico mediante la API de Sen
 
 ```POST: /api/mail.send.json```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
 |request| |yes|body|Ninguna|Mensaje de correo electrónico para enviar|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -96,12 +85,12 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 
 ```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|listId|cadena|yes|path|Ninguna|Identificador único de la lista de destinatarios|
-|recipientId|cadena|yes|path|Ninguna|Identificador único del destinatario|
+|listId|string|yes|path|Ninguna|Identificador único de la lista de destinatarios|
+|recipientId|string|yes|path|Ninguna|Identificador único del destinatario|
 
-#### Respuesta
+#### Response
 
 |Nombre|Descripción|
 |---|---|
@@ -121,20 +110,20 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|from|cadena|Sí |
-|fromname|cadena|No |
-|to|cadena|Sí |
-|toname|cadena|No |
-|subject|cadena|Sí |
-|body|cadena|Sí |
+|from|string|Sí |
+|fromname|string|No |
+|to|string|Sí |
+|toname|string|No |
+|subject|string|Sí |
+|body|string|Sí |
 |ishtml|boolean|No |
-|cc|cadena|No |
-|ccname|cadena|No |
-|bcc|cadena|No |
-|bccname|cadena|No |
-|replyto|cadena|No |
-|fecha|cadena|No |
-|encabezados|cadena|No |
+|cc|string|No |
+|ccname|string|No |
+|bcc|string|No |
+|bccname|string|No |
+|replyto|string|No |
+|fecha|string|No |
+|encabezados|string|No |
 |files|array|No |
 |filenames|array|No |
 
@@ -145,7 +134,7 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|message|cadena|No |
+|message|string|No |
 
 
 
@@ -164,7 +153,7 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
 |id|integer|No |
-|name|cadena|No |
+|name|string|No |
 |recipient\_count|integer|No |
 
 
@@ -183,13 +172,13 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 |---|---|---|
-|email|cadena|No |
-|last\_name|cadena|No |
-|first\_name|cadena|No |
-|id|cadena|No |
+|email|string|No |
+|last\_name|string|No |
+|first\_name|string|No |
+|id|string|No |
 
 
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

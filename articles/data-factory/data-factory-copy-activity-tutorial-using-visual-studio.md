@@ -76,7 +76,7 @@ En este paso, crea dos servicios vinculados: **AzureStorageLinkedService1** y **
 
 ### Cree el servicio vinculado SQL de Azure.
 
-5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados ** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**.
+5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**.
 6. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**.
 7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres de servidor, base de datos, cuenta de usuario y contraseña de SQL Azure.
 8.  Guarde el archivo **AzureSqlLinkedService1.json**.
@@ -277,4 +277,4 @@ Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

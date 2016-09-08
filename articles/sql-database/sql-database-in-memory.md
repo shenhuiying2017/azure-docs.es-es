@@ -44,19 +44,14 @@ Una tabla con optimización para memoria tiene una representación de sí misma 
 Con In-Memory OLTP se pueden conseguir ganancias hasta 30 veces superiores en el rendimiento de las transacciones, según las particularidades de la carga de trabajo.
 
 
-Los procedimientos almacenados compilados de forma nativa requieren menos instrucciones de la máquina durante el tiempo de ejecución que si se hubieran creado como procedimientos almacenados interpretados tradicionales. Hemos visto resultados de la compilación nativa en duraciones que representan 1/100 de la duración interpretada.
+Los procedimientos almacenados compilados de forma nativa requieren menos instrucciones de la máquina durante el tiempo de ejecución que los procedimientos almacenados interpretados tradicionales. Hemos visto resultados de la compilación nativa en duraciones que representan 1/100 de la duración interpretada.
 
 
 #### In-Memory Analytics 
 
 La característica de In-Memory [Analytics](#install_analytics_manuallink) es:
 
-- Índices de almacén de columnas
-
-
-Los índices de almacén de columnas mejoran el rendimiento de las cargas de trabajo de la consulta por la compresión particular de los datos.
-
-En otros servicios, los índices de almacén de columnas están pensados necesariamente con optimización para memoria. Sin embargo, en Base de datos SQL de Azure puede existir un índice de almacén de columnas en el disco duro junto con la tabla tradicional que indexa.
+Los índices ColumnStore mejoran el rendimiento de las consultas de informes y análisis.
 
 
 #### Real-Time Analytics
@@ -77,11 +72,10 @@ GA, Disponibilidad general:
 Vista previa:
 
 - In-Memory OLTP
-- In-Memory Analytics con índices de almacén de columnas con optimización para memoria
 - Real-Time Operational Analytics
 
 
-[Más adelante en este tema](#preview_considerations_for_in_memory) se describen las consideraciones necesarias mientras las características de In-Memory se encuentren en vista previa.
+[Más adelante en este tema](#preview_considerations_for_in_memory) se describen las consideraciones necesarias mientras las características de In-Memory se encuentren en versión preliminar.
 
 
 > [AZURE.NOTE] Estas características que se encuentran en la versión preliminar solo están disponibles para Bases de datos SQL de Azure [*Premium*](sql-database-service-tiers.md), no para las bases de datos en el nivel de servicio Estándar o Básico.
@@ -110,7 +104,7 @@ La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic 
 3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles.
  - El script T-SQL crea los objetos In-Memory necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
 
-4. Pegue el script T-SQL en SSMS.exe y ejecútelo.
+4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo.
  - Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`, como en:
 
 
@@ -190,8 +184,8 @@ En esta sección verá cómo usar la práctica utilidad **ostress.exe** para eje
 
 Cuando se ejecuta ostress.exe, le recomendamos pasar los valores de parámetros diseñados para ambos:
 
-- Ejecute un gran número de conexiones simultáneas, mediante el uso quizás de -n100.
-- Haga que cada conexión se repita en bucle cientos de veces, mediante el uso de quizás -r500.
+- Ejecute un gran número de conexiones simultáneas, mediante el uso de -n100.
+- Haga que cada conexión se repita en bucle cientos de veces, mediante el uso de -r500.
 
 
 Sin embargo, es posible que quiera comenzar con valores mucho más pequeños, como -n10 y -r50, para garantizar que todo está funcionando.
@@ -233,7 +227,7 @@ end
 ```
 
 
-Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas apariciones de la subcadena *\_inmem* substring with *\_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
+Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas apariciones de la subcadena *\_inmem* por *\_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
 
 
 ### Instalación de ostress y utilidades de RML
@@ -242,7 +236,7 @@ Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, s
 Lo ideal sería planear la ejecución de ostress.exe en una Máquina virtual de Azure. Se crearía una [máquina virtual de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) en la misma región geográfica de Azure en que reside la base de datos AdventureWorksLT. Pero puede ejecutar si lo desea ostress.exe en el equipo portátil.
 
 
-En la máquina virtual, o en cualquier host que elija, instale las utilidades de Replay Markup Language (RML), entre las que se incluye ostress.exe.
+En la VM, o en cualquier host que elija, instale las utilidades de Replay Markup Language (RML), entre las que se incluye ostress.exe.
 
 - Consulte la explicación de ostress.exe en [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
  - O bien consulte [Base de datos de ejemplo para In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
@@ -286,7 +280,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copie el texto de la línea de comandos ostress.exe anterior en el Portapapeles.
 
-3. Reemplace los <marcadores de posición> de los parámetros -S -U -P -d por los valores reales correctos.
+3. Reemplace el `<placeholders>` de los parámetros -S -U -P -d por los valores reales correctos.
 
 4. Ejecute la línea de comandos modificada en una ventana del símbolo del sistema de RML.
 
@@ -331,10 +325,7 @@ Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces
 ## B. Instalación del ejemplo de In-Memory Analytics.
 
 
-En esta sección, compara los resultados de optimización de infraestructura y de estadísticas cuando se usa un índice del almacén de columnas en lugar de un índice normal.
-
-
-Los índices del almacén de columnas son lógicamente los mismos que los índices normales, pero físicamente son diferentes. Un índice de almacén de columnas organiza los datos de manera exótica para comprimir los datos en gran medida. Esto ofrece importantes mejoras del rendimiento.
+En esta sección, compara los resultados de optimización de infraestructura y de estadísticas cuando se usa un índice del almacén de columnas en lugar de un índice de árbol b tradicional.
 
 
 Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele ser mejor usar un índice del almacén de columnas no agrupado. Para más información, consulte [Descripción de los índices de almacén de columnas](http://msdn.microsoft.com/library/gg492088.aspx).
@@ -353,7 +344,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
  - El script crea la tabla de dimensiones y dos tablas de hechos. Las tablas de hechos se rellenan con 3,5 millones de filas cada una.
  - El script podría tardar 15 minutos en completarse.
 
-3. Pegue el script T-SQL en SSMS.exe y ejecútelo.
+3. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo.
  - La palabra clave **COLUMNSTORE** es crucial en una instrucción **CREATE INDEX**, como en:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Establezca AdventureWorksLT en un nivel de compatibilidad 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
@@ -494,15 +485,15 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 - No se admite el uso de OLTP en memoria con bases de datos de grupos elásticos durante la versión preliminar.
  - Para mover una base de datos que tenga o haya tenido objetos de OLTP en memoria para un grupo elástico, siga estos pasos:
   - 1. Quitar las tablas optimizadas para la memoria, tipos de tabla y módulos de T-SQL compilados de forma nativa en la base de datos
-  - 2. Cambiar el nivel de servicio de la base de datos a estándar (*actualmente hay un problema que impide el movimiento de bases de datos Premium que han tenido objetos de OLTP en memoria en el pasado a un grupo elástico; el equipo de bases de datos de Azure está trabajando activamente para resolver el problema)
+  - 2. Cambiar el nivel de servicio de la base de datos a estándar
   - 3. Mover la base de datos a un grupo elástico
 
 - No se admite el uso de In-Memory OLTP con Almacenamiento de datos SQL.
  - Se admite la característica de índice de almacén de columnas en In-Memory Analytics en Almacenamiento de datos SQL.
 
-- El almacén de consulta no captura las consultas dentro de los módulos compilados de forma nativa durante la vista previa, pero lo hará en un futuro.
+- El almacén de consulta no captura las consultas dentro de los módulos compilados de forma nativa.
 
-- No se admiten algunas características de Transact-SQL con In-Memory OLTP. Esto se aplica a Microsoft SQL Server y a Base de datos SQL de Azure. Para obtener información, vea:
+- No se admiten algunas características de Transact-SQL con In-Memory OLTP. Esto se aplica a Microsoft SQL Server y a Base de datos SQL de Azure. Para obtener información, consulte:
  - [Compatibilidad de Transact-SQL con OLTP en memoria](http://msdn.microsoft.com/library/dn133180.aspx)
  - [Construcciones de Transact-SQL no admitidas en In-Memory OLTP.](http://msdn.microsoft.com/library/dn246937.aspx)
 
@@ -537,4 +528,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

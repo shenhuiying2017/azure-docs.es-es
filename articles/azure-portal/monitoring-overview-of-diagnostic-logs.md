@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="johnkem"/>
 
 # Información general sobre los registros de diagnóstico de Azure
@@ -26,13 +26,14 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 - Guardarlos en una **cuenta de almacenamiento** para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante **Configuración de diagnóstico**.
 - [Transmitirlos a **centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+- Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md).
 
 ## Configuración de diagnóstico
 Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. **Configuración de diagnóstico** para un control de recurso:
 
-- Dónde se envían los registros de diagnóstico (cuenta de almacenamiento, centros de eventos u OMS).
+- Dónde se envían los registros de diagnóstico (cuenta de almacenamiento, centros de eventos o Log Analytics de OMS).
 - Qué categorías de registro se envían.
-- Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. Si se establecen directivas de retención pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
+- Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
 
 Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos para un recurso en el Portal de Azure, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -43,7 +44,7 @@ La recopilación de registros de diagnóstico se puede habilitar como parte de l
 
 > [AZURE.TIP] Es posible que estas instrucciones no se apliquen directamente a cada recurso. Consulte los vínculos de esquema al final de esta página para ver los pasos especiales que se pueden aplicar a determinados tipos de recursos.
 
-[Este artículo muestra cómo puede usar una plantilla de recursos para habilitar Configuración de diagnóstico al crear un recurso](./monitoring-enable-diagnostic-logs-using-template.md).
+[Este artículo muestra cómo puede usar una plantilla de recursos para habilitar Configuración de diagnóstico al crear un recurso.](./monitoring-enable-diagnostic-logs-using-template.md)
 
 ### Habilitación de los registros de diagnóstico en el portal
 Para habilitar los registros de diagnóstico en el Portal de Azure al crear algunos tipos de recursos, haga lo siguiente:
@@ -107,5 +108,6 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 ## Pasos siguientes
 - [Transmisión de registros de diagnóstico de Azure a **Centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Cambio de Configuración de diagnóstico mediante la API de REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+- [Análisis de los registros con Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

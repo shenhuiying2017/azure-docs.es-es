@@ -15,26 +15,28 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Enlaces y desencadenadores de funciones de Azure para almacenamiento de Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artículo explica cómo configurar y codificar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a id="storagequeuetrigger"></a> Desencadenador de cola de almacenamiento de Azure
+## <a id="storagequeuetrigger"></a> Desencadenador de cola de Almacenamiento de Azure
 
 #### function.json con desencadenador de cola de almacenamiento
 
-El archivo *function.json* especifica las siguientes propiedades:
+El archivo *function.json* especifica las siguientes propiedades.
 
-- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola. 
+- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola.
 - `queueName`: nombre de la cola que se sondea. Para conocer las reglas de nomenclatura de colas, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de la función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
+- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
 - `type`: debe establecerse en *queueTrigger*.
-- `direction`: debe establecerse en *in*. 
+- `direction`: debe establecerse en *in*.
 
 Ejemplo de *function.json* con un desencadenador de la cola de almacenamiento:
 
@@ -59,8 +61,8 @@ El mensaje de la cola se puede deserializar en cualquiera de los siguientes tipo
 
 * Object (de JSON)
 * String
-* Byte array 
-* `CloudQueueMessage` (C#) 
+* Byte array
+* `CloudQueueMessage` (C#)
 
 #### Metadatos de desencadenador de cola
 
@@ -108,17 +110,17 @@ La cola de mensajes dudosos se denomina *{originalqueuename}*-poison. Puede escr
 
 Si desea gestionar manualmente los mensajes dudosos, puede conocer el número de veces que un mensaje se recogió para su procesamiento mediante la comprobación de `dequeueCount`.
 
-## <a id="storagequeueoutput"></a> Enlace de salida de la cola de almacenamiento de Azure
+## <a id="storagequeueoutput"></a> Enlace de salida de la cola de Almacenamiento de Azure
 
 #### function.json con un enlace de salida de la cola de almacenamiento
 
-El archivo *function.json* especifica las siguientes propiedades:
+El archivo *function.json* especifica las siguientes propiedades.
 
-- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola. 
+- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola.
 - `queueName`: nombre de la cola. Para conocer las reglas de nomenclatura de colas, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de la función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
+- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
 - `type`: debe establecerse en *queue*.
-- `direction`: debe establecerse en *out*. 
+- `direction`: debe establecerse en *out*.
 
 Ejemplo de *function.json* con un enlace de salida de la cola de almacenamiento que usa un desencadenador de cola y escribe un mensaje de cola:
 
@@ -150,8 +152,8 @@ El enlace `queue` puede serializar los siguientes tipos para un mensaje de cola:
 
 * Object (`out T` en C#; crea un mensaje con un objeto nulo si el parámetro es nulo cuando termina la función)
 * String (`out string` en C#; crea un mensaje de cola si el valor del parámetro es no nulo cuando termina la función)
-* Byte array (`out byte[]` en C#; funciona como una cadena) 
-* `out CloudQueueMessage` (C#; funciona como una cadena) 
+* Byte array (`out byte[]` en C#; funciona como una cadena)
+* `out CloudQueueMessage` (C#; funciona como una cadena)
 
 En C# también puede enlazar a `ICollector<T>` o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
 
@@ -176,15 +178,15 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## <a id="storageblobtrigger"></a> Desencadenador de blobs de almacenamiento de Azure
+## <a id="storageblobtrigger"></a> Desencadenador de blobs de Almacenamiento de Azure
 
 #### function.json con desencadenador de blobs de almacenamiento
 
-El archivo *function.json* especifica las siguientes propiedades:
+El archivo *function.json* especifica las siguientes propiedades.
 
-- `name`: nombre de la variable utilizado en el código de la función para el blob. 
+- `name`: nombre de la variable utilizado en el código de la función con el blob.
 - `path`: ruta de acceso que especifica el contenedor que se supervisa y, opcionalmente, un patrón de nombre de blob.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de la función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
+- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
 - `type`: debe establecerse en *blobTrigger*.
 - `direction`: debe establecerse en *in*.
 
@@ -223,7 +225,7 @@ En las funciones de C# también puede enlazar a cualquiera de los siguientes tip
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* Otros tipos deserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+* Otros tipos deserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
 
 #### Ejemplo de código de C# de desencadenador de blobs
 
@@ -294,19 +296,19 @@ El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las sig
 
 #### Sondeo de blobs en contenedores grandes
 
-Si el contenedor de blobs que el desencadenador está supervisando contiene más de 10 000 blobs, el sistema en tiempo de ejecución de Funciones examinará los archivos de registro para detectar los blobs nuevos o modificados. Este proceso no se produce en tiempo real; podrían tardarse varios minutos o más en desencadenar una función después de crear el blob. Además, los [registros de almacenamiento hacen lo posible por capturar todos los eventos](https://msdn.microsoft.com/library/azure/hh343262.aspx), pero no hay ninguna garantía de que esto suceda. En algunos casos, podrían faltar registros. Si los límites de velocidad y confiabilidad de los desencadenadores de blobs para contenedores grandes no son aceptables para su aplicación, el método recomendado consiste en crear un mensaje en cola al crear el blob y usar un desencadenador de cola en lugar de un desencadenador de blobs para procesar el blob.
+Si el contenedor de blobs que el desencadenador está supervisando contiene más de 10 000 blobs, el sistema en tiempo de ejecución de Funciones examinará los archivos de registro para detectar los blobs nuevos o modificados. Este proceso no se produce en tiempo real; podrían tardarse varios minutos o más en desencadenar una función después de crear el blob. Además, los [registros de almacenamiento se crean como "el mejor esfuerzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx); no hay ninguna garantía de que se capturarán todos los eventos. En algunos casos, podrían faltar registros. Si los límites de velocidad y confiabilidad de los desencadenadores de blobs para contenedores grandes no son aceptables para su aplicación, el método recomendado consiste en crear un mensaje en cola al crear el blob y usar un desencadenador de cola en lugar de un desencadenador de blobs para procesar el blob.
  
-## <a id="storageblobbindings"></a> Enlaces de entrada y salida de blobs de almacenamiento de Azure
+## <a id="storageblobbindings"></a> Enlaces de entrada y salida de blobs de Almacenamiento de Azure
 
 #### function.json con una enlace de entrada y salida de blob de almacenamiento
 
-El archivo *function.json* especifica las siguientes propiedades:
+El archivo *function.json* especifica las siguientes propiedades.
 
-- `name`: nombre de la variable utilizado en el código de la función con el blob. 
+- `name`: nombre de la variable utilizado en el código de la función con el blob.
 - `path`: ruta de acceso que especifica el contenedor del que se lee o en el que se escribe el blob y, opcionalmente, un patrón de nombre de blob.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de la función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
+- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
 - `type`: debe establecerse en *blob*.
-- `direction`: se establece en *in* u *out*. 
+- `direction`: se establece en *in* u *out*.
 
 Ejemplo de *function.json* con un enlace de entrada o salida de un blob de almacenamiento que emplea un desencadenador de cola para copiar un blob:
 
@@ -353,8 +355,8 @@ En las funciones de C#, también puede enlazar a los siguientes tipos:
 * `Stream`
 * `CloudBlobStream` (solo de salida)
 * `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `CloudBlockBlob`
+* `CloudPageBlob`
 
 #### Ejemplo de código de C# de salida de blobs
 
@@ -368,20 +370,20 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-## <a id="storagetablesbindings"></a> Enlaces de entrada y salida de tablas de almacenamiento de Azure
+## <a id="storagetablesbindings"></a> Enlaces de entrada y salida de tablas de Almacenamiento de Azure
 
 #### function.json con tablas de almacenamiento
 
-El archivo *function.json* especifica las siguientes propiedades:
+El archivo *function.json* especifica las siguientes propiedades.
 
-- `name`: nombre de la variable utilizado en el código de la función para el enlace de la tabla. 
+- `name`: nombre de la variable utilizado en el código de la función para el enlace de la tabla.
 - `tableName`: nombre de la tabla.
 - `partitionKey` y `rowKey`: se utilizan conjuntamente para leer una entidad individual en una función de C# o de Node, o para escribir una entidad individual en una función de Node.
 - `take`: número máximo de filas que se leen en la entrada de la tabla en una función de Node.
 - `filter`: expresión de filtro de OData en la entrada de la tabla en una función de Node.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de la función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
+- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
 - `type`: debe establecerse en *table*.
-- `direction`: se establece en *in* u *out*. 
+- `direction`: se establece en *in* u *out*.
 
 En el ejemplo siguiente, *function.json* usa un desencadenador de cola para leer una fila de tabla única. El archivo JSON proporciona un valor de clave de partición codificado de forma rígida y especifica que la clave de fila procede del mensaje en cola.
 
@@ -495,7 +497,7 @@ El siguiente ejemplo de *function.json* y de código de C# lee las entidades de 
 }
 ```
 
-El código de C# agrega una referencia al SDK de almacenamiento de Azure con el fin de que el tipo de entidad pueda derivar de `TableEntity`.
+El código de C# agrega una referencia al SDK de Almacenamiento de Azure con el fin de que el tipo de entidad pueda derivar de `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -605,4 +607,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

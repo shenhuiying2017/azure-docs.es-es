@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Instalar y operar el dispositivo StorSimple de forma segura
@@ -25,7 +25,7 @@ Lea toda la información de seguridad y salud de esta guía que sea aplicable a 
 
 Estos son los iconos que encontrará cuando revise las precauciones de seguridad que se deben observar al configurar y ejecutar el dispositivo de Microsoft Azure StorSimple.
 
-| Icono | Descripción |
+| Icono | Description |
 |:------|:-------------| 
 |![Icono Peligro](./media/storsimple-safety/IC740879.png)**PELIGRO**|Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas.| 
 |![Icono Advertencia](./media/storsimple-safety/IC740879.png) **ADVERTENCIA**|Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves.|
@@ -40,7 +40,7 @@ Estos son los iconos que encontrará cuando revise las precauciones de seguridad
 
 ## Precauciones en la manipulación
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Peso pesado](./media/storsimple-safety/IC740883.png)**ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Peso pesado](./media/storsimple-safety/IC740883.png) **ADVERTENCIA**
 
 
 Para reducir el riesgo de lesiones:
@@ -51,7 +51,7 @@ Para reducir el riesgo de lesiones:
 
 ## Precauciones en la conexión
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -65,7 +65,7 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
 - Dado que el enchufe del cable de la fuente de alimentación es el dispositivo de desconexión principal, asegúrese de que los enchufes están ubicados cerca del equipo y que se pueden acceder con facilidad.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
 
 Para reducir la probabilidad de sobrecalentamiento o de incendio de las conexiones eléctricas:
 
@@ -101,7 +101,7 @@ Para reducir la probabilidad de lesiones debido a un vuelco:
 
 - No deslice más de un alojamiento fuera del bastidor a la vez para evitar el peligro de que se caiga.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -125,7 +125,7 @@ Para la refrigeración adecuada del sistema en bastidor:
 
 El dispositivo está diseñado para operar con dos PCM. Cada uno de los PCM tiene una fuente de alimentación y un ventilador de dos ejes. Durante una condición crítica, el sistema permite que se produzca un error en una fuente de alimentación mientras continúa con las operaciones normales. Dos PCM (y por consiguiente dos fuentes de alimentación) deben estar siempre instalados. Un solo PCM no proporciona alimentación redundante. Por lo tanto, un error en uno de los PCM puede ocasionar inactividad o una posible pérdida de datos.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -143,7 +143,7 @@ Para una operación apropiada del equipo y evitar daños en el producto:
 
 ![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
-Observe las siguientes precauciones relacionadas con ESD.
+Respete las siguientes precauciones relacionadas con ESD.
 
 - Asegúrese de que ha instalado y comprobado una muñequera o tobillera antiestática adecuada.
 
@@ -179,4 +179,4 @@ Después de revisar estos avisos de seguridad, el siguiente paso es desempaqueta
 
 - Para un dispositivo 8600, vaya a [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

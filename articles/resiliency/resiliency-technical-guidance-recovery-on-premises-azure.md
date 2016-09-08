@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación desde un centro de datos local a Azure
@@ -79,22 +79,23 @@ Para más información, consulte [Alta disponibilidad y recuperación ante desas
 
 ###Redes
 
-  1. Revise la sección [Redes](#networking) de este documento.
+  1. Revise la sección Redes de este documento.
   2. Use la red virtual para conectar de forma segura la ubicación local a la nube.
 
 ###Proceso
 
-  1. Revise la sección [Proceso](#compute) de este documento.
+  1. Revise la sección Proceso de este documento.
   2. Reubique las máquinas virtuales entre Hyper-V y Azure.
 
 ###Almacenamiento
-  1. Revise la sección [Almacenamiento](#storage) de este documento.
+
+  1. Revise la sección Almacenamiento de este documento.
   2. Aproveche las ventajas de los servicios de StorSimple para usar el almacenamiento en la nube.
   3. Use los servicios de Copia de seguridad de Azure.
 
 ###Base de datos
 
-  1. Revise la sección [Base de datos](#database) de este documento.
+  1. Revise la sección Base de datos de este documento.
   2. Considere la posibilidad de usar SQL Server en máquinas virtuales de Azure como copia de seguridad.
   3. Configure los grupos de disponibilidad AlwaysOn.
   4. Configure el reflejo de base de datos basado en certificados.
@@ -105,4 +106,4 @@ Para más información, consulte [Alta disponibilidad y recuperación ante desas
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie se centra en la [recuperación ante datos dañados o eliminación accidental](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -23,7 +23,7 @@
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [CLI de Azure](dns-getstarted-create-dnszone-cli.md)
 
-En este artículo encontrará una guía de los pasos necesarios para crear una zona DNS usando CLI. También puede crear una zona DNS con PowerShell o el Portal de Azure.
+En este artículo encontrará una guía de los pasos necesarios para crear una zona DNS usando PowerShell. También puede crear una zona DNS con la CLI o el Portal de Azure.
 
 [AZURE.INCLUDE [crear-zona-DNS-acerca de](../../includes/dns-create-zone-about-include.md)]
 
@@ -148,9 +148,9 @@ Los conjuntos de registros de la raíz (o la *cúspide*) de una zona DNS usan **
 
 ## Prueba
 
-Puede probar su zona DNS con herramientas de DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+Puede probar su zona DNS con herramientas DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
 
-Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, tal y como se muestra con el comando `Get-AzureRmDnsRecordSet` mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
+Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando `Get-AzureRmDnsRecordSet` mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
 
 	nslookup
 	> set type=SOA
@@ -174,4 +174,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 
 Después de crear una zona DNS, cree [conjuntos de registros y registros](dns-getstarted-create-recordset.md) para iniciar la resolución de nombres para el dominio de Internet.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

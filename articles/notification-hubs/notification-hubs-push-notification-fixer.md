@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/19/2016" 
 	ms.author="wesmc"/>
 
 #Centros de notificaciones de Azure: pautas de diagnóstico
@@ -36,10 +36,10 @@ Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el con
  
 	a) Asegúrese de que el nombre de su centro de notificaciones (escrito sin errores) sea el mismo:
 
-	- Es donde se está registrando desde el cliente. 
-	- Es donde está enviando las notificaciones desde el back-end.  
-	- Es donde ha configurado las credenciales del PNS y 
-	- Son las credenciales de SAS de dicho centro las que ha configurado en el cliente y en el back-end. 
+	- Es donde se está registrando desde el cliente.
+	- Es donde está enviando las notificaciones desde el back-end.
+	- Es donde ha configurado las credenciales del PNS y
+	- Son las credenciales de SAS de dicho centro las que ha configurado en el cliente y en el back-end.
 		
 	b) Asegúrese de que usa las cadenas de configuración de SAS correctas en el cliente y en el back-end de la aplicación. Como norma general, debe estar usando **DefaultListenSharedAccessSignature** en el cliente y **DefaultFullSharedAccessSignature** en el back-end de la aplicación (que proporciona permiso para poder enviar notificaciones al centro de notificaciones)
 
@@ -206,7 +206,7 @@ Este mensaje indica que se han configurado credenciales no válidas en el centro
 Más detalles aquí:
 
 - [Acceso de telemetría mediante programación]
-- [Ejemplo de acceso de telemetría mediante API] 
+- [Ejemplo de acceso de telemetría mediante API]
 
 > [AZURE.NOTE] Varias características relacionadas con la telemetría, como **exportación o importación de registros**, **acceso a telemetría a través de API**, etc., están solamente disponibles en el nivel Estándar. Si intenta usar estas características en el nivel Gratuito o Básico, recibirá un mensaje de excepción al respecto mientras usa el SDK y un error HTTP 403 (Prohibido) cuando las usa directamente desde las API de REST. Asegúrese de que ha pasado al nivel Estándar a través del Portal de Azure clásico.
 
@@ -242,4 +242,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -22,11 +22,11 @@ Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel
 
 La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
-En este artículo se explica cómo utilizar las funciones de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción de temas) desde aplicaciones .NET utilizando la API .NET del Bus de servicio. Existe otro [artículo complementario](service-bus-java-how-to-use-jms-api-amqp.md) en el que se explica cómo hacer lo mismo utilizando la API estándar de Java Message Service (JMS). Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
+En este artículo se explica cómo utilizar las funciones de mensajería asincrónica del bus de servicio (colas y publicación/suscripción de temas) desde aplicaciones .NET utilizando la API .NET del bus de servicio. Existe otro [artículo complementario](service-bus-java-how-to-use-jms-api-amqp.md) en el que se explica cómo hacer lo mismo utilizando la API estándar de Java Message Service (JMS). Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
 ## Introducción al Bus de servicio
 
-En este artículo se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-get-started-with-queues.md).
+En este artículo se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure][]. Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-get-started-with-queues.md).
 
 ## Descarga del SDK del Bus de servicio
 
@@ -63,7 +63,7 @@ El valor de configuración **Microsoft.ServiceBus.ConnectionString** es la caden
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Donde `[namespace]` y `[SAS key]` se obtienen en el [Portal de Azure clásico][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
+Donde `[namespace]` y `[SAS key]` se obtienen en el [Portal de Azure][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
 
 Al usar AMQP, se agrega `;TransportType=Amqp` al final de la cadena de conexión para informar a la biblioteca de cliente de que debe recurrir a AMQP 1.0 para establecer la conexión con el Bus de servicio.
 
@@ -291,26 +291,9 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-## Características no admitidas y restricciones
-
-Actualmente las siguientes funciones de la API .NET del bus de servicio no son compatibles con el uso de AMQP:
-
-* Transacciones
-* Envío a través de un destino de transferencia
-* Recepción por número de secuencia de los mensajes
-* Exploración de mensajes y sesiones
-* Estado de la sesión
-* API basadas en lotes
-* Recepción escalada horizontalmente
-* Manipulación de las reglas de suscripción por parte del tiempo de ejecución
-* Renovación del bloqueo de la sesión
-* Pequeñas diferencias de funcionamiento
-
-Para obtener más información, consulte [Información general sobre AMQP del Bus de servicio](service-bus-amqp-dotnet.md). En este artículo se incluye una lista detallada de las API no admitidas.
-
 ## Resumen
 
-En este artículo se muestra cómo acceder a las funciones de mensajería asincrónica del Bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del Bus de servicio.
+En este artículo se muestra cómo acceder a las funciones de mensajería asincrónica del bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del bus de servicio.
 
 También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como Java, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad con AMQP 1.0 en el Bus de servicio. Para obtener más información, consulte [Información general sobre AMQP del Bus de servicio](service-bus-amqp-dotnet.md).
 
@@ -322,6 +305,6 @@ Ahora que ha leído una introducción sobre el Bus de servicio y AMQP con .NET, 
 * [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
  
-[Portal de Azure clásico]: https://manage.windowsazure.com
+[Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

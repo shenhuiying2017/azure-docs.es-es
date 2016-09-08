@@ -67,7 +67,7 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 
 ## Cuenta
 
-Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre de la cuenta y una de sus claves. Puede [crear y administrar una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md).
+Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre de la cuenta y una de sus claves. Puede [crear una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md).
 
 ## Nodo de ejecución
 
@@ -518,4 +518,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

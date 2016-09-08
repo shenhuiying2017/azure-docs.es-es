@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con el portal de Azure | Microsoft Azure"
    description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica mediante el portal de Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el portal de Azure
 
@@ -23,14 +23,14 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
 
- 
+
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 
 
-## Introducción a la creación de un punto de conexión del equilibrador de carga mediante el Portal de Azure	
+## Introducción a la creación de un punto de conexión del equilibrador de carga mediante el Portal de Azure
 
 Para crear un modelo de implementación de equilibrador de carga accesible desde Internet (clásica) desde el Portal de Azure, siga estos pasos.
 
@@ -57,7 +57,7 @@ Para crear un modelo de implementación de equilibrador de carga accesible desde
 11. Haga clic en Aceptar para volver a la hoja "Unirse al conjunto de carga equilibrada".
 
 12. Haga clic en Aceptar y espere a que el nuevo recurso de carga equilibrada aparezca en la hoja "Conjuntos de carga equilibrada".
- 
+
 ## Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
@@ -66,4 +66,4 @@ Para crear un modelo de implementación de equilibrador de carga accesible desde
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

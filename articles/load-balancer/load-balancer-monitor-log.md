@@ -3,7 +3,7 @@
    description="Aprenda a habilitar eventos de alerta y el registro del estado de mantenimiento del sondeo para el Equilibrador de carga de Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,14 +15,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Análisis del registros para el Equilibrador de carga de Azure (vista previa)
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal y se pueden extraer todos los registros desde un almacenamiento de blobs de Azure y verse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
 
 - **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anteriormente conocido como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
-- **Registros de eventos de alerta:** puede utilizar este registro para ver qué alertas se generan para el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.  
+- **Registros de eventos de alerta:** puede utilizar este registro para ver qué alertas se generan para el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
 - **Registros de sondeo de estado:** puede utilizar este registro para comprobar el estado de mantenimiento del sondeo, cuántas instancias están en línea en el back-end del equilibrador de carga y el porcentaje de máquinas virtuales que reciben tráfico de red del equilibrador de carga. Este registro se escribe en el cambio de evento de estado de sondeo.
 
 >[AZURE.WARNING] Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](../../articles/resource-manager-deployment-model.md). <BR> El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Esta limitación es temporal y puede cambiar en cualquier momento. Asegúrese de volver a visitar esta página para comprobar los cambios futuros.
@@ -128,4 +128,4 @@ Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del regis
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

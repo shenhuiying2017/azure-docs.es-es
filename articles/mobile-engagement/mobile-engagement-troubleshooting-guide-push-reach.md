@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de inserción y cobertura
@@ -74,7 +74,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - No hay datos en el servidor registrados cuando usa el botón para "probar" inserciones. Los datos solo se registran para campañas de inserción real.
 - Para ayudar a aislar el problema, solucione problemas con: prueba, simular y una campaña real, ya que cada uno de ellos funciona de forma ligeramente diferente.
 - El período de tiempo en el que las campañas "en la aplicación" y "en cualquier momento" están programadas para ejecutarse puede afectar a los números de entrega, ya que una campaña solo se entregará a los usuarios "en la aplicación" mientras se ejecuta la campaña (y los usuarios que tienen la configuración del dispositivo establecida para recibir notificaciones "fuera de la aplicación").
-- Las diferencias entre cómo controlan Android y iOS las notificaciones "fuera de la aplicación" hace difícil comparar directamente las estadísticas de inserción entre la versión iOS y Android de la aplicación. Android proporciona más información de notificación a nivel de sistema operativo que iOS. Android informa cuando se recibe, se elimina o se hace clic en una notificación nativa en el centro de notificaciones, pero iOS no indica esta información a menos que se haga clic en la notificación. 
+- Las diferencias entre cómo controlan Android y iOS las notificaciones "fuera de la aplicación" hace difícil comparar directamente las estadísticas de inserción entre la versión iOS y Android de la aplicación. Android proporciona más información de notificación a nivel de sistema operativo que iOS. Android informa cuando se recibe, se elimina o se hace clic en una notificación nativa en el centro de notificaciones, pero iOS no indica esta información a menos que se haga clic en la notificación.
 - La razón principal por la cual los números de "inserciones" y los números de "entregas" son diferentes en las campañas de cobertura es que las notificaciones "en la aplicación" y "fuera de la aplicación" se contabilizan de manera diferente. Las notificaciones "en la aplicación" las controla Mobile Engagement, pero las notificaciones "fuera de la aplicación" las controla el centro de notificaciones en el sistema operativo del dispositivo.
 
 ## Orientación de la inserción
@@ -88,7 +88,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 ### Causas
 
 - Asegúrese de que ha cargado etiquetas de información de aplicación a través de la interfaz de usuario o la API de Azure Mobile Engagement.
-- La limitación de la velocidad de inserción o la cuota de inserción en el nivel de la aplicación o la limitación de la audiencia en el nivel de campaña puede evitar que una persona reciba una inserción específica, incluso si cumple sus otros criterios de orientación. 
+- La limitación de la velocidad de inserción o la cuota de inserción en el nivel de la aplicación o la limitación de la audiencia en el nivel de campaña puede evitar que una persona reciba una inserción específica, incluso si cumple sus otros criterios de orientación.
 - Establecer un "idioma" es diferente de orientar en función del país o la configuración regional, que también es diferente a orientar según la geolocalización basada en una ubicación de teléfono o de GPS.
 - El mensaje en el "idioma predeterminado" se envía a los clientes que no tienen su dispositivo establecido en uno de los idiomas alternativos que especifica.
 
@@ -110,4 +110,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

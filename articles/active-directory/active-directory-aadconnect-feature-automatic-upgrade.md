@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect: actualización automática | Microsoft Azure"
-   description="En este tema se describe la característica de actualización automática integrada en Azure AD Connect Sync."
+   description="En este tema se describe la característica de actualización automática integrada en la sincronización de Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/24/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: actualización automática
@@ -25,7 +25,7 @@ Tener la seguridad de que la instalación de Azure AD Connect está siempre actu
 La actualización automática está habilitada de forma predeterminada en los siguientes casos:
 
 - Instalación de la configuración rápida y actualizaciones de sincronización de directorios.
-- Uso de SQL Express LocalDB, que es el modo de ejecución que siempre se usará en la configuración rápida. DirSync con SQL Express LocalDB también utilizará LocalDB.
+- Uso de SQL Express LocalDB, que es el modo de ejecución que siempre se utiliza en la configuración rápida. DirSync con SQL Express LocalDB también utiliza LocalDB.
 - La cuenta de AD es la cuenta de MSOL\_ predeterminada creada en la configuración rápida y DirSync.
 - Tiene menos de 100 000 objetos en el metaverso.
 
@@ -39,7 +39,7 @@ Disabled | La actualización automática está deshabilitada.
 
 Puede cambiar entre **Habilitado** y **Deshabilitado** con `Set-ADSyncAutoUpgrade`. Solo el sistema debe establecer el estado **Suspendido**.
 
-En la actualización automática se utiliza Azure AD Connect Health como infraestructura de actualización. Para que la actualización automática funcione correctamente, asegúrese de que ha abierto las direcciones URL en el servidor proxy de **Azure AD Connect Health**, tal y como se documenta en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+En la actualización automática se utiliza Azure AD Connect Health como infraestructura de actualización. Para que la actualización automática funcione, asegúrese de que ha abierto las direcciones URL en el servidor proxy de **Azure AD Connect Health**, tal y como se documenta en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 Si la IU de **Synchronization Service Manager** se está ejecutando en el servidor, la actualización se suspenderá hasta que la IU se cierre.
 
@@ -50,21 +50,23 @@ En primer lugar, no debe esperar que la actualización automática se intente el
 
 Si piensa que algo no es correcto, primero ejecute `Get-ADSyncAutoUpgrade` para asegurarse de que la actualización automática está habilitada.
 
-Inicie el visor de eventos y busque en **Application**. Agregue un filtro de registro de eventos para el origen **Azure AD Connect Upgrade** y el intervalo de identificadores de eventos **300-399**. ![Filtro de registro de eventos para la actualización automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+A continuación, asegúrese de que ha abierto las direcciones URL necesarias en su servidor proxy o firewall. La actualización automática utiliza Azure AD Connect Health, como se describe en la [información general](#overview). Si utiliza un servidor proxy, asegúrese de que Health se ha configurado para usar un [servidor proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Pruebe también la [conectividad de Health ](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) con Azure AD.
 
-De este modo, verá los registros de eventos asociados con el estado de la actualización automática. ![Filtro de registro de eventos para la actualización automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+Una vez verificada la conectividad a Azure AD, es el momento de buscar en los registros de eventos. Inicie el visor de eventos y busque en el registro de eventos **Application**. Agregue un filtro de registro de eventos para el origen **Azure AD Connect Upgrade** y el intervalo de identificadores de eventos **300-399**. ![Filtro de registro de eventos para la actualización automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+
+Ahora puede ver los registros de eventos asociados con el estado de la actualización automática. ![Filtro de registro de eventos para la actualización automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
 
 El código de resultado tiene un prefijo con información general sobre el estado.
 
-Prefijo del código de resultado | Descripción
+Prefijo del código de resultado | Description
 --- | ---
 Correcto | La instalación se actualizó correctamente.
-UpgradeAborted | Una condición temporal detuvo la actualización. Se vuelve a tratar de iniciar la instalación y se espera que se complete correctamente.
+UpgradeAborted | Una condición temporal detuvo la actualización. Se reintentará nuevo y se espera que se complete correctamente más tarde.
 UpgradeNotSupported | El sistema tiene una configuración que está impidiendo que el sistema se actualice automáticamente. Se volverá a intentar para ver si cambia el estado, pero se espera que el sistema se actualice manualmente.
 
-Aquí presentamos una lista de los mensajes más comunes que encontrará. No aparecen todos, pero el mensaje de resultado debe identificar claramente el problema.
+Aquí presentamos una lista de los mensajes más comunes que se encuentran. No aparecen todos, pero el mensaje de resultado debe identificar claramente el problema.
 
-Mensaje de resultado | Descripción
+Mensaje de resultado | Description
 --- | ---
 **UpgradeAborted** |
 UpgradeAbortedCouldNotSetUpgradeMarker | No se pudo escribir en el registro.
@@ -79,11 +81,11 @@ UpgradeAbortedSyncExeInUse | La [interfaz de usuario de Synchronization Service 
 UpgradeAbortedSyncOrConfigurationInProgress | El asistente para la instalación se está ejecutando o se programó una sincronización al margen del programador.
 **UpgradeNotSupported** |
 UpgradeNotSupportedCustomizedSyncRules | Ha agregado sus propias reglas personalizadas a la configuración.
-UpgradeNotSupportedDeviceWritebackEnabled | Se ha habilitado la característica [Reescritura dispositivos](active-directory-aadconnect-feature-device-writeback.md).
-UpgradeNotSupportedGroupWritebackEnabled | Se ha habilitado la característica [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
+UpgradeNotSupportedDeviceWritebackEnabled | Se ha habilitado la característica [Reescritura de dispositivos](active-directory-aadconnect-feature-device-writeback.md).
+UpgradeNotSupportedGroupWritebackEnabled | Se ha habilitado la característica [Reescritura de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
 UpgradeNotSupportedInvalidPersistedState | La instalación no es una configuración rápida ni una actualización de DirSync.
 UpgradeNotSupportedMetaverseSizeExceeeded | Tiene más de 100.000 objetos en el metaverso.
-UpgradeNotSupportedMultiForestSetup | Se está conectando a más de un bosque. La configuración rápida solo se conectará a un bosque.
+UpgradeNotSupportedMultiForestSetup | Se está conectando a más de un bosque. La configuración rápida solo se conecta a un bosque.
 UpgradeNotSupportedNonLocalDbInstall | No se está utilizando una base de datos de SQL Server Express LocalDB.
 UpgradeNotSupportedNonMsolAccount | La [cuenta del conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) ya no es la cuenta de MSOL\_ predeterminada.
 UpgradeNotSupportedStagingModeEnabled | El servidor está establecido en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode).
@@ -92,4 +94,4 @@ UpgradeNotSupportedUserWritebackEnabled | Se ha habilitado la característica [R
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

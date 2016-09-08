@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Realización de una consulta al índice de Búsqueda de Azure con la API de REST
@@ -159,4 +159,4 @@ Una solicitud de consulta correcta dará como resultado un código de estado de 
 
 Para más información, visite la sección "Respuesta" de [Buscar documentos](https://msdn.microsoft.com/library/azure/dn798927.aspx). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

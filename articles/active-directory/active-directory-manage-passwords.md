@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Administración de contraseñas en Azure Active Directory
 
 Si es administrador, puede restablecer la contraseña de un usuario en Azure Active Directory (Azure AD) en el Portal de Azure clásico. Haga clic en el nombre del directorio y en la página Usuarios, haga clic en el nombre del usuario y en la parte inferior del portal, haga clic en **Restablecer contraseña**.
 
-El resto de este tema abarca el conjunto completo de funcionalidades de administración de contraseñas que Azure AD admite, y que incluye:
+El resto de este tema abarca el conjunto completo de funcionalidades de administración de contraseñas que Azure AD admite, y que incluye los siguientes aspectos:
 
 - El cambio de la **contraseña de autoservicio** permite a los usuarios finales o administradores cambiar sus contraseñas expiradas o no expiradas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico.
 - El restablecimiento de la **contraseña de autoservicio** permite a los usuarios finales o administradores restablecer sus contraseñas automáticas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico. El restablecimiento de la contraseña de autoservicio requiere Azure AD Premium o Básico. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
@@ -49,4 +49,4 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

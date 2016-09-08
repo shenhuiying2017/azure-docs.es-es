@@ -82,9 +82,9 @@ Donde `[namespace]`, `[username]` y `[password]` tienen los significados siguien
 
 | Nombre | Significado | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | El espacio de nombres del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
-| `[username]` | El nombre del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
-| `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
+| `[namespace]` | El espacio de nombres del Bus de servicio obtenido del [Portal de Azure][]. | | | | |
+| `[username]` | El nombre del emisor del Bus de servicio obtenido del [Portal de Azure][]. | | | | |
+| `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenida del [Portal de Azure][]. | | | | |
 
 > [AZURE.NOTE] debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -120,7 +120,7 @@ Donde `[jndi\_name]` y `[physical\_name]` tienen los significados siguientes:
 Tenga en cuenta lo siguiente:
 
 - El valor `[physical\name]` puede ser una cola o un tema del Bus de servicio.
-- al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS.
+- al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS.
 - También es posible tratar una suscripción del tema del Bus de servicio como una cola de JMS. Este enfoque tiene varias ventajas: se puede usar el mismo código de receptor para colas y suscripciones de tema y toda la información de dirección (los nombres de tema y suscripción) se externaliza en el archivo de propiedades.
 - Para tratar una suscripción de tema del Bus de servicio como una cola de JMS, la entrada del archivo de propiedades debe tener el formato siguiente: `queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`.|
 
@@ -179,7 +179,7 @@ La especificación JMS define el contrato de excepción de los métodos de la AP
 -   Registre un **ExceptionListener** con la conexión de JMS mediante **connection.setExceptionListener**. Esto permite al cliente recibir una notificación de un problema de forma asincrónica. Esta notificación es especialmente importante para las conexiones que solo consumen mensajes, ya que no poseen ninguna otra manera de saber que su conexión provocó un error. Se llama a **ExceptionListener** si hay un problema con la conexión, sesión o vínculo AMQP subyacente. En esta situación, el programa de aplicación debería volver a crear los objetos **JMS Connection**, **Session**, **MessageProducer** y **MessageConsumer** desde el principio.
 
 -   Para comprobar que se envió correctamente un mensaje desde un **MessageProducer** a una entidad del Bus de servicio, asegúrese de que la aplicación se configuró con el conjunto de propiedades del sistema **qpid.sync\_publish**. Para ello, inicie el programa con la opción de Java VM **-Dqpid.sync\_publish=true** definida en la línea de comandos al iniciar la aplicación El establecimiento de esta opción configura la biblioteca para que no devuelva la llamada de envío hasta que se reciba la confirmación de que el mensaje lo ha aceptado el Bus de servicio. Si se produce un problema durante la operación de envío, se genera una **JMSException**. Hay dos causas posibles:
-	1. Si el problema se debe al rechazo del Bus de servicio del mensaje específico que se va a enviar, se generará una excepción **MessageRejectedException**. Este error es transitorio o se genera por algún problema con el mensaje. El curso de acción recomendado es realizar varios intentos de reintentar la operación con cierta lógica de interrupción. Si el problema persiste, el mensaje debe abandonarse con un error registrado localmente. No es necesario volver a crear los objetos **JMS Connection**, **Session** o **MessageProducer** en esta situación. 
+	1. Si el problema se debe al rechazo del Bus de servicio del mensaje específico que se va a enviar, se generará una excepción **MessageRejectedException**. Este error es transitorio o se genera por algún problema con el mensaje. El curso de acción recomendado es realizar varios intentos de reintentar la operación con cierta lógica de interrupción. Si el problema persiste, el mensaje debe abandonarse con un error registrado localmente. No es necesario volver a crear los objetos **JMS Connection**, **Session** o **MessageProducer** en esta situación.
 	2. Si el problema se debe al cierre del Bus de servicio del vínculo AMQP, se generará una excepción **InvalidDestinationException**. Esto puede deberse a un problema temporal o porque la entidad del mensaje que se va a eliminar. En cualquier caso, se deben volver a crear los objetos **JMS Connection**, **Session** y **MessageProducer**. Si la condición de error era temporal, esta operación finalmente se realizará de manera correcta. Si se eliminó la entidad, el error será permanente.
 
 ## Mensajería entre .NET y JMS
@@ -320,7 +320,7 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de JMS 
 | Float | float |
 | Doble | double |
 | Booleano | booleano |
-| String | cadena |
+| String | string |
 
 El tipo [BrokeredMessage][] admite propiedades de la aplicación de los siguientes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** y **TimeSpan**. El código .NET siguiente muestra cómo establecer las propiedades en un objeto [BrokeredMessage][] con cada uno de estos tipos de propiedades.
 
@@ -378,9 +378,9 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de .NET
 | Guid | UUID | - |
 | string | String | - |
 | DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks asignado al tipo de AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks asignado al tipo de AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | Uri.AbsoluteUri asignado al tipo de AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapped to AMQP type:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | 
+| TimeSpan | DescribedType | Timespan.Ticks mapped to AMQP type:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | 
+| Uri | DescribedType | Uri.AbsoluteUri mapped to AMQP type:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Encabezados estándar
 
@@ -423,7 +423,7 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 
 -   Solo se permite un elemento **MessageProducer** o **MessageConsumer** por cada sesión. Si desea crear varios objetos **MessageProducer** o **MessageConsumer** en una aplicación, cree sesiones dedicadas para cada uno de ellos.
 
--   Actualmente no se admiten las suscripciones a temas volátiles.
+-   Actualmente no se admiten las suscripciones a tema volátiles.
 
 -   No se admiten objetos **MessageSelector**.
 
@@ -444,6 +444,6 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

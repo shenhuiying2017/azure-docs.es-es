@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Enlaces de Centro de eventos de funciones de Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 En este artículo se explica cómo configurar y codificar enlaces de [Centro de eventos de Azure ](../event-hubs/event-hubs-overview.md) para Funciones de Azure. Funciones de Azure admite enlaces de desencadenador y salida para Centros de eventos de Azure.
 
@@ -35,9 +37,9 @@ El archivo *function.json* de un desencadenador del Centro de eventos de Azure e
 
 - `type`: debe establecerse en *eventHubTrigger*.
 - `name`: nombre de variable utilizado en el código de función para el mensaje del centro de eventos.
-- `direction`: debe establecerse en *in*.
-- `path`: el nombre del centro de eventos.
-- `connection`: el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
+- `direction` : debe establecerse en *in*.
+- `path`: nombre del centro de eventos.
+- `connection`: nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
 
 		{
 		  "bindings": [
@@ -83,8 +85,8 @@ El archivo *function.json* del enlace de la salida del Centro de eventos de Azur
 
 - `type`: debe establecerse en *eventHub*.
 - `name`: nombre de variable utilizado en el código de función para el mensaje del centro de eventos.
-- `path`: el nombre del centro de eventos.
-- `connection`: el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia del Centro de eventos.
+- `path`: nombre del centro de eventos.
+- `connection`: nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia del Centro de eventos.
 - `direction`: debe establecerse en *out*.
 
 	    {
@@ -134,4 +136,4 @@ El siguiente código de función de ejemplo de Node.js muestra cómo escribir un
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

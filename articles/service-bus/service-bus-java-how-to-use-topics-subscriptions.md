@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="sethm"/>
 
-# Uso de temas/suscripciones del Bus de servicio
+# Uso de temas y suscripciones del Bus de servicio
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios tratados se incluye la **creación de temas y suscripciones**, la **creación de filtros de suscripción**, el **envío de mensajes a un tema**, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**.
+En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
 
 ## Qué son los temas y las suscripciones del Bus de servicio
 
@@ -28,11 +28,11 @@ Las suscripciones y los temas del Bus de servicio son compatibles con el modelo 
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación de uno a varios mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción para la administración o el procesamiento de manera independiente.
+A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación "uno a varios" mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción de modo que se administra o procesa de manera independiente.
 
 Una suscripción a un tema se asemeja a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Opcionalmente, puede registrar reglas de filtros para un tema por suscripción, lo que le permite filtrar/restringir qué mensajes para un tema reciben las suscripciones a un tema.
 
-Las suscripciones y temas del Bus de servicio le permiten escalar para realizar el procesamiento de un número bastante elevado de mensajes en una serie muy amplia de usuarios y aplicaciones.
+Las suscripciones y los temas del Bus de servicio le permiten ampliar el procesamiento de un número bastante elevado de mensajes entre un gran número de usuarios y aplicaciones.
 
 ## Creación de un espacio de nombres de servicio
 
@@ -40,33 +40,7 @@ Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero
 
 Para crear un espacio de nombres:
 
-1.  Inicie sesión en el [Portal de Azure clásico][].
-
-2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
-
-3.  En el panel inferior del Portal, haga clic en **Crear**. ![][0]
-
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][2]
-
-5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
-
-	IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
-
-6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-## Obtención de credenciales de administración predeterminadas para el espacio de nombres
-
-Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal.
-
-### Para obtener las credenciales de administración desde el portal
-
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![][0]
-
-2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada: ![][3]
-
-3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. ![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
-
-4.  Anote la clave principal o cópiela en el Portapapeles.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
@@ -85,9 +59,9 @@ import javax.xml.datatype.*;
 
 Agregue las bibliotecas de Azure para Java a su ruta de acceso de compilación e inclúyala en su conjunto de implementación del proyecto.
 
-## de un tema
+## un tema
 
-Las operaciones de administración para los temas de bus de servicio pueden realizarse mediante la clase **ServiceBusContract**. Un objeto **ServiceBusContract** se crea con una configuración adecuada que encapsula el token de SAS con permisos para administrarlo, y la clase **ServiceBusContract** es el único punto de comunicación con Azure.
+Las operaciones de administración para los temas del Bus de servicio pueden realizarse mediante la clase **ServiceBusContract**. Un objeto **ServiceBusContract** se crea con una configuración adecuada que encapsula el token de SAS con permisos para administrarlo, y la clase **ServiceBusContract** es el único punto de comunicación con Azure.
 
 La clase **ServiceBusService** proporciona métodos para crear, enumerar y eliminar temas. En el ejemplo siguiente se muestra cómo se puede usar un objeto **ServiceBusService** para crear un tema llamado `TestTopic` con un espacio de nombres denominado `HowToSample`:
 
@@ -134,7 +108,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 ### Creación de suscripciones con filtros
 
-También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
+También puede crear filtros que permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
 El tipo de filtro más flexible compatible con las suscripciones es [SqlFilter][], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][].
 
@@ -151,7 +125,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ru
 service.deleteRule("TestTopic", "HighMessages", "$Default");
 ```
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción denominada `LowMessages` con un objeto [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
+Del mismo modo, en el ejemplo siguiente se crea una suscripción denominada `LowMessages` con un objeto [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
 
 ```
 // Create a "LowMessages" filtered subscription
@@ -164,9 +138,9 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", rul
 service.deleteRule("TestTopic", "LowMessages", "$Default");
 ```
 
-Cuando ahora se envía un mensaje a `TestTopic`, siempre se entregará a los destinatarios suscritos a la suscripción de `AllMessages` y, selectivamente, a los destinatarios suscritos a las suscripciones de `HighMessages` y de `LowMessages` (en función del contenido del mensaje).
+Cuando ahora se envíe un mensaje a `TestTopic`, siempre se entregará a los destinatarios suscritos a la suscripción de `AllMessages` y, selectivamente, a los destinatarios suscritos a las suscripciones de `HighMessages` y de `LowMessages` (en función del contenido del mensaje).
 
-## de mensajes a un tema
+## Envío de mensajes a un tema
 
 Para enviar un mensaje a un tema del Bus de servicio, su aplicación obtiene un objeto **ServiceBusContract**. El código siguiente muestra cómo enviar un mensaje al tema `TestTopic` creado anteriormente en el espacio de nombres de `HowToSample`.
 
@@ -175,7 +149,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Los mensajes enviados a los temas de bus de servicio son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][]* tienen un conjunto de métodos estándar (como **setLabel** y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][] y, a continuación, se usará el **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un **java.io.InputStream**.
+Los mensajes enviados a los temas de bus de servicio son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][]* tienen un conjunto de métodos estándar (como **setLabel** y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][] y, a continuación, se usará el objeto **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
 
 En el ejemplo que aparece a continuación se indica cómo enviar cinco mensajes de prueba al `TestTopic` **MessageSender** obtenido en el fragmento de código anterior: Fíjese en cómo el valor de la propiedad **MessageNumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones la reciben):
 
@@ -200,7 +174,7 @@ Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una 
 
 En el modo **PeekLock**, el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la llamada a **Delete** en el mensaje recibido. Cuando el bus de servicio ve la llamada **Delete**, marca el mensaje como consumido y lo elimina del tema.
 
-En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y recibir los mensajes usando el modo **PeekLock** (no el predeterminado). El ejemplo siguiente realiza un bucle y procesa los mensajes en la suscripción "HighMessages" y luego sale cuando no hay más mensajes (de manera alternativa, se podría establecer para que espere mensajes nuevos).
+En el ejemplo que aparece a continuación se indica cómo se pueden recibir y procesar mensajes con el modo **PeekLock** (no el modo predeterminado). El ejemplo siguiente realiza un bucle y procesa los mensajes en la suscripción "HighMessages" y luego sale cuando no hay más mensajes (de manera alternativa, se podría establecer para que espere mensajes nuevos).
 
 ```
 try
@@ -259,7 +233,7 @@ catch (Exception e) {
 
 El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realiza la llamada al método **unlockMessage** en el mensaje recibido (en lugar de al método **deleteMessage**). Esto hará que el Bus de servicio desbloquee el mensaje del tema y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
-También hay un tiempo de espera asociado con un mensaje bloqueado en la el tema y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
+También hay un tiempo de espera asociado con un mensaje bloqueado en el tema y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación no responde), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
 En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
@@ -279,7 +253,7 @@ service.deleteTopic("TestTopic");
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, vea [Colas, temas y suscripciones del Bus de servicio][] para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, consulte [Colas, temas y suscripciones del Bus de servicio][] para más información.
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
@@ -293,4 +267,4 @@ Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, vea [
   [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (Portal de Azure)
@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
+Para obtener más información, consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -52,7 +52,7 @@ Para cambiar los recursos de proceso:
 
     ![Mueva el control deslizante][2]
 
-1. Haga clic en **Guardar**. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+1. Haga clic en **Save**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
     ![Haga clic en Guardar][3]
 
@@ -64,15 +64,15 @@ Para cambiar los recursos de proceso:
 
 Para pausar una base de datos:
 
-1. Abra el [Portal de Azure][] y abra la base de datos. Tenga en cuenta que el estado sea **En línea**. 
+1. Abra el [Portal de Azure][] y abra la base de datos. Tenga en cuenta que el estado sea **En línea**.
 
     ![Estado En línea][6]
 
-1. Para suspender los recursos de proceso y memoria, haga clic en **Pausar**. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+1. Para suspender los recursos de proceso y memoria, haga clic en **Pausar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
     ![Confirme la pausa][7]
 
-1. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será "En pausa".
+1. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será **En pausa**.
 2. Cuando el estado sea **En pausa**, se realizará la operación de pausa y ya no se le cobrará por DWU.
 
     ![Estado de pausa][4]
@@ -81,13 +81,13 @@ Para pausar una base de datos:
 
 ## Reanudación del proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description (Descripción de reanudación de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-resume-description.md)]Para reanudar una base de datos:
+[AZURE.INCLUDE [SQL Data Warehouse resume description (Descripción de reanudación de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-resume-description.md)] Para reanudar una base de datos:
 
-1. Abra el [Portal de Azure][] y abra la base de datos. Tenga en cuenta que el estado sea **En pausa**. 
+1. Abra el [Portal de Azure][] y la base de datos. Tenga en cuenta que el estado es **En pausa**.
 
     ![Base de datos de pausa][4]
 
-1. Para reanudar la base de datos, haga clic en **Iniciar**. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+1. Para reanudar la base de datos, haga clic en **Iniciar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o en **No** para cancelar.
 
     ![Confirme la reanudación][5]
 
@@ -99,7 +99,7 @@ Para pausar una base de datos:
 <a name="next-steps-bk"></a>
 
 ## Pasos siguientes
-Para más información, consulte [Información general de administración][].
+Para obtener más información, consulte [Administración de base datos en Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -111,8 +111,8 @@ Para más información, consulte [Información general de administración][].
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Información general de administración]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
+[Administración de base datos en Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-overview-manage.md
+[Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -121,4 +121,4 @@ Para más información, consulte [Información general de administración][].
 
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

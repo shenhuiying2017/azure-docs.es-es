@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure
@@ -129,7 +129,6 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 -	Para más información sobre las directivas de almacenamiento en caché, consulte [Directivas de almacenamiento en caché][] en la [Referencia de la directiva de Administración de API][].
 -	Para obtener información sobre el almacenamiento en caché de los elementos por parte de la clave mediante expresiones de directiva, consulte [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -152,7 +151,6 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introducción a Administración de API de Azure]: api-management-get-started.md
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 
 [Referencia de la directiva de Administración de API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Directivas de almacenamiento en caché]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -164,4 +162,4 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

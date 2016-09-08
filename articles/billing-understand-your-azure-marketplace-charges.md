@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Descripción de los gastos de Azure Marketplace
 Este artículo proporciona información general sobre la descripción de los gastos relacionados con los pedidos de Marketplace. Los distintos tipos de precios son algunos de los aspectos que debe tener en cuenta a la hora de revisar su factura (solo base, solo uso y base + uso). Tenga en cuenta que cada pedido de Marketplace que realice tendrá su propio ciclo de facturación mensual. Estos temas se tratarán en detalle a continuación.
+
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
 ## Revisión de la factura de Marketplace
 Una vez que inicie sesión en el [Portal de cuentas de Azure](https://account.windowsazure.com/subscriptions/) podrá revisar y descargar las facturas actuales y pasadas.
@@ -42,7 +44,7 @@ La vista de resumen contiene la siguiente información de cada pedido:
 - Suscripción primaria asociada
 - Divisa de facturación
 
-Tenga en cuenta que hemos realizado algunos cambios en el modo de mostrar esta información. Anteriormente se mostraba el costo del pedido con impuestos incluidos. Ahora lo hemos actualizado para que aparezca el precio con los impuestos incluidos o no, dependiendo del país en que se encuentre. Se ha movido la ubicación del precio desde la parte derecha de la pantalla al centro. Para ayudarle a realizar un seguimiento de a qué suscripción de Azure están asociados estos cargos también hemos agregado el nombre e identificador de la suscripción de Azure a la derecha de la pantalla, así como la opción **Cambiar el método de pago**.
+Tenga en cuenta que hemos realizado algunos cambios en el modo de mostrar esta información. Anteriormente se mostraba el costo del pedido con impuestos incluidos. Ahora lo hemos actualizado para que aparezca el precio con los impuestos incluidos o no, dependiendo del país en que se encuentre. Se ha movido la ubicación del precio desde la parte derecha de la pantalla al centro. Para ayudarle a realizar un seguimiento de a qué suscripción de Azure están asociados estos cargos, también hemos agregado el nombre e identificador de la suscripción de Azure a la derecha de la pantalla, así como la opción **Cambiar el método de pago**.
 
 ## Actualización del método de pago y de la administración de pedidos
 La página de resumen tiene acciones del usuario que le permiten actualizar las funciones del modelo de pago y de la administración de pedidos:
@@ -80,7 +82,7 @@ Para solicitar soporte técnico, haga clic en el icono **Ayuda y soporte técnic
 ## Historial de facturación
 Una nueva característica en la página de resumen es la capacidad para ver las ofertas basadas en el uso como máquinas virtuales. Ahora es posible descargar las ofertas basadas en el uso en función del ciclo de facturación para períodos ya cerrados o para el período actual. Para ver el uso, haga clic en el vínculo **Descargar uso** del período que desea ver.
 
-Si lo que desea es ver sus cargos reales, haga clic en **Ver cargos**. Se le redirigirá a otro portal donde podrá ver todos los gastos, impuestos incluidos. Si utiliza un identificador de organización, el botón **Ver cargos** no estará habilitado y tendrá que enviar una incidencia de soporte técnico para solicitar un resumen de los gastos.
+Si le interesa consultar los cargos reales, haga clic en **Ver cargos**. Se le redirigirá a otro portal donde podrá ver todos los gastos, impuestos incluidos. Si utiliza un identificador de organización, el botón **Ver cargos** no estará habilitado y tendrá que enviar una incidencia de soporte técnico para solicitar un resumen de los gastos.
 
 ![Historial de facturación](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
 
@@ -98,4 +100,6 @@ Para ver los gastos reales, siga estos pasos:
 
     ![Detalles de pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

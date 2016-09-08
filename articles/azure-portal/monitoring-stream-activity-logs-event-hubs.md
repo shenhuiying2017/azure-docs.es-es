@@ -71,7 +71,8 @@ El identificador de regla del Bus de servicio es una cadena con este formato: `{
 [El esquema para el registro de actividad está disponible aquí](./monitoring-overview-activity-logs.md). Cada evento está en una matriz de blobs JSON denominados "registros".
 
 ## Pasos siguientes
+- [Archive the Activity Log to a storage account](./monitoring-archive-activity-log.md) (Archivado del registro de actividad en una cuenta de almacenamiento)
 - [Lea la información general sobre el registro de actividad de Azure](./monitoring-overview-activity-logs.md)
 - [Configure una alerta basada en un evento del registro de actividad](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

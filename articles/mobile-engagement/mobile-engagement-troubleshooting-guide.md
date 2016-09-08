@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/26/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement: guía de solución de problemas
@@ -121,4 +121,4 @@ Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 	- Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
 	- Detalles del error con el mensaje de error exacto y el escenario
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

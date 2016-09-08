@@ -30,8 +30,8 @@ En este cuaderno de estrategias se combinan las directrices analíticas y empres
 
 Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Aprendizaje automático de Azure (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:
 
-1. Conocimiento del negocio  
-2. Conocimiento de los datos  
+1. Conocimiento del negocio
+2. Conocimiento de los datos
 3. Implementación técnica
 
 La parte del **conocimiento del negocio** describe el aspecto del negocio que es preciso conocer y tener en cuenta antes de tomar cualquier decisión sobre inversiones. En ella se explica cómo calificar el problema empresarial disponible para asegurarse de que tanto el análisis predictivo como el aprendizaje automático son realmente eficaces y pueden aplicarse. El documento también explica los datos básicos del aprendizaje automático y cómo se utiliza para tratar los problemas de previsión energética. Describe los requisitos previos y los criterios de cualificación de un caso de uso. También se proporcionan varios escenarios de casos de uso y casos de negocio de ejemplo.
@@ -85,7 +85,7 @@ En el contexto de la demanda de energía, la previsión de carga a corto plazo (
 -   Equilibrio de carga y prevención de sobrecargas
 -   Previsión de carga a largo plazo
 -   Detección de fallos y anomalías
--   Reducción o redistribución de los picos 
+-   Reducción o redistribución de los picos
 
 Los modelos STLF se basan principalmente en datos de consumo recientes (último día o semana) y usan la temperatura prevista como indicador importante. En la actualidad, la obtención de una previsión precisa de la temperatura de la próxima hora y hasta un máximo de 24 horas es una tarea cada vez más sencilla. Estos modelos son menos sensibles a los patrones estacionales o a las tendencias de consumo a largo plazo.
 
@@ -225,7 +225,7 @@ La formulación de problema se puede considerar el paso más crítico que es pre
 La formulación de estas preguntas nos permite centrarnos en obtener los datos correctos e implementar una solución que se ajusta totalmente al problema empresarial en cuestión. Además, a continuación, podemos establecer algunas métricas clave que nos permitan evaluar el rendimiento del modelo. Por ejemplo, ¿cuál es el grado de precisión que debe tener un pronóstico y cuál es el margen de error que aceptaría la empresa?
 
 ### Orígenes de datos
-La red moderna de distribución inteligente de electricidad recoge datos de varias partes y componentes de ella. Dichos datos representan diversos aspectos de la operación y uso de la red de distribución de electricidad. Dentro del ámbito de la previsión de la demanda energética, limitamos la explicación a los orígenes de datos que reflejan el consumo real de la demanda. Una importante fuente de consumo de energía son los medidores inteligentes. Los servicios públicos de todo el mundo están implementado rápidamente medidores inteligentes en sus clientes. Los medidores inteligentes registran el consumo eléctrico real y retransmiten constantemente estos datos a la compañía de servicio público. Los datos se recopilan y se devuelven a un intervalo fijo, que oscila entre 5 minutos y 1 hora. Los medidores inteligentes más avanzados pueden programarse de forma remota para que controlen y equilibren el consumo real en una casa. Los datos del medidor inteligente son relativamente confiables e incluyen una marca de tiempo. Esto hace que sea una parte importante de la previsión de la demanda. Los datos del medidor se pueden agregar (sumar) a varios niveles de la topología de la red de distribución de electricidad: transformador, subestación, región, *etc.*. Luego, podemos elegir el nivel de agregación requerido para crear un modelo de pronóstico para él. Por ejemplo, si la compañía de servicios públicos desea prever la futura carga de cada una las subestaciones de su red de distribución de electricidad, se pueden agregar los datos de todos los medidores de cada subestación individual y utilizarlos como entrada para el modelo de predicción. A los medidores inteligentes los denominamos origen de datos interno.
+La red moderna de distribución inteligente de electricidad recoge datos de varias partes y componentes de ella. Dichos datos representan diversos aspectos de la operación y uso de la red de distribución de electricidad. Dentro del ámbito de la previsión de la demanda energética, limitamos la explicación a los orígenes de datos que reflejan el consumo real de la demanda. Una importante fuente de consumo de energía son los medidores inteligentes. Los servicios públicos de todo el mundo están implementado rápidamente medidores inteligentes en sus clientes. Los medidores inteligentes registran el consumo eléctrico real y retransmiten constantemente estos datos a la compañía de servicio público. Los datos se recopilan y se devuelven a un intervalo fijo, que oscila entre 5 minutos y 1 hora. Los medidores inteligentes más avanzados pueden programarse de forma remota para que controlen y equilibren el consumo real en una casa. Los datos del medidor inteligente son relativamente confiables e incluyen una marca de tiempo. Esto hace que sea una parte importante de la previsión de la demanda. Los datos del medidor se pueden agregar (sumar) a varios niveles de la topología de la red de distribución de electricidad: transformador, subestación, región, *etc.* Luego, podemos elegir el nivel de agregación requerido para crear un modelo de pronóstico para él. Por ejemplo, si la compañía de servicios públicos desea prever la futura carga de cada una las subestaciones de su red de distribución de electricidad, se pueden agregar los datos de todos los medidores de cada subestación individual y utilizarlos como entrada para el modelo de predicción. A los medidores inteligentes los denominamos origen de datos interno.
 
 Una previsión confiable de la demanda de energía también usará otros orígenes de datos externos. Un factor importante que afecta el consumo de energía es el tiempo, o con mayor precisión, la temperatura. Los datos históricos muestran una fuerte correlación entre la temperatura exterior y el consumo de energía. En los días calurosos del verano, los consumidores usan sus aparatos de aire acondicionado, mientras que en invierno encienden la calefacción. Por consiguiente, es clave tener un origen confiable de temperaturas históricas en la ubicación de la red de distribución de electricidad. Además, también confiamos en un pronóstico preciso de la temperatura como indicador de consumo de energía.
 
@@ -282,7 +282,7 @@ Una vez que se han introducido los datos sin procesar (consulte **Ingesta de dat
 En esta sección enumeramos algunas de las características de datos comunes que se incluyen en los modelos de previsión de la demanda de energía.
 
 **Características controladas por el tiempo:**
-estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
+Estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
 -   Hora del día: es la hora del día y toma los valores 0 a 23
 -   Día de la semana: representa el día de la semana y toma los valores 1 (domingo) a 7 (sábado)
 -   Día del mes: representa la fecha real y puede tomar los valores 1 a 31
@@ -292,18 +292,18 @@ estas características se derivan de los datos de fecha y marca de fecha. Dichos
 -   Términos de Fourier: los términos de Fourier son ponderaciones que se derivan de la marca de tiempo y que se utilizan para capturar la estacionalidad (ciclos) de los datos. Dado que podemos tener varias estaciones en los datos, es posible que necesitemos varios términos de Fourier. Por ejemplo, los valores de la demanda pueden tener ciclos o estaciones anuales, semanales y diarios, lo que generará tres términos de Fourier.
 
 **Características de medida independientes:**
-las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
--   Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc.*. La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
+ las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
+-   Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc.* La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
 -   Tendencias a largo plazo: esta característica representa el crecimiento lineal de la demanda entre años.
 
-**Característica dependiente:**
+**Característica dependiente:** 
 la característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
 
-**Tratamiento de los valores que faltan:**
-durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_(statistics)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
+**Tratamiento de los valores que faltan:** 
+durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos] estadísticos(https://en.wikipedia.org/wiki/Imputation_(statistics)). En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
 
 **Normalización de datos:**
- la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
+la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
 
 ## Modelado
 El modelado es la fase en que se realiza la conversión de los datos en un modelo. En el núcleo de este proceso hay algoritmos avanzados que examinan los datos históricos (datos de aprendizaje), extraen patrones y generación un modelo. Posteriormente, dicho modelo se puede utilizar para predecir datos nuevos que no se ha utilizado para generar el modelo.
@@ -332,8 +332,8 @@ El modelo autorregresivo integrado de media móvil (ARIMA) es otra familia de m�
 
 En la actualidad, ETS y ARIMA se utilizan profusamente para la previsión de la demanda de energía y para muchos otros problemas de predicción. En muchos casos, se combinan para ofrecer resultados muy precisos.
 
-**Regresión múltiple general**.
- Los modelos de regresión pueden ser el enfoque de modelado más importante del dominio del aprendizaje automático y las estadísticas. En el contexto de la serie temporal usamos regresión para predecir los valores futuros (*por ejemplo*, de la demanda). En la regresión, tomamos una combinación lineal de los indicadores y obtenemos información acerca de las ponderaciones (también denominadas coeficientes) de dichos indicadores durante el proceso de aprendizaje. El objetivo es producir una línea de regresión que pronosticará nuestro valor predicho. Los métodos de regresión son adecuadas cuando la variable de destino es numérica y, por tanto, también se ajusta a la previsión de la serie temporal. Hay un gran número de métodos de regresión, entre los que se incluyen modelos de regresión muy sencillos, como la [regresión lineal](https://en.wikipedia.org/wiki/Linear_regression), y otros más avanzados, como los árboles de decisión, las [selvas aleatorias](https://en.wikipedia.org/wiki/Random_forest), las [redes neuronales](https://en.wikipedia.org/wiki/Artificial_neural_network) y los árboles de decisión incrementados.
+**Regresión múltiple general**. 
+Los modelos de regresión pueden ser el enfoque de modelado más importante del dominio del aprendizaje automático y las estadísticas. En el contexto de la serie temporal usamos regresión para predecir los valores futuros (*por ejemplo*, de la demanda). En la regresión, tomamos una combinación lineal de los indicadores y obtenemos información acerca de las ponderaciones (también denominadas coeficientes) de dichos indicadores durante el proceso de aprendizaje. El objetivo es producir una línea de regresión que pronosticará nuestro valor predicho. Los métodos de regresión son adecuadas cuando la variable de destino es numérica y, por tanto, también se ajusta a la previsión de la serie temporal. Hay un gran número de métodos de regresión, entre los que se incluyen modelos de regresión muy sencillos, como la [regresión lineal](https://en.wikipedia.org/wiki/Linear_regression), y otros más avanzados, como los árboles de decisión, las [selvas aleatorias](https://en.wikipedia.org/wiki/Random_forest), las [redes neuronales](https://en.wikipedia.org/wiki/Artificial_neural_network) y los árboles de decisión incrementados.
 
 La creación de una de previsión de la demanda de energía como un problema de regresión nos da mucha flexibilidad al seleccionar las características de datos que se pueden combinar entre los datos de serie temporal de la demanda real y factores externos, como la temperatura. En la sección Ingeniería de características (consulte **Preparación de datos e ingeniería de características**) de este cuaderno de estrategias se puede encontrar más información sobre las características seleccionadas.
 
@@ -350,7 +350,7 @@ Hay varias formas de medir y cuantificar los errores de predicción. Esta secci�
 #### [**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
 MAPE son las siglas de Mean Absolute Percentage Error (error absoluto porcentual de la media). Con MAPE se calculan las diferencias entre cada punto pronosticado y el valor real del mismo. Después se cuantifica el error por punto, para lo que se calcula la proporción de diferencia con respecto al valor real. En el último paso, se obtiene la media de estos valores. Esta es la fórmula matemática que se usa para MAPE:
 
-![Fórmula de MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+![Fórmula de MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png) 
 *Donde un<sub>t</sub> es el valor real, F<sub>t</sub> es el valor pronosticado y n es el horizonte de previsión.*
 
 ## Implementación
@@ -391,4 +391,4 @@ El siguiente diagrama muestra una arquitectura típica basada en Cortana Intelli
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

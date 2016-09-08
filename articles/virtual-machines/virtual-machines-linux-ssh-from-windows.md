@@ -21,7 +21,7 @@ description="Obtenga información acerca de cómo generar y utilizar claves SSH 
 
 > [AZURE.SELECTOR]
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
-- [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
+- [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 En este tema se describe cómo crear y usar archivos de clave privada y pública de formato **ssh-rsa** y **.pem** en Windows que puede usar para conectarse a las máquinas virtuales Linux en Azure con el comando **ssh**. Si ya tiene archivos **.pem** creados, puede utilizarlos para crear máquinas virtuales de Linux a las que puede conectarse con **ssh**. Hay otros comandos que usan el protocolo **SSH** y archivos clave para realizar el trabajo de forma segura, en particular **scp** o [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), que pueden copiar archivos de manera segura a y desde equipos que admiten conexiones **SSH**.
@@ -142,13 +142,13 @@ La manera más fácil de resolver este problema consiste en establecer la variab
 
 6. Haga clic en **Abrir**. Recibirá una secuencia parecida a la siguiente:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
 
 7. Haga clic en **Aceptar**.
 
 8. Haga clic en **Guardar clave privada**, que aparece resaltado en la siguiente captura de pantalla:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
 
 9. Guarde el archivo como PPK.
 
@@ -159,13 +159,13 @@ La manera más fácil de resolver este problema consiste en establecer la variab
 2.	Ejecute putty.exe.
 3.	Rellene el nombre del host con la IP desde el Portal de administración:
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-linux/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
 4.	Antes de seleccionar **Abrir**, haga clic en la pestaña Connection > SSH > Auth (Conexión > SSH > Autenticación) para elegir la clave. Consulte la siguiente captura de pantalla con el campo que se va a rellenar:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

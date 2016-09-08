@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="08/22/2016"
    ms.author="seanmck"/>
 
 # Visualización del clúster mediante el Explorador de Service Fabric
@@ -64,7 +64,7 @@ Por ejemplo, para eliminar una instancia de la aplicación, solo hay que elegir 
 
 ![Eliminación de una aplicación en el explorador de Service Fabric][sfx-delete-application]
 
->[AZURE.TIP] Se pueden realizar las mismas acciones desde la vista de árbol si se hace clic en los puntos suspensivos junto a cada elemento.
+>[AZURE.TIP] Puede realizar las mismas acciones haciendo clic en los puntos suspensivos situados junto a cada elemento.
 
 En la tabla siguiente se enumeran las acciones disponibles para cada entidad:
 
@@ -74,7 +74,7 @@ En la tabla siguiente se enumeran las acciones disponibles para cada entidad:
 | Application | Eliminar aplicación | Elimine la aplicación, incluidos todos sus servicios y su estado (si hubiera). |
 | Servicio | Eliminar servicio | Elimine el servicio y su estado (si hubiera). |
 | Nodo | Activar | Active el nodo. |
-|| Desactivar (pausa) | Pause el nodo en su estado actual. Los servicios seguirán ejecutándose, pero Service Fabric no introducirá ni sacará nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. |
+|| Desactivar (pausa) | Pause el nodo en su estado actual. Los servicios siguen ejecutándose, pero Service Fabric no introduce ni saca nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. |
 || Desactivar (reiniciar) | Saque todos los servicios de la memoria de un nodo y cierre los servicios persistentes de forma segura. Suele usarse cuando es necesario reiniciar los procesos de host o el equipo. |
 || Desactivar (quitar datos) | Cierre todos los servicios que se ejecutan en el nodo después de la creación de suficientes réplicas de reserva con seguridad. Se utiliza normalmente cuando un nodo (o al menos su almacenamiento) se está sacando permanentemente de circulación. |
 || Quitar el estado del nodo | Quite información de las réplicas de un nodo del clúster. Se utiliza normalmente cuando un nodo con error ya se considera irrecuperable. |
@@ -83,7 +83,11 @@ Como muchas acciones son destructivas, le pediremos que confirme su intención a
 
 >[AZURE.TIP] Todas las acciones que pueden realizarse a través del Explorador de Service Fabric también pueden realizarse a través de PowerShell o una API de REST, para habilitar la automatización.
 
+También puede utilizar el Service Fabric Explorer a fin de crear nuevas instancias de aplicaciones para un tipo de aplicación y versión. Elija el tipo de aplicación en la vista de árbol y, luego, haga clic en el vínculo **Create app instance** (Crear instancia de aplicación) situado junto a la versión que desee en el panel derecho.
 
+![Creación de una instancia de aplicación en Service Fabric Explorer][sfx-create-app-instance]
+
+>[AZURE.NOTE] En la actualidad, no se pueden parametrizar las instancias de aplicaciones creadas mediante Service Fabric Explorer. Se crean utilizando los valores de parámetros predeterminados.
 
 ## Conexión a un clúster de Service Fabric remoto
 
@@ -99,9 +103,9 @@ La dirección URL completa también está disponible en el panel de elementos es
 
 ### Conexión a un clúster seguro
 
-Puede controlar el acceso de cliente a su clúster de Service Fabric con [certificados](service-fabric-cluster-security.md) o mediante [Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
+Puede controlar el acceso de cliente a su clúster de Service Fabric con certificados o mediante Azure Active Directory (AAD).
 
-Si intenta conectarse a Service Fabric Explorer en un clúster seguro, deberá presentar un certificado de cliente o iniciar sesión con AAD, según el tipo de seguridad configurada para los puntos de conexión de administración del clúster.
+Si intenta conectarse a Service Fabric Explorer en un clúster seguro, deberá presentar un certificado de cliente o iniciar sesión con AAD, según la configuración del clúster.
 
 ## Pasos siguientes
 
@@ -115,5 +119,6 @@ Si intenta conectarse a Service Fabric Explorer en un clúster seguro, deberá p
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

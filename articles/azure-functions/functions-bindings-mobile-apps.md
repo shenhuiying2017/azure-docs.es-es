@@ -20,11 +20,13 @@
 
 # Enlaces de Aplicaciones móviles en funciones de Azure
 
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+
 Este artículo explica cómo configurar y codificar desencadenadores y enlaces de Aplicaciones móviles en funciones de Azure.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Las Aplicaciones móviles del Servicio de aplicaciones de Azure le permiten exponer los datos de punto de conexión de la tabla a clientes móviles. Estos mismos datos tabulares se pueden usar con los enlaces de entrada y salida de Funciones de Azure. Dado que admiten el esquema dinámico, las aplicaciones móviles del back-end de Node.js son ideales para exponer los datos tabulares que se van a usar con las funciones. El esquema dinámico está habilitado de forma predeterminada y debe deshabilitarse en una aplicación móvil de producción. Para obtener más información acerca de los puntos de conexión de tabla en un back-end de Node.js, consulte [Información general: Operaciones de tabla](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). En Aplicaciones móviles, el back-end de Node.js admite la exploración y la edición de tablas en el portal. Para obtener más información, consulte [in-portal editing](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) (Edición en el portal) en el tema de SDK de Node.js. Si utiliza una aplicación móvil de back-end de .NET con Funciones de Azure, debe actualizar manualmente el modelo de datos, tal como lo requiera la función. Para obtener más información acerca de los punto de conexión de la tabla en una aplicación móvil del back-end .NET, consulte [Cómo definir un controlador de tabla](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) en el tema de SDK de back-end de Node.js.
+Las Aplicaciones móviles del Servicio de aplicaciones de Azure le permiten exponer los datos de punto de conexión de la tabla a clientes móviles. Estos mismos datos tabulares se pueden usar con los enlaces de entrada y salida de Funciones de Azure. Dado que admiten el esquema dinámico, las aplicaciones móviles del back-end de Node.js son ideales para exponer los datos tabulares que se van a usar con las funciones. El esquema dinámico está habilitado de forma predeterminada y debe deshabilitarse en una aplicación móvil de producción. Para más información sobre los puntos de conexión de tabla en un back-end de Node.js, consulte [Información general: Operaciones de tabla](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). En Aplicaciones móviles, el back-end de Node.js admite la exploración y la edición de tablas en el portal. Para más información, consulte [Edición en el portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) en el tema de SDK de Node.js. Si utiliza una aplicación móvil de back-end de .NET con Funciones de Azure, debe actualizar manualmente el modelo de datos, tal como lo requiera la función. Para más información sobre los puntos de conexión de tabla en una aplicación móvil del back-end .NET, consulte [Cómo definir un controlador de tabla](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) en el tema del SDK de back-end de Node.js.
 
 ## Creación de una variable de entorno para la dirección URL de back-end de aplicación móvil
 
@@ -34,19 +36,19 @@ Los enlaces de Aplicaciones móviles actualmente requieren la creación de una v
 
 Para establecer esta dirección URL como una variable de entorno en su Function App:
 
-1. En la aplicación de función del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de Function App) > **Go to App Service settings** (Ir a la configuración del Servicio de aplicaciones). 
+1. En la aplicación de función del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de Function App) > **Go to App Service settings** (Ir a la configuración del Servicio de aplicaciones).
 
 	![Hoja Configuración de Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
-2. En Function App, haga clic en **Toda la configuración** y desplácese hacia abajo hasta **Configuración de la aplicación**. En **configuración de la aplicación**, escriba un nuevo **Nombre** para la variable de entorno, pegue la dirección URL en **Valor**, asegúrese de utilizar el esquema HTTPS y, a continuación, haga clic en **Guardar** y cierre la hoja Function App para volver al portal de funciones.
+2. En la aplicación de función, haga clic en **Toda la configuración** y desplácese hacia abajo hasta **Configuración de la aplicación**. En **onfiguración de la aplicación**, escriba un nuevo valor de **Nombre** para la variable de entorno, pegue la dirección URL en **Valor**, asegúrese de utilizar el esquema HTTPS y, a continuación, haga clic en **Guardar** y cierre la hoja de la aplicación de función para volver al portal de funciones.
 
 	![Agregar una variable de entorno de configuración de aplicación](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
 
-Ahora puede establecer esta variable de entorno nuevo como el campo *conexión* en los enlaces.
+Ahora puede establecer esta nueva variable de entorno como el campo *conexión* en los enlaces.
 
-## <a id="mobiletablesapikey"></a> Use una clave de API para proteger el acceso a los puntos de conexión de las tablas de Aplicaciones móviles.
+## <a id="mobiletablesapikey"></a> Use una clave de API para proteger el acceso a los puntos de conexión de tabla de Aplicaciones móviles.
 
-En Funciones de Azure, los enlaces de tablas móviles permiten especificar una clave de API, que es un secreto compartido que se puede utilizar para evitar el acceso no deseado desde aplicaciones que no sean sus funciones. Las Aplicaciones móviles no incluyen compatibilidad integrada para la autenticación de la clave de API. Sin embargo, puede implementar una clave de API en su aplicación móvil de back-end de Node.js siguiendo los ejemplos descritos en [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Back-end de Aplicaciones móviles del Servicio de aplicaciones de Azure que implementa una clave de API). De igual modo, puede implementar una clave de API en una [aplicación móvil de back-end de .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
+En Funciones de Azure, los enlaces de tablas móviles permiten especificar una clave de API, que es un secreto compartido que se puede utilizar para evitar el acceso no deseado desde aplicaciones que no sean sus funciones. Las Aplicaciones móviles no incluyen compatibilidad integrada para la autenticación de la clave de API. Sin embargo, puede implementar una clave de API en su aplicación móvil de back-end de Node.js siguiendo los ejemplos descritos en [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Back-end de Aplicaciones móviles del Servicio de aplicaciones de Azure que implementa una clave de API). De igual modo, puede implementar una clave de API en una [aplicación móvil de back-end .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
 
 >[AZURE.IMPORTANT] Esta clave de API no se debe distribuir con los clientes de la aplicación móvil, se debe distribuir de forma segura solo a los clientes del servicio, como Funciones de Azure.
 
@@ -62,7 +64,7 @@ El archivo *function.json* admite las siguientes propiedades:
 - `type`: el tipo de enlace debe establecerse en *mobileTable*.
 - `tableName`: tabla donde se creará el nuevo registro.
 - `id`: identificador del registro que se recupera. Esta propiedad admite enlaces similares a `{queueTrigger}`, que usarán el valor de cadena del mensaje en cola como identificador del registro.
-- `apiKey`: cadena que constituye el parámetro de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
+- `apiKey`: cadena que constituye la configuración de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
 - `connection`: cadena que es el nombre de la variable de entorno en la configuración de la aplicación que especifica la dirección URL del back-end de su aplicación móvil.
 - `direction`: dirección del enlace, que se debe establecer en *in*.
 
@@ -85,7 +87,7 @@ Archivo *function.json* de ejemplo:
 
 #### Ejemplo de código de Aplicaciones móviles de Azure para un desencadenador de cola de C#
 
-Según el archivo function.json del ejemplo anterior, el enlace de entrada recupera el registro de un punto de conexión de tabla de Aplicaciones móviles con el identificador que coincide con la cadena del mensaje en la cola y lo pasa al parámetro *record*. Si no se encuentra el registro, el parámetro será nulo. El registro se actualiza con el nuevo valor de *Text* cuando se sale de la función.
+Según el archivo function.json del ejemplo anterior, el enlace de entrada recupera el registro de un punto de conexión de tabla de Aplicaciones móviles con el identificador que coincide con la cadena del mensaje en la cola y lo pasa al parámetro *record*. Si no se encuentra el registro, el parámetro será nulo. El registro se actualiza entonces con el nuevo valor de *Text* cuando se sale de la función.
 
 	#r "Newtonsoft.Json"	
 	using Newtonsoft.Json.Linq;
@@ -119,7 +121,7 @@ El archivo function.json admite las siguientes propiedades:
 - `name`: nombre de variable utilizado en el código de función para el nuevo registro.
 - `type`: el tipo de enlace que se debe establecer en *mobileTable*.
 - `tableName`: la tabla donde se crea el nuevo registro.
-- `apiKey`: cadena que constituye el parámetro de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
+- `apiKey`: cadena que constituye la configuración de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
 - `connection`: cadena que es el nombre de la variable de entorno en la configuración de la aplicación que especifica la dirección URL del back-end de su aplicación móvil.
 - `direction`: dirección de enlace, que se debe establecer en *out*.
 
@@ -167,4 +169,4 @@ Este ejemplo de código de Node.js inserta un registro nuevo en un punto de cone
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

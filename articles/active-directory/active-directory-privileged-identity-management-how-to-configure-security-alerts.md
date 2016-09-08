@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2016"
+   ms.date="08/17/2016"
    ms.author="kgremban"/>
 
 # Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
 
 ## Alertas de seguridad
-Privileged Identity Management (PIM) de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM.
+Privileged Identity Management (PIM) de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM. Seleccione la alerta para ver un informe en el que se enumeren los usuarios o roles que activaron la alerta.
 
 ![Alertas de seguridad del panel de PIM: captura de pantalla][1]
 
@@ -28,8 +28,8 @@ Privileged Identity Management (PIM) de Azure genera alertas cuando existen acti
 | Alerta | Desencadenador | Recomendación |
 | ----- | ------- | -------------- |
 | **Se están asignando roles fuera de PIM** | Se ha asignado a un administrador a un rol de forma permanente, fuera de la interfaz de PIM. | Revise la nueva asignación de roles. Puesto que otros servicios solo pueden asignar administradores permanentes, cámbiela por una asignación apta en caso necesario. |
-| **Se están activando roles con demasiada frecuencia** | Había demasiadas reactivaciones del mismo rol con el tiempo permitido en la configuración. | Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para eludir el proceso. |
-| **No se necesita la autenticación multifactor para la activación de los roles** | Hay roles sin MFA habilitado en la configuración. | MFA se requiere para los roles con privilegios más elevados, pero se recomienda firmemente habilitar MFA para la activación de todos los roles. |
+| **Se están activando roles con demasiada frecuencia** | Había demasiadas reactivaciones del mismo rol en el tiempo permitido en la configuración. | Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para activar automáticamente un rol. |
+| **No se necesita la autenticación multifactor para la activación de los roles** | Hay roles sin MFA habilitado en la configuración. | MFA se requiere para los roles con los privilegios más elevados, pero se recomienda encarecidamente habilitar MFA para la activación de todos los roles. |
 | **Los administradores no están usando sus roles con privilegios** | Hay administradores temporales que no han activado sus roles recientemente. | Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
 | **Demasiados administradores globales** | Hay más administradores globales de lo que se recomienda. | Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
 
@@ -48,12 +48,12 @@ Esta alerta se desencadena si un usuario activa el mismo rol con privilegios var
 
 - **Período de tiempo de renovación de activaciones**: especifique en días, horas, minutos y segundos, el período de tiempo que quiere usar para realizar el seguimiento de renovaciones sospechosas.
 
-- **Número de renovaciones de activación**: especifique el número de activaciones, de 2 a 100, que considere sospechosas, o que deban ser al menos objeto de alerta, en el período de tiempo que eligió. Para establecer este valor, mueva el control deslizante o escriba un número en el cuadro de texto.
+- **Number of activation renewals** (Número de renovaciones de activación): especifique el número de activaciones, de 2 a 100, que considere dignas de tener en cuenta, en el período de tiempo que eligió. Puede cambiar este valor moviendo el control deslizante o escribiendo un número en el cuadro de texto.
 
 
 ### Alerta "Demasiados administradores globales"
 
-El PIM desencadena esta alerta si se cumplen dos criterios diferentes, y puede configurar ambos. En primer lugar, debe alcanzar un determinado umbral de administradores globales. En segundo lugar, un porcentaje determinado de las asignaciones de roles totales deben ser administradores globales. Si solo se cumple uno de estos criterios, la alerta no aparecerá.
+El PIM desencadena esta alerta si se cumplen dos criterios diferentes, y puede configurar ambos. En primer lugar, debe alcanzar un determinado umbral de administradores globales. En segundo lugar, un porcentaje determinado de las asignaciones de roles totales deben ser administradores globales. Si solo se cumple uno de estos criterios, la alerta no aparece.
 
 - **Número mínimo de administradores globales**: especifique el número de administradores globales, de 2 a 100, que considera una cantidad poco segura.
 
@@ -75,4 +75,4 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

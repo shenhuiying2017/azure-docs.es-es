@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-	manager="jeffreyg"
+	manager="timlt"
 	editor="monicar"
 	tags="azure-service-management" />
 <tags
@@ -78,7 +78,7 @@ En este tutorial se da por hecho lo siguiente:
 
 1. En **Nombre del grupo de recursos** de la hoja **Grupo de recursos**, escriba **SQL-HA-RG**.
 
-1. Si tiene varias suscripciones de Azure, compruebe que es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
+1. Si tiene varias suscripciones de Azure, compruebe que la suscripción es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
 
 1. Seleccione una ubicación. La ubicación es la ubicación de Azure donde se ejecutará el grupo de disponibilidad. Para este tutorial vamos a generar todos los recursos en una ubicación de Azure.
 
@@ -166,9 +166,9 @@ Este es un resumen de la configuración de la red virtual y las dos subredes.
 | **Name** | **autoHAVNET** |
 | **Espacio de direcciones** | Depende de los espacios de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/16 |
 | **Nombre de subred** | **Subnet-1** |
-| **Intervalo de direcciones de subred** | Depende de los espacios de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/24. |
+| **Intervalo de direcciones de subred** | Depende de los intervalos de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/24. |
 | **Nombre de subred** | **Subnet-2** |
-| **Intervalo de direcciones de subred** | Depende de los espacios de direcciones disponibles en su suscripción. Un valor típico es 10.0.1.0/24. |
+| **Intervalo de direcciones de subred** | Depende de los intervalos de direcciones disponibles en su suscripción. Un valor típico es 10.0.1.0/24. |
 | **Suscripción** | Especifique la suscripción que quiere usar. |
 | **Grupo de recursos** | **SQL-HA-RG** |
 | **Ubicación** | Especifique la misma ubicación que eligió para el grupo de recursos. |
@@ -865,4 +865,4 @@ Para probar la conexión:
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

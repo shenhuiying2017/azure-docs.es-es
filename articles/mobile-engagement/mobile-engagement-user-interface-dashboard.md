@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Cómo ver y administrar los gráficos de datos de la aplicación
 La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.
 
-### Consulte también
+### Otras referencias
 -  [Guía de resolución de problemas - Análisis][Link 21]
 
 ## Panel
@@ -129,4 +129,4 @@ La sección del panel de la interfaz de usuario permite a los clientes crear gr�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

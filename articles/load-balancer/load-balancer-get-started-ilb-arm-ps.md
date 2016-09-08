@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo crear un equilibrador de carga interno mediante PowerShell en el Administrador de recursos"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,13 +15,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la creación de un equilibrador de carga interno mediante PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -38,7 +38,7 @@ En este artículo se describe la secuencia de tareas individuales que debe reali
 
 Antes de crear un equilibrador de carga interno hay que configurar los siguientes elementos:
 
-- Configuración de direcciones IP front-end: va a configurar la dirección IP privada para el tráfico de red entrante 
+- Configuración de direcciones IP front-end: va a configurar la dirección IP privada para el tráfico de red entrante
 
 - Grupo de direcciones de back-end: configurará las interfaces de red que recibirá el tráfico con equilibrio de carga proveniente del grupo de direcciones IP front-end.
 
@@ -58,7 +58,7 @@ Los pasos siguientes muestran cómo configurar un equilibrador de carga entre do
 
 ### Configurar PowerShell para que use el Administrador de recursos
 
-Asegúrese de contar con la versión de producción más reciente del módulo de Azure para PowerShell y de tener configurado correctamente PowerShell para obtener acceso a su suscripción a Azure.
+Asegúrese de contar con la versión de producción más reciente del módulo de Azure para PowerShell y de haber configurado correctamente PowerShell para obtener acceso a su suscripción a Azure.
 
 ### Paso 1
 
@@ -83,7 +83,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 ### Creación de un grupo de recursos para el equilibrador de carga
 
-### Paso 4
+### Paso 4
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
@@ -120,7 +120,7 @@ Cree un grupo de direcciones IP front-end con la dirección IP privada 10.0.2.5 
 
 	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 
-### Paso 2 
+### Paso 2 
 
 Configure un grupo de direcciones back-end que se usará para recibir el tráfico entrante del grupo de IP front-end:
 
@@ -263,7 +263,7 @@ Cargue la interfaz de red ya creada en una variable. El nombre de variable que s
 
 	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
-#### Paso 4
+#### Paso 4
 
 Cambie la configuración de back-end en la interfaz de red.
 
@@ -316,4 +316,4 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

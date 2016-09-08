@@ -17,12 +17,19 @@
    ms.author="navale;tomfitz;"/>
    
 # API de REST de Resource Manager
-Detrás de cada llamada a Azure Resource Manager, detrás de cada plantilla implementada, detrás de cada cuenta de almacenamiento configurada hay una o varias llamadas a la API de RESTful de Azure Resource Manager. En este tema se describen estas API y cómo se las puede llamar sin usar ningún SDK. Esto puede ser muy útil si quiere un control total de todas las solicitudes realizadas en Azure, o si el SDK para su idioma preferido no está disponible o no es compatible con las operaciones que desea realizar.
 
-En este artículo no se describen todas las API que se muestran en Azure, sino que se utilizarán algunas como ejemplo de cómo seguir adelante y conectarse a ellas. Si comprende los conceptos básicos, podrá seguir adelante y leer la [referencia de la API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx) para buscar información detallada sobre cómo usar el resto de las API.
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [CLI de Azure](xplat-cli-azure-resource-manager.md)
+- [Portal](./azure-portal/resource-group-portal.md)
+- [API DE REST](resource-manager-rest-api.md)
+
+Detrás de cada llamada a Azure Resource Manager, detrás de cada plantilla implementada, detrás de cada cuenta de almacenamiento configurada hay una o varias llamadas a la API de RESTful de Azure Resource Manager. En este tema se describen estas API y cómo se les puede llamar sin usar ningún SDK. Esto puede ser muy útil si quiere un control total de todas las solicitudes realizadas en Azure, o si el SDK para su idioma preferido no está disponible o no es compatible con las operaciones que desea realizar.
+
+En este artículo no se describen todas las API que se muestran en Azure, sino que se utilizarán algunas como ejemplo de cómo seguir adelante y conectarse a ellas. Si comprende los conceptos básicos, podrá seguir adelante y leer el artículo [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx) (Referencia de la API de REST de Azure Resource Manager) para buscar información detallada sobre cómo usar el resto de las API.
 
 ## Autenticación
-La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Como describimos una llamada directamente a las API de REST, asumiremos también que no desea autenticar con un nombre de usuario y contraseña normales, donde se muestre un mensaje emergente que le solicita el nombre de usuario y contraseña, y quizá incluso otros mecanismos de autenticación utilizados en los escenarios de autenticación en dos fases. Por tanto, crearemos lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Pero recuerde que Azure AD admite varios procedimientos de autenticación y todos ellos podrían usarse para recuperar el token de autenticación que se necesita para las solicitudes posteriores de API. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](./resource-group-create-service-principal-portal.md).
+La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Como describimos una llamada directamente a las API de REST, asumiremos también que no desea autenticar con un nombre de usuario y contraseña normales, donde se muestre un mensaje emergente que le solicita el nombre de usuario y contraseña, y quizá incluso otros mecanismos de autenticación utilizados en los escenarios de autenticación en dos fases. Por tanto, crearemos lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Pero recuerde que Azure AD admite varios procedimientos de autenticación y todos ellos podrían usarse para recuperar el token de autenticación que se necesita para las solicitudes posteriores de API. Siga las instrucciones paso a paso que encontrará en [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](./resource-group-create-service-principal-portal.md).
 
 ### Generación de un token de acceso 
 La autenticación en Azure AD se realiza llamando a Azure AD, ubicado en login.microsoftonline.com. Para realizar la autenticación, se necesita la información siguiente:
@@ -77,9 +84,9 @@ Como puede ver en el resultado HTTP anterior, el token es válido durante un per
 
 ## Llamada a las API de REST de ARM
 
-[Las API de REST de Azure Resource Manager se documentan aquí](https://msdn.microsoft.com/library/azure/dn790568.aspx) y está fuera del ámbito de este tutorial documentar el uso de todas ellas. Esta documentación solo usará algunas API para explicar el uso básico de las API, y después le remitiremos a la documentación oficial.
+[Las API de REST de Azure Resource Manager se documentan aquí](https://msdn.microsoft.com/library/azure/dn790568.aspx), y está fuera del ámbito de este tutorial documentar el uso de todas ellas. Esta documentación solo usará algunas API para explicar el uso básico de las API, y después le remitiremos a la documentación oficial.
 
-### Lista de todas las suscripciones
+### Enumeración de todas las suscripciones
 
 Una de las operaciones más sencillas que se pueden realizar es enumerar las suscripciones disponibles a las que se puede acceder. A continuación puede ver cómo se pasa el token de acceso como un encabezado.
 
@@ -92,7 +99,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-... y como resultado, obtendrá una lista de suscripciones a las que puede acceder a esta entidad de servicio.
+Y como resultado, obtendrá una lista de suscripciones a las que puede acceder a esta entidad de servicio.
 
 (Los identificadores de suscripción siguientes se han abreviado para mejorar la legibilidad).
 
@@ -115,7 +122,7 @@ Content-Type: application/json
 
 ### Enumeración de todos los grupos de recursos en una suscripción específica
 
-Todos los recursos disponibles con las API de ARM se anidan dentro de un grupo de recursos. Vamos a consultar en ARM los grupos de recursos existentes en nuestra suscripción con la siguiente solicitud GET de HTTP. Observe cómo el identificador de suscripción se pasa como parte de la dirección URL de este momento.
+Todos los recursos disponibles con las API de ARM se anidan dentro de un grupo de recursos. Vamos a consultar en ARM los grupos de recursos existentes en nuestra suscripción con la siguiente solicitud GET de HTTP. Observe cómo el identificador de suscripción se transmite como parte de la dirección URL de este momento.
 
 (Reemplace YOUR\_ACCESS\_TOKEN y SUBSCRIPTION\_ID por su token de acceso e identificador de suscripción reales).
 
@@ -200,9 +207,9 @@ Con ARM, puede implementar los recursos mediante plantillas de ARM. Una plantill
 
 La implementación de una plantilla de ARM no difiere mucho de cómo llamar a otras API. Un aspecto importante es que la implementación de una plantilla puede tardar bastante tiempo, dependiendo de lo que esté dentro de la plantilla y de la llamada de API que se devolverá, y también dependerá de cómo el desarrollador consulte el estado de la implementación para averiguar cuándo se realiza la implementación.
 
-En este ejemplo, vamos a usar una plantilla de ARM expuesta públicamente y disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates). La plantilla que se vamos a utilizar implementará una máquina virtual de Linux en la región oeste de EE. UU. Aunque esta plantilla estará disponible en un repositorio público, como GitHub, también puede seleccionar pasar la plantilla completa como parte de la solicitud. Tenga en cuenta que se proporcionamos valores de parámetro como parte de la solicitud que se utilizará en la plantilla utilizada.
+En este ejemplo, vamos a usar una plantilla de ARM publicada y disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates). La plantilla que se vamos a utilizar implementará una máquina virtual de Linux en la región oeste de EE. UU. Aunque esta plantilla estará disponible en un repositorio público, como GitHub, también puede seleccionar pasar la plantilla completa como parte de la solicitud. Tenga en cuenta que se proporcionamos valores de parámetro como parte de la solicitud que se utilizará en la plantilla utilizada.
 
-(Reemplace SUBSCRIPTION\_ID, RESOURCE\_GROUP\_NAME, DEPLOYMENT\_NAME, YOUR\_ACCESS\_TOKEN, GLOBALY\_UNIQUE\_STORAGE\_ACCOUNT\_NAME, ADMIN\_USER\_NAME,ADMIN\_PASSWORD y DNS\_NAME\_FOR\_PUBLIC\_IP por los valores apropiados para su solicitud).
+(Reemplace SUBSCRIPTION\_ID, RESOURCE\_GROUP\_NAME, DEPLOYMENT\_NAME, YOUR\_ACCESS\_TOKEN, GLOBALY\_UNIQUE\_STORAGE\_ACCOUNT\_NAME, ADMIN\_USER\_NAME,ADMIN\_PASSWORD y DNS\_NAME\_FOR\_PUBLIC\_IP por los valores pertinentes para su solicitud).
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
@@ -240,4 +247,4 @@ Content-Type: application/json
 
 La respuesta JSON a esta solicitud, que es bastante larga, se ha omitido para mejorar la legibilidad de esta documentación. La respuesta contendrá información sobre la implementación de la plantilla que acaba de crear.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

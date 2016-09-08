@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -22,7 +22,7 @@
 En este artículo se muestra cómo usar los scripts situados en [Azure/classic-iaas-resourcemanager-migration](https://github.com/Azure/classic-iaas-resourcemanager-migration) para clonar una **única** máquina virtual clásica en el modelo de implementación de Azure Resource Manager.
 
 >[AZURE.IMPORTANT]La clonación de estos scripts puede provocar tiempo de inactividad en la máquina virtual clásica. Si lo que busca es información sobre la migración compatible con la plataforma, visite
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-classic-resource-manager.md) (Migración compatible con la plataforma de recursos de IaaS de la pila de implementación clásica a Azure Resource Manager)
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack (Migración compatible con la plataforma de recursos de IaaS de la pila de implementación clásica a Azure Resource Manager)](./virtual-machines-windows-migration-classic-resource-manager.md)
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Migración de recursos de IaaS de la implementación clásica a Resource Manager con Azure PowerShell](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
 
@@ -185,4 +185,4 @@ El cmdlet _Add-AzureSMVmToRM_ se validó usando los siguientes casos de prueba:
 ## Notas
 1. Si se clonan varias máquinas virtuales, una después de otra, con cortos intervalos entre ellas, podrían producirse conflictos de nombres DNS en las direcciones IP públicas debido al tiempo de actualización de la caché DNS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

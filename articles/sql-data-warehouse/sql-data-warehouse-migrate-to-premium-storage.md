@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Información de migración al Almacenamiento premium
@@ -91,13 +91,13 @@ Las migraciones automáticas se llevan a cabo desde las 18:00 a las 6:00 (hora l
 | Este de Japón | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Oeste de Japón | Sin determinar | Sin determinar |
 | Centro-Norte de EE. UU | Sin determinar | Sin determinar |
-| Europa del Norte | 10 de agosto de 2016 | 24 de agosto de 2016 |
+| Europa del Norte | 10 de agosto de 2016 | 31 de agosto de 2016 |
 | Centro-Sur de EE. UU | 23 de junio de 2016 | 2 de julio de 2016 |
 | Sudeste asiático | 23 de junio de 2016 | 1 de julio de 2016 |
 | Europa occidental | 23 de junio de 2016 | 8 de julio de 2016 |
-| Centro occidental de EE.UU. | 14 de agosto de 2016 | 28 de agosto de 2016 |
+| Centro occidental de EE.UU. | 14 de agosto de 2016 | 31 de agosto de 2016 |
 | Oeste de EE. UU. | 23 de junio de 2016 | 7 de julio de 2016 |
-| Oeste de EE. UU.2 | 14 de agosto de 2016 | 28 de agosto de 2016 |
+| Oeste de EE. UU.2 | 14 de agosto de 2016 | 31 de agosto de 2016 |
 
 ## Migración manual al Almacenamiento premium
 Si desea tener el control en los tiempos de inactividad, puede realizar los pasos siguientes para migrar un almacenamiento de datos existente del Almacenamiento estándar al premium. Si decide realizar la migración manual, debe hacerlo antes de que se inicie la automática en dicha región para evitar riesgos de que esta última cause algún conflicto (consulte la [programación de migración automática][]).
@@ -147,19 +147,42 @@ Con la migración al Almacenamiento premium, también aumentamos la cantidad de 
 -- Paso 1: Crear tabla para controlar la recompilación de índice.
 -- Ejecutar como usuario en mediumrc o superior.
 --------------------------------------------------------------------------------
-create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+create table sql_statements
+WITH (distribution = round_robin)
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+    row_number() over (order by s.name, t.name) as sequence
+from 
+    sys.schemas s
+    inner join sys.tables t
+        on s.schema_id = t.schema_id
+where
+    is_external = 0
+;
+go
  
 --------------------------------------------------------------------------------
 -- Paso 2: Ejecutar recompilaciones de índice. Si se produce un error de script, puede volver a ejecutar lo que aparece a continuación para reiniciar donde se quedó.
 -- Ejecutar como usuario en mediumrc o superior.
 --------------------------------------------------------------------------------
 
-declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+declare @nbr_statements int = (select count(*) from sql_statements)
+declare @i int = 1
+while(@i <= @nbr_statements)
+begin
+      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+      exec (@statement)
+      delete from sql_statements where sequence = @i
+      set @i += 1
+end;
 go
 -------------------------------------------------------------------------------
 -- Paso 3: Limpiar la tabla que se creó en el paso 1
 --------------------------------------------------------------------------------
-drop table sql\_statements; go ````
+drop table sql_statements;
+go
+````
 
 Si tiene problemas con el almacenamiento de datos, [cree una incidencia de soporte técnico][] e indique que la posible causa es la migración al Almacenamiento premium.
 
@@ -185,4 +208,4 @@ Si tiene problemas con el almacenamiento de datos, [cree una incidencia de sopor
 [Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

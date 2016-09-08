@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #<a id="unity-roll-a-ball"></a>Creación de un juego de Rodar la bola de Unity
@@ -23,7 +23,7 @@ Este tutorial le lleva por los pasos principales de un tutorial ligeramente modi
 ### Configuración del juego
 Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141).
 
-1. Abra el **Editor de Unity** y haga clic en **New** (Nuevo). 
+1. Abra el **Editor de Unity** y haga clic en **New** (Nuevo).
 	
 	![][51]
 	
@@ -82,7 +82,7 @@ Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutor
 ### Movimiento del jugador
 Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141).
 
-1. Agregue un componente **RigidBody** al objeto **Player** (Jugador). 
+1. Agregue un componente **RigidBody** al objeto **Player** (Jugador).
 
 	![][13]
 
@@ -125,8 +125,8 @@ Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutor
 ### Movimiento de la cámara
 Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141) y en ellos se asociará el objeto **Main Camera** (Cámara principal) al objeto **Player** (Jugador).
 
-1. Actualice **Transform.Position** a X = 0, Y = 10.5, Z=-10.  
-2. Actualice **Transform.Rotation** a X = 45, Y = 0, Z = 0.  
+1. Actualice **Transform.Position** a X = 0, Y = 10.5, Z=-10.
+2. Actualice **Transform.Rotation** a X = 45, Y = 0, Z = 0.
 
 	![][16]
 
@@ -192,7 +192,7 @@ Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutor
 ### Creación de objetos recopilables
 Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). Crearemos algunos objetos atractivos que constituirán el conjunto de objetos recopilables que el objeto Player Ball (Bola jugador) debe recopilar chocando con ellos.
 
-1. Cree un nuevo **objeto cubo 3D** y llámelo Pickup (Recogida). 
+1. Cree un nuevo **objeto cubo 3D** y llámelo Pickup (Recogida).
 
 2. Ajuste los valores de **Transform (Transformación) -> Rotation (Rotación)** y **Transform (Transformación) -> Scale (Escala)** del objeto Pickup (Recogida).
 
@@ -244,7 +244,7 @@ Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutor
 ### Recopilación de objetos de recogida
 Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). Actualizaremos el objeto Player (Jugador) para que pueda recopilar los objetos Pickup (Recogida) al chocar con ellos.
 
-1. Abra el script **Playercontroller** asociado al objeto Player (Jugador) para editarlo y actualizarlo a lo siguiente:  
+1. Abra el script **Playercontroller** asociado al objeto Player (Jugador) para editarlo y actualizarlo a lo siguiente:
 
 		using UnityEngine;
 		using System.Collections;
@@ -374,4 +374,4 @@ Con este tutorial concluye la creación de un juego básico con Unity, que puede
 	
 	
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

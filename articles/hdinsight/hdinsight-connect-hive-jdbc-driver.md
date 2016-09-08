@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/03/2016"
+ ms.date="08/23/2016"
  ms.author="larryfr"/>
 
 #Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive
@@ -182,4 +182,4 @@ Ahora que aprendió a usar JDBC para que funcione con Hive, utilice los siguient
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

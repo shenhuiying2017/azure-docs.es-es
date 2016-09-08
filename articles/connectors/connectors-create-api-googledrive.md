@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Incorporación del conector de Google Drive a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    pageTitle="Incorporación del conector de Google Drive a aplicaciones lógicas | Microsoft Azure"
     description="Información general del conector de Google Drive con parámetros de la API de REST"
     services=""
     suite=""
@@ -15,28 +15,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Introducción al conector de Google Drive
-Conéctese a Google Drive para crear archivos, obtener filas, etc. El conector de Google Drive puede usarse desde:
+Conéctese a Google Drive para crear archivos, obtener filas, etc. Con Google Drive, puede:
 
-- Aplicaciones lógicas 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-googledrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
-
-Con Google Drive, puede:
-
-- Compilar el flujo de negocio en función de los datos obtenidos de la búsqueda. 
+- Compilar el flujo de negocio en función de los datos obtenidos de la búsqueda.
 - Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
-- Agregar el conector de Google Drive a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
-
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -55,7 +43,7 @@ Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas par
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a Google Drive](../../includes/connectors-create-api-googledrive.md)]
 
-Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. La **referencia de la API de REST** de este tema describe estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Google Drive en otras aplicaciones lógicas.
 
@@ -66,13 +54,13 @@ Se aplica a la versión: 1.0.
 ### Crear archivo    
 Carga un archivo en Google Drive. ```POST: /datasets/default/files```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|folderPath|cadena|yes|query|Ninguna |Ruta de acceso de carpeta para cargar el archivo en Google Drive|
-|name|cadena|yes|query|Ninguna |Nombre del archivo que se va a crear en Google Drive|
+|folderPath|string|yes|query|Ninguna |Ruta de acceso de carpeta para cargar el archivo en Google Drive|
+|name|string|yes|query|Ninguna |Nombre del archivo que se va a crear en Google Drive|
 |body|string(binary) |yes|body| Ninguna|Contenido del archivo que se va a cargar en Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -82,13 +70,13 @@ Carga un archivo en Google Drive. ```POST: /datasets/default/files```
 ### Insertar fila    
 Inserta una fila en una hoja de Google. ```POST: /datasets/{dataset}/tables/{table}/items```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path| Ninguna|Identificador único del archivo de hoja de Google|
-|table|cadena|yes|path|Ninguna |Identificador único de la hoja de cálculo|
+|dataset|string|yes|path| Ninguna|Identificador único del archivo de hoja de Google|
+|table|string|yes|path|Ninguna |Identificador único de la hoja de cálculo|
 |item|ItemInternalId: string |yes|body|Ninguna |Fila que se va a insertar en la hoja especificada|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -98,13 +86,13 @@ Inserta una fila en una hoja de Google. ```POST: /datasets/{dataset}/tables/{tab
 ### Copiar archivo    
 Copia un archivo en Google Drive. ```POST: /datasets/default/copyFile```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|yes|query| Ninguna|Dirección URL al archivo de origen|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso al archivo de destino en Google Drive, incluido el nombre de archivo de destino|
+|de origen|string|yes|query| Ninguna|Dirección URL al archivo de origen|
+|de destino|string|yes|query|Ninguna |Ruta de acceso al archivo de destino en Google Drive, incluido el nombre de archivo de destino|
 |overwrite|boolean|no|query|Ninguna |Sobrescribe el archivo de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -114,11 +102,11 @@ Copia un archivo en Google Drive. ```POST: /datasets/default/copyFile```
 ### Eliminar archivo    
 Elimina un archivo de Google Drive. ```DELETE: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a eliminar de Google Drive|
+|id|string|yes|path|Ninguna |Identificador único del archivo que se va a eliminar de Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -128,13 +116,13 @@ Elimina un archivo de Google Drive. ```DELETE: /datasets/default/files/{id}```
 ### Eliminar fila    
 Elimina una fila de una hoja de Google. ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
-|table|cadena|yes|path|Ninguna |Identificador único de la hoja de cálculo|
-|id|cadena|yes|path|Ninguna |Identificador único de la fila que se va a eliminar|
+|dataset|string|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
+|table|string|yes|path|Ninguna |Identificador único de la hoja de cálculo|
+|id|string|yes|path|Ninguna |Identificador único de la fila que se va a eliminar|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -144,13 +132,13 @@ Elimina una fila de una hoja de Google. ```DELETE: /datasets/{dataset}/tables/{t
 ### Extraer archivo en la carpeta    
 Extrae un archivo de almacenamiento en una carpeta de Google Drive (por ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna |Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query|Ninguna |Ruta de acceso de Google Drive para extraer el contenido del archivo|
+|de origen|string|yes|query|Ninguna |Ruta de acceso al archivo de almacenamiento|
+|de destino|string|yes|query|Ninguna |Ruta de acceso de Google Drive para extraer el contenido del archivo|
 |overwrite|boolean|no|query|Ninguna |Sobrescribe los archivos de destino si está establecido en 'true'|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -160,11 +148,11 @@ Extrae un archivo de almacenamiento en una carpeta de Google Drive (por ejemplo:
 ### Obtener contenido de archivo mediante el identificador    
 Recupera el contenido del archivo de Google Drive mediante el identificador.```GET: /datasets/default/files/{id}/content```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a recuperar en Google Drive|
+|id|string|yes|path|Ninguna |Identificador único del archivo que se va a recuperar en Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -174,11 +162,11 @@ Recupera el contenido del archivo de Google Drive mediante el identificador.```G
 ### Obtener contenido de archivo mediante la ruta de acceso    
 Recupera el contenido del archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna |Ruta de acceso del archivo de Google Drive|
+|path|string|yes|query|Ninguna |Ruta de acceso del archivo de Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -188,11 +176,11 @@ Recupera el contenido del archivo de Google Drive mediante la ruta de acceso. ``
 ### Obtener metadatos de archivo mediante el identificador    
 Recupera los metadatos del archivo de Google Drive mediante el identificador. ```GET: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo en Google Drive|
+|id|string|yes|path|Ninguna |Identificador único del archivo en Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -202,11 +190,11 @@ Recupera los metadatos del archivo de Google Drive mediante el identificador. ``
 ### Obtener metadatos de archivo mediante la ruta de acceso    
 Recupera los metadatos del archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna |Ruta de acceso del archivo de Google Drive|
+|path|string|yes|query|Ninguna |Ruta de acceso del archivo de Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -216,13 +204,13 @@ Recupera los metadatos del archivo de Google Drive mediante la ruta de acceso. `
 ### Obtener fila    
 Recupera una sola fila de una hoja de Google. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
-|table|cadena|yes|path|Ninguna |Identificador único de la hoja de cálculo|
-|id|cadena|yes|path| Ninguna|Identificador único de la fila que se va a recuperar|
+|dataset|string|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
+|table|string|yes|path|Ninguna |Identificador único de la hoja de cálculo|
+|id|string|yes|path| Ninguna|Identificador único de la fila que se va a recuperar|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -232,12 +220,12 @@ Recupera una sola fila de una hoja de Google. ```GET: /datasets/{dataset}/tables
 ### Actualizar archivo    
 Actualiza un archivo en Google Drive. ```PUT: /datasets/default/files/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna |Identificador único del archivo que se va a actualizar en Google Drive|
+|id|string|yes|path|Ninguna |Identificador único del archivo que se va a actualizar en Google Drive|
 |body|string(binary) |yes|body| Ninguna|Contenido del archivo que se va a cargar en Google Drive|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -247,14 +235,14 @@ Actualiza un archivo en Google Drive. ```PUT: /datasets/default/files/{id}```
 ### Actualizar fila    
 Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
-|table|cadena|yes|path| Ninguna|Identificador único de la hoja de cálculo|
-|id|cadena|yes|path|Ninguna |Identificador único de la fila que se va a actualizar|
+|dataset|string|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
+|table|string|yes|path| Ninguna|Identificador único de la hoja de cálculo|
+|id|string|yes|path|Ninguna |Identificador único de la fila que se va a actualizar|
 |item|ItemInternalId: string |yes|body|Ninguna |Fila con valores actualizados|
 
-#### Respuesta
+#### Response
 |Nombre|Descripción|
 |---|---|
 |200|OK|
@@ -274,42 +262,42 @@ Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
+|de origen|string|no|
+|DisplayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
 #### BlobDataSetsMetadata
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
+|de origen|string|no|
+|DisplayName|string|no|
+|urlEncoding|string|no|
 
 #### BlobMetadata
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
+|Id|string|no|
+|Nombre|string|no|
+|DisplayName|string|no|
+|Ruta de acceso|string|no|
+|LastModified|string|no|
 |Tamaño|integer|no|
-|MediaType|cadena|no|
+|MediaType|string|no|
 |IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
 #### TableMetadata
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|name|cadena|no|
-|título|cadena|no|
-|x-ms-permission|cadena|no|
+|name|string|no|
+|título|string|no|
+|x-ms-permission|string|no|
 |schema|not defined|no|
 
 #### TablesList
@@ -322,14 +310,14 @@ Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
+|Nombre|string|no|
+|DisplayName|string|no|
 
 #### Elemento
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
-|ItemInternalId|cadena|no|
+|ItemInternalId|string|no|
 
 #### ItemsList
 
@@ -340,7 +328,7 @@ Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 Volver a la [lista de API](apis-list.md).
 
@@ -355,4 +343,4 @@ Volver a la [lista de API](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

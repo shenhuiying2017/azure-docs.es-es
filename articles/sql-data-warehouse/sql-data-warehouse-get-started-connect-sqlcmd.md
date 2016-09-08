@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este tutorial usa la utilidad de línea de comandos sqlcmd para consultar un Almacenamiento de datos SQL de Azure.
-
-## Requisitos previos
-
-Para seguir paso a paso este tutorial, necesita:
-
--  [sqlcmd.exe][]. Para descargarlo, consulte [Utilidades de la línea de comandos 11 de Microsoft para SQL Server][] que puede requerir también [Microsoft ODBC Driver 11 for SQL Server Windows][].
+Este tutorial usa la utilidad de línea de comandos [sqlcmd][] para consultar un Almacenamiento de datos SQL de Azure.
 
 ## 1\. Conectar
 
-Para empezar a trabajar con sqlcmd, abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros obligatorios:
+Para empezar a trabajar con [sqlcmd][], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión requiere los siguientes parámetros:
 
 + **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
 + **Base de datos (-d):** nombre de la base de datos.
@@ -73,18 +67,16 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Pasos siguientes
 
-Consulte [documentación de sqlcmd][sqlcmd.exe] para más información sobre las opciones disponibles en sqlcmd.
+Consulte [documentación de sqlcmd][sqlcmd] para más información sobre las opciones disponibles en sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft ODBC Driver 11 for SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Utilidades de la línea de comandos 11 de Microsoft para SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

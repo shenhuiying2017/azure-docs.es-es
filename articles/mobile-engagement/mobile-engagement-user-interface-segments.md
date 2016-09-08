@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Cómo crear y administrar los segmentos de usuarios para identificar patrones de uso
@@ -40,7 +40,7 @@ Los segmentos permiten segmentar a los usuarios finales de la aplicación. La se
  ![segments3][37]
 
 ### Segmentos que puede crear en función de los elementos principales de Azure Mobile Engagement:
-- Evento: cree un segmento orientado a un evento específico de la aplicación que haya ocurrido más de dos veces por semana. 
+- Evento: cree un segmento orientado a un evento específico de la aplicación que haya ocurrido más de dos veces por semana.
 - Sesión: cree un segmento de los usuarios que haya utilizado la aplicación más de 5 veces la semana pasada.
 - Actividad: cree un segmento de los usuarios que hayan utilizado una página o contenido más o menos de 10 horas el último mes.
 - Trabajo: cree un segmento de usuarios que ha completado un trabajo más de dos veces al día.
@@ -76,7 +76,7 @@ Seleccione la sesión.
 
 1. Seleccione el operador relevante en la lista: =; ≥, ≤.
 2. Escriba el recuento que desee.
-3. Seleccione la instancia que desee. 
+3. Seleccione la instancia que desee.
 4. Haga clic en Siguiente. Este ejemplo se establece para que en la última semana, detecte a los usuarios que han realizado al menos 50 sesiones.
  
  ![segments9][43]
@@ -85,7 +85,7 @@ Para la segmentación de la sesión, puede elegir la duración por sesión como 
 
 1. Seleccione el operador de la lista.
 2. Proporcione la duración por sesión.
-3. Haga clic en Next. En este ejemplo, dice que en todas las sesiones que han sido segmentadas en la sección de repetición, seleccione solo a los usuarios que han pasado más de 30 segundos por sesión.
+3. Haga clic en Siguiente. En este ejemplo, dice que en todas las sesiones que han sido segmentadas en la sección de repetición, seleccione solo a los usuarios que han pasado más de 30 segundos por sesión.
  
  ![segments10][44]
 
@@ -96,7 +96,7 @@ Asigne un nombre al criterio para recuperarlo en el embudo completo y haga clic 
 Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segmento. Dado que los segmentos se basan en un segmento de datos de análisis, los segmentos se calculan una vez al día. En este ejemplo, el 47,7% del total de usuarios finales coincide con el criterio. Deben ser los usuarios que han tenido una buena experiencia y que es posible que proporcionen una clasificación superior si les inserta una notificación en la que se les solicite que califiquen la aplicación en la tienda.
 
 
-## Consulte también
+## Otras referencias
 
 - [Conceptos][Link 6]
 - [Guía de solución de problemas de servicios][Link 24]
@@ -197,4 +197,4 @@ Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

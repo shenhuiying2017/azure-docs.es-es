@@ -529,6 +529,14 @@ Donde:
 - /PassphraseFilePath: Obligatorio. Especifica la frase de contraseña del servidor de configuración.
 - /LogFilePath: Obligatorio. Especifica la ubicación de los archivos de configuración de registro.
 
+#### Desinstalación manual de Mobility Service
+
+Es posible desinstalar Mobility Service mediante la opción Agregar o quitar programas del Panel de control o por medio de la línea de comandos.
+
+Este es el comando que debe usar para desinstalar Mobility Service con la línea de comandos:
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 #### Modificar la dirección IP del servidor de administración
 
 Después de ejecutar el asistente, puede modificar la dirección IP del servidor de administración de la siguiente manera:
@@ -796,4 +804,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Aprenda más sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas que sean objeto de conmutación por error y que se ejecuten en Azure vuelvan al entorno local.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

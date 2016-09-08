@@ -11,9 +11,9 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Notas de la versión del SDK de Windows Phone Silverlight
@@ -31,7 +31,7 @@ Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
 -   Mejoras de estabilidad.
   
 ##3\.1.0 (20/11/2015)
-Parte del paquete de Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
 -   Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
 -   Mejoras de los registros de consola.
@@ -49,4 +49,4 @@ Parte del paquete de Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Mejoras de seguridad.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

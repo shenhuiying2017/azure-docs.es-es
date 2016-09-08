@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Migración de una solución a Almacenamiento de datos SQL
 
-Almacenamiento de datos SQL es un sistema de base de datos distribuidas que se amplía elásticamente para satisfacer sus necesidades. Para mantener tanto el rendimiento como la escala, no se implementan todas las características de SQL Server en Almacenamiento de datos SQL. En los siguientes temas sobre migración se abordan algunos de los factores clave para migrar una solución a Almacenamiento de datos SQL. El diseño del almacenamiento de datos para escala presenta diferentes patrones de diseño, de manera que los enfoques tradicionales no son siempre la mejor opción. Es probable que desee adaptar la solución para asegurarse de que se aprovecha al máximo la plataforma distribuida que proporciona Almacenamiento de datos SQL.
+Almacenamiento de datos SQL es un sistema de base de datos distribuidas que se amplía elásticamente para satisfacer sus necesidades. Para mantener tanto el rendimiento como la escala, no se implementan todas las características de SQL Server en Almacenamiento de datos SQL. En los siguientes temas sobre migración se abordan algunos de los factores clave para migrar una solución a Almacenamiento de datos SQL. El diseño del almacenamiento de datos para escala presenta diferentes patrones de diseño, de manera que los enfoques tradicionales no son siempre la mejor opción. Por lo tanto, puede que observe que adaptar su solución existente garantiza que saca el máximo rendimiento de la plataforma distribuida que ofrece Almacenamiento de datos SQL.
 
-También es importante recordar que Almacenamiento de datos SQL es una plataforma basada en Microsoft Azure. Por lo tanto, parte de la migración también puede incluir la transferencia de datos a la nube. La transferencia de datos es un tema en sí mismo y debe considerarse detenidamente, en especial a medida que aumentan los volúmenes. Tampoco debe confundirse la transferencia de datos con la carga de datos, que es un tema diferenciado.
+También es importante recordar que Almacenamiento de datos SQL es una plataforma basada en Microsoft Azure. Por lo tanto, parte de la migración también puede incluir la transferencia de datos a la nube. La transferencia de datos es un tema en sí mismo y debe considerarse detenidamente, en especial a medida que aumentan los volúmenes. La transferencia y la carga de datos son temas discretos.
 
 ## Guía de migración
-Antes de comenzar la migración, lea estos artículos para asegurarse de que entiende algunas de las diferencias y los conceptos fundamentales del producto.
+Lea estos artículos para asegurarse de que entiende algunas de las diferencias y los conceptos fundamentales del producto antes de comenzar la migración.
 
 - [Migración del esquema][]
 - [Migración de los datos][]
@@ -34,7 +34,7 @@ Para obtener más sugerencias de desarrollo, consulte la [información general s
 
 También puede consultar la [referencia de Transact-SQL][] para obtener más información.
 
-Finalmente, lea el tema [información general sobre carga][], donde se describen diversas opciones de carga de datos y se ofrecen instrucciones paso a paso.
+Por último, consulte la [información general sobre la carga][]. En este artículo se describen varias opciones de carga de datos y se facilitan instrucciones paso a paso.
 
 <!--Image references-->
 
@@ -44,7 +44,7 @@ Finalmente, lea el tema [información general sobre carga][], donde se describen
 [Migración del código]: sql-data-warehouse-migrate-code.md
 
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-[información general sobre carga]: sql-data-warehouse-overview-load.md
+[información general sobre la carga]: sql-data-warehouse-overview-load.md
 [referencia de Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
@@ -52,4 +52,4 @@ Finalmente, lea el tema [información general sobre carga][], donde se describen
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

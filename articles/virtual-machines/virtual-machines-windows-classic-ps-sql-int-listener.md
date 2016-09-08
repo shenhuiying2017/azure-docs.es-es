@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
+	ms.date="08/19/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure
@@ -24,7 +24,7 @@
 
 ## Información general
 
-En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn mediante un **equilibrador de carga interno (ILB)**.
+En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn mediante un **Equilibrador de carga interno (ILB)**.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Para configurar un agente de escucha con ILB para un grupo de disponibilidad AlwaysOn en el modelo de Resource manager, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -104,7 +104,9 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 		$ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
 		(Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
-1. En una de las máquinas virtuales, copie el siguiente script de PowerShell en un editor de texto y establezca las variables en los valores que anotó anteriormente.
+1. En una de las máquinas virtuales, copie el script de PowerShell correspondiente a su sistema operativo en un editor de texto y establezca las variables en los valores que anotó anteriormente.
+
+    Para Windows Server 2012 o superior, use el siguiente script:
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -113,10 +115,19 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 		Import-Module FailoverClusters
 
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+	    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		
+    Para Windows Server 2008 R2 o superior, use el siguiente script:
 
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Define variables
+		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
+		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+
+		Import-Module FailoverClusters
+
+		cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+	
 
 1. Una vez establecidas las variables, abra una ventana de Windows PowerShell con privilegios elevados, copie el script del editor de texto y péguelo en la sesión de Azure PowerShell para ejecutarlo. Si el mensaje todavía muestra >>, escriba ENTER de nuevo para asegurarse de que el script comienza a ejecutarse.
 
@@ -138,4 +149,4 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

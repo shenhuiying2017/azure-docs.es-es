@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure | Microsoft Azure"
+   pageTitle="Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure | Microsoft Azure "
    description="Cómo crear reglas de equilibrador de carga, reglas NAT y sondeo para el Administrador de recursos de Azure. Paso a paso que muestra el proceso completo de creación de un recurso de equilibrador de carga."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure
 
@@ -75,7 +75,7 @@ Elección de la suscripción de Azure que se va a usar.
 
     PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
-Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscription'.
+Para ver una lista de suscripciones disponibles, use el cmdlet "Get-AzureSubscription".
 
 
 ### Paso 4
@@ -281,4 +281,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth"/>
 
 # Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
@@ -357,7 +357,7 @@ Existen diferentes consideraciones para las implementaciones de SQL Server que n
 
 > [AZURE.NOTE] Al copiar los discos VHD debe tener en cuenta el tamaño, ya que en función de este se decidirá en qué tipo de disco de almacenamiento Premium se engloban, lo que determina la especificación de rendimiento del disco. Azure redondeará hacia arriba al tamaño de disco más cercano, por lo que si tiene un disco de 400 GB, redondeará a P20. En función de los requisitos de E/S existentes del VHD del sistema operativo, podría no tener que migrarlo a una cuenta de almacenamiento Premium.
 
-Si se tiene acceso al servidor SQL Server externamente, la VIP del servicio en la nube cambiará. También tendrá que actualizar los extremos, las ACL y la configuración DNS.
+Si se tiene acceso al servidor SQL Server externamente, la VIP del servicio en la nube cambiará. También tendrá que actualizar los puntos de conexión, las ACL y la configuración DNS.
 
 ## Implementaciones existentes que usan grupos de disponibilidad AlwaysOn
 
@@ -464,7 +464,7 @@ Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemen
 
 ##### Puntos de tiempo de inactividad
 
-- Hay tiempo de inactividad cuando se actualiza el nodo final con el extremo de carga equilibrada.
+- Hay tiempo de inactividad cuando se actualiza el nodo final con el punto de conexión de carga equilibrada.
 - La reconexión del cliente podría retrasarse en función de la configuración de cliente/DNS.
 - Si elige desconectar el grupo de clústeres de AlwaysOn para intercambiar las direcciones IP, habrá un tiempo de inactividad adicional. Para evitarlo, use una dependencia OR y los posibles propietarios del recurso de dirección IP adicional. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
@@ -1148,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

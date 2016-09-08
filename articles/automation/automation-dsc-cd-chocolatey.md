@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="golive"/>
 
 # Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
@@ -74,6 +74,8 @@ Se proporcionan detalles sobre el registro de máquina virtual (con la extensió
 La Galería de PowerShell está equipada para instalar recursos de DSC en su cuenta de Automatización de Azure. Desplácese hasta el recurso que desee y haga clic en el botón "Deploy to Azure Automation".
 
 ![Ejemplo de la Galería de PowerShell](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+
+Otra técnica agregada hace poco al Portal de Azure permite extraer módulos nuevos o actualizar los existentes. Haga clic en el recurso Cuenta de automatización, el icono Activos y, por último, el icono Módulos. El icono de examinar la galería permite ver la lista de módulos de la galería, profundizar en los detalles y, en última instancia, importarlos en su cuenta de automatización. Se trata de un modo excelente de actualizar los módulos de vez en cuando. Además, la característica de importación comprueba las dependencias con otros módulos para asegurarse de que nada se queda sin sincronizarse.
 
 También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera la Automatización de Azure. Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para obtener más información sobre la creación de módulos de integración de PowerShell, vea este artículo: [Creación de módulos de integración para la automatización de Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
@@ -167,7 +169,7 @@ Cada paquete que incluya en el repositorio de paquetes necesita un nuspec que lo
 
 ## Paso 6: Unión de todos los elementos
 
-Cada vez que una versión pasa un control de calidad y se aprueba para implementación, se crea el paquete, se actualizan nuspec y nupkg, y se implementan en el servidor NuGet. Además, se debe actualizar la configuración (el paso 4 anterior) para que coincida con el nuevo número de versión. Se debe enviar al servidor de extracción y se debe compilar. Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones son sencillas: solo una línea o dos de PowerShell. En el caso de Visual Studio Team Services, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/es-ES/get-started/build/build-your-app-vs) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las diversas tareas de compilación disponibles.
+Cada vez que una versión pasa un control de calidad y se aprueba para implementación, se crea el paquete, se actualizan nuspec y nupkg, y se implementan en el servidor NuGet. Además, se debe actualizar la configuración (el paso 4 anterior) para que coincida con el nuevo número de versión. Se debe enviar al servidor de extracción y se debe compilar. Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones son sencillas: solo una línea o dos de PowerShell. En el caso de Visual Studio Team Services, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/es-ES/docs/alm-devops-feature-index#continuous-delivery) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las diversas tareas de compilación disponibles.
 
 ## Notas
 
@@ -185,4 +187,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -37,7 +37,7 @@ Para obtener más información, consulte [Create a Virtual Machine](virtual-mach
 ## Conexión a la máquina virtual
  
 
-Para obtener más información, consulte [SSH from Linux](virtual-machines-linux-ssh-from-linux.md) (SSH desde Linux).
+Para más información, consulte [SSH desde Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
 
 ## Consulta de un identificador único de máquina virtual
@@ -57,4 +57,4 @@ Debido a la ordenación de bits de Big Endian, el identificador único real de l
     
 El identificador único de máquina virtual de Azure se puede usar en escenarios distintos, tanto si la máquina virtual se ejecuta en Azure como si lo hace de forma local, y puede ayudar en los requisitos de las licencias, de los informes o del seguimiento general que pueda tener en sus implementaciones IaaS de Azure. Muchos proveedores independientes de software que crean aplicaciones y las certifican en Azure podrían solicitar que se identifique una máquina virtual de Azure durante su ciclo de vida y se averigüe si la máquina virtual se ejecuta en Azure, de forma local o en otros proveedores en la nube. Con este identificador de plataforma, por ejemplo, se puede detectar si el software tiene la licencia adecuada o correlacionar los datos de la máquina virtual a su origen (por ejemplo, para ayudar a configurar las métricas correctas para la plataforma correcta, a efectuar un seguimiento y a correlacionar estas métricas, entre otros usos).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

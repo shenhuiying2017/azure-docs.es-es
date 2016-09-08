@@ -152,7 +152,7 @@ Conexiones en el flujo de trabajo:
 
 
 ### Personalización del XML de lista de clips
-Puede especificar el XML de la lista de clips en el flujo de trabajo en tiempo de ejecución con **sourceTranscode** en la configuración de la cadena XML. Esto requiere la conexión de la clavija de XML de la lista de clips al componente de origen multimedia en el flujo de trabajo.
+Puede especificar el XML de la lista de clips en el flujo de trabajo en tiempo de ejecución con **transcodeSource** en la configuración de la cadena XML. Esto requiere la conexión de la clavija de XML de la lista de clips al componente de origen multimedia en el flujo de trabajo.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -432,4 +432,4 @@ Puede descargar el flujo de trabajo de ejemplo desde [GitHub](https://github.com
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

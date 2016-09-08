@@ -162,7 +162,7 @@ Deberá abrir [algunos puertos de salida](app-insights-ip-addresses.md#outgoing-
   * Abra la Búsqueda de diagnóstico (icono Buscar) para ver los eventos individuales. Los eventos suelen estar visibles en la Búsqueda de diagnóstico antes de que los datos agregados aparezcan en los gráficos.
   * Abrir el Monitor de estado y seleccione la aplicación en el panel izquierdo. Compruebe si hay algún mensaje de diagnóstico para esta aplicación en la sección "Notificaciones de configuración":
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Abra la hoja Rendimiento para ver la solicitud, el tiempo de respuesta, la dependencia y otros datos.](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Asegúrese de que el firewall del servidor permite el tráfico de saliente en los puertos indicados más arriba.
   * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
@@ -300,4 +300,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

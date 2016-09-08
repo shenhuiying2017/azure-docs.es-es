@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Reemplazar un módulos de controladores en el dispositivo StorSimple
@@ -87,7 +87,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
     **Figura 1** Parte posterior del dispositivo StorSimple
 
-    |Etiqueta|Descripción|
+    |Etiqueta|Description|
     |:----|:----------|
     |1|PCM 0|
     |2|PCM 1|
@@ -136,7 +136,7 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
 
 ### Pasos de reemplazo de dos controladores
 
-Este flujo de trabajo es necesario cuando los dos controladores del dispositivo StorSimple de Microsoft Azure están defectuosos. Esto podría suceder en un centro de datos en el que el sistema de refrigeración deja de funcionar y, como resultado, ambos controladores se dañarán en muy poco tiempo. Según si el dispositivo StorSimple está desactivado o activado y si se utiliza un modelo 8600 u 8100, se requiere una serie diferente de pasos.
+Este flujo de trabajo es necesario cuando los dos controladores del dispositivo StorSimple de Microsoft Azure están defectuosos. Esto podría suceder en un centro de datos en el que el sistema de refrigeración deja de funcionar y, como resultado, ambos controladores se dañarán en muy poco tiempo. En función de si el dispositivo StorSimple está desactivado o activado y de si se utiliza un modelo 8600 u 8100, se requiere una serie diferente de pasos.
 
 >[AZURE.IMPORTANT] Puede tardar de 45 minutos a 1 hora que el controlador se reinicie y recupere completamente de un procedimiento de reemplazo de dos controladores. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente 2,5 horas.
 
@@ -144,7 +144,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 
 1. Si el dispositivo está apagado, omita este paso y continúe con el paso siguiente. Si el dispositivo está activado, desactive el dispositivo.
 										
-    1. Si utiliza un modelo de 8600, apague el gabinete principal primero y, a continuación, apague el gabinete EBOD.
+    1. Si utiliza un modelo 8600, apague el gabinete principal primero y después el gabinete EBOD.
 
     2. Espere hasta que el dispositivo se apague por completo. Todos los LED en la parte posterior del dispositivo estarán apagados.
 
@@ -256,7 +256,7 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 **Figura 8** Parte posterior del gabinete principal con los puertos de datos y LED de supervisión
 
-|Etiqueta|Descripción|
+|Etiqueta|Description|
 |:----|:----------|
 |1-6|DATOS 0: 5 puertos de red|
 |7|LED azul|
@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

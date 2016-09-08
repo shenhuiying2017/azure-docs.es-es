@@ -4,7 +4,7 @@
 	services="virtual-machines-windows, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -45,4 +45,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 - [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
 - [Mapa de aprendizaje de Automatización de Azure ](https://azure.microsoft.com/documentation/learning-paths/automation/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

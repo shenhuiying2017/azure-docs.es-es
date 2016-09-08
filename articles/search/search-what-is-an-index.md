@@ -12,7 +12,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Creación de un índice de Búsqueda de Azure
@@ -34,7 +34,7 @@ Al definir el esquema, debe especificar el nombre, el tipo y los atributos de ca
 
 
 ### Tipos de campo
-|Escriba|Descripción|
+|Tipo|Description|
 |------------|-----------|
 |*Edm.String*|Texto que opcionalmente se puede acortar para búsquedas de texto completo (separación de palabras, lematización, etc.).|
 |*Collection(Edm.String)*|Una lista de cadenas que opcionalmente se pueden acortar para búsquedas de texto completo. En teoría, no hay ningún límite superior para el número de elementos de una colección, pero el límite de 16 MB en el tamaño de la carga se aplica a las colecciones.|
@@ -50,7 +50,7 @@ Puede encontrar información más detallada acerca de los [tipos de datos admiti
 
 
 ### Atributos de campo
-|Atributo|Descripción|
+|Atributo|Description|
 |------------|-----------|
 |*Clave*|Una cadena que proporciona el identificador único de cada documento, que se usa para buscar los documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer su tipo en Edm.String.|
 |*Retrievable*|Establece si el campo se puede devolver en un resultado de búsqueda.|
@@ -70,4 +70,4 @@ Al diseñar el índice, tómese su tiempo en la fase de planeación y reflexione
 
 Si los requisitos de almacenamiento de datos cambian con el tiempo, puede aumentar o disminuir la capacidad agregando o quitando particiones. Para más información, consulte [Administración del servicio de Búsqueda en Azure](search-manage.md) o [Límites de servicio](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

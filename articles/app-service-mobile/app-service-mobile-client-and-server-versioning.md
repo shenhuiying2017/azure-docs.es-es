@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="donnam"/>
 
 # Control de versiones de cliente y servidor en Aplicaciones móviles y Servicios móviles
@@ -42,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Puede anular la comprobación de la versión estableciendo el valor **true** para la configuración de la aplicación **MS\_SkipVersionCheck**. Especifique esto en el archivo web.config o en la sección Configuración de la aplicación del Portal de Azure.
 
-> [AZURE.NOTE] Hay una serie de cambios de comportamiento entre Servicios móviles y Aplicaciones móviles, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no rompen la funcionalidad de la aplicación.
+> [AZURE.NOTE] Hay una serie de cambios de comportamiento entre Servicios móviles y Aplicaciones móviles, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no impiden la funcionalidad de la aplicación.
 
 ## Resumen de compatibilidad para todas las versiones
 
@@ -79,8 +79,8 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 | Plataforma de servidor | Versión | Encabezado de versión aceptado |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Sin encabezado de versión** |
-| Node.js | (próximamente) | **Sin encabezado de versión** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Ningún encabezado de versión** |
+| Node.js | (próximamente) | **Ningún encabezado de versión** |
 
 <!-- TODO: add Node npm version -->
 
@@ -139,4 +139,4 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 [Migración de un servicio móvil a Servicio de aplicaciones de Azure]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

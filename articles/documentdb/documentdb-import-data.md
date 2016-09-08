@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/23/2016"
 	ms.author="anhoh"/>
 
 # Importación de datos en DocumentDB con la herramienta de migración de base de datos
@@ -139,19 +139,19 @@ Que devuelve los resultados siguientes (parciales):
 Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
 *{
- "id": "956",
+  "id": "956",
   "Name": "Finer Sales and Service",
-   "Address": {
+  "Address": {
     "AddressType": "Main Office",
-     "AddressLine1": "#500-75 O'Connor Street",
-      "Location": {
-       "City": "Ottawa",
-        "StateProvinceName": "Ontario"
-	 },
-	  "PostalCode": "K4B 1S2",
-	   "CountryRegionName": "Canada"
-	    }
-	     }*
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
 
 Estos son algunos ejemplos de línea de comandos para importar desde SQL Server:
 
@@ -174,17 +174,17 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 Tenga en cuenta los alias como DomainInfo.Domain\_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
 *{
- "DomainInfo": {
-  "Domain\_Name": "ACUS.GOV",
-   "Domain\_Name\_Address": "http://www.ACUS.GOV"
-    },
-     "Federal Agency": "Administrative Conference of the United States",
-      "RedirectInfo": {
-       "Redirecting": "0",
-        "Redirect\_Destination": ""
-	 },
-	  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
-	   }*
+  "DomainInfo": {
+    "Domain\_Name": "ACUS.GOV",
+    "Domain\_Name\_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect\_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 La herramienta de importación intentará inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas). Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.
 
@@ -514,4 +514,4 @@ A continuación, elija si desea registrar todos los mensajes de error, los crít
 
 - Para obtener más información sobre DocumentDB, consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

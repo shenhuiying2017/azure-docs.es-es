@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/13/2016"
+    ms.date="08/23/2016"
     ms.author="markusvi"/>
 
 
@@ -39,7 +39,7 @@ Si es un cliente de Office365, Azure o Dynamics CRM Online, es posible que no se
 
 
 
-<center>![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png) </center>
+![Pila de Azure AD Connect](./media/active-directory-whatis/Azure_Active_Directory.png)
 
 
 ## ¿Cuál es el grado de confiabilidad Azure AD?
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -27,15 +27,16 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 ### <a id="general_issues"></a>Problemas generales de Servicios multimedia
 
-Problema|Descripción
+Problema|Description
 ---|---
 Varios encabezados comunes HTTP no se proporcionan en la API de REST.|Si desarrolla aplicaciones de Servicios multimedia mediante la API de REST, encontrará que algunos campos de encabezado comunes HTTP (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización.
-Al codificar un activo con un nombre de archivo que contiene caracteres de escape (por ejemplo, %20), se muestra el error "MediaProcessor: archivo no encontrado".|Los nombres de archivos que se van a agregar a un activo y que luego se van a codificar deben contener caracteres alfanuméricos y espacios. El problema se corregirá en una futura actualización.
+No se permite la codificación porcentual.|Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente.|Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente.
-El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).|Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Códigos de error de Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. | Tiene que usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y [este ejemplo de API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).|Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) (Códigos de error de Servicios multimedia de Azure).
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. | Tiene que usar **Skip** y **Take** (.NET) o **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y [este ejemplo de API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 Algunos clientes pueden experimentar un problema de etiqueta de repetición en el manifiesto de streaming con velocidad de transmisión adaptable.|Para obtener más información, consulte [esta](media-services-deliver-content-overview.md#known-issues) sección.
 Los objetos del SDK de .NET de Servicios multimedia de Azure no se pueden serializar y, como resultado, no funcionan con el almacenamiento en caché de Azure.|Si intenta serializar el objeto AssetCollection del SDK para agregarlo al almacenamiento en caché de Azure, se produce una excepción.
+Los trabajos de codificación generan un error con esta cadena de mensaje "Fase: DownloadFile. Código: System.NullReferenceException".|El flujo de trabajo de codificación habitual consiste en cargar archivos de vídeo de entrada en un recurso de entrada y enviar uno o varios trabajos de codificación para ese recurso de entrada, sin modificarlo en ningún otro sentido. Sin embargo, si modifica el recurso de entrada (por ejemplo, si agrega o elimina archivos del recurso o cambia sus nombres), los trabajos posteriores pueden generar un error del tipo DownloadFile. La solución consiste en eliminar el recurso de entrada y volver a cargar los archivos de entrada en un recurso nuevo. 
 
 ##<a id="rest_version_history"></a>Historial de versiones de API de REST
 
@@ -45,7 +46,7 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 ###Actualiza al archivo de manifiesto (*. ISM) generado por las tareas de codificación
 
-Cuando una tarea de codificación se envía al Codificador multimedia estándar o al Codificador multimedia de Azure, la tarea de codificación genera un [archivo de manifiesto de streaming](media-services-deliver-content-overview.md) (* .ism) en el recurso de salida. Con la última versión de servicio se ha actualizado la sintaxis de este archivo de manifiesto de streaming.
+Cuando una tarea de codificación se envía al Estándar de codificador multimedia o al Codificador multimedia de Azure, la tarea de codificación genera un [archivo de manifiesto de streaming](media-services-deliver-content-overview.md) (* .ism) en el recurso de salida. Con la última versión de servicio se ha actualizado la sintaxis de este archivo de manifiesto de streaming.
 
 >[AZURE.NOTE]La sintaxis del archivo de manifiesto de streaming (.ism) está reservada para uso interno y está sujeta a cambios en futuras versiones. No modifique ni manipular el contenido de este archivo.
 
@@ -55,7 +56,7 @@ A partir de la versión de servicio más reciente, después de completar una tar
 
 >[AZURE.NOTE]La sintaxis del archivo de manifiesto de cliente (.ism) está reservada para uso interno y está sujeta a cambios en futuras versiones. No modifique ni manipular el contenido de este archivo.
 
-Para obtener más información, vea [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+Para obtener más información, consulte [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### Problemas conocidos
 
@@ -348,7 +349,7 @@ Actualmente, cuenta con las dos opciones siguientes para resolver el problema.
 
 ##<a id="august_changes_14"></a>Versión de agosto de 2014
 
-Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para obtener más información, consulte los temas [Metadatos de entrada] y [Metadatos de salida].
+Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para obtener más información, consulte los temas [Input Metadata] (Metadatos de entrada) y [Output Metadata] (Metadatos de salida).
 
 
 ##<a id="july_changes_14"></a>Versión de julio de 2014
@@ -423,7 +424,7 @@ Se han realizado los siguientes cambios en la versión 3.0.0.3:
 
 La última versión del SDK de Servicios multimedia es ahora la 3.0.0.0. Puede descargar el último paquete de Nuget u obtener los bits de [GitHub].
 
-A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutilizar los tokens de [Servicio de control de acceso de Active Directory (ACS) de Azure]. Para obtener más información, consulte la sección "Reutilización de tokens de Access Control Service" del tema [Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET].
+A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutilizar los tokens de [Servicio de control de acceso de Active Directory (ACS) de Azure]. Para obtener más información, consulte la sección "Reutilización de los tokens del Servicio de control de acceso" del tema [Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.].
 
 ### <a name="dec_13_donnet_ext_changes"></a>Extensiones del SDK .NET de Servicios multimedia de Azure 2.0.0.0
 
@@ -615,8 +616,8 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [foro de MSDN de Servicios multimedia de Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referencia de la API de REST de Servicios multimedia de Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Detalles de precios de Servicios multimedia]: http://azure.microsoft.com/pricing/details/media-services/
-[Metadatos de entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[Metadatos de salida]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[Output Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Entrega de contenido]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Indización de archivos multimedia con Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -637,7 +638,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Unión de segmentos de vídeo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [SDK .NET de Servicios multimedia de Azure 3.0.0.1 y 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Servicio de control de acceso de Active Directory (ACS) de Azure]: http://msdn.microsoft.com/library/hh147631.aspx
-[Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Extensiones del SDK .NET de Servicios multimedia de Azure]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
@@ -645,4 +646,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

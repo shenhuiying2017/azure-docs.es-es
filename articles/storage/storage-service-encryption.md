@@ -37,11 +37,7 @@ Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabi
 
 ##Disponibilidad
 
-Para el almacenamiento estándar, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, centro-norte de EE. UU., Europa del Norte, centro-sur de EE. UU, Sudeste Asiático, Europa Occidental y oeste de EE. UU.
-
-Para el almacenamiento premium, esta característica está disponible actualmente en el sudeste de Australia, centro de Canadá, este de Canadá, centro de EE. UU., Asia Oriental, este de EE. UU. 2, Japón Oriental, centro-norte de EE. UU., Europa del Norte, centro-sur de EE. UU, Sudeste Asiático y oeste de EE. UU.
-
-Actualizaremos este documento a medida que esta característica se implemente en otras regiones.
+Esta característica está disponible actualmente en todas las regiones para Almacenamiento estándar y premium.
 
 ##Escenarios de cifrado
 
@@ -61,7 +57,7 @@ La versión preliminar pública tiene las siguientes limitaciones:
 
 -   Datos existentes: SSE solo cifra los datos recientemente creados una vez que se habilita el cifrado. Por ejemplo, si crea una cuenta de almacenamiento de Resource Manager nueva pero no activa el cifrado, luego carga los blobs o los VHD archivados a esa cuenta de almacenamiento y, después, activa SSE, no se cifrarán esos blobs, a menos que se reescriban o se copien.
 
--   Compatibilidad con Marketplace: habilite el cifrado de las VM creadas desde Marketplace mediante el (Portal de Azure)[https://portal.azure.com], PowerShell y la CLI de Azure. La imagen base de VHD seguirá sin cifrar; sin embargo, se cifrarán todas las escrituras que se realicen una vez que se ponga en marcha la VM.
+-   Compatibilidad con Marketplace: habilite el cifrado de las máquinas virtuales creadas desde Marketplace mediante el [Portal de Azure](https://portal.azure.com), PowerShell y la CLI de Azure. La imagen base de VHD seguirá sin cifrar; sin embargo, se cifrarán todas las escrituras que se realicen una vez que se ponga en marcha la VM.
 
 -   No se cifrarán los datos de tabla, colas y archivos.
 
@@ -97,7 +93,7 @@ Cuando el estado del registro es "Registrado", significa que se aprobó la suscr
 
 ###Paso 3: Habilitar el cifrado.
 
-Puede habilitar el cifrado a través del [Portal de Azure](https://portal.azure.com).
+Puede habilitar el cifrado mediante el [Portal de Azure](https://portal.azure.com).
 
 > [AZURE.NOTE] Si desea habilitar o deshabilitar mediante programación el cifrado del servicio de almacenamiento en una cuenta de almacenamiento, puede usar la [API de REST del proveedor de recursos de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx). Pronto agregaremos esta funcionalidad a la [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), Azure PowerShell y la CLI de Azure.
 
@@ -107,7 +103,7 @@ Puede habilitar el cifrado a través del [Portal de Azure](https://portal.azure.
 
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs, Archivos y Almacenamiento de tablas de Microsoft Azure, mediante sencillos comandos con un rendimiento óptimo. Puede usar esta utilidad para copiar datos provenientes de una cuenta de Almacenamiento de blobs existente a la cuenta de almacenamiento nueva con la funcionalidad de cifrado habilitada.
 
-Para obtener más información, visite [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
+Para más información, visite [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 #### Uso de las bibliotecas de cliente de almacenamiento
 
@@ -127,7 +123,7 @@ Si desea obtener más información, visite [Exploradores de almacenamiento de Az
 
 Una vez que SSE esté ampliamente disponible, se implementará una versión actualizada de las bibliotecas de cliente de almacenamiento que le permitirá consultar el estado de un objeto para determinar si está cifrado o no.
 
-Mientras tanto, puede llamar a [Obtener propiedades de la cuenta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para comprobar que la cuenta de almacenamiento tiene habilitado el cifrado o consultar las propiedades de la cuenta de almacenamiento en el Portal de Azure.
+Mientras tanto, puede llamar a [Obtener propiedades de la cuenta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para comprobar que la cuenta de almacenamiento tenga habilitado el cifrado o consultar las propiedades de la cuenta de almacenamiento en el Portal de Azure.
 
 ##Flujo de trabajo del cifrado y el descifrado
 
@@ -229,4 +225,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

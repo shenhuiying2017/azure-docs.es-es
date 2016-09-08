@@ -12,10 +12,11 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
+
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -36,7 +37,8 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 	
 	>[AZURE.IMPORTANT] Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Vinculación de redes virtuales a circuitos de ExpressRoute: puede vincular redes virtuales a un circuito ExpressRoute. Siga las instrucciones [para vincular redes virtuales](expressroute-howto-linkvnet-arm.md) al circuito. Dichas redes virtuales pueden estar en la misma suscripción de Azure que el circuito ExpressRoute, o bien pueden estar en una suscripción diferente.
 
@@ -58,7 +60,7 @@ En esta sección se enumeran los posibles estados de un circuito ExpressRoute.
 
 #### En tiempo de creación
 
-Verá el circuito ExpressRoute en el estado que se describe a continuación en cuanto ejecute el cmdlet de PowerShell para crear el circuito ExpressRoute.
+Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdlet de PowerShell para crear el circuito ExpressRoute.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -66,7 +68,7 @@ Verá el circuito ExpressRoute en el estado que se describe a continuación en c
 
 #### Cuando el proveedor de conectividad está en el proceso de aprovisionamiento del circuito
 
-Verá el circuito ExpressRoute en el estado que se describe a continuación en cuanto pase la clave de servicio al proveedor de conectividad y hayan iniciado el proceso de aprovisionamiento.
+Verá el circuito ExpressRoute en el estado siguiente en cuanto pase la clave de servicio al proveedor de conectividad y hayan iniciado el proceso de aprovisionamiento.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -74,7 +76,7 @@ Verá el circuito ExpressRoute en el estado que se describe a continuación en c
 
 #### Cuando el proveedor de conectividad haya completado el proceso de aprovisionamiento
 
-Verá el circuito ExpressRoute en el estado que se describe a continuación en cuanto el proveedor de conectividad haya completado el proceso de aprovisionamiento.
+Verá el circuito ExpressRoute en el estado siguiente en cuanto el proveedor de conectividad haya completado el proceso de aprovisionamiento.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
@@ -83,7 +85,7 @@ Aprovisionado y habilitado es el único estado en que puede estar el circuito pa
 
 #### Si el desaprovisionamiento lo inicia Microsoft
 
-Verá el circuito ExpressRoute en el estado que se describe a continuación en cuanto ejecute el cmdlet de PowerShell para eliminar el circuito ExpressRoute.
+Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdlet de PowerShell para eliminar el circuito ExpressRoute.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
@@ -92,7 +94,7 @@ Debe ponerse en contacto con su proveedor de conectividad para desaprovisionar e
 
 #### Si el desaprovisionamiento lo inicia el proveedor de servicios
 
-Si solicitó al proveedor de servicios que desaprovisione primero el circuito ExpressRoute, verá el circuito establecido en el estado que se describe a continuación después de que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
+Si solicitó al proveedor de servicios que desaprovisione primero el circuito ExpressRoute, verá el circuito establecido en el estado siguiente una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
@@ -120,4 +122,4 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -88,7 +88,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] El primer comando anterior usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) y [manipulación de cadenas](http://tldp.org/LDP/abs/html/string-manipulation.html) (más concretamente, la eliminación de subcadenas).
+	>[AZURE.TIP] El primer comando anterior usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) y [manipulación de cadenas](http://tldp.org/LDP/abs/html/string-manipulation.html) (más concretamente, la eliminación de subcadenas).
 
 4. Recupere el identificador del grupo de seguridad de red de `NSG-RemoteAccess`. Debe hacerlo porque las NIC que se asociarán a este grupo de seguridad de red estarán en un grupo de recursos diferente.
 
@@ -330,4 +330,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->
