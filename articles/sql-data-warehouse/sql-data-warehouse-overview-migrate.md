@@ -32,7 +32,7 @@ Lea estos artículos para asegurarse de que entiende algunas de las diferencias 
 
 ## Pasos siguientes
 
-El equipo de asesoramiento al cliente también cuenta con buenas directrices sobre Almacenamiento de datos SQL que publican a través de blogs. Eche un vistazo a su artículo [Migrating data to Azure SQL Data Warehouse in practice][] (Migración de datos a Almacenamiento de datos SQL en la práctica) para obtener instrucciones acerca de la migración.
+El equipo de asesoramiento al cliente también cuenta con buenas directrices sobre Almacenamiento de datos SQL que publican a través de blogs. Eche un vistazo a su artículo [Migrating data to Azure SQL Data Warehouse in practice][] \(Migración de datos a Almacenamiento de datos SQL en la práctica) para obtener instrucciones acerca de la migración.
 
 <!--Image references-->
 

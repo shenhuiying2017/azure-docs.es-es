@@ -104,7 +104,7 @@ Descripción de las [direcciones IP saliente][NetworkArchitecture] y entornos de
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[InboundTraffic]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png

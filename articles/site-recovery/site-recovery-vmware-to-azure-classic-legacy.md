@@ -635,7 +635,7 @@ Los paquetes de software que se usan para instalar Mobility Service están en el
 
 **Para instalar Mobility Service manualmente en un servidor Windows**, haga lo siguiente:
 
-1. Copie el paquete **Microsoft-ASR\_UA\_8.4.0.0_Windows\_GA_28Jul2015\_release.exe** de la ruta de acceso del directorio del servidor de procesos indicada en la tabla anterior a la máquina de origen.
+1. Copie el paquete **Microsoft-ASR\_UA\_8.4.0.0\_Windows\_GA_28Jul2015\_release.exe** de la ruta de acceso del directorio del servidor de procesos indicada en la tabla anterior a la máquina de origen.
 2. Instale Mobility Service mediante la ejecución del archivo ejecutable en el equipo de origen.
 3. Siga las instrucciones del instalador.
 4. Seleccione **Mobility Service** como el rol y haga clic en **Siguiente**.

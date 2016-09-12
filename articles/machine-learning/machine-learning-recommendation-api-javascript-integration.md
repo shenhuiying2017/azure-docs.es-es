@@ -136,7 +136,8 @@ O con datos opcionales:
 
 
 ####3\.2.3. Agregar eventos de carro de la compra
-Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra. Parámetros:
+Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra. 
+Parámetros:
 * event (cadena, obligatorio) - "addshopcart"
 * item (cadena, obligatorio) - Identificador único del elemento
 * itemName (cadena, opcional) - El nombre del elemento
@@ -168,7 +169,8 @@ Este evento se debe usar cuando el usuario ha comprado su carro de la compra.
 
 Parámetros:
 * event (cadena) - "purchase"
-* items (comprados) - Matriz con una entrada por cada elemento comprado.<br><br> Formato de elemento comprado:
+* items (comprados) - Matriz con una entrada por cada elemento comprado.<br><br> 
+Formato de elemento comprado:
 	* item (cadena) - Identificador único del elemento
 	* count (entero o cadena) - Número de elementos que se compraron.
 	* price (flotante o cadena) - Campo opcional; precio del elemento.
@@ -187,7 +189,11 @@ Este evento se debe utilizar después del inicio de sesión de usuario en su sit
 
 Parámetros:
 * event (cadena) - "userlogin"
-* user (cadena) - Identificación único del usuario. <script>if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* user (cadena) - Identificación único del usuario. 
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); 
+		</script>
 
 ##4\. Consumir recomendaciones a través de JavaScript
 El código que consume la recomendación se activa por algunos eventos de JavaScript en la página web del cliente. La respuesta de recomendación incluye los identificadores de elementos recomendados, sus nombres y sus clasificaciones. Es preferible utilizar esta opción solo para una visualización de la lista de los elementos recomendados: debe realizarse un control más complejo (por ejemplo, para agregar los metadatos del elemento) en la integración del lado servidor.

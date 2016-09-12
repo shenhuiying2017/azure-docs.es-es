@@ -197,7 +197,7 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4\. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
+4. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
 
 - Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy** (Conectarse directamente sin un proxy).
 - Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings** (Conectarse con la configuración de proxy existente).
@@ -207,9 +207,9 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5\. Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén. ![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+5. Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén. ![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\. Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
+6. Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
 
 
 ### Instalación de la línea de comandos

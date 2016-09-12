@@ -28,7 +28,7 @@ La siguiente información identifica el límite de Azure Government para Almacen
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Los datos especificados, almacenados y procesados dentro de un producto de Almacenamiento de Azure pueden contener datos controlados para exportación. Autenticadores estáticos, como contraseñas y PIN de smartcard para el acceso a componentes de la plataforma Azure. Claves privadas de certificados que se usan para administrar los componentes de la plataforma Azure. Otros secretos o información de seguridad, como certificados, claves de cifrado, claves maestras y claves de almacenamiento almacenadas en servicios de Azure. | Los metadatos de Almacenamiento de Azure no pueden contener datos controlados para exportación. Estos metadatos incluyen todos los datos de configuración especificados al crear y mantener su producto de almacenamiento. No inserte datos regulados o controlados en los siguientes campos: grupos de recursos, nombres de implementación, nombres de recursos o etiquetas de recursos.  
 
-Para más información, consulte la documentación pública de Almacenamiento de Azure <a href=https://azure.microsoft.com/es-ES/documentation/services/storage/> </a>.
+Para más información, consulte la documentación pública de Almacenamiento de Azure <a href=https://azure.microsoft.com/documentation/services/storage/> </a>.
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>.
 
@@ -42,7 +42,7 @@ La siguiente información identifica el límite de Azure Government para Almacen
 
 Base de datos SQL v11 está disponible en Azure Government con carácter general.
 
-Consulte <a href="https://msdn.microsoft.com/es-ES/library/bb510589.aspx"> Security Center para el motor de Base de datos SQL </a> y <a href="https://azure.microsoft.com/es-ES/documentation/services/sql-database/"> Documentación pública de Base de datos SQL de Azure </a> para obtener instrucciones adicionales sobre la configuración de visibilidad de metadatos y los procedimientos recomendados de protección.
+Consulte <a href="https://msdn.microsoft.com/es-ES/library/bb510589.aspx"> Security Center para el motor de Base de datos SQL </a> y <a href="https://azure.microsoft.com/documentation/services/sql-database/"> Documentación pública de Base de datos SQL de Azure </a> para obtener instrucciones adicionales sobre la configuración de visibilidad de metadatos y los procedimientos recomendados de protección.
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>.
 

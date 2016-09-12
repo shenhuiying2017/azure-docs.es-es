@@ -38,7 +38,7 @@ Puede completar este tutorial en cualquier sistema operativo, como Windows o Lin
 
 1. En el panel de supervisión remota, haga clic en **+ Agregar un dispositivo** y agregue un dispositivo personalizado. Tome nota del nombre de host del Centro de IoT, del identificador de dispositivo y de la clave de dispositivo. Los necesitará más adelante en este tutorial al preparar la aplicación cliente del dispositivo remote\_monitoring.js.
 
-2. Asegúrese de que tiene instalada la versión 0.12.x o posterior de Node.js en el equipo de desarrollo. Ejecute `node --version` en un símbolo del sistema o en un shell para comprobar la versión. Para obtener información sobre el uso de un administrador de paquetes para instalar Node.js en Linux, consulte [Installing Node.js via package manager][node-linux] (Instalación de Node.js con un administrador de paquetes).
+2. Asegúrese de que tiene instalada la versión 0.12.x o posterior de Node.js en el equipo de desarrollo. Ejecute `node --version` en un símbolo del sistema o en un shell para comprobar la versión. Para obtener información sobre el uso de un administrador de paquetes para instalar Node.js en Linux, consulte [Installing Node.js via package manager][node-linux] \(Instalación de Node.js con un administrador de paquetes).
 
 3. Con Node.js instalado, clone la versión más reciente del repositorio [azure-iot-sdks][lnk-github-repo] en el equipo de desarrollo. Para ver la versión más reciente de las bibliotecas y los ejemplos siempre debe usar siempre la rama **principal**.
 

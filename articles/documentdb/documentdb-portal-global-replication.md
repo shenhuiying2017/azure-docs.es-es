@@ -72,7 +72,7 @@ Para más información acerca de cómo funciona la replicación global de bases 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/es-ES/regions/#services
-[offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0831_2016-->

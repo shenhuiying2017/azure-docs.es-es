@@ -39,7 +39,7 @@ Para que los servicios de red admitan aplicaciones y soluciones de cliente de Az
 
 Todos los clientes que usen una arquitectura de conectividad privada deben validar que se haya establecido y mantenido una implementación adecuada para la conexión del cliente al punto de demarcación del enrutador de borde de red de puerta de enlace/Internet (GN/I) para Azure Government. De igual forma, la organización debe establecer conectividad de red entre el entorno local y el punto de demarcación del enrutador de borde de red de puerta de enlace/cliente (GN/C) para Azure Government.
 
-ExpressRoute está disponible con carácter general en Azure Government. Para más información (lo que incluye asociados y ubicaciones de emparejamiento), consulte la <a href="https://azure.microsoft.com/es-ES/documentation/services/expressroute/"> documentación pública de ExpressRoute </a>.
+ExpressRoute está disponible con carácter general en Azure Government. Para más información (lo que incluye asociados y ubicaciones de emparejamiento), consulte la <a href="https://azure.microsoft.com/documentation/services/expressroute/"> documentación pública de ExpressRoute </a>.
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>.
 

@@ -37,7 +37,7 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 1. Abra un símbolo del sistema y cambie a un directorio que contiene la utilidad de línea de comandos sqlpackage.exe; esta utilidad se incluye con Visual Studio y SQL Server.
 2. Ejecute el siguiente comando sqlpackage.exe con los argumentos siguientes para su entorno:
 
-	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
+	`sqlpackage.exe /Action:Import /tsn:< server\_name > /tdn:< database\_name > /tu:< user\_name > /tp:< password > /sf:< source\_file >`
 
 	| Argumento | Descripción |
 	|---|---|

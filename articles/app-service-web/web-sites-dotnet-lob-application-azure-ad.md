@@ -69,7 +69,7 @@ Necesita lo siguiente para completar este tutorial:
 
 8. En **Configurar SQL Server**, configure la instancia de SQL Server. A continuación, haga clic en **Aceptar**, **Aceptar**, y **Crear** para iniciar la creación de la aplicación en Azure.
 
-9. En **Actividad del Servicio de aplicaciones de Azure**, verá cuándo finaliza la creación de la aplicación. Haga clic en **Publish & lt;*appname*> to this Web App now** (Publicar <appname> en esta aplicación web ahora) y en **Publicar**.
+9. En **Actividad del Servicio de aplicaciones de Azure**, verá cuándo finaliza la creación de la aplicación. Haga clic en **Publish &lt;*appname*> to this Web App now** (Publicar <appname> en esta aplicación web ahora) y en **Publicar**.
 
 	Cuando Visual Studio termine, la aplicación de publicación se abre en el explorador.
 
@@ -80,7 +80,7 @@ Necesita lo siguiente para completar este tutorial:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. En el menú izquierdo, haga clic en **Servicios de aplicaciones** > **& lt;*appname*>** > **Autenticación/autorización**.
+2. En el menú izquierdo, haga clic en **Servicios de aplicaciones** > **&lt;*appname*>** > **Autenticación/autorización**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 
@@ -96,7 +96,7 @@ Necesita lo siguiente para completar este tutorial:
 
 5. Vaya al [Portal clásico](https://manage.windowsazure.com).
 
-6. En el menú izquierdo, haga clic en **Active Directory** > **Directorio predeterminado** > **Aplicaciones** > **& lt;*appname*>**.
+6. En el menú izquierdo, haga clic en **Active Directory** > **Directorio predeterminado** > **Aplicaciones** > **&lt;*appname*>**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
 

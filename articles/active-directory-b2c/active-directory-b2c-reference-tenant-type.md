@@ -44,7 +44,7 @@ Los inquilinos de la escala de producción son capaces de escalar a centenares d
 
 ## Obtención de una versión preliminar de un inquilino de B2C en cualquier país o región
 
-Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino ** aparezca **Preview tenant** (Inquilino de versión preliminar). En ese caso, al inquilino se DEBE usar solo para fines de prueba y desarrollo, NO para aplicaciones de producción.
+Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino** aparezca **Preview tenant** (Inquilino de versión preliminar). En ese caso, al inquilino se DEBE usar solo para fines de prueba y desarrollo, NO para aplicaciones de producción.
 
 > [AZURE.IMPORTANT]
 No hay ninguna ruta de migración de un inquilino de B2C de versión preliminar a un inquilino de B2C de escala de producción. Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio.

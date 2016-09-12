@@ -66,11 +66,11 @@ Al usar [SDK de Bus de servicio de Azure para .NET][lnk-servicebus-sdk] o [Centr
 Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos que sean compatibles de la configuración del Centro de IoT en el [Portal de Azure][lnk-management-portal]\:
 
 1. En la hoja Centro de IoT, haga clic en **Mensajería**.
-2. En la sección **Configuración de dispositivo a la nube**, encontrará los valores **Extremo compatible con el Centro de eventos**, ** Nombre compatible con el Centro de eventos** y **Particiones**.
+2. En la sección **Configuración de dispositivo a la nube**, encontrará los valores **Extremo compatible con el Centro de eventos**, **Nombre compatible con el Centro de eventos** y **Particiones**.
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con el Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el ****espacio de nombres sería **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con el Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres sería **iothub-ns-myiothub-1234**.
 
 A continuación, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -561,7 +561,8 @@ Es importante aclarar que la limitación de las *conexiones de dispositivo* dete
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Esto significa que, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad de dispositivos.
 
-Consulte [IoT Hub throttling and you][lnk-throttle-blog] (Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
+Consulte [IoT Hub throttling and you][lnk-throttle-blog
+(Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
 
 >[AZURE.NOTE] En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 

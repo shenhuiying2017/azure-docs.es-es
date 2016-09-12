@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Lista de imágenes de máquinas virtuales
 
-En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo de Lote disponibles cuando se actualizó por última vez este artículo. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] (Python) y [ListNodeAgentSkus][net_list_skus] (.NET de Lote) para determinar y seleccionar entre las SKU disponibles.
+En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo de Lote disponibles cuando se actualizó por última vez este artículo. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] \(Python) y [ListNodeAgentSkus][net_list_skus] \(.NET de Lote) para determinar y seleccionar entre las SKU disponibles.
 
 > [AZURE.WARNING] La siguiente lista se puede cambiar en cualquier momento. Utilice siempre los métodos **list\_node\_agent\_SKU** disponibles en las API de Lote para mostrar y seleccionar entre las máquinas virtuales y SKU del agente de nodo disponibles al ejecutar los trabajos del servicio Lote.
 

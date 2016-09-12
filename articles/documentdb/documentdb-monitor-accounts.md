@@ -56,7 +56,7 @@ El Portal de Azure le permite crear gráficos de métricas en paralelo.
 
 	![Captura de pantalla del gráfico Total de solicitudes con el botón Personalizar destacado](./media/documentdb-monitor-accounts/madocdb6.png)
 
-2.	Haga clic en **Clonar** en el menú para copiar la parte y, a continuación, haga clic en ** Personalización efectuada**.
+2.	Haga clic en **Clonar** en el menú para copiar la parte y, a continuación, haga clic en **Personalización efectuada**.
 
 	![Captura de pantalla del gráfico Total de solicitudes con las opciones Clonar y Personalización efectuada destacadas](./media/documentdb-monitor-accounts/madocdb7.png)
 
