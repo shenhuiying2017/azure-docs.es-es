@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Definición de directivas de laboratorio
@@ -128,6 +128,8 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 1. Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar este valor a una máquina virtual específica, abra la hoja de la máquina virtual y cambie el valor de **Auto Start** (Inicio automático)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Pasos siguientes
 
 Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
@@ -137,4 +139,4 @@ Una vez que defina y aplique las distintas configuraciones de las directivas de 
 - [Configuración de imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): DevTest Labs admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Creación de una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,16 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/31/2016"
     ms.author="sethm;shvija"/>
 
-# Creación de un espacio de nombres de Centro de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
+# Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
 
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
-Para ver la plantilla completa, consulte la [plantilla Service Bus Event Hub and consumer group][] en GitHub.
+Para ver la plantilla completa, consulte la [plantilla de grupo de consumidores y Centros de eventos][] en GitHub.
 
 >[AZURE.NOTE] Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
 >
@@ -31,17 +31,17 @@ Para ver la plantilla completa, consulte la [plantilla Service Bus Event Hub and
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
 >
->Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
+>Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Centros de eventos.
 
 ## ¿Qué va a implementar?
 
-Con esta plantilla, implementará un espacio de nombres de Centro de eventos con un grupo de consumidores y un centro de eventos.
+Con esta plantilla, implementará un espacio de nombres de Centros de eventos con un grupo de consumidores y un centro de eventos.
 
 [Centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
-[![Implementación en Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
+[![Implementación en Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## Parámetros
 
@@ -51,7 +51,7 @@ La plantilla define los parámetros siguientes.
 
 ### eventHubNamespaceName
 
-El nombre del espacio de nombres de Centro de eventos que se creará.
+El nombre del espacio de nombres de Centros de eventos que se creará.
 
 ```
 "eventHubNamespaceName": {
@@ -61,7 +61,7 @@ El nombre del espacio de nombres de Centro de eventos que se creará.
 
 ### eventHubName
 
-El nombre del centro de eventos creado en el espacio de nombres de Centro de eventos.
+El nombre del centro de eventos creado en el espacio de nombres de Centros de eventos.
 
 ```
 "eventHubName": {
@@ -71,7 +71,7 @@ El nombre del centro de eventos creado en el espacio de nombres de Centro de eve
 
 ### eventHubConsumerGroupName
 
-El nombre del grupo de consumidores creado para el Centro de eventos en el espacio de nombres de Bus de servicio.
+El nombre del grupo de consumidores creado para el centro de eventos.
 
 ```
 "eventHubConsumerGroupName": {
@@ -79,59 +79,59 @@ El nombre del grupo de consumidores creado para el Centro de eventos en el espac
 }
 ```
 
-### serviceBusApiVersion
+### apiVersion
 
-La versión de la API de Bus de servicio de la plantilla.
+La versión de API de la plantilla.
 
 ```
-"serviceBusApiVersion": {
+"apiVersion": {
 "type": "string"
 }
 ```
 
 ## Recursos para implementar
 
-Crea un espacio de nombres de Bus de servicio de tipo **Centro de eventos** con un Centro de eventos y un grupo de consumidores.
+Crea un espacio de nombres de tipo **Centros de eventos** con un centro de eventos y un grupo de consumidores.
 
 ```
-"resources": [
-        {
-            "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('eventHubNamespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "EventHub",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]"
-                    },
-                    "resources": [
-                        {
-                            "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('eventHubConsumerGroupName')]",
-                            "type": "ConsumerGroups",
-                            "dependsOn": [
-                                "[parameters('eventHubName')]"
-                            ],
-                            "properties": {
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+"resources":[  
+      {  
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('namespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{  
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources":[  
+            {  
+               "apiVersion":"[variables('ehVersion')]",
+               "name":"[parameters('eventHubName')]",
+               "type":"EventHubs",
+               "dependsOn":[  
+                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+               ],
+               "properties":{  
+                  "path":"[parameters('eventHubName')]"
+               },
+               "resources":[  
+                  {  
+                     "apiVersion":"[variables('ehVersion')]",
+                     "name":"[parameters('consumerGroupName')]",
+                     "type":"ConsumerGroups",
+                     "dependsOn":[  
+                        "[parameters('eventHubName')]"
+                     ],
+                     "properties":{  
+
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ],
 ```
 
 ## Comandos para ejecutar la implementación
@@ -141,7 +141,7 @@ Crea un espacio de nombres de Bus de servicio de tipo **Centro de eventos** con 
 ## PowerShell
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## Azure CLI
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 azure config mode arm
 
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json][]
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
 ## Pasos siguientes
@@ -164,6 +164,6 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [plantilla Service Bus Event Hub and consumer group]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
+  [plantilla de grupo de consumidores y Centros de eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

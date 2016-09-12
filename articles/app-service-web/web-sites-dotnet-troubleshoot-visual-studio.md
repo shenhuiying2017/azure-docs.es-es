@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rachelap"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
@@ -51,7 +51,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
 1. Si todavía no ha iniciado sesión en Azure en Visual Studio, haga clic en el botón **Conectar a Azure** en el **Explorador de servidores**.
 
-	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón secundario en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
+	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón derecho en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Manage Azure Subscriptions** (Administrar suscripciones de Azure), haga clic en la pestaña **Certificados** y en **Importar**. Siga las instrucciones para descargar y luego importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 
 	> [AZURE.NOTE]
 	Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
@@ -112,7 +112,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -221,7 +221,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 6. En el explorador, actualice la página de índice y vea la miniatura.
 
-6. En Visual Studio, presione MAYÚS + F5 para detener la depuración.
+6. En Visual Studio, presione MAYÚS+F5 para detener la depuración.
 
 7. En el **Explorador de servidores**, haga clic en el nodo ContosoAdsWebJob y haga clic en **Ver panel**.
 
@@ -229,7 +229,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 	![Clic en ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-	El panel muestra que la función GenerateThumbnail se ha ejecutado recientemente.
+	El panel muestra la función GenerateThumbnail ejecutada recientemente.
 
 	(La próxima vez que haga clic en **Ver panel**, no tendrá que iniciar sesión y el explorador irá directamente a la página de su WebJob).
 
@@ -241,7 +241,7 @@ Si la función [escribió registros](websites-dotnet-webjobs-sdk-storage-queues-
 
 ## Notas acerca de la depuración remota
 
-* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impedirá que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes posteriores del explorador se dirijan a esa instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
+* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impedirá que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes del explorador siguientes se dirijan a esa instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
 
 * Evite detenciones prolongadas en los puntos de interrupción durante la depuración remota. Azure considera un proceso detenido durante más de unos minutos como un proceso sin respuesta y lo apaga.
 
@@ -287,7 +287,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\\HomeController.cs* y reemplace los métodos `Index`, `About` y `Contact` por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\HomeController.cs* y reemplace los métodos `Index`, `About` y `Contact` por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
 		public ActionResult Index()
 		{
@@ -495,9 +495,9 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 	![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\\Application*.
-	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\\http\\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
-	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\\DetailedErrors*.
+	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
+	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
 
 	(La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).
 
@@ -570,7 +570,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 8. En la pestaña **Registros** de la ventana **Aplicación web de Azure** en Visual Studio, haga clic en **Actualizar** en **Resumen de diagnóstico**.
 
-	![Hacer clic en Actualizar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+	![Haga clic en Actualizar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
 	De manera predeterminada, la sección **Resumen de diagnóstico** muestra registros de los últimos 15 minutos. Puede cambiar el período para ver más registros.
 
@@ -614,11 +614,11 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 2. En Visual Studio, en la pestaña **Configuración** de la ventana **Aplicación web de Azure**, haga clic en **Abrir en el Portal de administración**.
 
-3. En la hoja [Portal de Azure](https://portal.azure.com) **Configuración** para la aplicación web, haga clic en k **Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
+3. En la hoja [Portal de Azure](https://portal.azure.com) **Configuración** para la aplicación web, haga clic en **Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	**Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
 5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
 
@@ -713,7 +713,7 @@ También antiguo, pero incluye cierta información adicional que el artículo de
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\\home\\logfiles*.
+Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
 
 ### Análisis de registros de servidor web
 
@@ -733,4 +733,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

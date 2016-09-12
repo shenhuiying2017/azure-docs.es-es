@@ -186,8 +186,7 @@ Los parámetros son:
 
 	![Crear una cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
-
+>[AZURE.NOTE] 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos. 2. 2. No se admite la [migración de cuentas de almacenamiento](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones para cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ## Paso 5: Creación y configuración de grupos de protección
 
@@ -195,7 +194,7 @@ Los grupos de protección son agrupaciones lógicas de máquinas virtuales que d
 
 1. En **Crear y configurar grupos de protección**, haga clic en **Crear un grupo de protección**. Si no están establecidos los requisitos previos, se emitirá un mensaje y podrá hacer clic en **Ver detalles** para obtener más información.
 
-2. En la pestaña **Grupos de protección**, agregue un grupo de protección. Especifique un nombre, el sitio de Hyper-V de origen, el **Azure** de destino, el nombre de la suscripción de Azure Site Recovery y la cuenta de almacenamiento de Azure.
+2. En la pestaña **Grupos de protección**, agregue un grupo de protección. Especifique un nombre, el sitio Hyper-V de origen, la instancia de **Azure** de destino, el nombre de la suscripción de Azure Site Recovery y la cuenta de almacenamiento de Azure.
 
 	![Grupo de protección](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
 
@@ -215,7 +214,7 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 
 >[AZURE.NOTE] No se admite la protección de máquinas virtuales que ejecutan Linux con una dirección IP estática.
 
-1. En la pestaña **Máquinas** del grupo de protección, haga clic en **Agregar máquinas virtuales a grupos de protección para habilitar protección**.
+1. En la pestaña **Máquinas** del grupo de protección, haga clic en **Add virtual machines to protection groups to enable protection** (Agregar máquinas virtuales a grupos de protección para habilitar protección).
 2. En la página **Habilitar protección de máquina virtual**, seleccione las máquinas virtuales que desea proteger.
 
 	![Enable virtual machine protection](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -243,6 +242,8 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		- **Red de Azure**: especifique la red a la que la máquina virtual debe conmutar por error. Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure.
 		- **Subred**: para cada adaptador de red de la máquina virtual, seleccione la subred en la red de Azure a la que debe conectarse el equipo después de una conmutación por error.
 		- **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error. Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
+		
+        > [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
@@ -281,7 +282,7 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 5. Después de la conmutación por error, podrá ver la réplica de prueba de la máquina virtual en el Portal de Azure. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
 
 	1. Compruebe que las máquinas virtuales se inician correctamente.
-    2. Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba. También necesitará agregar un extremo RDP a la máquina virtual. Para ello, puede usar un [Runbook de automatización de Azure](site-recovery-runbook-automation.md).
+    2. Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba. También necesitará agregar un extremo RDP a la máquina virtual. Para ello, puede usar un [runbook de automatización de Azure](site-recovery-runbook-automation.md).
     3. Después de conmutación por error, si usa una dirección IP pública para conectarse a la máquina virtual en Azure mediante Escritorio remoto, asegúrese de no tener directivas de dominio que le impidan conectarse a una máquina virtual con una dirección pública.
 
 6. Cuando se complete la prueba, haga lo siguiente:
@@ -299,4 +300,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 #  Muestreo en Application Insights.
@@ -29,7 +29,7 @@ El muestreo está actualmente en versión beta y puede cambiar en el futuro.
 * El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %.
 * El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría. El muestreo automático solo se activa con grandes volúmenes y únicamente en aplicaciones de servidor web ASP.NET.
 * También puede establecer el muestreo manualmente, bien en el portal en la página de precios (para reducir el volumen de telemetría retenida y no superar la cuota mensual), bien en el SDK de ASP.NET en el archivo .config, también para reducir el tráfico de red.
-* La velocidad de muestreo actual es una propiedad de cada registro. En la ventana de búsqueda, abra un evento, como una solicitud. Expanda las propiedades completas con los puntos suspensivos "…" para buscar la propiedad "recuento *", llamada, por ejemplo, "recuento de solicitudes" o "recuento de eventos", en función del tipo de telemetría. Si es >1, se produce el muestreo. Un recuento de 3 significaría que el muestreo está en el 33 %: cada registro retenido corresponde a 3 registros generados originalmente.
+* La velocidad de muestreo actual es una propiedad de cada registro. En la ventana de búsqueda, abra un evento, como una solicitud. Expanda las propiedades completas con los puntos suspensivos "…" para buscar la propiedad "recuento *", llamada, por ejemplo, "recuento de solicitudes" o "recuento de eventos", en función del tipo de telemetría. Si es >1, se produce el muestreo. Un recuento de 3 significaría que el muestreo está en el 33 %: cada registro retenido corresponde a tres registros generados originalmente.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
@@ -58,6 +58,8 @@ Los puntos de datos que se descartan por muestreo no están disponibles en ningu
 
 El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Si la velocidad de muestreo en el SDK es inferior al 100 %, se omite la velocidad de muestreo de ingesta que haya establecido.
 
+> [AZURE.WARNING] El valor que se muestra en el icono indica el valor que ha establecido para el muestreo de ingesta. Si el muestreo del SDK está en funcionamiento, no representa la frecuencia real de muestreo.
+
 
 ## Muestreo adaptable en el servidor web
 
@@ -74,11 +76,11 @@ Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones,
 
 **Actualice los paquetes de NuGet del proyecto** a la última versión *preliminar* de Application Insights: haga clic con el botón derecho en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, active **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
-En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), puede ajustar diversos parámetros en el nodo `AdaptiveSamplingTelemetryProcessor`. Las cifras que se muestran son los valores predeterminados:
+En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), puede ajustar varios parámetros en el nodo `AdaptiveSamplingTelemetryProcessor`. Las cifras que se muestran son los valores predeterminados:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-    Velocidad objetivo que el algoritmo de adaptación intenta lograr **en un solo host de servidor**. Si la aplicación web se ejecuta en varios hosts, se recomienda reducir este valor para mantenerse dentro de la velocidad objetivo de tráfico en el portal de Application Insights.
+    Velocidad objetivo que el algoritmo de adaptación intenta lograr **en cada host de servidor**. Si la aplicación web se ejecuta en varios hosts, reduzca este valor para que se mantenga dentro de la velocidad objetivo de tráfico en el portal de Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
@@ -291,6 +293,17 @@ Las principales ventajas del muestreo son:
 De lo contrario, se recomienda el muestreo adaptable. Esta opción está habilitada de forma predeterminada en el SDK de servidor de ASP.NET versión 2.0.0-beta3 o posterior. No reduce el tráfico hasta una determinada tasa mínima, así que no afectará a los sitios de utilización baja.
 
 
+## ¿Cómo se puede saber si el muestreo está en funcionamiento?
+
+Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](app-insights-analytics.md) como esta:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores.
+
+
 ## ¿Cómo funciona el muestreo?
 
 El muestreo adaptable y de frecuencia fija es una característica del SDK de ASP.NET 2.0.0 y versiones posteriores. El muestreo de ingesta es una característica del servicio de Application Insights y puede funcionar si el SDK no realiza muestreo.
@@ -301,7 +314,7 @@ Para las aplicaciones que definen "usuario" (es decir, las aplicaciones web más
 
 Al presentarle la telemetría, el servicio de Application Insights ajusta las métricas con el mismo porcentaje de muestreo que se usó en el momento de la recopilación, para compensar por los puntos de datos que faltan. Por lo tanto, al examinar la telemetría en Application Insights, los usuarios ven aproximaciones estadísticamente correctas que están muy próximas a los números reales.
 
-La precisión de la aproximación depende en gran medida del porcentaje de muestreo configurado. También, la precisión aumenta en las aplicaciones que administran un gran volumen de solicitudes básicamente similares de muchos usuarios. Por otro lado, para las aplicaciones que no funcionan con una carga significativa, el muestreo no es necesario ya que estas aplicaciones normalmente pueden enviar toda su telemetría normalmente manteniéndose dentro de la cuota, sin causar pérdida de datos por causa de la limitación.
+La precisión de la aproximación depende en gran medida del porcentaje de muestreo configurado. También, la precisión aumenta en las aplicaciones que administran un gran volumen de solicitudes básicamente similares de muchos usuarios. Por otro lado, para las aplicaciones que no funcionan con una carga significativa, el muestreo no es necesario ya que estas aplicaciones normalmente pueden enviar toda su telemetría manteniéndose dentro de la cuota, sin causar pérdida de datos por causa de la limitación.
 
 Tenga en cuenta que Application Insights no muestrea tipos de telemetría de Métricas y Sesiones, ya que para estos tipos la reducción en la precisión puede ser no deseable en absoluto.
 
@@ -340,11 +353,11 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *¿Qué sucede si configuro un porcentaje de muestreo demasiado bajo?*
 
-* Un porcentaje de muestreo excesivamente bajo (muestreo demasiado drástico) reducirá la precisión de las aproximaciones cuando Application Insights intente compensar la visualización de los datos por la reducción del volumen de datos. Además, la experiencia de diagnóstico puede verse afectada negativamente, ya que algunas de las solicitudes con poca frecuencia errores o lentas pueden quedar fuera del muestreo.
+* Un porcentaje de muestreo excesivamente bajo (muestreo demasiado drástico) reduce la precisión de las aproximaciones cuando Application Insights intenta compensar la visualización de los datos por la reducción del volumen de datos. Además, la experiencia de diagnóstico puede verse afectada negativamente, ya que algunas de las solicitudes con poca frecuencia errores o lentas pueden quedar fuera del muestreo.
 
 *¿Qué sucede si configuro un porcentaje de muestreo demasiado alto?*
 
-* Configurar un porcentaje de muestreo demasiado alto (no suficientemente drástico) dará como resultado una reducción insuficiente del volumen de telemetría recopilada. Se pueden seguir produciendo pérdidas de datos de telemetría relacionadas con la limitación, y el costo de usar Application Insights puede ser mayor de lo planeado, debido a los cargos debidos al uso por encima del límite.
+* Configurar un porcentaje de muestreo demasiado alto (no suficientemente drástico) da como resultado una reducción insuficiente del volumen de telemetría recopilada. Se pueden seguir produciendo pérdidas de datos de telemetría relacionadas con la limitación, y el costo de usar Application Insights puede ser mayor de lo planeado, debido a los cargos debidos al uso por encima del límite.
 
 *¿En qué plataformas puedo usar muestreo?*
 
@@ -356,4 +369,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

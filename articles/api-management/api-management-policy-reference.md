@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de las directivas disponibles para configurar Administración de API." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>
 
 # Referencia de la directiva de Administración de API de Azure
 
@@ -36,12 +36,14 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Flujo de control][]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][] booleanas.
 	-	[Reenviar solicitud][]\: reenvía la solicitud al servicio back-end.
 	-	[Registro para el centro de eventos][]\: envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Reintentar](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Retry): reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.
 	-	[Devolver respuesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.
 	-	[Enviar solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): envía una solicitud a la dirección URL especificada sin esperar una respuesta.
 	-	[Enviar solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): envía una solicitud a la dirección URL especificada.
 	-	[Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
 	-	[Establecer estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
 	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
+	-	[Seguimiento](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Trace): agrega una cadena a la salida de [API Inspector](../api-management/api-management-howto-api-inspector.md).
 	-	[Esperar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait): espera a que se completen las directivas adjuntas Enviar solicitud, Obtener el valor de caché o Flujo de control antes de continuar.
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
@@ -51,6 +53,7 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Almacenar en caché][]\: almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
 	-	[Obtener valor de caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupere un elemento almacenado en caché por clave.
 	-	[Almacenar valor en caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): almacene un elemento en la memoria caché por clave.
+	-	[Quitar valor de caché](https://msdn.microsoft.com/es-ES/library/dn894086.aspx#RemoveCacheByKey); quita un elemento de la memoria caché por clave.
 -	[Directivas entre dominios][]
 	-	[Permitir llamadas entre dominios][]\: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
 	-	[CORS][]\: agrega soporte de uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
@@ -119,4 +122,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

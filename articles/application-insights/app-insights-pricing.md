@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/27/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -77,7 +77,7 @@ Si una aplicación envía más de la cuota mensual, puede:
 * No haga nada. Los datos de la sesión seguirán registrándose, pero otros datos no aparecerán en la búsqueda de diagnóstico o en el explorador de métricas.
 
 
-### ¿Cuántos datos estoy enviando?
+## ¿Cuántos datos estoy enviando?
 
 El gráfico de la parte inferior de la hoja de precios muestra el volumen del punto de datos de la aplicación con grupos en función del tipo de punto de datos. (También puede crear este gráfico en el Explorador de métricas).
 
@@ -86,6 +86,8 @@ El gráfico de la parte inferior de la hoja de precios muestra el volumen del pu
 Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por él y haga clic en (+) para ver el detalle de un intervalo de tiempo.
 
 El gráfico muestra el volumen de datos que llega al servicio Application Insights, después del [muestreo](app-insights-sampling.md).
+
+Si el volumen de datos alcanza su cuota mensual, aparecerá una anotación en el gráfico.
 
 
 ## Velocidad de datos
@@ -112,7 +114,7 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 * O bien, en el Explorador de métricas, agregue un nuevo gráfico y seleccione **Volumen de punto de datos** como su métrica. Active la agrupación y agrupe por **Tipo de datos**.
 
 
-### Sugerencias para reducir la velocidad de datos
+## Reducción de la velocidad de datos
 
 Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 
@@ -124,16 +126,30 @@ Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 
 ## Muestreo
 
-El [muestreo](app-insights-sampling.md) es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. El muestreo le ayuda a mantener en su cuota mensual.
-
-Existen varias formas de muestreo. Se recomienda el [muestreo adaptable](app-insights-sampling.md), que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona en el SDK de la aplicación web, de modo que se reduzca el tráfico de telemetría en la red. Puede usarlo si el marco de la aplicación web es .NET. Basta con que instale la última versión (beta) del SDK.
-
-Como alternativa, puede establecer el *muestreo de ingesta* en la hoja de Cuotas y precios. Este tipo de muestreo funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio.
-
-![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
+El [muestreo](app-insights-sampling.md) es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos.
 
 El muestreo es una manera efectiva de reducir los gastos y permanecer dentro de la cuota mensual. El algoritmo de muestreo conserva elementos relacionados con la telemetría, de modo que, por ejemplo, al usar la búsqueda se puede buscar la solicitud relacionada con una excepción determinada. El algoritmo también conserva recuentos correctos, para que pueda ver en el Explorador de métricas los valores correctos de tasas de solicitudes, tasas de excepciones y otros recuentos.
 
+Existen varias formas de muestreo.
+
+* El [muestreo adaptable](app-insights-sampling.md) es el predeterminado para el SDK de ASP.NET, que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona automáticamente en el SDK de la aplicación web, de modo que se reduce el tráfico de telemetría en la red.
+* El *muestreo de ingesta* es una opción alternativa que funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio. Puede utilizarlo para reducir la cuota que utiliza la telemetría de exploradores y otros SDK.
+
+Para establecer el muestreo de ingesta, establezca el control en la hoja Quotas + Pricing (Cuotas y precios):
+
+![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
+
+> [AZURE.WARNING] El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación.
+> 
+> Si ya se ha muestreado la telemetría entrante en el SDK, no se aplica el muestreo de ingesta.
+ 
+Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](app-insights-analytics.md) como esta:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores.
 
 ## Revisión de la factura de su suscripción a Azure
 
@@ -145,11 +161,11 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
 ## Límites de los nombres
 
-1.	Un máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
+1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
 2.	Las [propiedades][apiproperties] se pueden usar en los filtros y agruparse solo cuando tengan menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
 3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
 
-Si se percata de que aplicación supera estos límites, plantéese la posibilidad de dividir los datos entre diferentes claves de instrumentación: es decir, [cree nuevos recursos de Application Insights](app-insights-create-new-resource.md) y envíe parte de los datos a las nuevas claves de instrumentación. Es posible que descubra que el resultado está mejor estructurado. Puede usar los [paneles](app-insights-dashboards.md#dashboards) para colocar las métricas diferentes en la misma pantalla, por lo que este enfoque no limita su capacidad de comparar distintas métricas.
+Si se percata de que la aplicación supera estos límites, plantéese la posibilidad de dividir los datos entre diferentes claves de instrumentación: es decir, [cree nuevos recursos de Application Insights](app-insights-create-new-resource.md) y envíe parte de los datos a las nuevas claves de instrumentación. Es posible que descubra que el resultado está mejor estructurado. Puede usar los [paneles](app-insights-dashboards.md#dashboards) para colocar las métricas diferentes en la misma pantalla, por lo que este enfoque no limita su capacidad de comparar distintas métricas.
 
 ## Resumen de límites
 
@@ -165,4 +181,4 @@ Si se percata de que aplicación supera estos límites, plantéese la posibilida
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

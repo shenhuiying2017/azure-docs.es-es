@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/30/2016" 
 	ms.author="sdanie"/>
 
 # Supervisión de Caché en Redis de Azure
@@ -24,7 +24,7 @@ Cuando se habilitan los diagnósticos de caché, las métricas para las instanci
 
 Las métricas de caché se recopilan mediante el comando [INFO](http://redis.io/commands/info) de Redis. Para obtener más información sobre los distintos valores INFO que se utilizan para las métricas de caché, consulte [Métricas disponibles e intervalos de informes](#available-metrics-and-reporting-intervals).
 
-Para ver métricas de caché, [examine](cache-configure.md) la instancia de caché en el [Portal de Azure](https://portal.azure.com). Se obtiene acceso a las métricas para las instancias de Caché en Redis de Azure en la hoja **Caché en Redis**.
+Para ver métricas de caché, [examine](cache-configure.md#configure-redis-cache-settings) la instancia de caché en el [Portal de Azure](https://portal.azure.com). Se obtiene acceso a las métricas para las instancias de Caché en Redis de Azure en la hoja **Caché en Redis**.
 
 ![Métricas de Redis][redis-cache-redis-metrics-blade]
 
@@ -56,7 +56,7 @@ Después de establecer la configuración de diagnóstico, haga clic en **Guardar
 
 >[AZURE.IMPORTANT] Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (diagnóstico habilitado o deshabilitado o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
 
-Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) (Acceso a datos de supervisión de Caché en Redis).
 
 >[AZURE.NOTE] Solo se muestran en el Portal de Azure las métricas que se almacenan en la cuenta de almacenamiento seleccionada. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.
 
@@ -68,7 +68,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 
 >[AZURE.NOTE] Incluso cuando la memoria caché está inactiva sin ninguna aplicación de cliente activa conectada, puede que vea alguna actividad de caché, como clientes conectados, uso de memoria y operaciones que se están realizando. Esta actividad es normal durante la operación de una instancia de Caché en Redis de Azure.
 
-| Métrica | Descripción |
+| Métrica | Description |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aciertos de caché | El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](http://redis.io/commands/info) de Redis. |
 | Errores de caché | El número de búsquedas de claves incorrectas durante el intervalo de informes. Este valor se asigna a `keyspace_misses` desde el comando INFO de Redis. Los errores de caché no significan necesariamente que haya un problema con la memoria caché. Por ejemplo, cuando se utiliza el modelo de programación cache-aside, una aplicación busca un elemento en primer lugar en la memoria caché. Si el elemento no está allí (error de caché), se recupera de la base de datos y se agrega a la caché para la próxima vez. Los errores de caché son un comportamiento normal del modelo de programación cache-aside. Si el número de errores de caché es mayor de lo esperado, examine la lógica de aplicación que rellena y lee de la memoria caché. Si se expulsan los elementos de la memoria caché debido a la presión de memoria, puede haber algunos errores de caché; una métrica mejor para supervisar la presión de memoria sería `Used Memory` o `Evicted Keys`. |
@@ -177,11 +177,11 @@ Las reglas de alerta se pueden ver y establecer en la hoja **Métrica** de un gr
 
 Las reglas de alerta tienen las siguientes propiedades.
 
-| Propiedad de regla de alerta | Descripción |
+| Propiedad de regla de alerta | Description |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Recurso | Recurso evaluado por la regla de alerta. Al crear una regla de alerta en una caché de Redis, la memoria caché es el recurso. |
 | Nombre | Nombre que identifica de forma única la regla de alerta en la instancia de caché actual. |
-| Descripción | Descripción opcional de la regla de alerta. |
+| Description | Descripción opcional de la regla de alerta. |
 | Métrica | Métrica supervisada por la regla de alerta. Para ver una lista de métricas de caché, consulte Métricas disponibles e intervalos de informes. |
 | Condición | Operador de condición para la regla de alerta. Las opciones posibles son: mayor que, mayor o igual que, menor que, menor o igual que |
 | Umbral | El valor que se utiliza para comparar con la métrica mediante el operador especificado por la propiedad condition. Dependiendo de la métrica, este valor puede ser bytes por segundo, bytes, % o recuento. |
@@ -296,4 +296,4 @@ Para obtener información sobre cómo ver las métricas y personalizar cada grá
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

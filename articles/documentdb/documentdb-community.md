@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="08/30/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -210,7 +210,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Partner de aprendizaje | Description |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Academia virtual de Microsoft](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) | La [**Academia virtual de Microsoft**](https://www.microsoftvirtualacademy.com/es-ES/training-courses/developing-solutions-with-azure-documentdb-10554) le ofrece aprendizaje de las personas que ayudaron a crear Azure DocumentDB. |
+| [![Academia virtual de Microsoft](./media/documentdb-community/mva.png)](https://mva.microsoft.com/es-ES/training-courses/deploying-web-apps-to-azure-app-service-16629) | La [**Academia virtual de Microsoft**](https://mva.microsoft.com/es-ES/training-courses/deploying-web-apps-to-azure-app-service-16629) le ofrece aprendizaje de las personas que ayudaron a crear Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) es un asociado clave de Microsoft que ofrece cursos de aprendizaje de Azure. Si es suscriptor de MSDN, use sus beneficios para tener acceso al entrenamiento de Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) proporciona un aprendizaje técnico en profundidad sobre Microsoft Azure. Reciba un entrenamiento dirigido por un instructor en el sitio o a través de una clase remota de la mano de instructores reconocidos del sector. |
 
@@ -268,4 +268,4 @@ Asistente | Imagen
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

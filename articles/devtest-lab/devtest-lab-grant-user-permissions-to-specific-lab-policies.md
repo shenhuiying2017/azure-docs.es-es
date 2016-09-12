@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Concesión de permisos de usuario a directivas específicas de laboratorio
@@ -30,7 +30,7 @@ En DevTest Labs, una directiva es un tipo de recurso que permite la acción de R
 
 Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual**, debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/*** y, a continuación, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para más información acerca de los roles personalizados en RBAC, consulte la sección [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) del artículo [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
+Para obtener más información sobre los roles personalizados en RBAC, consulte la sección [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) del artículo [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Creación de un rol personalizado de laboratorio con PowerShell
 Para empezar, debe leer el artículo siguiente, donde se explica cómo instalar y configurar los cmdlets de Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -81,6 +81,8 @@ En el ejemplo anterior, se utiliza la directiva **AllowedVmSizesInLab**. Puede u
 - AllowedVmSizesInLab
 - LabVmsShutdown
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Pasos siguientes
 
 Una vez que haya concedido permisos de usuario a las directivas específicas del laboratorio, estos son algunos de los siguientes pasos que debe considerar:
@@ -95,4 +97,4 @@ Una vez que haya concedido permisos de usuario a las directivas específicas del
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

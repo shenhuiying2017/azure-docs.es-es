@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/13/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Creación de un servicio Búsqueda de Azure mediante el Portal de Azure
@@ -76,4 +76,4 @@ Después de aprovisionar un servicio Búsqueda de Azure, estará listo para [def
 
 Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-portal.md) para un tutorial rápido.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

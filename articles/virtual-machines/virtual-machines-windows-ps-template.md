@@ -216,11 +216,13 @@ Para especificar los valores de los parámetros del recurso que se definieron en
           }
         }
 
+    >[AZURE.NOTE] Obtenga más información acerca de los [requisitos de usuario y la contraseña](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 2. Guarde el archivo de parámetros.
 
 ## Paso 3: Instalación de Azure PowerShell
 
-Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure.
 
 ## Paso 4: Creación de un grupo de recursos
 
@@ -281,7 +283,7 @@ Todos los recursos se deben implementar en un grupo de recursos. Para más infor
 
 ## Pasos siguientes
 
-- Si se produjeron problemas durante la implementación, el paso siguiente será consultar en [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Si se produjeron problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Obtenga más información sobre cómo administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -32,13 +32,13 @@ En este artículo se supone que ya dispones de:
 
 - **[Microsoft Azure PowerShell](../powershell-install-configure.md)**: tiene el módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción.
 
-- **Un archivo .VHD**: sistema operativo Windows compatible almacenado en un archivo .vhd y conectado a una máquina virtual. También debe comprobar que los roles de servidor que se ejecutan en el disco duro virtual sean compatibles con sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
+- **Un archivo .VHD**: sistema operativo Windows compatible almacenado en un archivo .vhd y conectado a una máquina virtual. Compruebe si los roles de servidor que se ejecutan en el VHD son compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
 
 > [AZURE.IMPORTANT] El formato VHDX no se admite en Microsoft Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Para obtener más información, consulta esta [publicación de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
 ## Paso 1: Preparar el VHD 
 
-Antes de cargar el VHD en Azure, tiene que generalizarse mediante la herramienta Sysprep. Esto prepara el VHD para usarlo como una imagen. Para obtener más información sobre Sysprep, consulta [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
+Antes de cargar el VHD en Azure, tiene que generalizarse mediante la herramienta Sysprep. Esto prepara el VHD para usarlo como una imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx). Cree una copia de seguridad de la VM antes de ejecutar Sysprep.
 
 Desde la máquina virtual en la que se instaló el sistema operativo, realice el procedimiento siguiente:
 
@@ -104,4 +104,4 @@ Use el cmdlet [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.a
 
 Ahora puede [crear una máquina virtual personalizada](virtual-machines-windows-classic-createportal.md) mediante la imagen que cargó.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

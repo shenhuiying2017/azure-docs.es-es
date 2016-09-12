@@ -36,7 +36,7 @@ Veamos la configuración del entorno de desarrollo de Visual Studio para acceder
 
 1. Descargue y descomprima el ejemplo [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) (Power BI Embedded - Integración de un informe en una aplicación web) en GitHub.
 
-2. Abra **PowerBI embedded.sln** en Visual Studio.
+2. Abra **PowerBI embedded.sln** en Visual Studio. Puede que necesite ejecutar el comando **Update-Package** en la Consola del Administrador de paquetes NuGET para actualizar los paquetes utilizados en esta solución.
 
 3. Compile la solución.
 
@@ -46,7 +46,7 @@ Veamos la configuración del entorno de desarrollo de Visual Studio para acceder
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
+6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para obtener más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -86,7 +86,7 @@ El ejemplo de aplicación web es un panel de ejemplo que representa los informes
     ```
 3. Ejecute la aplicación web **EmbedSample**.
 
-Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes**. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado el [ejemplo de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
+Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes** menú. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -96,9 +96,9 @@ Tras hacer clic en un informe, la aplicación web **EmbedSample** debe tener un 
 
 
 ## Exploración del código de ejemplo
-El ejemplo de **Microsoft Power BI Embedded** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del código de ejemplo que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para más información sobre MVC, consulte [Learn About ASP.NET](http://www.asp.net/mvc) (Más información sobre ASP.NET).
+El ejemplo de **Microsoft Power BI Embedded** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del ejemplo de código que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para obtener más información sobre MVC, consulte [Learn About ASP.NET](http://www.asp.net/mvc) (Más información sobre ASP.NET).
 
-El código de ejemplo de **Microsoft Power BI Embedded** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
+El ejemplo de código de **Microsoft Power BI Embedded** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
 
 > [AZURE.NOTE] Esta sección es un resumen del código de ejemplo que muestra cómo se escribe el código. Para ver el ejemplo completo, cargue la solución PowerBI-embedded.sln en Visual Studio.
 
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 - [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

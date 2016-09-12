@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="08/25/2016"
 	ms.author="ryanwi"/>
 
 # Automatización del ciclo de vida de las aplicaciones con PowerShell
 
-Muchos aspectos del [ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) pueden automatizarse. En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes para implementar, actualizar, quitar y probar aplicaciones de Service Fabric. Las API HTTP y administradas para la administración de aplicaciones también están disponible, consulte el [ciclo de vida de la aplicación](service-fabric-application-lifecycle.md) para obtener más información.
+Muchos aspectos del [ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) pueden automatizarse. En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes para implementar, actualizar, quitar y probar aplicaciones de Service Fabric. También cuenta con API HTTP y administradas para la administración de aplicaciones. Consulte el [ciclo de vida de las aplicaciones](service-fabric-application-lifecycle.md) para más información.
 
 ## Requisitos previos
 Antes de empezar con las tareas del artículo, no olvide de hacer lo siguiente:
@@ -28,21 +28,21 @@ Antes de empezar con las tareas del artículo, no olvide de hacer lo siguiente:
 + [Habilite la ejecución del script de PowerShell](service-fabric-get-started.md#enable-powershell-script-execution).
 + Inicie un clúster local. Abra una nueva ventana de PowerShell como administrador y después ejecute el script de configuración de clúster desde la carpeta del SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
 + Antes de ejecutar los comandos de PowerShell en este artículo, conéctese al clúster de Service Fabric local mediante [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
-+ Las tareas siguientes requieren un paquete de aplicación v1 para la implementación y uno v2 para la actualización. Descargue la [aplicación de ejemplo **WordCount**](http://aka.ms/servicefabricsamples) (que se encuentra en los ejemplos de introducción). Compile y empaquete la aplicación en Visual Studio (haga clic con el botón derecho en **WordCount** en el Explorador de soluciones y seleccione **Empaquetar**). Copie el paquete v1 de `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` a `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` a `C:\Temp\WordCountV2`, lo que crea el paquete de aplicación v2 para la actualización. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` en un editor de texto. En el elemento **ApplicationManifest**, cambie el atributo **ApplicationTypeVersion** de "1.0.0" a "2.0.0". Esto actualiza el número de versión de la aplicación. Guarde el archivo ApplicationManifest.xml modificado.
++ Las tareas siguientes requieren un paquete de aplicación v1 para la implementación y uno v2 para la actualización. Descargue la [aplicación de ejemplo **WordCount**](http://aka.ms/servicefabricsamples) (que se encuentra en los ejemplos de introducción). Compile y empaquete la aplicación en Visual Studio (haga clic con el botón derecho en **WordCount** en el Explorador de soluciones y seleccione **Empaquetar**). Copie el paquete v1 de `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` a `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` a `C:\Temp\WordCountV2`, lo que crea el paquete de aplicación v2 para la actualización. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` en un editor de texto. En el elemento **ApplicationManifest**, cambie el atributo **ApplicationTypeVersion** de "1.0.0" a "2.0.0" para actualizar el número de versión de la aplicación. Guarde el archivo ApplicationManifest.xml modificado.
 
 ## Tarea: Implementar una aplicación de Service Fabric
 
 Una vez que compile y empaquete la aplicación (o descargue el paquete de aplicación), puede implementar esta aplicación en un clúster de Service Fabric local. La implementación significa cargar el paquete de aplicación, registrar el tipo de aplicación y crear la instancia de la aplicación. Use las instrucciones que aparecen en esta sección para implementar una aplicación nueva en un clúster.
 
 ### Paso 1: cargar el paquete de aplicación
-Cargar el paquete de aplicación en el almacén de imágenes lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. El paquete de aplicación contiene el manifiesto de aplicación, los manifiestos de servicio y los paquetes de código, configuración y datos necesarios para crear las instancias de servicio y aplicación. El comando [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) cargará el paquete. Por ejemplo:
+Cargar el paquete de aplicación en el almacén de imágenes lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. El paquete de aplicación contiene el manifiesto de aplicación, los manifiestos de servicio y los paquetes de código, configuración y datos necesarios para crear las instancias de servicio y aplicación. El comando [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) carga el paquete. Por ejemplo:
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\Temp\WordCount\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCount
 ```
 
 ### Paso 2: registrar el tipo de aplicación
-El registro del paquete de aplicación hace que la versión y el tipo de la aplicación declarados en el manifiesto de aplicación esté disponible para su uso. El sistema leerá el paquete cargado en el paso 1, lo comprobará (lo que equivale a ejecutar [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) localmente), procesará su contenido y copiará el paquete procesado en una ubicación interna del sistema. Ejecute el cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx):
+El registro del paquete de aplicación hace que la versión y el tipo de la aplicación declarados en el manifiesto de aplicación esté disponible para su uso. El sistema lee el paquete cargado en el paso 1, lo comprueba (lo que equivale a ejecutar [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) localmente), procesa su contenido y copia el paquete procesado en una ubicación interna del sistema. Ejecute el cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx):
 
 ```powershell
 Register-ServiceFabricApplicationType WordCount
@@ -54,13 +54,13 @@ Get-ServiceFabricApplicationType
 ```
 
 ### Paso 3: crear la instancia de aplicación
-Se puede crear instancias de una aplicación mediante cualquier versión del tipo de aplicación que se ha registrado correctamente mediante el comando [**New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx). El nombre de cada aplicación se declara en el momento de la implementación; debe empezar con el esquema **fabric:** y ser único para cada instancia de la aplicación. El nombre y la versión del tipo de aplicación se declaran en el archivo **ApplicationManifest.xml** del paquete de aplicación. Si se definieron servicios predeterminados en el manifiesto de aplicación del tipo de aplicación de destino, también se crearán en este momento.
+Se puede crear instancias de una aplicación mediante cualquier versión del tipo de aplicación que se ha registrado correctamente mediante el comando [**New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx). El nombre de cada aplicación se declara en el momento de la implementación; debe empezar con el esquema **fabric:** y ser único para cada instancia de la aplicación. El nombre y la versión del tipo de aplicación se declaran en el archivo **ApplicationManifest.xml** del paquete de aplicación. Si se definieron servicios predeterminados en el manifiesto de aplicación del tipo de aplicación de destino, también se crean en este momento.
 
 ```powershell
 New-ServiceFabricApplication fabric:/WordCount WordCount 1.0.0
 ```
 
-El comando [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx) enumera todas las instancias de aplicación que se crearon correctamente junto con su estado general. El comando [**Get-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt125889.aspx) enumera todas las instancias de servicio que se crearon correctamente dentro de una instancia de aplicación determinada. Se enumerarán los servicios predeterminados (si los hay).
+El comando [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx) enumera todas las instancias de aplicación que se crearon correctamente junto con su estado general. El comando [**Get-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt125889.aspx) enumera todas las instancias de servicio que se crearon correctamente dentro de una instancia de aplicación determinada. Se enumeran los servicios predeterminados (en caso de haberlos).
 
 ```powershell
 Get-ServiceFabricApplication
@@ -74,9 +74,9 @@ Puede actualizar una aplicación de Service Fabric ya implementada con un paquet
 Para simplificar este ejemplo, solo se actualizó el número de versión de aplicación en el paquete de aplicación WordCountV2 creado en los requisitos previos. En un escenario más realista, se actualizarían los archivos de código, configuración o datos del servicio y después se volvería a generar y se empaquetaría la aplicación con los números de la versión actualizada.
 
 ### Paso 1: Carga del paquete de aplicación actualizado
-La aplicación WordCount v1 está lista para actualizarse. Si abre una ventana de PowerShell como administrador y escribe [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), verá que está implementado el tipo de aplicación de la versión 1.0.0 de WordCount.
+La aplicación WordCount v1 está lista para actualizarse. Si abre una ventana de PowerShell como administrador y escribe [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), verá que está implementando la versión 1.0.0 del tipo de aplicación de WordCount.
 
-Ahora, copie el paquete de aplicación actualizada en el almacén de imágenes de Service Fabric (donde Service Fabric almacena los paquetes de aplicación). El parámetro **ApplicationPackagePathInImageStore** informa a Service Fabric sobre dónde puede encontrar el paquete de la aplicación. El siguiente comando copiará el paquete de aplicación a **WordCountV2** en el almacén de imágenes:
+Ahora, copie el paquete de aplicación actualizada en el almacén de imágenes de Service Fabric (donde Service Fabric almacena los paquetes de aplicación). El parámetro **ApplicationPackagePathInImageStore** informa a Service Fabric sobre dónde puede encontrar el paquete de la aplicación. El siguiente comando copiará el paquete de aplicación en **WordCountV2** en el almacén de imágenes:
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\Temp\WordCountV2\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCountV2
@@ -107,7 +107,7 @@ Puede supervisar el progreso de la actualización de la aplicación mediante el 
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 ```
 
-En unos minutos, el cmdlet [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) mostrará que se actualizaron (completaron) todos los dominios de actualización.
+En unos minutos, el cmdlet [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) muestra que se actualizaron (completaron) todos los dominios de actualización.
 
 ## Tarea: Probar una aplicación de Service Fabric
 
@@ -141,14 +141,14 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 Puede eliminar una instancia de una aplicación implementada, quitar el tipo de aplicación aprovisionada del clúster y quitar el paquete de aplicación del almacén de imágenes.
 
 ### Paso 1: quite una instancia de aplicación
-Cuando ya no se necesita una instancia de aplicación, utilice el cmdlet [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) para quitarla de manera permanente. De esta manera también se quitarán automáticamente todos los servicios que pertenecen a la aplicación, quitando de forma permanente todos los estados de servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
+Cuando ya no se necesita una instancia de aplicación, utilice el cmdlet [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) para quitarla de manera permanente. De esta manera también se quitarán automáticamente todos los servicios que pertenecen a la aplicación, eliminando de forma permanente todos los estados de servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
 
 ```powershell
 Remove-ServiceFabricApplication fabric:/WordCount
 ```
 
 ### Paso 2: anule el registro del tipo de aplicación
-Cuando ya no se necesita una versión determinada de un tipo de aplicación, utilice el cmdlet [**Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) para anular el registro. Anular el registro de tipos no usados liberará espacio de almacenamiento que utiliza el paquete de aplicación en el almacén de imágenes. No se puede anular el registro de un tipo de aplicación ya que no hay ninguna aplicación con instancias con él o hay actualizaciones de aplicaciones pendientes que hacen referencia a él.
+Cuando ya no se necesita una versión determinada de un tipo de aplicación, utilice el cmdlet [**Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) para anular el registro. Anular el registro de tipos no usados libera espacio de almacenamiento que usa el paquete de aplicación en el almacén de imágenes. No se puede anular el registro de un tipo de aplicación ya que no hay ninguna aplicación con instancias con él o hay actualizaciones de aplicaciones pendientes que hacen referencia a él.
 
 ```powershell
 Unregister-ServiceFabricApplicationType WordCount 1.0.0
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlets de comprobación de Azure Service Fabric](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

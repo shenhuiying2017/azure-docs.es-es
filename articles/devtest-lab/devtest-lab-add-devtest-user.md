@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Adición de propietarios y usuarios a un laboratorio
@@ -103,4 +103,6 @@ Para agregar un usuario de DevTest Labs al laboratorio, siga estos pasos:
 
 1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0824_2016-->
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+<!---HONumber=AcomDC_0831_2016-->

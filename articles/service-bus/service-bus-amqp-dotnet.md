@@ -95,11 +95,9 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 
 Actualmente no se admiten las siguientes características de la API de .NET de Bus de servicio al usar AMQP:
 
--   Transacciones.
+-   Transacciones
 
--   Envío a través de un destino de transferencia.
-
--   Recepción escalada horizontalmente.
+-   Envío a través de un destino de transferencia
 
 También hay algunas pequeñas diferencias en el comportamiento de la API de .NET del Bus de servicio al usar AMQP, en comparación con el protocolo predeterminado:
 
@@ -139,4 +137,4 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,22 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Escritura, edición y ejecución de consultas SQL para DocumentDB mediante Explorador de consultas 
 
 En este artículo se proporciona información general sobre el Explorador de consultas de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), que es una herramienta del Portal de Azure que permite escribir, editar y ejecutar consultas SQL en una [colección de DocumentDB](documentdb-create-collection.md).
 
-1. En la barra de salto del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
+1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **DocumentDB (NoSQL)** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
 
-2. En la parte superior de la hoja **Cuenta de DocumentDB**, haga clic en **Explorador de consultas**.
+2. En el menú de recursos, haga clic en **Explorador de consultas**.
 
 	![Captura de pantalla del Portal de Azure con el Explorador de consultas resaltado](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    >[AZURE.NOTE] El Explorador de consultas también aparece en las hojas de bases de datos y colecciones.
-
-3. En la hoja **Explorador de consultas**, seleccione las **bases de datos** y **colecciones** en que desee realizar consultas en las listas desplegables y especifique la consulta que desee ejecutar.
+3. En la hoja **Explorador de consultas**, seleccione las **bases de datos** y **colecciones** en que desee realizar consultas en las listas desplegables y escriba la consulta que desee ejecutar.
 
     Las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inicie el Explorador de consultas.
 
@@ -73,10 +71,10 @@ Si una consulta se completa con errores, el Explorador de consultas muestra una 
 
 ## Ejecución de consultas SQL de DocumentDB fuera del portal
 
-El Explorador de consultas del Portal de Azure es simplemente una forma de ejecutar consultas SQL en DocumentDB. Las consultas SQL también se pueden ejecutar mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para más información sobre el uso de estos otros métodos, consulte [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries) (Ejecución de consultas SQL)
+El Explorador de consultas del Portal de Azure es simplemente una forma de ejecutar consultas SQL en DocumentDB. Las consultas SQL también se pueden ejecutar mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener más información sobre el uso de estos otros métodos, consulte [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries) (Ejecución de consultas SQL)
 
 ## Pasos siguientes
 
-Para más información acerca de la gramática de SQL de DocumentDB compatible con el Explorador de consultas, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md). También puede disfrutar de la experimentación con [Query Playground](https://www.documentdb.com/sql/demo), donde puede probar las consultas en línea con un conjunto de datos de ejemplo.
+Para obtener más información sobre la gramática de SQL de DocumentDB compatible con el Explorador de consultas, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md). También puede disfrutar de la experimentación con [Query Playground](https://www.documentdb.com/sql/demo), donde puede probar las consultas en línea con un conjunto de datos de ejemplo.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

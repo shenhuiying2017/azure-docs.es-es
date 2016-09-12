@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -70,28 +70,18 @@ Pueden utilizarse los siguientes operadores:
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
-Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
+Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
 
 ## Atributos con varios valores
-
-### Flujos de atributos para atributos con varios valores
 Las funciones pueden operar tanto atributos con un solo valor como con varios valores. Para los atributos con varios valores, la función opera sobre cada valor y aplica la misma función a cada valor.
 
 Por ejemplo `Trim([proxyAddresses])` Use la función Trim en todos los valores del atributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` En el caso de cada valor con un signo @, reemplace el dominio por @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Busque la dirección SIP y quítela de los valores.
 
-### Combinación de valores de atributo
-En los flujos de atributos hay un valor que determina si se deben combinar atributos con varios valores de distintos conectores. El valor predeterminado es **Update**, que indica que debe prevalecer la regla de sincronización con prioridad más alta.
-
-![Mezcla de tipos](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
-
-También se pueden seleccionar los valores **Merge** y **MergeCaseInsensitive**. Estas opciones permiten combinar valores de distintos orígenes. Por ejemplo, se pueden utilizar para combinar el miembro o el atributo proxyAddresses de varios bosques. Si utiliza esta opción, todas las reglas de sincronización del ámbito de un objeto deben utilizar el mismo tipo de combinación. No se puede definir **Update** de un conector y **Merge** de otro. Si lo intenta, recibirá un error.
-
-La diferencia entre **Merge** y **MergeCaseInsensitive** es la forma en que se procesan los valores duplicados del atributo. El motor de sincronización garantiza que no se insertan valores duplicados en el atributo de destino. Con **MergeCaseInsensitive**, los valores duplicados que solo se diferencien por el uso de mayúscula y minúscula no estarán presentes. Por ejemplo, no verá "SMTP:bob@contoso.com" y "smtp:bob@contoso.com" en el atributo de destino. **Mezcla** solo examina los valores exactos y pueden estar presentes varios valores donde solo hay una diferencia en el uso de mayúscula y minúscula.
-
-La opción **Replace** es igual que **Update**, pero no se usa.
-
 ## Recursos adicionales
 
-[Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md) [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md) [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+- [Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
+- [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Migrar la base de datos de SQL Server a Base de datos SQL con el Asistente para implementar base de datos en Base de datos de Microsoft Azure
@@ -48,14 +48,20 @@ El Asistente para implementar bases de datos en base de datos SQL de Microsoft A
 
 	![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Proporcione el **Nuevo nombre de base de datos** para el nuevo nombre de base de datos, establezca **Edición de Base de datos SQL de Microsoft Azure** ([nivel de servicio](sql-database-service-tiers.md)), **Tamaño máximo de la base de datos**, **Objetivo de servicio** (nivel de rendimiento) y **Nombre de archivo temporal** para el archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que crea este asistente durante el proceso de migración.
+5.	Proporcione los siguiente elementos para el archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que crea el asistente durante el proceso de migración:
 
-	![Exportar configuración](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+ - El **nuevo nombre de base de datos**
+ - La **edición de Base de datos SQL de Microsoft Azure** ([nivel de servicio](sql-database-service-tiers.md))
+ - El **tamaño máximo de la base de datos**
+ - El **objetivo de servicio** (nivel de rendimiento)
+ - El **nombre de archivo temporal**
 
-6.	Complete el asistente para migrar la base de datos. Según el tamaño y la complejidad de la base de datos, es posible que la implementación tarde desde unos minutos hasta varias horas. Si el asistente detecta problemas de compatibilidad, se mostrarán errores en la pantalla y la migración no continuará. Para instrucciones sobre cómo solucionar problemas de compatibilidad de bases de datos, vaya a [Solución de problemas de compatibilidad de bases de datos](sql-database-cloud-migrate-fix-compatibility-issues.md).
+    ![Exportar configuración](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+
+6.	Realice los pasos del asistente. Según el tamaño y la complejidad de la base de datos, es posible que la implementación tarde desde unos minutos hasta varias horas. Si el asistente detecta problemas de compatibilidad, se muestran errores en la pantalla y la migración no continúa. Para instrucciones sobre cómo solucionar problemas de compatibilidad de bases de datos, vaya a [Solución de problemas de compatibilidad de bases de datos](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
-8.	Mediante el Portal de Azure, vea la base de datos y sus propiedades.
+8.	Use el Portal de Azure para ver la base de datos y sus propiedades.
 
 ## Pasos siguientes
 
@@ -68,4 +74,4 @@ El Asistente para implementar bases de datos en base de datos SQL de Microsoft A
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

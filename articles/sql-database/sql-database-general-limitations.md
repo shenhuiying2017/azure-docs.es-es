@@ -31,7 +31,7 @@ En este tema se describen las instrucciones y las limitaciones generales de Base
 
 ## Trabajos/Agente SQL Server
 
-Base de datos SQL de Microsoft Azure no admite trabajos o Agente SQL Server. Sin embargo, puede ejecutar el Agente SQL Server en su SQL Server local y conectarse a la Base de datos SQL de Microsoft Azure.
+Base de datos SQL de Microsoft Azure no admite el Agente SQL Server, sin embargo, puede usar los trabajos elásticos para ejecutar trabajos a través de una o varias bases de datos. Para obtener más información acerca de los trabajos elásticos, consulte [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md).
 
 ## Compatibilidad con la intercalación de SQL Server
 
@@ -63,4 +63,4 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="08/29/2016"
    ms.author="larryfr"/>
 
-#Ejecución de consultas de Hive con Hadoop en HDInsight con PowerShell
+# Ejecución de trabajos de MapReduce con Hadoop en HDInsight con PowerShell
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -39,7 +39,7 @@ Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota
 
 Los siguientes cmdlets se utilizan al ejecutar trabajos de MapReduce en un clúster de HDInsight remoto.
 
-* **Login-AzureRmAccount**: autentica a Azure PowerShell en la suscripción de Azure.
+* **Login-AzureRmAccount**: autentica Azure PowerShell en la suscripción de Azure.
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**: crea una nueva *definición de trabajo* usando la información especificada de MapReduce.
 
@@ -148,7 +148,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 Abra el archivo **output.txt** en un editor de texto para ver las palabras y los números generados por el trabajo.
 
-> [AZURE.NOTE] Los archivos de salida de un trabajo de MapReduce no se pueden mover. Por lo tanto, si vuelve a ejecutar este ejemplo, debe cambiar el nombre del archivo de salida.
+> [AZURE.NOTE] Los archivos de salida de un trabajo de MapReduce no se pueden mover. Por lo tanto, si vuelve a ejecutar esta muestra, debe cambiar el nombre del archivo de salida.
 
 ##<a id="troubleshooting"></a>Solución de problemas
 
@@ -183,4 +183,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

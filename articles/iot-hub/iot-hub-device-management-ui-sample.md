@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/08/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo
 
-Interactuar con la interfaz de usuario de administración de dispositivos de ejemplo le ayudará a consolidar los conceptos y las funcionalidades que se tratan en la [introducción][lnk-dm-overview] y los artículos de [introducción][lnk-get-started] a la administración de dispositivos desde Centro de IoT de Azure. Este artículo le guiará a través de cada uno de los tres conceptos de administración de dispositivos principales, *dispositivo gemelo*, *consultas de dispositivo*, y *trabajos del dispositivo*, tal y como se representan en la interfaz de usuario web de administración del dispositivo de ejemplo.
+Interactuar con la interfaz de usuario de administración de dispositivos de ejemplo lo ayudará a consolidar los conceptos y las funcionalidades que se tratan en la [introducción][lnk-dm-overview] y los artículos de [introducción][lnk-get-started] a la administración de dispositivos desde Centro de IoT de Azure. Este artículo le guiará a través de cada uno de los tres conceptos de administración de dispositivos principales, *dispositivo gemelo*, *consultas de dispositivo*, y *trabajos del dispositivo*, tal y como se representan en la interfaz de usuario web de administración del dispositivo de ejemplo.
 
 Los desarrolladores que buscan para crear su propia experiencia interactiva de administración de dispositivos pueden bifurcar la base de código de la interfaz de usuario de ejemplo para usarla en un proyecto personalizado. Puede revisar todos los documentos de código y el archivo Léame del proyecto que detallan funcionalidades adicionales para los programadores en el repositorio GitHub de la [interfaz de usuario de administración de dispositivos de Azure IoT][lnk-dm-github].
 
@@ -50,17 +50,17 @@ La pantalla principal predeterminada de la interfaz de usuario de ejemplo de adm
 
 6.  *Cuadrícula de dispositivos*: vista de todos los dispositivos registrados con la instancia de Centro de IoT y las propiedades predeterminadas (**Id. de dispositivo**, **Estado** y **Etiquetas**).
 
-La [introducción a la administración de dispositivos][lnk-dm-overview] introdujo el concepto de *dispositivo gemelo*, que representa un dispositivo físico (o simulado) en el Centro de IoT de Azure. En la cuadrícula de dispositivos puede seleccionar cualquier dispositivo registrado de la lista para ver y editar su gemelo.
+La [introducción a la administración de dispositivos][lnk-dm-overview] presentó el concepto de *dispositivo gemelo*, que representa un dispositivo físico (o simulado) en el Centro de IoT de Azure. En la cuadrícula de dispositivos puede seleccionar cualquier dispositivo registrado de la lista para ver y editar su gemelo.
 
-Acceda a esta vista detallada del primer dispositivo simulado, **Device11-7ce4a850**; para ello, seleccione la fila correspondiente y haga clic en el botón **Editar** (también puede hacer doble clic en la fila o escribir el identificador de dispositivo en el cuadro de búsqueda).
+Para acceder a esta vista detallada en el primer dispositivo simulado (**Device11 7ce4a850**), seleccione la fila de dispositivo correspondiente. A continuación, haga clic en el botón **Editar** (también puede haga doble clic en la fila o escribir el identificador de dispositivo en el cuadro de búsqueda).
 
 Ahora verá la representación integral de los componentes del dispositivo gemelo donde podrá actualizar las propiedades editables y realizar otras operaciones de dispositivo, como se detalla a continuación:
 
 ![][2]
 
-1.  **Edit a Device Twin** (Editar un dispositivo gemelo): lo cual incluye la opción **Habilitado/Deshabilitado** para el dispositivo.
+1.  **Edit a Device Twin** (Editar un dispositivo gemelo): esta opción incluye la opción **Habilitado/Deshabilitado** para el dispositivo.
 
-2.  **Propiedades del servicio**: que incluye **Etiquetas** para los dispositivos.
+2.  **Propiedades del servicio**: esta opción incluye **Etiquetas** para el dispositivo.
 
 3.  **Device Properties** (Propiedades del dispositivo): haga clic para expandir esta sección.
 
@@ -90,7 +90,7 @@ Realice los pasos siguientes para crear un filtro de cliente en la etiqueta de p
 
 ## Simulación de reinicios con un trabajo de dispositivo 
 
-Como ha aprendido en la introducción de la administración de dispositivos, los trabajos de dispositivo permiten organizar acciones simples o complejas en uno o más dispositivos físicos. En esta sección se creará un trabajo de dispositivo en el ejemplo de interfaz de usuario para realizar una operación de reinicio en todos los dispositivos de simulación con la etiqueta "bacon":
+Como ha aprendido en la introducción de la administración de dispositivos, los trabajos de dispositivo permiten organizar acciones simples o complejas en uno o más dispositivos físicos. En esta sección, se creará un trabajo de dispositivo en el ejemplo de interfaz de usuario para realizar una operación de reinicio en todos los dispositivos de simulación con la etiqueta "bacon":
 
 1.  En la lista de consultas de dispositivo **Only Bacon** (Solo bacon), haga clic en la fila de cada dispositivo para el reinicio:
 
@@ -104,10 +104,10 @@ Así habrá creado un solo trabajo primario que genera tres trabajos secundarios
 
 ![][8]
 
-Actualizar esta pantalla después de unos momentos cambia el estado del trabajo primario y los tres secundarios a **completado**, lo que indica que las operaciones de reinicio fueron correctas y confirmadas por los dispositivos simulados. Con la columna **Id. de dispositivo** se determina qué trabajos están asociados a los dispositivos.
+Actualice esta pantalla después de unos minutos para ver que el estado del trabajo primario y los tres secundarios se cambia a **Completado**. Los nuevos valores de estado muestran que las operaciones de reinicio se realizaron correctamente y se confirmaron mediante los dispositivos simulados. Con la columna **Id. de dispositivo** se determina qué trabajos están asociados a los dispositivos.
 
 
-> [AZURE.NOTE] Si los trabajos secundarios devuelven el estado "erróneo", compruebe que los dispositivos simulados se estén ejecutando en el sistema de prueba. De lo contrario, vuelva a ejecutar el script simulate.bat o simulate.sh y repita los pasos del trabajo de reinicio del dispositivo anteriores.
+> [AZURE.NOTE] Si los trabajos secundarios devuelven el estado "erróneo", compruebe que los dispositivos simulados se estén ejecutando en el sistema de prueba. De lo contrario, vuelva a ejecutar el script simulate.bat o simulate.sh y repita los pasos del trabajo de reinicio del dispositivo de la sección anterior.
 
 ## Pasos siguientes
 
@@ -124,7 +124,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Diseño de la solución][lnk-design]
 - [Guía del desarrollador][lnk-devguide]
 - [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Administración de Centros de IoT a través del Portal de Azure][lnk-portal]
 - [Protección total de la solución de IoT][lnk-securing]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
@@ -152,4 +152,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

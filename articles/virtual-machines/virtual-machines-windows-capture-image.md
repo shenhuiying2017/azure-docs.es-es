@@ -33,7 +33,7 @@ En este artículo se muestra cómo usar Azure PowerShell para crear una imagen g
 
 ## Preparar la máquina virtual de origen 
 
-En esta sección se muestra cómo generalizar la máquina virtual de Windows para que se pueda usar como una imagen.
+En esta sección se muestra cómo generalizar la máquina virtual de Windows para que se pueda usar como una imagen. Cree una copia de seguridad de la VM antes de ejecutar Sysprep.
 
 > [AZURE.WARNING] No puede iniciar sesión en la máquina virtual a través de RDP una vez que se ha generalizado, dado que el proceso elimina todas las cuentas de usuario. Los cambios son irreversibles.
 
@@ -210,4 +210,4 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Portal d
 
 Para administrar la nueva máquina virtual con Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

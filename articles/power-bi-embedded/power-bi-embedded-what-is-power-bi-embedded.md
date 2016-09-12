@@ -59,29 +59,16 @@ Los conjuntos de datos en caché pueden usarse en la versión preliminar. Sin em
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
 
-### Tokens de autenticación de la aplicación
-
 Los **Tokens de autenticación de la aplicación (tokens de aplicación)** se usan para autenticarse en **Microsoft Power BI Embedded**. Existen tres tipos de **tokens de aplicación**:
 
 1.	Aprovisionar tokens: se usa al aprovisionar una nueva **área de trabajo** en una **colección de áreas de trabajo**
 2.	Desarrollar tokens: se usa al realizar llamadas directamente a las **API de REST de Power BI**
 3.	Tokens de incrustación: se usan al realizar llamadas para presentar un informe en el iframe incrustado
 
-Estos tokens se usan para las diversas fases de las interacciones con **Microsoft Power BI Embedded**. Los tokens están diseñados para que pueda delegar permisos desde su aplicación a Power BI.
-
-### Generar tokens de aplicación
-
-Los SDK que se proporcionan en la versión preliminar le permiten generar tokens. En primer lugar, llame a uno de los métodos de Create\_\_\_Token(). En segundo lugar, llame al método Generate() con la clave de acceso recuperada de la **colección de áreas de trabajo**. Los métodos de creación básicos de los tokens se definen en la clase Microsoft.PowerBI.Security.PowerBIToken y son los siguientes:
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken](https://msdn.microsoft.com/library/mt710366.aspx)
-
-Para obtener un ejemplo de cómo usar [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) y [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), consulte [Introducción al ejemplo de Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md).
-
+Estos tokens se usan para las diversas fases de las interacciones con **Microsoft Power BI Embedded**. Los tokens están diseñados para que pueda delegar permisos desde su aplicación a Power BI. Para obtener más información, consulte el artículo sobre el [flujo del token de aplicación](power-bi-embedded-app-token-flow.md).
 
 ## Otras referencias
 - [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 - [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

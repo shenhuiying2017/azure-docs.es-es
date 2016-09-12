@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/10/2016"
+	ms.date="08/30/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
@@ -32,7 +32,7 @@ El servidor SQL de Azure usa reglas de firewall para permitir conexiones con ser
 
 > [AZURE.IMPORTANT] Para permitir que las aplicaciones de Azure se conecten al servidor SQL de Azure, deben habilitarse las conexiones de Azure. Para comprender cómo funcionan las reglas de firewall, consulte [Cómo configurar un firewall de base de datos SQL de Azure](sql-database-firewall-configure.md). Es posible que tenga que abrir algunos puertos TCP adicionales si está realizando conexiones dentro del límite de la nube de Azure. Para obtener más información, consulte la sección **Versión V12 de la Base de datos SQL: fuera frente a dentro** del artículo [Puertos más allá de 1433 para ADO.NET 4.5 y la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-**Recomendación:** use reglas de firewall de nivel de servidor para administradores y cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada base de datos. Microsoft recomienda usar reglas de firewall de nivel de base de datos siempre que le sea posible a fin de mejorar la seguridad y hacer que la base de datos sea más portátil.
+**Recomendación:** use reglas de firewall de nivel de servidor para administradores y cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada base de datos. Microsoft recomienda usar reglas de firewall de nivel de base de datos siempre que sea posible a fin de mejorar la seguridad y aumentar la portabilidad de la base de datos.
 
 [AZURE.INCLUDE [Creación de bases de datos SQL](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
@@ -56,7 +56,7 @@ Si desea consultar artículos sobre cómo crear reglas de firewall de nivel de s
 - [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante la API de REST](sql-database-configure-firewall-settings-rest.md)
 
-Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber cómo acceder a las bases de datos, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
 
 ## Recursos adicionales
@@ -72,4 +72,4 @@ Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

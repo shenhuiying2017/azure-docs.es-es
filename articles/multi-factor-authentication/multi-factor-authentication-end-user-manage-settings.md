@@ -147,7 +147,7 @@ En primer lugar, debe asegurarse de lo siguiente:
 - Si eligió recibir códigos de comprobación por mensaje de texto en su teléfono móvil, asegúrese de que su dispositivo y su plan de servicio admitan la entrega de mensajes de texto. La disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios. Además, asegúrese de contar con una señal de celular adecuada cuando intenta recibir estos códigos.
 - Si eligió recibir una comprobación a través de la aplicación móvil, asegúrese de tener una señal de celular considerable. Además, recuerde que la disponibilidad y la velocidad de la entrega puede variar según la ubicación y el proveedor de servicios.
 
-Si tiene un smartphone, le recomendamos usar la [aplicación Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
+Si tiene un smartphone, se recomienda usar la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si desea cambiar entre la opción de recibir los códigos de comprobación por mensajes de texto o a través de la aplicación móvil, elija **Usar una opción de comprobación distinta**.
 
@@ -172,4 +172,4 @@ Además, puede ponerse en contacto con el administrador o con la persona que con
 
 Por último, asegúrese de dejar algunos comentarios detallados en esta página para que podemos actualizarla y continuar mejorándola proporcionando más información.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

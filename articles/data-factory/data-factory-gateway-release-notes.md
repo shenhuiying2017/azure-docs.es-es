@@ -13,24 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2016" 
+	ms.date="08/26/2016" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de Data Management Gateway
+Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Data Factory hace que dicha integración sea perfecta con Data Management Gateway, que es un agente que se puede instalar de forma local para permitir el movimiento de datos híbridos.
 
-Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Factoría de datos hace que dicha integración sea perfecta con Data Management Gateway, que es un agente que se puede instalar de forma local para permitir el movimiento de datos híbridos.
+En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo:
 
-Para más información, consulte los artículos [Movimiento de datos entre orígenes locales y de nube con Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) y [Data Management Gateway](data-factory-data-management-gateway.md).
+- [Data Management Gateway](data-factory-data-management-gateway.md)
+- [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
-## VERSIÓN ACTUAL (2.1.6040.1)
+## Versión actual (2.2.6072.1)
+
+- Admite la configuración de proxy HTTP para la puerta de enlace con el Administrador de configuración de Data Management Gateway. Si está configurado, se accede a Blob de Azure, Tabla de Azure, Azure Data Lake y DocumentDB a través del proxy HTTP.
+- Admite el control de encabezados para TextFormat al copiar datos en Blob de Azure, Azure Data Lake Store, el sistema de archivos local y el HDFS local como origen y destino.
+- Admite la copia de datos desde blobs en anexos y blobs en páginas junto con los blobs en bloques que ya eran compatibles.
+- Introduce un nuevo estado de puerta de enlace **Online (Limited)** (En línea [limitado]), lo que indica que se puede utilizar sin problemas la funcionalidad principal de la puerta de enlace, pero la operación interactiva del Asistente para copia.
+- Mejora la estabilidad del registro de puerta de enlace mediante la clave de registro.
+
+## Versiones anteriores
+
+## 2\.1.6040.1
 
 - El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado.
 - El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows).
 - Admite el uso de DocumentDB como origen o destino para almacenes de datos locales
 - Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida.
 - Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.
-
-## Versiones anteriores
 
 ## 2\.0.6013.1
 
@@ -39,7 +49,7 @@ Para más información, consulte los artículos [Movimiento de datos entre oríg
 - Mejoras de la interfaz de usuario del Administrador de configuración de puertas de enlace:
 	- Mayor visibilidad del estado de la puerta de enlace en la pestaña Inicio.
 	- Controles reorganizados y simplificados.
-- Puede copiar datos de un almacenamiento distinto de Blob de Azure en Almacenamiento de datos SQL de Azure a través de PolyBase y del blob de almacenamiento provisional mediante la [herramienta de versión preliminar de copia sin código](data-factory-copy-data-wizard-tutorial.md). Para más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy).
+- Puede copiar datos desde un almacenamiento mediante la [herramienta de vista previa de código abierto](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy).
 - Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Aprendizaje automático de Azure.
 - Mejoras en el rendimiento
 	- Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server mediante la herramienta de vista previa de copia sin código.
@@ -107,7 +117,7 @@ Para más información, consulte los artículos [Movimiento de datos entre oríg
 - Columnas de la tabla de soporte técnico para orígenes de datos tabulares de la Factoría de datos de Azure
 - Compatibilidad con SQL DW para Factoría de datos de Azure
 - Compatibilidad con Reclusive en BlobSource y FileSource para Factoría de datos de Azure
-- Compatibilidad con CopyBehavior - MergeFiles, PreserveHierarchy y FlattenHierarchy en BlobSink y FileSink con copia binaria para Factoría de datos de Azure
+- Compatibilidad con CopyBehavior - MergeFiles, PreserveHierarchy y FlattenHierarchy en BlobSink y FileSink con copia binaria para Data Factory de Azure
 - Compatibilidad con los informes de progreso de la actividad de copia para Factoría de datos de Azure
 - Compatibilidad con la validación de conectividad de origen de datos para Factoría de datos de Azure
 - Corrección de errores
@@ -135,7 +145,7 @@ Para más información, consulte los artículos [Movimiento de datos entre oríg
 
 ### 1\.5.5612.1
 
-- Compatibilidad con cinco bases de datos relacionales para Factoría de datos de Azure (MySQL, PostgreSQL, DB2, Teradata y Sybase)
+- Compatibilidad con cinco bases de datos relacionales para Data Factory de Azure (MySQL, PostgreSQL, DB2, Teradata y Sybase)
 - Compatibilidad de compresión (Gzip y Deflate)
 - Mejoras en el rendimiento
 - Corrección de errores
@@ -165,9 +175,4 @@ Para más información, consulte los artículos [Movimiento de datos entre oríg
 
 - No hay cambios que afecten a los escenarios de Factoría de datos de Azure.
 
-## Preguntas y respuestas
-
-### ¿Por qué intenta conectarse el Administrador de origen de datos a una puerta de enlace?
-Se trata de un diseño de seguridad en el que solo se pueden configurar los orígenes de datos locales para el acceso a la nube dentro de la red corporativa y sus credenciales no fluirán fuera del firewall corporativo. Asegúrese de que su equipo puede acceder el equipo en que está instalado la puerta de enlace.
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -200,9 +200,9 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 
 ## Pasos siguientes
 
-Ahora que ha implementado un Centro de IoT mediante una plantilla de Resource Manager con un programa de C#, quizá desee seguir explorando:
+Ahora que ha implementado un Centro de IoT mediante una plantilla de Azure Resource Manager con un programa de C#, quizá desee seguir explorando:
 
-- Lea sobre las funcionalidades de la [API de REST del proveedor de recursos del Centro de IoT][lnk-rest-api].
+- Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] \(API de REST del proveedor de recursos del centro de IoT).
 - Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
 
 Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
@@ -233,4 +233,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

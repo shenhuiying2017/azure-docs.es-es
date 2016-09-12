@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Lista de imágenes de máquinas virtuales
 
-En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo de Lote disponibles en el momento de redactar este artículo. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] \(Python) y [ListNodeAgentSkus][net_list_skus] \(.NET de Lote) para determinar y seleccionar entre las SKU disponibles.
+En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Marketplace que son compatibles con los agentes de nodo de Lote disponibles cuando se actualizó por última vez este artículo. Es importante tener en cuenta que esta lista no es definitiva, ya que se pueden agregar o quitar imágenes y agentes de nodo en cualquier momento. Se recomienda que los servicios y aplicaciones de Lote utilicen siempre los métodos [list\_node\_agent\_skus][py_list_skus] \(Python) y [ListNodeAgentSkus][net_list_skus] \(.NET de Lote) para determinar y seleccionar entre las SKU disponibles.
 
 > [AZURE.WARNING] La siguiente lista se puede cambiar en cualquier momento. Utilice siempre los métodos **list\_node\_agent\_SKU** disponibles en las API de Lote para mostrar y seleccionar entre las máquinas virtuales y SKU del agente de nodo disponibles al ejecutar los trabajos del servicio Lote.
 
@@ -209,19 +209,20 @@ En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Market
 | Canonical | UbuntuServer | 14\.04.2-LTS | más reciente | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.3-LTS | más reciente | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | más reciente | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 15\.10 | más reciente | batch.node.debian 8 |
+| Canonical | UbuntuServer | 14\.04.5-LTS | más reciente | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 16\.04.0-LTS | más reciente | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | más reciente | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | más reciente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | más reciente | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | más reciente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7\.1 | más reciente | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | más reciente | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7\.0 | más reciente | batch.node.centos 7 |
-| SUSE | SLES | 12 | más reciente | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | más reciente | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | más reciente | batch.node.opensuse 42.1 |
 | SUSE | openSUSE | 13\.2 | más reciente | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42\.1 | más reciente | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | más reciente | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | más reciente | batch.node.opensuse 42.1 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | más reciente | batch.node.windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | más reciente | batch.node.centos 7 |
 | Microsoft Windows Server | Windows Server | 2008-R2-SP1 | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012 | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | más reciente | batch.node.windows amd64 |
@@ -234,31 +235,54 @@ Durante el desarrollo o solución de problemas, es posible que necesite iniciar 
 El siguiente fragmento de código de Python crea un usuario en cada nodo de un grupo, que es necesario para la conexión remota. A continuación, imprime la información de conexión de SSH para cada nodo.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
@@ -281,7 +305,7 @@ Tenga en cuenta que, en lugar de una contraseña, puede especificar una clave p�
 
 ## Precios
 
-El servicio Lote de Azure se basa en la tecnología de Servicios en la nube de Azure y en la de Máquinas virtuales de Azure. El propio servicio Lote se ofrece sin costo, lo que significa que solo se cobrará por los recursos de proceso utilizados por las soluciones del servicio. Al elegir **Cloud Services Configuration** (Configuración de servicios en la nube) se le cobrará según la estructura de [precios de Servicios en la nube][cloud_services_pricing]. Al elegir **Configuración de la máquina virtual** se le cobrará según la estructura de [precios de Máquinas virtuales][vm_pricing].
+El servicio Lote de Azure se basa en la tecnología de Servicios en la nube de Azure y en la de Máquinas virtuales de Azure. El propio servicio Lote se ofrece sin costo, lo que significa que solo se cobrará por los recursos de proceso utilizados por las soluciones del servicio. Al elegir **Cloud Services Configuration** (Configuración de servicios en la nube) se le cobrará según la estructura de [precios de Servicios en la nube][cloud_services_pricing]. Cuando elige **Configuración de la máquina virtual** se le cobrará según la estructura de [precios de Máquinas virtuales][vm_pricing].
 
 ## Pasos siguientes
 
@@ -327,4 +351,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nivel de paquetes de aplicación"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

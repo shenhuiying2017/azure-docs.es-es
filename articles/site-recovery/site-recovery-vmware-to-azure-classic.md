@@ -236,6 +236,8 @@ Configure una red de Azure para que las máquinas virtuales de Azure se conecten
 
 [Más información](../virtual-network/virtual-networks-overview.md) sobre las redes de Azure.
 
+> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+
 ## Paso 3: Instalación de los componentes de VMware
 
 Si desea replicar máquinas virtuales de VMware, instale los siguientes componentes de VMware en el servidor de administración:
@@ -599,7 +601,7 @@ Agregue máquinas a un grupo de protección:
 
 4. En **Specify Target Resources** (Especificar recursos de destino), seleccione la cuenta de almacenamiento que utiliza para la replicación y seleccione si la configuración se debe usar para todas las cargas de trabajo. Tenga en cuenta que, por el momento, no se admiten las cuentas de almacenamiento premium.
 
-	>[AZURE.NOTE] No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+	>[AZURE.NOTE] 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos. 2. No se admite la [migración de cuentas de almacenamiento](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones para cuentas de almacenamiento usadas para implementar Site Recovery.
 
 	![Habilitar protección](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -804,4 +806,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Aprenda más sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas que sean objeto de conmutación por error y que se ejecuten en Azure vuelvan al entorno local.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

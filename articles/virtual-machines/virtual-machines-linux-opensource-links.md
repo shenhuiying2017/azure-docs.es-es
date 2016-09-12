@@ -39,7 +39,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 ## Tutoriales
 
-- [Instalación de la pila LAMP en una máquina virtual con Linux en Azure](virtual-machines-linux-install-lamp-stack.md)
+- [Instalación de la pila LAMP en una máquina virtual con Linux en Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Aplicación web de Ruby on Rails en una máquina virtual de Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [Instalación de Apache Qpid Proton-C para AMQP y Bus de servicio](../service-bus/service-bus-amqp-apache.md)
 
@@ -189,4 +189,4 @@ Dado que el mundo de DevOps, administración y optimización es bastante extenso
 
 - [Complemento de compresor para Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

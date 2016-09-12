@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de un recurso de Application Insights" 
+	pageTitle="Creación de un recurso de Application Insights | Microsoft Azure" 
 	description="Configuración de la supervisión de Application Insights para una nueva aplicación activa. Enfoque basado en web." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# Creación de un recurso de Application Insights
+# Creación de recursos en Application Insights
 
 Application Insights para Visual Studio muestra los datos sobre la aplicación en un *recurso* de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. En muchos casos, esto puede realizarse automáticamente por el IDE, y esta es la manera recomendada cuando esté disponible. Pero en algunos casos, se crea un recurso manualmente.
 
@@ -25,9 +25,9 @@ Después de haber creado el recurso, obtiene su clave de instrumentación y la u
 
 Si todavía no dispone de una [cuenta Microsoft, obtenga una ahora](http://live.com). (Si usa servicios como Outlook.com, OneDrive, Windows Phone o XBox Live, ya tiene una cuenta Microsoft).
 
-En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a la misma mediante su Windows Live ID.
+También necesitará una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a ella mediante su Windows Live ID.
 
-O bien, puede crear una nueva suscripción. La cuenta gratuita permite probar todos los componentes de Azure. Después de que expire el período de prueba, podría encontrar la suscripción de pago por uso adecuada, ya que no se le cobrará por los servicios gratuitos.
+O bien, puede crear una suscripción. La cuenta gratuita permite probar todos los componentes de Azure. Después de que expire el período de prueba, podría encontrar la suscripción de pago por uso adecuada, ya que no se le cobrarán los servicios gratuitos.
 
 Cuando tenga acceso a una suscripción, inicie sesión en Application Insights en [http://portal.azure.com](https://portal.azure.com) y utilice su Live ID para iniciar sesión.
 
@@ -40,7 +40,7 @@ En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Applic
 ![Haga clic en Nuevo, Application Insights.](./media/app-insights-create-new-resource/01-new.png)
 
 
-* El **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas][metrics]. Si no ve el tipo de aplicación, elija uno de los tipos de web para páginas web y uno de los tipos de teléfono para otros dispositivos.
+* El **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas][metrics]. Si no ve el tipo de aplicación, elija ASP.NET.
 * El **grupo de recursos** resulta práctico para administrar las propiedades, como el control de acceso. Si ya ha creado otros recursos de Azure, puede optar por colocar este recurso nuevo en el mismo grupo.
 * La **suscripción** es su cuenta de pago de Azure.
 * La **ubicación** es donde se guardan los datos. Actualmente no se puede cambiar.
@@ -78,7 +78,12 @@ Si espera más datos, haga clic en Actualizar después de unos segundos.
 
 Puede escribir un [script de PowerShell](app-insights-powershell-script-create-resource.md) para crear automáticamente un recurso.
 
+## Pasos siguientes
 
+* [Creación de un panel](app-insights-dashboards.md)
+* [Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
+* [Exploración de métricas](app-insights-metrics-explorer.md)
+* [Escritura de consultas de análisis](app-insights-analytics.md)
 
 
 <!--Link references-->
@@ -90,4 +95,4 @@ Puede escribir un [script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0831_2016-->

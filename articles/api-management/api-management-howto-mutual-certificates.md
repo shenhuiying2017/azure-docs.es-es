@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure
@@ -122,14 +122,13 @@ Para más información sobre otras formas de proteger el servicio back-end, como
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 
 [Entidad de certificado de la API REST de Administración de API de Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[para configurar la autenticación de certificados en Sitios web Microsoft Azure, consulte este artículo]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[para configurar la autenticación de certificados en Sitios web Microsoft Azure, consulte este artículo]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -141,4 +140,4 @@ Para más información sobre otras formas de proteger el servicio back-end, como
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

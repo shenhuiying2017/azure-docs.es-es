@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # Creación de una colección de DocumentDB mediante el Portal de Azure
@@ -22,11 +22,11 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
 
 ¿No está seguro de lo que es una colección? Vea [¿Qué es una colección de DocumentDB?](#what-is-a-documentdb-collection)
 
-1.  En el [Portal de Azure](https://portal.azure.com/), en la barra de salto, haga clic en **Cuentas de DocumentDB** y, en la hoja **Cuentas de DocumentDB**, seleccione la cuenta en la que se va a agregar una colección.
+1.  En el [Portal de Azure](https://portal.azure.com/), en la barra de salto, haga clic en **DocumentDB (NoSQL)** y, en la hoja **DocumentDB (NoSQL)**, seleccione la cuenta en la que se va a agregar una colección.
 
     ![Captura de pantalla con la opción Cuentas de DocumentDB de la barra de accesos directos, la cuenta en la hoja Cuentas de DocumentDB y la base de datos en la hoja de la cuenta de DocumentDB, en la lente Bases de datos, resaltados](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Si **Cuentas de DocumentDB** no está visible en la barra de salto, haga clic en **Más servicios** y, después, en **Cuentas de DocumentDB**. Si no se muestra ninguna cuenta, deberá [crear una cuenta de DocumentDB](documentdb-create-account.md).
+    Si **Cuentas de DocumentDB** no está visible en la barra de salto, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**. Si no se muestra ninguna cuenta, deberá [crear una cuenta de DocumentDB](documentdb-create-account.md).
 
 2. En la hoja **Cuenta de DocumentDB** de la cuenta seleccionada, en la lente **Bases de datos**, seleccione la base de datos en la que se va a agregar una colección.
 
@@ -91,4 +91,4 @@ Ahora que tiene una colección, el paso siguiente es agregar o importar document
 
 Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->
