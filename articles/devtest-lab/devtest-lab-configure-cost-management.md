@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Tendencia de costo estimado mensual
@@ -60,18 +60,20 @@ Como indica anteriormente el gráfico, los costos que se ven en el gráfico son 
 - Los descuentos
 - La divisa de facturación. Actualmente, el costo de laboratorio solo se muestra en divisa USD.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Entradas blogs relacionadas
 
-- [Two more things to keep your cost on track in DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/) (Dos cosas para mantener el costo por el buen camino en DevTest Labs)
-- [Why Cost Thresholds?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/) (¿Por qué los umbrales de costo?)
+- [Two more things to keep your cost on track in DevTest Labs (Dos cosas para mantener el costo por el buen camino en DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
+- [Why Cost Thresholds? (¿Por qué los umbrales de costo?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
 
 ## Pasos siguientes
 
 Vea algunas acciones que puede probar a continuación:
 
-- [Definición de directivas de laboratorio](./devtest-lab-set-lab-policy.md): descubra cómo establecer las distintas directivas que se usan para controlar el uso del laboratorio y sus máquinas virtuales.
+- [Definición de directivas de laboratorio](./devtest-lab-set-lab-policy.md): descubra cómo establecer las distintas directivas que se emplean para controlar el uso del laboratorio y sus máquinas virtuales.
 - [Creación de una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
 - [Configuración de imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): DevTest Labs admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Creación de una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

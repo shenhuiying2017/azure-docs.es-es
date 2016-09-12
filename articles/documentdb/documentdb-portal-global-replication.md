@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Replicación global de bases de datos de DocumentDB mediante el Portal de Azure
@@ -31,11 +31,10 @@ DocumentDB está disponible en la mayoría de las [regiones de Azure][azureregio
 
 1. En la barra de accesos directos del [Portal de Azure](https://portal.azure.com/), haga clic en **Cuentas de DocumentDB**.
 2. En la hoja **Cuenta de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
-3. En la hoja Cuenta, haga clic en **Agregar o quitar regiones** en el menú. ![Agregue regiones en Cuenta de DocumentDB > Agregar o quitar regiones][1]
+3. En la hoja Cuenta, haga clic en **Agregar o quitar regiones** en el menú.
+4. En la hoja **Agregar o quitar regiones**, seleccione las regiones para agregar o quitar y, luego, haga clic en **Aceptar**. Agregar regiones conlleva un costo; consulte la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/) o el artículo [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md) para más información.
 
-5. En la hoja **Agregar o quitar regiones**, seleccione las regiones para agregar o quitar y, luego, haga clic en **Aceptar**. Agregar regiones conlleva un costo; consulte la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/) o el artículo [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md) para más información.
-
-    ![Haga clic en las regiones en el mapa para agregarlas o quitarlas][2]
+    ![Haga clic en las regiones en el mapa para agregarlas o quitarlas][1]
 
 ### Selección de regiones de la base de datos global
 
@@ -54,9 +53,9 @@ While all regions associated with your DocumentDB database account can serve rea
 1. In the **DocumentDB Account** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
+    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][2]
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
+    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
 ## <a id="next"></a>Pasos siguientes
@@ -66,10 +65,9 @@ Para aprender a administrar la coherencia de la cuenta global replicada, lea [Ni
 Para más información acerca de cómo funciona la replicación global de bases de datos en DocumentDB, consulte [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md). Para más información acerca de cómo realizar la replicación de bases de datos en varias regiones mediante programación, consulte [Desarrollo con cuentas de DocumentDB de varias regiones](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
-[1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
-[2]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
-[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
-[4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
+[1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
+[2]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
+[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
@@ -77,4 +75,4 @@ Para más información acerca de cómo funciona la replicación global de bases 
 [azureregions]: https://azure.microsoft.com/es-ES/regions/#services
 [offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

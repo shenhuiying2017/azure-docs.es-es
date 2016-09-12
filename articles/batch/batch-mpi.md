@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
 
-Con las tareas de instancias múltiples, puede ejecutar una tarea de Lote de Azure en varios nodos de proceso a la vez para permitir escenarios de informática de alto rendimiento, como las aplicaciones de la Interfaz de paso de mensajes (MPI). En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Lote][api_net].
+Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Lote][api_net].
 
 ## Información general de las tareas de instancias múltiples
 
@@ -30,7 +30,7 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 
 1. El servicio Lote divide automáticamente la tarea en una **principal** y muchas **subtareas**. A continuación, programa la ejecución de la tarea principal y las subtareas en los nodos de proceso del grupo.
 2. Estas tareas, tanto la principal como las subtareas, descargan los **archivos de recursos comunes** que se especifican en la configuración de instancias múltiples.
-3. Cuando se han descargado los archivos de recursos comunes, la tarea principal y las subtareas ejecutan el **comando de coordinación** que se especifique en la configuración de instancias múltiples. Este comando de coordinación se utiliza normalmente para iniciar un servicio en segundo plano (como [MPI de Microsoft][msmpi_msdn] `smpd.exe`) y también puede comprobar que los nodos están listos para procesar mensajes entre nodos.
+3. Cuando se han descargado los archivos de recursos comunes, la tarea principal y las subtareas ejecutan el **comando de coordinación** que se especifica en la configuración de instancias múltiples. Este comando de coordinación se utiliza normalmente para iniciar un servicio en segundo plano (como [MPI de Microsoft][msmpi_msdn] `smpd.exe`) y también puede comprobar que los nodos están listos para procesar mensajes entre nodos.
 4. Cuando la tarea principal y todas las subtareas han completado correctamente el comando de coordinación, *solo* la **tarea principal** ejecuta la **línea de comandos** de la tarea de instancias múltiples (el "comando de aplicación"). Por ejemplo, en una solución basada en [MS-MPI][msmpi_msdn], se trata del lugar donde ejecuta la aplicación habilitada para MPI mediante `mpiexec.exe`.
 
 > [AZURE.NOTE] Aunque es funcionalmente distinta, la "tarea de instancias múltiples" no es un tipo de tarea única como [StartTask][net_starttask] o [JobPreparationTask][net_jobprep]. La tarea de instancias múltiples es simplemente una tarea de Lote estándar ([CloudTask][net_task] en .NET de Lote) cuya opción de instancias múltiples se ha configurado. En este artículo, nos referiremos a ella como **tarea de instancias múltiples**.
@@ -118,9 +118,9 @@ int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## Comandos de coordinación y aplicación
+## Comando de coordinación
 
-El **comando de coordinación** ejecuta tanto tareas principales como subtareas. Una vez que la tarea principal y todas las subtareas han terminado de ejecutar el comando de coordinación, *solo* la tarea principal ejecuta la línea de comandos de la tarea de instancias múltiples. Llamaremos a esta línea de comandos el **comando de aplicación** para distinguirlo del comando de coordinación.
+El **comando de coordinación** ejecuta tanto tareas principales como subtareas.
 
 La invocación del comando de coordinación se bloquea: el servicio Lote no ejecuta el comando de aplicación hasta que el comando de coordinación se ha devuelto correctamente para todas las subtareas. Por lo tanto, el comando de coordinación debe iniciar los servicios en segundo plano necesarios, comprobar que están listos para utilizarse y luego cerrarse. Por ejemplo, este comando de coordinación para una solución que utiliza la versión 7 de MS-MPI inicia el servicio SMPD en el nodo y luego se cierra:
 
@@ -130,11 +130,39 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 Observe el uso de `start` en este comando de coordinación. Esto es necesario porque la aplicación `smpd.exe` no devuelve resultados inmediatamente después de la ejecución. Sin el uso del comando [start][cmd_start], este comando de coordinación no devolvería resultados y, por tanto, impediría que se ejecutara el comando de aplicación.
 
-*Solo* la tarea principal ejecuta el **comando de aplicación**, la línea de comandos especificada para la tarea de instancias múltiples. En las aplicaciones de MS-MPI, esta será la ejecución de la aplicación habilitada para MPI mediante `mpiexec.exe`. Por ejemplo, este es un comando de aplicación para una solución mediante la versión 7 de MS-MPI:
+## Comando de aplicación
+
+Una vez que la tarea principal y todas las subtareas han terminado de ejecutar el comando de coordinación, *solo* la tarea principal ejecuta la línea de comandos de la tarea de instancias múltiples. Llamaremos a este el **comando de aplicación** para distinguirlo del comando de coordinación.
+
+Para las aplicaciones de MS-MPI, use el comando de aplicación para ejecutar la aplicación habilitada para MPI con `mpiexec.exe`. Por ejemplo, este es un comando de aplicación para una solución mediante la versión 7 de MS-MPI:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
+
+>[AZURE.NOTE] Dado que MS-MPI `mpiexec.exe` utiliza la variable `CCP_NODES` de forma predeterminada (consulte [Variables de entorno](#environment-variables)), la línea de comandos de aplicación del ejemplo anterior la excluye.
+
+## Variables de entorno
+
+Estas variables de entorno están disponibles en el nodo de proceso para las aplicaciones y scripts ejecutados por el comando de aplicación de la tarea principal:
+
+* `CCP_NODES`
+
+  * **Disponibilidad**: grupos CloudServiceConfiguration y VirtualMachineConfiguration
+  * **Formato**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **Ejemplo:** `2 10.0.0.4 1 10.0.0.5 1`
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **Disponibilidad**: grupos CloudServiceConfiguration y VirtualMachineConfiguration
+  * **Formato**: `nodeIP;nodeIP`
+  * **Ejemplo:** `10.0.0.4;10.0.0.5`
+
+* `AZ_BATCH_HOST_LIST`
+
+  * **Disponibilidad**: grupos VirtualMachineConfiguration
+  * **Formato**: `nodeIP,nodeIP`
+  * **Ejemplo:** `10.0.0.4,10.0.0.5`
 
 ## Archivos de recursos
 
@@ -209,7 +237,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Pasos siguientes
 
-- Puede crear una aplicación sencilla de MS-MPI para utilizar durante la prueba de tareas de instancias múltiples en Lote. El artículo del blog de Microsoft HPC & Azure Batch, [How to compile and run a simple MS-MPI program][msmpi_howto] \(Cómo compilar y ejecutar un programa sencillo de MS-MPI), contiene un tutorial para la creación de una aplicación de MPI sencilla mediante MS-MPI.
+- Puede crear una aplicación sencilla de MS-MPI para utilizar durante la prueba de tareas de instancias múltiples en Lote. El artículo del blog de Microsoft HPC & Azure Batch, [How to compile and run a simple MS-MPI program][msmpi_howto] (Cómo compilar y ejecutar un programa sencillo de MS-MPI), contiene un tutorial para la creación de una aplicación de MPI sencilla mediante MS-MPI.
 
 - Consulte la página [Microsoft MPI][msmpi_msdn] de MSDN para obtener la información más reciente sobre MS-MPI.
 
@@ -247,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Información general de instancias múltiples"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

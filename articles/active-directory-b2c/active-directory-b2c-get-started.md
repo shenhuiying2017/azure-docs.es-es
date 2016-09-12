@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.topic="article"
     ms.devlang="na"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: creación de un inquilino de Azure AD B2C
@@ -22,7 +22,7 @@ Para empezar a usar Microsoft Azure Active Directory (Azure AD) B2C, siga los tr
 
 ## Paso 1: Registrarse para obtener una suscripción de Azure
 
-Si ya tiene una suscripción de Azure, omita este paso. Si no es así, regístrese para conseguir [una suscripción de Azure](../active-directory/sign-up-organization.md) y acceder a Azure AD B2C.
+Si ya tiene una suscripción de Azure, omita este paso. Si no es así, regístrese para conseguir una [suscripción de Azure](../active-directory/sign-up-organization.md) y acceder a Azure AD B2C.
 
 ## Paso 2: Crear un inquilino de Azure AD B2C
 
@@ -42,7 +42,7 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 6. El inquilino se crea y aparecerá en la extensión de Active Directory. También se crea un administrador global del inquilino. Puede agregar otros administradores globales según sea necesario.
 
     > [AZURE.IMPORTANT]
-	Si planea usar el inquilino B2C para una aplicación de producción, lea el artículo sobre [escala de producción frente a inquilinos de B2C de versión preliminar](active-directory-b2c-reference-tenant-type.md).
+	Si planea usar el inquilino B2C para una aplicación de producción, lea el artículo sobre [escala de producción frente a inquilinos de B2C de versión preliminar](active-directory-b2c-reference-tenant-type.md). Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C existente y volver a crearlo con el mismo nombre de dominio. Es necesario crear un inquilino de B2C con otro nombre de dominio.
 
 ## Paso 3: Ir a la hoja de características B2C en el Portal de Azure
 
@@ -79,4 +79,4 @@ Para mejorar la detectabilidad, hemos agregado un acceso directo a la hoja de ca
 
 Aprenda cómo registrar una aplicación con Azure AD B2C y cómo crear una aplicación de inicio rápido; para ello, consulte [Azure Active Directory B2C: registro de la aplicación](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

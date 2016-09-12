@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
 # Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows
@@ -21,15 +21,15 @@
 
 [Application Insights de Visual Studio](app-insights-get-started.md) y [HockeyApp](https://hockeyapp.net) permiten supervisar la aplicación implementada en cuanto al uso y el rendimiento:
 
-> [AZURE.IMPORTANT] Se recomienda [HockeyApp](https://hockeyapp.net) para distribuir y supervisar las aplicaciones de escritorio y para dispositivos. Con HockeyApp, se puede administrar la distribución, las pruebas en directo y los comentarios de los usuarios, así como supervisar los informes de uso y bloqueo.
+> [AZURE.IMPORTANT] Se recomienda [HockeyApp](https://hockeyapp.net) para distribuir y supervisar las aplicaciones de escritorio y para dispositivos. Con HockeyApp, se puede administrar la distribución, las pruebas en directo y los comentarios de los usuarios, así como supervisar los informes de uso y bloqueo. También puede [exportar y consultar la telemetría con Analytics](app-insights-hockeyapp-bridge-app.md).
 
 > Aunque puede enviarse telemetría a Application Insights desde una aplicación de escritorio, esto es principalmente útil para fines experimentales y de depuración.
 
 
 ## Para enviar telemetría a Application Insights desde una aplicación Windows
 
-1. En el [portal de Azure](https://portal.azure.com), cree un nuevo recurso de Application Insights. Para el tipo de aplicación, elija la aplicación ASP.NET.
-2. Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable Essentials del recurso que acaba de crear. Cierre la asignación de aplicaciones o desplácese a la izquierda hasta la hoja de información general del recurso.
+1. En el [Portal de Azure](https://portal.azure.com), [cree un nuevo recurso de Application Insights](app-insights-create-new-resource.md). Para el tipo de aplicación, elija la aplicación ASP.NET.
+2. Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable Essentials del recurso que acaba de crear.
 3. En Visual Studio, edite los paquetes NuGet de su proyecto de aplicación y agregue Microsoft.ApplicationInsights.WindowsServer. (O elija Microsoft.ApplicationInsights si únicamente le interesa la API sola, sin los módulos de recopilación de telemetría estándar).
 4. Establezca la clave de instrumentación en el código:
 
@@ -81,7 +81,12 @@
 
 ```
 
+## Pasos siguientes
 
+* [Crear un panel](app-insights-dashboards.md)
+* [Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
+* [Explorar métricas](app-insights-metrics-explorer.md)
+* [Escribir consultas de Analytics](app-insights-analytics.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

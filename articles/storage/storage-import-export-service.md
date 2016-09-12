@@ -40,7 +40,6 @@ Puede utilizar este servicio en los siguientes escenarios:
 - Copia de seguridad: realice copias de seguridad de los datos locales para almacenarlos en el Almacenamiento de blobs de Azure.
 - Recuperación de datos: recupere una gran cantidad de datos almacenados en el almacenamiento de blobs y recíbalos en su ubicación local.
 
-
 ## Requisitos previos
 
 En esta sección, hemos enumerado los requisitos previos necesarios para utilizar este servicio. Revíselos detenidamente antes de enviar sus unidades.
@@ -208,7 +207,7 @@ Puede realizar el seguimiento del estado de sus trabajos de importación y expor
 
 Verá uno de los siguientes estados de trabajo en función de en qué fase del proceso esté la unidad.
 
-Estado del trabajo|Descripción
+Estado del trabajo|Description
 ---|---
 Creating|El trabajo se ha creado pero todavía no se ha proporcionado la información de envío.
 Envío|El trabajo se ha creado y ya se ha proporcionado la información de envío. **Nota**: Cuando la unidad se envía al centro de datos de Azure, el estado puede seguir indicando "Enviando" durante algún tiempo. Después de que el servicio inicia la copia de los datos, el estado cambia a "Transfiriendo". Si desea ver el estado más específico de la unidad, puede usar la API de REST de Importación/Exportación. 
@@ -358,7 +357,7 @@ Para preparar las unidades para el trabajo de exportación, se recomienda realiz
 
 	En la siguiente tabla se muestran ejemplos de rutas de acceso del blob válidas:
 
-	Selector|Ruta del blob|Descripción
+	Selector|Ruta del blob|Description
 	---|---|---
 	Starts With|/|Exporta todos los blobs de la cuenta de almacenamiento.
 	Starts With|/$root/|Exporta todos los blobs del contenedor raíz.
@@ -399,11 +398,14 @@ Para preparar las unidades para el trabajo de exportación, se recomienda realiz
 
 Vaya a la sección de P+F a continuación, en ella se tratan las preguntas más comunes que se encuentran los clientes al utilizar este servicio.
 
-## Preguntas más frecuentes ##
+## Preguntas frecuentes ##
+
 
 **¿Cuánto tiempo se tardan en copiar los datos una vez que las unidades llegan al centro de datos?**
 
 El tiempo de copia varía según distintos factores, como el tipo de trabajo, el tipo y el tamaño de los datos que se copian, el tamaño de los discos proporcionados y la carga de trabajo existente, pero puede oscilar entre un par de días y un par de semanas. Por lo tanto, es difícil proporcionar una estimación general. El servicio, cuando es posible, trata de optimizar el trabajo mediante la copia de varias unidades en paralelo. Si necesita una estimación para realizar un trabajo de importación o exportación en el que el tiempo es un factor crítico, póngase en contacto con nosotros.
+
+**¿Cuándo debo usar el servicio Importación/Exportación de Azure?** Importación/Exportación de Azure se debe usar si la carga o la descarga a través de la red demora más de 7 días. Puede calcular cuánto demorará con cualquier calculadora en línea o si [descarga](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) una que se encuentra en nuestro ejemplo de API de REST de Importación/Exportación de Azure en el repositorio de ejemplos de Azure en [Calculadora de velocidad de la transferencia de datos](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). No es un cálculo exacto, sino que una indicación aproximada.
 
 **¿Puedo usar el servicio Importación/Exportación de Azure con una cuenta de almacenamiento de Azure Resource Manager?**
 
@@ -415,7 +417,7 @@ No, el servicio de importación y exportación de Azure solo admite blobs en blo
 
 **¿Está disponible el servicio Importación/Exportación de Azure para suscripciones de CSP?**
 
-No, el servicio de importación y exportación de Azure no admite suscripciones de CSP. En el futuro, se agregará la compatibilidad.
+No, el servicio Importación/Exportación de Azure no admite suscripciones de CSP. En el futuro, se agregará la compatibilidad.
 
 **¿Puedo omitir el paso de preparación de las unidades en un trabajo de importación o puedo preparar una unidad sin realizar una copia?**
 
@@ -501,4 +503,6 @@ Consulte [Flujo de trabajo de copia de seguridad sin conexión en Copia de segur
 
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+- [Ejemplo de API de REST de Importación/Exportación de Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+
+<!---HONumber=AcomDC_0831_2016-->

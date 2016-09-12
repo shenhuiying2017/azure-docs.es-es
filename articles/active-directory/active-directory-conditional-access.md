@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/17/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 
@@ -82,7 +82,7 @@ Las directivas se pueden establecer en función de los siguientes requisitos:
 
 - **Dispositivos compatibles**: Puede establecer una directiva para restringir el acceso a los dispositivos que el sistema de administración marca como **compatibles**. Esta directiva garantiza que solo se permite el acceso a los dispositivos que cumplen las directivas de seguridad, como exigir el cifrado de archivos en un dispositivo. Esta directiva puede usarse para restringir el acceso desde los siguientes dispositivos:
 
-    - **Dispositivos unidos a un dominio de Windows** que administra System Center Configuration Manager 2016 en una configuración híbrida.
+    - **Dispositivos unidos a un dominio de Windows** que administra System Center Configuration Manager (rama actual) en una configuración híbrida.
 
     - **Dispositivos móviles personales o de trabajo con Windows 10** que administra Windows Intune o un sistema compatible de administración de dispositivos móviles (MDM) de terceros.
 
@@ -125,4 +125,4 @@ El mapa de contenido siguiente enumera los documentos que debe consultar para ob
 - [Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)
 - [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

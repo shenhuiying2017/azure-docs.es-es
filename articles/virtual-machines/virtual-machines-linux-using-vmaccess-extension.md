@@ -15,29 +15,48 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="08/30/2016"
     ms.author="v-livech"
 />
 
 # Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess
 
-En este artículo se muestra cómo usar la extensión VMAccess de máquina virtual [(GitHub)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) para comprobar o reparar un disco, restablecer el acceso de usuario, administrar cuentas de usuario o restablecer la configuración de SSHD en Linux. Este artículo necesita [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves SSH](virtual-machines-linux-mac-create-ssh-keys.md), una máquina virtual de Linux de Azure y la CLI de Azure instalada y cambiada al modo ARM con `azure config mode arm`.
+En este artículo se muestra cómo usar la extensión VMAccess de Azure para comprobar o reparar un disco, restablecer el acceso de usuario, administrar cuentas de usuario o restablecer la configuración de SSHD en Linux.
+
+Requisitos previos: [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves pública y privada de SSH](virtual-machines-linux-mac-create-ssh-keys.md) y la CLI de Azure instalada, que se debe cambiar al modo de Azure Resource Manager mediante `azure config mode arm`.
 
 ## Comandos rápidos
 
 Existen dos maneras de usar VMAccess en las máquinas virtuales Linux:
 
 - Con la CLI de Azure y los parámetros necesarios.
-- Mediante archivos JSON sin formato que procesará VMAccess para luego realizar acciones en ellos.
+- Con archivos JSON sin formato que procesa VMAccess para luego realizar acciones en ellos.
 
-Para ver la sección de comandos rápidos, usaremos el método `azure vm reset-access` de la CLI de Azure. En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
+Para ver la sección de comandos rápidos, usaremos el método `azure vm reset-access` de la CLI de Azure. En los siguientes ejemplos de comandos, reemplace los valores que contienen "example" por los valores de su propio entorno.
 
-## Restablecer contraseña raíz
+## Creación de un grupo de recursos y una VM Linux
+
+```bash
+azure group create resourcegroupexample westus
+```
+
+```bash
+azure vm quick-create \
+-M ~/.ssh/id_rsa.pub \
+-u userexample \
+-g resourcegroupexample \
+-l westus \
+-y Linux \
+-n debianexamplevm \
+-Q Debian
+```
+
+## Restablecimiento de la contraseña raíz
 
 Para restablecer la contraseña raíz:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePassword>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
 ```
 
 ## Restablecimiento de la clave SSH
@@ -45,21 +64,21 @@ azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePasswo
 Para restablecer la clave SSH de un usuario no raíz:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
 ```
 
-## Crear un usuario
+## Creación de un usuario
 
-Para crear un usuario nuevo:
+Para crear un usuario:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
 ```
 
-## Eliminar un usuario
+## Eliminación de un usuario
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 ```
 
 ## Restablecer SSHD
@@ -67,7 +86,7 @@ azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
 Para restablecer la configuración de SSHD:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -r
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 ```
 
 
@@ -75,15 +94,15 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess definido:
 
-El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si eso hubiese sucedido en los tiempos oscuros del centro de datos, vendría aquí, desbloquearía la puerta con su huella, entraría en la jaula y abriría el KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
+El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
 
-En el tutorial detallado usaremos el formato largo de VMAccess, el que usa archivos JSON sin formato. Estos archivos JSON de VMAccess también se pueden llamar desde las plantillas de Azure.
+En el tutorial detallado vamos a usar el formato largo de VMAccess, que usa archivos JSON sin formato. Estos archivos JSON de VMAccess también se pueden llamar desde las plantillas de Azure.
 
 ### Uso de VMAccess para comprobar o reparar el disco de una máquina virtual de Linux
 
-Con VMAccess, puede ejecutar fsck en el disco de la máquina virtual de Linux. Puede hacer una comprobación del disco y, luego, repararlo si encuentra algún error.
+Con VMAccess, puede ejecutar fsck en el disco de la máquina virtual de Linux. También puede hacer una comprobación y reparación de disco con VMAccess.
 
-Para comprobar y reparar el disco, use este script de VMAccess:
+Para comprobar y luego reparar el disco, use este script de VMAccess:
 
 `disk_check_repair.json`
 
@@ -148,7 +167,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 VMAccess es un script de Python que se puede usar para administrar usuarios en la máquina virtual de Linux sin iniciar sesión y mediante la cuenta raíz o sudo.
 
-Para crear un usuario nuevo, use este script de VMAccess:
+Para crear un usuario, use este script de VMAccess:
 
 `create_new_user.json`
 
@@ -168,7 +187,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
 
-Para crear un usuario nuevo, use este script de VMAccess:
+Para crear un usuario:
 
 `remove_user.json`
 
@@ -186,9 +205,9 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
 
-### Uso de VMAccess para restablecer la configuración SSHD en Linux
+### Uso de VMAccess para restablecer la configuración SSHD
 
-Si realiza cambios en la configuración SSHD de máquinas virtuales de Linux y cerrar la conexión SSH antes de comprobar los cambios, es posible que se le impida volver a realizar la conexión SSH. VMAccess se puede usar para restablecer la configuración SSHD nuevamente a una buena configuración conocida.
+Si realiza cambios en la configuración SSHD de máquinas virtuales de Linux y cerrar la conexión SSH antes de comprobar los cambios, es posible que se le impida volver a realizar la conexión SSH. VMAccess se puede usar para restablecer la configuración SSHD nuevamente a una buena configuración conocida sin tener que iniciar sesión a través de SSH.
 
 Para restablecer la configuración SSHD, use este script de VMAccess:
 
@@ -208,4 +227,14 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+## Pasos siguientes
+
+Actualizar Linux con las extensiones VMAccess de Azure es un método para hacer cambios en una VM de Linux en ejecución. También puede usar herramientas como cloud-init y plantillas de Azure para modificar la VM de Linux en el arranque.
+
+[Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-linux-extensions-features.md)
+
+[Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual de Linux](virtual-machines-linux-extensions-authoring-templates.md)
+
+[Uso de cloud-init para personalizar una VM de Linux durante la creación](virtual-machines-linux-using-cloud-init.md)
+
+<!---HONumber=AcomDC_0831_2016-->

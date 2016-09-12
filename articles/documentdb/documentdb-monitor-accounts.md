@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Supervisión de las solicitudes, el uso y el almacenamiento de DocumentDB
 
-Puede supervisar las cuentas de Azure DocumentDB en el [Portal de Microsoft Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
+Puede supervisar las cuentas de Azure DocumentDB en el [Portal de Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 
 ## Visualización de las métricas de rendimiento en el portal 
-1.	En una nueva ventana, abra el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**, **Cuentas de DocumentDB** y luego en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
-2.	En el modo **Supervisión** puede ver estos datos de forma predeterminada:
+1.	En una nueva ventana, abra el [Portal de Azure](https://portal.azure.com/), haga clic en **Más servicios**, **DocumentDB (NoSQL)** y, luego, en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
+2.	La lente **Supervisión** muestra los iconos siguientes de forma predeterminada:
 	*	El total de solicitudes del día actual.
-	*	RU totales ([unidades de solicitud](documentdb-request-units.md)) usadas durante el día actual.
 	*	Almacenamiento utilizado.
 
-	Si en la tabla se muestra **Sin datos disponibles**, consulte la sección [Solución de problemas](#troubleshooting).
+	Si se muestra en la tabla **No hay datos disponibles** y cree que hay datos en la base de datos, vea la sección [Solución de problemas](#troubleshooting).
 
-	![Captura de pantalla del modo Supervisión que muestra el total de solicitudes del día y el uso de almacenamiento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
+	![Captura de pantalla del modo Supervisión que muestra las solicitudes y el uso de almacenamiento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Al hacer clic en el icono **Solicitudes**, **RU totales** o **Almacenamiento** se abre una hoja **Métrica** detallada.
+3.	Al hacer clic en el icono **Solicitudes** o **Almacenamiento** se abre una hoja detallada denominada **Métrica**.
 4.	La hoja **Métrica** muestra los detalles sobre las métricas que ha seleccionado. En la parte superior de la hoja hay un gráfico de solicitudes representadas por hora y debajo una tabla que muestra los valores de agregación y las solicitudes totales. El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).
 
 	![Captura de pantalla de la hoja Métrica que incluye solicitudes limitadas](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -65,15 +64,13 @@ El Portal de Azure le permite crear gráficos de métricas en paralelo.
 Ahora puede tratar esta parte como otra parte de métricas y personalizar las métricas y el intervalo de tiempo que se muestra en la parte. De esta forma, puede ver dos gráficos de métricas diferentes en paralelo al mismo tiempo. ![Captura de pantalla del gráfico Total de solicitudes y el nuevo gráfico Hora pasada del total de solicitudes.](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## Configuración de alertas en el portal
-1.	En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**, **Cuentas de DocumentDB** y luego haga clic en el nombre de la cuenta de DocumentDB cuyas alertas de métricas de rendimiento desee configurar.
+1.	En el [Portal de Azure](https://portal.azure.com/), haga clic en **Más servicios**, **DocumentDB (NoSQL)** y, luego, haga clic en el nombre de la cuenta de DocumentDB cuyas alertas de métricas de rendimiento desee configurar.
 
-2.	Si la hoja **Toda la configuración** no está abierta, haga clic en el comando **Configuración** en la parte superior izquierda para abrir la hoja. ![Captura de pantalla del comando de configuración en la hoja de la cuenta de base de datos](./media/documentdb-monitor-accounts/madocdb10.png)
+2.	En el menú de recursos, haga clic en **Reglas de alerta** para abrir la hoja Reglas de alerta. ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/documentdb-monitor-accounts/madocdb10.5.png)
 
-3.	En la hoja **Toda la configuración**, haga clic en **Reglas de alerta** para abrir la hoja Reglas de alerta. ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/documentdb-monitor-accounts/madocdb10.5.png)
+3.	En la hoja **Reglas de alerta**, haga clic en **Agregar alerta**. ![Captura de pantalla de la hoja Reglas de alerta, con el botón Agregar alerta seleccionado](./media/documentdb-monitor-accounts/madocdb11.png)
 
-4.	En la hoja Reglas de alerta, haga clic en **Agregar alerta**. ![Captura de pantalla de la hoja Reglas de alerta, con el botón Agregar alerta seleccionado](./media/documentdb-monitor-accounts/madocdb11.png)
-
-5.	En la hoja **Agregar una regla de alerta**, especifique:
+4.	En la hoja **Agregar una regla de alerta**, especifique:
 	*	El nombre de la regla de alerta que va a configurar.
 	*	Una descripción de la nueva regla de alerta.
 	*	La métrica de la regla de alerta.
@@ -95,7 +92,7 @@ Las consultas para recuperar métricas individuales utilizan el siguiente format
 
     https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
-Para más información, consulte [Retrieving Resource Metrics via the Azure Insights API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/) (Recuperación de métricas de recursos mediante la API de Azure Insights).
+Para obtener más información, consulte [Retrieving Resource Metrics via the Azure Insights API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/) (Recuperación de métricas de recursos mediante la API de Azure Insights).
 
 ## Solución de problemas
 Si los iconos de supervisión muestran el mensaje **Sin datos disponibles** y recientemente se realizaron solicitudes o se agregaron datos a la base de datos, puede editar el icono para que refleje el uso reciente.
@@ -111,4 +108,4 @@ Si los iconos de supervisión muestran el mensaje **Sin datos disponibles** y re
 ## Pasos siguientes
 Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

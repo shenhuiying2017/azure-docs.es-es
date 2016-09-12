@@ -31,7 +31,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | ![Jinfonet][5] |**JReport**<br>JReport es una solución de BI integrable para la empresa. La solución permite que los usuarios creen informes, paneles y análisis de datos en la nube, Big Data y orígenes de datos transaccionales. A través de la visualización de datos, puede realizar sus propios informes y su detección de datos para un proceso de toma de decisiones ágil y sobre la marcha.| [Sitio web][jinfonet_website]<br>[Hoja de datos][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] | [![Vídeo de JReport](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Juntos, Logi Analytics y Almacenamiento de datos SQL de Azure permite a su organización recopilar y analizar los conjuntos de datos más grandes y diversos del mundo, así como tomar medidas inmediatas de acuerdo con ellos. | [Marketplace][logianalytics_marketplace]<br>[Sitio web][logianalytics_website]<br>[Hoja de datos][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] | [![Vídeo de LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
 | ![Looker][7] |**Looker BI**<br>Looker confiere a todos los integrantes de su empresa la capacidad de explorar y comprender los datos que impulsan su empresa. Looker también aporta a los analistas de datos una capa de modelado flexible y reutilizable para controlar y ajustar esos datos. Con Looker como catalizador, las empresas han transformado profundamente su cultura. | [Marketplace][looker_marketplace]<br>[Sitio web][looker_website]<br>[Hoja de datos][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] | [![Vídeo de Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
-| ![Qlik][8] |**Qlikview**<br>Qlik ofrece un enfoque basado en plataforma al análisis visual sobre Almacenamiento de datos SQL de Microsoft Azure. Mediante el uso de las características de clase empresarial del almacenamiento elástico de datos de Microsoft, Qlik permite que toda la organización tome decisiones rápidas con confianza. Qlik aporta claridad e información donde más se necesita: el punto de decisión. | [Marketplace][qlik_marketplace]<br>[Sitio web][qlik_website]<br>[Hoja de datos][qlik_datasheet]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![Vídeo de Qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video.jpg)](https://www.youtube.com/watch?v=sqILcEwlHSI) |
+| ![Qlik][8] |**Qlik Sense Enterprise**<br>Impulse el descubrimiento de nuevas perspectivas con la aplicación de visualización de datos que cualquiera puede utilizar. Con Qlik Sense, todas las personas de la organización pueden crear visualizaciones flexibles e interactivas con toda facilidad y adoptar decisiones significativas.| [Sitio web][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![Vídeo de Qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
 | ![SiSense][9] |**SiSense**<br>SiSense es un software de inteligencia empresarial completo que incluye herramientas que un negocio necesita para analizar y visualizar datos: una base de datos analítica de alto rendimiento, la capacidad de unir varios orígenes, la extracción de datos simples (ETL) y la visualización de datos basada en web. Comience hoy mismo a analizar y visualizar conjuntos de datos de gran tamaño con análisis e inteligencia empresarial de SiSense. | [Marketplace][sisense_marketplace]<br>[Sitio web][sisense_website]<br>[Hoja de datos][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] | [![Vídeo de SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>El análisis de autoservicio de Tableau ayuda que todos los usuarios vean y comprendan muchos tipos de datos, desde archivos planos a bases de datos. Tableau cuenta con un conector nativo y optimizado para Almacenamiento de datos SQL de Microsoft Azure que es compatible con el análisis de datos activos y el análisis en memoria. | [Marketplace][tableau_marketplace]<br>[Sitio web][tableau_website]<br>[Hoja de datos][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] | [![Vídeo de Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit Decision Suite proporciona una plataforma de inteligencia empresarial y análisis que ofrece paneles en tiempo real, análisis de autoservicio, informes fáciles de usar, excelentes funcionalidades móviles y una tecnología de detección de datos simple en una solución coherente y única. Targit le da a las empresas el valor para actuar. | [Marketplace][targit_marketplace]<br>[Sitio web][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] | [![Vídeo de Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
@@ -72,13 +72,14 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [jinfonet_website]: http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]: http://www.logianalytics.com/
 [looker_website]: https://looker.com/partners/microsoft-azure/
-[qlik_website]: http://www.qlik.com/products/qlikview/getting-started
+[qlik_website]: http://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]: https://www.sisense.com/product/
 [tableau_website]: http://www.tableau.com/
 [targit_website]: https://www.targit.com/en/software/deployment/targitonazure
 [yellowfin_website]: http://www.yellowfinbi.com/
 
-<!--ebook Links-->
+<!--Get Started Links-->
+[qlik_getstarted]: http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
 <!--[birst_datasheet]:-->
@@ -88,7 +89,7 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [jinfonet_datasheet]: http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]: https://www.logianalytics.com/datasheet/logi-info/
 [looker_datasheet]: https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
-[qlik_datasheet]: http://www.qlik.com/en/resource-library/the-qlikview-product-family
+<!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family-->
 [sisense_datasheet]: https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 [tableau_datasheet]: http://www.tableau.com/stories/workbook/azure-sql-data
 <!--[targit_datasheet]:-->
@@ -102,7 +103,7 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 <!--[jinfonet_marketplace]:-->
 [logianalytics_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/looker/looker-analytics-platform-326/
-[qlik_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/qliktech-international-ab/qlikview/
+<!--[qlik_marketplace]:https://azure.microsoft.com/es-ES/marketplace/partners/qliktech-international-ab/qlikview/ -->
 [sisense_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]: https://azure.microsoft.com/es-ES/marketplace/partners/targit/targit-decision-suite/
@@ -150,4 +151,4 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [targit_twitter]: https://twitter.com/TARGIT
 [yellowfin_twitter]: https://twitter.com/YellowfinBI
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Procedimiento para mover y copiar conjuntos de datos de Blob de Azure | Data Factory de Azure" 
+	pageTitle="Copia de datos en y desde el Almacenamiento de blobs de Azure | Data Factory de Azure" 
 	description="Aprenda a copiar datos de blob en Data Factory de Azure. Use nuestro ejemplo: Copia de datos entre Almacenamiento de blobs de Azure y Base de datos SQL de Azure." 
     keywords="datos de blob, copia de blobs de azure"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
@@ -38,7 +38,7 @@ El ejemplo siguiente muestra:
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	Una [canalización](data-factory-create-pipelines.md) con una actividad de copia que usa [BlobSource](#azure-blob-copy-activity-type-properties) y [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-El ejemplo copia los datos de la serie temporal desde un blob de Azure a una tabla de una Base de datos SQL de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
+El ejemplo copia los datos de la serie temporal desde un blob de Azure a una tabla de SQL de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado SQL de Azure:**
 
@@ -210,7 +210,7 @@ El ejemplo siguiente muestra:
 4.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) y [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-El ejemplo copia los datos de la serie temporal de una tabla de una Base de datos SQL de Azure en un blob cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
+El ejemplo copia los datos de la serie temporal desde una tabla de SQL de Azure a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado SQL de Azure:**
 
@@ -433,7 +433,7 @@ En este ejemplo, year, month, day y time de SliceStart se extraen en variables i
 
 
 ## Propiedades de tipo de actividad de copia de Blob de Azure  
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, conjuntos de datos de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
 Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
@@ -441,17 +441,34 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Especifica si se debe tratar una cadena nula o vacía como un valor nulo. <br/><br/>Cuando se especifica la propiedad **quoteChar**, las cadenas entrecomilladas vacías también se pueden tratar como NULL con esta propiedad. | TRUE (valor predeterminado) <br/>FALSE | No |
-| skipHeaderLineCount | Indica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa **TextFormat**. | Entero de 0 a Máx. | No | 
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. | True (valor predeterminado), False | No | 
-
 
 **BlobSink** admite las siguientes propiedades en la sección **typeProperties**:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Especifica si se debe agregar el encabezado de definiciones de columna. | TRUE<br/>FALSE (valor predeterminado) | No |
 | copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | **PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/>**FlattenHierarchy:** todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen un nombre generado automáticamente. <br/><br/>**MergeFiles: (valor predeterminado)** combina todos los archivos de la carpeta de origen en un solo archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. | No |
+
+**BlobSource** también admite estas dos propiedades que dejarán de utilizarse pronto.
+
+- **treatEmptyAsNull**: especifica si se debe tratar una cadena nula o vacía como un valor nulo.
+- **skipHeaderLineCount**: especifica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa TextFormat.
+
+De forma similar, **BlobSink** admite la siguiente propiedad que dejará de utilizarse pronto.
+
+- **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida.
+
+Los conjuntos de datos ahora son compatibles con las siguientes propiedades que implementan la misma funcionalidad: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+
+La tabla siguiente proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de las propiedades de origen/receptor de blob que dejarán de utilizarse pronto.
+
+| Propiedad de la actividad de copia | Propiedad de conjunto de datos |
+| :---------------------- | :---------------- | 
+| skipHeaderLineCount en BlobSource | skipLineCount y firstRowAsHeader. Las líneas se omiten en primer lugar y, a continuación, se lee la primera fila como encabezado. |
+| treatEmptyAsNull en BlobSource | treatEmptyAsNull en el conjunto de datos de entrada |
+| blobWriterAddHeader en BlobSink | firstRowAsHeader en el conjunto de datos de salida | 
+
+Consulte la sección [Especificación de TextFormat](#specifying-textformat) para obtener información detallada acerca de estas propiedades.
 
 ### Ejemplos de recursive y copyBehavior
 En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
@@ -475,6 +492,6 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

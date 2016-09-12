@@ -80,7 +80,7 @@ La lista siguiente describe el flujo de trabajo común para la conectividad en l
 
 ### <a name="topologies"></a>Topologías de conexión
 
-Para comenzar, vea los diagramas del artículo [Topologías de conexión](vpn-gateway-topology.md). El artículo contiene diagramas básicos, los modelos de implementación de cada topología (Resource Manager o clásico) y las herramientas de implementación que puede usar para implementar la configuración.
+Para comenzar, consulte los diagramas del artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md). El artículo contiene diagramas básicos, los modelos de implementación de cada topología (Resource Manager o clásico) y las herramientas de implementación que puede usar para implementar la configuración.
 
 ### <a name="designbasics"></a>Conceptos básicos del diseño
 
@@ -161,4 +161,4 @@ Consulte los artículos [Preguntas más frecuentes sobre la puerta de enlace de 
 
 Para obtener más información acerca de la configuración de puerta de enlace específica, vea [Acerca de la configuración de puerta de enlace de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

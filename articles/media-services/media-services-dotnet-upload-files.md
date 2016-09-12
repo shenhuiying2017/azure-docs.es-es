@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016" 
+ 	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 
-#Cargar archivos en una cuenta de Servicios multimedia mediante .NET
+# Cargar archivos en una cuenta de Servicios multimedia mediante .NET
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST](media-services-rest-upload-files.md)
+ - [Portal](media-services-portal-upload-files.md)
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -92,7 +95,7 @@ El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas sigu
 
 ##Carga de varios archivos con el SDK .NET de Servicios multimedia 
 
-El código siguiente muestra cómo crear un activo y cargar varios archivos.
+El código siguiente muestra cómo crear un recurso y cargar varios archivos.
 
 El código hace lo siguiente:
 	
@@ -315,4 +318,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

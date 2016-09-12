@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Solución de problemas de Almacenamiento de datos SQL de Azure
@@ -24,9 +24,11 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 
 | Problema | Resolución |
 | :----------------------------------| :---------------------------------------------- |
-| Error CTAIP | Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Server, pero no en la base de datos de Almacenamiento de datos SQL. Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad][]. En este artículo se explica cómo crear un inicio de sesión en una base de datos maestra y luego cómo crear un usuario en la base de datos de Almacenamiento de datos SQL.|
+| Error de inicio de sesión del usuario 'NT AUTHORITY\\ANONYMOUS LOGON'. (Microsoft SQL Server, error: 18456) | Este error se produce cuando un usuario de AAD intenta conectarse a la base de datos maestra, pero no tiene un usuario ahí. Para corregir este problema, especifique el Almacenamiento de datos SQL al que se desea conectar en el momento de la conexión o agregue el usuario a la base de datos maestra. Consulte el artículo [Información general sobre seguridad][] para más detalles.|
+|La entidad de seguridad del servidor "MyUserName" no puede obtener acceso a la base de datos "maestra" en el contexto de seguridad actual. No se puede abrir la base de datos predeterminada del usuario. Error de inicio de sesión. Error de inicio de sesión del usuario 'MyUserName'. (Microsoft SQL Server, error: 916) | Este error se produce cuando un usuario de AAD intenta conectarse a la base de datos maestra, pero no tiene un usuario ahí. Para corregir este problema, especifique el Almacenamiento de datos SQL al que se desea conectar en el momento de la conexión o agregue el usuario a la base de datos maestra. Consulte el artículo [Información general sobre seguridad][] para más detalles.|
+| Error CTAIP | Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Server, pero no en la base de datos de Almacenamiento de datos SQL. Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad][]. En este artículo se explica cómo crear un inicio de sesión y un usuario en una base de datos maestra y luego cómo crear un usuario en la base de datos de Almacenamiento de datos SQL.|
 | Bloqueado por el firewall |Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección de [configuración del acceso de nivel de firewall para el cliente IP][] en las [instrucciones de aprovisionamiento][].|
-| No se puede conectar con una herramienta o un controlador | Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] para consultar los datos. Para la conectividad de cliente, se recomienda [SQL Server Native Client 10/11 (ODBC)][].|
+| No se puede conectar con una herramienta o un controlador | Almacenamiento de datos SQL recomienda usar [SSMS][], [SSDT para Visual Studio 2015][] o [sqlcmd][] para consultar los datos. Para más detalles sobre los controladores y cómo conectarse a Almacenamiento de datos SQL, consulte los artículos [Controladores de Almacenamiento de datos SQL de Azure][] y [Conexión a Almacenamiento de datos SQL de Azure][].|
 
 
 ## Herramientas
@@ -72,7 +74,6 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 | No se admite la instrucción MERGE | Consulte las [soluciones alternativas para MERGE][].|
 | Limitaciones de procedimientos almacenados | Consulte [Limitaciones de procedimientos almacenados][] para conocer algunas de las limitaciones de los procedimientos almacenados.|
 | Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF. Consulte [CREATE FUNCTION][] para comprobar la sintaxis que se admite. |
-'<--LocComment: La página no encontrada "Limitaciones de procedimientos almacenados" está dañada. He intentado corregir el vínculo en las referencias del artículo -->'
 
 ## Pasos siguientes
 
@@ -90,7 +91,12 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 <!--Image references-->
 
 <!--Article references-->
+[Información general sobre seguridad]: ./sql-data-warehouse-overview-manage-security.md
 [información general de seguridad]: ./sql-data-warehouse-overview-manage-security.md
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSDT para Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[Controladores de Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-connection-strings.md
+[Conexión a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-connect-overview.md
 [Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [escalado de Almacenamiento de datos SQL]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,7 +104,6 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [aprender a supervisar las consultas]: ./sql-data-warehouse-manage-monitor.md
 [instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
 [configuración del acceso de nivel de firewall para el cliente IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 o 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 [tamaños de tabla]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Características no compatibles de las tablas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,14 +122,14 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [soluciones alternativas para UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [soluciones alternativas para DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [soluciones alternativas para MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitaciones de procedimientos almacenados]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[Limitaciones de procedimientos almacenados]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
 [Autenticación a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-authentication.md
 [Evitar el requisito UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sqlcmd]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -135,4 +140,4 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

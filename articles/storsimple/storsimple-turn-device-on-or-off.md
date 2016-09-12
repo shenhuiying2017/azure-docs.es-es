@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Encendido o apagado del dispositivo de StorSimple 
@@ -189,39 +189,13 @@ Puede ser necesario apagar un dispositivo StorSimple activo si debe trasladarlo,
 
 ### Dispositivo con gabinete principal <a name="8100a"> 
 
-Actualmente, no hay manera de apagar un dispositivo de StorSimple activo desde el Portal de Azure clásico. La única manera de apagarlo es mediante el uso de Windows PowerShell para StorSimple. Para apagar el dispositivo de manera ordenada y controlada, obtenga acceso a Windows PowerShell para StorSimple y siga los pasos siguientes.
+Para apagar el dispositivo de manera ordenada y controlada, use el Portal de Azure clásico o Windows PowerShell para StorSimple.
 
 >[AZURE.IMPORTANT] No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
 >
 >Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que el color del estado de todos los componentes sea verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
 
-Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie del dispositivo o a través de la comunicación remota de Windows PowerShell. Después de obtener acceso a Windows PowerShell para StorSimple, haga lo siguiente para apagar un dispositivo activo.
-
-#### Para apagar un dispositivo activo
-
-1. Conéctese a la consola serie del dispositivo.
-
-2. En el menú que aparece, compruebe que el controlador al que está conectado es el controlador **en espera**. Si no es así, desconéctese y conéctese al otro controlador.
-
-3. En el menú de la consola serie, elija **Opción 1** para iniciar sesión en el controlador en espera con acceso total.
-
-4. En el símbolo del sistema, escriba:
-
-    `Stop-HCSController`
-
-    Con esto se debería apagar el controlador en espera actual.
-
-    >[AZURE.IMPORTANT] Espere hasta que el controlador se apague completamente antes de continuar con el paso siguiente.
-
-5. Para comprobar que finalizó el apagado, revise la parte posterior del dispositivo. El LED de error del controlador debe ser fijo y aparecer en rojo.
-
-6. Conéctese al controlador activo a través de la consola serie y siga los mismos pasos para apagarlo.
-
-7. Una vez apagados por completo los dos controladores, los LED de estado de ambos controladores deben parpadear en rojo.
-
-8. Si necesita apagar el dispositivo por completo en este momento, cambie los interruptores de alimentación de los módulos de alimentación y refrigeración (PCM) a la posición de apagado.
-
-9. Para comprobar que el dispositivo esté completamente apagado, revise que todas las luces de la parte posterior del dispositivo estén apagadas.
+Después de obtener acceso a Windows PowerShell para StorSimple o al Portal de Azure clásico, siga los pasos para [apagar un dispositivo de StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
 
 ### Dispositivo con gabinete EBOD <a name="8600a">
 
@@ -229,7 +203,7 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 #### Para apagar un dispositivo activo con gabinete EBOD
 
-1. Siga todos los pasos que aparecen en [Dispositivo solo con gabinete principal](#8100a).
+1. Siga todos los pasos para [apagar un dispositivo de StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) en el gabinete principal.
 
 2. Una vez que se apaga el gabinete principal, apague el gabinete EBOD; para ello, gire ambos interruptores del módulo de alimentación y enfriamiento (PCM) a la posición de apagado.
 
@@ -241,4 +215,4 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

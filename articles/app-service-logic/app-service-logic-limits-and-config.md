@@ -28,7 +28,7 @@ Son los límites de una única solicitud HTTP o llamada a un conector.
 
 #### Tiempo de espera
 
-|Name|Límite|Notas|
+|Nombre|Límite|Notas|
 |----|----|----|
 |Tiempo de espera de solicitud|1 minuto|Un [patrón asincrónico](app-service-logic-create-api-app.md) o un [bucle until](app-service-logic-loops-and-scopes.md) se pueden compensar, según sea necesario.|
 
@@ -63,12 +63,12 @@ Son los límites de ejecución de una única aplicación lógica.
 
 Son los límites de ejecución de una única aplicación lógica.
 
-|Name|Límite|Notas|
+|Nombre|Límite|Notas|
 |----|----|----|
-|Elementos ForEach|10\.000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
+|Elementos ForEach|5\.000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
 |Iteraciones Until|10\.000||
 |Elementos SplitOn|10\.000||
-|Paralelismo de ForEach|20|Puede establecerlo en un elemento foreach secuencial si agrega `"operationOptions": "Sequential"` a la acción `foreach`.|
+|Paralelismo de ForEach|20 ||Puede establecerlo en un elemento foreach secuencial si agrega `"operationOptions": "Sequential"` a la acción `foreach`.|
 
 
 ### Límites de rendimiento
@@ -83,7 +83,7 @@ Son los límites de una instancia de aplicación lógica.
 
 Son los límites de una definición de aplicación lógica.
 
-|Name|Límite|Notas|
+|Nombre|Límite|Notas|
 |----|----|----|
 |Acciones de ForEach|1|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
 |Acciones por flujo de trabajo|60|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
@@ -134,4 +134,4 @@ Las llamadas realizadas directamente desde una aplicación lógica (es decir, a 
 - [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

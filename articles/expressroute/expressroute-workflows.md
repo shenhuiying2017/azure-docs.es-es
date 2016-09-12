@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
@@ -50,7 +50,7 @@ Cada circuito ExpressRoute tiene dos estados:
 - Estado de aprovisionamiento de proveedor de servicio
 - Estado
 
-Estado representa el estado de aprovisionamiento de Microsoft. Esta propiedad puede estar en cualquiera de los siguientes estados: *Habilitado*, *Habilitando* o *Deshabilitando*. El circuito ExpressRoute debe estar en el estado Enabled para poder usarlo.
+Estado representa el estado de aprovisionamiento de Microsoft. Esta propiedad se establece en Habilitado al crear un circuito Expressroute.
 
 El estado de aprovisionamiento del proveedor de conectividad representa el estado del lado del proveedor de conectividad. Puede ser *No aprovisionado*, *Aprovisionando* o *Aprovisionado*. El circuito ExpressRoute debe estar en estado Aprovisionado para poder usarlo.
 
@@ -83,24 +83,18 @@ Verá el circuito ExpressRoute en el estado siguiente en cuanto el proveedor de 
 
 Aprovisionado y habilitado es el único estado en que puede estar el circuito para poder usarlo. Si usa un proveedor de nivel 2, puede configurar el enrutamiento para el circuito solo cuando se encuentre en este estado.
 
-#### Si el desaprovisionamiento lo inicia Microsoft
+#### Cuando el proveedor de conectividad está desaprovisionando el circuito
 
-Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdlet de PowerShell para eliminar el circuito ExpressRoute.
-
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
-
-Debe ponerse en contacto con su proveedor de conectividad para desaprovisionar el circuito ExpressRoute. **Importante:** Microsoft seguirá facturando el circuito hasta que se ejecute el cmdlet de PowerShell para desaprovisionarlo.
-
-#### Si el desaprovisionamiento lo inicia el proveedor de servicios
-
-Si solicitó al proveedor de servicios que desaprovisione primero el circuito ExpressRoute, verá el circuito establecido en el estado siguiente una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
+Si solicitó al proveedor de servicios que desaprovisione el circuito ExpressRoute, verá el circuito establecido en el estado siguiente una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-Si es necesario, puede volver a habilitarlo, o bien ejecutar los cmdlets de PowerShell para eliminar el circuito. **Importante:** Microsoft seguirá facturando el circuito hasta que se ejecute el cmdlet de PowerShell para desaprovisionarlo.
+
+Si es necesario, puede volver a habilitarlo, o bien ejecutar los cmdlets de PowerShell para eliminar el circuito.
+
+>[AZURE.IMPORTANT] Si ejecuta el cmdlet de PowerShell para eliminar el circuito cuando el estado de ServiceProviderProvisioningState es Aprovisionamiento o Aprovisionado, se producirá un error en la operación. Colabore con el proveedor de conectividad para desaprovisionar el circuito ExpressRoute primero y, después, eliminar el circuito. Microsoft seguirá facturando el circuito hasta que se ejecute el cmdlet de PowerShell para eliminar el circuito.
 
 
 ## Estado de configuración de sesión de enrutamiento
@@ -122,4 +116,4 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

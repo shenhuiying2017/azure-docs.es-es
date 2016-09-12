@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codificación de un recurso mediante Codificador multimedia estándar" 
+	pageTitle="Codificación de un recurso mediante Estándar de codificador multimedia" 
 	description="En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016"
+ 	ms.date="08/30/2016"
 	ms.author="juliako;anilmur"/>
 
 
-#Codificación de un recurso mediante Codificador multimedia estándar
+# Codificación de un recurso mediante Estándar de codificador multimedia
 
 Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace.
 
@@ -150,4 +150,4 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 [Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

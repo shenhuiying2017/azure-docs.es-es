@@ -122,7 +122,7 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 1. Si ya ha ejecutado Sysprep en esta máquina virtual, active la casilla **He ejecutado Sysprep en la máquina virtual**.
 
-    Sysprep es una herramienta que, entre otras cosas, elimina datos específicos de los sistemas de la versión de Windows de la máquina virtual, lo que la convierte en una plantilla que otros pueden usar. Para obtener más información, consulte [Cómo capturar una máquina virtual Windows para usarla como imagen](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Sysprep es una herramienta que, entre otras cosas, elimina datos específicos de los sistemas de la versión de Windows de la máquina virtual, lo que la convierte en una plantilla que otros pueden usar. Para obtener más información, consulte [Cómo capturar una máquina virtual Windows para usarla como imagen](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/). Cree una copia de seguridad de la VM antes de ejecutar Sysprep.
 
 1. Cuando haya terminado la configuración de la captura, elija el botón **Capturar** para crear el punto de control.
 
@@ -158,4 +158,4 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

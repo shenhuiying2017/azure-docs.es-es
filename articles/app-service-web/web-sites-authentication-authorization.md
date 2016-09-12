@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure" 
-	description="Obtenga información sobre las distintas opciones de autenticación y autorización para las aplicaciones de línea de negocio que se implementan en Aplicaciones web del servicio de aplicaciones de Azure" 
+	pageTitle="Autenticación con Active Directory local en aplicaciones de Azure | Microsoft Azure" 
+	description="Obtenga información acerca de las diferentes opciones de las aplicaciones de línea de negocio en el Servicio de aplicaciones de Azure para autenticarse con Active Directory local" 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -13,43 +13,31 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="02/26/2016" 
+	ms.date="08/31/2016" 
 	ms.author="cephalin"/>
 
-# Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure #
+# Autenticación con Active Directory local en aplicaciones de Azure #
 
-[Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite escenarios de aplicaciones de línea de negocio empresariales al admitir el inicio de sesión único (SSO) de usuarios si tienen acceso a la aplicación desde el entorno local o desde Internet pública. Se puede integrar con [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) o con un servicio de token seguro (STS) local, como los Servicios de federación de Active Directory (AD FS), para autenticar a los usuarios de Active Directory (AD) internos y autorizarles correctamente.
+En este artículo se muestra cómo autenticarse con Active Directory (AD) local en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Una aplicación de Azure se hospeda en la nube pero existen métodos para autenticar a usuarios de AD locales de forma seguridad.
 
-## Autorización y autenticación perfecta ##
+## Autenticación mediante Azure Active Directory
+Un inquilino de Azure Active Directory puede estar sincronizado con directorios con una implementación de AD local. Este enfoque permite a los usuarios de AD tener acceso a la aplicación desde Internet y autenticarse con sus credenciales locales. Además, el Servicio de aplicaciones de Azure proporciona una [solución completa para este método](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Con algunos clics de botón, puede habilitar la autenticación con un inquilino sincronizado con directorios para la aplicación de Azure. Este enfoque presenta las siguientes ventajas:
 
-Con unos pocos clics, puede habilitar la autenticación y autorización para su aplicación web. La configuración de estilo de casillas en las aplicaciones web de Azure proporciona el control de acceso básico de la aplicación web de línea de negocio. Para ello, exige HTTPS y la autenticación en un inquilino de Azure AD de su elección antes de conceder a los usuarios acceso al contenido de la aplicación web. Para obtener más información, consulte [Autenticación y autorización de aplicaciones web](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+-	No requiere ningún código de autenticación en la aplicación. Permita que el Servicio de aplicaciones realice la autenticación por usted y dedique su tiempo a proporcionar funcionalidad en la aplicación.
+-	La [API Graph de Azure AD](http://msdn.microsoft.com/library/azure/hh974476.aspx) permite el acceso a datos de directorio desde la aplicación de Azure.
+-	Proporciona SSO para [todas las aplicaciones compatibles con Azure Active Directory](/marketplace/active-directory/), incluidas Office 365, Dynamics CRM Online, Microsoft Intune y miles de aplicaciones en la nube que no son de Microsoft.
+-	Azure Active Directory admite el control de acceso basado en roles. Puede usar el patrón [Authorize(Roles="X")] con unos cambios mínimos en su código.
 
->[AZURE.NOTE] Esta funcionalidad actualmente está en su versión preliminar.
+Para ver cómo se escribe una aplicación de línea de negocio de Azure que se autentica con Azure Active Directory, consulte [Creación de una aplicación de línea de negocio de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md).
 
-## Implementación manual de la autenticación y la autorización ##
+## Autenticación mediante STS local
+Si tiene un servicio de token seguro (STS) local como Servicios de federación de Active Directory (AD FS), puede utilizarlo para federar la autenticación de la aplicación de Azure. Este enfoque funciona mejor cuando la directiva de empresa prohíbe almacenar datos de AD en Azure. No obstante, tenga en cuenta lo siguiente:
 
-En muchos escenarios, quiere personalizar el comportamiento de la autenticación y la autorización de la aplicación, como una página de inicio y cierre de sesión, la lógica de la autorización personalizada, el comportamiento de la aplicación con varios inquilinos, etc. En estos casos, puede ser mejor configurar la autenticación y la autorización manualmente para obtener una mayor flexibilidad de sus características. A continuación se muestran las dos principales opciones
+-	La topología de STS debe implementarse localmente, con la sobrecarga de administración y costo.
+-	Solo los administradores de AD FS pueden configurar las [relaciones de confianza para usuario autenticado y las reglas de notificaciones](http://technet.microsoft.com/library/dd807108.aspx), lo que puede limitar las opciones de desarrollador. Por otra parte, es posible administrar y personalizar [notificaciones](http://technet.microsoft.com/library/ee913571.aspx) por aplicación.
+-	El acceso a datos de AD locales requiere una solución independiente a través del firewall corporativo.
 
--	[Azure AD](web-sites-dotnet-lob-application-azure-ad.md): puede implementar la autenticación y la autorización para la aplicación web con Azure AD. Con Azure AD como proveedor de identidades tiene las siguientes características:
-	-	Admite protocolos de autenticación populares, como [OAuth 2.0](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/) y [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0). Para obtener una lista completa de los protocolos compatibles, consulte [Protocolos de autenticación de Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151124.aspx).
-	-	Puede usar un proveedor de identidades solo de Azure sin ninguna infraestructura local.
-	-	También puede configurar la sincronización de directorios con un AD local (administrado de forma local).
-	-	Azure AD con sincronización de directorios desde su dominio de AD local permite una experiencia de SSO sin problemas con la aplicación web cuando los usuarios de AD tienen acceso desde la intranet e Internet. Desde la intranet, los usuarios de AD pueden tener acceso automáticamente a la aplicación web a través de la autenticación integrada. Desde Internet, los usuarios de AD pueden iniciar sesión en la aplicación web con sus credenciales de Windows.
-	-	Proporciona SSO para [todas las aplicaciones compatibles con Azure AD](/marketplace/active-directory/), incluidas Azure, Office 365, Dynamics CRM Online, Microsoft Intune y miles de aplicaciones en la nube que no son de Microsoft. 
-	-	Azure AD delega la administración de aplicaciones de [usuarios de confianza](http://en.wikipedia.org/wiki/Relying_party) a los roles que son administradores, mientras que los administradores globales tienen que seguir configurando el acceso a los datos de directorios confidenciales de la aplicación.
-	-	Envía un conjunto de uso general de tipos de notificaciones para todas las aplicaciones de usuarios de confianza. Para conocer la lista de tipos de notificaciones, consulte [Tokens compatibles y tipos de notificaciones](http://msdn.microsoft.com/library/azure/dn195587.aspx). Las notificaciones no se pueden personalizar.
-	-	La [API gráfica de Azure AD](http://msdn.microsoft.com/library/azure/hh974476.aspx) permite el acceso a datos de directorios de la aplicación en Azure AD.
--	[Servicio de token seguro (STS) local, como AD FS](web-sites-dotnet-lob-application-adfs.md): puede implementar la autenticación y la autorización para la aplicación web con un STS local como AD FS. Con AD FS local dispone de las siguientes características:
-	-	La topología de AD FS debe implementarse localmente, con la sobrecarga de administración y coste.
-	-	Es la mejor opción cuando la directiva de la empresa requiere que los datos de AD se almacenen localmente.
-	-	Solo los administradores de AD FS pueden configurar las [confianzas de los usuarios confianza y las reglas de notificaciones](http://technet.microsoft.com/library/dd807108.aspx).
-	-	Puede administrar [notificaciones](http://technet.microsoft.com/library/ee913571.aspx) en una base por aplicación.
-	-	Debe tener una solución independiente para tener acceso a datos de AD locales a través del firewall corporativo.
-
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+Para ver cómo se escribe una aplicación de línea de negocio de Azure que se autentica con STS local, consulte [Creación de una aplicación de Azure de línea de negocio con autenticación de AD FS](web-sites-dotnet-lob-application-adfs.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->

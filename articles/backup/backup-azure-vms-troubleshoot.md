@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk;jimpark;"/>
 
 
@@ -56,7 +56,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 ## Restauración
 | Operación | Detalles del error | Solución alternativa |
 | -------- | -------- | -------|
-| Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio en la nube al que está intentando restaurar se configura con ReservedIP y las máquinas virtuales existentes del servicio en la nube se encuentran en estado detenido.<br>Puede comprobar que un servicio en la nube tiene IP reservada usando los siguientes cmdlets de powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube. <br>- Máquinas virtuales en la configuración del equilibrador de carga (internas y externas)<br>- Máquinas virtuales con varias direcciones IP reservadas<br>- Máquinas virtuales con varias NIC<br>Seleccione un nuevo servicio en la nube en la interfaz de usuario o vea [Consideraciones de restauración](./backup-azure-arm-restore-vms.md/#restoring-vms-with-special-network-configurations) para las máquinas virtuales con configuraciones de red especiales</ol> |
+| Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio en la nube al que está intentando restaurar se configura con ReservedIP y las máquinas virtuales existentes del servicio en la nube se encuentran en estado detenido.<br>Puede comprobar que un servicio en la nube tiene IP reservada usando los siguientes cmdlets de PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube. <br>- Máquinas virtuales en la configuración del equilibrador de carga (internas y externas)<br>- Máquinas virtuales con varias direcciones IP reservadas<br>- Máquinas virtuales con varias NIC<br>Seleccione un nuevo servicio en la nube en la interfaz de usuario o vea [Consideraciones de restauración](./backup-azure-arm-restore-vms.md/#restoring-vms-with-special-network-configurations) para las máquinas virtuales con configuraciones de red especiales</ol> |
 | Restauración | El nombre DNS seleccionado ya existe: especifique otro nombre DNS y vuelva a intentarlo. | El nombre DNS aquí hace referencia al nombre del servicio en la nube (normalmente terminados con .cloudapp.net). Debe ser único. Si se produce este error, deberá elegir otro nombre para la máquina virtual durante la restauración. <br><br> Tenga en cuenta que este error solo se muestra a los usuarios del portal de Azure. La operación de restauración a través de PowerShell se realizará correctamente porque solo restaura los discos y no crea la máquina virtual. El error aparecerá cuando el usuario crea explícitamente la máquina virtual después de la operación de restauración del disco. |
 | Restauración | La configuración de red virtual especificada no es correcta: especifique otra configuración de red virtual y vuelva a intentarlo. | None |
 | Restauración | El servicio en la nube especificado usa una dirección IP reservada, que no coincide con la configuración de la máquina virtual que se está restaurando: especifique otro servicio en la nube que no use la IP reservada o elija otro punto de recuperación desde el que restaurar. | None |
@@ -74,7 +74,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Creación de directiva | No se pudo crear la directiva: reduzca las opciones de retención para continuar con la configuración de directiva. | None |
 
 
-## Agente de máquina virtual de Azure
+## Agente de máquina virtual
 
 ### Configuración del agente de la máquina virtual
 Normalmente, el agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure. Sin embargo, las máquinas virtuales que se migran desde los centros de datos locales no tienen instalado el agente de la máquina virtual. Para dichas máquinas virtuales, el agente de la máquina virtual debe instalarse explícitamente. Lea más sobre cómo [instalar el agente de la máquina virtual en una máquina virtual existente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
@@ -97,7 +97,7 @@ Para las máquinas virtuales de Windows:
 
 Máquinas virtuales de Linux:
 
-- Siga las instrucciones proporcionadas en [Actualización del agente de VM de Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
+- Siga las instrucciones proporcionadas en [Actualización del agente de máquina virtual Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Validación de la instalación del agente de la máquina virtual
@@ -117,7 +117,7 @@ La copia de seguridad de máquina virtual se basa en la emisión de comandos de 
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
 3.  Estado de la máquina virtual notificado incorrectamente porque la máquina virtual está apagada en RDP. <br> Si ha apagado la máquina virtual en RDP, vuelva a comprobar en el portal que el estado de la máquina virtual se refleja correctamente. Si no es así, apague la máquina virtual en el portal mediante la opción 'Apagado' en el panel de la máquina virtual.
-4.  Si más de cuatro máquinas virtuales comparten el mismo servicio en la nube, configure varias directivas de copia de seguridad para organizar los tiempos de copia de seguridad, de modo que no más de cuatro copias de seguridad de máquina virtual se inicien al mismo tiempo. Intente distribuir las horas de inicio de la copia de seguridad con una hora de diferencia entre las directivas. 
+4.  Si más de cuatro máquinas virtuales comparten el mismo servicio en la nube, configure varias directivas de copia de seguridad para organizar los tiempos de copia de seguridad, de modo que no más de cuatro copias de seguridad de máquina virtual se inicien al mismo tiempo. Intente distribuir las horas de inicio de la copia de seguridad con una hora de diferencia entre las directivas.
 5.  La máquina virtual se ejecuta con un uso elevado de CPU o memoria.<br> Si está ejecutando la máquina virtual con un uso de CPU o memoria altos (más del 90 %), la tarea de instantáneas se pone en cola, se retrasa y el tiempo de espera se agotará finalmente. Pruebe la copia de seguridad a petición en esas situaciones.
 
 <br>
@@ -143,4 +143,4 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
 
 >[AZURE.NOTE] DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Vea más información sobre el [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

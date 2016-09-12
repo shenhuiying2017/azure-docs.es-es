@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migración de los datos
@@ -22,11 +22,11 @@ Se pueden mover datos de distintos orígenes a Almacenamiento de datos SQL con d
 En este artículo se describen en primer lugar los escenarios sencillos de migración de Copia de ADF, SSIS y bcp. Luego ahonda algo más en cómo se puede optimizar la migración.
 
 ## Copia de Factoría de datos de Azure (ADF)
-[Copia de ADF][] forma parte de [Data Factory de Azure][]. Puede usar Copia de ADF para exportar los datos a archivos planos que se encuentran en el almacenamiento local, a archivos planos remotos que se mantienen en el almacenamiento de blobs de Azure o directamente a Almacenamiento de datos SQL.
+[Copia de ADF][] forma parte de [Factoría de datos de Azure][]. Puede usar Copia de ADF para exportar los datos a archivos planos que se encuentran en el almacenamiento local, a archivos planos remotos que se mantienen en el almacenamiento de blobs de Azure o directamente a Almacenamiento de datos SQL.
 
-Si los datos comienzan en archivos planos, tendrá que transferirlos primero al almacenamiento de blobs de Azure antes de iniciar su carga en Almacenamiento de datos SQL. Una vez que se transfieren los datos al almacenamiento de blobs de Azure puede volver a usar [Copia de ADF][] para insertar los datos en Almacenamiento de datos SQL.
+Si los datos comienzan en archivos planos, tendrá que transferirlos primero a Azure Storage Blob antes de iniciar su carga en Almacenamiento de datos SQL. Una vez que se transfieren los datos al almacenamiento de blobs de Azure puede volver a usar [Copia de ADF][] para insertar los datos en Almacenamiento de datos SQL.
 
-PolyBase ofrece también una opción de muy alto rendimiento para cargar los datos. Sin embargo, eso significa tener que usar dos herramientas en lugar de una. Si necesita el mejor rendimiento, use PolyBase. Si lo que quiere es una experiencia de una sola herramienta (y los datos no son grandes), ADF es la respuesta.
+PolyBase ofrece también una opción de alto rendimiento para cargar los datos. Sin embargo, eso significa tener que usar dos herramientas en lugar de una. Si necesita el mejor rendimiento, use PolyBase. Si lo que quiere es una experiencia de una sola herramienta (y los datos no son grandes), ADF es la respuesta.
 
 > [AZURE.NOTE] PolyBase requiere que los archivos de datos estén en UTF-8. Se trata de la codificación predeterminada de la Copia de ADF, por lo que no es necesario cambiar nada. Esto es solo un aviso para que no cambie el comportamiento predeterminado de Copia de ADF.
 
@@ -72,10 +72,10 @@ Un proceso de migración de datos SQLDW puede dividirse eficazmente en tres paso
 2. Transferencia de datos en Azure
 3. Carga en la base de datos de destino SQLDW
 
-Cada paso puede optimizarse individualmente para crear un proceso de migración robusto, reiniciable y resistente que maximiza el rendimiento en cada paso.
+Cada paso puede optimizarse individualmente para crear un proceso de migración eficaz, reiniciable y resistente que maximiza el rendimiento en cada paso.
 
 ## Optimización de carga de datos
-Si miramos esto en orden inverso por un momento, la forma más rápida de cargar datos resulta ser a través de PolyBase. La optimización de un proceso de carga de PolyBase inserta requisitos previos en los pasos anteriores, por lo que conviene comprender esto por adelantado. Son las siguientes:
+Si miramos esto en orden inverso por un momento, la forma más rápida de cargar datos resulta ser a través de PolyBase. La optimización de un proceso de carga de PolyBase impone requisitos previos en los pasos anteriores, por lo que conviene comprender esto por adelantado. Son las siguientes:
 
 1. Codificación de archivos de datos
 2. Formato de archivos de datos
@@ -118,7 +118,7 @@ Las ventajas de usar [ExpressRoute][] son:
 ¿Le interesa? Para obtener más información y precios, visite la [documentación de ExpressRoute][].
 
 ### Servicio Importación/Exportación de Azure
-El Servicio Importación/Exportación de Azure es un proceso de transferencia de datos diseñado para transferencias de datos de gran tamaño (GB++) a masivas (TB++) en Azure. Implica escribir los datos en los discos y enviarlos a un centro de datos de Azure. El contenido del disco se cargará después automáticamente en blobs de almacenamiento de Azure.
+El Servicio Importación/Exportación de Azure es un proceso de transferencia de datos diseñado para transferencias de datos de gran tamaño (GB++) a masivas (TB++) en Azure. Implica escribir los datos en los discos y enviarlos a un centro de datos de Azure. El contenido del disco se cargará después automáticamente en Azure Storage Blob.
 
 A continuación, se ofrece una vista general del proceso de importación y exportación:
 
@@ -173,6 +173,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
+[Copia de ADF]: ../data-factory/data-factory-data-movement-activities.md
 [ejemplos de ADF]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
@@ -185,7 +186,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Data Factory de Azure]: http://azure.microsoft.com/services/data-factory/
+[Factoría de datos de Azure]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
@@ -194,4 +195,4 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

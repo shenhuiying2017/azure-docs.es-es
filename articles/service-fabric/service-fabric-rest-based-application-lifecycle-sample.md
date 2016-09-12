@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Ejemplo de ciclo de vida de aplicaciones basadas en REST
@@ -42,7 +42,7 @@ Este ejemplo realiza lo siguiente:
 
 En este caso se usa el [ejemplo WordCount](http://aka.ms/servicefabricsamples) (que se encuentra en los ejemplos de **Introducción**). La muestra de WordCount debe compilarse primero y luego se deben copiar dos paquetes de aplicaciones en el almacén de imágenes.
 
-|Carpeta|Descripción|
+|Carpeta|Description|
 |------|-----------|
 |WordCount|Aplicación de muestra de WordCount. El archivo **ApplicationManifest.xml** contiene **ApplicationTypeVersion="1.0.0"**.|
 |WordCountUpgrade|Aplicación de muestra de WordCount. El archivo ApplicationManifest.xml debe cambiarse a **ApplicationTypeVersion="1.1.0"** para permitir que se produzca la actualización de la aplicación.|
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

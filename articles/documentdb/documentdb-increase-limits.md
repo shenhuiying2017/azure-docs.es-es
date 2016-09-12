@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="08/25/2016"
 	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
@@ -35,15 +35,15 @@ La siguiente tabla muestra las cuotas de DocumentDB. Las cuotas que tienen un as
 ##<a id="RequestQuotaIncrease"></a> Solicitud de un ajuste de cuota
 En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
 
-1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** y, a continuación, en **Ayuda+Soporte técnico**.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Más servicios** y, a continuación, en **Ayuda+Soporte técnico**.
 
 	![Captura de pantalla del inicio de ayuda y soporte técnico](media/documentdb-increase-limits/helpsupport.png)
 
-2. En la hoja **Ayuda y soporte técnico**, haga clic en **Crear una solicitud de soporte técnico**.
+2. En la hoja **Ayuda y soporte técnico**, haga clic en **Nueva solicitud de soporte técnico**.
 
 	![Captura de pantalla de la creación de una incidencia de soporte técnico](media/documentdb-increase-limits/getsupport.png)
 
-3. En la hoja **Nueva solicitud de soporte**, haga clic en **Fundamentos**. A continuación, establezca el **Tipo de problema** en **Cuota**, **Suscripción** en la suscripción que hospeda su cuenta de DocumentDB, **Tipo de cuota** en **DocumentDB** y **Plan de soporte** en **Compatibilidad con cuotas - incluido**. Finalmente, haga clic en **Siguiente**.
+3. En la hoja **Nueva solicitud de soporte**, haga clic en **Fundamentos**. A continuación, establezca el **Tipo de problema** en **Cuota**, **Suscripción** en la suscripción que hospeda su cuenta de DocumentDB, **Tipo de cuota** en **DocumentDB** y **Plan de soporte** en **Compatibilidad con cuotas - incluido**. A continuación, haga clic en **Siguiente**.
 
 	![Captura de pantalla del tipo de solicitud de incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest1.png)
 
@@ -53,8 +53,6 @@ En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
 
 5. Por último, rellene la información de contacto en la hoja **Información de contacto** y haga clic en **Crear**.
 
-	![Captura de pantalla de selector de recursos de incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest3.png)
-
 Una vez creada la incidencia de soporte técnico, debería recibir el número de solicitud de soporte técnico por correo electrónico. También puede ver la solicitud de soporte técnico haciendo clic en **Administrar solicitudes de soporte técnico** en la hoja **Ayuda+Soporte técnico**.
 
 ![Captura de pantalla de la hoja de solicitudes de soporte técnico](media/documentdb-increase-limits/supportrequest4.png)
@@ -63,4 +61,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 ##<a name="NextSteps"></a> Pasos siguientes
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

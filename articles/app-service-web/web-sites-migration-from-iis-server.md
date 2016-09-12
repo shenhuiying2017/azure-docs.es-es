@@ -66,7 +66,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE] También puede hacer clic en **Descargar para instalación sin conexión** para descargar un archivo ZIP que se instala en servidores no conectados a Internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
+	>[AZURE.NOTE] También puede hacer clic en **Download for offline install** (Descargar para instalación sin conexión) para descargar un archivo ZIP que se instala en servidores sin conexión a internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
 
 5.	En la pantalla**Instalación de la aplicación**, haga clic en **Instalar** para instalar en el equipo. También instalará las dependencias correspondientes como Web Deploy, DacFX e IIS, si es necesario.
 
@@ -94,9 +94,9 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	Haga clic en **Iniciar migración** para comenzar la migración. Se le redirigirá ahora a Azure para iniciar sesión en su cuenta. Es importante que inicie una sesión con una cuenta que tenga una suscripción activa de Azure. Si no tiene una cuenta de Azure, puede registrarse [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_) para obtener una evaluación gratuita.
+12.	Haga clic en **Iniciar migración** para comenzar la migración. Se le redirigirá ahora a Azure para iniciar sesión en su cuenta. Es importante que inicie sesión con una cuenta que tenga una suscripción activa de Azure. Si no tiene una cuenta de Azure, puede registrarse [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_) para obtener una evaluación gratuita.
 
-13.	Seleccione la cuenta de inquilino, la suscripción de Azure y la región que se van a utilizar para las bases de datos y las aplicaciones web de Azure migradas y, a continuación, haga clic en **Iniciar migración**. Puede seleccionar los sitios web que se migrarán más tarde.
+13.	Seleccione la cuenta de inquilino, la suscripción de Azure y la región que se van a utilizar para las bases de datos y las aplicaciones web de Azure migradas y haga clic en **Start Migration** (Iniciar migración). Puede seleccionar los sitios web que se migrarán más tarde.
 
 	![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
 
@@ -135,4 +135,4 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

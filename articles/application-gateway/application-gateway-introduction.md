@@ -72,7 +72,7 @@ La puerta de enlace de aplicaciones de Azure supervisa el estado de las instanci
 
 ## Configuración y administración
 
-Puede crear y administrar una puerta de enlace de aplicaciones mediante las API de REST y mediante el uso de cmdlets de PowerShell.
+Puede crear y administrar una puerta de enlace de aplicaciones mediante las API de REST, cmdlets de PowerShell o el [Portal de Azure](https://portal.azure.com/).
 
 
 ## Pasos siguientes
@@ -81,4 +81,4 @@ Ahora que ya conoce cómo funciona Puerta de enlace de aplicaciones, puede [crea
 
 Para aprender a crear una puerta de enlace de aplicaciones mediante el enrutamiento de contenido basado en direcciones URL, vaya a [Creación de una puerta de enlace de aplicaciones mediante enrutamiento basado en direcciones URL](application-gateway-create-url-route-arm-ps.md) para obtener más información.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -526,7 +526,7 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
 
 	- **Concurrency** está establecida en **2** para que dos máquinas virtuales del grupo de Lote de Azure procesen dos segmentos en paralelo.
 	- Hay una actividad en la sección de actividades y es de tipo:**DotNetActivity**.
-	- **AssemblyName** se establece en el nombre del DLL: **MyActivities.dll**.
+	- **AssemblyName** se establece en el nombre del archivo DLL, **MyDotNetActivity.dll**.
 	- **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** se establece en **AzureStorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tiene que crear otro servicio vinculado a Almacenamiento de Azure. Este artículo se asume que usa la misma cuenta de Almacenamiento de Azure.
 	- **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
@@ -896,4 +896,4 @@ Muestra | Qué hace la actividad personalizada
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 #Creación de artefactos personalizados para la máquina virtual de DevTest Labs
@@ -44,7 +44,7 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 	  }
 	}
 
-| Nombre del elemento | ¿Necesario? | Descripción
+| Nombre del elemento | ¿Necesario? | Description
 | ------------ | --------- | -----------
 | $schema | No | Ubicación del archivo de esquema JSON que ayuda a probar la validez del archivo de definición.
 | título | Sí | Nombre del artefacto que se muestra en el laboratorio.
@@ -68,7 +68,7 @@ Defina parámetros con la estructura siguiente:
 	    }
 	  }
 
-| Nombre del elemento | ¿Necesario? | Descripción
+| Nombre del elemento | ¿Necesario? | Description
 | ------------ | --------- | -----------
 | type | Sí | Tipo del valor de parámetro. Vea la siguiente lista para conocer los tipos permitidos:
 | displayName Yes | Nombre del parámetro que se muestra a un usuario en el laboratorio.
@@ -120,12 +120,14 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 1. Agregue el repositorio de artefactos al laboratorio: consulte el artículo [Adición de un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Entradas blogs relacionadas
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Cómo solucionar errores de artefactos en Azure DevTest Labs)
-- [Join a VM to existing AD Domain using ARM template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unir una máquina virtual al dominio de AD existente mediante la plantilla ARM en Azure DevTest Labs)
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Cómo solucionar errores de artefactos en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure DevTest Labs (Unir una máquina virtual al dominio de AD existente mediante la plantilla ARM en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## Pasos siguientes
 
 - Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

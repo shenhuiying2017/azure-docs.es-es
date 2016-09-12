@@ -38,7 +38,7 @@ Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco d
 
 ## ¿Cómo puedo tener acceso a mi máquina virtual?
 
-Debe establecer una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](virtual-machines-windows-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.
+Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](virtual-machines-windows-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.
 
 
 Si tiene problemas con Escritorio remoto, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
@@ -47,13 +47,13 @@ Si está familiarizado con Hyper-V, puede que esté buscando una herramienta sim
 
 ## ¿Puedo usar el disco temporal (la unidad D: de forma predeterminada) para almacenar datos?
 
-No debe utilizar el disco temporal para almacenar datos. Solo proporciona almacenamiento de forma temporal, por lo que se arriesgaría a perder datos que no se pueden recuperar. Esto puede ocurrir cuando se mueve la máquina virtual a un host diferente. Cambiar el tamaño de una máquina virtual, actualizar el host o un error de hardware en el host son algunas de las razones por las que se puede mover una máquina virtual.
+No utilice el disco temporal para almacenar datos. Solo proporciona almacenamiento de forma temporal, por lo que se arriesgaría a perder datos que no se pueden recuperar. La pérdida de datos puede ocurrir cuando se mueve la máquina virtual a un host diferente. Cambiar el tamaño de una máquina virtual, actualizar el host o un error de hardware en el host son algunas de las razones por las que se puede mover una máquina virtual.
 
 Si tiene una aplicación que necesita usar la letra de unidad D:, puede reasignar las letras de unidad para que el disco temporal utilice otra distinta a D:. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## ¿Cómo puedo cambiar la letra de la unidad del disco temporal?
 
-Para cambiar la letra de la unidad, mueva el archivo de paginación y reasigne las letras de unidad; sin embargo, deberá asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
+Para cambiar la letra de la unidad, mueva el archivo de paginación y reasigne las letras de unidad; sin embargo, debe asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## ¿Puedo agregar una máquina virtual existente a un conjunto de disponibilidad?
 
@@ -83,4 +83,62 @@ Sí. Para crear rápidamente una máquina virtual Linux de prueba, consulte [Cre
 
 No. Solo se puede agregar una NIC en el momento de la creación.
 
-<!---HONumber=AcomDC_0817_2016-->
+## ¿Hay algún requisito de nombre de equipo?
+
+Sí. El nombre del equipo puede tener un máximo de 15 caracteres. Consulte [Directrices de nomenclatura de la infraestructura](virtual-machines-windows-infrastructure-naming-guidelines.md) para obtener más información sobre la nomenclatura de sus recursos.
+
+## ¿Cuáles son los requisitos de nombre de usuario cuando se crea una VM?
+
+Los nombres de usuario pueden tener un máximo de 20 caracteres y no pueden terminar con un punto (".").
+
+No se permiten los siguientes nombres de usuario:
+
+<table>
+	<tr>
+		<td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">john </td><td style="text-align:center"> owner </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+	</tr>
+</table>
+
+## ¿Cuáles son los requisitos de contraseña cuando se crea una VM?
+
+Las contraseñas deben tener entre 8 y 123 caracteres y deben cumplir 3 de estos 4 requisitos de complejidad:
+
+- Deben incluir caracteres en minúsculas.
+- Deben incluir caracteres en mayúsculas.
+- Deben incluir un dígito.
+- Deben incluir un carácter especial (REGEX.MATCH [\\W\_]).
+
+No se permiten las siguientes contraseñas:
+
+No se permiten las siguientes contraseñas
+<table>
+	<tr>
+		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+	</tr>
+</table>
+
+<!---HONumber=AcomDC_0831_2016-->

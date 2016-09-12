@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: inquilinos de B2C de escala de producción frente a de versión preliminar
@@ -47,7 +47,7 @@ Los inquilinos de la escala de producción son capaces de escalar a centenares d
 Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino ** aparezca **Preview tenant** (Inquilino de versión preliminar). En ese caso, al inquilino se DEBE usar solo para fines de prueba y desarrollo, NO para aplicaciones de producción.
 
 > [AZURE.IMPORTANT]
-No hay ninguna ruta de migración de un inquilino de B2C de versión preliminar a un inquilino de B2C de escala de producción.
+No hay ninguna ruta de migración de un inquilino de B2C de versión preliminar a un inquilino de B2C de escala de producción. Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio.
 
 ![Captura de pantalla de un inquilino de versión preliminar](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
 
@@ -55,8 +55,10 @@ No hay ninguna ruta de migración de un inquilino de B2C de versión preliminar 
 
 Azure AD B2C NO está disponible generalmente fuera de Norteamérica. Sin embargo, se pueden crear y usar inquilinos de escala de producción, con fines de desarrollo y pruebas, en cualquiera de los siguientes países o regiones: Alemania, Arabia Saudí, Argelia, Austria, Azerbaiyán, Bahréin, Bélgica, Bielorrusia, Bulgaria, Croacia, Chipre, Dinamarca, Egipto, Emiratos Árabes Unidos Eslovaquia, Eslovenia, España, Estonia, Finlandia, Francia, Grecia, Hungría, Irlanda, Islandia, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, Macedonia, Malta, Marruecos, Montenegro, Nigeria, Noruega , Omán, Países Bajos, Pakistán, Polonia, Portugal, Qatar, Reino Unido, República Checa, Rumanía, Rusia, Serbia, Sudáfrica, Suecia, Suiza, Túnez, Turquía y Ucrania.
 
+Una vez que Azure AD B2C anuncie su disponibilidad general en anteriores países o regiones, puede seguir usando estos inquilinos a escala de producción y publicando las aplicaciones de producción sin ninguna pérdida de datos.
+
 ## Disponibilidad de los inquilinos de B2C
 
 Actualmente, los inquilinos de B2C no están disponibles en los siguientes países o regiones: Afganistán, Argentina, Australia, Brasil, Chile, Colombia, Corea, Ecuador, Filipinas, India, Indonesia, Iraq, Japón, Malasia, Nueva Zelanda, Paraguay, Perú, RAE de Hong Kong, Singapur, Sri Lanka, Taiwán, Tailandia, Uruguay y Venezuela. No obstante, está previsto incluirlos en el futuro.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

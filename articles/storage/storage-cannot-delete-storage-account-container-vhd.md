@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Solución de problemas de eliminación de cuentas de Almacenamiento de Azure, contenedores o discos duros virtuales
@@ -50,7 +50,7 @@ Para resolver los problemas más comunes, pruebe el siguiente método:
 
 > [AZURE.WARNING] Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Esto también se aplica a los recursos de la cuenta: cuando se elimina un disco duro virtual, un blob, una tabla, una cola o un archivo, este se eliminará definitivamente. Asegúrese de que el recurso no está en uso.
 
-## Síntoma
+## Problemas comunes
 
 La sección siguiente muestra los errores comunes que puede recibir al intentar eliminar las cuentas de almacenamiento de Azure, los contenedores o los discos duros virtuales.
 
@@ -60,51 +60,52 @@ Cuando navegue hasta la cuenta de almacenamiento en el [Portal de Azure](https:/
 
 **En el Portal de Azure**:
 
-*No se pudo eliminar la cuenta de almacenamiento <vm-storage-account-name>. No se pudo eliminar la cuenta de almacenamiento <vm-storage-account-name>: 'La cuenta de almacenamiento <vm-storage-account-name> tiene imágenes o discos activos. Controle que se quiten las imágenes y los discos antes de eliminar esta cuenta de almacenamiento.'.*
+*Error al eliminar la cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm>. No se puede eliminar la cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm>: 'La cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm> tiene algunas imágenes o discos activos. Controle que se quiten las imágenes y los discos antes de eliminar esta cuenta de almacenamiento.'.*
 
 **En el Portal de Azure clásico**:
 
-La *cuenta de almacenamiento <vm-storage-account-name> tiene imágenes o discos activos, por ejemplo, xxxxxxxxx-xxxxxxxxx-O-209490240936090599. Controle que se quiten las imágenes y los discos antes de eliminar esta cuenta de almacenamiento.*
+*La cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm> tiene algunas imágenes o discos activos; por ejemplo, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Controle que se quiten las imágenes y los discos antes de eliminar esta cuenta de almacenamiento.*
 
 También puede ver este error:
 
 **En el Portal de Azure**:
 
-La *cuenta de almacenamiento <vm-storage-account-name> tiene contenedores de 1 que tienen una imagen activa y/o artefactos de disco. Compruebe que estos artefactos se quitan del repositorio de imágenes antes de eliminar esta cuenta de almacenamiento*.
+*La cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento> tiene 1 contenedor que tiene artefactos de imagen o disco activos. Compruebe que estos artefactos se quitan del repositorio de imágenes antes de eliminar esta cuenta de almacenamiento*.
 
 **En el Portal de Azure clásico**:
 
-La *cuenta de almacenamiento que no se pudo enviar <vm-storage-account-name> tiene contenedores de 1 que tienen una imagen activa y/o artefactos de disco. Compruebe que estos artefactos se quitan del repositorio de imágenes antes de eliminar esta cuenta de almacenamiento. Cuando se intenta eliminar una cuenta de almacenamiento y todavía hay discos activos asociados a ella, verá un mensaje que le indica que hay discos activos que deben eliminarse*.
+*Error en el envío. La cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm> tiene 1 contenedor que tiene artefactos de imagen o disco activos. Compruebe que estos artefactos se quitan del repositorio de imágenes antes de eliminar esta cuenta de almacenamiento. Cuando se intenta eliminar una cuenta de almacenamiento y todavía hay discos activos asociados a ella, verá un mensaje que le indica que hay discos activos que deben eliminarse*.
 
 ### Escenario 2: No se puede eliminar un contenedor
 
 Al intentar eliminar el contenedor de almacenamiento, podría ver el error siguiente:
 
-*No se pudo eliminar el contenedor de almacenamiento <container name>. Error: 'Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud*.
+*Error al eliminar el contenedor de almacenamiento <nombre de contenedor>. Error: 'Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud*.
 
 ### Escenario 3: No se puede eliminar un VHD
 
 Después de eliminar una VM e intentar eliminar después los blobs de los discos duros virtuales asociados, podría recibir el mensaje siguiente:
 
-*No se pudo eliminar el blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Error: 'Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.*
+*Error al eliminar el blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Error: 'Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.*
 
-## Más información
+## Acerca del estado Detenido (desasignado)
 
 Las VM que se crearon en el modelo de implementación clásica y que se han conservado tendrán el estado **Detenido (desasignado)** tanto en el [Portal de Azure](https://portal.azure.com/) como en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 **Portal de Azure clásico**:
 
-![Estado Detenido (desasignado) de VM en el Portal de Azure clásico.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
+![Estado Detenido (desasignado) de VM en el Portal de Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+
 
 **Portal de Azure**:
 
-![Estado Detenido (desasignado) de VM en el Portal de Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+![Estado Detenido (desasignado) de VM en el Portal de Azure clásico.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
 Un estado "Detenido (desasignado)" libera los recursos del equipo, como la CPU, la memoria y la red. Sin embargo, los discos se siguen conservando para que el usuario pueda volver a crear la VM si fuera necesario. Estos discos se crean encima de los discos duros virtuales que están respaldados por Almacenamiento de Azure. La cuenta de almacenamiento tiene estos discos duros virtuales y los discos tienen concesiones sobre esos discos duros virtuales.
 
-## Referencias
+## Pasos siguientes
 
 - [Eliminar una cuenta de almacenamiento](storage-create-storage-account.md#delete-a-storage-account)
 - [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Cómo interrumpir la concesión bloqueada de Almacenamiento de blobs en Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0831_2016-->

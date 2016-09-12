@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="08/31/2016"
 	ms.author="pratshar"/>
 
 # Protección de Active Directory y DNS con Azure Site Recovery
 
 Las aplicaciones empresariales, como SharePoint, Dynamics AX y SAP, dependen de la infraestructura de DNS y AD para funcionar correctamente. Cuando se crea una solución de recuperación ante desastres para aplicaciones, es importante recordar que tiene que proteger y recuperar Active Directory y DNS antes que los demás componentes de aplicación, para garantizar el correcto funcionamiento de todo cuando se produce un desastre.
 
-Site Recovery es un servicio de Azure que proporciona capacidades de recuperación ante desastres mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales. Site Recovery es compatible con toda una serie de escenarios de replicación para proteger de forma coherente, y conmutar por error sin problemas máquinas virtuales y aplicaciones en nubes públicas, privadas o de proveedor de servicios de hosting.
+Site Recovery es un servicio de Azure que proporciona funcionalidades de recuperación ante desastres mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales. Site Recovery es compatible con toda una serie de escenarios de replicación para proteger de forma coherente, y conmutar por error sin problemas máquinas virtuales y aplicaciones en nubes públicas, privadas o de proveedor de servicios de hosting.
 
 Con Site Recovery, puede crear un plan completo de recuperación ante desastres automatizada para Active Directory. En el momento en el que se produce una interrupción, puede iniciar la conmutación por error en segundos desde cualquier lugar y hacer que Active Directory vuelva a funcionar en unos minutos. Si ha implementado Active Directory para varias aplicaciones, como SAP y SharePoint en el sitio principal, y desea conmutar por error el sitio completo, puede conmutar por error Active Directive primero mediante Site Recovery y luego conmutar por error las demás aplicaciones con los planes de recuperación específicos de la aplicación.
 
@@ -34,7 +34,7 @@ Si tiene un pequeño número de aplicaciones y un solo controlador de dominio y 
 
 ### Opción 2
 
-Si tiene un gran número de aplicaciones y hay más de un controlador de dominio en el entorno, o si planea realizar una conmutación por error de pocas aplicaciones de cada vez, se recomienda que además de habilitar la replicación de la máquina virtual del controlador de dominio con Site Recovery configure un controlador de dominio adicional en el sitio de destino (Azure o un sitio secundario local).
+Si tiene un gran número de aplicaciones y hay más de un controlador de dominio en el entorno, o si planea realizar una conmutación por error de pocas aplicaciones cada vez, se recomienda que además de replicar la máquina virtual del controlador de dominio con Site Recovery configure también un controlador de dominio adicional en el sitio de destino (Azure o un sitio secundario local).
 
 >[AZURE.NOTE] Incluso si va a implementar la opción 2, para realizar una conmutación por error de prueba tendrá que replicar el controlador de dominio con Site Recovery. Para obtener más información, lea [Consideraciones sobre la conmutación por error de prueba](#considerations-for-test-failover).
 
@@ -66,7 +66,7 @@ Para la máquina virtual de controlador de dominio o DNS, configure los valores 
 
 ### Protección de sitio a sitio
 
-Cree un controlador de dominio en el sitio secundario y especifique el nombre del mismo dominio que se utiliza en el servidor principal del sitio cuando promueve el servidor a una función de controlador de dominio. Puede usar el complemento **Servicios y sitios de Active Directory** para configurar los valores en el objeto de vínculo del sitio al que se agregan los sitios. Al configurar los valores en un vínculo de sitio, puede controlar cuándo se produce la replicación entre dos o más sitios y con qué frecuencia se produce. Consulte [Programación de la replicación entre sitios](https://technet.microsoft.com/library/cc731862.aspx) para obtener más detalles.
+Cree un controlador de dominio en el sitio secundario y especifique el nombre del mismo dominio que se utiliza en el servidor principal del sitio cuando promueve el servidor a un rol de controlador de dominio. Puede usar el complemento **Servicios y sitios de Active Directory** para configurar los valores en el objeto de vínculo del sitio al que se agregan los sitios. Al configurar los valores en un vínculo de sitio, puede controlar cuándo se produce la replicación entre dos o más sitios y con qué frecuencia se produce. Consulte [Programación de la replicación entre sitios](https://technet.microsoft.com/library/cc731862.aspx) para obtener más detalles.
 
 ###Protección del sitio en Azure
 
@@ -88,9 +88,9 @@ La mayoría de las aplicaciones también requieren la presencia de un controlado
 
 >[AZURE.NOTE] La dirección IP que se asigna a una máquina virtual en una conmutación por error de prueba es el misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada, si la dirección IP está disponible en la red de conmutación por error de prueba. Si no lo está, la máquina virtual recibe una dirección IP diferente que esté disponible en la red de conmutación por error de prueba.
 
-4. En la máquina virtual de controlador de dominio pruebe la conmutación por error del mismo en la red aislada.
+4. En la máquina virtual de controlador de dominio pruebe la conmutación por error del mismo en la red aislada. Use el último punto de recuperación coherente de aplicación disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba.
 5. Ejecute una conmutación por error de prueba para un plan de recuperación de aplicación.
-6. Una vez finalizada la prueba, marque el trabajo de la conmutación por error de prueba de la máquina virtual del controlador de dominio y del plan de recuperación como "Completo" en la pestaña **Trabajos** del portal de Site Recovery.
+6. Cuando finalice la prueba, marque el trabajo de conmutación por error de prueba de la máquina virtual del controlador de dominio y del plan de recuperación como "Completo" en la pestaña **Trabajos** del portal de Site Recovery.
 
 ### DNS y controlador de dominio en equipos diferentes
 
@@ -121,4 +121,4 @@ Puede utilizar un servidor DNS nuevo y crear todas las zonas necesarias. Por eje
 
 Consulte [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../site-recovery/site-recovery-workload.md) para obtener más información sobre cómo proteger las cargas de trabajo empresariales con Azure Site Recovery.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

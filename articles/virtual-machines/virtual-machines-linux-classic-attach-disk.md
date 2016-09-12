@@ -81,14 +81,14 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
 5. Cuando se le solicite, escriba **p** para que la partición sea la partición principal. Escriba **1** para que sea la primera partición y, a continuación, escriba "enter" para aceptar el valor predeterminado para el cilindro. En algunos sistemas, puede mostrar los valores predeterminados del primer sector y el último sector, en lugar del cilindro. Puede aceptar estos valores predeterminados.
 
 
-	![Crear partición](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Crear partición](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Escriba **p** para ver los detalles del disco en el que se va a crear la partición.
 
 
-	![Enumerar la información del disco](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Enumerar la información del disco](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -152,9 +152,9 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Si el comando `mount` genera un error, compruebe la sintaxis correcta del archivo /etc/fstab. Si se crean particiones o unidades de datos adicionales, tiene que especificarlas también en /etc/fstab por separado.
+	Si el comando `mount` genera un error, compruebe la sintaxis correcta del archivo /etc/fstab. Si se crean particiones o unidades de datos adicionales, especifíquelas también en /etc/fstab por separado.
 
-	Debe hacer que se pueda escribir en unidad mediante este comando:
+	Haga se pueda escribir en la unidad mediante este comando:
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

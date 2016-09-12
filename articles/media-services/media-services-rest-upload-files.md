@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
+# Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
- 
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST](media-services-rest-upload-files.md)
+ - [Portal](media-services-portal-upload-files.md)
 
 En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Recurso](https://msdn.microsoft.com/library/azure/hh974277.aspx) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -458,7 +460,7 @@ Puede supervisar el progreso de las operaciones de ingesta en bloque para un Ing
 
 Si el activo va a usar cifrado, debe crear la ContentKey que se utilizará para el cifrado antes de crear los archivos de recurso. Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
  
-Propiedad del cuerpo de la solicitud | Descripción
+Propiedad del cuerpo de la solicitud | Description
 ---|---
 Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato nb:kid:UUID:<NUEVO GUID>.
 ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
@@ -529,4 +531,4 @@ ContentKey se asocia a uno o varios activos al enviar una solicitud HTTP POST. L
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

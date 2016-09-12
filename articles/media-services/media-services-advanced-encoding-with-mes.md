@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
@@ -33,9 +33,9 @@ Se muestran los valores preestablecidos personalizados que realizan las siguient
 - [Valores preestablecidos de solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenación de dos o más archivos de vídeo](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Recorte de vídeos con Codificador multimedia estándar](media-services-custom-mes-presets-with-dotnet.md#crop)
+- [Inserción de una pista de vídeo cuando la entrada cuando no tiene vídeo](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
-
-##<a id="encoding_with_dotnet"></a>Codificación con Servicios multimedia SDK para .NET
+##<a id="encoding_with_dotnet"></a>Codificación con el SDK .NET de Servicios multimedia
 
 En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios multimedia para realizar las siguientes tareas:
 
@@ -240,7 +240,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 ##Compatibilidad con tamaños relativos
 
-Si se generan miniaturas fuera de él, no será preciso especificar siempre la anchura y altura, en píxeles, de la salida. Se pueden en forma porcentual, en el intervalo [1 %,..., 100 %].
+Si se generan miniaturas de él, no será preciso especificar siempre la anchura y altura, en píxeles, de la salida. Se pueden en forma porcentual, en el intervalo [1 %,..., 100 %].
 
 ###Valor preestablecido JSON 
 	
@@ -447,9 +447,9 @@ Se aplican las siguientes consideraciones:
 - El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
 - Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
 
-	- Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
-	- Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", O
-	- Marca de tiempo si se expresan como formato HH:MM:SS… P. ej. "Start" : "00:01:00"
+	- Número de marco si son enteros no negativos, por ejemplo, Start: 120
+	- Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start: 15
+	- Marca de tiempo si se expresan como formato HH:MM:SS, por ejemplo, "Start" : "00:01:00"
 
 	Puede mezclar y hacer coincidir notaciones a su conveniencia.
 	
@@ -458,11 +458,11 @@ Se aplican las siguientes consideraciones:
 	- Valores predeterminados: Start:{Best}
 - Es necesario proporcionar explícitamente el formato de salida para cada formato de imagen: Jpg, Png o BmpFormat. Cuando está presente, MES hará coincidir JpgVideo con JpgFormat y así sucesivamente. OutputFormat presenta una nueva macro específica de códec de imagen: {Index}, que debe estar presente (una vez y sólo una vez) para formatos de salida de imagen.
 
-##<a id="trim_video"></a>Recorte de vídeos
+##<a id="trim_video"></a>Recorte de un vídeo
 
 En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o archiva desde una transmisión en directo; puede consultar los detalles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources**, tal y como se muestra a continuación. El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que **Sources** debe incluirse al comienzo del valor preestablecido.
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources**, tal y como se muestra a continuación. El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. **Sources** debe incluirse al comienzo del valor preestablecido.
  
 ###<a id="json"></a>Valor preestablecido JSON
 	
@@ -861,7 +861,7 @@ En el ejemplo anterior de .NET, se definen dos funciones: **UploadMediaFilesFrom
 
 ##<a id="silent_audio"></a>Inserción de una pista de audio silenciosa cuando la entrada no tiene audio
 
-De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el activo de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario.
+De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el recurso de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario.
 
 Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".
 
@@ -885,7 +885,7 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan [a
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Deshabilitación del desentrelazado automático
+##<a id="deinterlacing"></a>Deshabilitar el entrelazado automático
 
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
@@ -968,7 +968,7 @@ Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AA
 
 ##<a id="concatenate"></a>Concatenación de dos o más archivos de vídeo
 
-En el ejemplo siguiente se muestra cómo generar un valor preestablecido para concatenar dos o más archivos de vídeo. El escenario más frecuente es cuando desea agregar un encabezado o un finalizador al vídeo principal. El uso previsto es cuando los archivos de vídeo que se están editando juntos comparten las mismas propiedades (resolución de vídeo, velocidad de fotogramas, número de pistas de audio, etc.). Procure no para combinar vídeos de distintas velocidades de fotogramas o con un número diferente de pistas de audio.
+En el ejemplo siguiente se muestra cómo generar un valor preestablecido para concatenar dos o más archivos de vídeo. El escenario más frecuente es cuando desea agregar un encabezado o un finalizador al vídeo principal. El uso previsto es cuando los archivos de vídeo que se están editando juntos comparten propiedades (resolución de vídeo, velocidad de fotogramas, número de pistas de audio, etc.). Procure no para combinar vídeos de distintas velocidades de fotogramas o con un número diferente de pistas de audio.
 
 ###Requisitos y consideraciones
 
@@ -1077,7 +1077,59 @@ Actualice el valor preestablecido personalizado con los identificadores de los r
 
 ##<a id="crop"></a>Recorte de vídeos con Codificador multimedia estándar
 
-Consulte el tema [Crop videos with Media Encoder Standard](media-services-crop-video.md) (Recorte de vídeos con Codificador multimedia estándar).
+Consulte el tema [Recorte de vídeos con Codificador multimedia estándar](media-services-crop-video.md).
+
+##<a id="no_video"></a>Inserción de una pista de vídeo cuando la entrada cuando no tiene vídeo
+
+De forma predeterminada, si envía una entrada al codificador que solo contenga audio, y no vídeo, el recurso de salida contendrá archivos que solo contienen datos de audio. Algunos reproductores, incluidos el Reproductor multimedia de Azure (consulte [esta página](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) no pueden controlar estas secuencias. Puede usar este ajuste para forzar al codificador a agregar una pista de vídeo monocromática a la salida en ese escenario.
+
+>[AZURE.NOTE]Al forzar que el codificador inserte una pista de vídeo de salida se aumenta el tamaño del recurso de salida, y, por tanto, el costo por la tarea de codificación. Debe ejecutar pruebas para comprobar que el aumento resultante solo tenga solo un leve impacto en los cargos mensuales.
+
+### Inserción de vídeo solo con la velocidad de bits mínima
+
+Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática solo con la velocidad de bits mínima, en lugar de hacerlo con cada velocidad de bits de salida. Para ello, debe especificar la marca InsertBlackIfNoVideoBottomLayerOnly.
+
+Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar los cambios siguientes:
+
+#### Valor preestablecido JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Valor preestablecido XML
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Inserción de vídeo con todas las velocidades de bits de salida
+
+Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática con todas las velocidades de bits de salida. Esto garantiza que los recursos de salida sean homogéneos con respecto al número de pistas de vídeo y de audio. Para ello, debe especificar la marca InsertBlackIfNoVideo.
+
+Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar los cambios siguientes:
+
+#### Valor preestablecido JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Valor preestablecido XML
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -1091,4 +1143,4 @@ Consulte el tema [Crop videos with Media Encoder Standard](media-services-crop-v
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

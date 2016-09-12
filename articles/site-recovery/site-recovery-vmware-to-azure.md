@@ -139,10 +139,14 @@ Para preparar la implementación deberá:
 - [Más información](../vpn-gateway/vpn-gateway-site-to-site-create.md) sobre los modelos de implementación compatibles para conexiones VPN de sitio a sitio y sobre la [configuración de una conexión](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Como alternativa, puede configurar [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Más información](../expressroute/expressroute-howto-vnet-portal-classic.md) sobre cómo configurar una red de Azure con ExpressRoute.
 
+> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+
 ### Configuración de una cuenta de almacenamiento de Azure
 
 - Necesitará una cuenta de almacenamiento estándar o premium para almacenar los datos replicados en Azure. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Según el modelo de recursos que desee usar para las máquinas virtuales de Azure que sean objeto de una conmutación por error, configurará una cuenta en [modo ARM](../storage/storage-create-storage-account.md) o en [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
 - Si utiliza una cuenta premium para los datos replicados, necesita crear una cuenta de almacenamiento estándar adicional para almacenar los registros de replicación que capturan los cambios continuos de los datos locales.
+
+> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ### Preparación de una cuenta de detección automática
 
@@ -549,10 +553,10 @@ Los instaladores están disponibles en el servidor de procesos de **C:\\Archivos
 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
-Windows Server 64 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
+Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
 #### Instalar manualmente en un servidor Windows
@@ -859,4 +863,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

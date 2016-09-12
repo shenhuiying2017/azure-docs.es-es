@@ -53,9 +53,9 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		info:    network route-table create command OK
 
 	Parámetros:
-	- **-g (or --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
-	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
-	- **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
+	- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el UDR. En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará el UDR nuevo. En este escenario, *TestRG*.
+	- **-n (or --name)**. Nombre del UDR nuevo. En este escenario, *UDR-FrontEnd*.
 
 4. Ejecute el comando **`azure network route-table route create`** para crear una ruta en la tabla de rutas creada anteriormente para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la VM **FW1** (192.168.0.4).
 
@@ -199,4 +199,4 @@ Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

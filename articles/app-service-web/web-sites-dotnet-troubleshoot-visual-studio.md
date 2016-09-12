@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rachelap"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
@@ -51,7 +51,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
 1. Si todavía no ha iniciado sesión en Azure en Visual Studio, haga clic en el botón **Conectar a Azure** en el **Explorador de servidores**.
 
-	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón secundario en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
+	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón derecho en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Manage Azure Subscriptions** (Administrar suscripciones de Azure), haga clic en la pestaña **Certificados** y en **Importar**. Siga las instrucciones para descargar y luego importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 
 	> [AZURE.NOTE]
 	Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
@@ -112,7 +112,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -126,7 +126,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\HomeController.cs*.
+1. Abra *Controllers\\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -221,7 +221,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 6. En el explorador, actualice la página de índice y vea la miniatura.
 
-6. En Visual Studio, presione MAYÚS + F5 para detener la depuración.
+6. En Visual Studio, presione MAYÚS+F5 para detener la depuración.
 
 7. En el **Explorador de servidores**, haga clic en el nodo ContosoAdsWebJob y haga clic en **Ver panel**.
 
@@ -229,7 +229,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 	![Clic en ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-	El panel muestra que la función GenerateThumbnail se ha ejecutado recientemente.
+	El panel muestra la función GenerateThumbnail ejecutada recientemente.
 
 	(La próxima vez que haga clic en **Ver panel**, no tendrá que iniciar sesión y el explorador irá directamente a la página de su WebJob).
 
@@ -241,7 +241,7 @@ Si la función [escribió registros](websites-dotnet-webjobs-sdk-storage-queues-
 
 ## Notas acerca de la depuración remota
 
-* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impedirá que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes posteriores del explorador se dirijan a esa instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
+* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impedirá que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes del explorador siguientes se dirijan a esa instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
 
 * Evite detenciones prolongadas en los puntos de interrupción durante la depuración remota. Azure considera un proceso detenido durante más de unos minutos como un proceso sin respuesta y lo apaga.
 
@@ -570,7 +570,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 8. En la pestaña **Registros** de la ventana **Aplicación web de Azure** en Visual Studio, haga clic en **Actualizar** en **Resumen de diagnóstico**.
 
-	![Hacer clic en Actualizar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+	![Haga clic en Actualizar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
 	De manera predeterminada, la sección **Resumen de diagnóstico** muestra registros de los últimos 15 minutos. Puede cambiar el período para ver más registros.
 
@@ -733,4 +733,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

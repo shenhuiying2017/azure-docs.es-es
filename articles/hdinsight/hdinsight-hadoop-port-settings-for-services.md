@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/14/2016"
+ms.date="08/30/2016"
 ms.author="larryfr"/>
 
 # Puertos e identificadores URI usados en HDInsight
@@ -34,7 +34,7 @@ Para unir equipos adicionales a la red virtual, debe crear primero la red virtua
 
 Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de Azure y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
-| Servicio | Port | Protocolo | Descripción |
+| Servicio | Port | Protocol | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
 | sshd | 22 | SSH | Conecta los clientes a sshd en el nodo principal 0. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
 | sshd | 22 | SSH | Conecta los clientes a sshd en el nodo de borde (solo HDInsight Premium). Consulte [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md). |
@@ -47,7 +47,7 @@ Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de 
 
 Las siguientes opciones están disponibles para determinados tipos de clúster:
 
-| Servicio | Port | Protocolo |Tipo de clúster | Descripción |
+| Servicio | Port | Protocol |Tipo de clúster | Description |
 | ------------ | ---- |  ----------- | --- | ----------- |
 | Stargate | 443 | HTTPS | HBase | API de REST de HBase. Consulte [Introducción al uso de HBase](hdinsight-hbase-tutorial-get-started-linux.md). |
 | Livy | 443 | HTTPS | Spark | API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](hdinsight-apache-spark-livy-rest-interface.md). |
@@ -64,9 +64,11 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ## Puertos no públicos
 
+> [AZURE.NOTE] Algunos servicios solo están disponibles en determinados tipos de clúster. Por ejemplo, HBase solo está disponible en los tipos de clúster de HBase.
+
 ### Puertos HDFS
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- | 
 | Interfaz de usuario web de NameNode | Nodos principales | 30070 | HTTPS | Interfaz de usuario web para ver el estado actual |
 | Servicio de metadatos de NameNode | nodos principales | 8020 | IPC | Metadatos del sistema de archivos 
@@ -74,9 +76,10 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 | DataNode | Todos los nodos de trabajo | 30010 | &nbsp; | Transferencia de datos |
 | DataNode | Todos los nodos de trabajo | 30020 | IPC | Operaciones de metadatos |
 | NameNode secundario | Nodos principales | 50090 | HTTP | Punto de control para metadatos de NameNode |
+
 ### Puertos de YARN
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Interfaz de usuario web de Resource Manager | Nodos principales | 8088 | HTTP | Interfaz de usuario web para Resource Manager |
 | Interfaz de usuario web de Resource Manager | Nodos principales | 8090 | HTTPS | Interfaz de usuario web para Resource Manager |
@@ -90,7 +93,7 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ### Puertos de Hive
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | HiveServer2 | Nodos principales | 10001 | Thrift | Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
 | HiveServer | Nodos principales | 10000 | Thrift | Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
@@ -98,13 +101,13 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ### Puertos de WebHCat
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Servidor de WebHCat | Nodos principales | 30111 | HTTP | Web API encima de HCatalog y otros servicios de Hadoop |
 
 ### Puertos de MapReduce
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Historial de trabajos | Nodos principales | 19888 | HTTP | Interfaz de usuario web del historial de trabajos de MapReduce |
 | Historial de trabajos | Nodos principales | 10020 | &nbsp; | Servidor de historial de trabajos de MapReduce |
@@ -112,25 +115,32 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ### Oozie
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Servidor de Oozie | Nodos principales | 11000 | HTTP | Dirección URL del servicio de Oozie |
 | Servidor de Oozie | Nodos principales | 11001 | HTTP | Puerto de administración de Oozie |
 
 ### Métricas de Ambari
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Escala de tiempo (historial de aplicaciones) | Nodos principales | 6188 | HTTP | La interfaz de usuario web del servicio de escala de tiempo |
 | Escala de tiempo (historial de aplicaciones) | Nodos principales | 30200 | RPC | La interfaz de usuario web del servicio de escala de tiempo |
 
 ### Puertos de HBase
 
-| Servicio | Nodo(s) | Port | Protocolo | Descripción |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | HMaster | Nodos principales | 16000 | &nbsp; | &nbsp; |
 | Interfaz de usuario web de información de HMaster | Nodos principales | 16010 | HTTP | El puerto de la interfaz de usuario web de HBase Master |
 | Servidor de región | Todos los nodos de trabajo | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
-<!---HONumber=AcomDC_0713_2016-->
+### Puertos Kafka
+
+| Servicio | Nodo(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| Agente | Nodos de trabajo | 9092 | [Protocolo de conexión de Kafka](http://kafka.apache.org/protocol.html) | Se utiliza para la comunicación del cliente |
+| &nbsp; | Nodos Zookeeper | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
+
+<!---HONumber=AcomDC_0831_2016-->
