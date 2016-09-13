@@ -41,7 +41,7 @@ Para más detalles, haga clic en el indicador de excepciones de CodeLens:
 * Elija **Ir al código** para navegar el código fuente de la función que genera la excepción.
 * Elija **Buscar** para consultar todas las instancias de esta excepción que se han producido en las últimas 24 horas.
 * Elija **Tendencia** para ver la tendencia de las repeticiones de esta excepción en las últimas 24 horas.
-* Elija **Ver todas las excepciones en esta aplicación ** para consultar todas las excepciones que se han producido en las últimas 24 horas.
+* Elija **Ver todas las excepciones en esta aplicación** para consultar todas las excepciones que se han producido en las últimas 24 horas.
 * Elija **Explorar tendencias de excepción** para ver la tendencia de todas las excepciones que se han producido en las últimas 24 horas.
 
 > [AZURE.TIP] Si ve "0 excepciones" en CodeLens, pero sabe que debería haber excepciones, asegúrese de que está seleccionado el recurso de Application Insights correcto en CodeLens. Para seleccionar otro recurso, haga clic con el botón derecho en el proyecto en el Explorador de soluciones y elija **Application Insights > Elegir origen de telemetría**. CodeLens solo se muestra para las 15 excepciones que se producen con mayor frecuencia en la aplicación en las últimas 24 horas, por lo que si una excepción está en el lugar 16º, o más allá, "0 excepciones". Las excepciones de las vistas de ASP.NET puede que no aparezcan en los métodos de controlador que generaron dichas vistas.

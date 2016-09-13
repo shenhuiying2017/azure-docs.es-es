@@ -170,7 +170,7 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-mobile-value-prop/
+  [Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
   [plantillas]: notification-hubs-templates-cross-platform-push-messages.md
   [Portal de Azure]: https://portal.azure.com
   [etiquetas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

@@ -114,7 +114,7 @@ En la hoja **Explorador de datos** de la cuenta de Data Lake Store, haga clic en
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Después, en la hoja **Acceso**, haga clic en **Vista simple ** para usar la vista más simple.
+Después, en la hoja **Acceso**, haga clic en **Vista simple** para usar la vista más simple.
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 

@@ -230,7 +230,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 		                regID = hub.register(FCM_token).getRegistrationId();
 		
 		                // If you want to use tags...
-		                // Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 		
 		                resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -249,7 +249,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 		                regID = hub.register(FCM_token).getRegistrationId();
 		
 		                // If you want to use tags...
-		                // Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 		
 		                resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -454,7 +454,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 
 ##Envío de notificaciones push
 
-Para probar la recepción de notificaciones push en la aplicación, envíelas a través del [Portal de Azure] (busque la sección **Solución del problemas** en la hoja del centro, como se muestra a continuación).
+Para probar la recepción de notificaciones push en la aplicación, envíelas a través del [Portal de Azure] \(busque la sección **Solución del problemas** en la hoja del centro, como se muestra a continuación).
 
 ![Centros de notificaciones de Azure: envío de prueba](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
@@ -648,7 +648,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	

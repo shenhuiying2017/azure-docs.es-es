@@ -85,7 +85,7 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
             }
 	    }
 	}
-    ```
+    ````
 
 	**EventProcessorHost** llamará a esta clase para procesar los eventos recibidos del Centro de eventos. Tenga en cuenta que la clase `SimpleEventProcessor` usa un cronómetro para llamar periódicamente al método de punto de control en el contexto **EventProcessorHost**. Esto garantiza que, si se reinicia el destinatario, no perderá más de cinco minutos de trabajo de procesamiento.
 
