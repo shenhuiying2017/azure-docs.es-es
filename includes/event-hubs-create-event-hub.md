@@ -1,30 +1,59 @@
 ## Creación de un Centro de eventos
 
-1. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [portal de Azure][] y, luego, haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
 
-2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de eventos** y, finalmente, en **Creación rápida**.
+2. Haga clic en **Datos y análisis** y, a continuación, en **Centros de eventos**.
+
+	![][9]
+
+3. En la hoja **Crear espacio de nombres**, especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 
 	![][1]
 
-3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos**.
+4. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, un grupo de recursos y la ubicación en la que se va a crear el recurso.
+
+2. Haga clic en **Crear** para crear el espacio de nombres.
+
+6. En la lista de espacios de nombres de los Centros de eventos, haga clic en el espacio de nombres recién creado.
 
 	![][2]
 
-4. Si no seleccionó explícitamente un espacio de nombres existente de una región determinada, el portal crea un espacio de nombres (normalmente ***nombre del centro de eventos*-ns**). Haga clic en dicho espacio de nombres (en este ejemplo, **eventhub-ns**).
+7. En la hoja del espacio de nombres, haga clic en **Centros de eventos**.
 
 	![][3]
 
-5. En la parte inferior de la página, haga clic en **Información de conexión**. Haga clic en el botón Copiar (se muestra en la figura siguiente) para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión para usarla más adelante en el tutorial.
+8. En la parte superior de la hoja, haga clic en **Agregar Centro de eventos**.
 
 	![][4]
+
+3. Escriba el nombre del Centro de eventos y, a continuación, haga clic en **Crear**.
+
+	![][5]
+
+4. En la lista de Centros de eventos, haga clic en el nombre del Centro de eventos recién creado.
+
+	![][6]
+
+5. En la hoja del espacio de nombres (no en la hoja del Centro de eventos específico), haga clic en **Directivas de acceso compartido** y, luego, en **RootManageSharedAccessKey**.
+
+	![][7]
+
+5. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión para usarla más adelante en el tutorial.
+
+	![][8]
 
 Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
+[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
+[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
+[7]: ./media/event-hubs-create-event-hub/create-event-hub7.png
+[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
+[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
-[Portal de Azure clásico]: https://manage.windowsazure.com/
+[portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

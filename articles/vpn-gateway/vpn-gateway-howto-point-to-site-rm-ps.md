@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuración de una conexión VPN de punto a sitio a una red virtual mediante el modelo de implementación de Resource Manager | Microsoft Azure"
-   description="Conéctese de forma segura a la Red virtual de Azure mediante la creación de una conexión VPN de punto a sitio."
+   pageTitle="Configuración de una conexión de puerta de enlace de VPN de punto a sitio a una red virtual mediante el modelo de implementación de Resource Manager | Microsoft Azure"
+   description="Conéctese de forma segura a su instancia de Azure Virtual Network mediante la creación de una conexión de puerta de enlace de VPN de punto a sitio."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -65,7 +65,7 @@ Se usarán los siguientes valores para esta configuración. Las variables se con
 
 - Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [beneficios como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Instale los cmdlets de PowerShell de Azure Resource Manager (1.0.2 o posterior). Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+- Instale los cmdlets de PowerShell de Azure Resource Manager (1.0.2 o posterior). Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Cuando trabaje con PowerShell para esta configuración, asegúrese de que está ejecutando como administrador.
 
 ## <a name="declare"></a>Parte 1: Inicio de sesión y establecimiento de variables
 
@@ -176,15 +176,24 @@ Los clientes que se conectan a Azure mediante una conexión de punto a sitio deb
 
 	![Cliente de VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Cliente de VPN")
 
-## <a name="cc"></a>Parte 6: Instalación del certificado de cliente
-	
-Genere e instale los certificados de cliente (*.pfx) que se creen a partir del certificado raíz en los equipos cliente. Puede utilizar cualquier método de instalación que le resulte cómodo.
+## <a name="cc"></a>Parte 6: Generación de un certificado de cliente
 
-Si va a utilizar un certificado raíz autofirmado y no sabe cómo generar un certificado de cliente, puede consultar [este artículo](vpn-gateway-certificates-point-to-site.md). Si trabaja con una solución de empresa, asegúrese de que emite certificados de cliente con el formato de valor de nombre común "nombre@suDominio.com", en lugar del formato "NetBIOS nombreDeDominio\\nombreDeUsuario".
+A continuación, genere los certificados de cliente. Puede generar un certificado único para cada cliente que se vaya a conectar o puede usar el mismo en varios clientes. La ventaja de generar certificados de cliente únicos es la capacidad de revocar un solo certificado si es necesario. De lo contrario, si todos usan el mismo certificado de cliente y descubre que necesita revocar el certificado para un cliente, tendrá que generar e instalar nuevos certificados para todos los clientes que usen el certificado para autenticarse.
 
-Puede instalar un certificado de cliente directamente en un equipo haciendo doble clic en el archivo .pfx.
+- Si usa una solución de certificado de empresa, genere un certificado de cliente con el formato de valor de nombre común "nombre@suDominio.com", en lugar del formato NetBIOS "DOMINIO\\nombreDeUsuario'".
 
-## Parte 7: Conexión a Azure
+- Si va a usar un certificado autofirmado, consulte [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md) para generar un certificado de cliente.
+
+## Parte 7: Instalación del certificado de cliente
+
+Instale un certificado de cliente en cada equipo que desee conectar a la red virtual. Se necesita un certificado de cliente para la autenticación. Puede automatizar la instalación del certificado de cliente o instalarlo manualmente. En los pasos siguientes aprenderá a exportar e instalar el certificado de cliente de forma manual.
+
+1. Para exportar un certificado de cliente, puede usar *certmgr.msc*. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**.
+2. Exporte el certificado de cliente con la clave privada. Es un archivo *.pfx*. Asegúrese de anotar o recordar la contraseña (clave) que establezca para este certificado.
+3. Copie el archivo *.pfx* en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Escriba la contraseña cuando se le solicite. No modifique la ubicación de instalación.
+
+
+## Parte 8: Conexión a Azure
 
 1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Si esto ocurre, haga clic en **Continuar** para usar privilegios elevados.
 
@@ -196,7 +205,7 @@ Puede instalar un certificado de cliente directamente en un equipo haciendo dobl
 
 	![Cliente de VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Conexión de cliente de VPN 2")
 
-## Parte 8: Comprobación de la conexión
+## Parte 9: Comprobación de la conexión
 
 1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
 
@@ -302,4 +311,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

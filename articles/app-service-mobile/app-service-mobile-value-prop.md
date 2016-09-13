@@ -44,7 +44,7 @@ Las siguientes características son importantes para el desarrollo móvil habili
 
 - **Notificaciones push**: nuestros SDK de cliente se integran perfectamente con las funcionalidades de registro de los Centros de notificaciones de Azure, lo que le permite enviar notificaciones push a millones de usuarios simultáneamente.
 
-  Descubra más acerca de nuestras [características de notificaciones push].
+  Más información acerca de las [características de notificaciones push].
 
 - **SDK de cliente**: proporcionamos un completo conjunto de SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin para iOS y Android], [Xamarin Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
 
@@ -86,7 +86,7 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [características de autenticación]: ./app-service-mobile-auth.md
 [características de datos]: ./app-service-mobile-offline-data-sync.md
-[características de notificaciones push]: ../notification-hubs/notification-hubs-overview.md
+[características de notificaciones push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -100,6 +100,6 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [redes virtuales]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
-[mapa de aprendizaje]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizaje]: https://azure.microsoft.com/es-ES/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

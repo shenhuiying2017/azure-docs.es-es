@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 
-Después de haber implementado la aplicación web en cualquier host, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Application Insights de Visual Studio](app-insights-overview.md) envía solicitudes web a intervalos regulares desde puntos de todo el mundo y puede alertarle si la aplicación responde lentamente o no responde en absoluto.
+Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Application Insights de Visual Studio](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
 
 ![Ejemplo de prueba web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que 
 
 Existen dos tipos de prueba web:
 
-* [Prueba de ping de la dirección URL](#set-up-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
+* [Prueba de ping de la dirección URL](#create): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Ultimate o Visual Studio Enterprise y se carga en el portal.
 
 Puede crear hasta 10 pruebas web por recurso de aplicación.
 
+## <a name="create"></a>1. Creación de un recurso para los informes de prueba
 
-## Configuración de una prueba de ping de la dirección URL
-
-### <a name="create"></a>1. ¿Crear un nuevo recurso?
-
-Omita este paso si ya ha [configurado un inicio de recurso de Application Insights][start] para esta aplicación y desea ver los datos de disponibilidad en el mismo lugar.
+Omita este paso si ya ha [configurado un recurso de Application Insights][start] para esta aplicación y desea ver los informes de disponibilidad en el mismo lugar.
 
 Suscríbase a [Microsoft Azure](http://azure.com), vaya al [Portal de Azure](https://portal.azure.com) y cree un recurso de Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Se abrirá la hoja Información general para el nuevo recurso. Para encontrar esta opción en cualquier momento en el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
+Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
-### <a name="setup"></a>2. Crear una prueba web
+## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
 
 En el recurso de Application Insights, busque el icono de disponibilidad. Haga clic para abrir la hoja de pruebas web para la aplicación y agregue una prueba web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **La dirección URL** debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
-- **Analizar solicitudes dependientes**: imágenes, scripts, archivos de estilo y otros recursos de la página se solicitan como parte de la prueba. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera.
+- **Analizar solicitudes dependientes**: las imágenes, scripts, archivos de estilo y otros recursos de la página se solicitan como parte de la prueba; el tiempo de respuesta registrado incluye estos tiempos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera.
 - **Habilitar reintentos**: cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. (Se recomienda esta configuración. Como media, cerca del 80 % de los errores desaparecen al reintentar).
 - **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
 - Las **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. Elija más de una de tal forma que pueda distinguir los problemas del sitio web a partir de los problemas de red. Puede seleccionar hasta 16 ubicaciones.
@@ -68,14 +65,14 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
     Puede configurar un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades).
 
-#### Prueba de más URL
+### Prueba de más URL
 
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
 
-### <a name="monitor"></a>3. Ver informes de disponibilidad
+## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
 
-Después de uno o dos minutos, haga clic en **Actualizar** en la hoja de pruebas de disponibilidad o web. (No se actualiza automáticamente).
+Después de 1 o 2 minutos, los resultados aparecen en
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Haga clic en cualquier barra del gráfico de resumen para obtener una vista más
 
 Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
 
-#### Componentes de la página web
 
-Como parte de la prueba, se solicitan imágenes, hojas de estilo, scripts y otros componentes estáticos de la página web que está probando.
-
-El tiempo de respuesta registrado es el tiempo necesario para que se complete la carga de todos los componentes.
-
-Si no se puede cargar alguno de los componentes, la prueba se marca con errores.
-
-## <a name="failures"></a>Si ve errores...
+## <a name="failures"></a>Si ve errores
 
 Haga clic en un punto rojo.
 
@@ -333,4 +323,4 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -714,7 +714,7 @@ Compruebe, además, que ha agregado la cuenta de Google al emulador en ejecució
 
 Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
 
-Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora].
+Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de Notification Hubs para enviar noticias de última hora].
 
 Para más información sobre los Centros de notificaciones, consulte [Centros de notificaciones de Azure].
 
@@ -728,8 +728,8 @@ Para más información sobre los Centros de notificaciones, consulte [Centros de
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Centros de notificaciones de Azure]: notification-hubs-push-notification-overview.md
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

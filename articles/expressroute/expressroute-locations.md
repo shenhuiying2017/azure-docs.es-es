@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -31,7 +31,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 |---|---|---|
 |**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
-|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
+|**Europa**|Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
 |**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokyo|
 |**Australia**|Este de Australia y Sudeste de Australia|Melbourne, Sidney|
@@ -83,7 +83,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
 | **NTT Communications** | Compatible | Compatible | Londres, Los Ángeles, Osaka, Tokio |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Sidney y Washington DC |
 | **PCCW Global Limited** | Compatible | Compatible | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | Compatible | Singapur |
 | **Softbank** | Compatible | Compatible | Osaka, Tokyo | 
@@ -171,4 +171,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Servicios de federación de Active Directory en Azure | Microsoft Azure"
 	description="En este documento aprenderá cómo implementar AD FS en Azure para alta disponibilidad."
-    keywords="introducción a AD FS, Azure, información general de Azure AD Connect, AD FS en Azure, iaas, ADFS"
+    keywords="implementar AD FS en azure, implementar azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs en azure, implementar adfs en azure, implementar AD FS en azure, adfs azure, introducción a AD FS, Azure, AD FS en Azure, iaas, ADFS, mover adfs a azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -302,5 +302,6 @@ Cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación s
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

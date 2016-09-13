@@ -22,7 +22,7 @@
 
 ##Información general
 
-> [AZURE.IMPORTANT] En este tema se muestran las notificaciones push con el Servicio de mensajería en la nube de Google (GCM). Si utiliza el Servicio de mensajería en la nube Firebase (FCM) de Google, consulte [Envío de notificaciones push a Android con los Centros de notificaciones de Azure](notification-hubs-android-push-notification-google-fcm-get-started.md).
+> [AZURE.IMPORTANT] En este tema se muestran las notificaciones push con el servicio Google Cloud Messaging (GCM). Si utiliza el Servicio de mensajería en la nube Firebase (FCM) de Google, consulte [Envío de notificaciones push a Android con los Centros de notificaciones de Azure](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 Este tutorial muestra cómo puede usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de Android. Creará una aplicación de Android en blanco que reciba notificaciones push mediante el servicio de mensajería en la nube de Google (GCM).
 
@@ -687,7 +687,7 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 
 Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
 
-Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora].
+Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de Notification Hubs para enviar noticias de última hora].
 
 Para más información sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
 
@@ -722,8 +722,8 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

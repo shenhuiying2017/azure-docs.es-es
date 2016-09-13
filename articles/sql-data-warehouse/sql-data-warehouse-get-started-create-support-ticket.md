@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL
  
@@ -38,11 +38,11 @@ Si tiene algún problema con su instancia de Almacenamiento de datos SQL, cree u
 
     ![Tipo de solicitud](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una **Cuota de DTU** de 45.000. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota creando una incidencia de soporte técnico y seleccionando *Cuota* como el tipo de solicitud. Para calcular sus necesidades de DTU, tiene que saber que cada 100 [DWU][] de Almacenamiento de datos SQL consume 750 DTU. Por lo tanto, la cuota predeterminada de 45.000 le permitirá crear hasta un valor DW6000 (45.000 / 750) o varias bases de datos más pequeñas con menos DWU. Si, por ejemplo, desea hospedar dos DW6000s en un servidor SQL, debe solicitar una cuota DTU de 90.000. Puede ver el consumo de DTU actual en la hoja del servidor SQL en el portal. El recuento de las bases de datos, tanto en pausa como continuo, hacia la cuota de DTU.
+    >[AZURE.NOTE]  De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una **Cuota de DTU** de 45.000. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota creando una incidencia de soporte técnico y seleccionando *Cuota* como el tipo de solicitud. Para calcular las necesidades de DTU, multiplique 7,5 por el total de [DWU][] necesario. Por ejemplo, desea hospedar dos DW6000s en un servidor SQL, así que debe solicitar una cuota de DTU de 90 000. Puede ver el consumo de DTU actual en la hoja del servidor SQL en el portal. El recuento de las bases de datos, tanto en pausa como continuo, hacia la cuota de DTU.
 
-5. Seleccione la **Suscripción** que hospeda la base de datos con el problema sobre el que desea informar.
+5. Seleccione la **suscripción** que hospeda la base de datos con el problema que va a notificar.
 
-    ![La suscripción](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
+    ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
 6. Seleccione **Almacenamiento de datos SQL** como Recurso.
 
@@ -50,7 +50,7 @@ Si tiene algún problema con su instancia de Almacenamiento de datos SQL, cree u
 
 7. Seleccione su [Plan de soporte técnico de Azure][].
 
-    - En todos los niveles de soporte técnico se proporciona asistencia para problemas relacionados con la ** facturación, las cuotas y la administración de suscripciones**.
+    - En todos los niveles de soporte técnico, se proporciona asistencia para problemas relacionados con la **facturación, las cuotas y la administración de suscripciones**.
     - El soporte técnico para problemas de tipo **break-fix** se proporciona a través de los niveles [Developer][], [Standard][], [Professional Direct][] o [Premier][]. Los problemas "break-fix" son aquellos que experimentan los clientes mientras usan Azure en los que hay una posibilidad razonable de que hayan sido causados por Microsoft.
     - El **aprendizaje para desarrolladores** y los **servicios de asesoramiento** están disponibles en los niveles de soporte técnico [Professional Direct][] y [Premier][].
     
@@ -103,4 +103,4 @@ Además, puede conectar con la comunidad de Almacenamiento de datos SQL en [Stac
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [foro de MSDN de Almacenamiento de datos SQL de Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

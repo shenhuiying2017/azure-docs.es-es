@@ -26,7 +26,7 @@ Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas
 
 ## Configuración de directivas de seguridad para las suscripciones
 
-Las directivas de seguridad se pueden configurar para cada suscripción o grupo de recursos. Para modificar una directiva de seguridad, debe ser propietario o colaborador de la suscripción. Acceda al Portal de Azure y siga los pasos descritos anteriormente para configurar directivas de seguridad en Security Center:
+Las directivas de seguridad se pueden configurar para cada suscripción o grupo de recursos. Para modificar una directiva de seguridad, debe ser propietario o colaborador de la suscripción. Acceda al portal de Azure y siga estos pasos para configurar directivas de seguridad en Security Center:
 
 1. Haga clic en el icono **Directiva** en el panel de Security Center.
 
@@ -106,4 +106,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

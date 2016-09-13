@@ -12,34 +12,34 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Utilice los pasos siguientes en el Portal de Azure para crear una nueva Base de datos SQL de Azure en un servidor lógico de Base de datos SQL de Azure nuevo o en uno ya existente.
 
-1. Si no está conectado, conéctese al [Portal de Azure](http://portal.azure.com).
-2. Haga clic en **Nuevo**, escriba **Base de datos SQL** y haga clic en **Base de datos SQL (nueva base de datos)**.
+1. Si no está conectado, conéctese al [portal de Azure](http://portal.azure.com).
+2. Haga clic en **Nuevo**, escriba **SQL Database** y haga clic en **SQL Database (nueva base de datos)**.
 
      ![Nueva base de datos](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Haga clic en Base de datos SQL (nueva base de datos).
+3. Haga clic en **SQL Database (nueva base de datos)**.
 
      ![Nueva base de datos](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-   
-4. Haga clic en **Crear** para crear una nueva base de datos en el servicio de Base de datos SQL.
+
+4. Haga clic en **Crear** para crear una nueva base de datos en el servicio SQL Database.
 
      ![Nueva base de datos](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
 5. Proporcione los valores para las propiedades de servidor siguientes:
 
  - Nombre de la base de datos
- - Suscripción (solo si tiene varias suscripciones)
- - Grupo de recursos (si está empezando, utilice el grupo de recursos del servidor lógico)
- - Seleccione el origen (puede elegir una base de datos vacía, los datos de ejemplo o una copia de seguridad de una base de datos de Azure. Para migrar una base de datos de SQL Server local o cargar datos mediante BCP, consulte los vínculos al final de este artículo)
- - Servidor (un servidor lógico nuevo o uno ya existente)
- - Contraseña del administrador del servidor.
+ - Suscripción: solo es aplicable si tiene varias suscripciones.
+ - Grupo de recursos: si está empezando, use el grupo de recursos del servidor lógico.
+ - Seleccionar origen: puede elegir una base de datos en blanco, datos de ejemplo o una copia de seguridad de una base de datos de Azure. Para migrar una base de datos de SQL Server local o cargar datos mediante la herramienta de línea de comandos BCP, consulte los vínculos al final de este artículo.
+ - Servidor: un servidor lógico nuevo o uno ya existente.
+ - Inicio de sesión de administrador de servidor
  - Password
- - Plan de tarifa (si está empezando, utilice el valor predeterminado S0)
- - Intercalación (solo si se ha elegido una base de datos en blanco)
+ - Plan de tarifa: si está empezando, use el valor predeterminado S0.
+ - Intercalación: solo es aplicable si se ha elegido una base de datos en blanco.
 
-        ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Haga clic en **Crear** y podrá ver en el área de notificación que la implementación se ha iniciado.
+6.  Haga clic en **Crear**. En el área de notificación, verá que la implementación se ha iniciado.
 
      ![Nueva base de datos](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
@@ -47,4 +47,4 @@ Utilice los pasos siguientes en el Portal de Azure para crear una nueva Base de 
 
      ![Nueva base de datos](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->
