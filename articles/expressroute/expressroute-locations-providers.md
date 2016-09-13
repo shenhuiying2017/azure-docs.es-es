@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -31,7 +31,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 |---|---|---|
 |**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
-|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
+|**Europa**|Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
 |**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokyo|
 |**Australia**|Este de Australia y Sudeste de Australia|Melbourne, Sidney|
@@ -80,7 +80,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Seattle** | Equinix, Level 3 Communications y Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon y Zayo Group |
 | **Singapur** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications y Verizon |
-| **Sidney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Telstra Corporation y Verizon |
+| **Sidney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet iniciativa Japón Inc. - IIJ, NTT comunicaciones, Softbank y Verizon |
 | **Toronto** | Cologix, Equinix y Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon y Zayo Group |
@@ -156,4 +156,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

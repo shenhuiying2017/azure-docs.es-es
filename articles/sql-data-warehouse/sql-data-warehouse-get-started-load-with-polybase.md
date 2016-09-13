@@ -3,7 +3,7 @@
    description="Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Carga de datos con PolyBase en Almacenamiento de datos SQL
@@ -34,7 +34,7 @@ Este tutorial muestra cómo cargar datos en Almacenamiento de datos SQL mediante
 
 ## Requisitos previos
 
-Para seguir paso a paso este tutorial, necesita:
+Para seguir paso a paso este tutorial, necesita
 
 - Una base de datos de Almacenamiento de datos SQL.
 - Una cuenta de almacenamiento de Azure del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar (RAGRS estándar).
@@ -285,4 +285,4 @@ Para más información que debe conocer cuando desarrolle una solución que use 
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

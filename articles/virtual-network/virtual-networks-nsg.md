@@ -40,10 +40,10 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 |---|---|---|---|
 |**Name**|Nombre de la regla|Debe ser único dentro de la región.<br/>Puede contener letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe comenzar con una letra o un número.<br/>Debe terminar con una letra, un número o un carácter de subrayado.<br/>Puede tener hasta 80 caracteres.|Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar la función de cada una.|
 |**Protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *.|El uso de * como protocolo incluye ICMP (solo tráfico este oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias. <br/>Al mismo tiempo, el uso de * podría ser un enfoque demasiado amplio, así que asegúrese de usarlo solamente cuando sea realmente necesario.|
-|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 100-2.000) o * (para todos los puertos).|Intente usar intervalos de puertos tanto como sea posible para evitar la necesidad de varias reglas.|
-|**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 100-2.000) o * (para todos los puertos).|Intente usar intervalos de puertos tanto como sea posible para evitar la necesidad de varias reglas.|
-|**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere el uso de intervalos, etiquetas y * para reducir el número de reglas.|
-|**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere el uso de intervalos, etiquetas y * para reducir el número de reglas.|
+|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa cliente use un puerto concreto, utilice "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma
+|**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65535) o * (para todos los puertos).|Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma
+|**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
+|**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
 |**Dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|Las reglas de entrada y salida se procesan por separado, en función de la dirección.|
 |**Prioridad**|Las reglas se comprueban en orden de prioridad; una vez que se aplica una regla, no se prueba la coincidencia de más reglas.|Número entre 100 y 4096.|Considere la posibilidad de crear prioridades de salto de reglas por 100 para cada regla, para dejar que las nuevas reglas se interpongan entre las existentes.|
 |**Access**|Tipo de acceso que se debe aplicar si coincide con la regla|permitir o denegar|Tenga en cuenta que si no se encuentra una regla de permiso para un paquete, el paquete se descarta.|
@@ -124,13 +124,13 @@ Puede implementar los NSG en el modelo clásico o en los modelos de implementaci
 
 |Herramienta de implementación|Clásico|Resource Manager|
 |---|---|---|
-|Portal clásico|![No][red]|![No][red]|
-|Portal de Azure|![Sí][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Sí][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Sí][green]|[](virtual-networks-create-nsg-arm-ps.md)![Sí][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Sí][green]|[](virtual-networks-create-nsg-arm-cli.md)![Sí][green]|
-|Plantilla ARM|![No][red]|[](virtual-networks-create-nsg-arm-template.md)![Sí][green]|
+|Portal clásico|![No](./media/virtual-network-nsg-overview/red.png)|![No](./media/virtual-network-nsg-overview/red.png)|
+|Portal de Azure|![Sí](./media/virtual-network-nsg-overview/green.png)|[![Sí][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Sí][green]](virtual-networks-create-nsg-classic-ps.md)|[![Sí][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Sí][green]](virtual-networks-create-nsg-classic-cli.md)|[![Sí][green]](virtual-networks-create-nsg-arm-cli.md)|
+|Plantilla ARM|![No](./media/virtual-network-nsg-overview/red.png)|[![Sí][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Clave**|![Sí][green] Se admite. Haga clic para leer el artículo.|![No][red] No se admite.|
+|**Clave**|![Sí](./media/virtual-network-nsg-overview/green.png) Se admite.|![No](./media/virtual-network-nsg-overview/red.png) No se admite.|
 |---|---|---|
 
 ## Planificación
@@ -260,7 +260,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocol|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|*|*|3389|TCP|
+|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Grupo de seguridad de red para las NIC de acceso a la base de datos en el back-end
 
@@ -268,7 +268,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocol|
 |---|---|---|---|---|---|---|---|
-|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|*|*|1433|TCP|
+|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Puesto que algunos de los grupos de seguridad de red mencionados anteriormente deben estar asociados a NIC individuales, este escenario se deberá implementar como una implementación del Administrador de recursos. Observe cómo se combinan las reglas para el nivel de subred y NIC, según cómo deban aplicarse.
 
@@ -282,4 +282,4 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

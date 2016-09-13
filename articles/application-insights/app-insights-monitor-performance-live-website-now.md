@@ -283,11 +283,7 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 * [Agregue telemetría de cliente web][usage] para ver las excepciones de código de la página web y para que le permitan insertar llamadas de seguimiento.
 * [Agregue el SDK de Application Insights SDK al código del servicio web][greenbrown] para que pueda insertar llamadas de seguimiento y registro en el código del servidor.
 
-## Vídeo
 
-#### Supervisión del rendimiento
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -300,4 +296,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

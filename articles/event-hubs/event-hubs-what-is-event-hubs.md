@@ -30,8 +30,6 @@ Centros de eventos es un servicio de procesamiento de eventos que ofrece procesa
 
 Otras funcionalidades de Centros de eventos incluyen el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o telemetría recopilados de máquinas industriales o vehículos conectados.
 
-A diferencia de [Temas y colas de Bus de servicio](../service-bus/service-bus-messaging-overview.md), los Centros de eventos se centran en ofrecer control de flujo de mensajes a escala. Las funcionalidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio, por ejemplo, en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. Como resultado, los Centros de eventos no implementan algunas de las funcionalidades de mensajería que están disponibles para los [temas](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si necesita esas funcionalidades, los temas siguen siendo la opción óptima.
-
 ## Pasos siguientes
 
 Para obtener información detallada acerca de los Centros de eventos, consulte los temas siguientes.
@@ -45,4 +43,4 @@ Para obtener información detallada acerca de los Centros de eventos, consulte l
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

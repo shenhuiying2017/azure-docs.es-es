@@ -5,7 +5,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
@@ -28,12 +28,9 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 - [CLI de Azure](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 Aprenderá a descargar y modificar una plantilla de Azure Resource Manager desde GitHub, así como a implementarla desde GitHub, PowerShell y la CLI de Azure.
 
 Si simplemente va a implementar la plantilla de Administrador de recursos de Azure directamente desde GitHub sin realizar ningún cambio, vaya a la sección sobre la implementación una plantilla desde GitHub.
-
 
 ## Escenario
 
@@ -46,11 +43,7 @@ En este escenario:
 
 >[AZURE.NOTE] Esos son los parámetros para esta plantilla. Para personalizar la plantilla, puede cambiar las reglas, el agente de escucha y la SSL que abre azuredeploy.json.
 
-
-
 ![Escenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
-
-
 
 ## Descarga e información sobre la plantilla del Administrador de recursos de Azure
 
@@ -89,29 +82,29 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 10. Abra el archivo que guardó y edite los valores de los parámetros. Use los siguientes valores para implementar la puerta de enlace de aplicaciones que se describe en nuestro escenario.
 
 		{
-		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		{
-    	"location" : {
-        "value" : "West US"
-    	},
-    	"addressPrefix": {
-        "value": "10.0.0.0/16"
-    	},
-    	"subnetPrefix": {
-        "value": "10.0.0.0/24"
-    	},
-    	"skuName": {
-        "value": "Standard_Small"
-    	},
-    	"capacity": {
-        "value": 2
-    	},
-    	"backendIpAddress1": {
-        "value": "10.0.1.10"
-    	},
-    	"backendIpAddress2": {
-        "value": "10.0.1.11"
-    	}
+		"location" : {
+		"value" : "West US"
+		},
+		"addressPrefix": {
+		"value": "10.0.0.0/16"
+		},
+		"subnetPrefix": {
+		"value": "10.0.0.0/24"
+		},
+		"skuName": {
+		"value": "Standard_Small"
+		},
+		"capacity": {
+		"value": 2
+		},
+		"backendIpAddress1": {
+		"value": "10.0.1.10"
+		},
+		"backendIpAddress2": {
+		"value": "10.0.1.11"
+		}
 		}
 
 11. Guarde el archivo . Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](http://www.jslint.com/).
@@ -123,8 +116,6 @@ Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configur
 ### Paso 1
 
 	Login-AzureRmAccount
-
-
 
 ### Paso 2
 
@@ -145,47 +136,14 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 ### Paso 4
 
 
-Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, crea un grupo de recursos nuevo denominado AppgatewayRG en la ubicación East US.
+Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, se crea un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-
-		ResourceGroupName : AppgatewayRG
-		Location          : eastus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-	                 Actions  NotActions
-	                 =======  ==========
-	                  *
-
-		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
 
 	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-
-La salida generada por la línea de comandos es la siguiente:
-
-	DeploymentName    : testappgatewaydeployment
-	ResourceGroupName : appgatewayRG
-	ProvisioningState : Succeeded
-	Timestamp         : 9/19/2015 1:49:41 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-				Name             Type                       Value
-				===============  =========================  ==========
-				location         String                     East US
-				addressPrefix    String                     10.0.0.0/16
-				subnetPrefix     String                     10.0.0.0/24
-				skuName          String                     Standard_Small
-				capacity         Int                        2
-				backendIpAddress1  String                     10.0.1.10
-				backendIpAddress2  String                     10.0.1.11
-
-	Outputs           :
-
 
 ## Implementación de la plantilla del Administrador de recursos de Azure mediante la CLI de Azure
 
@@ -220,44 +178,13 @@ Ejecute el cmdlet **azure group deployment create** para implementar la nueva re
 
 	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-Este es el resultado esperado del comando anterior:
-
-	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "TestAppgatewayDeployment"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : TestAppgatewayDeployment
-	data:    ResourceGroupName  : appgatewayRG
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-	data:    Mode               : Incremental
-	data:    Name               Type    Value
-	data:    -----------------  ------  --------------
-	data:    location           String  East US
-	data:    addressPrefix      String  10.0.0.0/16
-	data:    subnetPrefix       String  10.0.0.0/24
-	data:    skuName            String  Standard_Small
-	data:    capacity           Int     2
-	data:    backendIpAddress1  String  10.0.1.10
-	data:    backendIpAddress2  String  10.0.1.11
-	info:    group deployment create command OK
-
-**-g (o --resource-group)**. Nombre del grupo de recursos en que se crea la nueva red virtual.
-
-**-f (o --template-file)**. Ruta de acceso al archivo de plantilla del Administrador de recursos de Azure.
-
-**-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros del Administrador de recursos de Azure.
-
 ## Implementación de la plantilla del Administrador de recursos de Azure mediante el método de hacer clic para implementar
 
 Clic para implementar es otra forma de usar las plantillas del Administrador de recursos de Azure. Se trata de una manera fácil de usar plantillas con el Portal de Azure.
 
-
 ### Paso 1
-Vaya a [Create an Application Gateway with Public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) (Creación de una puerta de enlace de aplicaciones con IP pública).
 
+Vaya a [Create an Application Gateway with Public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) (Creación de una puerta de enlace de aplicaciones con IP pública).
 
 ### Paso 2
 
@@ -279,8 +206,6 @@ Seleccione **Términos legales** y haga clic en **Comprar**.
 
 En la hoja Implementación personalizada, haga clic en **Crear**.
 
-
-
 ## Pasos siguientes
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
@@ -292,4 +217,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

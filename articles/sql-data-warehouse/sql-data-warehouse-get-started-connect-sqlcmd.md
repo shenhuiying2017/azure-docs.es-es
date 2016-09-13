@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
 
@@ -24,7 +24,7 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este tutorial usa la utilidad de línea de comandos [sqlcmd][] para consultar un Almacenamiento de datos SQL de Azure.
+En este tutorial se usa la utilidad de línea de comandos [sqlcmd][] para consultar una instancia de Azure SQL Data Warehouse.
 
 ## 1\. Conectar
 
@@ -32,9 +32,12 @@ Para empezar a trabajar con [sqlcmd][], abra el símbolo del sistema y escriba *
 
 + **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
 + **Base de datos (-d):** nombre de la base de datos.
++ **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de SQL Data Warehouse.
+
+Para utilizar la autenticación de SQL Server, debe agregar los parámetros de nombre de usuario y contraseña:
+
 + **Usuario (-U):** usuario de servidor con el formato `<`usuario`>`
 + **Contraseña (-P):** la contraseña asociada con el usuario.
-+ **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de Almacenamiento de datos SQL.
 
 Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 
@@ -42,7 +45,17 @@ Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] El parámetro opcional -I, que habilita identificadores entre comillas, es actualmente obligatorio para conectarse al Almacenamiento de datos SQL.
+Para usar la autenticación integrada de Azure Active Directory, debe agregar los parámetros de Azure Active Directory:
+
++ **Autenticación de Azure Active Directory (-G):** use Azure Active Directory para la autenticación.
+
+Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Necesita [habilitar la autenticación de Azure Active Directory](sql-data-warehouse-authentication.md) para autenticarse con Active Directory.
 
 ## 2\. Consultar
 
@@ -79,4 +92,4 @@ Consulte [documentación de sqlcmd][sqlcmd] para más información sobre las opc
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

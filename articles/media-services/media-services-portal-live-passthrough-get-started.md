@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/30/2016" 
+	ms.date="09/05/2016" 
 	ms.author="juliako"/>
 
 
 #Realización de streaming en vivo con codificadores locales mediante el Portal de Azure
 
-Este tutorial le guiará por los pasos para usar el Portal de Azure para crear un **Canal** que esté configurado para una entrega de paso a través.
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Este tutorial le guiará por los pasos para usar el Portal de Azure para crear un **Canal** que esté configurado para una entrega de paso a través.
 
 ##Requisitos previos
 
@@ -73,12 +77,13 @@ Si desea ver las notificaciones y los errores generados por el Portal de Azure, 
 
 ##Configurar extremos de streaming 
 
-Servicios multimedia proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits adaptable en los siguientes formatos de streaming: MPEG DASH, HLS, Smooth Streaming o HDS sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Media Services proporciona empaquetado dinámico que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS, Smooth Streaming o HDS sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Media Services creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
 Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el punto de conexión de streaming desde el que va a entregar el contenido.
 
 Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 1. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**.
 
 2. Haga clic en el punto de conexión de streaming predeterminado.
@@ -87,7 +92,7 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
 
 3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming**.
 
-	![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Unidades de streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Haga clic en el botón **Guardar** para guardar los cambios.
 
@@ -99,7 +104,7 @@ Un canal está asociado a eventos y programas que le permiten controlar la publi
 	
 Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la duración de **Ventana de archivo**. Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. La duración de la ventana de archivo también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los eventos pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
 
-Cada evento está asociado a un recurso. Para publicar el evento, debe crear un localizador a petición para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
+Cada evento está asociado a un recurso. Para publicar el evento, debe crear un localizador a petición para el recurso asociado. Contar con este localizador le permite crear una dirección URL de streaming que puede proporcionar a sus clientes.
 
 Un canal es compatible con hasta tres eventos en ejecución simultánea, por lo que puede crear varios archivos de la misma transmisión entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
 
@@ -130,11 +135,15 @@ Para más información sobre los canales de este tipo, consulte [Streaming en vi
 	Aparece la ventana **CREAR UN NUEVO CANAL**.
 4. Asigne un nombre al nuevo canal y haga clic en **Crear**.
 
-	Con ello, se creará un canal de paso a través con el protocolo de introducción RTMP.
+	Con ello, se crea un canal de paso a través con el protocolo de introducción RTMP.
 
-	El canal también agrega, inicia y publica un evento o programa en directo predeterminado. Este evento está configurado para tener 8 horas de ventana de archivo.
+##Creación de eventos
 
-	Para agregar más eventos, pulse el botón **Evento en directo**.
+1. Seleccione el canal al que desea agregar un evento.
+2. Pulse el botón **Evento en directo**.
+
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Obtención de direcciones URL de introducción
 
@@ -142,19 +151,19 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 ![Creado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Visualización de un evento
+##Visualización del evento
 
 Para ver el evento, haga clic en **Inspección** en el Portal de Azure o copie la dirección URL de streaming y use el reproductor que prefiera.
  
 ![Creado](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-El evento en directo se convertirá automáticamente en contenido a petición cuando se detenga.
+El evento en directo se convierte automáticamente en contenido a petición cuando se detiene.
 
 ##Limpieza
 
 Para más información sobre los canales de este tipo, consulte [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
-- Un canal se puede detener solo cuando se hayan detenido todos los eventos o programas del canal. Cuando se detiene el canal, no se incurrirá en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
+- Un canal se puede detener solo cuando se hayan detenido todos los eventos o programas del canal. Cuando se detiene el canal, no se incurre en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
 - Un canal se puede eliminar solo cuando se hayan eliminado todos los eventos en directo del canal.
 
 ##Visualización del contenido archivado
@@ -165,7 +174,9 @@ Para administrar los recursos seleccione **Configuración** y haga clic en **Rec
 
 ![Recursos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -173,4 +184,4 @@ Para administrar los recursos seleccione **Configuración** y haga clic en **Rec
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
