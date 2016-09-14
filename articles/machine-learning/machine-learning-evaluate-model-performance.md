@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -22,7 +22,7 @@
 En este tema se muestra cómo evaluar el rendimiento de un modelo en el Estudio de aprendizaje automático de Azure y se proporciona una breve explicación de las métricas disponibles para esta tarea. Se presentan tres escenarios comunes de aprendizaje supervisado:
 
 * regresión
-* clasificación binaria 
+* clasificación binaria
 * clasificación multiclase
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -189,4 +189,4 @@ Ilustración 13. Resultados de una validación cruzada de un modelo de clasifica
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

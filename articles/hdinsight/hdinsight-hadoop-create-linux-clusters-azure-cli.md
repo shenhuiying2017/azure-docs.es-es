@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="08/30/2016"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -40,7 +40,7 @@ Los pasos de este documento recorren el proceso de creación de un nuevo clúste
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Iniciar sesión en su suscripción de Azure
+##Inicio de sesión en la suscripción de Azure
 
 Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
 
@@ -62,8 +62,8 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
         azure group create groupname location
         
-    * Reemplace __groupname__ con un nombre único para el grupo. 
-    * Reemplace __location__ por la región geográfica en la que desee crear los recursos. 
+    * Reemplace __groupname__ con un nombre único para el grupo.
+    * Reemplace __location__ por la región geográfica en la que desee crear los recursos.
     
         Para obtener una lista de ubicaciones válidas, use el comando `azure locations list` y, luego, una de las ubicaciones de la columna __Nombre__.
 
@@ -72,7 +72,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Reemplace __groupname__ por el nombre del grupo que creó en el paso anterior.
-     * Sustituya __location__ con la misma ubicación usada en el paso anterior. 
+     * Sustituya __location__ con la misma ubicación usada en el paso anterior.
      * Reemplace __storagename__ por un nombre único para la cuenta de almacenamiento.
      
      > [AZURE.NOTE] Si desea obtener más información sobre los parámetros utilizados en este comando, use `azure storage account create -h` para ver la ayuda correspondiente.
@@ -93,7 +93,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
     * Reemplace __groupname__ por el nombre del grupo de recursos.
     * Sustituya __location__ con la misma ubicación usada en los pasos anteriores.
     * Reemplace __storagename__ con el nombre de la cuenta de almacenamiento.
-    * Sustituya __storagekey__ con la clave que obtuvo en el paso anterior. 
+    * Sustituya __storagekey__ con la clave que obtuvo en el paso anterior.
     * Para el parámetro `--defaultStorageContainer`, use el mismo nombre que utiliza para el clúster.
     * Reemplace __admin__ y __httppassword__ con el nombre y la contraseña que desea utilizar al acceder al clúster mediante HTTPS.
     * Sustituya __sshuser__ y __sshuserpassword__ con el nombre de usuario y la contraseña que quiere usar al acceder al clúster mediante SSH.
@@ -121,4 +121,4 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

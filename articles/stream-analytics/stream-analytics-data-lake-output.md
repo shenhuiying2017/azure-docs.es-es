@@ -15,25 +15,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/30/2016"
 	ms.author="jeffstok"
 />
 
 # Salida de los Análisis de transmisiones del Almacén de Data Lake
 
-Los trabajos de Análisis de transmisiones admiten varios métodos de salida, y uno de ellos es el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. En este artículo se trata la autorización, la configuración y la renovación de la autorización de un Almacén de Azure Data Lake en los Análisis de transmisiones del Portal de Azure clásico.
-
-> [AZURE.NOTE] En este momento, la creación y la configuración de salidas del Almacén de Data Lake **solo** se admiten en el Portal de Azure clásico.
+Los trabajos de Análisis de transmisiones admiten varios métodos de salida, y uno de ellos es el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos.
 
 ## Autorización de una cuenta del Almacén de Data Lake
 
 1.  Cuando se selecciona el Almacén de Data Lake como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de su Almacén de Data Lake existente o pida acceso a la vista previa del Almacén de Data Lake mediante el Portal de Azure clásico.
 
-    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
+    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)
 
 2.  Si ya dispone de acceso al Almacén de Data Lake, haga clic en “Autorizar ahora” y, durante unos segundos, se mostrará una página con el mensaje “Redirigiendo a la autorización...”. Esta página se cerrará automáticamente y se le mostrará la página donde podrá configurar la salida del Almacén de Data Lake.
 
-Si no se ha registrado para la vista previa del Almacén de Data Lake, puede hacer clic en el vínculo “Regístrese ahora” para iniciar la solicitud, o bien siga las [instrucciones de introducción](../data-lake-store/data-lake-store-get-started-portal.md).
+Si no se registró para la versión preliminar de Data Lake Store, puede hacer clic en el vínculo "Suscribirme ahora" para iniciar la solicitud, o bien siga las [instrucciones de introducción](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## Configuración de las propiedades de salida del Almacén de Data Lake
 
@@ -90,6 +88,6 @@ Actualmente, existe una limitación según la que el token de autenticación deb
 
 Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida del Almacén de Data Lake. Haga clic en el vínculo “Renovar autorización” y, durante unos segundos, se mostrará una página con el mensaje “Redirigiendo a la autorización...”. La página se cerrará automáticamente y, si la operación se realiza correctamente, indicará “La autorización se ha renovado correctamente”. Después, debe hacer clic en “Guardar” en la parte inferior de la página y podrá continuar reiniciando el trabajo desde la hora de la última detención para evitar la pérdida de datos.
 
-![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
+![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/31/2016" 
 	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
-En este artículo se proporcionan consejos para solución de problemas surgidos al usar Data Factory de Azure. No incluye todos los posibles problemas que pueden aparecer al usar el servicio, pero trata algunos de ellos, así como consejos para solución de problemas generales.
+En este artículo se proporcionan consejos para solución de problemas surgidos al usar Data Factory de Azure. Este artículo no incluye todos los posibles problemas que pueden aparecer al usar el servicio, pero trata algunos de ellos, así como consejos para solución de problemas generales.
 
 ## Sugerencias de solución de problemas
 
@@ -29,22 +29,22 @@ Si recibe este error, el proveedor de recursos de Data Factory de Azure no se ha
 3. Ejecute el siguiente comando para registrar el proveedor de Data Factory de Azure. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
 ### Problema: error no autorizado al ejecutar un cmdlet de Factoría de datos
-Probablemente no está usando la cuenta o suscripción de Azure correctas con Azure PowerShell. Use los cmdlets siguientes para seleccionar la cuenta y la suscripción de Azure correctas para usarlas con Azure PowerShell.
+Probablemente no está usando la cuenta o suscripción de Azure correctas con Azure PowerShell. Use los cmdlets siguientes para seleccionar la cuenta y la suscripción de Azure correctas que se usarán con Azure PowerShell.
 
 1. Login-AzureRmAccount: use el id. de usuario y la contraseña correctos.
-2. Get-AzureRmSubscription: vea todas las suscripciones de la cuenta.
-3. Select-AzureRmSubscription <nombre de la suscripción>: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
+2. Get-AzureRmSubscription: consulte todas las suscripciones de la cuenta.
+3. Select-AzureRmSubscription &lt;nombre de la suscripción&gt;: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
 
-### Problema: No se pudo iniciar la configuración rápida de Data Management Gateway desde el Portal de Azure.
+### Problema: no se pudo iniciar la configuración rápida de Data Management Gateway desde el Portal de Azure.
 La configuración rápida de Data Management Gateway requiere Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Si no se puede iniciar la configuración rápida, realice una de las siguientes acciones:
 
 - Utilice Internet Explorer o un explorador web compatible con Microsoft ClickOnce.
 
 	Si usa Chrome, vaya a [Chrome Web Store](https://chrome.google.com/webstore/), busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 	
-	Debe hacer lo mismo para Firefox (complemento de instalación). Haga clic en el botón Abrir menú de la barra de herramientas (tres líneas horizontales en la esquina superior derecha), haga clic en Complementos, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
+	Debe hacer lo mismo para Firefox (instale un complemento). Haga clic en el botón Abrir menú de la barra de herramientas (tres líneas horizontales en la esquina superior derecha), haga clic en Complementos, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 
-- Use el vínculo **Configuración manual** que aparece en la misma hoja del portal para descargar el archivo de instalación y ejecútelo manualmente. Después de realizarse correctamente la instalación, verá el cuadro de diálogo Configuración de Data Management Gateway. Copie la **clave** desde la pantalla del portal y úsela en el administrador de configuración para registrar manualmente la puerta de enlace con el servicio.
+- Haga clic en el vínculo **Instalación manual** que aparece en la misma hoja del portal. Utilice este enfoque para descargar el archivo de instalación y ejecutarlo manualmente. Después de realizarse correctamente la instalación, verá el cuadro de diálogo Configuración de Data Management Gateway. Copie la **clave** desde la pantalla del portal y úsela en el administrador de configuración para registrar manualmente la puerta de enlace con el servicio.
 
 ### Problema: no se pudo conectar al servidor SQL Server local. 
 Inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace y use la pestaña **Solución de problemas** para probar la conexión a SQL Server desde el equipo de la puerta de enlace. Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
@@ -52,7 +52,7 @@ Inicie **Administrador de configuración de Data Management Gateway** en el equi
 
 ### Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
 
-Los segmentos pueden estar en el estado **En espera** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los intervalos pueden tener el estado **En espera** por diversos motivos. Uno de los motivos comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Data Factory de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
@@ -92,14 +92,14 @@ Al usar un servicio vinculado de tipo HDInsightOnDemand, debe especificar linked
 
 		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
-Este error suele indicar que la ubicación de la cuenta de almacenamiento especificada en linkedServiceName no está en la misma ubicación del centro de datos que donde se produce el aprovisionamiento de HDInsight. Por ejemplo, si la ubicación de Factoría de datos de Azure es Oeste de EE. UU. y el aprovisionamiento de HDInsight a petición ocurre en el oeste de EE. UU. pero la ubicación de la cuenta de almacenamiento de blobs de Azure está establecida en Este de EE. UU., el aprovisionamiento a petición provocará un error.
+Este error suele indicar que la ubicación de la cuenta de almacenamiento especificada en linkedServiceName no está en la misma ubicación del centro de datos que donde se produce el aprovisionamiento de HDInsight. Ejemplo: si la factoría de datos está en el oeste de EE. UU. y el almacenamiento de Azure en el este de EE. UU., el aprovisionamiento a petición no se realizará correctamente en el oeste de EE. UU.
 
 Además, hay una segunda propiedad de JSON additionalLinkedServiceNames, donde puede se especifiquen cuentas de almacenamiento adicionales en HDInsight a petición. Las cuentas de almacenamiento vinculado adicionales deben estar en la misma ubicación que el clúster de HDInsight; de lo contrario, se producirá el mismo error.
 
 ### Problema: La actividad de .NET personalizada produce un error
 Consulte [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) (Depurar una canalización con una actividad personalizada) para obtener pasos detallados.
 
-## Usar el Portal de Azure para solucionar problemas 
+## Uso del Portal de Azure para solucionar problemas 
 
 ### Uso de hojas del Portal
 Consulte [Supervisión de la canalización](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) para ver los pasos.
@@ -143,4 +143,4 @@ Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-bu
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

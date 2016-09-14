@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -57,7 +57,7 @@ Se puede instalar y configurar la alerta de fraude para que los usuarios puedan 
 El saludo predeterminado de Microsoft indica a los usuarios que presionen 0# para enviar una alerta de fraude. Si utiliza un código distinto de 0, deberá grabar y cargar sus propio saludo personalizado con las instrucciones apropiadas.
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
+![Nube](./media/multi-factor-authentication-whats-next/fraud.png)
 
 ### Para informar sobre un fraude
 Una alerta de fraude se puede notificar de dos maneras. Ya sea a través de la aplicación móvil o del teléfono.
@@ -71,7 +71,10 @@ Una alerta de fraude se puede notificar de dos maneras. Ya sea a través de la a
 3. Haga clic en Notificar fraude.
 4. En la aplicación, haga clic en Cerrar.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/report1.png)</center>
+![Nube](./media/multi-factor-authentication-whats-next/report1.png)
+
+
+![Nube](./media/multi-factor-authentication-whats-next/fraud2.png)
 
 ### Para notificar de una alerta de fraude con el teléfono
 
@@ -376,4 +379,4 @@ Método|Description
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

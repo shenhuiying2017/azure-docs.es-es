@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Problemas conocidos para el clúster de Apache Spark en HDInsight Linux
@@ -29,8 +29,8 @@ Cuando se reinicia Livy con una sesión interactiva (desde Ambari o debido al re
 
 Utilice el procedimiento siguiente para encontrar una solución alternativa para el problema:
 
-1. SSH en el nodo principal. 
-2. Ejecute el siguiente comando para buscar los identificadores de aplicación de los trabajos interactivos iniciados mediante Livy. 
+1. SSH en el nodo principal.
+2. Ejecute el siguiente comando para buscar los identificadores de aplicación de los trabajos interactivos iniciados mediante Livy.
 
         yarn application –list
 
@@ -56,10 +56,10 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 
 **Mitigación:**
  
-1. Agregue hdiuser al grupo de Hadoop. 
-2. Proporcione 777 permisos en /var/log/spark después de crear el clúster. 
-3. Actualice la ubicación del registro spark con Ambari para que sea un directorio con 777 permisos.  
-4. Ejecute spark-submit como sudo.  
+1. Agregue hdiuser al grupo de Hadoop.
+2. Proporcione 777 permisos en /var/log/spark después de crear el clúster.
+3. Actualice la ubicación del registro spark con Ambari para que sea un directorio con 777 permisos.
+4. Ejecute spark-submit como sudo.
 
 ## Problemas relacionados con los cuadernos de Jupyter Notebook
 
@@ -104,7 +104,7 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
 
 2. Reinicie el cuaderno que trataba de iniciar. Debe haber suficientes recursos para crear una sesión ahora.
 
-##Consulte también
+##Otras referencias
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
@@ -134,7 +134,7 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
@@ -146,4 +146,4 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

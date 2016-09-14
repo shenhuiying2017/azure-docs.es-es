@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cómo entregar contenido de streaming de Servicios multimedia" 
+	pageTitle="Publicación de contenido de Servicios multimedia de Azure con REST" 
 	description="Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. El código usa API de REST." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Entrega de contenido de streaming
+# Publicación de contenido de Servicios multimedia de Azure con REST
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish.md)
 
 ##Información general
 
 
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Si el contenido está cifrado, configure la directiva de entrega de activos (como se describe en [este](media-services-rest-configure-asset-delivery-policy.md)tema) antes de crear un localizador.
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Si el contenido está cifrado, configure la directiva de entrega de recursos (como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) tema) antes de crear un localizador.
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.
 
@@ -187,8 +187,8 @@ ejemplo:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Consulte también
+##Otras referencias
 
 [Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

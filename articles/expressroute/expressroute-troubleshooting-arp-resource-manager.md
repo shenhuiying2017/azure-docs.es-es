@@ -128,10 +128,10 @@ La tabla ARP de un emparejamiento se puede usar para determinar o validar la con
 
 ### Tabla ARP cuando un circuito está en estado operativo (estado esperado)
 
- - La tabla ARP tendrá una entrada para el lado local con una dirección IP válida y la dirección MAC y una entrada similar para el lado de Microsoft. 
+ - La tabla ARP tendrá una entrada para el lado local con una dirección IP válida y la dirección MAC y una entrada similar para el lado de Microsoft.
  - El último octeto de la dirección IP local siempre será un número impar.
  - El último octeto de la dirección IP de Microsoft siempre será un número par.
- - La misma dirección MAC aparecerá en el lado de Microsoft para los 3 emparejamientos (principales o secundarios). 
+ - La misma dirección MAC aparecerá en el lado de Microsoft para los 3 emparejamientos (principales o secundarios).
 
 
 		Age InterfaceProperty IpAddress  MacAddress    
@@ -141,7 +141,7 @@ La tabla ARP de un emparejamiento se puede usar para determinar o validar la con
 
 ### Tabla ARP cuando el lado del proveedor de conectividad o local tiene problemas
 
- - Una sola entrada aparecerá en la tabla ARP. En ella se mostrará la asignación entre la dirección MAC y la dirección IP usadas en el lado de Microsoft. 
+ - Una sola entrada aparecerá en la tabla ARP. En ella se mostrará la asignación entre la dirección MAC y la dirección IP usadas en el lado de Microsoft.
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -152,15 +152,15 @@ La tabla ARP de un emparejamiento se puede usar para determinar o validar la con
 
 ### Tabla ARP cuando el lado de Microsoft tiene problemas
 
- - Cuando hay problemas en el lado de Microsoft, no verá una tabla ARP para un emparejamiento. 
- -  Abra una incidencia de soporte técnico dirigida al [soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que tiene un problema con la conectividad de nivel 2. 
+ - Cuando hay problemas en el lado de Microsoft, no verá una tabla ARP para un emparejamiento.
+ -  Abra una incidencia de soporte técnico dirigida al [soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que tiene un problema con la conectividad de nivel 2.
 
 ## Pasos siguientes
 
  - Validar las configuraciones de nivel 3 para el circuito ExpressRoute
-	 - Obtener el resumen de ruta para determinar el estado de las sesiones BGP 
+	 - Obtener el resumen de ruta para determinar el estado de las sesiones BGP
 	 - Obtener la tabla de rutas para determinar qué prefijos se anuncian a través de ExpressRoute
  - Validar la transferencia de datos revisando los bytes de entrada y de salida
  - Si sigue teniendo problemas, abra una incidencia de soporte técnico dirigida al [soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

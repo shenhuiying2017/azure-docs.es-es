@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="rachelap"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
@@ -97,4 +97,4 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
   
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

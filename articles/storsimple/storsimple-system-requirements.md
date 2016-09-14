@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/26/2016"
+   ms.date="08/31/2016"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -81,13 +81,24 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 > [AZURE.NOTE] Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas. Las IP de destino, por su parte, se deben establecer en los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
 
-
+#### Patrones de dirección URL del Portal de Azure
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Microsoft Azure| Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Azure| Interfaces de red habilitadas para la nube |
 |`https://*.backup.windowsazure.com`|Registro de dispositivos| Solo DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Supervisión y cuentas de Almacenamiento de Azure | Interfaces de red habilitadas para la nube |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> | Solo direcciones IP fijas del controlador |
+| `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
+| `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte | Interfaces de red habilitadas para la nube |
+
+#### Patrones de dirección URL para el Portal de Azure Government
+| Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Azure| Interfaces de red habilitadas para la nube |
+|`https://*.backup.windowsazure.us`|Registro de dispositivos| Solo DATA 0|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |Interfaces de red habilitadas para la nube |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Supervisión y cuentas de Almacenamiento de Azure | Interfaces de red habilitadas para la nube |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> | Solo direcciones IP fijas del controlador |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
 | `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte | Interfaces de red habilitadas para la nube |
@@ -127,11 +138,11 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
+	| Data 0 | 1 | - | 
+	| Data 1 | 2 | 20 | 
+	| Data 2 | 3 | 30 | 
+	| Data 3 | 4 | 40 | 
+	| Data 4 | 5 | 50 | 
 	| Data 5 | 6 | 60 |
 
 
@@ -280,4 +291,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

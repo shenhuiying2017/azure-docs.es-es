@@ -44,8 +44,10 @@ Capture y comparta plantillas de entornos y artefactos dentro de su equipo u org
 
 Aproveche complementos ya creados o nuestra API para aprovisionar entornos de desarrollo y pruebas directamente desde la herramienta de integración continua (CI), el entorno de desarrollo integrado (IDE) o la canalización de entrega de versiones que prefiera. También puede utilizar nuestra completa herramienta de línea de comandos.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Pasos siguientes
 
 [Conceptos de DevTest Labs](devtest-lab-concepts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

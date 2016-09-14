@@ -36,7 +36,7 @@ Cuentas de Lote por región y suscripción | 1 | 50
 **Recurso**|**Límite máximo**
 ---|---
 [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso | 4 × número de núcleos de nodo
-[Aplicaciones](batch-application-packages.md) por cuenta de Lote | 20
+[Aplicaciones](batch-application-packages.md) por cuenta de Lote | 20 |
 Paquetes de aplicación por aplicación | 40
 Tamaño del paquete de aplicación (cada uno) | Aprox. 195 GB<sup>1</sup>
 
@@ -94,7 +94,7 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 ## Temas relacionados
 
-* [Creación y administración de una cuenta de Lote de Azure](batch-account-create-portal.md)
+* [Creación de una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md)
 
 * [Información general de las características de Lote de Azure](batch-api-basics.md)
 
@@ -106,4 +106,4 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

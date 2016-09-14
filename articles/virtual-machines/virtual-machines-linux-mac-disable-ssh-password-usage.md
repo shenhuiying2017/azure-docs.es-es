@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>
 
 # Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD
 
@@ -43,7 +43,7 @@ Para este artículo es muy importante mantener abierto un inicio de sesión en l
 
 ## Requisitos previos
 
-- [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](link)
+- [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Cuenta de Azure
   - [registro de versión de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/)
   - [Portal de Azure](http://portal.azure.com)
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 Las contraseñas ahora están deshabilitadas en la máquina virtual, por lo que se protegen de los intentos de inicio de sesión de contraseña por fuerza bruta. Si solo se permiten las claves SSH, podrá iniciar sesión más rápido y de forma mucho más segura.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

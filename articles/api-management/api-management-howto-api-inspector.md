@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
@@ -229,7 +229,6 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 -	Vea una demostración del seguimiento de expresiones de directivas en [Cloud Cover Episodio 177: Más características de administración de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance rápidamente hasta el minuto 21:00 para ver la demostración.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
-[Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

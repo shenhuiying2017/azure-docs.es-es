@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/07/2016"
 	ms.author="juliako"/>
 
 
 # Creación de una cuenta de Servicios multimedia de Azure con el Portal de Azure
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -36,7 +41,7 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 	AMS ya está disponible en los centros de datos siguientes: sur de Brasil, India occidental, sur de India e India central. Ahora se puede usar el Portal de Azure para crear cuentas de Servicios multimedia y realizar varias tareas que se describen aquí. Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
 	
 	- Sur de Brasil: solo están disponibles las unidades reservadas de codificación Estándar y Básica.
-	- India occidental y sur de India, para archivos multimedia ubicarse en la misma región geográfica que la cuenta de Servicios multimedia. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
+	- India occidental y sur de India: proporcionan blobs de almacenamiento para archivos multimedia; las cuentas de almacenamiento deben ubicarse en la misma región geográfica que la cuenta de Media Services. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
 
 ## Creación de una cuenta de AMS
 
@@ -98,4 +103,4 @@ Ya puede cargar archivos en su cuenta de AMS. Para más información, consulte [
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

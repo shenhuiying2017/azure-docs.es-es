@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Uso de SQL Server Management Studio para determinar la compatibilidad con bases de datos SQL Server antes de realizar la migración a Base de datos SQL de Azure
@@ -38,7 +38,7 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. En el asistente para la exportación, haga clic en **Siguiente** y, en la pestaña **Configuración**, configure la exportación para guardar el archivo BACPAC en una ubicación de disco local o en un blob de Azure. Solo se guardará un archivo BACPAC si no tiene problemas de compatibilidad de bases de datos. Si hay problemas de compatibilidad, se mostrarán en la consola.
+4. En el asistente para la exportación, haga clic en **Siguiente** y, en la pestaña **Configuración**, configure la exportación para guardar el archivo BACPAC en una ubicación de disco local o en un blob de Azure. Solo se guarda un archivo BACPAC si no tiene problemas de compatibilidad de bases de datos. Si hay problemas de compatibilidad, estos aparecerán en la consola.
 
 	![Exportar configuración](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
@@ -46,11 +46,11 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 	![Exportar configuración](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Haga clic en **Siguiente** y, luego, en **Finalizar**. Los problemas de compatibilidad de bases de datos, si los hay, aparecerán después de que el asistente valide el esquema.
+6. Haga clic en **Siguiente** y, luego, en **Finalizar**. Los problemas de compatibilidad de bases de datos, si los hay, aparecen después de que el asistente valide el esquema.
 
 	![Exportar configuración](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
-7. Si no aparece ningún error, la base de datos es compatible y estará listo para la migración. Si se producen errores, deberá corregirlos. Para ver los errores, haga clic en **Error** de **Validando esquema**. ![Exportar configuración](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. Si no aparece ningún error, la base de datos es compatible y estará listo para la migración. Si se producen errores, tiene que corregirlos. Para ver los errores, haga clic en **Error** de **Validando esquema**. ![Exportar configuración](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
 8.	Si el archivo *.BACPAC se generó correctamente, indica que la base de datos es compatible con la Base de datos SQL; ya puede migrar.
 
@@ -67,4 +67,4 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB
@@ -25,7 +25,7 @@
 
 Bienvenido al tutorial de NoSQL para el SDK de Azure DocumentDB para .NET. Después de obtener el proyecto QuickStart o completar este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
 
-- **[QuickStart](#quickstart)**: descargue el proyecto de ejemplo, agregue la información de conexión y dispondrá de una aplicación en ejecución de DocumentDB en menos de cinco minutos.
+- **[QuickStart](#quickstart)**: descargue el proyecto de ejemplo, agregue la información de conexión y dispondrá de una aplicación de DocumentDB en ejecución en menos de diez minutos.
 - **[Tutorial](#tutorial)**: cree la aplicación QuickStart desde el principio en 30 minutos.
 
 ## Requisitos previos
@@ -36,7 +36,7 @@ Bienvenido al tutorial de NoSQL para el SDK de Azure DocumentDB para .NET. Despu
 
 ## QuickStart
 
-1. Descarga del proyecto de ejemplo de [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Descargar el archivo .zip del proyecto de ejemplo de [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) o clone el repositorio [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Use el Portal de Azure para [crear una cuenta de DocumentDB](documentdb-create-account.md).
 3. En el archivo App.config, reemplace los valores EndpointUri y PrimaryKey por los valores recuperados del [Portal de Azure](https://portal.azure.com/), navegando a la hoja **DocumentDB (NoSQL)**, después, haga clic en el **nombre de la cuenta** y, finalmente, haga clic en **Claves** en el menú de recursos. ![Captura de pantalla con el valor EndpointUri y PrimaryKey para reemplazar en el archivo App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Compile el proyecto. La ventana de consola muestra los recursos que crean, se consultan y se limpian.
@@ -599,4 +599,4 @@ Ahora debería ver la salida de la aplicación GetStarted. La salida mostrará l
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

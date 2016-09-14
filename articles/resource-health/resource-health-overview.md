@@ -36,11 +36,11 @@ Para los servicios disponibles a través de Estado de los recursos, existen 2 fo
 La hoja Estado de los recursos en el Portal de Azure proporciona información detallada sobre el estado del recurso, así como las acciones recomendadas que varían dependiendo del estado actual del recurso. Esta hoja proporciona la mejor experiencia a la hora de consultar Estado de los recursos, ya que facilita el acceso a otros recursos dentro del portal. Como se mencionó antes, el conjunto de acciones recomendadas en la hoja Estado de los recursos varían según el estado en ese momento:
 
 * Recursos correctos: puesto que no se ha detectado ningún problema que podría afectar al estado del recurso, las acciones se centran en ayudar al proceso de solución de problemas. Por ejemplo, proporciona acceso directo a la hoja de solución de problemas, que se ofrece orientación sobre cómo resolver los problemas más comunes con los que se puede encontrar el cliente.
-* Recurso incorrecto: en el caso de los problemas causados por Azure, la hoja mostrará las acciones que Microsoft está realizando (o ya ha realizado) para recuperar el recurso. Para los problemas causados por acciones iniciadas por el usuario, la hoja presentará una lista de acciones que los clientes pueden realizar para solucionar el problema y recuperar el recurso.  
+* Recurso incorrecto: en el caso de los problemas causados por Azure, la hoja mostrará las acciones que Microsoft está realizando (o ya ha realizado) para recuperar el recurso. Para los problemas causados por acciones iniciadas por el usuario, la hoja presentará una lista de acciones que los clientes pueden realizar para solucionar el problema y recuperar el recurso.
 
 Una vez que haya iniciado sesión en el Portal de Azure, hay dos maneras de obtener acceso a la hoja de Estado de los recursos:
 
-####Abrir la hoja del recurso
+###Abrir la hoja del recurso
 Abra la hoja de recursos para un recurso determinado. En la hoja Configuración que se abre junto a la hoja del recurso, haga clic en Estado de los recursos para abrir la hoja Estado de los recursos.
 
 ![Hoja de Estado de los recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -58,31 +58,6 @@ Al hacer clic en el icono se abrirá la hoja de la suscripción de Estado de los
 
 ![Icono Estado de los recursos](./media/resource-health-overview/resourceHealthTile.png)
 
-### API de Estado de los recursos
-Junto con la experiencia del Portal de Azure, también hay una serie de API que puede usar para consultar el estado de los recursos. Gracias a las API disponibles, los usuarios pueden solicitar el estado de todos los recursos de una suscripción, todos los de un grupo de recursos o el estado de uno solo.
-
-Otra API permite a los usuarios solicitar el estado histórico de un único específico. La respuesta es una colección de estados de mantenimiento de recursos de los últimos 14 días. En caso de que el recurso se haya podido ver afectado por una interrupción planeada, el estado incluirá una anotación llamada "serviceImpactingEvents" con más detalles sobre la interrupción.
-
-Antes de utilizar la API para consultar el estado de los recursos, la suscripción debe registrarse en el servicio enviando una solicitud POST a la dirección URL siguiente:
- 
-        //Register the subscription with the Resource health resource provider
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
-        
-A continuación se muestran ejemplos de cómo llamar a la API de Estado de los recursos
-
-        // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET the health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-        
-        //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-
-
 ## ¿Qué significa el estado de mantenimiento de los recursos que veo en la pantalla?
 Hay 4 estados de mantenimiento distintos que pueden aparecer para un recurso.
 
@@ -95,9 +70,9 @@ El servicio no ha detectado ningún problema en la plataforma que podría estar 
 
 En este caso el servicio ha detectado un problema en curso en la plataforma que afecta a la disponibilidad de este recurso, por ejemplo, el nodo donde se ejecuta la máquina virtual se reinició de forma inesperada. Esto se indica mediante un icono de advertencia rojo. En la sección intermedia de la hoja, se proporciona información adicional sobre el problema que incluye:
 
-1.	Las acciones que está realizando Microsoft para recuperar el recurso 
+1.	Las acciones que está realizando Microsoft para recuperar el recurso
 2.	Una escala de tiempo detallada del problema, incluyendo el tiempo de resolución esperado
-3.	Una lista de medidas recomendadas para los usuarios 
+3.	Una lista de medidas recomendadas para los usuarios
 
 ![Recurso no está disponible](./media/resource-health-overview/Unavailable.png)
 
@@ -132,4 +107,4 @@ Estado de los recursos informa sobre el estado de la base de datos SQL, no de SQ
 ## Comentarios
 Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros a través de [Twitter](https://twitter.com/azuresupport) o los [foros de MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

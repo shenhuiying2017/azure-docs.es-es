@@ -29,7 +29,7 @@ Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres de 
 >-    [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 >-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
->-    [Creación de un espacio de nombres de Bus de servicio con un grupo de consumidores y Centro de eventos](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md) (Creación de un espacio de nombres de Centros de eventos con un Centro de eventos y un grupo de consumidores)
 >
 >Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
 
@@ -160,4 +160,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Plantilla de espacio de nombres de Bus de servicio con un tema y suscripción]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

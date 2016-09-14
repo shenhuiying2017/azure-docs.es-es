@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB
@@ -30,7 +30,7 @@ Para agregar su cuenta de DocumentDB con soporte de protocolo para MongoDB en el
 
 1. Recupere la cuenta de DocumentDB con compatibilidad de protocolos con la información de cadena de conexión de MongoDB siguiendo [estas](documentdb-connect-mongodb-account.md) instrucciones.
 
-	![Captura de pantalla de la hoja Cadena de conexión](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![Captura de pantalla de la hoja Cadena de conexión](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. Haga clic en **Connect** (Conectar) para abrir Connection Manager (Administrador de conexiones) y, después, haga clic en **New Connection** (Nueva conexión).
 
@@ -132,4 +132,4 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

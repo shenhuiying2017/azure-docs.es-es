@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ Varios asociados ofrecen las imágenes de Linux del Marketplace o de la Galería
 
 ## Distribuciones y versiones admitidas ##
 
-En la tabla siguiente se enumeran las distribuciones y versiones de Linux que se admiten en Azure.
+En la tabla siguiente se enumeran las distribuciones y versiones de Linux que se admiten en Azure. Consulte también [Compatibilidad con las imágenes de Linux en Microsoft Azure](https://support.microsoft.com/es-ES/kb/2941892) para información más detallada.
 
 Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y Azure son módulos del kernel que Microsoft aporta directamente al kernel de Linux del canal de subida. Los controladores de LIS están integrados en el núcleo de distribución de forma predeterminada o, para distribuciones anteriores basadas en RHEL/CentOS, están disponibles [aquí](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) en forma de descarga independiente. Consulte [este artículo](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) para obtener más información acerca de los controladores de LIS.
 
@@ -40,8 +40,8 @@ Distribución|Versión|Controladores|Agente
 CentOS de OpenLogic | CentOS 6.3+, 7.0+ | CentOS 6.3: [Descarga de LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: en kernel | Paquete: en el [repositorio OpenLogic](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/), en "WALinuxAgent"<br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) | 494\.4.0+ | En kernel | Código fuente: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Debian | Debian 7.9+, 8.2+ | En kernel | Paquete: en el repositorio, en "waagent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
-Oracle Linux | 6\.4+, 7.0+ | En kernel | Paquete: en el repositorio, en "walinuxagent" <br/>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | En kernel|Paquete: en el repositorio, en "walinuxagent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
+Oracle Linux | 6\.4+, 7.0+ | En kernel | Paquete: en el repositorio, en "WALinuxAgent" <br/>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | En kernel|Paquete: en el repositorio, en "WALinuxAgent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
 SUSE Linux Enterprise | SLES 11 SP4, SLES 12+ y <p> SLES para SAP 11.3+ | En kernel | Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent" <br/>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE | openSUSE 13.2+ | En kernel | Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
 Ubuntu|Ubuntu 12.04, 14.04 y 16.04 | En kernel | Paquete: en el repositorio, en "walinuxagent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent)
@@ -89,4 +89,4 @@ La ingeniería de Canonical y la gobernanza de comunidad abierta impulsan el éx
 
 Con desarrolladores y centros de ingeniería alrededor de todo el mundo, Canonical ocupa una posición exclusiva para asociarse con fabricantes de software, proveedores de contenido y desarrolladores de software para poner en el mercado las soluciones de Ubuntu, desde equipos a servidores y dispositivos portátiles.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

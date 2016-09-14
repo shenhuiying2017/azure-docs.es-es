@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -74,7 +74,7 @@ Utilizar los nuevos kernels aporta un par de beneficios.
 
 	La tabla siguiente muestra las diferentes instrucciones mágicas disponibles a través de los kernels.
 
-	| Instrucción mágica | Ejemplo | Descripción |
+	| Instrucción mágica | Ejemplo | Description |
 	|-----------|---------------------------------|--------------|
 	| help | `%%help` | Genera una tabla de todas las instrucciones mágicas disponibles con el ejemplo y la descripción |
 	| info | `%%info` | Produce información de sesión del punto de conexión actual de Livy. |
@@ -85,13 +85,15 @@ Utilizar los nuevos kernels aporta un par de beneficios.
 	| delete | `%%delete -f -s <session number>` | Elimina una sesión específica del punto de conexión actual de Livy. Tenga en cuenta que no se puede eliminar la sesión iniciada en el propio kernel. |
 	| cleanup | `%%cleanup -f` | Elimina todas las sesiones del punto de conexión actual de Livy, incluida la sesión de este cuaderno. La marca force -f es obligatoria. |
 
+	>[AZURE.NOTE] Además de las instrucciones mágicas agregadas mediante el kernel PySpark, también puede utilizar las de[IPython integradas](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluidas `%%sh`. Puede usar la instrucción mágica `%%sh` para ejecutar scripts y el bloque de código en el nodo principal del clúster.
+
 3. **Visualización automática**. El kernel **Pyspark** visualiza automáticamente el resultado de las consultas de Hive y SQL. Tiene la posibilidad de elegir entre diferentes tipos de visualizaciones como tabla, circular, línea, área, barra.
 
 ## Parámetros compatibles con la instrucción mágica %%sql
 
 La instrucción mágica %%sql es compatible con distintos parámetros que se pueden usar para controlar el tipo de resultado que se obtiene al ejecutar consultas. En la tabla siguiente se muestra el resultado.
 
-| Parámetro | Ejemplo | Descripción |
+| Parámetro | Ejemplo | Description |
 |-----------|---------------------------------|--------------|
 | -o | `-o <VARIABLE NAME>` | Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/). El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
 | -q | `-q` | Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL con efectos secundarios, como una instrucción `CREATE TABLE`), simplemente use `-q` sin especificar un argumento `-o`. |
@@ -188,4 +190,4 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

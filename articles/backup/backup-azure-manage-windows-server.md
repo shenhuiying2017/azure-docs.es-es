@@ -279,11 +279,15 @@ R.2 Se genera una alerta en menos de 5 minutos desde que se produce el error de 
 
 **P3. ¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?**
 
-R3. Si se configuran las notificaciones por horas y se genera una alerta y esta se resuelve en menos de una hora, no se enviará ningún correo electrónico.
+R3. A continuación figuran los casos en los que no se enviará la notificación con el fin de reducir el ruido de las alertas:
+
+   - Si se configuran las notificaciones por horas y se genera una alerta y esta se resuelve en menos de una hora.
+   - Se canceló el trabajo.
+   - Se produjo un error en el segundo trabajo de copia de seguridad porque el trabajo de copia de seguridad original está en curso.
 
 ## Pasos siguientes
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 - Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -41,7 +41,7 @@ Antes de iniciar este procedimiento, debe tener lo siguiente:
 Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
 
 - Creación de un grupo de recursos de Azure
-- Crear una cuenta de Almacenamiento de Azure
+- Creación de una cuenta de almacenamiento de Azure
 - Creación de un contenedor de blobs de Azure
 - Creación de un clúster de HDInsight
 
@@ -80,7 +80,7 @@ El script siguiente muestra cómo crear un nuevo clúster:
         -StorageAccountName $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Key1
     $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
 
@@ -179,4 +179,4 @@ Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes r
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

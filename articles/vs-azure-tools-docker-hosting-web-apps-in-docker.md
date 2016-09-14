@@ -39,7 +39,7 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
 
 ## 3\. Use el script de PowerShell DockerTask.ps1 
 
-1.  Abra un símbolo del sistema de PowerShell en el directorio raíz del proyecto. 
+1.  Abra un símbolo del sistema de PowerShell en el directorio raíz del proyecto.
 
     ```
     PS C:\Src\WebApplication1>
@@ -64,7 +64,7 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
     > [AZURE.NOTE] Si está utilizando la versión beta de Docker, omita el argumento -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -77,7 +77,7 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
     > [AZURE.NOTE] Si está utilizando la versión beta de Docker, omita el argumento -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	Una vez que Docker termina, debería ver resultados similares a los siguientes:
@@ -89,4 +89,4 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

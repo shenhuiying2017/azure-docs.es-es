@@ -26,7 +26,7 @@ Para cargar una máquina virtual Windows local en Azure, debe preparar correctam
 
 Asegúrese de que el disco duro virtual de Windows funciona correctamente en el servidor local. Resuelva los errores dentro de la propia máquina virtual antes de intentar los procesos de conversión o carga en Azure.
 
-Si necesita convertir el disco virtual al formato requerido para Azure, utilice uno de los métodos que se indican en las secciones siguientes.
+Si necesita convertir el disco virtual al formato requerido para Azure, utilice uno de los métodos que se indican en las secciones siguientes. Cree una copia de seguridad de la máquina virtual antes de ejecutar cualquier proceso de conversión de disco virtual o Sysprep.
 
 ### Conversión mediante el Administrador de Hyper-V
 - Abra el Administrador de Hyper-V y seleccione el equipo local de la izquierda. En el menú superior, haga clic en **Acción** > **Editar disco**.
@@ -66,7 +66,7 @@ Si tiene una imagen de máquina virtual de Windows en [formato de archivo VMDK](
 3. Configure la directiva SAN de disco como [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Use la hora universal coordinada (UTC) para Windows y establezca el tipo de inicio del Servicio de hora de Windows (w32time) en **Automáticamente**:
@@ -287,6 +287,7 @@ Si tiene una imagen de máquina virtual de Windows en [formato de archivo VMDK](
 
 	- [Creación de una imagen de máquina virtual a partir de una máquina virtual de Azure existente mediante el modelo de implementación de Resource Manager](virtual-machines-windows-capture-image.md)
 	- [Creación de una imagen de máquina virtual a partir de una máquina virtual de Azure existente mediante el modelo de implementación clásica](virtual-machines-windows-classic-capture-image.md)
+	- [Compatibilidad de Sysprep con los roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Configuraciones adicionales sugeridas
@@ -320,4 +321,4 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
 
 - [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

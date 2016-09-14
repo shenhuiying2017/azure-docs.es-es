@@ -19,7 +19,7 @@
 # Analytics de Application Insights
 
 
-[Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 * **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
@@ -63,7 +63,6 @@ El lenguaje tiene muchas características atractivas:
 
 
 
->[AZURE.NOTE] Se recomienda empezar por la [introducción al lenguaje](app-insights-analytics-tour.md).
 
 
 
@@ -71,7 +70,7 @@ El lenguaje tiene muchas características atractivas:
 ## Conexión a los datos de Application Insights
 
 
-Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su instancia de Application Insights:
+Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights:
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics/001.png)
 
@@ -84,4 +83,10 @@ En la actualidad, los resultados de consulta están limitados exclusivamente a s
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Pasos siguientes
+
+
+* Se recomienda empezar por el [paseo por el lenguaje](app-insights-analytics-tour.md).
+
+<!---HONumber=AcomDC_0831_2016-->

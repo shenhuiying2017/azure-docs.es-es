@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="05/22/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 
@@ -265,13 +265,13 @@ Al crear un trabajo por lotes para el punto de conexión de servicio de Aprendiz
 
 * **Input**: representa una referencia del blob al lugar en que se almacena la entrada del trabajo por lotes.
 * **GlobalParameters**: representa el conjunto de parámetros globales que se pueden definir para el experimento. Los experimentos de Aprendizaje automático de Azure pueden tener parámetros opcionales y obligatorios que personalicen la ejecución del servicio, y se espera que el llamador proporcione todos los parámetros obligatorios, si procede. Estos parámetros se especifican como una colección de pares clave-valor.
-* **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a una ubicación del blob de Azure. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente. 
+* **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a una ubicación del blob de Azure. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente.
 
     Tenga en cuenta que el servicio espera que el contenido de la salida, según su tipo, se guarde en cualquiera de los formatos admitidos:
   - salidas de conjuntos de datos: se pueden guardar como **.csv, .tsv o .arff**
   - salidas de modelos entrenados: se pueden guardar como **.ilearner**
 
-  Las invalidaciones de la ubicación de salida se especifican como una colección de *<output name  blob reference>* pares, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia del blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá la salida.
+  Las invalidaciones de la ubicación de salida se especifican como una colección de pares *<nombre de salida, referencia de blob>*, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia de blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá la salida.
 
 Todos estos parámetros de creación de trabajos pueden ser opcionales, en función de la naturaleza del servicio. Por ejemplo, los servicios sin nodos de entrada definidos no requieren que se use un parámetro *Input*. Del mismo modo, la característica de invalidación de la ubicación de salida es totalmente opcional. De lo contrario, las salidas se guardarán en la cuenta de almacenamiento predeterminada configurada para el área de trabajo de Aprendizaje automático de Azure. A continuación encontrará una carga de solicitudes de ejemplo, tal como se pasan a la API de REST, para un servicio en el que solo se proporciona la información de entrada:
 
@@ -685,4 +685,4 @@ Ahora puede usar cualquiera de las herramientas swagger. Aquí encontrará las i
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

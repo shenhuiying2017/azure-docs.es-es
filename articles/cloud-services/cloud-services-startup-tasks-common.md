@@ -175,6 +175,10 @@ Agregue la siguiente tarea de inicio al archivo [ServiceDefinition.csdef].
 
 Agregue este comando al archivo **startup.cmd**:
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 Esto hace que el archivo por lotes **startup.cmd** se ejecute cada vez que se inicializa el rol web, asegurándose de que la sección **seguridad IP** necesaria está desbloqueada.
@@ -487,4 +491,4 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

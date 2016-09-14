@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/29/2016"
 	ms.author="mahender"/>
 
 # Autenticación y autorización en el Servicio de aplicaciones de Azure
@@ -26,7 +26,7 @@ El Servicio de aplicaciones usa la identidad federada, en la cual un proveedor d
 
 Si desea comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-- [Incorporación de la autenticación a la aplicación iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
+- [Incorporación de la autenticación a la aplicación iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 - [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure][apia-user]
 - [Introducción al Servicio de aplicaciones de Azure: parte 2][web-getstarted]
 
@@ -89,7 +89,7 @@ Tiene un control total para decidir qué solicitudes pueden acceder a su aplicac
 
 	En este caso, la característica de autenticación o autorización está desactivada. Esta opción deja las tareas de autenticación y autorización totalmente en manos del código de la aplicación.
 
-Los comportamientos anteriores se controlan mediante la opción **Acción necesaria cuando la solicitud no está autenticada** del Portal de Azure. Si elige **Iniciar sesión con *nombre de proveedor***, todas las solicitudes deben autenticarse. **Permitir solicitud (sin acción)** traslada la decisión de autorización al código, pero sigue proporcionando información de autenticación. Si desea que su código lo controle todo, puede deshabilitar la característica de autenticación y autorización.
+Los comportamientos anteriores se controlan mediante la opción **Acción necesaria cuando la solicitud no está autenticada** del Portal de Azure. Si elige **Iniciar sesión con *nombre de proveedor* **, todas las solicitudes deben autenticarse. **Permitir solicitud (sin acción)** traslada la decisión de autorización al código, pero sigue proporcionando información de autenticación. Si desea que su código lo controle todo, puede deshabilitar la característica de autenticación y autorización.
 
 ## Trabajo con identidades de usuario en la aplicación
 
@@ -102,7 +102,7 @@ El Servicio de aplicaciones pasa parte de la información del usuario a la aplic
 
 El código escrito en cualquier lenguaje o plataforma puede obtener la información que necesita de estos encabezados. Para las aplicaciones de ASP.NET 4.6, **ClaimsPrincipal** se establece automáticamente con los valores adecuados.
 
-La aplicación también puede obtener detalles adicionales del usuario a través de un comando HTTP GET en el punto de conexión `/.auth/me` de la aplicación. Un token válido que se incluye con la solicitud devolverá una carga JSON con detalles sobre el proveedor que se está usando, el token del proveedor subyacente y alguna otra información de usuario. Los SDK del servidor de Aplicaciones móviles proporcionan métodos auxiliares para trabajar con estos datos. Para obtener más información, consulte [Uso del SDK de Node.js de Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+La aplicación también puede obtener detalles adicionales del usuario a través de un comando HTTP GET en el punto de conexión `/.auth/me` de la aplicación. Un token válido que se incluye con la solicitud devolverá una carga JSON con detalles sobre el proveedor que se está usando, el token del proveedor subyacente y alguna otra información de usuario. Los SDK del servidor de Aplicaciones móviles proporcionan métodos auxiliares para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentación y recursos adicionales
 
@@ -115,7 +115,7 @@ En los siguientes tutoriales se muestra cómo configurar el Servicio de aplicaci
 - [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft][MSA]
 - [Configuración de la aplicación para usar el inicio de sesión de Twitter][Twitter]
 
-Si quiere usar un sistema de identidades diferente a los proporcionados aquí, también puede usar la [compatibilidad con la autenticación personalizada de vista previa en el SDK de servidor .NET del Servicio de aplicaciones][custom-auth], que se puede utilizar en aplicaciones web, móviles o de API.
+Si quiere usar un sistema de identidades diferente a los proporcionados aquí, también puede usar la [compatibilidad con la autenticación personalizada de versión preliminar en el SDK de servidor .NET del Servicio de aplicaciones][custom-auth], que se puede utilizar en aplicaciones web, móviles o de API.
 
 ### Aplicaciones web
 Los siguientes tutoriales muestran cómo incorporar la autenticación a una aplicación web:
@@ -138,6 +138,18 @@ Si desea usar el flujo dirigido al cliente para Azure Active Directory, use los 
 - [Utilice la biblioteca de autenticación de Active Directory para iOS][ADAL-iOS]
 - [Utilice la biblioteca de autenticación de Active Directory para Android][ADAL-Android]
 - [Utilice la biblioteca de autenticación de Active Directory para Windows y Xamarin][ADAL-dotnet]
+
+Si desea usar el flujo dirigido al cliente para Facebook, use los siguientes recursos:
+
+- [Uso del SDK de Facebook para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
+
+Si desea usar el flujo dirigido al cliente para Twitter, use los siguientes recursos:
+
+- [Uso de Fabric de Twitter para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Si desea usar el flujo dirigido al cliente para Google, use los siguientes recursos:
+
+- [Uso del SDK de inicio de sesión de Google para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
 ### Aplicaciones de API
 Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
@@ -178,4 +190,4 @@ Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

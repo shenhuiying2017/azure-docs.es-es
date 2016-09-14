@@ -30,7 +30,7 @@ Puede reducir la sobrecarga de mantenimiento en las aplicaciones de Lote de Azur
 - **Compruebe las cuotas de la cuenta** y elimine las incertidumbres al determina los límites de cada cuenta de Lote. Al comprobar las cuotas de la cuenta antes de iniciar los trabajos, de crear grupos o de agregar los nodos de proceso, puede ajustar proactivamente dónde o cuándo se crean esos recursos de proceso. Puede determinar qué cuentas requieren un aumento de la cuota antes de asignarles recursos adicionales.
 - **Combine las características de otros servicios de Azure** para una experiencia completa de administración, para lo que debe sacar provecho a la vez de la biblioteca .NET de Administración de Lote, [Azure Active Directory][aad_about] y [Azure Resource Manager][resman_overview] en la misma aplicación. Mediante el uso de estas características y sus API puede proporcionar una experiencia de autenticación sin fricciones, la capacidad para crear y eliminar grupos de recursos, y las funcionalidades que se han descrito anteriormente para una solución de administración de un extremo a otro.
 
-> [AZURE.NOTE] Aunque este artículo se centra en la administración de sus cuentas de Lote, claves y cuotas mediante programación, puede realizar muchas de estas actividades con el [Portal de Azure][azure_portal]. Consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md) y [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener más información.
+> [AZURE.NOTE] Aunque este artículo se centra en la administración de sus cuentas de Lote, claves y cuotas mediante programación, puede realizar muchas de estas actividades con el [Portal de Azure][azure_portal]. Consulte [Creación de una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md) y [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información.
 
 ## Creación y eliminación de cuentas de Lote
 
@@ -134,13 +134,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Biblioteca .NET de Administración de Lote, Azure AD y Administrador de recursos
 
-Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] (Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
+Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] \(Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
 
 ### Azure Active Directory
 
 El propio Azure usa Azure Active Directory (AAD) para la autenticación de sus clientes, administradores de servicios y usuarios de la organización. En el contexto de .NET de Administración de Lote, se utilizará para autenticar un administrador o coadminstrator de suscripciones. Esto permitirá que, después, la biblioteca de administración consulte el servicio Lote y realice las operaciones que se describen en este artículo.
 
-En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] (ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
+En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] \(ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
 
 ### Resource Manager
 
@@ -148,7 +148,7 @@ Al crear cuentas de Lote con la biblioteca .NET de Administración de Lote, lo h
 
 ## Proyecto de ejemplo en GitHub
 
-Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] (ADAL) de Azure, que requiere ambos clientes.
+Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] \(ADAL) de Azure, que requiere ambos clientes.
 
 Para ejecutar correctamente la aplicación de ejemplo, primero debe registrarla en Azure AD desde el Portal de Azure. Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../active-directory/active-directory-integrating-applications.md#adding-an-application) en [Integración de aplicaciones con Azure Active Directory][aad_integrate] para registrar la aplicación de ejemplo dentro de su propia cuenta predeterminada. Seleccione **Aplicación de cliente nativo** para el tipo de aplicación, y puede especificar cualquier URI válido (como `http://myaccountmanagementsample`) para el **URI de redireccionamiento** (no es necesario que sea un punto de conexión real).
 
@@ -213,4 +213,4 @@ Antes de eliminar el grupo de recursos y la cuenta de Lote recién creados, pued
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Supervisión de copias de seguridad de máquinas virtuales implementadas por Resource Manager | Microsoft Azure"
-   description="Supervisión de eventos y alertas de copias de seguridad de máquinas virtuales implementadas por Resource Manager"
+   description="Supervise eventos y alertas de copias de seguridad de máquinas virtuales implementadas por Resource Manager. Envíe correo electrónico basado en alertas."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
+ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 
-Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil saber cuándo se produjeron. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
+Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
+
+## ¿Cómo se puede encontrar información sobre las alertas?
 
 Para ver información sobre el evento que generó una alerta, debe abrir la hoja de Alertas de copias de seguridad. Hay dos maneras de abrir la hoja de Alertas de copias de seguridad: mediante el icono de Alertas de copias de seguridad del panel del almacén o mediante la hoja Alertas y eventos.
 
@@ -72,6 +74,15 @@ Configuración de notificaciones de correo electrónico para alertas
 5. En el cuadro de diálogo **Gravedad**, elija los niveles que desee que desencadenen notificaciones de correo electrónico.
 
 6. Haga clic en **Save**.
+
+### ¿Existen situaciones en las que no se envía ningún correo electrónico incluso si las notificaciones se configuran?
+
+En efecto, hay situaciones en las que no se envía ninguna alerta aunque las notificaciones se hayan configurado correctamente. No se envían notificaciones por correo electrónico en las situaciones siguientes:
+
+- Si las notificaciones están configuradas mediante la opción Resumen cada hora y se genera una alerta y esta se resuelve en menos de una hora.
+- Se canceló el trabajo.
+- Se desencadena un trabajo de copia de seguridad y, a continuación, se produce un error y otro trabajo de copia de seguridad está en curso.
+- Se inicia un trabajo de copia de seguridad programado para una máquina virtual habilitada para Resource Manager, pero ya no existe esta máquina virtual.
 
 ## Personalización de la vista de eventos
 
@@ -220,4 +231,4 @@ Para obtener una explicación detallada acerca de los eventos, las operaciones y
 
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Obtenga información acerca de las tareas de administración para las copias de seguridad de máquinas virtuales en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

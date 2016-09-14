@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="ganesr"/>
 
 
@@ -40,7 +40,7 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute mediant
 
 ## Creación y aprovisionamiento de un circuito ExpressRoute
 
-### 1\. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
+### 1. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 
 Para empezar la configuración, inicie sesión en la cuenta de Azure. Para obtener más información sobre PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md). Use los siguientes ejemplos para conectarse:
 
@@ -54,7 +54,7 @@ Seleccione la suscripción para la que desea crear un circuito ExpressRoute:
 
 	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### 2\. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
+### 2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
 
 Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas.
 
@@ -72,7 +72,7 @@ Compruebe si aparece su proveedor de conectividad. Tome nota de la siguiente inf
 
 Ahora está listo para crear un circuito ExpressRoute.
 
-### 3\. Creación de un circuito ExpressRoute
+### 3. Creación de un circuito ExpressRoute
 
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Para ello, ejecute el siguiente comando:
 
@@ -99,7 +99,7 @@ La respuesta contiene la clave del servicio. Puede obtener una descripción deta
 	get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### 4\. Lista de todos los circuitos ExpressRoute
+### 4. Lista de todos los circuitos ExpressRoute
 
 Para obtener una lista de todos los circuitos ExpressRoute que haya creado, ejecute el comando `Get-AzureRmExpressRouteCircuit`:
 
@@ -168,7 +168,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando lo 
 
 	get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### 5\. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
+### 5. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
 
 *ServiceProviderProvisioningState* da información sobre el estado actual del aprovisionamiento en el lado del proveedor de servicios. "Status" proporciona el estado relativo al lado de Microsoft. Para más información sobre los estados de aprovisionamiento del circuito, consulte el artículo [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -190,7 +190,7 @@ Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el s
 	ServiceProviderProvisioningState : Provisioned
 	CircuitProvisioningState         : Enabled
 
-### 6\. Comprobación periódica del estado y la condición de la clave del circuito
+### 6. Comprobación periódica del estado y la condición de la clave del circuito
 
 La comprobación del estado y la condición de la clave de circuito le informa cuando el proveedor ha habilitado el circuito. Después de configurar el circuito, *ServiceProviderProvisioningState* aparece como *Provisioned*, tal como se muestra en el ejemplo siguiente:
 
@@ -223,14 +223,14 @@ La respuesta será similar al ejemplo siguiente:
 	ServiceKey                       : **************************************
 	Peerings                         : []
 
-### 7\. Creación de la configuración de enrutamiento
+### 7. Creación de la configuración de enrutamiento
 
 Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-arm.md) para ver las instrucciones paso a paso.
 
 
 >[AZURE.IMPORTANT] Estas instrucciones se aplican solo a los circuitos creados con proveedores de servicios que ofrecen servicios de conectividad de nivel 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente VPN IP, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento.
 
-### 8\. Vinculación de una red virtual a un circuito ExpressRoute
+### 8. Vinculación de una red virtual a un circuito ExpressRoute
 
 A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte el artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) al trabajar con el modelo de implementación de Resource Manager.
 
@@ -389,15 +389,15 @@ Puede cambiar la SKU de un circuito ExpressRoute mediante el siguiente fragmento
 Revise las instrucciones que se ofrecen en [Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-howto-move-arm.md).
 
 
-## Eliminación y la cancelación de un circuito ExpressRoute
+## Desaprovisionamiento y eliminación de un circuito ExpressRoute
 
 Tenga en cuenta lo siguiente:
 
 - Tiene que desvincular todas las redes virtuales del circuito ExpressRoute. Si se produce un error en esta operación, compruebe si hay alguna red virtual vinculada al circuito.
 
-- Si el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute está habilitado, el estado cambiará de habilitado a *deshabilitando*. Tiene que cooperar con su proveedor de servicios para desaprovisionar el circuito en su lado. Se le continuará reservando recursos y facturándole por ello hasta que el proveedor de servicios complete el desaprovisionamiento del circuito y nos lo notifique.
+- Si el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute es **Aprovisionando** o **Aprovisionado**, debe colaborar con su proveedor de servicios para que desaprovisionen el circuito. Se le continuará reservando recursos y facturándole por ello hasta que el proveedor de servicios complete el desaprovisionamiento del circuito y nos lo notifique.
 
-- Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en *no aprovisionado*) antes de ejecutar el cmdlet anterior, cancelaremos el aprovisionamiento del circuito y dejaremos de facturarle.
+- Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en **No aprovisionado**), puede eliminar el circuito. Esto detendrá la facturación del circuito.
 
 Puede eliminar el circuito ExpressRout con la ejecución del siguiente comando:
 
@@ -412,4 +412,4 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 - [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 - [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/18/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Conexión a un clúster seguro
@@ -61,7 +61,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ## Conexión a un clúster seguro mediante las API de FabricClient
-La siguiente clase [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Los nodos del clúster deben tener certificados válidos cuyo nombre común o nombre DNS de SAN aparezca en la [propiedad RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) establecida en [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Esto permite la autenticación mutua entre el cliente y el nodo del clúster.
+La siguiente clase [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Los nodos del clúster deben tener certificados válidos cuyo nombre común o nombre DNS de SAN aparezca en la [propiedad RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) establecido en [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), lo que permite la autenticación mutua entre el cliente y el nodo del clúster.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -115,4 +115,4 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 - [Introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md)
 - [Seguridad de aplicaciones y RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

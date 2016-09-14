@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/25/2016"
 	ms.author="larryfr"/>
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
@@ -120,7 +120,7 @@ Nombre | Script
 
 ## Uso de una acción de script durante la creación de un clúster
 
-En esta sección se proporcionan ejemplos sobre las diferentes maneras en que puede usar acciones de script al crear un clúster de HDInsight: desde el Portal de Azure, mediante una plantilla de ARM, usando cmdlets de PowerShell y con el SDK. de NET.
+En esta sección se proporcionan ejemplos sobre las diferentes maneras en que puede usar acciones de script al crear un clúster de HDInsight: desde el Portal de Azure, mediante una plantilla de Azure Resource Manager, usando cmdlets de PowerShell y con el SDK. de NET.
 
 ### Uso de una acción de script durante la creación de un clúster desde el Portal de Azure
 
@@ -143,19 +143,19 @@ En esta sección se proporcionan ejemplos sobre las diferentes maneras en que pu
 
 ### Use una acción de script de las plantillas de Azure Resource Manager
 
-En esta sección, usamos plantillas de Azure Resource Manager (ARM) para crear un clúster de HDInsight y usar una acción de script para instalar componentes personalizados (en este ejemplo, R) en el clúster. En esta sección se proporciona una plantilla ARM de ejemplo para crear un clúster mediante la acción de script.
+En esta sección, usamos plantillas de Azure Resource Manager para crear un clúster de HDInsight y usar una acción de script para instalar componentes personalizados (en este ejemplo, R) en el clúster. En esta sección se proporciona una plantilla de ejemplo para crear un clúster mediante la acción de script.
 
-> [AZURE.NOTE] Los pasos de esta sección muestran cómo crear un clúster mediante una acción de script. Para obtener un ejemplo de creación de un clúster desde una plantilla de ARM mediante una aplicación de HDInsight, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
+> [AZURE.NOTE] Los pasos de esta sección muestran cómo crear un clúster mediante una acción de script. Para obtener un ejemplo de creación de un clúster desde una plantilla mediante una aplicación de HDInsight, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
 #### Antes de empezar
 
 * Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-* Para obtener instrucciones sobre cómo crear plantillas ARM, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+* Para obtener instrucciones sobre cómo crear plantillas, consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
 * Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
 #### Creación de clústeres mediante acciones de script
 
-1. Copie la plantilla siguiente en una ubicación en el equipo. Esta plantilla instala R en el nodo principal, así como en los nodos de trabajo en el clúster. También puede comprobar si la plantilla JSON es válida. Pegue la plantilla de contenido en [JSONLint](http://jsonlint.com/), herramienta de validación JSON en línea.
+1. Copie la plantilla siguiente en una ubicación en el equipo. Esta plantilla instala Giraph en el nodo principal, así como en los nodos de trabajo en el clúster. También puede comprobar si la plantilla JSON es válida. Pegue la plantilla de contenido en [JSONLint](http://jsonlint.com/), herramienta de validación JSON en línea.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -252,7 +252,7 @@ En esta sección, usamos plantillas de Azure Resource Manager (ARM) para crear u
 		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
 		                            "isDefault": true,
 		                            "container": "[parameters('clusterStorageAccountContainer')]",
-		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
 		                        }
 		                    ]
 		                },
@@ -272,8 +272,8 @@ En esta sección, usamos plantillas de Azure Resource Manager (ARM) para crear u
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installR",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "name": "installGiraph",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -323,7 +323,7 @@ En esta sección, usamos plantillas de Azure Resource Manager (ARM) para crear u
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE] Puede usar `Get-AzureRmSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el identificador de suscripción de cada una.
+    > [AZURE.NOTE] Puede usar `Get-AzureRmSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el id. de suscripción de cada una.
 
 5. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
 
@@ -390,11 +390,11 @@ Lleve a cabo los siguiente pasos:
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. Use el cmdlet **Add-AzureRmHDInsightScriptAction** para invocar el script. En el ejemplo siguiente se usa el script para instalar R en el clúster:
+3. Use el cmdlet **Add-AzureRmHDInsightScriptAction** para invocar el script. En el ejemplo siguiente se usa el script para instalar Giraph en el clúster:
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
 	El cmdlet **Add-AzureRmHDInsightScriptAction** toma los siguientes parámetros:
 
@@ -452,8 +452,8 @@ En esta sección se proporcionan ejemplos sobre las diferentes maneras en que pu
 
 5. En la hoja Agregar acción de script, escriba la siguiente información.
 
-    * __Nombre__: nombre descriptivo que se usará para esta acción de script. En este ejemplo, `R`.
-    * __URI DE SCRIPT__: el identificador URI del script. En este ejemplo, `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`.
+    * __Nombre__: nombre descriptivo que se usará para esta acción de script. En este ejemplo, `Giraph`.
+    * __URI DE SCRIPT__: el identificador URI del script. En este ejemplo: `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`
     * __Encabezado__, __Trabajo__ y __Zookeeper__: active los nodos a los que se debe aplicar este script. En este ejemplo, se marcan Principal y Trabajo.
     * __PARÁMETROS__: si el script acepta parámetros, especifíquelos aquí.
     * __PERSISTENTE__: active esta entrada si desea guardar un script como persistente para que se aplique a nuevos nodos de trabajo cuando escale el clúster verticalmente.
@@ -485,8 +485,8 @@ Antes de continuar, asegúrese de que ha instalado y configurado Azure PowerShel
 
         OperationState  : Succeeded
         ErrorMessage    :
-        Name            : R
-        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        Name            : Giraph
+        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
 
@@ -691,7 +691,6 @@ Hay dos excepciones:
 Consulte la siguiente información y ejemplos sobre la creación y uso de scripts para personalizar un clúster:
 
 - [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
-- [Instalación y uso de R en clústeres de Hadoop de HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
@@ -699,4 +698,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

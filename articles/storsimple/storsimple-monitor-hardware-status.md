@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para supervisar componentes y estados de hardware
@@ -46,7 +46,7 @@ Un dispositivo 8600 tiene componentes adicionales que se corresponden con el rev
 
 Realice los pasos siguientes para ver el estado de hardware de un componente del dispositivo:
 
-1. Vaya a **Dispositivos** y seleccione un dispositivo de StorSimple concreto. Haga clic en él para ir al menú de nivel de dispositivo y haga clic en **Mantenimiento**. 
+1. Vaya a **Dispositivos** y seleccione un dispositivo de StorSimple concreto. Haga clic en él para ir al menú de nivel de dispositivo y haga clic en **Mantenimiento**.
 2. Busque la sección **Estado de hardware** y elija entre los componentes disponibles (como se describió anteriormente). Simplemente haga clic en una flecha situada antes de la etiqueta del componente para expandir la lista y ver el estado de los distintos componentes del dispositivo. Consulte la [lista detallada de componentes del revestimiento principal](#component-list-for-primary-enclosure-of-storsimple-device) y la [lista detallada de componentes del revestimiento de EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
 2. Use el siguiente esquema de codificación de color para interpretar el estado de los componentes:
@@ -62,7 +62,7 @@ Realice los pasos siguientes para ver el estado de hardware de un componente del
 
 En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja principal del dispositivo StorSimple local.
 
-|Componente|Módulo|Escriba|Ubicación|¿Unidad reemplazable en campo (FRU)?|Descripción|
+|Componente|Módulo|Tipo|Ubicación|¿Unidad reemplazable en campo (FRU)?|Description|
 |---|---|---|---|---|---|
 |Unidad en la ranura [0-11]|Unidades de disco|Física|Compartido|Sí|Hay una línea preesnte para cada una de las unidades SSD o HDD en el revestimiento principal.|
 |Sensor de temperatura ambiente|Revestimiento|Física|Compartido|No|Mide la temperatura del chasis.|
@@ -104,7 +104,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja EBOD del dispositivo StorSimple local.
 
-|Componente|Módulo|Escriba|Ubicación|¿FRU?|Descripción|
+|Componente|Módulo|Tipo|Ubicación|¿FRU?|Description|
 |---|---|---|---|---|---|
 |Unidad en la ranura [0-11]|Unidades de disco|Física|Compartido|Sí|Hay una línea presente para cada una de las unidades HDD en el revestimiento de EBOD.|
 |Sensor de temperatura ambiente|Revestimiento|Física|Compartido|No|Mide la temperatura del chasis.|
@@ -136,4 +136,4 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 - Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

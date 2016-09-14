@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Creación y ejecución de procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
@@ -23,17 +23,13 @@ En este artículo se ofrece información general sobre el Explorador de scripts 
 
 ## Inicio del Explorador de scripts
 
-1. En la barra de accesos directos del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
+1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
 
-2. En la parte superior de la hoja **Cuenta de DocumentDB**, haga clic en **Explorador de documentos**.
+2. En el menú de recursos, haga clic en **Explorador de scripts**.
 
 	![Captura de pantalla del comando del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] Explorador de scripts también aparece en las hojas de la base de datos y la colección.
-
     Los cuadros de lista desplegable **Base de datos** y **Colección** se rellenan previamente según el contexto en el que se ejecute el Explorador de scripts. Por ejemplo, si efectúa el inicio desde una hoja de base de datos, la base de datos actual se rellena previamente. Si el inicio se realiza desde una hoja de colección, la colección actual será la que se rellene previamente.
-
-	![Captura de pantalla del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
 4.  Los cuadros de lista desplegable **Base de datos** y **Colección** pueden usarse para cambiar fácilmente la colección desde la que se ven los scripts en ese momento sin tener que cerrar y reiniciar el Explorador de scripts.
 
@@ -89,7 +85,7 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 
 ## Ejecutar un procedimiento almacenado
 
-> [AZURE.WARNING] En el Explorador de scripts aún no se admite la ejecución de los procedimientos almacenados para colecciones de particiones del servidor. Para más información, visite [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
+> [AZURE.WARNING] En el Explorador de scripts aún no se admite la ejecución de los procedimientos almacenados para colecciones de particiones del servidor. Para obtener más información, visite [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
 
 Explorador de scripts permite ejecutar procedimientos almacenados de servidor del Portal de Azure.
 
@@ -117,6 +113,6 @@ El Explorador de scripts en el Portal de Azure es simplemente una forma de traba
 
 Más información sobre programación del lado servidor de DocumentDB en el artículo [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
-La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
+La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

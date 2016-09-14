@@ -15,12 +15,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/07/2016"
+   ms.date="08/30/2016"
    ms.author="glenga"/>
    
 # Creación de un webhook o una función de API de Azure
 
-Funciones de Azure es una experiencia de procesos a petición orientada a eventos que permite crear unidades de código programadas o desencadenadas que se implementan en diversos lenguajes de programación. Para más información sobre Funciones de Azure, consulte [Información general sobre Funciones de Azure](functions-overview.md).
+Funciones de Azure es una experiencia de procesos a petición orientada a eventos que permite crear unidades de código programadas o desencadenadas que se implementan en diversos lenguajes de programación. Para más información acerca de Funciones de Azure, consulte [Información general sobre Funciones de Azure](functions-overview.md).
 
 En este tema se muestra cómo crear una nueva función de Node.js que se invoca mediante un webhook de GitHub. La función nueva se crea a partir de una plantilla predefinida del portal de Funciones de Azure. También puede ver un vídeo de corta duración en el que podrá seguir la realización de estos pasos en el portal.
 
@@ -80,13 +80,13 @@ En este punto, el webhook de GitHub está configurado para desencadenar la funci
 
 ##Pasos siguientes
 
-Consulte estos temas para más información sobre Funciones de Azure.
+Consulte estos temas para más información sobre Azure Functions.
 
 + [Azure Functions developer reference](functions-reference.md) (Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones.
 + [Testing Azure Functions](functions-test-a-function.md) (Prueba de Funciones de Azure) describe las diversas herramientas y técnicas para probar sus funciones.
-+ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
++ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.
 
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

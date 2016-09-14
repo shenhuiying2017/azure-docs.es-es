@@ -26,7 +26,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
-
+- [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -49,7 +49,7 @@ En este escenario:
 
 ## Antes de empezar
 
-Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregarse a ella puertas de enlace de aplicaciones adicionales.
+Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
 ## Creación de la puerta de enlace de aplicaciones
 
@@ -57,7 +57,7 @@ Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear un
 
 Navegue al Portal de Azure, haga clic en **Nuevo** > **Redes** > **Puerta de enlace de aplicaciones**
 
-![Creación de una nueva puerta de enlace de aplicaciones][1]
+![Creación de una puerta de enlace de aplicaciones][1]
 
 ### Paso 2
 
@@ -69,7 +69,7 @@ La información necesaria para la configuración básica es:
 - **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones, las opciones disponibles son (Pequeño, Mediano y Grande).
 - **Número de instancias**: el número de instancias, este valor debe ser un número comprendido entre 2 y 10.
 - **Grupo de recursos**: el grupo de recursos que mantiene la puerta de enlace de aplicaciones, puede ser un grupo de recursos existente o uno nuevo.
-- **Ubicación**: la región de la puerta de enlace de aplicaciones, es la misma ubicación en el grupo de recursos. *Esto es importante, ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace*.
+- **Ubicación**: la región de la puerta de enlace de aplicaciones, es la misma ubicación en el grupo de recursos. *La ubicación es importante ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace*.
 
 ![hoja que muestra configuración básica][2]
 
@@ -116,7 +116,7 @@ A continuación, asigne un nombre descriptivo a la dirección IP pública y haga
 
 ### Paso 9:
 
-El último ajuste que se configura al crear una puerta de enlace de aplicaciones es la configuración del agente de escucha. Si se usa **http**, no queda nada por configurar, así que se puede hacer clic en **Aceptar**. Para sacar provecho de **https**, se requiere mayor configuración.
+El último ajuste que se configura al crear una puerta de enlace de aplicaciones es la configuración del agente de escucha. Si se usa **http**, no queda nada por configurar, así que se puede hacer clic en **Aceptar**. Para usar **https**, se requiere mayor configuración.
 
 Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria, por lo que es preciso proporcionar un .pfx exportado del certificado y la contraseña del archivo.
 
@@ -141,7 +141,7 @@ Una vez creada la puerta de enlace de aplicaciones, navegue hasta ella en el por
 
 ![Vista de recursos de Puerta de enlace de aplicaciones][10]
 
-Así se crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto
+Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto
 
 ## Pasos siguientes
 
@@ -162,4 +162,4 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

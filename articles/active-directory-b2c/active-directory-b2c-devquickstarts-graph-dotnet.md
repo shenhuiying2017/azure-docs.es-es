@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C: uso de la API Graph
@@ -35,7 +35,7 @@ Antes de crear aplicaciones, usuarios o interactuar con Azure AD, necesitará un
 
 Cuando tenga un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD PowerShell. En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]
+> [AZURE.IMPORTANT]
 Para usar la API Graph con su inquilino de B2C, deberá registrar una aplicación dedicada con PowerShell. Para ello, siga las instrucciones de este artículo. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure.
 
 Una vez instalado el módulo de PowerShell, abra PowerShell y conéctese al inquilino de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña. Escriba el nombre de usuario y la contraseña de la cuenta del administrador de inquilinos de B2C.
@@ -362,4 +362,4 @@ Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar su
 
 Si tiene alguna pregunta o desea presentar una solicitud para acciones que le gustaría realizar con la API Graph en su inquilino B2C, deje un comentario en este artículo o registre un problema en el repositorio de ejemplos de código de GitHub.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

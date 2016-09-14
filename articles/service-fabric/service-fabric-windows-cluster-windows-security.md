@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -25,7 +25,7 @@ Para evitar el acceso no autorizado a un clúster de Service Fabric, debe proteg
 Considere la selección de seguridad para la seguridad de nodo a nodo con cuidado, ya que no hay ninguna actualización de clúster de una opción de seguridad a otra. Cambiar la selección de seguridad requeriría una recompilación completa del clúster.
 
 ## Configuración de la seguridad de Windows
-El archivo de configuración de ejemplo *ClusterConfig.Windows.JSON* descargado junto con el paquete de clúster independiente [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene una plantilla para configurar la seguridad de Windows. La seguridad de Windows se configura en la sección **Propiedades**:
+El archivo de configuración de ejemplo *ClusterConfig.Windows.JSON* descargado junto con el paquete de clúster independiente [Microsoft.Azure.ServiceFabric.WindowsServer.<versión>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene una plantilla para configurar la seguridad de Windows. La seguridad de Windows se configura en la sección **Propiedades**:
 
 ```
 "security": {
@@ -73,10 +73,10 @@ La sección de **seguridad** del ejemplo siguiente configura la seguridad de Win
 
 ## Pasos siguientes
 
-Después de configurar la seguridad de Windows en el archivo *ClusterConfig.JSON*, reanude el proceso de creación de clústeres en [Creación de un clúster de Service Fabric de Azure local o en la nube](service-fabric-cluster-creation-for-windows-server.md).
+Después de configurar la seguridad de Windows en el archivo *ClusterConfig.JSON*, reanude el proceso de creación de clústeres en [Creación de un clúster independiente que se ejecuta en Windows](service-fabric-cluster-creation-for-windows-server.md).
 
-Para más información sobre la seguridad de nodo a nodo, la seguridad de cliente a nodo y el control de acceso basado en roles, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
+Para más información sobre la seguridad de nodo a nodo, la seguridad de cliente a nodo y el control de acceso basado en roles, consulte [Escenarios de seguridad de clúster](service-fabric-cluster-security.md).
 
 Consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md) para obtener ejemplos de conexión con PowerShell o FabricClient.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

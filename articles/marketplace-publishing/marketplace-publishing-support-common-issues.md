@@ -29,7 +29,7 @@ A continuación se muestra cómo solicitar un abono o un reembolso en nombre de 
 
   ![1\_RequestRefund][1]
 
-  1. Navegue a las páginas de soporte técnico.
+  1. Visite las páginas de soporte técnico aquí: [https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. En el cuadro **Tipo de problema**, seleccione **Administración de clientes**.
   3. En el cuadro **Categoría**, seleccione **Aprobar o solicitar una devolución del cliente**.
   4. Haga clic en **Solicitud de inicio**.
@@ -120,4 +120,4 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

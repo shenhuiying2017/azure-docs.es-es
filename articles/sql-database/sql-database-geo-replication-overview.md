@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # Información general: Replicación geográfica activa para Base de datos SQL de Azure
@@ -39,6 +39,9 @@ Puede conmutar por error a una base de datos secundaria mediante el [Portal de A
 - [Conmutación por error: Portal de Azure](sql-database-geo-replication-failover-portal.md)
 - [Conmutación por error: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Conmutación por error: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
+
+Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
+
 
 La característica Replicación geográfica activa implementa un mecanismo para proporcionar redundancia de base de datos en la misma región de Microsoft Azure o en distintas regiones (redundancia geográfica). Replicación geográfica activa replica de forma asincrónica las transacciones confirmadas desde una base de datos en hasta cuatro copias de la base de datos en servidores diferentes mediante el aislamiento instantáneo de lectura confirmada (RCSI). Cuando se configura la replicación geográfica activa, se crea una base de datos secundaria en el servidor especificado y la base de datos original se convierte en la principal. La base de datos principal replica de forma asincrónica las transacciones confirmadas en cada una de las bases de datos secundarias. Aunque, en un momento dado, la base de datos secundaria puede estar algo retrasada respecto a la principal, se garantiza que los datos secundarios guarden siempre coherencia transaccional con los confirmados en la base de datos principal.
 
@@ -132,5 +135,6 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 - Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md).
+- Para obtener información acerca de los requisitos de autenticación para un nuevo servidor principal y la base de datos, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

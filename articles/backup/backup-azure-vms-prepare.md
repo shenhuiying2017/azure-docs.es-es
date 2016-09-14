@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -39,11 +39,12 @@ Si sabe que estas condiciones ya existen en su entorno, vaya al artículo [Copia
 
 - No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 - No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
+- Los datos de copia de seguridad no incluyen unidades montadas de red conectadas a la máquina virtual.
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
 - No se admite la restauración y copia de seguridad entre regiones.
 - Se admite la copia de seguridad de máquinas virtuales mediante el uso del servicio Copia de seguridad de Azure en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones compatibles). Si la región que está buscando no es compatible actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
-  - **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), excepto CoreOS Linux. Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
+  - **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), con la excepción de CoreOS Linux. Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 - La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Más información sobre cómo [restaurar un controlador de dominio de varios controladores de dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean con el flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -65,7 +66,7 @@ Para crear un almacén de copia de seguridad:
 
     ![Portal de Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] Si la suscripción se usó por última vez en el portal clásico, es posible que la suscripción se abra en el portal clásico. En este caso, para crear un almacén de copia de seguridad, haga clic en **Nuevo** > **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida** (vea la imagen siguiente).
+    >[AZURE.NOTE] Si la suscripción se usó por última vez en el portal clásico, es posible que la suscripción se abra en este portal. En este caso, para crear un almacén de copia de seguridad, haga clic en **Nuevo** > **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida** (consulte la imagen siguiente).
 
     ![Crear un almacén de copia de seguridad](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
@@ -92,19 +93,19 @@ Para crear un almacén de copia de seguridad:
 
 Para administrar las instantáneas de máquina virtual, la extensión de copia de seguridad necesita conectividad a las direcciones IP públicas de Azure. Sin la conectividad a Internet adecuada, el tiempo de espera de las solicitudes HTTP de la máquina virtual se agota y se produce un error en la operación de copia de seguridad. Si la implementación tiene restricciones de acceso establecidas (a través de un grupo de seguridad de red (NSG), por ejemplo), elija entonces una de estas opciones para proporcionar una ruta de acceso clara para el tráfico de copia de seguridad:
 
-- [Creación de listas blancas con intervalos de direcciones IP de centro de datos de Azure](http://www.microsoft.com/es-ES/download/details.aspx?id=41653): consulte el artículo para obtener instrucciones sobre cómo crear una lista blanca con las direcciones IP.
+- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/es-ES/download/details.aspx?id=41653) (Creación de listas blancas con intervalos de direcciones IP de centro de datos de Azure): consulte este artículo para obtener instrucciones sobre cómo crear una lista blanca con las direcciones IP.
 - Implementación de un servidor proxy HTTP para enrutar el tráfico.
 
 Al decidir qué opción utilizar, busque el equilibrio entre costo, control granular y facilidad de uso.
 
 |Opción|Ventajas|Desventajas|
 |------|----------|-------------|
-|Creación de una lista blanca con intervalos IP| Sin costos adicionales.<br><br>Para abrir el acceso en un grupo de seguridad de red, use el cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Es complejo de administrar, ya que los intervalos IP afectados cambian con el tiempo.<br><br>Proporciona acceso a la totalidad de Azure y no solo al almacenamiento.|
+|Creación de una lista blanca con intervalos IP| Sin costos adicionales.<br><br>Para abrir el acceso en un grupo de seguridad de red, use el cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Es complejo de administrar, ya que los intervalos de IP afectados cambian con el tiempo.<br><br>Proporciona acceso a la totalidad de Azure y no solo al almacenamiento.|
 |Proxy HTTP| Se permite un control detallado en el proxy sobre las direcciones URL de almacenamiento.<br>Un único punto de acceso a Internet a las máquinas virtuales.<br>No están sujetas a cambios de direcciones IP de Azure.| Costes adicionales de ejecutar una máquina virtual con el software de proxy.|
 
 ### Preparar una lista blanca con los intervalos IP del centro de datos de Azure.
 
-Para crear una lista blanca con los intervalos IP de centro de datos de Azure, visite el [sitio web de Azure](http://www.microsoft.com/es-ES/download/details.aspx?id=41653). Ahí encontrará información detallada sobre los intervalos IP, junto con instrucciones.
+Para crear una lista blanca con los intervalos de IP de centro de datos de Azure, visite el [sitio web de Azure](http://www.microsoft.com/es-ES/download/details.aspx?id=41653). Ahí encontrará información detallada sobre los intervalos de IP, junto con instrucciones.
 
 ### Uso de un proxy HTTP para las copias de seguridad de máquinas virtuales
 Cuando se realiza una copia de seguridad de una máquina virtual, la extensión de copia de seguridad de dicha máquina envía los comandos de administración de instantáneas a Almacenamiento de Azure mediante una API de HTTPS. Enrute el tráfico de extensión de copia de seguridad a través del proxy HTTP, ya que es el único componente configurado para el acceso a la red pública de Internet.
@@ -172,7 +173,7 @@ HttpProxy.Port=<proxy port>
 
     ![Abrir el firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-2. En el cuadro de diálogo Firewall de Windows, haga clic con el botón derecho en **Reglas de entrada** y haga clic en **Nueva regla...**.
+2. En el cuadro de diálogo Firewall de Windows, haga clic con el botón derecho en **Reglas de entrada** y haga clic en **Nueva regla**.
 
     ![Crear una nueva regla](./media/backup-azure-vms-prepare/firewall-02.png)
 
@@ -184,9 +185,9 @@ HttpProxy.Port=<proxy port>
 
     ![Crear una nueva regla](./media/backup-azure-vms-prepare/firewall-03.png)
 
-    - en *Tipo de protocolo*, elija *TCP*.
-    - en *Puerto Local*, elija *Puertos específicos* y, en el campo siguiente, especifique el valor de ```<Proxy Port>``` configurado.
-    - en *Puerto remoto*, seleccione *Todos los puertos*.
+    - n *Tipo de protocolo*, elija *TCP*.
+    - En *Puerto Local*, elija *Puertos específicos* y, en el campo siguiente, especifique el valor de ```<Proxy Port>``` configurado.
+    - En *Puerto remoto*, seleccione *Todos los puertos*.
 
     Durante el resto del asistente, haga clic en todas las pantallas hasta el final y asigne un nombre a esta regla.
 
@@ -238,4 +239,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

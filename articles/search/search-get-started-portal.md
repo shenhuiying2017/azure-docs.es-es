@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en el Portal
@@ -23,7 +23,7 @@ Este artículo es una introducción sin código a Búsqueda de Azure de Microsof
 
 En este tutorial se da por hecho que dispone de una [base de datos de Azure DocumentDB de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y datos de ejemplo; sin embargo, también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
 
-> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Búsqueda de Azure](search-create-service-portal.md).
+> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Azure Search](search-create-service-portal.md).
  
 ## Búsqueda del servicio
 
@@ -72,9 +72,9 @@ En el asistente, haga clic en **Índice** y eche un vistazo a la superficie de d
 
 Aunque los campos y tipos de datos están configurados, todavía hay que asignar atributos. Las casillas de la parte superior de la lista de campos son *atributos de índice* que controlan cómo se utiliza el campo.
 
-- **Retrievable** significa que se muestra en la lista de resultados de búsqueda. Puede desactivar esta casilla para marcar los campos individuales como fuera de los resultados de búsqueda, por ejemplo, cuando los campos se usan solo en expresiones de filtro. 
-- **Filterable**, **Sortable** y **Facetable** determinan si un campo se puede usar en un filtro, una ordenación o una estructura de navegación de facetas. 
-- **Searchable** significa que se incluye un campo en la búsqueda de texto completo. Las cadenas normalmente permiten búsquedas. Los campos numéricos y los booleanos a menudo se marcan como no utilizables en búsquedas. 
+- **Retrievable** significa que se muestra en la lista de resultados de búsqueda. Puede desactivar esta casilla para marcar los campos individuales como fuera de los resultados de búsqueda, por ejemplo, cuando los campos se usan solo en expresiones de filtro.
+- **Filterable**, **Sortable** y **Facetable** determinan si un campo se puede usar en un filtro, una ordenación o una estructura de navegación de facetas.
+- **Searchable** significa que se incluye un campo en la búsqueda de texto completo. Las cadenas normalmente permiten búsquedas. Los campos numéricos y los booleanos a menudo se marcan como no utilizables en búsquedas.
 
 Antes de salir de esta página, marque los campos en el índice para utilizar las siguientes opciones (Searchable, Retrievable, etc.). La mayoría de los campos son Retrievable. La mayoría de los campos de cadena son Searchable (no es necesario hacer que se pueda buscar la clave). Algunos campos como género, orderableOnline, rating y tags también son Filterable, Sortable y Facetable.
 	
@@ -183,4 +183,4 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

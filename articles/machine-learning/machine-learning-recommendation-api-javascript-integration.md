@@ -3,7 +3,7 @@
 	description="Recomendaciones de Aprendizaje automático de Azure: Integración con JavaScript (documentación)" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 # Recomendaciones de Aprendizaje automático de Azure: Integración con JavaScript
+
+> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+
 
 Este documento describe cómo integrar su sitio mediante JavaScript. El código JavaScript le permite enviar eventos de adquisición de datos y consumir recomendaciones una vez que se crea un modelo de recomendación. Todas las operaciones que se realizan a través de JS se pueden realizar también desde el servidor.
 
@@ -186,10 +189,10 @@ Este evento se debe utilizar después del inicio de sesión de usuario en su sit
 
 Parámetros:
 * event (cadena) - "userlogin"
-* user (cadena) - Identificación único del usuario.
+* user (cadena) - Identificación único del usuario. 
 		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); 
 		</script>
 
 ##4\. Consumir recomendaciones a través de JavaScript
@@ -228,4 +231,4 @@ Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->

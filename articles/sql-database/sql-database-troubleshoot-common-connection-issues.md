@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Solución de problemas de conexión de Base de datos SQL de Azure
 
 Cuando la conexión a Base de datos SQL de Azure no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Base de datos SQL de Azure. Se presentan [las causas habituales](#cause) de problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que le ayuda a identificar el problema y se proporciona pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-the-persistent-errors). Por último, se enumeran [todos los artículos relacionados con la conectividad de Base de datos SQL de Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
+Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo. 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
@@ -63,7 +63,7 @@ Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma 
 
 1.	Configure las [reglas de firewall](sql-database-configure-firewall-settings.md) para permitir la dirección IP del cliente.
 2.	En todos los firewalls entre el cliente e Internet, asegúrese de que el puerto 1433 está abierto para las conexiones salientes. Consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) para obtener indicaciones adicionales.
-3.	Compruebe la cadena de conexión y otras opciones de conexión. Vea la sección Cadena de conexión en el [tema de problemas de conectividad](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3.	Compruebe la cadena de conexión y otras opciones de conexión. Vea la sección Cadena de conexión en el [tema de los problemas de conectividad](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 
 ## Todos los temas de problemas de conexión de Base de datos SQL de Azure
@@ -99,6 +99,6 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 - [Orientación general sobre reintentos](../best-practices-retry-general.md)
 - [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 - [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -18,11 +18,11 @@
 
 # Migración de Orchestrator a Automatización de Azure (beta)
 
-Los runbooks de [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) se basan en actividades provenientes de paquetes de integración escritos específicamente para Orchestrator, mientras que los runbooks de Automatización de Azure se basan en Windows PowerShell. Los [runbooks gráficos](automation-runbook-types#graphical-runbooks) de Automatización de Azure tienen una apariencia similar a los runbooks de Orchestrator, con sus actividades que representan los cmdlets de PowerShell, runbooks secundarios y recursos.
+Los runbooks de [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) se basan en actividades provenientes de paquetes de integración escritos específicamente para Orchestrator, mientras que los runbooks de Automatización de Azure se basan en Windows PowerShell. Los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) de Automatización de Azure tienen una apariencia similar a los runbooks de Orchestrator, con sus actividades que representan los cmdlets de PowerShell, runbooks secundarios y recursos.
 
 El [kit de herramientas para migración de System Center Orchestrator](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) incluye herramientas que le ayudan a convertir runbooks de Orchestrator a Automatización de Azure. Además de convertir los runbooks, debe convertir los paquetes de integración con las actividades usadas por los runbooks en módulos de integración con cmdlets de Windows PowerShell.
 
-A continuación se muestra el proceso básico para convertir runbooks de Orchestrator en runbooks de Automatización de Azure. Cada uno de estos pasos se describe en detalle en las secciones que aparecen a continuación.
+A continuación se muestra el proceso básico para convertir Runbooks de Orchestrator en Runbooks de Automatización de Azure. Cada uno de estos pasos se describe en detalle en las secciones que aparecen a continuación.
 
 1.  Descargue el [kit de herramientas para migración de System Center Orchestrator](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all), que contiene las herramientas y los módulos analizados en este artículo.
 2.  Importe el [Módulo de actividades estándar](#standard-activities-module) a Automatización de Azure. Esto incluye versiones convertidas de las actividades estándar de Orchestrator que los runbooks convertidos pueden usar.
@@ -96,7 +96,7 @@ La sintaxis de **ConvertFrom-SCORunbook** es la siguiente:
 
 - RunbookPath: ruta de acceso al archivo de exportación que contiene los runbooks que se convertirá.
 - Module: lista delimitada por comas de los módulos de integración que contienen las actividades de los runbooks.
-- OutputFolder: ruta de acceso a la carpeta para crear runbooks gráficos convertidos. 
+- OutputFolder: ruta de acceso a la carpeta para crear runbooks gráficos convertidos.
 
 
 El siguiente comando de ejemplo convierte los runbooks en un archivo de exportación denominado **MyRunbooks.ois\_export**. Estos runbooks usan los paquetes de integración de Active Directory y Data Protection Manager.
@@ -158,6 +158,7 @@ Los runbooks de Orchestrator inician otros runbooks con la actividad **Invocar R
 - [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 - [Trabajo híbrido de runbook](automation-hybrid-runbook-worker.md)
 - [Actividades estándar de Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
+- [Descargue el kit de herramientas para migración de System Center Orchestrator](https://www.microsoft.com/es-ES/download/details.aspx?id=47323)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0831_2016-->

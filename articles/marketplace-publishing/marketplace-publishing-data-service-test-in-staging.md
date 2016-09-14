@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Probar su oferta de Servicio de datos en Ensayo
-Después de completar los dos primeros pasos de [Creación de la cuenta de desarrollador de Microsoft](marketplace-publishing-accounts-creation-registration.md) y [Creación de la oferta de servicio de datos en el portal de publicación](marketplace-publishing-data-service-creation.md), está listo para realizar la oferta disponible en Azure Marketplace. Este tema le guiará a través del primer paso intermedio denominado "Almacenamiento provisional"
+
+>[AZURE.IMPORTANT] **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio de desarrollo que quiera publicar en Azure Marketplace, puede encontrar más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
+
+Después de completar los dos primeros pasos de [Creación de la cuenta de desarrollador de Microsoft](marketplace-publishing-accounts-creation-registration.md) y [Creación de la oferta de servicio de datos en el portal de publicación](marketplace-publishing-data-service-creation.md), está listo para realizar la oferta disponible en Azure Marketplace. Este tema le guiará a través del primer paso intermedio denominado "Ensayo".
 
 En la etapa de ensayo se implementa la oferta en un “espacio aislado” privado, donde puede probar y comprobar su funcionalidad antes pasarla a producción. La oferta aparecerá en un entorno de ensayo tal y como lo haría para un cliente que la implementase.
 
@@ -29,7 +32,7 @@ El traslado de la oferta a un almacenamiento provisional permite probar la ofert
 1.	Inicie sesión en el [Portal de publicación](https://publish.windowsazure.com).
 2.	Seleccione **Servicios de datos** en la ventana de navegación izquierda
 3.	Seleccione la oferta que desee trasladar al almacenamiento provisional. Verá la pantalla anterior.
-4.	Haga clic en el botón **Insertar en entorno de ensayo**.
+4.	Haga clic en el botón **Trasladar a almacenamiento provisional**.
 5.	Si hay problemas con la oferta que deban solucionarse antes de su traslado al entorno de ensayo, se incluirán en una lista. Para corregirlos, haga clic en cada elemento de la lista. Cuando se hayan efectuado todas las correcciones, haga clic en el botón **Trasladar a almacenamiento provisional** nuevamente.
 
 Si no hay ningún problema con su oferta, se visualizará la ventana emergente que aparece a continuación.
@@ -42,7 +45,7 @@ Corte y pegue el identificador de suscripción y haga clic en la marca de verifi
 
   ![dibujo](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-> [AZURE.NOTE] Estos identificadores de suscripciones a Azure solo son necesarios para pruebas y ensayo en el [Portal de administración de Azure](https://manage.windowsazure.com). No se requieren para efectuar pruebas en Azure Marketplace.
+> [AZURE.NOTE] Estos identificadores de suscripciones a Azure solo son necesarios para las pruebas y el almacenamiento provisional en el [Portal de administración de Azure](https://manage.windowsazure.com). No se requieren para efectuar pruebas en Azure Marketplace.
 
 En la siguiente pantalla que aparece se muestra que se está efectuando la publicación mediante el icono "En curso" resaltado en amarillo a continuación. La inserción en el almacenamiento provisional dura entre 10 y 15 minutos. Si tarda más, primero actualice su explorador (presione F5 en Internet Explorer). Aunque es extraño que suceda, si la oferta se sigue insertando en el entorno de ensayo después de una hora, haga clic en el vínculo "Póngase en contacto con nosotros" para hacernos saber que hay un problema.
 
@@ -52,7 +55,7 @@ Cuando finalice la inserción en el almacenamiento provisional, el icono "En cur
 
 ## Paso 2: Probar su oferta almacenada provisionalmente en DataMarket
 
-Haga clic en el vínculo que aparece detrás del texto **"Ver su oferta de servicio en..."** para mostrar la pantalla que verá el suscriptor cuando la oferta pase a producción y aparezca en DataMarket.
+Haga clic en el vínculo que aparece detrás del texto **"Ver su oferta de servicio en..."** para mostrar la pantalla que verá el suscriptor cuando la oferta pase a producción y aparecerá en DataMarket.
 
   ![dibujo](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -86,4 +89,4 @@ Si está satisfecho y listo para publicar su oferta, lea la documentación [Soli
 ## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

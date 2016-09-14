@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico | Microsoft Azure"
-   description="Conéctese de forma segura a la Red virtual de Azure mediante la creación de una conexión VPN de punto a sitio."
+   pageTitle="Configuración de una conexión de puerta de enlace de VPN de punto a sitio a Azure Virtual Network mediante el Portal clásico | Microsoft Azure"
+   description="Conéctese de forma segura a su instancia de Azure Virtual Network mediante la creación de una conexión de puerta de enlace de VPN de punto a sitio."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -144,16 +144,30 @@ Para conectarse a la red virtual, también necesita configurar un cliente de VPN
 
 3. Después de generar y descargar el paquete del cliente VPN del Portal de Azure clásico, podrá instalar el paquete del cliente en el equipo cliente desde el cual desee conectarse a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente.
 
-### Paso 2: Instalación del paquete de configuración de VPN en el cliente e inicio de la conexión
+### Paso 2: Instalación del paquete de configuración de VPN en el cliente
 
-1. Copie el archivo de configuración localmente en el equipo que desee conectar a la red virtual y haga doble clic en el archivo .exe. Una vez instalado el paquete, puede iniciar la conexión VPN. El paquete de configuración no está firmado por Microsoft. Puede que desee firmar el paquete mediante el servicio de firma de su organización, o bien firmarlo usted mismo con [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Se puede utilizar el paquete sin firmar. Sin embargo, si el paquete no está firmado, aparece una advertencia cuando se instala.
-2. En el equipo cliente, vaya a las conexiones VPN y busque la que creó. Tendrá el mismo nombre que su red virtual. Haga clic en **Conectar**.
-3. Aparece un mensaje emergente que se usa para crear un certificado autofirmado para el punto de conexión de la puerta de enlace. Haga clic en **Continuar** para usar privilegios elevados.
-4. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión.
-5. Si ve una pantalla para **Seleccionar certificado**, compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
-6. Ahora está conectado a la red virtual y tiene acceso total a todos los servicios y máquinas virtuales hospedados en la red virtual.
+1. Copie el archivo de configuración localmente en el equipo que desee conectar a la red virtual y haga doble clic en el archivo .exe.
 
-### Parte 3: Comprobación de la conexión VPN
+2. Una vez instalado el paquete, puede iniciar la conexión VPN. El paquete de configuración no está firmado por Microsoft. Puede que desee firmar el paquete mediante el servicio de firma de su organización, o bien firmarlo usted mismo con [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Se puede utilizar el paquete sin firmar. Sin embargo, si el paquete no está firmado, aparece una advertencia cuando se instala.
+
+3. En el equipo cliente, vaya a **Configuración de red** y haga clic en **VPN**. Podrá ver la conexión en la lista. Mostrará el nombre de la red virtual a la que se conectará y tendrá un aspecto similar al siguiente:
+
+	![Cliente de VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Cliente de VPN")
+
+
+### Parte 3: Conexión a Azure
+
+1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Si esto ocurre, haga clic en **Continuar** para usar privilegios elevados.
+
+2. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado**, compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
+
+	![Cliente de VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "Conexión de cliente de VPN")
+
+3. La conexión debería establecerse.
+
+	![Cliente de VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Conexión de cliente de VPN 2")
+
+### Parte 4: Comprobación de la conexión VPN
 
 1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
 2. Vea los resultados. Observe que la dirección IP recibida es una de las direcciones en el intervalo de direcciones de conectividad de punto a sitio que especificó cuando creó la red virtual. Los resultados deben ser algo parecido a esto:
@@ -179,4 +193,4 @@ Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máqui
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -41,7 +41,7 @@ DirSyncFeature | Comentario
 
 Después de habilitar una característica, no se puede volver a deshabilitar.
 
->[AZURE.NOTE] Desde el 22 de agosto de 2016, la característica *Resistencia de atributos duplicados* está habilitada de forma predeterminada para nuevos directorios de Azure AD. Esta característica también se implantará y habilitará en directorios creados antes de esta fecha. Recibirá una notificación por correo electrónico cuando el directorio esté próximo a habilitar esta característica.
+>[AZURE.NOTE] Desde el 24 de agosto de 2016, la característica *Resistencia de atributos duplicados* está habilitada de forma predeterminada para nuevos directorios de Azure AD. Esta característica también se implantará y habilitará en directorios creados antes de esta fecha. Recibirá una notificación por correo electrónico cuando el directorio esté próximo a habilitar esta característica.
 
 Las siguientes opciones se configuran mediante Azure AD Connect y no se pueden modificar por `Set-MsolDirSyncFeature`:
 
@@ -98,4 +98,4 @@ Después de habilitar esta característica, los valores existentes de userPrinci
 - [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

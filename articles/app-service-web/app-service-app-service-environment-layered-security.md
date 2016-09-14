@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/30/2016" 
 	ms.author="stefsch"/>
 
 # Implementación de una arquitectura de seguridad por capas con entornos del Servicio de aplicaciones
@@ -41,7 +41,7 @@ Puesto que los [Grupos de seguridad de red (NSG)][NetworkSecurityGroups] están 
 - **¿Tiene la aplicación de API de back-end que llamarse a sí misma?** Un punto sutil que a veces se pasa por alto es el escenario en el que la aplicación back-end tiene que llamarse a sí misma. Si una aplicación de API de back-end en un entorno del Servicio de aplicaciones tiene que llamarse a sí misma, esta llamada se trata también como una llamada de "Internet". En la arquitectura de ejemplo, esto requiere que se permita también el acceso desde la dirección IP saliente del entorno del Servicio de aplicaciones "apiase".
 
 ## Creación del grupo de seguridad de red ##
-Una vez que se conozca el conjunto de direcciones IP salientes, el siguiente paso es crear un grupo de seguridad de red. Puesto que los entornos del Servicio de aplicaciones son actualmente compatibles solo con las redes virtuales "v1", la [configuración NSG][NetworkSecurityGroupsClassic] se realiza mediante el clásico soporte que para NSG ofrece Powershell.
+Una vez que se conozca el conjunto de direcciones IP salientes, el siguiente paso es crear un grupo de seguridad de red. Se pueden crear grupos de seguridad de red para las redes virtuales basadas en Resource Manager, así como para las redes virtuales clásicas. Los ejemplos siguientes muestran la creación y configuración de un grupo de seguridad de red en una red virtual clásica mediante Powershell.
 
 Para la arquitectura del ejemplo, los entornos se encuentran en "South Central US", por lo que se crea un NSG vacío en esa región:
 
@@ -89,9 +89,9 @@ Con el NSG aplicado a la subred, solo los tres entornos del Servicio de aplicaci
 
 
 ## Información y vínculos adicionales ##
-Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
-Configuración de [grupos de seguridad de red][NetworkSecurityGroupsClassic] en redes virtuales clásicas.
+Información acerca de los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
 Descripción de las [direcciones IP saliente][NetworkArchitecture] y entornos del Servicio de aplicaciones.
 
@@ -104,11 +104,10 @@ Descripción de las [direcciones IP saliente][NetworkArchitecture] y entornos de
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkSecurityGroupsClassic]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
 [InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

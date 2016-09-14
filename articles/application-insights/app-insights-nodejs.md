@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 El SDK proporciona la recopilación automática de las tasas de solicitudes HTTP entrantes y las respuestas, los contadores de rendimiento (CPU, memoria, RPS) y las excepciones no controladas. Además, puede agregar llamadas personalizadas para realizar un seguimiento de las dependencias, métricas u otros eventos.
 
-![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-asp-net-manual/10-perf.png)
+![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Antes de comenzar
@@ -40,7 +40,7 @@ Necesita:
 
 Inicie sesión en el [Portal de Azure][portal] y cree un nuevo recurso de Application Insights. Un [recurso][roles] de Azure es una instancia de un servicio. Este recurso es donde se le presentará telemetría de su aplicación analizada.
 
-![Haga clic en Nuevo, Application Insights.](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Haga clic en Nuevo, Application Insights.](./media/app-insights-windows-services/01-new-asp.png)
 
 Elija Otro como tipo de aplicación. La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recursos y las propiedades que estarán visibles en el [Explorador de métricas][metrics].
 
@@ -48,7 +48,7 @@ Elija Otro como tipo de aplicación. La elección del tipo de aplicación establ
 
 La clave identifica al recurso y se instalará pronto en el SDK para dirigir los datos al recurso.
 
-![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Instale el SDK en su aplicación.
@@ -84,7 +84,7 @@ Vuelva al [Portal de Azure](https://portal.azure.com) y busque el recurso de App
 
 Busque los datos en la página Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
 
-![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-windows-services/12-first-perf.png)
 
 Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## Pasos siguientes
+
+* [Navegación y paneles en el portal de Application Insights](app-insights-dashboards.md)
+* [Escritura de consultas de Analytics sobre una telemetry(app-insights-analytics-tour.md)]
 
 
 
@@ -224,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

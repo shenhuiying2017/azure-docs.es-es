@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Información de migración al Almacenamiento premium
@@ -47,9 +47,9 @@ Si creó un almacenamiento de datos antes de las fechas siguientes, significa qu
 | Centro-Sur de EE. UU | 27 de mayo de 2016 |
 | Sudeste asiático | 24 de mayo de 2016 |
 | Europa occidental | 25 de mayo de 2016 |
-| Centro occidental de EE.UU. | Almacenamiento premium no disponible todavía |
+| Centro occidental de EE.UU. | 26 de agosto de 2016 |
 | Oeste de EE. UU. | 26 de mayo de 2016 |
-| Oeste de EE. UU.2 | Almacenamiento premium no disponible todavía |
+| Oeste de EE. UU.2 | 26 de agosto de 2016 |
 
 ## Información de la migración automática
 De forma predeterminada, la base de datos se migrará automáticamente durante las 18:00 y las 6:00 en la hora local de su región durante la [programación de migración automática][] siguiente. No podrá usar el Almacenamiento de datos existente durante la migración. Estimamos que el proceso de migración durará aproximadamente 1 hora por cada TB de almacenamiento de cada Almacenamiento de datos. Asimismo, nos aseguraremos de que no se le cobre nada en ningún momento de la migración automática.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Pasos siguientes
-Con la migración al Almacenamiento premium, también aumentamos la cantidad de archivos de blob de base de datos en la arquitectura subyacente de Almacenamiento de datos. Si tiene algún problema de rendimiento, se recomienda recompilar los índices de almacén de columnas en clúster con el script siguiente. El script que aparece a continuación funciona forzando a algunos de los datos existentes a los blobs adicionales. Si no realiza ninguna acción, los datos se redistribuirán naturalmente con el tiempo a medida que carga más datos en las tablas de Almacenamiento de datos.
+Con la migración al Almacenamiento premium, también aumentamos la cantidad de archivos de blob de base de datos en la arquitectura subyacente de Almacenamiento de datos. Para maximizar las ventajas en el rendimiento que implica este cambio, se recomienda recompilar los índices de almacén de columnas en clúster con el script siguiente. El script que aparece a continuación funciona forzando a algunos de los datos existentes a los blobs adicionales. Si no realiza ninguna acción, los datos se redistribuirán naturalmente con el tiempo a medida que carga más datos en las tablas de Almacenamiento de datos.
 
 **Requisitos previos:**
 
@@ -147,18 +147,18 @@ Con la migración al Almacenamiento premium, también aumentamos la cantidad de 
 -- Paso 1: Crear tabla para controlar la recompilación de índice.
 -- Ejecutar como usuario en mediumrc o superior.
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
+create table sql_statements 
+WITH (distribution = round_robin) 
 as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
+	'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, 
+	row_number() over (order by s.name, t.name) as sequence 
 from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
+	sys.schemas s 
+	inner join sys.tables t 
+		on s.schema_id = t.schema_id 
+where 
+	is_external = 0 
+; 
 go
  
 --------------------------------------------------------------------------------
@@ -168,20 +168,20 @@ go
 
 declare @nbr_statements int = (select count(*) from sql_statements)
 declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
+while(@i <= @nbr_statements) 
+begin 
+	declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i) 
+	print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement 
+	exec (@statement) 
+	delete from sql_statements where sequence = @i 
+	set @i += 1 
 end;
 go
 -------------------------------------------------------------------------------
 -- Paso 3: Limpiar la tabla que se creó en el paso 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
+drop table sql_statements; 
+go 
 ````
 
 Si tiene problemas con el almacenamiento de datos, [cree una incidencia de soporte técnico][] e indique que la posible causa es la migración al Almacenamiento premium.
@@ -205,7 +205,7 @@ Si tiene problemas con el almacenamiento de datos, [cree una incidencia de sopor
 
 
 <!--Other Web references-->
-[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

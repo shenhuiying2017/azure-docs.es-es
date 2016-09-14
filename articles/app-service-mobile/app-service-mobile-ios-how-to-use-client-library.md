@@ -502,7 +502,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory
 
-Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
+Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso del método `loginWithProvider:completion:`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
 
 1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa. Para iOS, se recomienda (aunque no es obligatorio) que el URI de redirección tenga el formato `<app-scheme>://<bundle-id>`. Para más detalles, consulte el [inicio rápido de iOS para ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
@@ -562,7 +562,7 @@ y el POD:
 	}
 
 
-**Swift**:
+**SWIFT**:
 
 	// add the following imports to your bridging header:
 	//		#import <ADALiOS/ADAuthenticationContext.h>
@@ -591,7 +591,7 @@ y el POD:
 
 ## <a name="facebook-sdk"></a>Autenticación de usuarios con SDK de Facebook para iOS
 
-Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en su aplicación con Facebook. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en su aplicación con Facebook. Con frecuencia, esta opción es preferible al uso del método `loginWithProvider:completion:`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
 
 1. Configure el back-end de aplicación móvil para el inicio de sesión en Facebook siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Facebook](app-service-mobile-how-to-configure-facebook-authentication.md).
 
@@ -669,7 +669,7 @@ Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en 
 
 ## <a name="twitter-fabric"></a>Autenticación de usuarios con Fabric de Twitter para iOS
 
-Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicación con Twitter. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicación con Twitter. Con frecuencia, esta opción es preferible al uso del método `loginWithProvider:completion:`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
 
 1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
 
@@ -725,7 +725,7 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
 	    }];
 	}
 
-**Swift**:
+**SWIFT**:
 
 	import TwitterKit
 	// ...
@@ -741,6 +741,68 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
 		}
 	}
 
+## <a name="google-sdk"></a>Autenticación de usuarios con el SDK de inicio de sesión de Google para iOS
+
+Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios inicien sesión en su aplicación con una cuenta de Google. Con frecuencia, esta opción es preferible al uso del método `loginWithProvider:completion:`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+
+1. Configure su back-end de aplicación móvil para el inicio de sesión en Google siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google](app-service-mobile-how-to-configure-google-authentication.md).
+
+2. Instale el SDK de Google para iOS siguiendo la documentación de [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) (Inicio de sesión de Google para iOS: Empiece a integrar). Puede omitir la sección "Authenticate with a Backend Server" (Autenticar con un servidor back-end), ya que el Servicio de aplicaciones se encargará de esto en su lugar.
+
+3. Además del código que sigue, agregue lo siguiente al método `signIn:didSignInForUser:withError:` del delegado según el lenguaje que esté utilizando.
+
+**Objective-C**:
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**SWIFT**:
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. Asegúrese de agregar también lo siguiente a `application:didFinishLaunchingWithOptions:` en el delegado de la aplicación, reemplazando "SERVER\_CLIENT\_ID" por el mismo identificador que usó para configurar el Servicio de aplicaciones en el paso 1.
+
+**Objective-C**:
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **SWIFT**:
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. Agregue el siguiente código a la aplicación en un UIViewController que permita implementar el protocolo `GIDSignInUIDelegate` según el lenguaje que esté utilizando. Tenga en cuenta que se cerrará la sesión del usuario antes de iniciar sesión de nuevo y, aunque no tendrá que escribir sus credenciales por segunda vez, aparecerá un cuadro de diálogo de consentimiento. Esto es necesario para obtener el nuevo código de autenticación de servidor que se necesitaba en un paso anterior. Solo llame a este método si el token de sesión ha expirado.
+ 
+ **Objective-C**:
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **SWIFT**:
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
@@ -792,4 +854,4 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->
