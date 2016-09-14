@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016"  
+	ms.date="08/25/2016"  
 	ms.author="xpouyat"/>
 
 #Licencias de Microsoft® Smooth Streaming Client Porting Kit
@@ -26,7 +26,7 @@ A continuación se incluye una arquitectura de alto nivel y el IIS Smooth Stream
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-##Descripción
+##Description
 
 La licencia de SSPK tiene unos términos que ofrecen un valor empresarial excelente. La licencia SSPK proporciona al sector:
 
@@ -106,6 +106,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 - SoftAtHome
 - Sony Corporation
 - Tatung Technology Inc.
+- TCL Technoly Electronics (Huizhou) Co., Ltd.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
 - ZTE Corporation
@@ -129,7 +130,6 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 - Fluendo S.A.
 - Gibson Innovations Limited
 - HANDAN BroadInfoCom Co., Ltd.
-- Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
 - Infomir GMBH
@@ -165,4 +165,4 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -18,7 +18,7 @@
 
 # Ventaja de uso híbrido de Azure para Windows Server
 
-Para los clientes que usan Windows Server con Software Assurance, puede llevar sus licencias de Windows Server locales a Azure y ejecutar máquinas virtuales de Windows Server en Azure a un coste reducido. La ventaja de uso híbrido de Azure permite ejecutar máquinas virtuales de Windows Server en Azure y pagar solo la tarifa de proceso básica. Para obtener más información, consulte la [página sobre la licencia de la ventaja de uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). En este artículo se explica cómo implementar máquinas virtuales de Windows Server en Azure para aprovechar esta ventaja con respecto a la licencia.
+Para los clientes que usan Windows Server con Software Assurance, puede llevar sus licencias de Windows Server locales a Azure y ejecutar máquinas virtuales de Windows Server en Azure a un coste reducido. La ventaja de uso híbrido de Azure permite ejecutar máquinas virtuales de Windows Server en Azure y pagar solo la tarifa de proceso básica. Para obtener más información, consulte la [página sobre la licencia de la ventaja de uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). En este artículo se explica cómo implementar máquinas virtuales de Windows Server en Azure para usar esta ventaja con respecto a la licencia.
 
 > [AZURE.NOTE] No puede utilizar imágenes de Azure Marketplace para implementar máquinas virtuales de Windows Server usando la ventaja de uso híbrido de Azure. Debe implementar las máquinas virtuales con plantillas de Resource Manager o PowerShell para registrar correctamente las máquinas virtuales como aptas para el descuento de la tarifa de proceso básica.
 
@@ -29,11 +29,11 @@ Se deben cumplir un par de requisitos previos para poder utilizar la ventaja de 
 - Haber cargado el VHD de Windows Server en Almacenamiento de Azure.
 
 ### Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure. Aunque vaya a implementar las máquinas virtuales con plantillas de Resource Manager, necesitará tener instalado Azure PowerShell para poder cargar el VHD de Windows Server (consulte el siguiente paso).
+Asegúrese de que tiene [la versión de Azure PowerShell más reciente instalada y configurada](../powershell-install-configure.md). Aunque vaya a implementar las máquinas virtuales con plantillas de Resource Manager, necesitará tener instalado Azure PowerShell para poder cargar el VHD de Windows Server (consulte el siguiente paso).
 
 ### Carga de un VHD de Windows Server
 
-Para implementar una máquina virtual de Windows Server en Azure, primero debe crear un VHD que contenga la compilación de Windows Server base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede [leer más sobre los requisitos de disco duro virtual y el proceso de Sysprep](./virtual-machines-windows-upload-image.md) y la [compatibilidad de Sysprep con roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
+Para implementar una máquina virtual de Windows Server en Azure, primero debe crear un VHD que contenga la compilación de Windows Server base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede [leer más sobre los requisitos de disco duro virtual y el proceso de Sysprep](./virtual-machines-windows-upload-image.md) y la [compatibilidad de Sysprep con roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Cree una copia de seguridad de la VM antes de ejecutar Sysprep. Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
@@ -43,7 +43,7 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 
 También puede obtener más detalles sobre la [carga del disco duro virtual en un proceso de Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
-> [AZURE.TIP] Este artículo se centra en la implementación de máquinas virtuales de Windows Server, pero también puede implementar máquinas virtuales de cliente de Windows de la misma manera. En los ejemplos siguientes, `Server` se reemplaza por `Client` como corresponda.
+> [AZURE.TIP] Este artículo se centra en la implementación de máquinas virtuales de Windows Server. También puede implementar máquinas virtuales de la misma manera. En los ejemplos siguientes, `Server` se reemplaza por `Client` como corresponda.
 
 ## Implementación de una máquina virtual a través de PowerShell (introducción rápida)
 Cuando se implementa una máquina virtual de Windows Server mediante PowerShell, se dispone de un parámetro adicional para `-LicenseType`. Cuando el disco duro virtual esté cargado en Azure, cree una máquina virtual nueva mediante `New-AzureRmVM` y especifique el tipo de concesión de licencias de la siguiente forma:
@@ -72,7 +72,7 @@ Cuando haya implementado la máquina virtual mediante el método de implementaci
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
 ```
 
-Verá un resultado similar al siguiente:
+La salida será similar a la siguiente:
 
 ```
 Type                     : Microsoft.Compute/virtualMachines
@@ -90,7 +90,7 @@ LicenseType              :
  
 ## Tutorial detallado de PowerShell
 
-Los siguientes pasos detallados de PowerShell muestran una implementación completa de una máquina virtual. Puede obtener más contexto sobre los cmdlets reales y los distintos componentes que se crean en [Creación de una máquina virtual de Windows con Resource Manager y PowerShell](./virtual-machines-windows-ps-create.md). Con estos pasos, creará el grupo de recursos, la cuenta de almacenamiento y las redes virtuales, definirá la máquina virtual y, por último, la creará.
+Los siguientes pasos detallados de PowerShell muestran una implementación completa de una máquina virtual. Puede obtener más contexto sobre los cmdlets reales y los distintos componentes que se crean en [Creación de una máquina virtual de Windows con Resource Manager y PowerShell](./virtual-machines-windows-ps-create.md). Con estos pasos, crea el grupo de recursos, la cuenta de almacenamiento y las redes virtuales, definirá la máquina virtual y, por último, la creará.
  
 En primer lugar, obtenga credenciales de forma segura, establezca una ubicación y defina un nombre para el grupo de recursos:
 
@@ -165,4 +165,4 @@ Más información sobre las [ventajas del uso híbrido de Azure](https://azure.m
 
 Más información sobre el [uso de plantillas de Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

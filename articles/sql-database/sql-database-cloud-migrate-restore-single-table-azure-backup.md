@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 
@@ -71,4 +71,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

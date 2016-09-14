@@ -32,7 +32,7 @@ Estas plantillas de Bus de servicio y Azure Resource Manager de Centros de event
 - [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 - [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 - [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
-- [Creación de un espacio de nombres de Bus de servicio con un grupo de consumidores y Centro de eventos](service-bus-resource-manager-namespace-event-hub.md)
+- [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md) (Creación de un espacio de nombres de Centros de eventos con un Centro de eventos y un grupo de consumidores)
 
 ## Implementación con PowerShell
 
@@ -144,7 +144,7 @@ Para utilizar un archivo de parámetros opcional, copie el archivo [201-serviceb
 }
 ```
 
-Para más información, consulte el tema del [archivo de parámetros](../resource-group-template-deploy.md#parameter-file).
+Para más información, consulte el tema [Archivo de parámetros](../resource-group-template-deploy.md#parameter-file).
 
 ### Inicio de sesión en Azure y establecimiento de la suscripción de Azure
 
@@ -160,7 +160,7 @@ Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar 
 Get-AzureRMSubscription
 ```
 
-Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea utilizar.
+Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea usar.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -253,4 +253,4 @@ Ahora ha visto los comandos y el flujo de trabajo básico para la implementació
 [Implementación de recursos con plantillas de Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galería de plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

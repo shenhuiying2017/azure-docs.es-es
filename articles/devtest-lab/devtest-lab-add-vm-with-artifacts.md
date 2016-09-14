@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Incorporación de una máquina virtual con artefactos a un laboratorio
@@ -64,7 +64,7 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base. **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
 
-1. Si desea ver o copiar la plantilla ARM, vaya a la sección [Almacenamiento de una plantilla de ARM](#save-arm-template) y vuelva aquí cuando haya finalizado.
+1. Si desea ver o copiar la plantilla de Azure Resource Manager, vaya a la sección [Almacenamiento de una plantilla de Azure Resource Manager](#save-arm-template) y vuelva aquí cuando haya finalizado.
 
 1. Seleccione **Crear** para agregar la máquina virtual especificada al laboratorio.
 
@@ -116,9 +116,9 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 
 1. Seleccione **Aceptar** para cerrar la hoja **Selected Artifacts** (Artefactos seleccionados).
 
-## Almacenamiento de una plantilla de ARM
+## Guardar plantillas de Azure Resource Manager
 
-Una plantilla de ARM proporciona una manera declarativa de definir una implementación repetible. Los siguientes pasos explican cómo guardar la plantilla de ARM para la máquina virtual que se va a crear. Una vez guardada, puede utilizar la plantilla de ARM para [implementar nuevas máquinas virtuales con Azure PowerShell](../resource-group-overview.md#template-deployment).
+Una plantilla de Azure Resource Manager proporciona una manera declarativa de definir una implementación repetible. Los siguientes pasos explican cómo guardar la plantilla de Azure Resource Manager para la máquina virtual que se va a crear. Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../resource-group-overview.md#template-deployment).
 
 1. En la hoja **Lab VM** (Máquina virtual de laboratorio), seleccione **View ARM Template** (Ver plantilla de ARM).
 
@@ -134,10 +134,12 @@ Una plantilla de ARM proporciona una manera declarativa de definir una implement
 
 1. Guarde el archivo para su uso posterior.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Pasos siguientes
 
 - Una vez creada la máquina virtual, puede conectarse a la misma seleccionando **Conectar** en la hoja de la máquina virtual.
 - Aprenda a [crear artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 - Explore la [galería de plantillas de inicio rápido de ARM de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

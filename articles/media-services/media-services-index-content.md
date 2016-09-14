@@ -19,10 +19,6 @@
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
 
-> [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
-
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.
 
@@ -151,7 +147,7 @@ De forma predeterminada, el trabajo de indización genera los siguientes archivo
 
 Cuando haya más de un archivo multimedia de entrada, Indexer generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabras clave, AIB, SAMI, TTML y WebVTT resultantes se numeran secuencialmente y se les asigna un nombre usando el “Alias”.
 
-Nombre de archivo | Descripción
+Nombre de archivo | Description
 ----------|------------
 __InputFileName.aib__ | Archivo Blob de indización de audio. <br /><br /> El archivo Blob de indexación de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo. El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica. <br/> <br/>Requiere la instalación del complemento Indexer SQL en un equipo que ejecute Microsoft SQL Server 2008 o posterior. Buscar AIB mediante la búsqueda de texto completo de Microsoft SQL Server proporciona resultados de búsqueda más precisos que buscar los archivos de subtítulos generados por WAMI. Esto se debe a que el archivo AIB contiene palabras alternativas que suenan de forma similar mientras que los archivos de subtítulos contienen la palabra de mayor confianza para cada segmento del audio. Si la búsqueda de palabras habladas es de suma importancia, se recomienda usar el archivo AIB junto con Microsoft SQL Server.<br/><br/> Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento de Azure Media Indexer</a>. <br/><br/>También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.
 __InputFileName.smi__<br />__InputFileName.ttml__<br />__InputFileName.vtt__ |Archivos de subtítulos en los formatos SAMI, TTML y WebVTT.<br/><br/>Se puede usar para realizar archivos de audio y vídeo accesibles a personas con discapacidades auditivas.<br/><br/>Los archivos de subtítulos incluyen una etiqueta llamada <b>Recognizability</b> que puntúa un trabajo de indexación en función de lo reconocible que es la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
@@ -252,7 +248,7 @@ Se generan las mismas salidas (como trabajos realizados correctamente). Puede co
 
 Para personalizar el procesamiento de Azure Media Indexer, puede proporcionar valores predefinidos de tarea junto con la tarea. A continuación se describe el formato de este xml de configuración.
 
-Nombre | Necesario | Descripción
+Nombre | Necesario | Description
 ----|----|---
 __input__ | false | Archivos de recurso que desea indexar.</p><p>Azure Media Indexer admite los siguientes formatos de archivo multimedia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Puede especificar el nombre de archivo en el atributo **name** o **list** del elemento **input** (tal y como se muestra a continuación). Si no especifica qué archivo de recurso se debe indexar, se selecciona el archivo principal. Si no se establece ningún archivo de recurso principal, se indexa el primer archivo del recurso de entrada.</p><p>Para especificar explícitamente el nombre del archivo de recurso:<br />`<input name="TestFile.wmv">`<br /><br />También puede indexar varios archivos de recurso a la vez (hasta 10). Para ello:<br /><br /><ol class="ordered"><li><p>Cree un archivo de texto (archivo de manifiesto) y asígnele una extensión .lst. </p></li><li><p>Agregue una lista de todos los nombres de archivo de recurso en el recurso de entrada a este archivo de manifiesto. </p></li><li><p>Agregue (cargue) el archivo de manifiesto al recurso. </p></li><li><p>Especifique el nombre del archivo de manifiesto en el atributo list de la entrada.<br />`<input list="input.lst">`</li></ol><br /><br />Nota: si agrega más de 10 archivos al archivo de manifiesto, el trabajo de indexación producirá un error con el código de error 2006.
 __metadata__ | false | Metadatos de los archivos de recurso especificados usados para la adaptación de vocabulario. Resulta útil para preparar el indexador para reconocer palabras de vocabulario no estándar tales como nombres propios.<br />`<metadata key="..." value="..."/>` <br /><br />Puede proporcionar __valores__ para __claves__ predefinidas. Actualmente se admiten las siguientes claves:<br /><br />"title" y "description", que se usan para que la adaptación de vocabulario ajuste el modelo de lenguaje a su trabajo y mejorar así la precisión del reconocimiento de voz. Los valores se incluyen en las búsquedas de Internet para encontrar documentos de texto relevantes para el contexto, y el contenido se usa para aumentar el diccionario interno durante el tiempo que dura la tarea de indexación.<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
@@ -298,4 +294,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 [Indización de archivos multimedia con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

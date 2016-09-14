@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Acerca de la configuración de Puerta de enlace de VPN
 
-Puerta de enlace de VPN es una colección de ajustes que se utilizan para enviar tráfico de red entre redes virtuales y ubicaciones locales. También puede utilizar Puerta de enlace de VPN para enviar el tráfico entre las redes virtuales de Azure. Las secciones en este artículo tratan los ajustes relacionados con Puerta de enlace de VPN.
+Puerta de enlace de VPN es una colección de recursos que se utilizan para enviar tráfico de red entre redes virtuales y ubicaciones locales. También puede utilizar Puerta de enlace de VPN para enviar el tráfico entre las redes virtuales de Azure. Las secciones en este artículo tratan los recursos y los ajustes relacionados con Puerta de enlace de VPN.
 
-A veces resulta útil para ver las configuraciones disponibles mediante diagramas de conexión. Puede encontrar diagramas de implementación de cada configuración en la sección sobre las conexiones en el artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-topology.md).
+Puede considerarlo útil para ver las configuraciones disponibles mediante diagramas de conexión. Puede encontrar diagramas de implementación de cada configuración en el artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 
 ## <a name="gwsku"></a>SKU de puerta de enlace
@@ -49,7 +49,7 @@ En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento
 
 ## <a name="gwtype"></a>Tipos de puerta de enlace
 
-El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es un valor de configuración necesario para el modelo de implementación de Resource Manager. No confunda el tipo de puerta de enlace con el tipo de VPN, que especifica el tipo de enrutamiento de la VPN. Los valores disponibles para `-GatewayType` son:
+El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es un valor de configuración necesario para el modelo de implementación de Resource Manager. Cada red virtual solo puede tener una puerta de enlace de red de cada tipo. Los valores disponibles para `-GatewayType` son:
 
 - VPN
 - ExpressRoute
@@ -133,7 +133,7 @@ Para más información sobre recursos técnicos y requisitos de sintaxis especí
 
 ## Pasos siguientes
 
-Consulte las [conexiones de Puerta de enlace de VPN](vpn-gateway-topology.md) para más información sobre las conexiones disponibles.
+Consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) para más información sobre las conexiones disponibles.
 
 
 
@@ -143,4 +143,4 @@ Consulte las [conexiones de Puerta de enlace de VPN](vpn-gateway-topology.md) pa
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

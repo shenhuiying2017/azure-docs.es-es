@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB
@@ -25,17 +25,13 @@ Tenga en cuenta que el Explorador de documentos no está habilitado en las cuent
 
 ## Inicio del Explorador de documentos
 
-1. En la barra de accesos directos del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
+1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **DocumentDB (NoSQL)** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
 
-2. En la parte superior de la hoja **Cuenta de DocumentDB**, haga clic en **Explorador de documentos**.
+2. En el menú de recursos, haga clic en **Explorador de documentos**.
  
 	![Captura de pantalla del comando del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] El Explorador de consultas también aparece en las hojas de bases de datos y colecciones.
-
     En la hoja **Explorador de documentos**, las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inició el Explorador de documentos.
-
-	![Captura de pantalla de la hoja Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
 ## Creación de un documento
 
@@ -130,7 +126,7 @@ El Explorador de documentos admite la ingesta en masa de uno o varios documentos
 
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-2. Para iniciar el proceso de carga, haga clic en ** Agregar documento**.
+2. Para iniciar el proceso de carga, haga clic en **Agregar documento**.
 
 	![Captura de pantalla de la funcionalidad de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
 
@@ -150,9 +146,17 @@ El Explorador de documentos admite la ingesta en masa de uno o varios documentos
 
 ## Trabajo con documentos JSON fuera del portal
 
-El Explorador de documentos del Portal de Azure es simplemente una forma de trabajar con documentos en DocumentDB. También se pueden trabajar con documentos mediante la [API de REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener un código de ejemplo, consulte los [ejemplos de documentos de SDK para .NET](documentdb-dotnet-samples.md#document-examples) y los [ejemplos de documentos de SDK de Node.js](documentdb-nodejs-samples.md#document-examples).
+El Explorador de documentos del Portal de Azure es simplemente una forma de trabajar con documentos en DocumentDB. También se pueden trabajar con documentos mediante la [API de REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener un ejemplo de código, consulte los [ejemplos de documentos de SDK para .NET](documentdb-dotnet-samples.md#document-examples) y los [ejemplos de documentos de SDK de Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Si tiene que importar o migrar archivos desde otro origen (archivos JSON, MongoDB, SQL Server, archivos CSV, Almacenamiento de tablas de Azure, Amazon DynamoDB o HBase), puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos en DocumentDB.
+
+## Solución de problemas
+
+**Síntoma**: el Explorador de documentos devuelve **No se han encontrado documentos**.
+
+**Solución**: asegúrese de que ha seleccionado la suscripción, la base de datos y la colección correctas en la que se insertaron los documentos. Además, compruebe que está trabajando dentro de las cuotas de rendimiento. Si lo hace al nivel de rendimiento máximo y se produce una limitación, reduzca el uso de la aplicación para trabajar con la cuota de rendimiento máximo de la colección.
+
+**Explicación**: el portal es una aplicación como cualquier otra, ya que realiza llamadas a la colección y la base de datos de DocumentDB. Si las solicitudes están limitadas actualmente a causa de llamadas que se realizan desde una aplicación independiente, el portal también quedará limitado, con lo que recursos no se mostrarán en el portal. Para resolver el problema, solucione la causa del elevado uso de rendimiento y, después, actualice la hoja del portal. Se puede encontrar información sobre cómo medir y reducir el uso de rendimiento en la sección de [rendimiento](documentdb-performance-tips.md#throughput) del artículo [Sugerencias de rendimiento](documentdb-performance-tips.md).
 
 ## Pasos siguientes
 
@@ -160,4 +164,4 @@ Para obtener más información sobre la gramática de SQL de DocumentDB compatib
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

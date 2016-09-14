@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Notificación a los usuarios sobre los datos recibidos de los sensores o de otros sistemas
@@ -33,7 +33,7 @@ La aplicación está escrita en C# y el archivo Léame del ejemplo contiene toda
 
 Comenzamos con la suposición de que dispone de eventos críticos que se van a insertar en un centro de eventos de Azure o en un centro de IoT. Cualquier centro lo hará, siempre que tenga acceso a él y conozca la cadena de conexión.
 
-Si no dispone de un centro de IoT o de un centro de eventos, puede configurar fácilmente un banco de pruebas con una placa Arduino y un Raspberry Pi, siguiendo las instrucciones del proyecto [Connect The Dots](https://github.com/Azure/connectthedots). El sensor de luz de la placa Arduino envía los niveles de luz mediante el Pi a un [Centro de eventos de Azure][] (**ehdevices**) y un trabajo de [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) envía alertas a un segundo centro de eventos (**ehalerts**) si los niveles de luz recibidos caen por debajo de un nivel determinado.
+Si no dispone de un centro de IoT o de un centro de eventos, puede configurar fácilmente un banco de pruebas con una placa Arduino y un Raspberry Pi, siguiendo las instrucciones del proyecto [Connect The Dots](https://github.com/Azure/connectthedots). El sensor de luz de la placa Arduino envía los niveles de luz mediante el Pi a un [Centro de eventos de Azure][] \(**ehdevices**) y un trabajo de [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) envía alertas a un segundo centro de eventos (**ehalerts**) si los niveles de luz recibidos caen por debajo de un nivel determinado.
 
 Cuando **AppToNotify** se inicia, lee un archivo de configuración (App.config) para obtener la dirección URL y las credenciales del centro de eventos que recibe las alertas. Después genera un proceso para supervisar continuamente dicho centro de eventos para cualquier mensaje que llegue; siempre y cuando tenga acceso a la dirección URL del centro de eventos o del centro de IoT y credenciales válidas, el código del lector de este centro de eventos leerá continuamente todas las novedades. Durante el inicio, la aplicación también lee la dirección URL y las credenciales del servicio de mensajería (correo electrónico, SMS y teléfono) que desea utilizar, así como el nombre y la dirección del remitente y una lista de destinatarios.
 
@@ -44,7 +44,7 @@ Cuando el monitor del centro de eventos detecta un mensaje, desencadena un proce
 El código de este ejemplo sólo muestra cómo supervisar los centros de eventos y cómo llamar a los servicios de mensajería externos en caso de que desee agregar esta funcionalidad a la aplicación. Tenga en cuenta que esta solución está indicada para que la implemente el usuario, con ejemplos dirigidos exclusivamente a los desarrolladores. No aborda las necesidades empresariales, como la redundancia, la conmutación por error, el reinicio por error, etc. Para obtener más soluciones integrales y de producción, vea lo siguiente:
 
 - Mediante conectores o notificaciones de inserción con el servicio [Aplicaciones lógicas de Azure](../app-service-logic/app-service-logic-connectors-list.md).
-- Con los [centros de notificaciones de Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), como se describe el blog sobre [difusión de notificaciones de inserción a millones de dispositivos móviles mediante los centros de notificaciones de Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Con los [centros de notificaciones de Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), como se describe el blog sobre [difusión de notificaciones de inserción a millones de dispositivos móviles mediante los centros de notificaciones de Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
 ## Pasos siguientes
 
@@ -82,4 +82,4 @@ Si desea implementar la solución para notificar a los usuarios sobre los datos 
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

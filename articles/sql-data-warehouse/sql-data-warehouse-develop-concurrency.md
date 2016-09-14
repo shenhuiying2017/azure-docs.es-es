@@ -3,7 +3,7 @@
    description="Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/30/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
 
-Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad, así como las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo multiinquilino.
+Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo multiinquilino.
 
 ## Límites de simultaneidad
 
-Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada consulta tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.
+Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada una de ellas tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.
 
 Los límites de simultaneidad se rigen por dos conceptos: *consultas simultáneas* y *espacios de simultaneidad*. Para que una consulta se ejecute, lo ha de hacer tanto dentro de su límite de simultaneidad como dentro de la asignación de espacio de simultaneidad.
 
 - Las consultas simultáneas son consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 consultas simultáneas en los tamaños de DWU más grandes.
-- Los espacios de simultaneidad se asignan según DWU. Cada 100 DWU proporciona 4 espacios de simultaneidad. Por ejemplo, un DW100 asigna 4 espacios de simultaneidad y DW1000 asigna 40. Cada consulta consume uno o más espacios de simultaneidad, en función de la [clase de recursos](#resource-classes) de la consulta. Las consultas que se ejecutan en la clase de recurso smallrc consumen una ranura de simultaneidad. Las consultas que se ejecutan en una clase de recurso superior consumirán más ranuras de simultaneidad.
+- Los espacios de simultaneidad se asignan según DWU. Cada 100 DWU proporciona 4 espacios de simultaneidad. Por ejemplo, un DW100 asigna 4 espacios de simultaneidad y DW1000 asigna 40. Cada consulta consume uno o más espacios de simultaneidad, en función de la [clase de recursos](#resource-classes) de la consulta. Las consultas que se ejecutan en la clase de recurso smallrc consumen una ranura de simultaneidad. Las consultas que se ejecutan en una clase de recurso superior consumen más intervalos de simultaneidad.
 
 La tabla siguiente describe los límites de consultas simultáneas y espacios de simultaneidad en los distintos tamaños de DWU.
 
@@ -62,7 +62,7 @@ De forma predeterminada, cada usuario es miembro de la clase de recursos pequeñ
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
-Es una práctica recomendada asignar usuarios permanentemente a una clase de recursos en lugar de cambiar sus clases de recursos. Por ejemplo, las cargas a tablas de almacén de columnas de clúster crean índices de mayor calidad cuando se les asigna más memoria. Para asegurarse de que las cargas tienen acceso a una memoria superior, cree un usuario específico para cargar datos y asigne este usuario de forma permanente a una clase de recursos más alta.
+Es una práctica recomendada asignar usuarios permanentemente a una clase de recursos en lugar de cambiar sus clases de recursos. Por ejemplo, las cargas a tablas de almacén de columnas en clúster crean índices de mayor calidad cuando se les asigna más memoria. Para asegurarse de que las cargas tienen acceso a una memoria superior, cree un usuario específico para cargar datos y asigne este usuario de forma permanente a una clase de recursos más alta.
 
 Existen algunos tipos de consultas que no se benefician de una mayor asignación de memoria. El sistema omitirá su asignación de clase de recursos y siempre ejecutará estas consultas en la clase de recursos small. Si estas consultas se ejecutan siempre en la clase de recursos small, se pueden ejecutar cuando los espacios de simultaneidad estén bajo presión y no consumirán más espacios que los necesarios. Consulte [Excepciones de clase de recursos](#query-exceptions-to-concurrency-limits) para más información.
 
@@ -119,7 +119,7 @@ En el ejemplo anterior, a una consulta que se ejecuta en DW2000 en la clase de r
 
 ## Consumo de ranuras de simultaneidad
 
-Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. Debido a que la memoria es un recurso fijo, cuanta más memoria se asigne por consulta, menos simultaneidad se puede admitir. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de espacios de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.
+Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. Debido a que la memoria es un recurso fijo, cuanta más memoria se asigne por consulta, menos simultaneidad se puede admitir. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.
 
 ### Asignación y consumo de espacios de simultaneidad
 
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Cambio de ejemplo de clase de recursos de usuario
 
-1. **Cree un inicio de sesión:** abra una conexión con la base de datos **maestra** en Almacenamiento de datos SQL y ejecute los comandos siguientes.
+1. **Cree un inicio de sesión:** abra una conexión con la base de datos **maestra** en el servidor SQL Server que hospeda la base de datos de Almacenamiento de datos SQL y ejecute los comandos siguientes.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] Es recomendable crear usuarios para los inicios de sesión en la base de datos maestra en Base de datos SQL de Azure y en Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos **maestra** para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para más detalles, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][].
+	> [AZURE.NOTE] Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Almacenamiento de datos SQL de Azure. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos. También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server. Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en Almacenamiento de datos SQL][].
 
-2. **Cree una cuenta de usuario:** abra una conexión con la base de datos de **Almacenamiento de datos SQL** y ejecute el comando siguiente.
+2. **Cree un usuario de Almacenamiento de datos SQL:** abra una conexión con la base de datos de **Almacenamiento de datos SQL** y ejecute el comando siguiente.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ Puede usar la DMV `sys.dm_pdw_exec_requests` para identificar las consultas que 
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 La consulta siguiente muestra qué rol tiene asignado cada usuario.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -420,12 +420,13 @@ Para más información sobre cómo administrar los usuarios y la seguridad de la
 <!--Image references-->
 
 <!--Article references-->
-[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Regeneración de índices para mejorar la calidad de los segmentos]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

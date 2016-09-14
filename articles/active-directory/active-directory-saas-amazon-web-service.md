@@ -21,7 +21,7 @@
 
 El objetivo de este tutorial es mostrar cómo integrar Amazon Web Services (AWS) con Azure Active Directory (Azure AD). La integración de Amazon Web Services (AWS) con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Amazon Web Service (AWS). 
+- Puede controlar en Azure AD quién tiene acceso a Amazon Web Service (AWS).
 - Puede permitir que los usuarios inicien sesión automáticamente en Amazon Web Service (AWS) (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -41,13 +41,13 @@ Para configurar la integración de Azure AD con Amazon Web Service (AWS), necesi
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
-1. Adición de Amazon Web Service (AWS) desde la galería 
+1. Adición de Amazon Web Service (AWS) desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de Amazon Web Service (AWS) en Azure AD, es prec
 
 ### Para agregar Amazon Web Service (AWS) desde la galería, realice los pasos siguientes:
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -244,7 +244,10 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
      a. En el cuadro de texto **Nombre de atributo**, escriba **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. En el cuadro de texto **Nombre de atributo**, escriba **userprincipalname**.
+     b. En el cuadro de texto **Valor del atributo**, escriba o seleccione **user.userprincipalname** en la lista desplegable.
+     
+	![Configurar inicio de sesión único][35]
+	
 
      c. Haga clic en **Completar** para cerrar el cuadro de diálogo **Agregar atributo de usuario**.
 
@@ -275,7 +278,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)
  
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)
 
@@ -311,7 +314,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	a. Anote el valor del campo **Nueva contraseña**.
   
-	b. Haga clic en **Completo**.
+	b. Haga clic en **Complete**.
   
  
 ### Creación de un usuario de prueba de Amazon Web Service (AWS)
@@ -416,5 +419,6 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
+[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

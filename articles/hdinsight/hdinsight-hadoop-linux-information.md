@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -96,13 +96,13 @@ HDInsight usa el almacenamiento de blobs de Azure como el almacén predeterminad
 
 Debido a que es el almacén predeterminado para HDInsight, normalmente no tiene que hacer nada para utilizarlo. Por ejemplo, el comando siguiente enumerará los archivos existentes en la carpeta **/example/data**, que está almacenada en el almacenamiento de blobs de Azure:
 
-	hadoop fs -ls /example/data
+	hdfs dfs -ls /example/data
 
 Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo **wasb://** o **wasbs://** en el comando.
 
 HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **wasbs://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
 
-	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### ¿Qué almacenamiento de blobs utiliza el clúster?
 
@@ -130,7 +130,7 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
     
 2. Obtenga la clave de la cuenta de almacenamiento. Reemplace __GROUPNAME__ por el grupo de recursos del paso anterior. Reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento:
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.[0].value'
 
     Esto devolverá la clave principal de la cuenta.
 
@@ -227,7 +227,6 @@ Las acciones de script son scripts de Bash que se ejecutan durante el aprovision
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph.](hdinsight-hadoop-giraph-install-linux.md)
-* [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Para obtener información sobre el desarrollo de sus propias acciones de script, consulte [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -257,4 +256,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

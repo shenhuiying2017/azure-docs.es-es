@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Niveles de rendimiento en DocumentDB | Microsoft Azure" 
-	description="Obtenga información sobre cómo los niveles de rendimiento de DocumentDB le permiten reservar capacidad de proceso para cada colección." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Niveles de rendimiento en DocumentDB | Microsoft Azure"
+	description="Obtenga información sobre cómo los niveles de rendimiento de DocumentDB le permiten reservar capacidad de proceso para cada colección."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Niveles de rendimiento en DocumentDB
@@ -109,20 +109,20 @@ Para obtener más información sobre los cambios de precio relativos al rendimie
 
       ![Captura de pantalla de la hoja Base de datos con una colección S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-4. En la hoja **Colecciones**, haga clic en **Configuración** en la barra superior.
+4. En la hoja **Colecciones**, haga clic en **Más** y, luego, **Configuración** en la barra superior.
 5. En la hoja **Configuración**, haga clic en **Plan de tarifa** y observe que el costo estimado mensual de cada plan se muestra en la hoja **Elija un plan de tarifa**. Para cambiar al rendimiento definido por el usuario, haga clic en **Estándar** y haga clic en **Seleccionar** para guardar el cambio.
 
       ![Captura de pantalla de las hojas Configuración y Elija un plan de tarifa de DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
 6. En la hoja **Configuración**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Rendimiento (RU/s)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](documentdb-request-units.md)/segundo (RU/s). La opción **Resumen de precios** en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. Haga clic en **Aceptar** para guardar los cambios.
-    
+
 	![Captura de pantalla de la hoja Configuración que muestra dónde cambiar el valor de rendimiento](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 7. En la hoja **Base de datos**, puede comprobar el nuevo rendimiento de la colección.
 
 	![Captura de pantalla de la hoja Base de datos con la colección modificada](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
-Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte [Creación de una colección](documentdb-create-collection.md).
+Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte el [artículo sobre cómo crear una colección](documentdb-create-collection.md).
 
 >[AZURE.NOTE] Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
 
@@ -137,17 +137,17 @@ A continuación se muestra un fragmento de código para cambiar el rendimiento d
 		              .Where(r => r.ResourceLink == collection.SelfLink)    
 		              .AsEnumerable()
 		              .SingleOrDefault();
-	                          
+
 	// Set the throughput to 5000 request units per second
 	offer = new OfferV2(offer, 5000);
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
 	// Set the throughput to S2
 	offer = new Offer(offer);
 	offer.OfferType = "S2";
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
@@ -172,14 +172,14 @@ Si ya utiliza el rendimiento definido por el usuario, puede cambiar el rendimien
 4. En la hoja **Colecciones**, haga clic en **Configuración** en la barra superior.
 5. En la hoja **Configuración**, aumente el valor del cuadro **PROCESAMIENTO (RU/s)** y, después, haga clic en **Aceptar** para guardar el cambio. La parte inferior de la hoja **Resumen precios** se actualiza para mostrar el nuevo costo mensual estimado de esa colección en una sola región.
 
-    ![Captura de pantalla de la hoja Configuración, donde se resalta el cuadro de rendimiento y el resumen de precios](./media/documentdb-performance-levels/documentdb-change-throughput.png)
- 
+    ![Captura de pantalla de la hoja Configuración, donde se resalta el cuadro de rendimiento y el resumen de precios](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
 Si no está seguro de cuánto aumentar el rendimiento, consulte [Estimación de necesidades de rendimiento](documentdb-request-units.md#estimating-throughput-needs) y [Calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
 
 ## Pasos siguientes
 
 Para obtener más información sobre los precios y la administración de datos con Azure DocumentDB, consulte estos recursos:
- 
+
 - [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Administración de la capacidad de DocumentDB](documentdb-manage.md)
 - [Modelado de datos en DocumentDB](documentdb-modeling-data.md)
@@ -193,4 +193,4 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

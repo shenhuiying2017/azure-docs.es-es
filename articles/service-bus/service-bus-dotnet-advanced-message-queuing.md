@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## Características no admitidas y restricciones
+
+Actualmente las siguientes funciones de la API .NET del bus de servicio no son compatibles con el uso de AMQP:
+
+ * Transacciones
+ * Envío a través de un destino de transferencia
+
+Para más información, consulte [Características no admitidas, restricciones y diferencias de comportamiento](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
+
 ## Resumen
 
 En este artículo se muestra cómo acceder a las funciones de mensajería asincrónica del bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del bus de servicio.
@@ -307,4 +316,4 @@ Ahora que ha leído una introducción sobre el Bus de servicio y AMQP con .NET, 
  
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -48,7 +48,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
     npm init
     ```
 
-2. En el símbolo del sistema en la carpeta **createdeviceidentity**, ejecute el siguiente comando para instalar el paquete **azure-iothub**:
+2. En el símbolo del sistema en la carpeta **createdeviceidentity**, ejecute el siguiente comando para instalar el paquete del SDK del servicio **azure-iothub**:
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     npm init
     ```
 
-2. En el símbolo del sistema en la carpeta **simulateddevice**, ejecute el siguiente comando para instalar el paquete **azure-iot-device-amqp**:
+2. En el símbolo del sistema, en la carpeta **simulateddevice**, ejecute el siguiente comando para instalar el paquete del SDK de dispositivo **azure-iot-device** y el paquete **azure-iot-device-amqp**:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -201,7 +201,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothostname}** por el nombre del Centro de IoT que creó en la sección *Creación de un Centro de IoT* y **{yourdevicekey}** por la clave del dispositivo que generó en la sección *Creación de una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothostname}** por el nombre del Centro de IoT que creó en la sección *Creación de un Centro de IoT* y **{yourdevicekey}** por la valor de la clave del dispositivo que generó en la sección *Creación de una identidad de dispositivo*:
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -247,7 +247,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     client.open(connectCallback);
     ```
 
-9. Guarde y cierre el archivo **SimulatedDevice.js**.
+9. Guarde el archivo **SimulatedDevice.js** y ciérrelo.
 
 > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
 
@@ -286,7 +286,7 @@ Para continuar la introducción al Centro de IoT y explorar otros escenarios IoT
 - [Introducción a la administración de dispositivos][lnk-device-management]
 - [Introducción al SDK de puerta de enlace][lnk-gateway-SDK]
 
-Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial].
+Para aprender a ampliar una solución IoT y a procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -312,4 +312,4 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

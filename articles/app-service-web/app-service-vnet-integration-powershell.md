@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="08/29/2016"
 	ms.author="ccompy"/>
 
 # Conexión de la aplicación a la red virtual con PowerShell #
@@ -47,7 +47,7 @@ Para conectar una aplicación a una red virtual, siga estos tres pasos:
 1. Cargue el certificado de la aplicación web en la red virtual y recupere el URI de paquete de VPN de punto a sitio.
 1. Actualice la conexión de red virtual de las aplicaciones web con el URI del paquete de punto a sitio.
 
-Los pasos 1 y 3 admiten el uso de scripts, pero el paso 2 necesita una acción manual puntual en el portal o acceder al punto de conexión de Azure Resource Manager de la red virtual para realizar acciones **PUT** o **PATCH**. Póngase en contacto con el soporte técnico de Azure para habilitar esta opción. Antes de comenzar, asegúrese de que tiene una red virtual clásica con una conectividad de punto a sitio habilitada y una puerta de enlace implementada. Para crear la puerta de enlace y habilitar la conectividad de punto a sitio, debe usar el portal como se describe en [Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico][createvpngateway].
+Los pasos 1 y 3 admiten el uso de scripts, pero el paso 2 necesita una acción manual puntual en el portal o acceder al punto de conexión de Azure Resource Manager de la red virtual para realizar acciones **PUT** o **PATCH**. Póngase en contacto con el soporte técnico de Azure para habilitar esta opción. Antes de comenzar, asegúrese de que tiene una red virtual clásica con una conectividad de punto a sitio habilitada y una puerta de enlace implementada. Para crear la puerta de enlace y habilitar la conectividad de punto a sitio, debe usar el portal como se describe en [Creación de una puerta de enlace de VPN][createvpngateway].
 
 La red virtual clásica debe estar en la misma suscripción que el plan del Servicio de aplicaciones que contiene la aplicación con la que va a realizar la integración.
 
@@ -57,7 +57,7 @@ Abra una ventana de PowerShell y configure la cuenta y la suscripción de Azure 
 
 	Login-AzureRmAccount
 
-Este comando abrirá un símbolo del sistema para obtener las credenciales de Azure. Después de iniciar sesión, utilice cualquiera de los siguientes comandos para seleccionar la suscripción que desea usar. Asegúrese de utilizar la suscripción en la que están la red virtual y el plan de Servicio de aplicaciones.
+Este comando abrirá un símbolo del sistema para obtener las credenciales de Azure. Después de iniciar sesión, utilice cualquiera de los siguientes comandos para seleccionar la suscripción que desea usar. Asegúrese de utilizar la suscripción en la que están la red virtual y el plan del Servicio de aplicaciones.
 
 	Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
 
@@ -500,7 +500,7 @@ Copie el siguiente script y guárdelo en un archivo. Si no desea utilizar el scr
 
 		    Write-Host "Creating App association to VNET"
 		    $propertiesObject = @{
-		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
+		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
 		    }
 
 		    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
@@ -670,7 +670,7 @@ Cuando finalice el script, se mostrará **Finished** (Finalizado). En este punto
 
 Cuando está realizando la integración con una red virtual preexistente, si proporciona una red virtual del Administrador de recursos que no tiene una puerta de enlace o conectividad de punto a sitio, el script lo configurará. Si la red virtual ya tiene esos elementos configurados, el script pasará directamente a la integración de la aplicación. Para iniciar este proceso, simplemente seleccione **2) Add an EXISTING Virtual Network to an App** (2) Agregar una red virtual EXISTENTE a una aplicación).
 
-Esta opción solo funciona si tiene una red virtual del Administrador de recursos preexistente que se encuentra en la misma suscripción que la aplicación. Después de seleccionar la opción, aparecerá una lista de las redes virtuales del Administrador de recursos.
+Esta opción solo funciona si tiene una red virtual de Resource Manager preexistente que se encuentra en la misma suscripción que la aplicación. Después de seleccionar la opción, aparecerá una lista de las redes virtuales del Administrador de recursos.
 
 	Select a VNET to integrate with
 
@@ -725,4 +725,4 @@ Aunque el script indica eliminar, no se elimina la red virtual. Solo se quita la
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

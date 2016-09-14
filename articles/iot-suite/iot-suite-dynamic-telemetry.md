@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/07/2016"
+     ms.date="08/25/2016"
      ms.author="dobett"/>
 
 # Uso de telemetría dinámica con la solución de supervisión remota preconfigurada
@@ -36,11 +36,11 @@ Puede completar este tutorial en cualquier sistema operativo, como Windows o Lin
 
 ## Configuración del dispositivo simulado de Node.js
 
-1. En el panel de supervisión remota, haga clic en **+ Agregar un dispositivo** y agregue un nuevo dispositivo personalizado. Tome nota del nombre de host del Centro de IoT, del identificador de dispositivo y de la clave de dispositivo. Los necesitará más adelante en este tutorial al preparar la aplicación cliente del dispositivo remote\_monitoring.js.
+1. En el panel de supervisión remota, haga clic en **+ Agregar un dispositivo** y agregue un dispositivo personalizado. Tome nota del nombre de host del Centro de IoT, del identificador de dispositivo y de la clave de dispositivo. Los necesitará más adelante en este tutorial al preparar la aplicación cliente del dispositivo remote\_monitoring.js.
 
-2. Asegúrese de que tiene instalada la versión 0.12.x o posterior de Node.js en el equipo de desarrollo. Ejecute `node --version` en un símbolo del sistema o en un shell para comprobar la versión. Para obtener información sobre el uso de un administrador de paquetes para instalar Node.js en Linux, consulte [Installing Node.js via package manager][node-linux] (Instalación de Node.js con un administrador de paquetes).
+2. Asegúrese de que tiene instalada la versión 0.12.x o posterior de Node.js en el equipo de desarrollo. Ejecute `node --version` en un símbolo del sistema o en un shell para comprobar la versión. Para obtener información sobre el uso de un administrador de paquetes para instalar Node.js en Linux, consulte [Installing Node.js via package manager][node-linux] \(Instalación de Node.js con un administrador de paquetes).
 
-3. Con Node.js instalado, clone la versión más reciente del repositorio [azure-iot-sdks][lnk-github-repo] en el equipo de desarrollo. Para ver la versión más reciente de las bibliotecas y los ejemplos debe usar siempre la rama **principal**.
+3. Con Node.js instalado, clone la versión más reciente del repositorio [azure-iot-sdks][lnk-github-repo] en el equipo de desarrollo. Para ver la versión más reciente de las bibliotecas y los ejemplos siempre debe usar siempre la rama **principal**.
 
 4. Desde su copia local del repositorio [azure-iot-sdks][lnk-github-repo], copie los siguientes dos archivos de la carpeta node/device/samples a una carpeta vacía de su equipo de desarrollo:
 
@@ -84,13 +84,13 @@ Si selecciona el dispositivo simulado de Node.js que se ejecutó en la sección 
 
 La solución de supervisión remota detecta automáticamente el tipo de datos adicionales de telemetría relativos a la temperatura exterior y los agrega al gráfico del panel.
 
-## Nuevo tipo de datos de telemetría agregado
+## Adición de un tipo de datos de telemetría
 
 El siguiente paso es reemplazar los datos de telemetría generados por el dispositivo simulado de Node.js con un nuevo conjunto de valores:
 
 1. Presione **Ctrl + C** en el símbolo del sistema o el shell para detener el dispositivo simulado de Node.js.
 
-2. En el archivo remote\_monitoring.js, verá los valores de la base de datos de telemetría para la temperatura, la humedad y la temperatura exterior existentes. Agregue un nuevo valor de la base de datos para **rpm** como sigue:
+2. En el archivo remote\_monitoring.js, verá los valores de la base de datos de telemetría para la temperatura, la humedad y la temperatura exterior existentes. Agregue un valor de la base de datos para **rpm** como sigue:
 
     ```
     // Sensors data
@@ -100,7 +100,7 @@ El siguiente paso es reemplazar los datos de telemetría generados por el dispos
     var rpm = 200;
     ```
 
-3. El dispositivo simulado de Node.js genera datos de telemetría agregando un incremento aleatorio a los valores de la base de datos mediante la función **generateRandomIncrement** del archivo remote\_monitoring.js. Aleatorice el valor de **rpm** agregando una línea de código después de la aleatorizaciones existentes como sigue:
+3. El dispositivo simulado de Node.js usa la función **generateRandomIncrement** del archivo remote\_monitoring.js para agregar un incremento aleatorio a los valores de la base de datos. Aleatorice el valor de **rpm** agregando una línea de código después de la aleatorizaciones existentes como sigue:
 
     ```
     temperature += generateRandomIncrement();
@@ -135,7 +135,7 @@ El siguiente paso es reemplazar los datos de telemetría generados por el dispos
 
 ## Personalización de la presentación en el panel
 
-El mensaje **Device-Info** puede incluir metadatos sobre la telemetría que el dispositivo envíe al Centro de IoT. Estos metadatos pueden especificar los tipos de datos de telemetría que envía el dispositivo. Modifique el valor **deviceMetaData** en el archivo remote\_monitoring.js para que incluya una definición de **telemetría** después de la definición de **comandos**, tal como se muestra en el siguiente fragmento de código (no olvide agregar un `,` después de la definición de **comandos**):
+El mensaje **Device-Info** puede incluir metadatos sobre la telemetría que el dispositivo envíe al Centro de IoT. Estos metadatos pueden especificar los tipos de datos de telemetría que envía el dispositivo. Modifique el valor **deviceMetaData** en el archivo remote\_monitoring.js para que incluya una definición de **telemetría** después de la definición de **comandos**. El siguiente fragmento de código muestra la definición **Comandos** (asegúrese de agregar un `,` después de la definición **Comandos**):
 
 ```
 'Commands': [{
@@ -168,7 +168,7 @@ El mensaje **Device-Info** puede incluir metadatos sobre la telemetría que el d
 
 > [AZURE.NOTE] La solución de supervisión remota utiliza a una coincidencia de mayúsculas y minúsculas para comparar la definición de metadatos con los datos del flujo de telemetría.
 
-Agregar una definición de **telemetría** como la anterior al ejemplo no cambia el comportamiento del panel. Sin embargo, los metadatos también pueden incluir los un atributo **DisplayName** para personalizar la presentación en el panel. Actualice la definición de los metadatos de **telemetría** como sigue:
+Agregar una definición de **telemetría** como la del fragmento de código anterior no cambia el comportamiento del panel. Sin embargo, los metadatos también pueden incluir los un atributo **DisplayName** para personalizar la presentación en el panel. Actualice la definición de los metadatos de **telemetría** como se muestra en el siguiente fragmento:
 
 ```
 'Telemetry': [
@@ -226,7 +226,7 @@ La **temperatura exterior** ya no aparece en el gráfico:
 
 ![Datos de telemetría filtrados en el panel][image5]
 
-Tenga en cuenta que esto solo afecta a la presentación del gráfico, los valores de **ExternalTemperature** siguen almacenados y están disponibles para cualquier procesamiento de back-end.
+Este cambio solo afecta a la visualización del gráfico. Los valores de datos de **ExternalTemperature** siguen almacenados y están disponibles para cualquier procesamiento de back-end.
 
 > [AZURE.NOTE] Puede que necesite deshabilitar y habilitar el dispositivo de Node.js en la página **Dispositivos** del panel para ver el cambio inmediatamente.
 
@@ -251,4 +251,4 @@ Ahora que ya sabe cómo utilizar la telemetría dinámico, puede obtener más in
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

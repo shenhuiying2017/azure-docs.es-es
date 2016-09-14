@@ -18,7 +18,6 @@
 
 # Administración de imágenes personalizadas de Azure DevTest Labs para crear máquinas virtuales
 
-## Información general
 Una vez que haya [creado un laboratorio](devtest-lab-create-lab.md), puede [agregar máquinas virtuales a ese laboratorio](devtest-lab-add-vm-with-artifacts.md). Cuando cree una VM, deberá especificar una *base*, que puede ser una *imagen personalizada* o una *imagen de Marketplace*. En este artículo, aprenderá a [crear una imagen personalizada desde una unidad de disco virtual](#create-a-custom-image-from-a-vhd) de modo que posteriormente pueda crear una máquina virtual a partir de esa imagen personalizada. Además, también puede [crear una imagen personalizada desde una máquina virtual](#create-a-custom-image-from-a-vm) para crear posteriormente máquinas virtuales de forma rápida.
 
 ## Creación de una imagen personalizada desde un archivo VHD
@@ -99,6 +98,8 @@ Si tiene una máquina virtual que ya está configurada, puede crear una imagen p
 
 1. Cuando termine de crear la imagen personalizada, seleccione **Aceptar**.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Entradas blogs relacionadas
 
 - [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
@@ -108,4 +109,4 @@ Si tiene una máquina virtual que ya está configurada, puede crear una imagen p
 
 Cuando se haya agregado una imagen personalizada para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 # Varias direcciones VIP por servicio en la nube
@@ -160,4 +160,4 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

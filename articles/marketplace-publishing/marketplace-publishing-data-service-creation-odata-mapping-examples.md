@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Ejemplos de asignación de un servicio web existente a OData a través de CSDL
+
+>[AZURE.IMPORTANT] **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio de desarrollo que quiera publicar en Azure Marketplace, puede encontrar más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
 
 ## Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "POST"
 Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL definida por servidor (ubicación) o actualizar parte del subordinado en la dirección URL definida por el servidor. En los casos en los que el subordinado es una secuencia, es decir, no estructurado, por ejemplo, un archivo de texto. Tenga en cuenta que POST no es idempotentes sin una ubicación.
@@ -155,4 +157,4 @@ Use la paginación RESTful de implementación a través de sus datos con GET. La
 - Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
 - Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

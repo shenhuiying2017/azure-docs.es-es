@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
 # Salidas de runbook y mensajes en la Automatización de Azure
@@ -21,7 +21,7 @@ La mayoría de los runbooks de Automatización de Azure generan alguna forma de 
 
 En la siguiente tabla verá una breve descripción de cada uno de los flujos y su comportamiento en el Portal de administración de Azure, cuando se ejecuta un runbook publicado y cuando se [prueba un runbook](automation-testing-runbook.md). Asimismo, en las siguientes secciones se proporciona más información sobre cada flujo.
 
-| Stream | Descripción | Publicado | Prueba|
+| Stream | Description | Publicado | Prueba|
 |:---|:---|:---|:---|
 |Salida|Objetos destinados a ser consumidos por otros runbooks.|Se escribe en el historial de trabajos.|Se muestra en el panel de salida de la prueba.|
 |Warning (Advertencia)|Mensaje de advertencia destinado al usuario.|Se escribe en el historial de trabajos.|Se muestra en el panel de salida de la prueba.|
@@ -48,30 +48,43 @@ Cuando escribe en el flujo de salida de una función que está incluida en su ru
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 El flujo de salida del trabajo del runbook sería:
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 El flujo detallado del trabajo del runbook sería:
 
 	Verbose outside of function
 	Verbose inside of function
 
+Una vez que haya publicado el Runbook y antes de iniciarlo, debe activar también el registro detallado en la configuración del Runbook para obtener la salida de flujo detallada.
+
 ### Declarar los tipos de datos de salida
 
 Un flujo de trabajo puede especificar el tipo de datos de su salida mediante el [atributo OutputType](http://technet.microsoft.com/library/hh847785.aspx). Este atributo no tiene ningún efecto durante el tiempo de ejecución, pero proporciona al autor del runbook una indicación de la salida esperada en tiempo de diseño. A medida que el conjunto de herramientas de los runbooks evoluciona, aumenta la importancia de la declaración de tipos de datos de salida en tiempo de diseño. Como resultado, es recomendable incluir esta declaración en cualquier runbook que cree.
 
+Esta es una lista de tipos de salidas de ejemplo:
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 El siguiente runbook de ejemplo genera un objeto de cadena e incluye una declaración de su tipo de salida. Si su runbook genera una matriz de un tipo determinado, deberá especificar el tipo en lugar de una matriz de ese tipo.
 
 	Workflow Test-Runbook
@@ -81,6 +94,25 @@ El siguiente runbook de ejemplo genera un objeto de cadena e incluye una declara
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
+
+Para declarar un tipo de salida en Runbooks gráficos o de flujo de trabajo gráfico de PowerShell, puede seleccionar la opción de menú **Entrada y salida** y escribir el nombre del tipo de salida. Se recomienda que utilice el nombre completo de clase .NET para identificarlo fácilmente cuando haga referencia a él desde un Runbook primario. Esto permite exponer todas las propiedades de esa clase en el bus de datos del Runbook y proporciona mucha flexibilidad cuando se usan para la lógica condicional, el registro y la referencia como valores de otras actividades del Runbook.<br> ![Opción de entrada y salida de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+En el siguiente ejemplo, tenemos dos Runbooks gráficos para demostrar esta característica. Si se aplica el modelo de diseño modular de Runbook, tendremos un Runbook que actúa como *plantilla de Runbook de autenticación* que administra la autenticación con Azure mediante la cuenta de ejecución. El segundo Runbook, que normalmente realizaría la lógica básica para automatizar un escenario determinado, en este caso va a ejecutar la *plantilla de Runbook de autenticación* y a mostrar los resultados en el panel de salida **Prueba**. En circunstancias normales, haríamos que este Runbook hiciera algo en un recurso que está aprovechando la salida del Runbook secundario.
+
+Esta es la lógica básica del Runbook **AuthenticateTo-Azure**.<br> ![Autenticar ejemplo de plantilla de Runbook](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
+
+Incluye el tipo de salida *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, que devolverá las propiedades del perfil de autenticación.<br> ![Ejemplo de tipo de salida de Runbooks](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+
+Aunque este Runbook es muy simple, hay un elemento de configuración al que se debe llamar aquí. La última actividad está ejecutando el cmdlet **Write-Output** y escribe los datos de perfil en una variable $\_ mediante una expresión de PowerShell para el parámetro **Inputobject** necesario para ese cmdlet.
+
+Para el segundo Runbook de este ejemplo, denominado *Test-ChildOutputType*, solo tenemos dos actividades.<br> ![Runbook de tipo de salida secundario de ejemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+
+La primera actividad llama al Runbook **AuthenticateTo-Azure** y la segunda actividad está ejecutando el cmdlet **Write-Verbose** con el **origen de datos** de **Resultado de la actividad** y el valor de **Ruta de acceso de campo** es **Context.Subscription.SubscriptionName**, que especifica la salida de contexto del Runbook **AuthenticateTo Azure**.<br> ![Origen de datos de parámetro del cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+La salida resultante es el nombre de la suscripción.<br> ![Resultados de Runbook de Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+Una nota acerca del comportamiento del control del tipo de salida. Cuando escribe un valor en el campo Tipo de salida en la hoja de propiedades Entrada y salida, tiene que hacer clic fuera del control después de escribirlo para que el control reconozca la entrada.
+
 
 ## Flujos de mensajes
 
@@ -190,7 +222,7 @@ Puede ver en la captura de pantalla anterior que, cuando se habilita el registro
 
 ## Pasos siguientes
 
-- Para más información acerca de la ejecución de runbook, cómo supervisar trabajos de runbook y otros detalles técnicos, consulte [Seguimiento de un trabajo de runbook](automation-runbook-execution.md).
-- Para comprender cómo diseñar y usar runbooks secundarios, consulte [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
+- Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
+- Para comprender cómo diseñar y usar Runbooks secundarios, consulte [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

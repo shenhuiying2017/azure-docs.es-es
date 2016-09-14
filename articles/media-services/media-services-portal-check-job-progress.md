@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Comprobación del progreso del trabajo mediante el Portal de Azure clásico" 
-	description="Aprenda a realizar un seguimiento del progreso del trabajo mediante el Portal de Azure clásico." 
+	pageTitle="Supervisión del progreso de trabajo de codificación con el Portal de Azure" 
+	description="Este tutorial lo guiará a través de los pasos de supervisión del progreso de los trabajos con el Portal de Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,25 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/29/2016"  
 	ms.author="juliako"/>
 
-#Comprobación del progreso del trabajo
+#Supervisión del progreso de trabajo de codificación con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-##Uso del Portal para comprobar el estado del trabajo
+## Información general
 
-1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de los Servicios multimedia.
-2. Seleccione la página **TRABAJOS**.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-	En la página puede ver el estado de todos los trabajos. También puede filtrar por estado, hora o identificador de trabajo.
+Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo.
 
-	![CheckStatus][checkstatus]
+Para supervisar el progreso del trabajo de codificación, haga clic en **Configuración** (en la parte superior de la página) y, después, seleccione **Trabajos**.
 
+![Trabajos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+
+Puede hacer clic en el trabajo para ver más detalles.
+
+![Trabajos](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##Pasos siguientes
+
+Después de finalizar el trabajo de codificación, puede publicar y reproducir sus recursos, tal y como se describe [aquí](media-services-portal-publish.md).
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -41,13 +49,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-##Paso siguiente
-
-Publique el contenido. Para obtener más información, consulte [Codificación de un recurso](media-services-manage-content.md#publish).
-
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="08/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribución de tablas en Almacenamiento de datos SQL
@@ -137,24 +137,28 @@ Las columnas de distribución no se pueden actualizar; por lo tanto, seleccione 
 
 ### Selección de una columna que distribuirá los datos de manera uniforme
 
-Dado que un sistema distribuido funciona con la misma rapidez que lo haga su distribución más lenta, es importante dividir el trabajo uniformemente entre todas las distribuciones, con el fin de lograr una ejecución equilibrada en el sistema. La forma en que se divide el trabajo en un sistema distribuido se basa en el lugar en que residen los datos de cada distribución. Esto hace que sea muy importante seleccionar la columna correcta para distribuir los datos, de forma que cada distribución tenga el mismo trabajo y tarde el mismo tiempo en completar su parte del trabajo. Cuando el trabajo está bien dividido en el sistema, se denomina ejecución equilibrada. Cuando los datos no se dividen uniformemente en un sistema y no están bien equilibrados, se denomina **asimetría de datos**.
+Dado que un sistema distribuido funciona con la misma rapidez que lo haga su distribución más lenta, es importante dividir el trabajo uniformemente entre todas las distribuciones, con el fin de lograr una ejecución equilibrada en el sistema. La forma en que se divide el trabajo en un sistema distribuido se basa en el lugar en que residen los datos de cada distribución. Esto hace que sea muy importante seleccionar la columna correcta para distribuir los datos, de forma que cada distribución tenga el mismo trabajo y tarde el mismo tiempo en completar su parte del trabajo. Cuando el trabajo se divide en el sistema, los datos se equilibran en las distribuciones. Cuando los datos no están equilibrados de manera uniforme, se conoce como **asimetría de datos**.
 
 Para dividir los datos uniformemente y evitar la asimetría de datos, considere lo siguiente al seleccionar la columna de distribución:
 
 1. Seleccione una columna que contenga un importante número de valores distintos.
-2. Evite la distribución de datos en columnas con una frecuencia alta de unos pocos valores o una frecuencia alta de valores NULL.
-3. Evite la distribución de datos en columnas de fecha.
-4. Evitar la distribución en columnas con menos de 60.
+2. Evite la distribución de los datos en las columnas con unos pocos valores distintivos.
+3. Evite la distribución de los datos en las columnas con una alta frecuencia de valores NULL.
+4. Evite la distribución de datos en columnas de fecha.
 
-Dado que se puede aplicar un algoritmo hash a cada valor en una de las 60 distribuciones, para lograr una distribución uniforme será preciso que seleccione una columna que sea altamente exclusiva y que proporcione más de 60 valores únicos. Para ilustrarlo, considere el caso extremo en el que una columna solo tenga 40 valores únicos. Si dicha columna se seleccionara como clave de distribución, los datos de dicha tabla se propagarían solo por una parte del sistema, lo que dejaría 20 distribuciones sin datos y sin procesos que realizar. Por el contrario, las 40 distribuciones restantes tendrían más trabajo que realizar que si los datos se distribuyeran uniformemente por las 60 distribuciones.
+Dado que se puede aplicar un algoritmo hash a 1 de las 60 distribuciones, para lograr una distribución uniforme deberá seleccionar una columna que sea altamente exclusiva y que contenga más de 60 valores únicos. Para ilustrarlo, considere el caso en el que una columna solo tenga 40 valores exclusivos. Si esta columna se seleccionara como clave de distribución, los datos de dicha tabla se colocarían en 40 distribuciones, como máximo, lo que dejaría 20 distribuciones sin datos y sin procesos que realizar. Por el contrario, las 40 distribuciones restantes tendrían más trabajo que realizar que si los datos se distribuyeran uniformemente por las 60 distribuciones. Este escenario es un ejemplo de la asimetría de datos.
 
-Si fuera a distribuir una tabla en una columna que acepta muchos valores NULL, todos los valores se colocará en la misma distribución y dicha distribución tendrá que trabajar más que las restantes, lo que ralentizará todo el sistema. La distribución en una columna de fecha también puede provocar una asimetría en el procesamiento en aquellos casos en que las consultas sean muy selectivas, en lo que se refiere a la fecha, y en los que haya pocas fechas implicadas en una consulta.
+En el sistema MPP, cada paso de la consulta espera que todas las distribuciones completen su parte del trabajo. Si una distribución hace más trabajo que las demás, los recursos de las otras distribuciones, en esencia, se desaprovechan al esperar la distribución ocupada. Si el trabajo no se distribuye de manera uniforme en todas las distribuciones, se denomina una **asimetría de procesamiento**. La asimetría de procesamiento hará que las consultas se ejecuten más lento que si la carga de trabajo se pudiera distribuir de manera uniforme en las distribuciones. La asimetría de datos llevará a la asimetría de procesamiento.
+
+Evite la distribución en una columna que acepte muchos valores NULL debido a que todos los valores NULL se colocarán en la misma distribución. Distribuir en una columna de fecha también podría generar una asimetría de procesamiento, porque todos los datos correspondientes a una fecha determinada se colocarán en la misma distribución. Si varios usuarios ejecutan consultas que se filtran en la misma fecha, solo 1 de las 60 distribuciones realizará todo el trabajo, dado que una fecha determinada solo puede encontrarse en una distribución. En este escenario, es probable que las consultas se ejecuten 60 veces más lento que si los datos estuvieran distribuidos de manera uniforme en todas las distribuciones.
 
 Si no existe ninguna columna que sea una buena candidata, considere la posibilidad de utilizar el método de distribución Round Robin.
 
 ### Selección de una columna de distribución que minimizará el movimiento de datos
 
-Una de las estrategias más importantes para optimizar el rendimiento de Almacenamiento de datos SQL es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta. El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones. Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas **buenas** candidatas para la distribución por hash. Por otro lado, las columnas de la cláusula `WHERE` **no** son buenas candidatas a columnas de hash porque limitan las distribuciones que participan en la consulta.
+Una de las estrategias más importantes para optimizar el rendimiento de Almacenamiento de datos SQL es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta. El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones. Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas **buenas** candidatas para la distribución por hash.
+
+Por otro lado, las columnas de la cláusula `WHERE` **no** son buenas candidatas de hash porque limitan las distribuciones que participan en la consulta, lo que genera asimetría de procesamiento. Una columna de fecha es un buen ejemplo de una columna en la que podría resultar atractivo realizar la distribución pero que, a menudo, podría provocar esta asimetría de procesamiento.
 
 Por lo general, si tiene dos tablas de datos de gran tamaño implicadas normalmente en una combinación, obtendrá el mayor rendimiento distribuyendo ambas tablas en una de las columnas de combinación. Si tiene una tabla que nunca se combina con otra tabla de datos de gran tamaño, examine las columnas que se encuentran con frecuencia en la cláusula `GROUP BY`.
 
@@ -172,7 +176,7 @@ Cuando los datos de una tabla se distribuyen mediante el método de distribució
 
 ### Identificación de la asimetría
 
-Una manera sencilla de identificar una tabla como sesgada es usar `DBCC PDW_SHOWSPACEUSED`. Esta es una forma rápida y sencilla de ver el número de filas de tabla que se almacena en cada una de las 60 distribuciones de la base de datos. Recuerde que para obtener el máximo rendimiento equilibrado, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
+Una manera sencilla de identificar una tabla como asimétrica es usar `DBCC PDW_SHOWSPACEUSED`. Esta es una forma rápida y sencilla de ver el número de filas de tabla que se almacena en cada una de las 60 distribuciones de la base de datos. Recuerde que para obtener el máximo rendimiento equilibrado, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
 
 ```sql
 -- Find data skew for a distributed table
@@ -198,7 +202,7 @@ order by two_part_name, row_count
 
 ### Resolución de la asimetría de datos
 
-No toda asimetría es suficiente para garantizar una corrección. En algunos casos, el rendimiento de una tabla en algunas consultas puede superar el daño que supone la asimetría de datos. Para decidir si merece la pena resolver la asimetría de datos en una tabla, conviene tener el mayor conocimiento posible sobre los volúmenes de datos y consultas en la carga de trabajo. Una manera de examinar el impacto de la asimetría es utilizar los pasos del artículo [Supervisión de la carga de trabajo mediante DMV][] para supervisar el impacto de la asimetría en el rendimiento de las consultas y específicamente el impacto en el tiempo que tardan en completarse las consultas en las distribuciones individuales.
+No toda asimetría es suficiente para garantizar una corrección. En algunos casos, el rendimiento de una tabla en algunas consultas puede superar el daño que supone la asimetría de datos. Para decidir si merece la pena resolver la asimetría de datos en una tabla, conviene tener el mayor conocimiento posible sobre los volúmenes de datos y consultas en la carga de trabajo. Una manera de examinar el impacto de la asimetría es utilizar los pasos del artículo [Supervisión de consultas][] para supervisar el impacto de la asimetría en el rendimiento de las consultas y específicamente el impacto en el tiempo que tardan en completarse las consultas en las distribuciones individuales.
 
 Lo importante al distribuir datos es hallar el equilibrio perfecto entre minimizar la asimetría de datos y reducir el movimiento de datos. Ambas tareas pueden ser opuestas, de forma que, a veces, preferirá mantener la asimetría datos para reducir el movimiento de datos. Por ejemplo, cuando la columna de distribución es frecuentemente la columna compartida en las combinaciones y agregaciones, reducirá el movimiento de datos. La ventaja que reporta reducir el movimiento de datos al mínimo podría compensar el impacto de tener asimetría de datos.
 
@@ -286,9 +290,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Pasos siguientes
 
-Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [índice][Índice], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary].
+Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [índice][], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary].
 
-Paras obtener información general acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
+Para información general sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL][].
 
 
 <!--Image references-->
@@ -305,8 +309,8 @@ Paras obtener información general acerca de los procedimientos recomendados, co
 [Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporal]: ./sql-data-warehouse-tables-temporary.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
-[Supervisión de la carga de trabajo mediante DMV]: ./sql-data-warehouse-manage-monitor.md
+[Procedimientos recomendados para Almacenamiento de datos SQL]: ./sql-data-warehouse-best-practices.md
+[Supervisión de consultas]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
 <!--MSDN references-->
@@ -314,4 +318,4 @@ Paras obtener información general acerca de los procedimientos recomendados, co
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

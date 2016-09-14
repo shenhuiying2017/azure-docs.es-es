@@ -50,7 +50,7 @@ Con Factoría de datos de Azure, puede procesar datos de series temporales por l
       "interval": 1
     },
 
-Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina **segmento** de datos. El siguiente diagrama muestra un ejemplo de una actividad con un conjunto de datos de entrada y un conjunto de datos de salida cada uno con la disponibilidad establecida en una frecuencia de cada hora.
+Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina **segmento** de datos. El diagrama siguiente muestra un ejemplo de una actividad con un conjunto de datos de entrada y uno de salida. Estos conjuntos de datos tienen establecida la disponibilidad con una frecuencia horaria.
 
 ![Programador de disponibilidad](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -239,38 +239,117 @@ El diagrama muestra que en tres segmentos recientes se produjo un error al gener
 
 Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para más información sobre cómo repetir la ejecución y entender las transiciones de estado para segmentos de datos, consulte el artículo sobre la **supervisión y administración de canalizaciones mediante** [hojas del Portal de Azure](data-factory-monitor-manage-pipelines.md) (o) la [aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
-Una vez que haya repetido la ejecución del segmento 9-10 AM para dataset2 y esté preparado, Data Factory inicia la ejecución del segmento dependiente de 9-10 AM en el conjunto de datos final, como se muestra en el diagrama siguiente.
+Una vez que haya repetido la ejecución del segmento 9-10 AM para dataset2 y esté preparado, Data Factory inicia la ejecución del segmento dependiente de 9-10 AM en el conjunto de datos final.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-Para un análisis más profundo de la especificación y el seguimiento de dependencias para una cadena de actividades, consulte las secciones siguientes.
-
-## Encadenamiento de actividades
-Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
+## Actividades en ejecución en una secuencia
+Puede encadenar dos actividades (ejecute una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
 
 Por ejemplo, considere el siguiente caso:
  
 1.	La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de **salida** **D2**.
-2.	La canalización P2 incluye la actividad A2 que requiere una **entrada** del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
+2.	La canalización P2 incluye la actividad A2 que requiere una **entrada** del conjunto de datos **D2** y genera el conjunto de datos de salida **D3**.
  
-En este escenario, la actividad A1 se ejecuta cuando los datos externos están disponibles y se alcanza la frecuencia de disponibilidad programada. La actividad A2 se ejecuta cuando están disponibles los segmentos programados de D2 y se alcanza la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecuta para ese segmento hasta que está disponible.
+En este escenario, las actividades A1 y A2 son canalizaciones diferentes. La actividad A1 se ejecuta cuando los datos externos están disponibles y se alcanza la frecuencia de disponibilidad programada. La actividad A2 se ejecuta cuando están disponibles los segmentos programados de D2 y se alcanza la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecuta para ese segmento hasta que está disponible.
 
 La Vista de diagrama tendría un aspecto similar al siguiente diagrama:
 
 ![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-La Vista de diagrama con ambas actividades en la misma canalización tendría un aspecto similar al siguiente diagrama:
+Tal y como se ha mencionado anteriormente, las actividades pueden estar en la misma canalización. La vista de diagrama con ambas actividades en la misma canalización tendría un aspecto similar al siguiente diagrama:
 
 ![Encadenamiento de las actividades de la misma canalización](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### Copia ordenada
+### Copia secuencial
 Es posible ejecutar varias operaciones de copia sucesivas de manera secuencial y ordenada. Supongamos que tiene dos actividades de copia en una canalización: ActividadCopia1 y ActividadCopia2 con los siguientes conjuntos de datos de entrada y salida.
 
 ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
 
-ActividadCopia2: entrada: ConjuntoDatos2; salida: ConjuntoDatos4
+ActividadCopia2: entrada: ConjuntoDatos2; salida: ConjuntoDatos3
 
 ActividadCopia2 solo se ejecutaría si ActividadCopia1 se hubiera ejecutado correctamente y ConjuntoDatos2 estuviera disponible.
+
+Esta es el JSON de canalización de ejemplo:
+
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob1ToBlob2",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob2ToBlob3",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2016-08-25T01:00:00Z",
+	        "end": "2016-08-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+Observe que en el ejemplo, el conjunto de datos de salida de la primera actividad de copia (ConjuntoDatos2) se especifica como entrada para la segunda. Por lo tanto, la segunda actividad solo se ejecuta cuando el conjunto de datos de salida de la primera está listo.
 
 En el ejemplo, CopyActivity2 puede tener una entrada distinta, como Dataset3, pero también debe especificar Dataset2 como una entrada de CopyActivity2 para que la actividad no se ejecute hasta que se haya completado CopyActivity1. Por ejemplo:
 
@@ -278,7 +357,88 @@ ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
 
 ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos4
 
-Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    },
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset4"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob3ToBlob4",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2017-04-25T01:00:00Z",
+	        "end": "2017-04-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+
+Observe que en el ejemplo, hay dos conjuntos de datos de entrada especificados para la segunda actividad de copia. **Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias.** ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
 
 - ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usa al copiar datos en Dataset4. Solo actúa como una dependencia de programación de ActividadCopia2.
 - ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.
@@ -291,7 +451,7 @@ En los ejemplos, las frecuencias de los conjuntos de datos de entrada y salida y
 
 ### Ejemplo 1: Generar un informe de salida diario para los datos de entrada que está disponibles cada hora
 
-Considere un escenario donde hemos introducido datos de medición desde sensores disponibles cada hora en el Blob de Azure. Desea generar un informe agregado diario con estadísticas como media, máx., mín., etc., para el día con la [Actividad de Hive](data-factory-hive-activity.md) de Data Factory.
+Considere un escenario donde hemos introducido datos de medición desde sensores disponibles cada hora en el Blob de Azure. Desea generar un informe agregado diario con estadísticas como media, máx. y mín. para el día con la [Actividad de Hive](data-factory-hive-activity.md) de Data Factory.
 
 A continuación, se muestra cómo puede modelar este escenario con Data Factory:
 
@@ -700,4 +860,4 @@ Tenga en cuenta lo siguiente:
 
   
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

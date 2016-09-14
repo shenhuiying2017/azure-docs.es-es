@@ -20,7 +20,7 @@
 
 La compatibilidad con VPN de Administración de API le permite conectar la puerta de enlace de Administración de API a una red virtual de Azure (clásica). Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
 
->[AZURE.NOTE] Administración de API de Azure funciona con redes virtuales clásicas. Para información sobre la creación de una red virtual clásica, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obtener información sobre cómo conectar redes virtuales clásicas a redes virtuales ARM, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Administración de API de Azure funciona con redes virtuales clásicas. Para información sobre la creación de una red virtual clásica, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obtener información sobre cómo conectar redes virtuales clásicas a redes virtuales ARM, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
 
@@ -62,6 +62,9 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 | 6381, 6382, 6383 | Entrante o saliente | UDP | Dependencias de Administración de API de Caché en Redis | VIRTUAL\_NETWORK/VIRTUAL\_NETWORK |
 | 445 | Salida | TCP | Dependencia de Administración de API en el recurso compartido de archivos de Azure para GIT | VIRTUAL\_NETWORK/INTERNET |
 
+## <a name="custom-dns"> </a>Configuración del servidor DNS personalizado
+
+Administración de API depende de varios servicios de Azure. Cuando una instancia del servicio Administración de API se hospeda en una red virtual donde se utiliza un servidor DNS personalizado, debe ser capaz de resolver nombres de host de los servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado.
 
 ## <a name="related-content"> </a>Contenido relacionado
 
@@ -83,4 +86,4 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

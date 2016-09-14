@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
@@ -41,7 +41,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los r
 
 4. El servidor perimetral almacena el archivo en caché y devuelve el archivo al solicitante original (Alice). El archivo permanece en caché en el servidor perimetral hasta que expire el TTL. Si el origen no ha especificado ningún TTL, el valor predeterminado será de siete días.
 
-5. Otros usuarios adicionales (por ejemplo, Bob) pueden solicitar, a continuación, el mismo archivo mediante esa misma dirección URL y también se les puede dirigir a ese mismo POP.
+5. Después, los usuarios adicionales pueden solicitar el mismo archivo mediante la misma dirección URL y también se les puede dirigir al mismo POP.
 
 6. Si no ha expirado el TTL para el archivo, el servidor perimetral devolverá el archivo desde la memoria caché. Esto genera una experiencia de usuario más rápida y una mayor capacidad de respuesta.
 
@@ -53,22 +53,25 @@ Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**
 | | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
 |-------|-----------------|------------------|-----------------|
 | Fácil integración con servicios de Azure como [Almacenamiento](cdn-create-a-storage-account-with-cdn.md), [Servicios en la nube](cdn-cloud-service-with-cdn.md), [Aplicaciones web](../app-service-web/cdn-websites-with-cdn.md) y [Servicios multimedia](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Administración a través de [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Compatibilidad con HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Equilibrio de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Protección DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protección de [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Pila dual IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrado por país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
 | [Purga rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Análisis esencial](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| Administración a través de [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Compatibilidad con HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Estadísticas en tiempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Alertas en tiempo real](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | | **&#x2713;** |
+| Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Redirección/reescritura de dirección URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
 
 >[AZURE.TIP] ¿Hay una característica que le gustaría ver en CDN de Azure? [Envíenos sus comentarios](https://feedback.azure.com/forums/169397-cdn).
 
@@ -84,4 +87,4 @@ Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [No
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

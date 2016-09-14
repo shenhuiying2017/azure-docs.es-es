@@ -33,7 +33,7 @@ En este artículo se supone que ha:
 
 - **Una máquina virtual de Windows**: hay muchas herramientas para crear máquinas virtuales locales. Por ejemplo, consulte [Instalar Hyper-V y crear una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). Para más información sobre qué sistemas operativos Windows se admiten en Azure, consulte [Soporte de software de servidor de Microsoft para las máquinas virtuales de Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
-- Asegúrese de que los roles de servidor que se ejecutan en la máquina virtual sean compatibles con sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
+- Asegúrese de que los roles de servidor que se ejecutan en la máquina virtual sean compatibles con sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor). Cree una copia de seguridad de la VM antes de ejecutar Sysprep.
 
 
 ## Comprobación de que la máquina virtual se encuentra en el formato de archivo correcto
@@ -254,4 +254,4 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Portal d
 
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

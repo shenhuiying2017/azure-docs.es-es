@@ -3,7 +3,7 @@
 	description="Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Administración de API de Azure." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # P+F de Administración de API de Azure
 
@@ -155,4 +155,4 @@ Si está utilizando el Administrador de credenciales de GIT o intenta clonar el 
 
 Sí.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

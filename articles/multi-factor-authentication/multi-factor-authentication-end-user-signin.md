@@ -33,7 +33,7 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 [Inicio de sesión en la aplicación Microsoft Authenticator mediante un código de verificación](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con un código de verificación.
 [Inicio de sesión con un método alternativo](#signing-in-with-an-alternate-method)|Esto le mostrará qué esperar si desea usar un método alternativo.
 
-<h2 id="1">Inicio de sesión con el teléfono de la oficina o con un móvil</h2>
+## Inicio de sesión con el teléfono de la oficina o con un móvil
 
 La siguiente información describe la experiencia de uso de la autenticación multifactor con el teléfono de su oficina o con el móvil.
 
@@ -62,10 +62,11 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 ![Microsoft envía una notificación](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- Responda al teléfono y pulse la tecla Comprobar.
+- Responda al teléfono y pulse la tecla Comprobar. Si su compañía le requiere un PIN, tendrá que escribirlo aquí.
 
 ![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
 
+![Configuración](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - Con esto debe haber iniciado sesión.
 
@@ -85,10 +86,12 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 ![Obtener código](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
+
+
 - Con esto debe haber iniciado sesión.
 
 
-<h2 id="4">Inicio de sesión con un método alternativo</h2>
+## Inicio de sesión con un método alternativo
 
 
 En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.
@@ -104,4 +107,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

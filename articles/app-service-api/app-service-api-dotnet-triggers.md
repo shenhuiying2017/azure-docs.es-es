@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="08/25/2016" 
 	ms.author="rachelap"/>
 
 # Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
@@ -53,7 +53,7 @@ En la información siguiente sobre los paquetes de solicitud y respuesta, se ilu
     - Parámetros
         - triggerState: este parámetro opcional permite a los clientes especificar su estado para que el desencadenador de sondeo pueda decidir correctamente si debe devolver la notificación o no según el estado especificado.
         - Parámetros específicos de la API
-- Respuesta
+- Response
     - Código de estado **200**: la solicitud es válida y hay una notificación desde el desencadenador. El contenido de la notificación será el cuerpo de la respuesta. El encabezado "Retry-After" en la respuesta indica que hay que recuperar datos de notificación adicionales con una llamada de solicitud posterior.
     - Código de estado **202**: la solicitud es válida, pero no hay una notificación nueva desde el desencadenador.
     - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
@@ -108,7 +108,7 @@ En la información siguiente sobre los paquetes de solicitud y respuesta, se ilu
         - triggerId: (obligatorio) cadena opaca (por ejemplo, un GUID) que representa el registro de un desencadenador de inserción.
         - callbackUrl: (obligatorio) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
         - Parámetros específicos de la API
-- Respuesta
+- Response
     - Código de estado **200**: solicitud de registro de cliente correcta.
     - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
     - Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
@@ -342,4 +342,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
     }
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

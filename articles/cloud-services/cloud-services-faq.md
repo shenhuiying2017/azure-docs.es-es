@@ -21,6 +21,14 @@ En este artículo se responden algunas preguntas frecuentes sobre Servicios en l
 
 ## Certificados
 
+### ¿Dónde debo instalar mi certificado?
+
+- **My** Certificado de aplicación con clave privada (*.pfx, *.p12).
+
+- **CA** Todos los certificados intermedios van a este almacén (entidades de certificación de directivas y secundarias).
+
+- **ROOT** El almacén de entidades de certificación raíz, por lo que la mayoría de certificados de entidades de certificación raíz van aquí.
+
 ### No se puede quitar el certificado expirado
 
 Azure impide quitar un certificado mientras está en uso. Debe eliminar la implementación que utiliza el certificado o actualizar la implementación con un certificado diferente o renovado.
@@ -41,13 +49,7 @@ Estos siguen reapareciendo muy probablemente a causa de una herramienta que est�
 
 Cuando se recicla la instancia de máquina virtual, se pierden todos los cambios locales. Use una [tarea de inicio](cloud-services-startup-tasks.md) para instalar certificados en la máquina virtual cada vez que se inicie el rol.
 
-### ¿Dónde debo instalar mi certificado?
 
-**My** Certificado de aplicación con clave privada (*.pfx, *.p12).
-
-**CA** Todos los certificados intermedios van a este almacén (entidades de certificación de directivas y secundarias).
-
-**ROOT** El almacén de entidades de certificación raíz, por lo que la mayoría de certificados de entidades de certificación raíz van aquí.
 
 ## Solución de problemas
 
@@ -55,4 +57,4 @@ Cuando se recicla la instancia de máquina virtual, se pierden todos los cambios
 
 En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. **No** cambie la configuración mientras se está actualizando la implementación.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

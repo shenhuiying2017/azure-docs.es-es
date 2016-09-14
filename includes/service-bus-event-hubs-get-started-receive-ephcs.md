@@ -4,17 +4,21 @@
 
 Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento de Azure][]\:
 
-1. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [portal de Azure][] y, luego, haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
 
-2. Haga clic en **Servicios de datos**, **Almacenamiento** y **Creación rápida** y, a continuación, escriba un nombre para la cuenta de almacenamiento. Seleccione la región deseada y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
+2. Haga clic en **Datos y almacenamiento** y luego en **Cuenta de almacenamiento**.
 
-    ![][11]
+    ![][1]
 
-3. Haga clic en la cuenta de almacenamiento recién creada y, a continuación, en **Administrar claves de acceso**:
+3. En la hoja **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Elija una suscripción de Azure, el grupo de recursos y la ubicación en la que se va a crear el recurso. A continuación, haga clic en **Crear**.
 
-    ![][12]
+    ![][2]
 
-    Copie la clave de acceso primaria para utilizarla más adelante en este tutorial.
+4. En la lista de cuentas de almacenamiento, haga clic en la cuenta de almacenamiento recién creada.
+
+5. En la hoja de la cuenta de almacenamiento, haga clic en **Claves de acceso**. Copie el valor de **key1** para usarla más adelante en este tutorial.
+
+	![][3]
 
 4. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Receptor**.
 
@@ -81,7 +85,7 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
             }
 	    }
 	}
-    ```
+    ````
 
 	**EventProcessorHost** llamará a esta clase para procesar los eventos recibidos del Centro de eventos. Tenga en cuenta que la clase `SimpleEventProcessor` usa un cronómetro para llamar periódicamente al método de punto de control en el contexto **EventProcessorHost**. Esto garantiza que, si se reinicia el destinatario, no perderá más de cinco minutos de trabajo de procesamiento.
 
@@ -121,16 +125,17 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 [Información general de los Centros de eventos]: event-hubs-overview.md
 [Guía de programación de Centros de eventos]: event-hubs-programming-guide.md
 [procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account-classic-portal.md
+[cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[portal de Azure]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

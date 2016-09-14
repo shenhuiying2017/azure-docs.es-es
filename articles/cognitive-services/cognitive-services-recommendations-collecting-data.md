@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/31/2016"
 	ms.author="luisca"/>
 
 #  Recopilación de datos para entrenar modelos #
@@ -51,13 +51,13 @@ Con características:
 
 #### Detalles de formato
 
-| Nombre | Obligatorio | Tipo | Descripción |
+| Nombre | Obligatorio | Tipo | Description |
 |:---|:---|:---|:---|
-| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un artículo. | 
-| Nombre del artículo | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del artículo. | 
-| Categoría de artículo | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | Categoría a la que pertenece este artículo (por ejemplo, Libros de cocina, Arte dramático...); puede estar vacía. | 
-| Descripción | No, a menos que las características estén presentes (pero pueden estar vacías) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este artículo. | 
-| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista separada por comas de nombre de característica=valor de característica que puede usarse para mejorar la recomendación del modelo.|
+| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
+| Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. |
+| Categoría del elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
+| Description | No, a menos que haya características (pero puede estar vacía) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
+| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista de nombres de característica = valores de característica separados por coma que se pueden usar para mejorar la recomendación del modelo.|
 
 #### Carga de un archivo de catálogo
 
@@ -84,7 +84,7 @@ Para utilizar las características como parte de la compilación, tendrá que re
 
 2. Desencadene una compilación de clasificación. Con esta acción, se analizarán importancia y la clasificación de las características.
 
-3. Desencadene una compilación de recomendaciones configurando los siguientes parámetros de compilación: establezca el valor de useFeaturesInModel y de allowColdItemPlacement en True. Además, modelingFeatureList debe establecerse en la lista separada por comas de las características que desea utilizar para mejorar su modelo. Consulte [esta página](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) para obtener más información sobre los parámetros de tipos de compilación de recomendaciones.
+3. Desencadene una compilación de recomendaciones configurando los siguientes parámetros de compilación: establezca el valor de useFeaturesInModel y de allowColdItemPlacement en True. Además, modelingFeatureList debe establecerse en la lista separada por comas de las características que desea utilizar para mejorar su modelo. Consulte [esta página](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) para más información sobre los parámetros de tipos de compilación de recomendaciones.
 
 
 ## Datos de uso ##
@@ -95,12 +95,12 @@ Un archivo de uso es un archivo CSV (valores separados por comas) donde cada fil
 
 
 
-| Nombre | Obligatorio | Tipo | Descripción
+| Nombre | Obligatorio | Tipo | Description
 |-------|------------|------|---------------
-|Id. de usuario| Sí|[A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 255 |Identificador único de un usuario. 
-|Identificador del artículo|Sí|[A-z], [a-z], [0-9], [&#95;] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50|Identificador único de un artículo. 
-|Hora|Sí|Fecha en el formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)|Hora de los datos 
-|Evento|No | Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| El tipo de transacción. |
+|Id. de usuario| Sí|[A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 255 |Identificador único de un usuario.
+|Id. de elemento|Sí|[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50|Identificador único de un elemento.
+|Hora|Sí|La fecha en este formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)|Hora de los datos.
+|Evento|No | Uno de los siguientes:<br>• haga clic en<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• compra| El tipo de transacción. |
 
 #### Filas de ejemplo de un archivo de uso
 
@@ -129,4 +129,4 @@ Le recomendamos que la mayoría de los artículos tengan 20 transacciones o más
 
 Una vez haya creado un modelo, puede realizar una [evaluación sin conexión](cognitive-services-recommendations-buildtypes.md) para comprobar las probabilidades que hay de que el modelo funcione correctamente.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

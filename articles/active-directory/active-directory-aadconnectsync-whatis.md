@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -36,8 +36,9 @@ Tema. | ¿Qué aspectos cubre y cuándo debe leerlo?
 [Sincronización de Azure AD Connect: ejecución por segunda vez del Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md) | Explica qué opciones tiene disponibles si ejecuta de nuevo el Asistente para instalación de Azure AD Connect.
 [Introducción a la configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md)| Describe las reglas no incluidas y la configuración predeterminada. También describe cómo colaboran las reglas para que los escenarios no incluidos funcionen.
 [Descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continúa desde el tema anterior y describe cómo la configuración de los usuarios y contactos funciona conjuntamente, especialmente en un entorno de bosques múltiples.
-[How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md) (Realización de un cambio en la configuración predeterminada) | En él se explica cómo cambiar una configuración común para los flujos de atributo.
-[Explicación de las expresiones declarativas de aprovisionamiento](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Explica en profundidad cómo funciona el modelo de configuración y la sintaxis del lenguaje de expresión.
+[How to make a change to the default configuration (Realización de un cambio en la configuración predeterminada)](active-directory-aadconnectsync-change-the-configuration.md) | En él se explica cómo cambiar una configuración común para los flujos de atributo.
+[Conocimiento del aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Describe el modelo de configuración denominado aprovisionamiento declarativo.
+[Explicación de las expresiones declarativas de aprovisionamiento](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Describe la sintaxis para el lenguaje de expresiones que se usa en el aprovisionamiento declarativo.
 [Prácticas recomendadas de cambio de la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | En él se describen las limitaciones de compatibilidad y se proporcionan directrices para realizar cambios en la configuración de fábrica.
 [Configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md) | Describe las distintas opciones para limitar qué objetos se sincronizan con Azure AD y cómo configurar estas opciones paso a paso.
 **Características y escenarios** |
@@ -63,4 +64,4 @@ Tema. | ¿Qué aspectos cubre y cuándo debe leerlo?
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

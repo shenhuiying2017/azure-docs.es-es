@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información general sobre la mensajería retransmitida del Bus de servicio | Microsoft Azure"
+	pageTitle="Información general sobre Service Bus Relay | Microsoft Azure"
 	description="Información general sobre Retransmisión de bus de servicio."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 
-# Mensajería retransmitida del Bus de servicio
+# Información general sobre Service Bus Relay
 
-El componente central del Bus de servicio es un servicio de retransmisión centralizado (pero con una carga muy equilibrada) que permite compilar aplicaciones híbridas que se ejecutan tanto en el centro de datos de Azure como en entornos empresariales locales. El servicio de retransmisión admite una variedad de diferentes protocolos de transporte y estándares de servicios web. Incluye SOAP, WS-* e incluso REST. La Retransmisión de bus de servicio facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa.
+El componente central de Service Bus es un servicio de *retransmisión* centralizado (pero con una carga muy equilibrada) que permite crear aplicaciones híbridas que se ejecutan tanto en el centro de datos de Azure como en entornos empresariales locales. Service Bus Relay admite diversos protocolos de transporte y estándares de servicios web. Incluye SOAP, WS-* e incluso REST. El servicio de retransmisión facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa.
 
 ![Conceptos del relé](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -31,11 +31,11 @@ Inicie la conexión entre el servicio local y el servicio de retransmisión medi
 
 ## Pasos siguientes
 
-Para obtener detalles sobre la Retransmisión de bus de servicio, consulte los temas siguientes.
+Para obtener detalles sobre Service Bus Relay, consulte los temas siguientes.
 
 - [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Cómo usar el servicio de retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
+- [Cómo usar el servicio Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0907_2016-->

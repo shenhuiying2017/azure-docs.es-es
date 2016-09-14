@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="mandia"/>
 
 
@@ -35,9 +35,7 @@ Nombre | Descripción
 [Traductor de Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use Bing para traducir texto en otro idioma.
 [HTTP](app-service-logic-connector-http.md) | El agente de escucha HTTP abre un extremo que actúa como servidor HTTP y escucha las solicitudes HTTP o HTTPS entrantes. La acción HTTP no requiere una aplicación de API y se admite de forma nativa en las aplicaciones lógicas.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | El conector Office 365 puede enviar y recibir correos electrónicos, administrar su calendario y administrar sus contactos con su cuenta de Office 365.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | Puede completar tareas diferentes incluidas crear, actualizar y consultar diferentes entidades de Intuit QuickBooks como clientes, artículos, facturas, etc.
 [Slack](app-service-logic-connector-slack.md) | Conéctese a Slack y publique mensajes en los canales de Slack.
-[Esperar](app-service-logic-connector-wait.md) | Utilice este conector para retrasar la ejecución de la aplicación. Puede retrasar la aplicación durante un tiempo determinado o hasta una repetición en un momento determinado.
 
 
 ## Conectores de integración de empresa
@@ -60,10 +58,7 @@ Nombre | Descripción
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Se conecta a un servidor FTP/FTPS y realiza diferentes tareas de FTP, incluidas la carga, la obtención y la eliminación de archivos, etc.
 [Informix](app-service-logic-connector-informix.md) | Se conecta a una base de datos Informix de IBM, de forma local y en una máquina virtual de Azure con un sistema operativo Windows. Puede asignar las operaciones Web API y API de OData a comandos de lenguaje de consulta estructurado de Informix.<br/><br/>Ningún desencadenador. Las acciones incluyen la selección, inserción, actualización, eliminación de tablas e instrucción personalizada.<br/><br/>Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. Este conector también incluye el cliente de Microsoft para DRDA para conectarse a un servidor de Informix a través de una red TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Se conecta a SQL Server local o a Base de datos SQL de Azure. Puede crear, actualizar, obtener y eliminar entradas en una tabla de base de datos SQL.
-MQ | Se conecta a la versión 8 de IBM WebSphere MQ Server, en local y en una máquina virtual de Azure con un sistema operativo Windows. Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. El conector también incluye el cliente de Microsoft para MQ.<br/><br/>Ningún desencadenador. Ninguna acción.<br/><br/>**Nota** Actualmente no se puede utilizar con Aplicaciones lógicas.
-[Base de datos de Oracle](app-service-logic-connector-oracle.md) | Se conecta a la base de datos de Oracle local y puede crear, actualizar, obtener y eliminar entradas en una tabla de base de datos.
-[POP3](app-service-logic-connector-pop3.md) (Protocolo de oficina de correos)| Se conecta a un servidor POP3 para recuperar correos electrónicos con datos adjuntos.
-[SAP](app-service-logic-connector-sap.md) | Se conecta a un servidor SAP local e invoca RFC, BAPI y tRFC, y envía IDOC.
+MQ | Se conecta a la versión 8 de IBM WebSphere MQ Server, en local y en una máquina virtual de Azure con un sistema operativo Windows. Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. El conector también incluye el cliente de Microsoft para MQ.<br/><br/>Ningún desencadenador. Ninguna acción.<br/><br/>**Nota** Actualmente no se puede utilizar con Logic Apps.
 
 ## Conectores como desencadenadores
 Varios conectores proporcionan desencadenadores para aplicaciones lógicas. Estos desencadenadores son de dos tipos:
@@ -80,4 +75,4 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 ## Más sobre los conectores y las aplicaciones de API
 [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md) [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

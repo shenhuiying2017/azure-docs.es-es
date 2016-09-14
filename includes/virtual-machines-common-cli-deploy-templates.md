@@ -223,6 +223,8 @@ En este caso, la plantilla siguiente solicitará:
 - Un nombre de dominio para que lo usen los usuarios externos
 - Un número de versión de Ubuntu Server, pero solo uno, de una lista
 
+Obtenga más información acerca de los [requisitos de usuario y la contraseña](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Una vez que haya decidido estos valores, estará preparado para crear un grupo e implementar esta plantilla en la suscripción de Azure.
 
     {
@@ -1278,4 +1280,4 @@ Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, cons
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

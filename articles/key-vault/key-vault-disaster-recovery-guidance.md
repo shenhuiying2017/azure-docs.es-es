@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/26/2016"
 	ms.author="sumedhb;aglick"/>
 
 
@@ -46,4 +46,4 @@ Hay algunas advertencias que deben tenerse en cuenta:
  * backup
 * Cuando tenga lugar la conmutación por recuperación, todos los tipos de solicitud (es decir, de lectura ___y___ escritura) pasarán a estar disponibles.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

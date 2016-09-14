@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/29/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Descripción del esquema de nodos para la asignación de un servicio web existente a OData mediante CSDL
+
+>[AZURE.IMPORTANT] **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio de desarrollo que quiera publicar en Azure Marketplace, puede encontrar más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
+
 En este documento se clarificará la estructura de nodos para la asignación de un protocolo de OData en CSDL. Es importante tener en cuenta que la estructura de nodos es un código XML con formato correcto. Por tanto, el esquema de raíz, primarios y secundarios se puede aplicar al diseñar una asignación de OData.
 
 ## Elementos omitidos
@@ -39,7 +42,7 @@ A continuación se describen detalladamente los cambios (elementos agregados e i
 ## Nodo FunctionImport
 Un nodo FunctionImport representa una dirección URL (punto de entrada) que expone un servicio al usuario final. El nodo permite describir cómo se trata la dirección URL, qué parámetros están disponibles para el usuario final y cómo se proporcionan estos parámetros.
 
-Puede encontrar detalles acerca de este nodo [aquí][MSDNFunctionImportLink]
+Puede encontrar detalles sobre este nodo [aquí][MSDNFunctionImportLink]
 
 [MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
@@ -143,22 +146,22 @@ Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) d
 
 Este nodo representa un parámetro que se expone como parte de la plantilla del identificador URI o cuerpo de la solicitud que se ha especificado en el nodo FunctionImport.
 
-[Aquí](http://msdn.microsoft.com/library/ee473431.aspx) encontrará una página muy útil de información acerca del nodo "Elemento Parameter" (use la lista desplegable **Otras versiones** para seleccionar otra versión si es necesario para ver la documentación). *Ejemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+[Aquí](http://msdn.microsoft.com/library/ee473431.aspx) encontrará una página muy útil de información sobre el nodo "Elemento Parameter" (use la lista desplegable **Otras versiones** para seleccionar otra versión si es necesario para ver la documentación). *Ejemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Atributo del parámetro | Es obligatorio | Valor |
 |----|----|----|
-| Name | Sí | El nombre del parámetro. Distingue mayúsculas de minúsculas Coincide con el uso de mayúsculas y minúsculas en BaseUri. **Ejemplo:** `<Property Name="IsDormant" Type="Byte" />` |
+| Nombre | Sí | El nombre del parámetro. Distingue mayúsculas de minúsculas Coincide con el uso de mayúsculas y minúsculas en BaseUri. **Ejemplo:** `<Property Name="IsDormant" Type="Byte" />` |
 | Tipo | Sí | El tipo de parámetro. El valor debe ser un tipo **EDMSimpleType** o un tipo complejo que se encuentre dentro del ámbito del modelo. Para más información, consulte "Tipos que se admiten en parámetros y propiedades". (Distingue mayúsculas de minúsculas. El primer carácter está en mayúsculas y el resto en minúsculas.) Consulte también [Tipos de modelos conceptuales][MSDNParameterLink]. **Ejemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | No | **In**, Out o InOut, en función de que el parámetro sea de entrada, de salida o de entrada y salida ("IN" es el único disponible en Azure Marketplace). **Ejemplo:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | No | La longitud máxima permitida del parámetro. **Ejemplo:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | No | La precisión del parámetro. **Ejemplo:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| Scale | No | La escala del parámetro. **Ejemplo:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Escala | No | La escala del parámetro. **Ejemplo:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
 [MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 Estos son los atributos que se han agregado a la especificación de CSDL:
 
-| Atributo del parámetro | Descripción |
+| Atributo del parámetro | Description |
 |----|----|
 | **d:Regex** *(opcional)* | Instrucción Regex que se usa para validar el valor de entrada del parámetro. Si el valor de entrada no coincide con la instrucción, el valor se rechaza. Esto permite especificar también un conjunto de valores posibles, por ejemplo, ^[0-9]+?$ para permitir solo números. **Ejemplo:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(opcional)* | Lista de valores válidos para el parámetro separada por barras verticales. Es preciso que el tipo de los valores coincida con el tipo definido del parámetro. Ejemplo: `english|metric|raw`. Enum se mostrará en la interfaz de usuario como una lista desplegable en que se pueden seleccionar parámetros (Explorador de servicios). **Ejemplo:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
@@ -173,7 +176,7 @@ Este nodo representa uno de los tipos que Marketplace devuelve al usuario final.
 
 | Nombre del atributo | Es obligatorio | Valor |
 |----|----|----|
-| Name | Sí | El nombre del tipo de entidad. **Ejemplo:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| Nombre | Sí | El nombre del tipo de entidad. **Ejemplo:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
 | BaseType | No | El nombre de otro tipo de entidad que sea el tipo base del tipo de entidad que se define. **Ejemplo:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
 Estos son los atributos que se han agregado a la especificación de CSDL:
@@ -202,14 +205,14 @@ En [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/l
 
 | AttributeName | Obligatorio | Valor |
 |----|----|----|
-| Name | Sí | El nombre de la propiedad. |
+| Nombre | Sí | El nombre de la propiedad. |
 | Type | Sí | El tipo de valor de la propiedad. El tipo de valor de la propiedad debe ser un tipo **EDMSimpleType** o un tipo complejo (indicado mediante un nombre completo) que se encuentre dentro del ámbito del modelo. Para más información, consulte Tipos de modelos conceptuales (CSDL). |
 | Nullable | No | **True** (el valor predeterminado) o **False**, en función de que la propiedad puede tener un valor NULL. Nota: en la versión de CSDL que indica el espacio de nombres [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm), las propiedades de tipo complejo deben tener Nullable = "False". |
 | DefaultValue | No | El valor predeterminado de la propiedad. |
 |MaxLength | No | La longitud máxima del valor de la propiedad. |
 | FixedLength | No | **True** o **False**, en función de que el valor de la propiedad se almacene como una cadena de longitud fija, o no. |
 | Precision | No | Hace referencia al número máximo de dígitos que se conservan en el valor numérico. |
-| Scale | No | Número máximo de posiciones decimales que se conservan en el valor numérico. |
+| Escala | No | Número máximo de posiciones decimales que se conservan en el valor numérico. |
 | Unicode | No | **True** o **False**, en función de que el valor de la propiedad se almacene como una cadena Unicode, o no. |
 | Collation | No | Cadena que especifica la secuencia de intercalación que se usará en el origen de datos. |
 | ConcurrencyMode | No | **None** (el valor predeterminado) o **Fixed**. Si el valor se establece en **Fixed**, el valor de la propiedad se usará en las comprobaciones de simultaneidad optimista. |
@@ -251,7 +254,7 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 ## Tipos que se admiten en parámetros y propiedades
 Éstos son los tipos que se admiten para los parámetros y propiedades. (Distingue mayúsculas de minúsculas)
 
-| Tipos primitivos | Descripción |
+| Tipos primitivos | Description |
 |----|----|
 | Null | Representa la ausencia de cualquier valor |
 | Booleano | Representa el concepto matemático de la lógica de valores binarios|
@@ -272,4 +275,4 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 - Si está interesado en ver ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md), donde podrá ver ejemplos de código y comprender el contexto y la sintaxis del código.
 - Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -31,7 +31,7 @@ Decisiones:
 
 Tareas:
 
-- Defina los afijos que usará en sus recursos para mantener la coherencia.
+- Defina los afijos para usar en sus recursos para mantener la coherencia.
 - Defina los nombres de cuentas de almacenamiento una vez especificado el requisito para que sean únicos globalmente.
 - Documente la convención de nomenclatura que se va a usar y distribúyala a todas las partes implicadas para garantizar la coherencia entre las implementaciones.
 
@@ -39,13 +39,13 @@ Tareas:
 
 Debe existir una buena convención de nomenclatura antes de crear cualquier elemento en Azure. Una convención de nomenclatura garantiza que todos los recursos tienen un nombre predecible, lo que ayuda a reducir la carga administrativa asociada a la administración de esos recursos.
 
-Puede seguir un conjunto específico de convenciones de nomenclatura definidas para toda la organización, o bien para una suscripción o cuenta específica de Azure. Aunque es fácil para las personas de una organización establecer reglas implícitas al trabajar con recursos de Azure, cuando un equipo necesita trabajar en un proyecto en Azure ese modelo no se adapta bien.
+Puede seguir un conjunto específico de convenciones de nomenclatura definidas para toda la organización, o bien para una suscripción o cuenta específica de Azure. Aunque es fácil para las personas de una organización establecer reglas implícitas al trabajar con recursos de Azure, deberá poder escalar los equipos que trabajan juntos en Azure.
 
 Debe acordar por adelantado el conjunto de convenciones de nomenclatura. Existen algunas consideraciones sobre las convenciones de nomenclatura que trascienden los conjuntos de reglas.
 
 ## Afijos
 
-A medida que se dispone a definir una convención de nomenclatura, se toma una decisión sobre si el afijo estará:
+A medida que se dispone a definir una convención de nomenclatura, se toma una decisión sobre si el afijo está:
 
 - Al principio del nombre (prefijo)
 - Al final del nombre (sufijo)
@@ -70,11 +70,11 @@ Al establecer las convenciones de nomenclatura, asegúrese de que indiquen clara
 
 ## Fechas
 
-A menudo es importante determinar la fecha de creación a partir del nombre de un recurso. Se recomienda el formato de fecha AAAAMMDD. Este formato garantiza no solo que se registre la fecha completa, sino que dos recursos cuyos nombres difieren solo en la fecha se ordenen alfabética y cronológicamente al mismo tiempo.
+A menudo es importante determinar la fecha de creación a partir del nombre de un recurso. Se recomienda el formato de fecha AAAAMMDD. Este formato garantiza no solo que se registre la fecha completa, sino que dos recursos cuyos nombres difieren solo en la fecha se ordenen alfabética y cronológicamente.
 
 ## Asignación de nombres a recursos
 
-Debe definir cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definan cómo asignar nombres a cada recurso que se cree. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
+Defina cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definan cómo asignar nombres a cada recurso que se cree. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
 
 - Suscripciones
 - Cuentas
@@ -92,9 +92,9 @@ Para asegurarse de que el nombre proporciona información suficiente para determ
 
 ## Nombres de equipo
 
-Al crear una máquina virtual (VM), Microsoft Azure requiere un nombre de máquina virtual de hasta 15 caracteres que se usa para el nombre de recurso. Azure usará el mismo nombre para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre iguales.
+Al crear una máquina virtual (VM), Azure requiere un nombre de VM de hasta 64 caracteres que se usa para el nombre de recurso. Azure usará el mismo nombre para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre iguales.
 
-En los casos en que una máquina virtual se crea a partir de un archivo de imagen .vhd que ya contiene un sistema operativo, el nombre de la máquina virtual en Azure puede diferir del nombre de equipo del sistema operativo de la máquina virtual. Esta situación se desaconseja, ya que puede agregar cierta dificultad a la administración de máquinas virtuales. Asigne al recurso de la máquina virtual de Azure el mismo nombre que el del equipo que asigne al sistema operativo de dicha máquina virtual.
+Si una máquina virtual se crea a partir de un archivo de imagen .vhd que ya contiene un sistema operativo, el nombre de la máquina virtual en Azure puede diferir del nombre de equipo del sistema operativo de la máquina virtual. Esta situación se desaconseja, ya que puede agregar cierta dificultad a la administración de máquinas virtuales. Asigne al recurso de la máquina virtual de Azure el mismo nombre que el del equipo que asigne al sistema operativo de dicha máquina virtual.
 
 Se recomienda que el nombre de la máquina virtual de Azure sea el mismo que el del equipo del sistema operativo subyacente.
 
@@ -110,4 +110,4 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 ## Pasos siguientes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

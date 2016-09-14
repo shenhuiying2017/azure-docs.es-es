@@ -40,7 +40,7 @@ Representan conjuntos de datos más pequeños que se utilizan para la creación 
 | Origen de datos | Introducir mediante |
 |--------------------|----------------------------------------------------------------------------------------|
 | Equipo local | <ul> <li>[Portal de azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI multiplataforma de Azure](data-lake-store-get-started-cli.md)</li> <li>[Uso de Data Lake Tools para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
-| Blob de almacenamiento de Azure | <ul> <li>[Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li> </ul> |
+| Blob de almacenamiento de Azure | <ul> <li>[Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp que se ejecutan en el clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
  
 ### Datos de streaming
@@ -50,7 +50,7 @@ Representa los datos que se pueden generar por diversos orígenes, como aplicaci
 A continuación, se muestran las herramientas que se pueden usar:
  
 * [Análisis de transmisiones de Azure](../stream-analytics-data-lake-output): los eventos que se recopilan en los Centros de eventos pueden escribirse en Azure Data Lake con una salida de Almacén de Azure Data Lake.
-* [Storm de Azure HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md): se pueden escribir los datos directamente en el Almacén de Data Lake desde el clúster de Storm.
+* [Storm de HDInsight de Azure](../hdinsight/hdinsight-storm-write-data-lake-store.md): se pueden escribir los datos directamente en el Almacén de Data Lake desde el clúster de Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): se pueden recibir eventos desde Centros de eventos y, después, escribirlos en el Almacén de Data Lake mediante el [SDK para .NET del Almacén de Data Lake](data-lake-store-get-started-net-sdk.md).
 
 ### Datos relacionales
@@ -87,14 +87,14 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 | Enfoque | Detalles | Ventajas | Consideraciones |
 |-----------|---------|--------------|-----------------|
 | Usar Data Factory de Azure (ADF) para copiar datos directamente desde los clústeres de Hadoop al Almacén de Azure Data Lake | [ADF admite HDFS como origen de datos](../data-factory/data-factory-hdfs-connector.md) | ADF proporciona compatibilidad inmediata con HDFS, así como una supervisión y administración integrales y de primera clase. | Requiere que se implemente Data Management Gateway localmente o en el clúster de IaaS. |
-| Exportar datos desde Hadoop como archivos. Después copiar los archivos en el Almacén de Azure Data Lake con el mecanismo adecuado. | Puede copiar archivos al Almacén de Azure Data Lake por medio de: <ul><li>[Azure PowerShell para Windows OS](data-lake-store-get-started-powershell.md)</li><li>[CLI de Azure multiplataforma para SO no de Windows](data-lake-store-get-started-cli.md)</li><li>Aplicación personalizada con cualquier SDK del Almacén de Data Lake</li></ul> | Se empieza rápido. Se pueden usar cargas personalizadas. | Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
-| Usar Distcp para copiar datos de Hadoop en Almacenamiento de Azure. Después copiar los datos de Almacenamiento de Azure al Almacén de Data Lake con el mecanismo adecuado. | Puede copiar datos de Almacenamiento de Azure al Almacén de Data Lake por medio de: <ul><li>[Data Factory de Azure](../data-factory/data-factory-data-movement-activities.md)</li><li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| Puede usar herramientas de código abierto. | Proceso de varios pasos en el que participan varias tecnologías. |
+| Exportar datos desde Hadoop como archivos. Después copiar los archivos en el Almacén de Azure Data Lake con el mecanismo adecuado. | Puede copiar archivos al Almacén de Azure Data Lake por medio de: <ul><li>[Azure PowerShell para Windows OS](data-lake-store-get-started-powershell.md)</li><li>[CLI de Azure multiplataforma para SO no de Windows](data-lake-store-get-started-cli.md)</li><li>Aplicación personalizada con cualquier SDK de Azure Data Lake Store</li></ul> | Se empieza rápido. Se pueden usar cargas personalizadas. | Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
+| Usar Distcp para copiar datos de Hadoop en Almacenamiento de Azure. Después copiar los datos de Almacenamiento de Azure al Almacén de Data Lake con el mecanismo adecuado. | Puede copiar datos de Almacenamiento de Azure a Azure Data Lake Store por medio de: <ul><li>[Data Factory de Azure](../data-factory/data-factory-data-movement-activities.md)</li><li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| Puede usar herramientas de código abierto. | Proceso de varios pasos en el que participan varias tecnologías. |
 
 ### Conjuntos de datos realmente grandes
 
 Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En tales casos, puede utilizar las opciones siguientes.
 
-* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para obtener más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
 
 * **Carga "sin conexión" de los datos**. Si por cualquier razón no es posible utilizar Azure ExpressRoute, puede usar el [servicio Importación/Exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero a Blobs de almacenamiento de Azure. Después, puede usar [Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para mover datos de los blobs de Almacenamiento de Azure a Data Lake Store.
@@ -142,7 +142,7 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 
 ![Visualización de datos en el Almacén de Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualización de datos en el Almacén de Data Lake")
 
-* Puede comenzar con [Data Factory de Azure para mover datos desde el Almacén de Data Lake a Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
+* Puede comenzar con [Data Factory de Azure para mover datos desde Azure Data Lake Store a Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

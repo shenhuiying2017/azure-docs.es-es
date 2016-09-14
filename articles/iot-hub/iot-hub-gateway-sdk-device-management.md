@@ -68,16 +68,16 @@ Para ejecutar este ejemplo debe compilar una imagen personalizada de la placa Ed
 
 Antes de comenzar, asegúrese de que puede conectar la placa Edison a la red inalámbrica. Para configurar la placa Edison, debe conectarla a un equipo host. Más adelante, utilizará el equipo host para actualizar la placa Edison con la imagen personalizada que haya creado. Intel cuenta con un conjunto de guías de introducción que incluyen guías para los sistemas operativos siguientes:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introducción a la placa de desarrollo de Intel Edison en Windows de 32 bits).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introducción a la placa de Intel® Edison en Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 32 bits).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introducción a la placa de Intel® Edison en Linux).
 
 Para configurar la placa Edison y familiarizarse con ella, debe completar todos los pasos de estas guías de introducción, excepto:
 
 - Actualización del firmware más reciente. Este paso lo haremos aquí, como parte de este tutorial, así que no tiene que realizarlo en este momento.
 - El último paso, la selección de IDE, que no es necesario para el tutorial actual.
 
-Cuando haya configurado la placa Edison e instalado los controladores necesarios en el equipo host, debe asegurarse de que puede conectarse a la placa Edison mediante un terminal serie. En la página [Setting up a serial terminal][lnk-serial-connection] (Configuración de un terminal serie) del sitio web de Intel, hay vínculos a las instrucciones de configuración de los sistemas operativos host, como Windows y Linux.
+Cuando haya configurado la placa Edison e instalado los controladores necesarios en el equipo host, debe asegurarse de que puede conectarse a la placa Edison mediante un terminal serie. En la página [Setting up a serial terminal][lnk-serial-connection] \(Configuración de un terminal serie) del sitio web de Intel, hay vínculos a las instrucciones de configuración de los sistemas operativos host, como Windows y Linux.
 
 También deberá realizar estas tareas:
 
@@ -90,7 +90,7 @@ Para crear una imagen personalizada para la placa Edison, necesita un entorno de
 
 > [AZURE.NOTE] El script que crea la imagen personalizada puede tardar hasta seis horas en ejecutarse en un equipo con una CPU de cuatro núcleos. Puede reducir este tiempo con un equipo más avanzado que tenga más núcleos de CPU.
 
-Para los pasos de esta sección, se han consultado los siguientes artículos: [Intel Edison Board Support Package][lnk-inteledison-bsp] (Paquete de compatibilidad de la placa Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] (Creación manual de imágenes Yocto para la placa Intel Edison desde el origen) y [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] (Creación de un kernel personalizado para Edison [versión 2.1]).
+Para los pasos de esta sección, se han consultado los siguientes artículos: [Intel Edison Board Support Package][lnk-inteledison-bsp] \(Paquete de compatibilidad de la placa Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] \(Creación manual de imágenes Yocto para la placa Intel Edison desde el origen) y [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] \(Creación de un kernel personalizado para Edison [versión 2.1]).
 
 1. Inicie sesión en el equipo Ubuntu 14.04 y ejecute el siguiente comando en la carpeta principal para descargar el paquete de origen de Edison:
     
@@ -425,4 +425,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

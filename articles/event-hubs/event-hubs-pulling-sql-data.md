@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Extracción de datos de SQL a un Centro de eventos de Azure
@@ -34,12 +34,12 @@ Una vez que la aplicación ha leído el archivo de configuración, entra en un b
 
 1. La aplicación se basa en el supuesto de que algún proceso externo actualiza la tabla SQL y solo se quieren enviar todas las actualizaciones a un Centro de eventos.
 2. La tabla SQL debe tener un campo que incluya un número único y creciente, por ejemplo, un número de registro. Puede ser tan sencillo como un campo denominado "Id", o cualquier otra cosa que se incremente cuando lo que actualice la base de datos agregue registros como "Creation\_time" o "Sequence\_number". La aplicación anota y almacena el valor de ese campo en cada iteración. En cada pasada posterior por el bucle, la aplicación consulta básicamente en la tabla todos los registros donde el valor de ese campo supere el valor que vio la última vez a través del bucle. A este último valor se lo llamamos el "desplazamiento".
-3. La aplicación crea una tabla "TableOffsets" cuando se inicia, para almacenar los desplazamientos. La tabla se crea con la consulta "CreateOffsetTableQuery" definida en el archivo de configuración. 
+3. La aplicación crea una tabla "TableOffsets" cuando se inicia, para almacenar los desplazamientos. La tabla se crea con la consulta "CreateOffsetTableQuery" definida en el archivo de configuración.
 4. Hay varias consultas que se usan para trabajar con la tabla de desplazamientos, que se definen en el archivo de configuración como "OffsetQuery", "UpdateOffsetQuery" e "InsertOffsetQuery". No debe cambiarlas.
-5. Por último, la consulta "DataQuery" definida en el archivo de configuración es la consulta que se va a ejecutar para extraer los registros de la tabla SQL. Actualmente está limitada con fines de optimización a los primeros 1000 registros en cada pasada por el bucle; si, por ejemplo, se han agregado 25 000 registros a la base de datos desde la última consulta, se podría tardar un rato para ejecutar la consulta. Al limitar la consulta a 1000 registros por vez, las consultas son mucho más rápidas. Al seleccionar los primeros 1000, simplemente inserta lotes sucesivos de 1000 registros en el Centro de eventos.    
+5. Por último, la consulta "DataQuery" definida en el archivo de configuración es la consulta que se va a ejecutar para extraer los registros de la tabla SQL. Actualmente está limitada con fines de optimización a los primeros 1000 registros en cada pasada por el bucle; si, por ejemplo, se han agregado 25 000 registros a la base de datos desde la última consulta, se podría tardar un rato para ejecutar la consulta. Al limitar la consulta a 1000 registros por vez, las consultas son mucho más rápidas. Al seleccionar los primeros 1000, simplemente inserta lotes sucesivos de 1000 registros en el Centro de eventos.
 
 ## Pasos siguientes
 
 Para implementar la solución, clone o descargue la aplicación SqlToEventHub, edite el archivo App.config, compílelo y finalmente, publíquelo. Una vez publicada la aplicación, puede verla ejecutándose en el Portal de Azure clásico, en Servicios en la nube, y supervisar los eventos que entran en el Centro de eventos. Tenga en cuenta que la frecuencia vendrá determinada por dos cosas: la frecuencia de las actualizaciones de la tabla SQL y el intervalo de suspensión que haya especificado en el archivo de configuración de la aplicación.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

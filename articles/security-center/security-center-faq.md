@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/26/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -26,16 +26,20 @@ Estas preguntas más frecuentes responden a preguntas sobre el Centro de segurid
 El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ### ¿Cómo puedo obtener el Centro de seguridad de Azure?
-El Centro de seguridad de Azure se habilita con la suscripción de Microsoft Azure y es posible tener acceso a él desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**).
+Azure Security Center se habilita con la suscripción de Microsoft Azure y se accede a él desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**).
 
 ## Facturación
 
 ### ¿Cómo funciona la facturación para el Centro de seguridad de Azure?
-Vea [Precios del Centro de seguridad de Azure](https://azure.microsoft.com/pricing/details/security-center/) para información.
+Security Center se ofrece en dos niveles: Gratis y Estándar.
+
+El nivel Gratis permite establecer directivas de seguridad, así como recibir alertas de seguridad, incidentes y recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. También puede supervisar el estado de seguridad de los recursos de Azure y las soluciones de asociados integradas en la suscripción de Azure.
+
+El nivel Estándar proporciona las características de Gratis y detecciones avanzadas: información sobre amenazas, análisis de comportamiento, análisis de bloqueos y detección de anomalías. Hay disponible una versión de prueba gratuita de 90 días del nivel Estándar. Para actualizar a este nivel, seleccione el plan de tarifa en la [directiva de seguridad](security-center-policies.md#setting-security-policies-for-subscriptions). Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) para obtener más información.
 
 ## Colección de datos
 
-Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](#how-do-i-disable-data-collection) en la directiva de Security Center.
+Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede al Centro de seguridad la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](#how-do-i-disable-data-collection) en la directiva de Security Center.
 
 ### ¿Cómo se puede deshabilitar la recolección de datos?
 
@@ -49,7 +53,7 @@ Puede habilitar la colección de datos de las suscripciones de Azure en la direc
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos tiene lugar solo en el nivel de suscripción.
 
 ### ¿Qué sucede cuando se habilita la colección de datos?
-La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversas configuraciones de seguridad importantes y las envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
+La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure detecta diversas configuraciones de seguridad importantes y las envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
 
 ### ¿El Agente de supervisión o la extensión Supervisión de seguridad afecta el rendimiento de los servidores?
 El agente y la extensión utilizan una cantidad simbólica de los recursos del sistema y tienen un impacto menor en el rendimiento.
@@ -64,7 +68,7 @@ Para obtener más información sobre las cuentas de almacenamiento y el almacena
 ## Uso del Centro de seguridad de Azure
 
 ### ¿Qué es una directiva de seguridad?
-Una directiva de seguridad define el conjunto de controles recomendados para los recursos en la suscripción o grupo de recursos especificados. En el Centro de seguridad de Azure, se definen las directivas para sus suscripciones y grupos de recursos de Azure de acuerdo con los requisitos de seguridad de la empresa y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
+Una directiva de seguridad define el conjunto de controles recomendados para los recursos en la suscripción o el grupo de recursos especificados. En Azure Security Center, se definen las directivas para sus suscripciones y grupos de recursos de Azure de acuerdo con los requisitos de seguridad de la compañía y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
 
 Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan distintos requisitos de seguridad que los de aquellos que se emplean para aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como información de identificación personal (PII) requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en el Centro de seguridad de Azure generarán la supervisión y recomendaciones de seguridad. Para obtener más información sobre las directivas de seguridad, consulte [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md).
 
@@ -105,9 +109,22 @@ Azure Security Center es un servicio de Azure que no deja de supervisar el entor
 ### ¿Cómo se administran los permisos en el Centro de seguridad de Azure?
 Azure Security Center admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-Cuando un usuario abre el Centro de seguridad de Azure, solo se verán las recomendaciones de alertas relacionadas con los recursos a los que el usuario tiene acceso. Esto significa que el usuario verá solo los elementos relacionados con los recursos donde el usuario tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o el grupo de recursos al que pertenece un recurso.
+Cuando un usuario abre Security Center, solo se verán las recomendaciones de alertas relacionadas con los recursos a los que el usuario tiene acceso. Esto significa que el usuario verá solo los elementos relacionados con los recursos donde el usuario tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o el grupo de recursos al que pertenece un recurso.
 
-Para editar una directiva de seguridad, debe ser propietario o colaborador de la suscripción.
+Si necesita:
+
+- **Editar una directiva de seguridad**, debe ser propietario o colaborador de la suscripción.
+- **Aplicar una directiva de seguridad**, debe ser propietario o colaborador de la suscripción.
+- **Tener visibilidad del estado de seguridad de todas sus suscripciones**, debe ser propietario, colaborador o lector (administrador de TI; equipo de seguridad) de cada suscripción.
+- **Tener visibilidad del estado de seguridad de los recursos**, debe ser propietario, colaborador o lector (DevOps) de un grupo de recursos.
+
+### ¿Qué recursos de Azure supervisa Azure Security Center?
+Azure Security Center supervisa los siguientes recursos de Azure:
+
+- Máquinas virtuales (incluidos los servicios en la nube)
+- Redes virtuales de Azure
+- Servicio de SQL Azure
+- Soluciones de asociados integradas con su suscripción de Azure, como un firewall de aplicaciones web
 
 ## Máquinas virtuales
 
@@ -130,4 +147,16 @@ Máquinas virtuales de Linux compatibles:
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+### ¿Por qué Azure Security Center no reconoce la solución antimalware que se ejecuta en mi máquina virtual de Azure?
+
+Azure Security Center solo tiene visibilidad del antimalware instalado a través de extensiones de Azure. Por ejemplo, Security Center no puede detectar antimalware instalado previamente en una imagen que haya proporcionado o si instaló este tipo de herramienta en máquinas virtuales con sus propios procesos (como sistemas de administración de configuración).
+
+### ¿Por qué recibo el mensaje Faltan los datos de detección en mi máquina virtual?
+
+Los datos de detección pueden tardar algún tiempo (normalmente, menos de una hora) en rellenarse después de habilitar la recolección de datos en Azure Security Center. Estos datos no se rellenarán para las máquinas virtuales que estén detenidas.
+
+### ¿Por qué recibo el mensaje Falta el agente de máquina virtual?
+
+El agente de máquina virtual debe instalarse en máquinas virtuales para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) proporciona información sobre cómo instalar el Agente de máquina virtual.
+
+<!---HONumber=AcomDC_0831_2016-->
