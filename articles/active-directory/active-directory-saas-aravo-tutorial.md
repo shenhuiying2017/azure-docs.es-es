@@ -137,13 +137,13 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
 
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Aravo y proporcione lo siguiente:
 
-	- El archivo de **certificado descargado**
+	- El archivo de **certificado descargado**
 
-	- La **URL del emisor**
+	- La **URL del emisor**
 
-	- La **dirección URL de inicio de sesión único de SAML**
+	- La **dirección URL de inicio de sesión único de SAML**
 
-	- La **dirección URL del servicio de cierre de sesión único**
+	- La **dirección URL del servicio de cierre de sesión único**
 
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 

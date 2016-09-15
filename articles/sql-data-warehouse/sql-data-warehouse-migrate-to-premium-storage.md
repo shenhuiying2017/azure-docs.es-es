@@ -208,4 +208,4 @@ Si tiene problemas con el almacenamiento de datos, [cree una incidencia de sopor
 [Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0831_2016--->
