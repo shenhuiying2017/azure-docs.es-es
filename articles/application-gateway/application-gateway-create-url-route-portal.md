@@ -67,7 +67,7 @@ La hoja **Add path-based rule** (Agregar regla basada en ruta de acceso) tiene d
 - **Grupo de back-end**: opción de configuración que define el back-end que se usará para la regla.
 - **Configuración HTTP**: opción de configuración que define los ajustes de HTTP que se usarán para la regla.
 
->[AZURE.IMPORTANT] Rutas de acceso: la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final. Ejemplos válidos son /xyz, /xyz* o /xyz/*.
+>[AZURE.IMPORTANT] Rutas de acceso: la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "\*" es al final. Ejemplos válidos son /xyz, /xyz* o /xyz/*.
 
 ![Agregar hoja de regla basada en ruta de acceso con información completada][2]
 
