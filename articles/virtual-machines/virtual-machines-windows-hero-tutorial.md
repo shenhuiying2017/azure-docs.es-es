@@ -117,4 +117,4 @@ Haga clic en el botón **Iniciar** para reiniciar la máquina virtual cuando est
 
 - Si está interesado en automatizar implementaciones, consulte [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0912_2016-->
