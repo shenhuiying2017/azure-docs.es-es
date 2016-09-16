@@ -137,4 +137,4 @@ Ahora que completó este tutorial de SQL Database y que creó una base de datos 
 
 [¿Qué es Base de datos SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

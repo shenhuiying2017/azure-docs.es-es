@@ -31,4 +31,4 @@ Con una [suscripción existente](https://account.windowsazure.com/Home/Index), s
 
    ![Iniciar sesión](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=AcomDC_0912_2016-->
+<!----HONumber=AcomDC_0912_2016-->
