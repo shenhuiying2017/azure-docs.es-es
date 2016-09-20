@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
@@ -29,7 +29,7 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -61,7 +61,7 @@ En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ Proporcione ese valor de variable para los recursos de implementación.
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -247,7 +247,7 @@ El archivo **parent.json** consta de lo siguiente:
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ El archivo **parent.json** consta de lo siguiente:
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }
@@ -300,4 +300,4 @@ Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer 
 - Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
 - Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

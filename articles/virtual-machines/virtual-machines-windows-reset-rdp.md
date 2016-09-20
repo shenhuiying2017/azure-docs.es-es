@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Restablecimiento de la contraseña o el escritorio remoto en una máquina virtual Windows | Microsoft Azure"
-	description="Restablezca la contraseña de administrador o los servicios de escritorio remoto en una máquina virtual Windows creada con el modelo de implementación del Administrador de recursos."
+	pageTitle="Restablecimiento de la contraseña o la configuración de Escritorio remoto en una máquina virtual Windows | Microsoft Azure"
+	description="Aprenda a restablecer la contraseña de una cuenta o los servicios de Escritorio remoto en una máquina virtual Windows mediante Azure Portal o Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una VM con Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Si no se puede conectar a una máquina virtual con Windows debido a que se le olvidó la contraseña o por un problema con la configuración del servicio Escritorio remoto, puede restablecer la contraseña de administrador local o la configuración del servicio Escritorio remoto. Puede usar el Portal de Azure o la extensión de acceso de máquina virtual en Azure PowerShell para restablecer la contraseña. Si usa Azure PowerShell, procure tener instalado el módulo de PowerShell más reciente en el equipo de trabajo y haber iniciado sesión en su suscripción de Azure. Para ver los pasos detallados, lea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de servicio de Escritorio remoto. Puede usar el Portal de Azure o la extensión de acceso de máquina virtual en Azure PowerShell para restablecer la contraseña. Si usa Azure PowerShell, procure tener instalado el módulo de PowerShell más reciente en el equipo de trabajo y haber iniciado sesión en su suscripción de Azure. Para ver los pasos detallados, lea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.TIP] Puede comprobar qué versión de PowerShell tiene instalada con `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`.
 
 ## Máquinas virtuales de Windows en el modelo de implementación de Resource Manager
 
 ### Portal de Azure
-Seleccione la máquina virtual haciendo clic en **Examinar** > **Máquinas virtuales** > *su máquina virtual con Windows* > **Toda la configuración** > **Restablecer contraseña**. La hoja de restablecimiento de contraseña se mostrará tal y como está abajo:
+Seleccione la máquina virtual haciendo clic en **Examinar** > **Máquinas virtuales** > *su máquina virtual con Windows* > **Toda la configuración** > **Restablecer contraseña**. Se mostrará la hoja de restablecimiento de contraseña:
 
 ![Página Restablecimiento de contraseña](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -81,7 +81,7 @@ Si sigue sin poder conectarse remotamente a la máquina virtual, consulte más p
 
 ### Portal de Azure
 
-En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Restablecer acceso remoto**. Aparece la siguiente página.
+En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows * > **Restablecer acceso remoto**. Aparece la siguiente página.
 
 ![Página Restablecer configuración de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
@@ -93,7 +93,7 @@ Después de escribir el nuevo nombre de usuario y la contraseña, haga clic en *
 
 ### Extensión VMAccess y PowerShell
 
-Asegúrese de que el agente de VM esté instalado en la máquina virtual. No es necesario instalar la extensión VMAccess para poder usarlo, siempre que el agente de VM esté disponible. Use el comando siguiente para comprobar que el agente de VM ya está instalado. (Reemplace los valores de "myCloudService" y "myVM" por los nombres de su servicio en la nube y su VM respectivamente. Para saber cuáles son, ejecute `Get-AzureVM` sin ningún parámetro).
+Asegúrese de que el agente de VM esté instalado en la máquina virtual. No es necesario instalar la extensión VMAccess para poder usarlo, siempre que el agente de VM esté disponible. Use el comando siguiente para comprobar que el agente de VM ya está instalado. (Reemplace los valores de "myCloudService" y "myVM" por los nombres de su servicio en la nube y su VM respectivamente. Para saber qué nombres son, ejecute `Get-AzureVM` sin ningún parámetro).
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
@@ -143,4 +143,4 @@ Este comando establece el valor de registro fDenyTSConnections en 0, lo que perm
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -173,4 +173,4 @@ En las aplicaciones de Office 365 Exchange Online, tendrá una sección adiciona
 
 - [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

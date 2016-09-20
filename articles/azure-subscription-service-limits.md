@@ -63,6 +63,7 @@ Como resultado, puede que le resulte útil considerar decidir cuáles deben ser 
 - [Servicios multimedia](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Servicios móviles](#mobile-services-limits)
+- [Supervisión](#monitoring-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Redes](#networking-limits)
 - [Servicio Centro de notificaciones](#notification-hub-service-limits)
@@ -219,6 +220,10 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### Límites de supervisión
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### Límites de servicio de Centro de notificaciones
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

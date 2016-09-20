@@ -3,7 +3,7 @@
    description="Preguntas más frecuentes sobre Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Preguntas más frecuentes sobre Power BI Embedded
 
@@ -72,7 +72,7 @@ Una sesión es un conjunto de interacciones entre un usuario final y un informe 
 
 ## ¿Se ofrecen herramientas o instrucciones para ayudarme a calcular cuántas representaciones o sesiones debo esperar? ¿Cómo sabré cuántas representaciones se han realizado?
 
-El Portal de Azure proporcionará información de facturación detallada sobre el número de representaciones o sesiones de informe que se han realizado con su suscripción.
+Azure Portal proporcionará información de facturación detallada sobre el número de representaciones o sesiones de informe que se han realizado con su suscripción.
 
 ## ¿Necesito una suscripción de Power BI para desarrollar aplicaciones con Power BI Embedded? ¿Cómo empiezo?
 
@@ -102,7 +102,7 @@ Vamos a permitir el acceso a orígenes de datos de nube que usan credenciales b�
 
 En el modelo de Power BI Embedded, no hay ningún requisito explícito de que los clientes sean inquilinos de Azure AD. Puede elegir que Azure AD sea un requisito para sus clientes, o no. Como resultado, la arquitectura de la aplicación y la infraestructura son lo que determina el modelo de arrendamiento necesario para Power BI Embedded.
 
-Los desarrolladores o empleados que trabajan en la aplicación deberán tener una cuenta de usuario de AAD para poder administrar su suscripción de Azure y las colecciones de áreas de trabajo mediante el Portal de Azure. Las API de programación que permiten a los desarrolladores importar informes, modificar cadenas de conexión y obtener direcciones URL insertadas aprovechan en su lugar tokens de aplicación para la autenticación y, como consecuencia, no necesitan AAD. Encontrará información sobre cómo usar nuestras API y el Portal de Azure en la [documentación de Power BI Embedded](https://azure.microsoft.com/documentation/services/power-bi-embedded/) en Azure.com.
+Los desarrolladores o empleados que trabajan en la aplicación deberán tener una cuenta de usuario de AAD para poder administrar su suscripción de Azure y las colecciones de áreas de trabajo mediante Azure Portal. Las API de programación que permiten a los desarrolladores importar informes, modificar cadenas de conexión y obtener direcciones URL insertadas aprovechan en su lugar tokens de aplicación para la autenticación y, como consecuencia, no necesitan AAD. Encontrará información sobre cómo usar nuestras API y el Portal de Azure en la [documentación de Power BI Embedded](https://azure.microsoft.com/documentation/services/power-bi-embedded/) en Azure.com.
 
 ## ¿Dónde puedo obtener más información?
 
@@ -110,11 +110,11 @@ Puede visitar la [página de documentación de Power BI Embedded](http://go.micr
 
 ## ¿Cómo empiezo?
 
-¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar Power BI Embedded directamente desde el Portal de Azure. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Power BI Embedded, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.
+¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar Power BI Embedded directamente desde Azure Portal. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Power BI Embedded, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.
 
-## Consulte también
+## Otras referencias
 
 - [Qué es Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

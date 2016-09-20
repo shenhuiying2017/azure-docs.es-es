@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="09/02/2016"
    	ms.author="jgao"/>
 
 #Crear clústeres basados en Linux en HDInsight con el SDK de .NET
@@ -394,4 +394,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 - [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)
 - [Run Oozie jobs in HDInsightt](hdinsight-use-oozie.md) (Ejecución de trabajos de Oozie en HDInsight)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

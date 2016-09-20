@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
 # Sincronización de Azure AD Connect: ejecución por segunda vez del Asistente para la instalación
-La primera vez que ejecute el Asistente para la instalación de Azure AD Connect, este le guiará a través de la configuración de la instalación. Si vuelve a ejecutarlo, le ofrecerá opciones para el mantenimiento.
+La primera vez que ejecute el Asistente para la instalación de Azure AD Connect, este lo guiará a través de la configuración de la instalación. Si vuelve a ejecutarlo, le ofrecerá opciones para el mantenimiento.
 
 Puede encontrar el Asistente para la instalación en el menú de inicio **Azure AD Connect**.
 
@@ -29,7 +29,7 @@ Cuando se inicia el Asistente para la instalación, aparece una página con esta
 
 ![Página con una lista de tareas adicionales](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Si ha instalado AD FS con Azure AD Connect podrá ver incluso más opciones. Estas opciones adicionales que tenga por ADFS se documentan en [Administración de AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
+Si ha instalado ADFS con Azure AD Connect podrá ver incluso más opciones. Estas opciones adicionales que tenga por ADFS se documentan en [Administración de AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
 Seleccione una de las tareas y haga clic en **Siguiente** para continuar.
 
@@ -50,14 +50,14 @@ Esta opción se utiliza para realizar cambios en la configuración de sincroniza
 - Remove Group filtering (Quitar filtrado de grupo).
 - [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features) (Cambiar las características opcionales).
 
-Las demás opciones de la instalación inicial no se pueden cambiar y no están disponibles. Estas incluyen:
+Las demás opciones de la instalación inicial no se pueden cambiar y no están disponibles. Estas opciones son:
 
 - Cambio del atributo que se utiliza para userPrincipalName y sourceAnchor.
 - Cambio del método de unión para objetos de un bosque diferente.
 - Habilitación del filtrado basado en grupo.
 
 ## Actualización del esquema de directorio
-Esta opción se utiliza si ha cambiado el esquema de una de sus instalaciones locales de bosques de AD DS. Por ejemplo, puede haber instalado Exchange o actualizado a un esquema de Windows Server 2012 con objetos de dispositivo. En este caso, tiene que indicar a Azure AD Connect que vuelva a leer el esquema de AD DS y actualice su caché. Con esto también se regenerarán las reglas de sincronización. Si agrega el esquema de Exchange, por ejemplo, las reglas de sincronización para Exchange se agregan a la configuración.
+Esta opción se utiliza si ha cambiado el esquema de una de sus instalaciones locales de bosques de AD DS. Por ejemplo, puede haber instalado Exchange o actualizado a un esquema de Windows Server 2012 con objetos de dispositivo. En este caso, tiene que indicar a Azure AD Connect que vuelva a leer el esquema de AD DS y actualice su memoria caché. Esta acción también vuelve a generar las reglas de sincronización. Si agrega el esquema de Exchange, por ejemplo, las reglas de sincronización para Exchange se agregan a la configuración.
 
 Cuando se selecciona esta opción, se muestran todos los directorios en la configuración. Puede mantener la configuración predeterminada y actualizar todos los bosques o anular la selección de algunos de ellos.
 
@@ -75,10 +75,13 @@ Esta opción permite cambiar de sincronización de contraseñas a la federación
 
 Para más información sobre esta opción, consulte [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-
 ## Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+- Obtenga más información sobre el modelo de configuración que emplea la sincronización de Azure AD Connect en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+**Temas de introducción**
+
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

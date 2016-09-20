@@ -28,6 +28,8 @@ Para este documento, configuraremos nuestro entorno del Servicio de aplicaciones
 
 ![Arquitectura][Architecture]
 
+> Nota: con la introducción de [la compatibilidad de ILB con el entorno de App Service](app-service-environment-with-internal-load-balancer.md), puede configurar el ASE para que no pueda accederse desde la red perimetral y solo está disponible en la red privada.
+
 ## Configuración del entorno del Servicio de aplicaciones ##
 Para configurar un entorno del Servicio de aplicaciones, consulte [nuestra documentación](app-service-web-how-to-create-an-app-service-environment.md) sobre el tema. Después de crear un entorno del Servicio de aplicaciones, puede crear [aplicaciones web](app-service-web-overview.md), [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) y [aplicaciones móviles](../app-service-mobile/app-service-mobile-value-prop.md) en este entorno, que se protegerán detrás del WAF que vamos a configurar en la sección siguiente.
 
@@ -99,4 +101,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -631,16 +631,16 @@ En el ejemplo siguiente se recortan los caracteres de espacio en blanco del valo
 
 **uniqueString (baseString...)**
 
-Crea una cadena única basada en los valores proporcionados como parámetros.
+Crea una cadena de hash determinista basada en los valores proporcionados como parámetros.
 
 | Parámetro | Obligatorio | Description
 | :--------------------------------: | :------: | :----------
 | baseString | Sí | Cadena utilizada en la función hash para crear una cadena única.
 | parámetros adicionales según sea necesario | No | Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad.
 
-Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
+Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
 
-El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. Por supuesto, el valor real variará en función de los parámetros proporcionados.
+El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. Debe ser único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. Por supuesto, el valor real variará en función de los parámetros proporcionados.
 
     tcvhiyu5h2o5o
 
@@ -658,7 +658,7 @@ En los ejemplos siguientes se muestra cómo utilizar uniqueString a fin de crear
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos.
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos (dentro de este grupo de recursos, el nombre no es único si se crea del mismo modo).
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -1217,4 +1217,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/17/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop 
@@ -30,19 +30,17 @@ En este tutorial, va a crear su primera factoría de datos de Azure con una cana
 
 En este artículo se ofrece **información general** del tutorial y las instrucciones paso a paso para cumplir los **requisitos previos** de dicho tutorial. Después de completar los pasos de requisitos previos, utilizará uno de los siguientes procedimientos para realizar el tutorial: Editor de Data Factory en el Portal de Azure, Visual Studio, Azure PowerShell y la plantilla de Azure Resource Manager.
 
-Tenga en cuenta que este artículo no ofrece información general sobre conceptos del servicio Data Factory de Azure. Si desea ver este tipo de información, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
+Este artículo no ofrece información general sobre conceptos del servicio Azure Data Factory. Si desea ver este tipo de información, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
 
 ## ¿Qué se va a tratar en este tutorial?	
-**Data Factory de Azure** permite crear tareas de **movimiento** y **procesamiento** de datos como un flujo de trabajo controlado por datos (también se denominan "canalizaciones de datos"). Aprenderá a crear la primera canalización de datos con una tarea de procesamiento de datos (o transformación de datos) que utiliza un clúster de HDInsight de Azure para transformar y analizar registros web, y programar la canalización para que se ejecute mensualmente.
+**Data Factory de Azure** permite crear tareas de **movimiento** y **procesamiento** de datos como un flujo de trabajo controlado por datos (también se denominan "canalizaciones de datos"). Aprenda a crear su primera tarea de canalización con una tarea de procesamiento de datos (o transformación de datos). Esta tarea utiliza un clúster de Azure HDInsight para transformar y analizar registros web.
 
 En este tutorial, realizará los siguientes pasos:
 
 1.	Crear la **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones de datos que pueden mover y procesar datos.
 2.	Crear los **servicios vinculados**. Un servicio vinculado se crea para vincular un almacén de datos o servicio de proceso a la factoría de datos. Un almacén de datos como Almacenamiento de Azure contiene los datos de entrada y salida de las actividades de la canalización. Un servicio de proceso como HDInsight de Azure procesa y transforma los datos.
 3.	Crear **conjuntos de datos** de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
-3.	Crear la **canalización**. Una canalización puede tener una o varias actividades como la actividad de copia para copiar datos desde un origen a un destino o la actividad de Hive de HDInsight para transformar los datos de entrada con el script de Hive para generar datos de salida. Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive. El script crea primero una tabla externa que hace referencia a los datos de blog sin procesar almacenados en Almacenamiento de blobs de Azure y, después, divide los datos sin procesar por año y mes.
-
-La primera canalización, denominada **MyFirstPipeline**, usa una actividad de Hive para transformar y analizar un registro web que va a cargar en la carpeta **inputdata** en el contenedor **adfgetstarted** (adfgetstarted/inputdata) en Almacenamiento de blobs de Azure.
+3.	Crear la **canalización**. Una canalización puede tener una o varias actividades (ejemplos: actividad de copia, actividad de Hive en HDInsight). Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive. El script crea primero una tabla externa que hace referencia a los datos de blog sin procesar almacenados en Almacenamiento de blobs de Azure y, después, divide los datos sin procesar por año y mes.
  
 ![Vista de diagrama en el tutorial de Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
@@ -160,7 +158,7 @@ En esta sección realizará las siguientes tareas:
 		  month(date)
 		FROM WebLogsRaw
 
-En el entorno de tiempo de ejecución, la actividad de Hive en la canalización de Data Factory pasa los valores de los parámetros inputtable y partitionedtable tal y como se muestra a continuación, donde storageaccountname es el nombre de la cuenta de almacenamiento de Azure:
+En el entorno de tiempo de ejecución, la actividad de Hive en la canalización de Data Factory pasa los valores de los parámetros inputtable y partitionedtable tal y como se muestra en el fragmento siguiente. El parámetro storageaccountname es el nombre de la cuenta de Azure Storage.
 
 		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -195,16 +193,16 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy** para copiar archivos en Almacenamiento de blobs de Azure. Puede usar la herramienta que prefiera (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/) o [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) para realizar esta tarea.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de \[AzCopy\]](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
-	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	2. Después de instalar AzCopy, agréguelo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue hasta la carpeta c:\\adfgetstarted y ejecute el siguiente comando para cargar el archivo **input.log** en la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
+	3. Navegue hasta la carpeta c:\\adfgetstarted y ejecute el siguiente comando. Este comando carga el archivo **input.log** a la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] El comando anterior crea un contenedor llamado **adfgetstarted** en Almacenamiento de blobs de Azure y copia el archivo **input.log** desde la unidad local a la carpeta **inputdata** del contenedor.
+		> [AZURE.NOTE] Este comando crea un contenedor llamado **adfgetstarted** en Blob Storage de Azure y copia el archivo **input.log** desde la unidad local a la carpeta **inputdata** del contenedor.
 	
 	5. Una vez que se ha cargado correctamente el archivo, verá un resultado similar al siguiente de AzCopy.
 	
@@ -228,4 +226,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

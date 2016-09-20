@@ -128,7 +128,7 @@ Este comando guardará los registros en la aplicación web denominada "webappnam
 Visual Studio Application Insights proporciona herramientas para filtrar y buscar registros y para correlacionar los registros con solicitudes y otros eventos.
 
 1. Incorporación del SDK de Application Insights al proyecto de Visual Studio
- * En el Explorador de soluciones, haga clic con el botón secundario en el proyecto y elija Agregar Application Insights. Se le guiará a través de pasos que incluyen la creación de un recurso de Application Insights. [Más información](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * En el Explorador de soluciones, haga clic con el botón secundario en el proyecto y elija Agregar Application Insights. Se le guiará a través de pasos que incluyen la creación de un recurso de Application Insights. [Más información](../application-insights/app-insights-asp-net.md)
 2. Agregue el paquete del agente de escucha.
  * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md).
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
@@ -270,4 +270,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio de portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

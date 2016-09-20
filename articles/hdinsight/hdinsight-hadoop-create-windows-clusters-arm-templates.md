@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de clústeres de Hadoop basados en Windows en HDInsight con plantillas de ARM | Microsoft Azure"
-   	description="Obtenga información acerca de cómo crear clústeres para HDInsight de Azure con plantillas de ARM de Azure."
+   pageTitle="Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager | Microsoft Azure"
+   	description="Aprenda a crear clústeres para Azure HDInsight con plantillas de Azure Resource Manager."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,11 +17,11 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-# Crear clústeres de Hadoop en HDInsight con plantillas del Administrador de recursos de Azure (Windows)
+# Creación de clústeres de Hadoop basados en Windows en HDInsight mediante plantillas de Azure Resource Manager
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recursos de Azure. Para obtener más información, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a crear clústeres de HDInsight con plantillas de Azure Resource Manager. Para obtener más información, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ##Requisitos previos:
 
@@ -35,13 +35,13 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## Plantillas de ARM
+## Plantillas de Administrador de recursos
 
-La plantilla de ARM facilita la creación de clústeres de HDInsight, sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada) y otros recursos (como la Base de datos SQL de Azure para utilizar Apache Sqoop) para la aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
+La plantilla de Resource Manager facilita la creación de clústeres de HDInsight, sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada) y otros recursos (como Azure SQL Database para utilizar Apache Sqoop) para la aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-En el [Apéndice A](#appx-a-arm-template) puede encontrar una plantilla de ARM para crear un clúster de HDInsight y la cuenta de Almacenamiento de Azure dependiente. Utilice un editor de texto para guardar la plantilla en un archivo en la estación de trabajo. Obtendrá información sobre cómo llamar a la plantilla mediante varias herramientas.
+En el [Apéndice A](#appx-a-arm-template) puede encontrar una plantilla de Resource Manager para crear un clúster de HDInsight y la cuenta de Azure Storage dependiente. Utilice un editor de texto para guardar la plantilla en un archivo en la estación de trabajo. Obtendrá información sobre cómo llamar a la plantilla mediante varias herramientas.
 
-Para obtener más información acerca de la plantilla de ARM, vea
+Para más información sobre la plantilla de Resource Manager, consulte
 
 - [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
@@ -51,7 +51,7 @@ Para obtener más información acerca de la plantilla de ARM, vea
 
 El procedimiento siguiente crea un clúster de HDInsight.
 
-**Para implementar un clúster mediante la plantilla ARM**
+**Implementación de un clúster mediante una plantilla de Resource Manager**
 
 1. Guarde el archivo json en el [Apéndice A](#appx-a-arm-template) de la estación de trabajo.
 2. Configure los parámetros si es necesario.
@@ -144,7 +144,7 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 
 
 
-##Anexo A: plantilla de ARM
+##Anexo A: Plantilla de Resource Manager
 
 La siguiente plantilla de Administrador de recursos de Azure crea un clúster de Hadoop basado en Windows con la cuenta de Almacenamiento de Azure dependiente.
 
@@ -294,4 +294,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

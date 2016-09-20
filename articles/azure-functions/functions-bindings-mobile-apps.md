@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Enlaces de Aplicaciones móviles en funciones de Azure
@@ -169,4 +169,4 @@ Este ejemplo de código de Node.js inserta un registro nuevo en un punto de cone
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

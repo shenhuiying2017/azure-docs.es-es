@@ -22,10 +22,7 @@
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Información de rendimiento de consultas permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:
 
 - Información más detallada sobre el consumo de recursos (DTU) de las bases de datos.
-- Las consultas que más CPU consumen, que potencialmente pueden ajustarse para mejorar el rendimiento.
-  - CPU
-  - Duración
-  - Recuento de ejecuciones
+- Las consultas principales por CPU, duración y recuento de ejecuciones, que se pueden ajustar para mejorar el rendimiento.
 - La capacidad de profundizar en los detalles de una consulta, ver su texto e historial de utilización de recursos.
 - Anotaciones de ajuste del rendimiento que muestran las acciones realizadas por el [Asesor de Base de datos SQL de Azure](sql-database-advisor.md)
 
@@ -244,4 +241,4 @@ Para recomendaciones adicionales sobre cómo mejorar el rendimiento de la base d
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -23,7 +23,7 @@ En este artículo, le mostraremos cómo puede usar el Portal de Azure, los cmdle
 Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en la que poder archivar el registro de actividades. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar los registros y las métricas de Diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar esa cuenta de almacenamiento para el registro de actividades para mantener todos los datos de supervisión en una ubicación central. La cuenta de almacenamiento que use debe ser una cuenta de almacenamiento de propósito general no una cuenta de almacenamiento de blobs.
 
 ## Perfil de registro
-Para archivar el registro de actividades mediante cualquiera de los métodos siguientes, debe establecer el **perfil de registro** para una suscripción. El perfil de registro define el tipo de eventos que se almacenan o transmiten y las salidas: cuenta de almacenamiento y/o centro de eventos. También define la directiva de retención (el número de días que deben conservarse) para los eventos almacenados en una cuenta de almacenamiento. Si la directiva de retención se establece en cero los eventos se almacenan indefinidamente. [Puede leer más acerca de los perfiles de registro aquí](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Para archivar el registro de actividades mediante cualquiera de los métodos siguientes, debe establecer el **perfil de registro** para una suscripción. El perfil de registro define el tipo de eventos que se almacenan o transmiten y las salidas: cuenta de almacenamiento y/o centro de eventos. También define la directiva de retención (el número de días que deben conservarse) para los eventos almacenados en una cuenta de almacenamiento. Si la directiva de retención se establece en cero los eventos se almacenan indefinidamente. De lo contrario, se puede establecer en cualquier valor entre 1 y 2147483647. [Puede leer más acerca de los perfiles de registro aquí](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
 ## Archivo del registro de actividades mediante el portal
 1. En el portal, haga clic en el vínculo **Registro de actividades** situado en el lado izquierdo. Si no ve un vínculo para el registro de actividades, haga clic primero en el vínculo **Más servicios**.
@@ -47,7 +47,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | No | Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
 | Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/es-ES/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays | Sí | Número de días que deben retenerse los eventos. Con el valor cero, se almacenan los registros indefinidamente. |
+| RetentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | Categorías | Sí | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 ## Archivo del registro de actividades a través de CLI
 ```
@@ -59,7 +59,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | name | Sí | Nombre de su perfil de registro. |
 | storageId | No | Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
 | Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/es-ES/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays | Sí | Número de días que deben retenerse los eventos. Con el valor cero, se almacenarán los registros indefinidamente. |
+| retentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
 | categories | Sí | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 ## Esquema de almacenamiento del registro de actividades
@@ -156,4 +156,4 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 - [Transmitir el registro de actividades a Centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
 - [Obtener más información acerca del registro de actividades](monitoring-overview-activity-logs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

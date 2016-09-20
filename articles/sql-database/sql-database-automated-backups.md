@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Información general: copias de seguridad automatizadas de Base de datos SQL
@@ -58,8 +58,8 @@ El período de retención se determina según el nivel de servicio de la base de
 ## Pasos siguientes
 
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md) (Recuperación de una base de datos SQL de Azure mediante copias de seguridad de base de datos automatizadas).
-- Para conocer las opciones de recuperación más rápidas, consulte el artículo sobre [replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 - Para obtener una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

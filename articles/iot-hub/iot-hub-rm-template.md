@@ -75,7 +75,7 @@ Use una plantilla de JSON y un archivo de parámetro para crear un Centro de IoT
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un archivo JSON denominado **template.json** a su proyecto.
 
-2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un Centro de IoT estándar a la región **Este de EE. UU.**:
+2. Reemplace el contenido de **template.json** por la siguiente definición de recursos para agregar un centro de IoT estándar a la región **Este de EE. UU.** (para ver la lista actualizada de regiones que admiten IoT Hub, consulte [Estado de Azure][lnk-status]):
 
     ```
     {
@@ -202,7 +202,7 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 
 Ahora que ha implementado un Centro de IoT mediante una plantilla de Azure Resource Manager con un programa de C#, quizá desee seguir explorando:
 
-- Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] \(API de REST del proveedor de recursos del centro de IoT).
+- Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] (API de REST del proveedor de recursos del centro de IoT).
 - Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
 
 Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
@@ -220,6 +220,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -233,4 +234,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

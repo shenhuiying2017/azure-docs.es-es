@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016"
+	ms.date="09/04/2016"
 	ms.author="juliako"/>
 
 
 #Administración de cuentas de Servicios multimedia de Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -504,4 +504,4 @@ Revise las rutas de aprendizaje de Servicios multimedia.
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

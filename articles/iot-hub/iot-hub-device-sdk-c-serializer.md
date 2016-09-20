@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # SDK de dispositivo IoT de Microsoft Azure para C: más información sobre el serializador
@@ -22,7 +22,7 @@ En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se pres
 
 En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos al Centro de IoT y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador**. También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
 
-Terminaremos examinando de nuevo algunos de los temas tratados en artículos anteriores, como el control de mensajes y propiedades. Como veremos, estas características funcionan del mismo modo con la biblioteca de **serializador** que con la biblioteca de **IoTHubClient**.
+Terminaremos examinando de nuevo algunos de los temas tratados en artículos anteriores, como el control de los mensajes y las propiedades. Como veremos, estas características funcionan del mismo modo con la biblioteca de **serializador** que con la biblioteca de **IoTHubClient**.
 
 Todo lo que se describe en este artículo se basa en los ejemplos del SDK del **serializador**. Si desea continuar, consulte las aplicaciones **simplesample\_amqp** y **simplesample\_http** que se incluyen en el SDK de dispositivo IoT de Azure para C.
 
@@ -60,7 +60,7 @@ Lo que no se demuestra en este ejemplo son tipos de datos adicionales que se adm
 
 Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de **serializador**:
 
-| Escriba | Descripción |
+| Tipo | Description |
 |-------------------------|----------------------------------------|
 | double | número de punto flotante de doble precisión |
 | int | entero de 32 bits |
@@ -572,7 +572,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Como se mencionó antes, **DECLARE\_MODEL** es simplemente una macro de C. El nombre del modelo y la declaración **WITH\_DATA** (otra macro más) son parámetros de **DECLARE\_MODEL**. **nMacroParameters** define el número de parámetros que se pueden incluir en **DECLARE\_MODEL**. Esto permite definir de manera efectiva cuántas declaraciones de evento y acción puede tener. Con el límite predeterminado de 124, significa que puede definir un modelo con una combinación de unas 60 acciones y eventos de datos. Si intenta superar este límite, obtendrá errores de compilación parecidos a estos:
+Como se mencionó antes, **DECLARE\_MODEL** es simplemente una macro de C. El nombre del modelo y la declaración **WITH\_DATA** (otra macro más) son parámetros de **DECLARE\_MODEL**. **nMacroParameters** define el número de parámetros que se puede incluir en **DECLARE\_MODEL**. Esto permite definir de manera efectiva cuántas declaraciones de evento y acción puede tener. Con el límite predeterminado de 124, significa que puede definir un modelo con una combinación de unas 60 acciones y eventos de datos. Si intenta superar este límite, obtendrá errores de compilación parecidos a estos:
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
@@ -602,7 +602,7 @@ Hasta ahora hemos visto casi todo lo que necesita saber sobre cómo escribir có
 
 ## API de nivel inferior
 
-La aplicación de ejemplo en la que se centró este artículo es **simplesample\_amqp**. Este ejemplo usa las API de nivel superior (las no "LL") para enviar eventos y recibir mensajes. Si usa estas API, se ejecuta un subproceso en segundo plano que se encarga de enviar eventos y recibir mensajes. Sin embargo, puede usar las API de nivel inferior (LL) para eliminar este subproceso en segundo plano y tener un control explícito sobre cuándo envía eventos o recibe mensajes de la nube.
+La aplicación de ejemplo en la que se centró este artículo es **simplesample\_amqp**. En este ejemplo se usan las API de nivel superior (las no "LL") para enviar eventos y recibir mensajes. Si usa estas API, se ejecuta un subproceso en segundo plano que se encarga de enviar eventos y recibir mensajes. Sin embargo, puede usar las API de nivel inferior (LL) para eliminar este subproceso en segundo plano y tener un control explícito sobre cuándo envía eventos o recibe mensajes de la nube.
 
 Como se describió en un [artículo anterior](iot-hub-device-sdk-c-iothubclient.md), hay conjuntos de funciones que constan de API de nivel superior:
 
@@ -685,4 +685,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

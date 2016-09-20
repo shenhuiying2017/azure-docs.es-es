@@ -21,7 +21,7 @@
 
 ## Azure PowerShell
  
-Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure.
 
 ## Configuración de variables
 
@@ -168,7 +168,7 @@ Entonces, se devuelve algo parecido a lo siguiente:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## Actualización de una máquina virtual
+## Cambio de tamaño de una máquina virtual
 
 Este ejemplo muestra cómo actualizar el tamaño de la máquina virtual.
         
@@ -222,4 +222,4 @@ El archivo de script puede tener un contenido parecido a lo siguiente para inici
 
 Si se produjeron problemas con la implementación, le recomendamos echar un vistazo a [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

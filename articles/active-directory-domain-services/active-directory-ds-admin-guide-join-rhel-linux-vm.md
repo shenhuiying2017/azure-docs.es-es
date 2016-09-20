@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual de Red Hat Enterprise Linux (RHEL) 7 a un dominio administrado con Servicios de dominio de Azure AD.
 
 ## Aprovisionamiento de una máquina virtual de Red Hat Enterprise Linux
-Realice los pasos siguientes para aprovisionar una máquina virtual de RHEL 7 mediante el portal de Azure.
+Realice los pasos siguientes para aprovisionar una máquina virtual de RHEL 7 mediante el Portal de Azure.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
     ![Panel de Portal de Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
-2. Haga clic en **Nuevo** en el panel izquierdo y escriba **Red Hat** en la barra de búsqueda, como se muestra en la siguiente captura de pantalla. Debe ver las entradas para Red Hat Enterprise Linux en los resultados de búsqueda. Haga clic en **Red Hat Enterprise Linux 7.2**.
+2. Haga clic en **Nuevo** en el panel izquierdo y escriba **Red Hat** en la barra de búsqueda, como se muestra en la siguiente captura de pantalla. Las entradas para Red Hat Enterprise Linux en los resultados de búsqueda. Haga clic en **Red Hat Enterprise Linux 7.2**.
 
     ![Seleccionar RHEL en resultados](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 
-3. En los resultados de búsqueda del panel **Todo** se debe mostrar la imagen de Red Hat Enterprise Linux 7.2. Haga clic en **Red Hat Enterprise Linux 7.2** para más información acerca de la imagen de la máquina virtual.
+3. En los resultados de búsqueda del panel **Todo** se debe mostrar la imagen de Red Hat Enterprise Linux 7.2. Haga clic en **Red Hat Enterprise Linux 7.2** para obtener más información sobre la imagen de la máquina virtual.
 
     ![Seleccionar RHEL en resultados](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-rhel-image.png)
 
@@ -42,11 +42,11 @@ Realice los pasos siguientes para aprovisionar una máquina virtual de RHEL 7 me
 
     ![Crear máquina virtual: detalles básicos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. Haga clic en **Configuración opcional**. Esto debería abrir el panel **Configuración opcional**. En el panel **Configuración opcional**, haga clic en **Red**, como se muestra en la captura de pantalla siguiente.
+6. Después, haga clic en **Configuración opcional**. Esto debería abrir el panel **Configuración opcional**. En el panel **Configuración opcional**, haga clic en el botón **Red**.
 
     ![Crear máquina virtual: configurar la red virtual](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
-7. Esto debería abrir el panel **Red**. En el panel **Red**, haga clic en **Red virtual** para seleccionar la red virtual en la que se debe implementar la máquina virtual de Linux. Se debe abrir el panel **Red virtual**. En el panel **Red virtual**, elija la opción **Usar una red virtual existente**. A continuación, seleccione la red virtual en la que Servicios de dominio de Azure AD estará disponible. En este ejemplo, se ha elegido la red virtual "MyPreviewVNet".
+7. Con esta acción se abre el panel **Red**. En el panel **Red**, haga clic en **Red virtual** para seleccionar la red virtual en la que se debe implementar la máquina virtual Linux. Se debe abrir el panel **Red virtual**. En el panel **Red virtual**, elija la opción **Usar una red virtual existente**. A continuación, seleccione la red virtual en la que Servicios de dominio de Azure AD estará disponible. En este ejemplo, se ha elegido la red virtual "MyPreviewVNet".
 
     ![Crear máquina virtual: seleccionar la red virtual](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
 
@@ -99,7 +99,7 @@ Después de conectarse a la máquina virtual, la siguiente tarea es instalar los
 
     ![realmd instalado](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 
-3. **Instale sssd**: el paquete realmd depende de sssd para realizar las operaciones de unión al dominio. En el terminal PuTTY, escriba el siguiente comando:
+3. **Instale sssd**: el paquete realmd depende de SSSD para realizar las operaciones de unión al dominio. En el terminal PuTTY, escriba el siguiente comando:
 
     sudo yum install sssd
 
@@ -149,17 +149,17 @@ Debe obtener un mensaje (Máquina inscrita correctamente en el dominio kerberos)
 
 
 ## Verificación de la unión a un dominio
-Puede verificar rápidamente si el equipo se ha unido correctamente al dominio administrado. Esto puede hacerse mediante la conexión a la máquina virtual de RHEL recién unida al dominio con ssh y una cuenta de usuario del dominio y, a continuación, la comprobación de si la cuenta de usuario se ha resuelto correctamente.
+Puede verificar rápidamente si el equipo se ha unido correctamente al dominio administrado. Conecte a la máquina virtual de RHEL recién unida al dominio con SSH y una cuenta de usuario del dominio y, después,compruebe si la cuenta de usuario se ha resuelto correctamente.
 
-1. En el terminal PuTTY, escriba el comando siguiente para conectarse a la nueva máquina virtual de RHEL recién unida al dominio con SSH. Use una cuenta de dominio que pertenezca a la cuenta administrada (p. ej. "bob@CONTOSO100.COM" en este caso).
+1. En el terminal PuTTY, escriba el comando siguiente para conectarse a la nueva máquina virtual de RHEL recién unida al dominio con SSH. Use una cuenta de dominio que pertenezca al dominio administrado (por ejemplo, bob@CONTOSO100.COM en este caso).
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 
-2. En el terminal PuTTY, escriba el comando siguiente para ver si el directorio principal del usuario se ha inicializado correctamente.
+2. En el terminal PuTTY, escriba el comando siguiente para ver si el directorio principal se ha inicializado correctamente.
 
 	pwd
 
-3. En el terminal PuTTY, escriba el comando siguiente para ver si los miembros del grupo del usuario se está resolviendo correctamente.
+3. En el terminal PuTTY, escriba el comando siguiente para ver si los miembros del grupo se está resolviendo correctamente.
 
     id
 
@@ -172,9 +172,15 @@ A continuación se muestra un resultado de ejemplo de estos comandos.
 Consulte el artículo [Solución de problemas de unión al dominio](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join).
 
 
-## Más información
-- [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-- [Installing Kerberos](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalación de Kerberos)
-- [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: guía de integración de Windows)
+## Contenido relacionado
+- [Servicios de dominio de Azure AD (vista previa): introducción](./active-directory-ds-getting-started.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Inicio de sesión en una máquina virtual con Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
+
+- [Installing Kerberos (Instalación de Kerberos)](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
+- [Red Hat Enterprise Linux 7 - Windows Integration Guide (Red Hat Enterprise Linux 7: guía de integración de Windows)](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+
+<!---HONumber=AcomDC_0907_2016-->

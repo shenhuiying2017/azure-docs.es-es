@@ -44,9 +44,9 @@ Para usar escapeChar, en lugar de quoteChar, reemplace la línea con quoteChar p
 
 ### Escenarios de uso de firstRowAsHeader y skipLineCount
 
-- Va a copiar de un origen que no es archivo a un archivo de texto y quiere agregar una línea de encabezado que contenga los metadatos de esquema (por ejemplo, esquema SQL). Especifique firstRowAsHeader como true en el conjunto de datos de salida para este escenario.
-- Va a copiar de un archivo de texto que contiene una línea de encabezado a un receptor que no es archivo y quiere eliminar esa línea. Especifique firstRowAsHeader como true en el conjunto de datos de entrada.
-- Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no son ni datos ni encabezado. Especifique skipLineCount para indicar el número de líneas que se omitirán. Si el resto del archivo contiene una línea de encabezado, también puede especificar firstRowAsHeader. Si se especifican skipLineCount y firstRowAsHeader, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada
+- Va a copiar de un origen que no es archivo a un archivo de texto y quiere agregar una línea de encabezado que contenga los metadatos de esquema (por ejemplo, esquema SQL). Especifique **firstRowAsHeader** como true en el conjunto de datos de salida para este escenario.
+- Va a copiar de un archivo de texto que contiene una línea de encabezado a un receptor que no es archivo y quiere eliminar esa línea. Especifique **firstRowAsHeader** como true en el conjunto de datos de entrada.
+- Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no son ni datos ni encabezado. Especifique **skipLineCount** para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar **firstRowAsHeader**. Si se especifican tanto **skipLineCount** como **firstRowAsHeader**, primero se omiten las líneas y luego se lee la información de encabezado del archivo de entrada.
 
 ### Especificación de AvroFormat
 Si se establece el formato en AvroFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
@@ -251,4 +251,4 @@ Tenga en cuenta lo siguiente:
 -	No se admiten tipos de daros complejos (STRUCT, MAP, LIST, UNION).
 -	El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

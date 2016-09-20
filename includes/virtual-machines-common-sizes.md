@@ -163,7 +163,7 @@ Mbps = 10 ^ 6 bytes por segundo.
 
 | Tamaño | Núcleos de CPU | Memoria: GiB | Tamaño del disco SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 |------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
-| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4000 / 32 (43) | 3200 / 48 | 4 moderado |
+| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4000 / 32 (43) | 3200 / 48 | 1 moderado |
 | Standard\_DS2\_v2 | 2 | 7 | 14 | 4 | 8000 / 64 (86) | 6400 / 96 | 2 alto |
 | Standard\_DS3\_v2 | 4 | 14 | 28 | 8 | 16 000 / 128 (172) | 12 800 / 192 | 4 alto |
 | Standard\_DS4\_v2 | 8 | 28 | 56 | 16 | 32 000 / 256 (344) | 25 600 / 384 | 8 alto |
@@ -285,4 +285,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 - Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

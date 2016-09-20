@@ -23,7 +23,7 @@
 
 ##Información general
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Al usar el usuario del cliente autenticado, el back-end agregará automáticamente la etiqueta para el registro de notificaciones. Esta etiqueta se usará para que la envíe el back-end para generar notificaciones para un usuario específico. Para obtener más información sobre cómo registrarse para notificaciones con un back-end de aplicación, consulte el tema de orientación [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones y el proyecto que creó en el tutorial [Introducción a los Centros de notificaciones].
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Al usar el usuario del cliente autenticado, el back-end agregará automáticamente la etiqueta para el registro de notificaciones. Esta etiqueta se usará para que la envíe el back-end para generar notificaciones para un usuario específico. Para más información sobre cómo registrarse para notificaciones con un back-end de aplicación, consulte el tema de orientación [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones y el proyecto que creó en el tutorial [Introducción a los Centros de notificaciones].
 
 Este tutorial también es el requisito previo para el tutorial [Inserción segura]. Después de haber completado los pasos de este tutorial, puede continuar con el tutorial [Inserción segura], que muestra cómo modificar el código de este tutorial para enviar una notificación push de forma segura.
 
@@ -383,8 +383,8 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 <!-- URLs. -->
 [Introducción a los Centros de notificaciones]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Inserción segura]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+[Inserción segura]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

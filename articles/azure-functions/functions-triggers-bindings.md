@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="chrande"/>
 
 # Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure
@@ -24,14 +24,9 @@ Los siguientes artículos explican cómo configurar y codificar desencadenadores
 
 ## Artículos de desencadenadores y de enlaces
 
-* [Desencadenadores y enlaces de HTTP y WebHook](functions-bindings-http-webhook.md)
-* [Desencadenador de temporizador](functions-bindings-timer.md)
-* [Desencadenadores y enlaces (colas, blobs, tablas) de Almacenamiento de Azure](functions-bindings-storage.md)
-* [Desencadenadores y enlaces del bus de servicio de Azure (colas y temas)](functions-bindings-service-bus.md)
-* [Enlaces de Azure DocumentDB](functions-bindings-documentdb.md)
-* [Enlaces de Centro de eventos de Azure](functions-bindings-event-hubs.md)
-* [Enlaces de Aplicaciones móviles de Azure](functions-bindings-mobile-apps.md)
-* [Enlace de salida del centro de notificaciones de Azure](functions-bindings-notification-hubs.md)
+Haga clic en un desencadenador o un enlace de los siguientes para obtener más información:
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 ## Pasos siguientes
 
@@ -40,4 +35,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Prueba de una función](functions-test-a-function.md)
 * [Escalar una función](functions-scale.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

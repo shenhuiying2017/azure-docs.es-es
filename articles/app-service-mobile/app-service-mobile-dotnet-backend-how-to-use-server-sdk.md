@@ -386,7 +386,7 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
+En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ##<a name="tags"></a>Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
 
@@ -481,4 +481,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

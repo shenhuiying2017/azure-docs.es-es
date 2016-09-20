@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 # Tutorial: integración de Azure Active Directory con Insperity ExpensAble
@@ -118,7 +118,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Insperity ExpensAble con el siguiente patrón: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
-	b. Haga clic en **Siguiente**.
+	b. Haga clic en **Next**.
 
 4. En la página **Configurar inicio de sesión único en Insperity ExpensAble**, siga estos pasos:
 
@@ -126,7 +126,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 5. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Insperity ExpensAble. Una vez que se asigna el caso, envíe por correo electrónico el archivo de certificado descargado. Además, proporcione la dirección URL del emisor y la dirección URL del servicio de inicio de sesión único para que se puedan configurar para la integración de SSO.
@@ -159,7 +159,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_04.png)
 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -197,7 +197,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -217,7 +217,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a Insperity ExpensAble, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en la opción **Aplicaciones** del menú superior.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
 	![Asignar usuario][201]
 
@@ -266,4 +266,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

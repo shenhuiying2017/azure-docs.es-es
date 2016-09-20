@@ -52,7 +52,7 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 
 | Problema | Resolución |
 | :----------------------------------| :---------------------------------------------- |
-| Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de rendimiento de la base de datos permitida de 45 000. | Reduzca la unidad [DWU][] de la base de datos que intenta crear o [solicite un aumento de la cuota][].|
+| Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de transacción de la base de datos permitida de 45000. | Reduzca la unidad [DWU][] de la base de datos que intenta crear o [solicite un aumento de la cuota][].|
 | Investigación del uso del espacio | Consulte los [tamaños de tabla][] para comprender el uso del espacio del sistema.|
 | Ayuda con la administración de tablas | Para obtener ayuda con la administración de las tablas, consulte la [información general sobre las tablas][Overview]. Este artículo también incluye vínculos a temas más detallados como [tipos de datos de tabla][Data types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary].|
 
@@ -129,7 +129,7 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 <!--MSDN references-->
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -140,4 +140,4 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

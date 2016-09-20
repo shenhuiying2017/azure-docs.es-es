@@ -18,13 +18,13 @@
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación de Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+> Para más información sobre la versión de Mobile Apps equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación de Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
  
 &nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-En este tema se muestra cómo usar los Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
+Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de iniciar este tutorial, primero debe completar [Introducción a Servicios móviles] para conectar su proyecto al servicio móvil. Por este motivo, este tutorial requiere también Visual Studio 2013.
 
@@ -82,7 +82,7 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
 
 + [Envío de notificaciones basadas en plantillas a los suscriptores] <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde un servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 
-Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
+Puede obtener más información acerca de Mobile Services y Notification Hubs en los siguientes temas:
 
 * [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
@@ -114,6 +114,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Enviar notificaciones de difusión a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

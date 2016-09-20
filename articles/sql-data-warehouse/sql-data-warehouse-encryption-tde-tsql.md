@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introducción al cifrado de datos transparente (TDE)
@@ -54,6 +54,8 @@ Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
+Nota: Se debe reanudar una instancia de SQL Data Warehouse en pausa antes de realizar cambios en la configuración de TDE.
+
 ##Comprobación del cifrado
 
 Para comprobar el estado del cifrado para un Almacenamiento de datos SQL, siga estos pasos:
@@ -86,4 +88,4 @@ Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una bas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

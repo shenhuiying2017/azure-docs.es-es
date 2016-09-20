@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/01/2016"
    ms.author="rickbyh"/>
 
 # Autorización y autenticación de Base de datos SQL: concesión de acceso 
@@ -40,7 +40,7 @@ Cuando se crea una instancia lógica de SQL, se crea también una cuenta de inic
 Una cuenta de Azure Active Directory también se puede configurar como administrador. Esta cuenta puede ser un usuario individual de Azure AD, o bien puede ser un grupo de Azure AD con varios usuarios individuales de Azure AD. Opcionalmente, se puede configurar un administrador de Azure AD, pero es obligatorio configurarlo si desea utilizar la autenticación de Windows para que las cuentas de Azure AD se conecten a Base de datos SQL. Para más información acerca de cómo configurar el acceso a Azure Active Directory, consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md) y [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](sql-database-ssms-mfa-authentication.md).
 
 ### Configuración del firewall
-Cuando hay un firewall de nivel de servidor configurado, tanto la cuenta de suscriptor de Base de datos SQL de Azure como la cuenta de Azure Active Directory pueden conectarse a la base de datos maestra virtual y a las bases de datos de usuario. El firewall de nivel de servidor se puede configurar a través del portal. Una vez que se establece una conexión, también se pueden configurar reglas de firewall de nivel de servidor adicionales, para lo que se debe usar la instrucción [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) de Transact-SQL. Para más información acerca de cómo configurar el firewall, consulte [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md).
+Cuando el firewall de nivel de servidor está configurado, tanto la cuenta de suscriptor de Azure SQL Database como la cuenta de Azure Active Directory pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor se puede configurar a través del portal. Una vez que se establece una conexión, también se pueden configurar reglas de firewall de nivel de servidor adicionales, para lo que se debe usar la instrucción [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) de Transact-SQL. Para más información acerca de cómo configurar el firewall, consulte [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md).
 
 ### Ruta de acceso de administrador
 
@@ -161,4 +161,4 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

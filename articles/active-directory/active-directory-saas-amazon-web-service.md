@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -244,7 +244,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
      a. En el cuadro de texto **Nombre de atributo**, escriba **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. En el cuadro de texto **Valor del atributo**, escriba o seleccione **user.userprincipalname** en la lista desplegable.
+     b. En el cuadro de texto ** Valor del atributo**, escriba o seleccione **user.userprincipalname** en la lista desplegable.
      
 	![Configurar inicio de sesión único][35]
 	
@@ -421,4 +421,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 [35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -86,7 +86,6 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 
 	- **Registros de auditoría**:
     - **Inicio rápido**: muestra información que le ayudará a empezar a usar HDInsight.
-	- **Inicio de sesión de clúster**: cambie el nombre de usuario y la contraseña HTTP del clúster.
 	- **Escalar clúster**: aumente o disminuya el número de nodos de trabajo del clúster.
     - **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
     - **Asociado de HDInsight**: agrega o quita el asociado actual de HDInsight.
@@ -201,6 +200,8 @@ Para información sobre precios, vea [Precios de HDInsight](https://azure.micros
 Un clúster de HDInsight puede tener dos cuentas de usuario. La cuenta de usuario del clúster de HDInsight (también conocida como cuenta de usuario HTTP) y la cuenta de usuario SSH se crean durante el proceso de creación. Puede usar la interfaz de usuario web de Ambari para cambiar el nombre de usuario y la contraseña de la cuenta de usuario del clúster y las acciones de script para cambiar la cuenta de usuario de SSH
 
 ###Cambio de la contraseña de usuario del clúster
+
+Puede utilizar la interfaz de usuario web de Ambari para cambiar el nombre de usuario y la contraseña del clúster. Para iniciar sesión en Ambari, debe usar el nombre de usuario y la contraseña de clúster existente.
 
 > [AZURE.NOTE] Si cambia la contraseña de usuario (admin) del clúster, puede provocar el error de las acciones de script ejecutadas en este clúster. Si tiene cualquier acciones de script persistente cuyo destino son nodos de trabajo, pueden producir un error al agregar nodos al clúster a través de operaciones de cambio de tamaño. Para más información sobre acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -332,4 +333,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

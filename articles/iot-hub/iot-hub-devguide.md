@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/11/2016" 
+ ms.date="09/02/2016" 
  ms.author="dobett"/>
 
 # Guía del desarrollador del Centro de IoT de Azure
@@ -49,7 +49,7 @@ Esta es una descripción de los puntos de conexión:
     - *Recepción de mensajes de nube a dispositivo*. El dispositivo usa ese punto de conexión para recibir mensajes de nube a dispositivos dirigidos. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
     - *Iniciar cargas de archivos*. Un dispositivo usa este punto de conexión para recibir un URI de SAS de Almacenamiento de Azure del Centro de IoT para cargar un archivo. Para más información, consulte [Cargas de archivos](#fileupload).
 
-    Estos puntos de conexión se exponen mediante los protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] y [AMQP 1.0][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
+    Estos puntos de conexión se exponen mediante los protocolos [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 y [AMQP 1.0][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
 * **Puntos de conexión de servicio**. Cada Centro de IoT muestra un conjunto de puntos de conexión que el back-end de aplicaciones puede usar para comunicarse con los dispositivos. Estos extremos se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
     - *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con los [Centros de eventos de Azure][lnk-event-hubs]. Un servicio back-end puede usarse para leer todos los mensajes de dispositivo a nube enviados por los dispositivos. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
@@ -66,11 +66,11 @@ Al usar [SDK de Bus de servicio de Azure para .NET][lnk-servicebus-sdk] o [Centr
 Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos que sean compatibles de la configuración del Centro de IoT en el [Portal de Azure][lnk-management-portal]\:
 
 1. En la hoja Centro de IoT, haga clic en **Mensajería**.
-2. En la sección **Configuración de dispositivo a la nube**, encontrará los valores **Extremo compatible con el Centro de eventos**, **Nombre compatible con el Centro de eventos** y **Particiones**.
+2. En la sección **Configuración de dispositivo a la nube**, encontrará los valores **Extremo compatible con el Centro de eventos**, ** Nombre compatible con el Centro de eventos** y **Particiones**.
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con el Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres sería **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con el Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el ****espacio de nombres sería **iothub-ns-myiothub-1234**.
 
 A continuación, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -202,7 +202,7 @@ Consulte el artículo [Tokens de seguridad de Centro de IoT][lnk-sas-tokens] par
 
 #### Detalles específicos de protocolo
 
-Cada uno de los protocolos admitidos, como AMQP, MQTT y HTTP, transporta tokens de diferentes maneras.
+Cada protocolo admitido, como MQTT, AMQP y HTTP, transporta tokens de diferentes maneras.
 
 
 HTTP implementa la autenticación mediante la inclusión de un token válido en el encabezado de solicitud **Authorization**.
@@ -282,17 +282,23 @@ Es el conjunto de propiedades del sistema en los mensajes del Centro de IoT.
 
 ### Elección del protocolo de comunicación <a id="amqpvshttp"></a>
 
-El Centro de IoT admite los protocolos [AMQP][lnk-amqp], AMQP sobre WebSockets, MQTT y HTTP/1 para las comunicaciones del dispositivo. Tenga en cuenta lo siguiente con respecto a sus usos.
+IoT Hub admite los protocolos MQTT, [AMQP][lnk-amqp], AMQP sobre WebSockets y HTTP/1 para las comunicaciones del dispositivo. La tabla siguiente proporciona recomendaciones generales para la elección del protocolo:
 
-* **Patrón de nube a dispositivo**. HTTP/1 no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTP/1, los dispositivos sondean los mensajes de nube a dispositivo en Centro de IoT. Este enfoque es muy ineficaz tanto para el dispositivo como para el Centro de IoT. En las directrices actuales de HTTP/1, cada dispositivo sondea cada 25 minutos o más. Por otro lado, AMQP y MQTT admiten inserción de servidor al recibir mensajes de nube a dispositivo. Permiten inserciones inmediatas de mensajes desde Centro de IoT en el dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar el protocolo AMQP o MQTT. Para dispositivos conectados en raras ocasiones, HTTP/1 funciona bien.
+| Protocol | Cuándo elegir este protocolo |
+| -------- | ------------------------------------ |
+| MQTT | Usar en todos los dispositivos que no requieren el uso de WebSockets. |
+| AMQPS | Usar en puertas de enlace de campo y en la nube para aprovechar las ventajas de la multiplexación de la conexión entre dispositivos. <br/> Usar cuando se necesita conectar en el puerto 443. |
+| HTTPS | Usar con dispositivos que no admiten otros protocolos. |
+
+Debe considerar los siguientes aspectos a la hora de elegir el protocolo para las comunicaciones del dispositivo:
+
+* **Patrón de nube a dispositivo**. HTTP/1 no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTP/1, los dispositivos sondean los mensajes de nube a dispositivo en Centro de IoT. Este enfoque es muy ineficaz tanto para el dispositivo como para el Centro de IoT. Según las directrices actuales de HTTP/1, cada dispositivo sondeará si hay mensajes cada 25 minutos o más. Por otro lado, AMQP y MQTT admiten la inserción de servidor cuando se reciben mensajes de nube a dispositivo. Permiten inserciones inmediatas de mensajes desde Centro de IoT en el dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar los protocolos AMQP o MQTT. Para dispositivos conectados en raras ocasiones, HTTP/1 funciona bien.
 * **Puertas de enlace de campo**. Cuando se utiliza HTTP/1 y MQTT, no puede conectar varios dispositivos (cada uno con sus propias credenciales por dispositivo) con la misma conexión TLS. Por lo tanto, en los [escenarios de puerta de enlace de campo][lnk-azure-gateway-guidance] estos protocolos no son óptimos, ya que requieren una conexión TLS entre la puerta de enlace y el Centro de IoT para cada dispositivo conectado a ella.
-* **Dispositivos con bajos recursos**. Las bibliotecas MQTT y HTTP/1 tienen una superficie menor que las bibliotecas AMQP. Por ello, si el dispositivo tiene pocos recursos (por ejemplo, menos de 1 MB de RAM), estos protocolos pueden ser la única implementación de protocolo disponible.
+* **Dispositivos con bajos recursos**. Las bibliotecas de MQTT y HTTP/1 tienen una huella menor que las bibliotecas de AMQP. Por ello, si el dispositivo tiene recursos limitados (por ejemplo, menos de 1 MB de RAM), estos protocolos podrían ser la única opción disponible.
 * **Cruce seguro de red**. El estándar MQTT escucha en el puerto 8883, lo cual podría producir problemas en las redes cerradas para los protocolos que no sean HTTP. HTTP y AMQP (sobre WebSockets) están disponibles para usarse en este escenario.
-* **Tamaño de carga**. AMQP y MQTT son protocolos binarios, que son mucho más compactos que HTTP/1.
+* **Tamaño de carga**. AMQP y MQTT son protocolos binarios que producen cargas mucho más compactas que HTTP/1.
 
-En general, debe usar AMQP (o AMQP sobre WebSockets) siempre que sea posible y utilizar solo MQTT cuando las restricciones de recursos impidan el uso de AMQP. HTTP/1 debe usarse solo si el recorrido por la red y la configuración de red impiden el uso de MQTT y AMQP. Además, cuando se utiliza HTTP/1, cada dispositivo debe sondear para ver si hay mensajes de la nube a dispositivo cada 25 minutos o más.
-
-> [AZURE.NOTE] Durante el desarrollo, es aceptable sondear con una frecuencia mayor de 25 minutos.
+> [AZURE.NOTE] Cuando se usa HTTP/1, cada dispositivo sondeará si hay mensajes de la nube a dispositivo cada 25 minutos o más. Sin embargo, durante el desarrollo, es aceptable sondear con una frecuencia mayor de 25 minutos.
 
 <a id="mqtt-support">
 #### Notas sobre la compatibilidad con MQTT
@@ -561,7 +567,7 @@ Es importante aclarar que la limitación de las *conexiones de dispositivo* dete
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Esto significa que, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad de dispositivos.
 
-Consulte [IoT Hub throttling and you][lnk-throttle-blog] para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
+Consulte [IoT Hub throttling and you][lnk-throttle-blog] (Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
 
 >[AZURE.NOTE] En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 
@@ -637,4 +643,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

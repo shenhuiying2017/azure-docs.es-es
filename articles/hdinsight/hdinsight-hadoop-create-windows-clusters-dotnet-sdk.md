@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/07/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET
@@ -247,4 +247,4 @@ Se puede usar el siguiente script de Azure PowerShell para crear los componentes
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

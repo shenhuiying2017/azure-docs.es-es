@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  Recopilación de datos para entrenar modelos #
@@ -45,9 +45,9 @@ Sin características:
 
 Con características:
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Detalles de formato
 
@@ -78,6 +78,25 @@ Es decir, si el motor conoce la información de ese violín (es decir, es un ins
 
 Las características se importan como parte de los datos del catálogo y, luego, su clasificación (o la importancia de la característica del modelo) se asocia cuando se realiza una compilación de clasificación. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
+
+###Las características son categóricas
+
+Esto significa que se deben crear características similares a una categoría. Por ejemplo, precio = 9,34 no es una característica categórica. Por otro lado, una característica como RangoPrecio = Menos5Dólares sí es una característica categórica. Otro error común es utilizar el nombre del elemento como una característica. Esto convertiría en exclusivo el nombre de un elemento, por lo que no describiría ninguna categoría. Asegúrese de que las características representan las categorías de elementos.
+
+
+###¿Cuántas y qué características debo utilizar?
+
+
+En última instancia, la compilación de recomendaciones admite crear un modelo con 20 características como máximo. Puede asignar más de 20 características a los elementos del catálogo, pero se espera que realice una compilación de clasificación y seleccione únicamente las características de rango alto. (Una característica con una clasificación de 2.0 o más es una característica realmente buena para usarla).
+
+
+###¿Cuándo se usan realmente las características?
+
+El modelo utiliza características cuando no hay suficientes datos de transacción para proporcionar recomendaciones solo como información sobre transacciones. Por tanto, las características tendrán mayor repercusión en “elementos fríos”, que son los que tienen menos transacciones. Si todos los elementos tienen suficiente información sobre transacciones que no necesite para enriquecer el modelo con características.
+
+
+###Uso de características de producto
+
 Para utilizar las características como parte de la compilación, tendrá que realizar estos pasos:
 
 1. Asegúrese de que el catálogo tiene características cuando se carga.
@@ -85,6 +104,9 @@ Para utilizar las características como parte de la compilación, tendrá que re
 2. Desencadene una compilación de clasificación. Con esta acción, se analizarán importancia y la clasificación de las características.
 
 3. Desencadene una compilación de recomendaciones configurando los siguientes parámetros de compilación: establezca el valor de useFeaturesInModel y de allowColdItemPlacement en True. Además, modelingFeatureList debe establecerse en la lista separada por comas de las características que desea utilizar para mejorar su modelo. Consulte [esta página](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) para más información sobre los parámetros de tipos de compilación de recomendaciones.
+
+
+
 
 
 ## Datos de uso ##
@@ -129,4 +151,4 @@ Le recomendamos que la mayoría de los artículos tengan 20 transacciones o más
 
 Una vez haya creado un modelo, puede realizar una [evaluación sin conexión](cognitive-services-recommendations-buildtypes.md) para comprobar las probabilidades que hay de que el modelo funcione correctamente.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

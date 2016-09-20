@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(Vista previa)*
@@ -27,7 +27,7 @@ Las siguientes características están disponibles en la versión de vista previ
 
 - **Instancia de un dominio por directorio de Azure AD:** puede crear un único dominio de Active Directory para cada directorio de Azure AD.
 
-- **Crear dominios con nombres personalizados:** puede crear dominios con nombres personalizados (por ejemplo, contoso.local) mediante Servicios de dominio de Azure AD. Esto incluye tanto nombres de dominio comprobados como no comprobados. Si lo desea, también puede crear un dominio con el sufijo de dominio integrado (es decir, *. onmicrosoft.com) que se ofrece a través del directorio de Azure AD.
+- **Crear dominios con nombres personalizados:** puede crear dominios con nombres personalizados (por ejemplo, contoso100.local) mediante Servicios de dominio de Azure AD. Esto incluye tanto nombres de dominio comprobados como no comprobados. Si lo desea, también puede crear un dominio con el sufijo de dominio integrado (es decir, *. onmicrosoft.com) que se ofrece a través del directorio de Azure AD.
 
 - **Integración con Azure AD:** no es necesario configurar o administrar la replicación en Servicios de dominio de Azure AD. Las cuentas de usuario, las pertenencias a grupos y las credenciales de usuario (contraseñas) del directorio de Azure AD están disponibles automáticamente con Servicios de dominio de Azure AD. Los nuevos usuarios, grupos o cambios de atributos que se producen en el inquilino de Azure AD o en el directorio local se sincronizan automáticamente con Servicios de dominio de Azure AD.
 
@@ -51,4 +51,4 @@ Las siguientes características están disponibles en la versión de vista previ
 
 - **Usar herramientas de administración familiares:** puede utilizar herramientas de administración familiares de Windows Server Active Directory, como Centro de administración de Active Directory o Active Directory PowerShell, para administrar dominios proporcionados por Servicios de dominio de Azure AD.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

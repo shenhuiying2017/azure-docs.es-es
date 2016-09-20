@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Para configurar la integración de ADP eTime en Azure AD, es preciso agregar ADP
 
 **Para agregar ADP eTime desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -166,11 +166,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png)
 
@@ -178,9 +178,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png)
 
@@ -194,11 +194,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     e. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png)
 
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png)
 
@@ -273,4 +273,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

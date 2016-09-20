@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 
 # Tutorial de aplicación de ejemplo de la API Recomendaciones
+
+> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+
 
 ##Propósito
 
@@ -38,7 +41,7 @@ Una vez compilado un modelo de recomendación, puede utilizarlo para predecir el
 
 Para habilitar el escenario anterior, haga lo siguiente en el servicio de recomendación de Aprendizaje automático:
 
-* Crear un modelo: se trata de un contenedor lógico que incluye los datos (catálogo y uso) y los modelos de predicción. Cada contenedor de modelo se identifica mediante un identificador único que se asigna en el momento de su creación. Este identificador se denomina "identificador de modelo" y lo utilizan la mayoría de las API. 
+* Crear un modelo: se trata de un contenedor lógico que incluye los datos (catálogo y uso) y los modelos de predicción. Cada contenedor de modelo se identifica mediante un identificador único que se asigna en el momento de su creación. Este identificador se denomina "identificador de modelo" y lo utilizan la mayoría de las API.
 * Cargar en el catálogo: una vez que se crea un contenedor de modelo, es posible asociarlo a un catálogo.
 
 **Nota**: la creación de un modelo y la carga a un catálogo normalmente se realizan solo una vez durante el ciclo de vida del modelo.
@@ -46,18 +49,18 @@ Para habilitar el escenario anterior, haga lo siguiente en el servicio de recome
 * Cargar datos de uso: cargue los datos de uso en el contenedor del modelo.
 * Compilar un modelo de recomendación: cuando tenga suficientes datos, podrá crear el modelo de recomendación. Esta operación usa algoritmos de Aprendizaje automático de última generación para crear un modelo de recomendación. Cada compilación está asociada a un identificador único. Hay que mantener un registro de este identificador porque es necesario para la funcionalidad de algunas API.
 * Supervisar el proceso de compilación: una compilación de un modelo de recomendación es una operación asincrónica y puede tardar desde varios minutos a varias horas, según la cantidad de datos (catálogo y uso) y los parámetros de compilación. Por lo tanto, es necesario supervisar la compilación. Un modelo de recomendación solo se crea si su compilación asociada finaliza correctamente.
-* (Opcional) Elegir una compilación de modelo de recomendación activa: este paso solo es necesario si tiene más de un modelo de recomendación compilado en el contenedor de modelos. El sistema redirigirá automáticamente a la compilación activa predeterminada cualquier solicitud para obtener recomendaciones en la que no se indique el modelo de recomendación activa. 
+* (Opcional) Elegir una compilación de modelo de recomendación activa: este paso solo es necesario si tiene más de un modelo de recomendación compilado en el contenedor de modelos. El sistema redirigirá automáticamente a la compilación activa predeterminada cualquier solicitud para obtener recomendaciones en la que no se indique el modelo de recomendación activa.
 
 **Nota**: los modelos de recomendación activa están listos para su uso en producción y se diseñan para cargas de trabajo de producción. Esto difiere de un modelo de recomendación no activo, que permanece en un entorno similar al de prueba (a veces denominado "de ensayo").
 
-* Obtener recomendación: cuando ya tenga un modelo de recomendación, puede desencadenar recomendaciones para un solo elemento o para una lista de elementos que elija. 
+* Obtener recomendación: cuando ya tenga un modelo de recomendación, puede desencadenar recomendaciones para un solo elemento o para una lista de elementos que elija.
 
 Normalmente, se ejecuta la recomendación Get para un cierto período de tiempo. Durante ese período de tiempo, puede redirigir los datos de uso al sistema de recomendación de Aprendizaje automático, que agrega estos datos al contenedor del modelo especificado. Cuando tenga suficientes datos de uso, puede crear un nuevo modelo de recomendación que incorpore los datos de uso adicionales.
 
 ##Requisitos previos
 
 * Visual Studio 2013
-* Acceso a Internet 
+* Acceso a Internet
 * Suscripción a la API de recomendaciones (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Solución de aplicación de ejemplo de Aprendizaje automático de Azure
@@ -74,7 +77,7 @@ La aplicación utiliza la funcionalidad de la recomendación de Aprendizaje auto
 * Desencadenar la compilación: se usa para crear un modelo de recomendación.
 * Supervisar la ejecución de la compilación: se usa para supervisar el estado de una compilación de modelo de recomendación.
 * Elegir un modelo compilado para recomendación: se usa para indicar qué modelo de recomendación se debe usar de forma predeterminada para un contenedor de modelos concreto. Este paso solamente es necesario si tiene más de un modelo de recomendación y desea activar una compilación no activa como modelo de recomendación activa.
-* Obtener recomendación: se usa para recuperar elementos recomendados según un único elemento o un conjunto de elementos. 
+* Obtener recomendación: se usa para recuperar elementos recomendados según un único elemento o un conjunto de elementos.
 
 Para obtener una descripción completa de la API, consulte la documentación de Microsoft Azure Marketplace.
 
@@ -90,4 +93,4 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

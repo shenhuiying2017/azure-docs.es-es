@@ -3,7 +3,7 @@
    description="Aprenda a usar Power BI Embedded con REST. "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="tsmatsuz"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/02/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Procedimiento para usar Power BI Embedded con REST
 
@@ -451,4 +451,4 @@ En este momento, Power BI Embedded solo muestra el informe en el iframe. No obst
 ## Otras referencias
 - [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

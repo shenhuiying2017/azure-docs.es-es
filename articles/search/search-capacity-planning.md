@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 # Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Búsqueda de Azure
@@ -118,4 +118,4 @@ Ambos niveles comienzan con una réplica y una partición, que cuentan como una 
 
 El nivel determina el costo por SU. El costo por SU es menor para el nivel básico que para el nivel Estándar. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

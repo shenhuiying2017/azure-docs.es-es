@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows
@@ -65,7 +65,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] En los ejemplos anteriores, `myVMAccessExtension` o `MyVMAccess` es un nombre que especifica para la nueva extensión que se instala como parte del proceso. A menudo, se usa el nombre de la máquina virtual. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Después, busque en la sección “Extensiones” de la salida. Puesto que en una máquina virtual solo puede existir un VMAccessAgent, es necesario agregar el parámetro `-ForceReRun` al usar `Set-AzureRmVMExtension` para volver a registrarse el agente.
+	> [AZURE.NOTE] En los ejemplos anteriores, `myVMAccessExtension` o `MyVMAccess` es un nombre que especifica para la nueva extensión que se instala como parte del proceso. A menudo, se usa el nombre de la máquina virtual. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Busque en la sección "Extensiones" de la salida para ver el nombre. Puesto que en una máquina virtual solo puede existir un VMAccessAgent, es necesario agregar el parámetro `-ForceReRun True` al usar `Set-AzureRmVMExtension` para volver a registrarse el agente.
 
 2. Reinicie la máquina virtual para resolver otros problemas de inicio. Seleccione **Examinar** > **Máquinas virtuales** > *la máquina virtual* > **Reiniciar**.
 
@@ -92,7 +92,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
 
 3. [Vuelva a implementar la máquina virtual en un nuevo nodo de Azure](virtual-machines-windows-redeploy-to-new-node.md).
 
-	Cuando finalice esta operación, se perderán los datos de disco efímeros y se actualizarán las direcciones IP dinámicas que están asociadas a la máquina virtual.
+	Cuando finalice esta operación, se pierden datos de disco efímeros y se actualizan las direcciones IP dinámicas que están asociadas a la máquina virtual.
 	
 4. Compruebe que su [punto de conexión de Servicios en la nube permite el tráfico RDP](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 
@@ -156,7 +156,7 @@ La parte de la dirección de este archivo RDP tiene:
 
 Causa: la VM de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
 
-Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones:
 
@@ -173,8 +173,8 @@ Causa: la VM de destino no pudo validar el nombre y la contraseña de la cuenta.
 
 Un equipo con Windows puede validar las credenciales de una cuenta local o de una cuenta de dominio.
 
-- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
-- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\\*nombreDeUsuario* (ejemplo: CONTOSO\\peterodman).
+- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
+- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\*nombreDeUsuario* (ejemplo: CONTOSO\\peterodman).
 
 Si promovió su máquina virtual a un controlador de dominio de un nuevo bosque de Active Directory, la cuenta de administrador local con la que inició sesión se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. A continuación, se elimina la cuenta local.
 
@@ -210,4 +210,4 @@ Si no se ha producido ninguno de estos errores y sigue sin poder conectarse a la
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

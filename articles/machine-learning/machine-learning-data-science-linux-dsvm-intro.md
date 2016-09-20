@@ -247,7 +247,7 @@ La máquina virtual incluye algunas herramientas o algoritmos de aprendizaje aut
 * **CNTK** (Computational Network Toolkit, Kit de herramientas de red computacional de Microsoft Research): kit de herramientas de aprendizaje profundo
 * **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea
 * **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados
-* **Python**: Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas que ejecuten la instalación de pip.
+* **Python**: Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas con el comando `pip install`.
 * **R**: hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando:
 
 		install.packages(<lib name>)
@@ -344,4 +344,4 @@ A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

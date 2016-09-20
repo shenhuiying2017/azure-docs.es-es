@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -33,22 +33,22 @@ En la columna **Estado** se encuentra la información más importante, puesto qu
 
 Estado | Comentario
 --- | ---
-stopped-* | No se ha podido completar la ejecución. Por ejemplo, si el sistema remoto está inactivo y no se puede contactar.
+stopped-* | No se ha podido completar la ejecución. Por ejemplo, si el sistema remoto está inactivo y no se puede conectar a él.
 stopped-error-limit | Se han generado más de 5000 errores. La ejecución se ha detenido automáticamente debido al elevado número de errores.
 completed-*-errors | Se completa la ejecución, pero hay errores (menos de 5000) que deben investigarse.
 completed-*-warnings | La ejecución se ha completado, pero algunos datos no tienen el estado esperado. Si se producen errores, es posible que se trate únicamente de un síntoma. Le recomendamos que primero resuelva los errores y que luego investigue las advertencias.
 Correcto | No hay ningún problema.
 
-Cuando seleccione una fila, la parte inferior se actualizará para mostrar los detalles de la ejecución. En el extremo izquierdo de la parte inferior, es posible que aparezca una lista con la información **Paso #**. Solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En **Synchronization Statistics** (Estadísticas de sincronización) puede encontrar más información sobre el número de cambios que se han procesado. Puede hacer clic en los vínculos para obtener una lista de los objetos modificados. Si hay objetos con un error, estos se mostrarán en **Errores de sincronización**.
+Cuando seleccione una fila, la parte inferior se actualizará para mostrar los detalles de la ejecución. En el extremo izquierdo de la parte inferior, es posible que aparezca una lista con la información **Paso #**. Solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En **Synchronization Statistics** (Estadísticas de sincronización) puede encontrar más información sobre el número de cambios que se han procesado. Puede hacer clic en los vínculos para obtener una lista de los objetos modificados. Si hay objetos con errores, estos se mostrarán en **Errores de sincronización**.
 
 ## Solución de problemas en la pestaña Operaciones
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png) Cuando se producen errores, tanto el objeto del error como el propio error son vínculos que proporcionarán información adicional.
 
-Empiece haciendo clic en la cadena de error (en la imagen anterior, **sync-rule-error-function-triggered**). En primer lugar aparecerá información general del objeto. Para ver el error real, haga clic en el botón **Seguimiento de la pila**. De esta forma, podrá consultar información de depuración del error.
+Empiece haciendo clic en la cadena de error (en la imagen anterior, **sync-rule-error-function-triggered**). En primer lugar, aparecerá información general del objeto. Para ver el error real, haga clic en el botón **Seguimiento de la pila**. De esta forma, podrá consultar información de depuración del error.
 
 **SUGERENCIA:** Puede hacer clic con el botón derecho en la casilla **call stack information** (información de la pila de llamadas), hacer clic en **seleccionar todo** y, después, en **copiar**. A continuación, puede copiar la pila y buscar el error en el editor que prefiera, como el Bloc de notas.
 
-- Si el error procede de **SyncRulesEngine**, la información de la pila de llamadas tendrá en primer lugar una lista de todos los atributos del objeto. Desplácese hacia abajo hasta que vea el encabezado **InnerException = >**. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png) La línea siguiente mostrará el error. En la imagen anterior, el error procede de una regla de sincronización personalizada creada por Fabrikam.
+- Si el error procede de **SyncRulesEngine**, la información de la pila de llamadas tendrá en primer lugar una lista de todos los atributos del objeto. Desplácese hacia abajo hasta que vea el encabezado **InnerException = >**. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png) La línea posterior muestra el error. En la imagen anterior, el error procede de una regla de sincronización personalizada creada por Fabrikam.
 
 Si el error no proporciona suficiente información, puede fijarse en los datos. Puede hacer clic en el vínculo con el identificador de objeto y realizar un [seguimiento de un objeto y sus datos a través del sistema](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
 
@@ -57,4 +57,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

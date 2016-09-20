@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # Introducción al conector de recursos de Azure y su incorporación a la aplicación lógica
@@ -32,7 +32,7 @@ David Ebbo ha escrito [una gran cantidad de entradas de blog ](http://blog.david
 ### Desencadenador
 Hay dos desencadenadores admitidos en el Conector:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Se produce el evento | Se activa cuando se produce un evento en un recurso en la suscripción.
 Métrica supera el umbral | Se activa cuando una métrica alcanza un umbral determinado.
@@ -43,7 +43,7 @@ Del mismo modo, puede proporcionar un gran número de acciones dentro de la susc
 
 Para **Grupos de recursos**, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Enumeración de grupos de recursos | Enumere todos los grupos de recursos en la suscripción.
 Obtención de un grupo de recursos | Obtenga un grupo de recursos por su identificador.
@@ -52,7 +52,7 @@ Eliminación de un grupo de recursos | Elimine un grupo de recursos.
 
 Para **Recursos**, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Enumeración de recursos | Enumere recursos en la suscripción por diferentes tipos de filtros.
 Obtención de recursos | Obtenga un único recurso por su id. de recurso.
@@ -62,13 +62,13 @@ Eliminación de un recurso | Elimine un recurso.
 
 Para **Proveedores de recursos**, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Enumeración de proveedores de recursos | Enumere todos los proveedores de recursos disponibles en esta suscripción.
 
 Para **Implementaciones de grupo de recursos**, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Enumeración de implementaciones | Enumere todas las implementaciones en un grupo de recursos.
 Obtención de implementación | Obtenga una implementación de plantilla por su id.
@@ -76,13 +76,13 @@ Creación de una implementación | Cree una nueva implementación de grupo de re
 
 Para **Eventos** acerca de los recursos, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Obtención de eventos | Obtenga eventos en una suscripción o para un recurso.
 
 Para **Métricas** acerca de recursos, puede:
 
-Nombre | Descripción
+Nombre | Description
 ---- | -----------
 Obtención de métricas | Obtenga una métrica para un id. de recurso.
 
@@ -98,4 +98,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de Aplicaciones 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

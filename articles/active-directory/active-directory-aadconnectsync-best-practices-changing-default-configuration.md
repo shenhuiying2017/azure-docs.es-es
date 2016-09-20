@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,8 +58,10 @@ Seleccione **Sí** para crear una copia de la regla. A continuación, se abre la
 En esta regla clonada, realice los cambios necesarios en el ámbito, la combinación y las transformaciones.
 
 ## Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+**Temas de introducción**
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->
