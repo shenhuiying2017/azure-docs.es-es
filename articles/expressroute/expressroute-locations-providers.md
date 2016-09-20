@@ -43,7 +43,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
-|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Dallas+, Nueva York, Washington DC|
+|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Dallas, Nueva York, Washington DC|
 |**China**|Este de China, Norte de China|Beijing, Shanghai|
 |**Alemania**|Centro de Alemania, Alemania oriental|Berlín+, Fráncfort|
 
@@ -65,7 +65,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications y Zayo Group |
 | **Dallas** | AT&T NetBond, Equinix, Level 3 Communications y Megaport |
-| **Dublín** | Colt |
+| **Dublín** | Colt, Telecity Group |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications y Verizon |
 | **Londres** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon y Vodafone |
 | **Las Vegas** | Level 3 Communications+ y Megaport
@@ -94,7 +94,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Ubicación** |**Proveedores de servicios** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications y Verizon |
-| **Dallas** | Equinix+ y Verizon+ |
+| **Dallas** | Equinix, Verizon+ |
 | **Nueva York** | Equinix, Level 3 Communications+ y Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 
@@ -156,4 +156,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

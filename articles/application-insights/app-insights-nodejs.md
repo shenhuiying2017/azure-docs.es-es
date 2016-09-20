@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Pasos siguientes
 
 * [Navegación y paneles en el portal de Application Insights](app-insights-dashboards.md)
-* [Escritura de consultas de Analytics sobre una telemetry(app-insights-analytics-tour.md)]
+* [Escritura de consultas de Analytics sobre los datos de telemetría](app-insights-analytics-tour.md)
 
 
 
@@ -228,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

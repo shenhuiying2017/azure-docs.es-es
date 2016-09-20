@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de un laboratorio con Azure DevTest Labs | Microsoft Azure"
-	description="Creación de un nuevo laboratorio con Azure DevTest Labs para máquinas virtuales"
+	pageTitle="Creación de un laboratorio en Azure DevTest Labs | Microsoft Azure"
+	description="Creación de un laboratorio en Azure DevTest Labs para máquinas virtuales"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/25/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
 # Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
@@ -23,15 +23,14 @@
 Para crear un laboratorio necesitará:
 
 - Una suscripción de Azure. Para obtener información sobre las opciones de compra de Azure, consulte [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/). Debe ser el propietario de la suscripción para crear el laboratorio.
-- Un grupo de recursos de Azure para el laboratorio. Consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md) y [de Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
-## Creación de un laboratorio
+## Pasos para crear un laboratorio con Azure DevTest Labs
+
+Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs.
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Seleccione **Examinar**.
-
-1. Pulse **DevTest Labs** en la lista.
+1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
 
 1. En la hoja **DevTest Labs**, pulse **Agregar**.
 
@@ -40,9 +39,16 @@ Para crear un laboratorio necesitará:
 1. En la hoja **Crear un laboratorio de desarrollo y pruebas**:
 
     1. Escriba un **Nombre de laboratorio** para el nuevo laboratorio.
-    1. Seleccione una **suscripción** para asociar al laboratorio.
-    1. Seleccione una **Ubicación** en la que se va a almacenar el laboratorio.
-    1. Seleccione **Crear**.
+    
+	1. Seleccione una **suscripción** para asociar al laboratorio.
+    
+	1. Seleccione una **Ubicación** en la que se va a almacenar el laboratorio.
+    
+	1. Seleccione **Apagado automático** para especificar si desea habilitar y definir los parámetros para el cierre automático de todas las máquinas virtuales del laboratorio.
+	
+	1. Seleccione el **tipo de almacenamiento** para indicar el tipo de disco de almacenamiento para las máquinas virtuales del laboratorio.
+    
+	1. Seleccione **Crear**.
 
     ![Creación de una hoja de laboratorio](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -62,4 +68,4 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

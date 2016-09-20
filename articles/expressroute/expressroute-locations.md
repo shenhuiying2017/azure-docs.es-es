@@ -29,7 +29,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
@@ -43,7 +43,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
-|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Dallas+, Nueva York, Washington DC|
+|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Dallas, Nueva York, Washington DC|
 |**China**|Este de China, Norte de China|Beijing, Shanghai|
 |**Alemania**|Centro de Alemania, Alemania oriental|Berlín+, Fráncfort|
 
@@ -88,7 +88,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | Compatible | Singapur |
 | **Softbank** | Compatible | Compatible | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Compatible | Ámsterdam, Chennai, Hong Kong, Londres, Mumbai, Silicon Valley, Singapur, Washington DC |
-| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam y Londres |
+| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam, Dublín, Londres |
 | **Telefónica** | Compatible | Próximamente | São Paulo |
 | **Telenor** | Compatible | Compatible | Ámsterdam y Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | Próximamente | Melbourne, Sidney |
@@ -105,7 +105,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Dallas, Nueva York, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Chicago, Nueva York +, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
 
@@ -171,4 +171,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

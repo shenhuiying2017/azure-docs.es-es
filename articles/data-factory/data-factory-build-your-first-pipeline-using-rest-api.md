@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Compilación de la primera instancia de Data Factory de Azure mediante la API de REST de Data Factory
+# Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
-- [Uso del Editor de Data Factory.](data-factory-build-your-first-pipeline-using-editor.md)
-- [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Uso de la API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-En este artículo aprenderá a usar la API de REST de Data Factory para crear su primera factoría de datos de Azure.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## Requisitos previos
-
-- Lea el artículo [Información general del tutorial](data-factory-build-your-first-pipeline.md). Este artículo le ayuda a conocer los conceptos básicos de Data Factory de Azure.
+## Requisitos previos adicionales
 - Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos.
 - Siga las instrucciones de [este artículo](../resource-group-create-service-principal-portal.md) para:
 	1. Cree una aplicación web denominada **ADFGetStartedApp** en Azure Active Directory.
@@ -405,4 +402,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante las hojas del Portal de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

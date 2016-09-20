@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -52,11 +52,11 @@ La publicación de aplicaciones en Azure Marketplace conlleva dos pasos. En prim
 	}
 
 
-|Campo | Descripción | Valores posibles|
+|Campo | Description | Valores posibles|
 |-------|---------------|----------------|
 |types |Los tipos de clúster con los que es compatible la aplicación. |Hadoop, HBase, Storm y Spark (o cualquier combinación de éstos)|
 |tiers |Los niveles de clúster con los que es compatible la aplicación. |Standard, Premium (o ambos)|
-|versions|	Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4|
+|versions|	Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3\.4|
 
 ## Empaquetado de aplicación
 
@@ -90,7 +90,7 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías.
 5. Adición de una nueva versión
-6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).  
+6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).
 7. Haga clic en **Request Certification** (Solicitar certificado). El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
 ## Pasos siguientes
@@ -99,5 +99,6 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 - [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.
 - [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
 - [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Utilización de nodos perimetrales vacíos en HDInsight): aprenda a usar un nodo perimetral vacío para acceder a los clústeres de HDInsight, probar aplicaciones de este y hospedarlas.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

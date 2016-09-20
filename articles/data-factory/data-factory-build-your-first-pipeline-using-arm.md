@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de la primera instancia de Data Factory (plantilla de Resource Manager) | Microsoft Azure"
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con la plantilla del Administrador de recursos de Azure."
+	description="En este tutorial, creará una canalización de Azure Data Factory de ejemplo con la plantilla de Azure Resource Manager."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -18,27 +18,20 @@
 
 # Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
-- [Uso del Editor de Data Factory.](data-factory-build-your-first-pipeline-using-editor.md)
-- [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Uso de la API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-En este artículo, aprenderá a usar una plantilla de Azure Resource Manager para crear su primera factoría de datos de Azure.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
+## Requisitos previos adicionales
+Además de los requisitos previos enumerados en la sección anterior de requisitos previos, instale lo siguiente:
 
-## Requisitos previos
-Además de los requisitos previos que se enumeran en el tema Información general del tutorial, es preciso instalar lo siguiente:
-
-- Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los requisitos previos antes de continuar.
 - **Instale Azure PowerShell**. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar la última versión de Azure PowerShell en su equipo.
-- Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
 - Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
-
-> [AZURE.IMPORTANT]
-Para realizar el tutorial de este artículo, complete los pasos de los requisitos previos que encontrará en la [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## Creación de una plantilla de Resource Manager
 
@@ -46,8 +39,8 @@ Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetS
 
 La plantilla permite crear las siguientes entidades de Factoría de datos.
 
-1. Una **factoría de datos** denominada **TutorialDataFactoryARM**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida.
-2. Dos **servicios vinculados**: **StorageLinkedService** y **HDInsightOnDemandLinkedService**. Estos servicios permiten vincular su cuenta de Almacenamiento de Azure y un clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Debe identificar qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
+1. Una **factoría de datos** denominada **TutorialDataFactoryARM**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada.
+2. Dos **servicios vinculados**: **StorageLinkedService** y **HDInsightOnDemandLinkedService**. Estos servicios permiten vincular su cuenta de Almacenamiento de Azure y un clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Identifique qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
 3. Dos **conjuntos de datos** (entrada/salida): **AzureBlobInput** y **AzureBlobOutput**. Estos conjuntos de datos representan los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **StorageLinkedService** que ha creado anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
 
 Haga clic en la pestaña **Utilización del Editor de Data Factory** para cambiar al artículo con detalles sobre las propiedades JSON usadas en esta plantilla.
@@ -221,11 +214,11 @@ Haga clic en la pestaña **Using Data Factory Editor** (Uso del Editor de Data F
 
 Tenga en cuenta lo siguiente:
 
-- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También puede hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-- Puede usar **su propio clúster de HDInsight**, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento.
 
-	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
 Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -234,7 +227,7 @@ Para más información, consulte [Servicio vinculado a petición de HDInsight](d
 ## Creación de Data Factory
 
 1. Inicie **PowerShell** y ejecute el siguiente comando.
-	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.
+	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en el Portal de Azure.
 	- Ejecute el siguiente comando para seleccionar la suscripción en la que desea crear la factoría de datos. Get-AzureRmSubscription -SubscriptionName <NOMBRE DE SUSCRIPCIÓN> | Set-AzureRmContext
 1. Ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que creó en el paso 1.
 
@@ -242,7 +235,7 @@ Para más información, consulte [Servicio vinculado a petición de HDInsight](d
 
 ## Supervisión de la canalización
  
-1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Después de iniciar sesión en [Azure Portal](https://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.
 2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	En la **Vista de diagrama**, se ve información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
@@ -251,7 +244,7 @@ Para más información, consulte [Servicio vinculado a petición de HDInsight](d
 8. En la Vista de diagrama, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**. La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
+9. Cuando finalice el procesamiento, el segmento aparece con el estado **Listo**. La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.
@@ -263,7 +256,7 @@ También puede supervisar y administrar la aplicación para supervisar las canal
 > [AZURE.IMPORTANT] El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta inputdata del contenedor adfgetstarted.
 
 ## Plantilla de Resource Manager para crear una puerta de enlace
-Aquí aparece una plantilla de Resource Manager de ejemplo para crear una puerta de enlace lógica en la parte posterior. Debe instalar una puerta de enlace en el equipo local o en la máquina virtual de IaaS de Azure y registrar la puerta de enlace con el servicio Data Factory mediante una clave. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
+Aquí aparece una plantilla de Resource Manager de ejemplo para crear una puerta de enlace lógica en la parte posterior. Instale una puerta de enlace en el equipo local o en la máquina virtual de IaaS de Azure y registrar la puerta de enlace con el servicio Data Factory mediante una clave. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -309,4 +302,4 @@ Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una 
 
   
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

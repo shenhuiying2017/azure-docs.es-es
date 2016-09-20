@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -24,7 +24,7 @@
 - [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [Almacenamiento de blobs (vista previa)](search-howto-indexing-azure-blob-storage.md)
-- [Indexing Azure Table Storage with Azure Search](search-howto-indexing-azure-tables.md) (Indexación de Almacenamiento de tablas de Azure con Búsqueda de Azure)
+- [Indexing Azure Table Storage with Azure Search (Indexación de Almacenamiento de tablas de Azure con Búsqueda de Azure)](search-howto-indexing-azure-tables.md)
 
 Un **indexador** de Búsqueda de Azure es un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos. Este enfoque se denomina a veces "modelo de extracción", porque el servicio extrae datos sin que sea preciso escribir código que inserte datos en un índice.
 
@@ -73,7 +73,7 @@ Ahora que tiene el concepto básico, el paso siguiente consiste en revisar los r
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [Almacenamiento de blobs de Azure (versión preliminar)](search-howto-indexing-azure-blob-storage.md), que se usa para extraer texto de PDF, documentos de Office, HTML o XML
 - [Almacenamiento de tablas de Azure (versión preliminar)](search-howto-indexing-azure-tables.md)
-- [Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure](search-howto-index-csv-blobs.md) (versión preliminar)
-- [Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure](search-howto-index-json-blobs.md) (versión preliminar)
+- [Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure (versión preliminar)](search-howto-index-csv-blobs.md)
+- [Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure (versión preliminar)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

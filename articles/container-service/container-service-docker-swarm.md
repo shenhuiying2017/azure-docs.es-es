@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Administración de contenedores con Docker Swarm
@@ -123,4 +123,4 @@ Naturalmente, puede usar `docker-compose ps` para examinar solo los contenedores
 
 [Más información acerca de Docker Swarm.](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

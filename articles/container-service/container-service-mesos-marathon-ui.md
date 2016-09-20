@@ -60,7 +60,7 @@ Protocol | TCP
 Si desea asignar estáticamente el puerto del contenedor a un puerto en el agente, debe utilizar el modo JSON. Para ello, cambie el Asistente para nuevas aplicaciones al **modo JSON** mediante el botón de alternancia. A continuación, escriba lo siguiente en la sección `portMappings` de la definición de la aplicación. En este ejemplo se enlaza el puerto 80 del contenedor al puerto 80 del agente DC/OS. Puede volver a cambiar el modo JSON del Asistente después de realizar este cambio.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Nueva interfaz de usuario de la aplicación: Ejemplo con el puerto 80](media/dcos/dcos13.png)
@@ -101,4 +101,4 @@ Profundice en Azure Container Service con Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

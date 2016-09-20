@@ -77,7 +77,7 @@ Ahora vamos a implementar código en Azure mediante Git.
 
 6. Haga clic en **Elegir origen** > **Repositorio de Git local** > **Aceptar**.
 
-7. En la hoja de la aplicación web, haga clic en ** Credenciales de implementación**.
+7. En la hoja de la aplicación web, haga clic en **Credenciales de implementación**.
 
 8. Configure las credenciales de implementación y haga clic en **Guardar**.
 
@@ -144,4 +144,4 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 - Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione **GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
 - Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con uno cuantos clics. Consulte [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016-->
