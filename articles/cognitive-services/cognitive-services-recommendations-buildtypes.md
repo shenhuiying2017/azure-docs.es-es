@@ -34,7 +34,7 @@ Si entrena el modelo basado en las compras realizadas en su tienda de electróni
 
 La compilación de recomendación tiene dos capacidades que hacen que sea atractiva:
 
-**La compilación de recomendación admite la colocación de *artículos con poca rotación* **.
+**La compilación de recomendación admite la colocación de *artículos con poca* rotación**.
 
 Los artículos que no tienen un uso significativo se denominan artículos con poca rotación. Por ejemplo, si recibe un envío de un teléfono que nunca ha vendido antes, el sistema no puede inferir recomendaciones para este producto basadas solo en las transacciones. Esto significa que el sistema debe aprender de la información sobre el propio producto.
 
