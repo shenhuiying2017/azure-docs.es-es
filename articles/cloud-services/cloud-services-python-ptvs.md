@@ -24,7 +24,7 @@ En este artículo se ofrece información general sobre el uso de roles web y de 
 ## Requisitos previos
 
  - Visual Studio 2013 o 2015
- - [Herramientas de Python para Visual Studio][] (PTVS)
+ - [Herramientas de Python para Visual Studio][] \(PTVS)
  - [Herramientas del SDK de Azure para 2013][] o [Herramientas del SDK de Azure para VS 2015][]
  - [Python 2.7 de 32 bits][] o [Python 3.5 de 32 bits][]
 

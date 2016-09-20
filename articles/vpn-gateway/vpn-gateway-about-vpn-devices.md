@@ -120,7 +120,10 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | Versión de IKE | IKEv1 | IKEv2 |
 | Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3\.600 segundos | 3\.600 segundos |
-| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Consulte *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | | Confidencialidad directa total (PFS) | No | No (*)| | Detección de pares no alcanzados | No se admite | Se admite |
+| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | 
+| Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Consulte *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | 
+| Confidencialidad directa total (PFS) | No | No (*)| 
+| Detección de pares no alcanzados | No se admite | Se admite |
 
 (*) La puerta de enlace de Azure como respondedor IKE puede aceptar los grupos PFS DH 1, 2, 5, 14, 24.
 
@@ -146,7 +149,8 @@ En la siguiente tabla encontrará una lista de las ofertas de autenticación y c
 | 14 | AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta | AH MD5 con ESP DES MD5, sin vida útil |
 | 15 | AH SHA1 con ESP DES SHA1, sin vida útil | ESP SHA, sin vida útil |
 | 16 | AH MD5 con ESP DES MD5, sin vida útil | ESP MD5, sin vida útil |
-| 17 | - | AH SHA, sin vida útil | | 18 | - | AH MD5, sin vida útil |
+| 17 | - | AH SHA, sin vida útil | 
+| 18 | - | AH MD5, sin vida útil |
 
 
 - Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y RouteBased. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia. Los clientes pueden elegir usarlo en escenarios de comunicación entre redes virtuales o cuando se aplique el cifrado en otra parte de la solución.

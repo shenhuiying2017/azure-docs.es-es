@@ -77,7 +77,7 @@ Puede realizar estas mismas tareas con [C#](sql-database-get-started-csharp.md) 
 
     ![Nueva SQL Database 9](./media/sql-database-get-started/sql-database-new-database-9.png)
  
-12. Bajo ** Inicio de sesión del administrador del servidor**, proporcione un nombre de usuario para el inicio de sesión del administrador para este servidor; por ejemplo, "mi-cuenta-de-administrador". Este inicio de sesión se conoce como el inicio de sesión de la entidad de seguridad del servidor. Una marca de verificación verde indica que ha proporcionado un nombre válido.
+12. Bajo **Inicio de sesión del administrador del servidor**, proporcione un nombre de usuario para el inicio de sesión del administrador para este servidor; por ejemplo, "mi-cuenta-de-administrador". Este inicio de sesión se conoce como el inicio de sesión de la entidad de seguridad del servidor. Una marca de verificación verde indica que ha proporcionado un nombre válido.
 
     ![Nueva SQL Database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
 

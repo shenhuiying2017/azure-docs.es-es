@@ -77,7 +77,7 @@ Ahora vamos a implementar código en Azure mediante Git.
 
 6. Haga clic en **Elegir origen** > **Repositorio de Git local** > **Aceptar**.
 
-7. En la hoja de la aplicación web, haga clic en ** Credenciales de implementación**.
+7. En la hoja de la aplicación web, haga clic en **Credenciales de implementación**.
 
 8. Configure las credenciales de implementación y haga clic en **Guardar**.
 

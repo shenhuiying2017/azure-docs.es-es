@@ -220,7 +220,7 @@ En esta sección, creará una aplicación de consola de Windows que simula un di
 
   De forma predeterminada, el método **Create** crea una instancia **DeviceClient** que usa el protocolo AMQP para comunicarse con el Centro de IoT. Para usar el protocolo HTTPS, use la invalidación del método **Create** que permite especificar el protocolo. Si usa el protocolo HTTPS, debe agregar también el paquete NuGet **Microsoft.AspNet.WebApi.Client** al proyecto para incluir el espacio de nombres **System.Net.Http.Formatting**.
 
-Este tutorial le guiará por los pasos para crear un cliente de dispositivo de Centro de IoT. También puede utilizar la extensión de Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service] (Servicio conectado para Centro de IoT de Azure) para agregar el código necesario a la aplicación de cliente del dispositivo.
+Este tutorial le guiará por los pasos para crear un cliente de dispositivo de Centro de IoT. También puede utilizar la extensión de Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service] \(Servicio conectado para Centro de IoT de Azure) para agregar el código necesario a la aplicación de cliente del dispositivo.
 
 
 > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
