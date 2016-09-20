@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -67,7 +67,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
     - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
     - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-    - [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Azure Data Lake Analytics)
+    - [Accessing Diagnostics logs for Azure Data Lake Analytics (Acceso a los registros de diagnóstico de Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 
 - Tutorial integral
     - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
@@ -78,4 +78,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

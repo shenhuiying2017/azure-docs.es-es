@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -62,7 +62,7 @@ Los contenedores de datos de Almacén de Azure Data Lake son básicamente carpet
 
 El Almacén de Azure Data Lake usa Azure Active Directory para la autenticación y listas de control de acceso (ACL) para administrar el acceso a los datos.
 
-| Característica | Descripción |
+| Característica | Description |
 |-----------------------------------------|------------------------------------------|
 | Autenticación | El Almacén de Azure Data Lake se integra con Azure Active Directory (AAD) para la administración de identidad y acceso para todos los datos almacenados en el Almacén de Azure Data Lake. Como resultado de la integración, Azure Data Lake se beneficia de todas las características de AAD, lo que incluye la autenticación multifactor, el acceso condicional, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la supervisión y las alertas de seguridad, etc. El Almacén de Azure Data Lake es compatible con el protocolo OAuth 2.0 para la autenticación en la interfaz de REST. |
 | Control de acceso | El Almacén de Azure Data Lake proporciona control de acceso gracias a la compatibilidad con los permisos de estilo POSIX expuestos por el protocolo WebHDFS. En la versión actual, las ACL se pueden habilitar tanto en la carpeta raíz como en las subcarpetas, e incluso en los archivos individuales. Las ACL que se apliquen a la carpeta raíz también se podrán aplicar a todos los archivos o carpetas secundarios.|
@@ -110,4 +110,4 @@ Si prefiere ver vídeos para obtener información, Almacén de Data Lake proporc
 * [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Orquestación de datos mediante Azure Data Factory para el Almacén de Azure Data Lake)](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Securing Data in the Azure Data Lake Store (Protección de datos en el Almacén de Azure Data Lake)](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # Instalación de aplicaciones de HDInsight
@@ -27,7 +27,7 @@ Actualmente hay una aplicación publicada:
 
 >[AZURE.NOTE] Actualmente, Datameer solo es compatible con clústeres de la versión 3.2 de HDInsight de Azure.
 
-Para las instrucciones proporcionadas en este artículo se usa el Portal de Azure. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y CLI de Azure para implementarla. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Para las instrucciones proporcionadas en este artículo se usa Azure Portal. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y CLI de Azure para implementarla. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Requisitos previos
 
@@ -60,7 +60,7 @@ En el portal aparece una notificación donde puede comprobar el estado de la ins
 
 ## Instalación de aplicaciones durante la creación del clúster
 
-Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Durante el proceso, se instalan aplicaciones de HDInsight una vez que se haya creado el clúster y se encuentre en estado en ejecución. En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsight cuando se crea un clúster.
+Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Durante el proceso, se instalan aplicaciones de HDInsight una vez que se haya creado el clúster y se encuentre en ejecución. En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsight cuando se crea un clúster.
 
 **Para instalar una aplicación de HDInsight**
 
@@ -121,5 +121,6 @@ Consulte [Solución de problemas de instalación](hdinsight-apps-install-custom-
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalación de una aplicación de HDInsight): aprenda a definir aplicaciones de HDInsight.
 - [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
 - [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Utilización de nodos perimetrales vacíos en HDInsight): aprenda a usar un nodo perimetral vacío para acceder a los clústeres de HDInsight, probar aplicaciones de este y hospedarlas.
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -37,7 +37,7 @@ Las siguientes características son importantes para el desarrollo móvil habili
 
   Descubra más acerca de nuestras [características de autenticación].
 
-- **Acceso a datos**: Aplicaciones móviles de Azure proporciona un origen de datos OData v3 adecuado para dispositivos móviles vinculado a SQL Azure o un servidor SQL Server local. Este servicio se puede basar en Entity Framework, lo que permite una integración fácil con otros proveedores de datos NoSQL y SQL, incluidos [Almacenamiento de tablas de Azure], MongoDB, [DocumentDB] y proveedores de API de SaaS, como Office 365 y Salesforce.com.
+- **Acceso a datos**: Azure Mobile Apps proporciona un origen de datos OData v3 adecuado para dispositivos móviles vinculado a SQL Azure o un servidor SQL Server local. Este servicio se puede basar en Entity Framework, lo que permite una integración fácil con otros proveedores de datos NoSQL y SQL, incluidos [Almacenamiento de tablas de Azure], MongoDB, [DocumentDB] y proveedores de API de SaaS, como Office 365 y Salesforce.com.
 - **Sincronización sin conexión**: nuestros SDK de cliente facilitan la tarea de compilar aplicaciones móviles sólidas y dinámicas que funcionan con un conjunto de datos sin conexión que se puede sincronizar automáticamente con los datos de back-end, incluida la resolución de conflictos.
 
   Descubra más acerca de nuestras [características de datos].
@@ -63,7 +63,7 @@ Las siguientes características de plataforma suelen ser útiles para los sitios
 
   Descubra más acerca de las [opciones de implementación].
 
-- **Red virtual**: el Servicio de aplicaciones puede conectarse a recursos locales mediante redes virtuales, ExpressRoute o conexiones híbridas.
+- **Red virtual**: App Service puede conectarse a recursos locales mediante redes virtuales, ExpressRoute o conexiones híbridas.
 
   Descubra más acerca de las [conexiones híbridas], las [redes virtuales] y [ExpressRoute].
 
@@ -100,6 +100,6 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [redes virtuales]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
-[mapa de aprendizaje]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizaje]: https://azure.microsoft.com/es-ES/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

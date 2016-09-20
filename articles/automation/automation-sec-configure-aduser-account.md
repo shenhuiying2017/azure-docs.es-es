@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Autenticación de Runbooks con Administración de servicios de Azure y Resource Manager
@@ -26,7 +26,7 @@ En este artículo se describen los pasos que debe realizar para configurar una c
 2. Haga clic en **Active Directory** y seleccione el nombre del directorio de su organización.
 3. Seleccione la pestaña **Usuarios** y, en el área de comandos, seleccione **Agregar usuario**.
 4. En la página **Proporcione información sobre este usuario**, en **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
-5. Escriba un nombre de usuario.  
+5. Escriba un nombre de usuario.
 6. Seleccione el nombre del directorio asociado con su suscripción de Azure en la página Active Directory.
 7. En la página **Perfil de usuario**, especifique el nombre, los apellidos y un nombre descriptivo, así como un usuario de la lista **Roles**. No seleccione **Habilitar Multi-Factor Authentication**.
 8. Observe el nombre completo y la contraseña temporal del usuario.
@@ -45,10 +45,10 @@ En esta sección, llevará a cabo los pasos siguientes en el Portal de Azure par
 1. Inicie sesión en el Portal de Azure clásico como administrador de servicios para la suscripción de Azure que desea administrar.
 2. Seleccione **Automatización**.
 3. En la página **Automatización**, seleccione **Crear una cuenta de automatización**.
-4. En el cuadro **Crear una cuenta de automatización**, escriba un nombre para la nueva cuenta de automatización y seleccione una **Región** en la lista desplegable.  
+4. En el cuadro **Crear una cuenta de automatización**, escriba un nombre para la nueva cuenta de automatización y seleccione una **Región** en la lista desplegable.
 5. Haga clic en **Aceptar** para aceptar la configuración y crear la cuenta.
 6. Después de crearla, se mostrará en la página **Automatización**.
-7. Haga clic en la cuenta y le llevará a la página Panel.  
+7. Haga clic en la cuenta y le llevará a la página Panel.
 8. En la página Automation Dashboard (Panel de automatización), seleccione **Recursos**.
 9. En la página **Recursos**, seleccione **Add Settings** (Agregar la configuración) de la parte inferior de la página.
 10. En la página **Add Settings** (Agregar configuración), seleccione **Agregar credenciales**.
@@ -59,12 +59,12 @@ En esta sección, llevará a cabo los pasos siguientes en el Portal de Azure par
 
 En esta sección, llevará a cabo los pasos siguientes en el Portal de Azure para crear una nueva cuenta de Automatización de Azure que se usará con sus recursos de administración de Runbooks en modo ARM.
 
-1. Inicie sesión en el portal de Azure como administrador de servicios para la suscripción de Azure que desea administrar.
+1. Inicie sesión en Azure Portal como administrador de servicios para la suscripción de Azure que desea administrar.
 2. Seleccione **Cuentas de Automatización**.
 3. En la hoja Cuentas de Automatización, haga clic en **Agregar**.<br>![Agregar cuenta de Automatización](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. En la hoja **Agregar cuenta de Automatización**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automatización.
 5. Si tiene más de una suscripción, especifique la de la cuenta nueva, así como un **grupo de recursos** nuevo o existente, y la **ubicación** de un centro de datos de Azure.
-3. Seleccione el valor **No** en la opción **Crear cuenta de ejecución de Azure** y haga clic en el botón **Crear**.  
+3. Seleccione el valor **No** en la opción **Crear cuenta de ejecución de Azure** y haga clic en el botón **Crear**.
 
     >[AZURE.NOTE] Si decide no crear la cuenta de ejecución seleccionando la opción **No**, aparecerá un mensaje de advertencia en la hoja **Agregar cuenta de Automatización**. Aunque la cuenta se crea y se asigna al rol de **Colaborador** en la suscripción, esta no tendrá la identidad de autenticación correspondiente dentro del servicio de directorio de suscripciones y, por lo tanto, no tendrá acceso a los recursos de su suscripción. Esto impedirá que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas en los recursos del ARM.
 
@@ -87,4 +87,4 @@ Deberá repetir estas líneas después de cada [punto de control](http://technet
 ## Pasos siguientes
 * Revise los tipos de runbook diferentes y los pasos necesarios para crear sus propios runbooks en el siguiente artículo [Tipos de runbooks de Automatización de Azure](../automation/automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

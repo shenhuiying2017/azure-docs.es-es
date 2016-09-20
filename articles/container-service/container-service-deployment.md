@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Implementación de un clúster del servicio Contenedor de Azure
@@ -115,8 +115,6 @@ Cree un clúster del grupo de recursos de Azure y el servicio Contenedor con el 
 > [AZURE.NOTE] Al ejecutar este comando, el shell solicitará los valores de los parámetros de implementación.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Esta versión del comando requiere que el usuario defina los parámetros de forma interactiva. Si desea proporcionar parámetros, como una cadena con formato JSON, puede hacerlo con el modificador `-p`. Por ejemplo:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 También puede proporcionar un archivo de parámetros con formato JSON mediante el modificador `-e`:
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Para ver un archivo de parámetros de ejemplo llamado `azuredeploy.parameters.json`, búsquelo con las plantillas de Azure Container Service en GitHub.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Después de crear un grupo de recursos, puede crear el clúster con el comando siguiente. El identificador URI de la plantilla deseada se especificará para el parámetro `-TemplateUri`. Al ejecutar este comando, PowerShell solicitará los valores de los parámetros de implementación.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Suministro de los parámetros de plantilla
 
@@ -182,8 +174,6 @@ Si está familiarizado con PowerShell, sabe que puede recorrer los parámetros d
 A continuación se muestra el comando completo con parámetros incluidos. Puede proporcionar sus propios valores para los nombres de los recursos.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -195,4 +185,4 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 - [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 - [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

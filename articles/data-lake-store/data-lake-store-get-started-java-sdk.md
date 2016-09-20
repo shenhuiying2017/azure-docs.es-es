@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante Java
@@ -41,8 +41,7 @@ Los vínculos siguientes proporcionan la ubicación de descarga del SDK de Java 
 * Kit de desarrollo de Java (JDK) 8 (con Java versión 1.8).
 * IntelliJ u otro entorno de desarrollo de Java adecuado. Este requisito es opcional pero recomendable. En las instrucciones siguientes se utiliza IntelliJ.
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilitación de la suscripción de Azure** para la vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-* **Creación de una aplicación de Azure Active Directory**. Existen dos formas de autenticación con Azure Active Directory: **interactiva** y **no interactiva**. cada una con diferentes requisitos previos.
+* **Cree una aplicación de Azure Active Directory**. Existen dos formas de autenticación con Azure Active Directory: **interactiva** y **no interactiva**. cada una con diferentes requisitos previos.
 	* **Para la autenticación interactiva**: en Azure Active Directory, debe crear una **aplicación cliente nativa**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
 		- Obtenga el **id. de cliente** y el **URI de redirección** de la aplicación.
 		- Establecimiento de permisos delegados
@@ -280,4 +279,4 @@ Para que este tutorial funcione, debe conceder permiso a su aplicación para cre
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

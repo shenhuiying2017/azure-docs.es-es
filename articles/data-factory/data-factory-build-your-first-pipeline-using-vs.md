@@ -16,22 +16,18 @@
 	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
-# Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio
+# Tutorial: Compilación de la primera instancia de Azure Data Factory con Microsoft Visual Studio
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
-- [Uso del Editor de Data Factory.](data-factory-build-your-first-pipeline-using-editor.md)
-- [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Uso de la API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-En este artículo, aprenderá a usar Microsoft Visual Studio para crear su primera factoría de datos de Azure.
-
-## Requisitos previos
-
-1. **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
-2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory en Data Factory de Azure. Esta es una limitación en este momento.
+## Requisitos previos adicionales
+2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory desde Visual Studio en Azure Data Factory.
 3. Debe tener lo siguiente instalado en el equipo:
 	- Visual Studio 2013 o Visual Studio 2015.
 	- Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
@@ -50,9 +46,9 @@ Los tutoriales siguientes muestran cómo crear e implementar las entidades de la
 	![Explorador de soluciones](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## Crear servicios vinculados
-Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. El nombre y la configuración de la factoría de datos se especifican más adelante, al publicar la solución de Data Factory.
+Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada. El nombre y la configuración de la factoría de datos se especifican más adelante, al publicar la solución de Data Factory.
 
-En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Debe identificar qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
+En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Identifique qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
 
 #### Creación de un servicio vinculado de Almacenamiento de Azure
 En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría de datos. Para este tutorial, usará la misma cuenta de Almacenamiento de Azure para almacenar los datos de entrada y salida y el archivo de script de HQL.
@@ -96,11 +92,11 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 	Tenga en cuenta lo siguiente:
 	
-	- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También puede hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-	- Puede usar **su propio clúster de HDInsight**, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-	- El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento.
+	- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+	- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez se procesa un segmento, a menos que haya un clúster existente activo (**timeToLive**). El clúster se elimina automáticamente cuando se realiza el procesamiento.
 	
-		A medida que se procesan más segmentos, verá muchos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
 	Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obtener más información.
 4. Guarde el archivo **HDInsightOnDemandLinkedService1.json**.
@@ -188,7 +184,7 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
 
 
 ### Creación de una canalización
-En este paso, creará la primera canalización con una actividad **HDInsightHive**. Tenga en cuenta que el segmento de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador también se establece en mensual para la actividad (consulte a continuación). La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
+En este paso, creará la primera canalización con una actividad **HDInsightHive**. El segmento de entrada está disponible mensualmente (frecuencia: mensual, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador de la actividad también se establece en mensual. La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Canalizaciones**, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Canalización de transformación de Hive** en la lista y haga clic en **Agregar**.
@@ -251,7 +247,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Consulte en la sección [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo anterior.
+	> [AZURE.NOTE] Consulte en la sección [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo.
 3. Guarde el archivo **HiveActivity1.json**.
 
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
@@ -293,7 +289,7 @@ Tenga en cuenta lo siguiente:
 		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 	
 			Get-AzureRmResourceProvider
-	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 - 	El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 - 	Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
 
@@ -301,8 +297,7 @@ Tenga en cuenta lo siguiente:
 ## Supervisión de la canalización
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
-		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos.
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
@@ -362,7 +357,7 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 ## Uso de archivos de configuración
 Puede usar archivos de configuración de Visual Studio para configurar propiedades para servicios vinculados/tablas/canalizaciones distintos para cada entorno.
 
-Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, pruebas y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
+Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, pruebas y producción) en el que va a implementar las entidades de Data Factory. Puede conseguir este comportamiento mediante el uso del archivo de configuración independiente para cada entorno.
 
 	{
 	    "name": "StorageLinkedService",
@@ -382,7 +377,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
 2. Seleccione **Config.** en la lista de plantillas instaladas de la izquierda, seleccione **Archivo de configuración**, escriba el **nombre** del archivo de configuración y haga clic en **Agregar**.
 
 	![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
-3. Agregue parámetros de configuración y sus valores en el formato que se muestra a continuación:
+3. Agregue parámetros de configuración y sus valores en el formato siguiente.
 
 		{
 		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
@@ -402,7 +397,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
 
 	En este ejemplo se configura la propiedad connectionString de un servicio vinculado de Almacenamiento de Azure y un servicio vinculado de SQL de Azure. Observe que la sintaxis para especificar el nombre es [JsonPath](http://goessner.net/articles/JsonPath/).
 
-	Si JSON tiene una propiedad con una matriz de valores como se muestra a continuación:
+	Si JSON tiene una propiedad con una matriz de valores como se muestra en el código siguiente:
 
 		"structure": [
 	  		{
@@ -415,7 +410,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
 			}
 		],
 	
-	Debe realizar la configuración como se muestra a continuación en el archivo de configuración (use la indexación de base cero):
+	Configure las propiedades tal como se muestra en el siguiente archivo de configuración (use la indexación de base cero):
 		
 		{
             "name": "$.properties.structure[0].name",
@@ -458,15 +453,15 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 5. Confirme que ve el nombre del archivo JSON en la página **Resumen** y haga clic en **Siguiente**.
 6. Cuando finalice la operación de implementación, haga clic en **Finalizar**.
 
-Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Factoría de datos (servicios vinculados, tablas o canalizaciones) antes de que las entidades se implementen en el servicio Factoría de datos de Azure.
+Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Data Factory antes de que las entidades se implementen en el servicio Azure Data Factory.
 
 ## Resumen 
 En este tutorial, ha creado una instancia de Data Factory de Azure para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para realizar los siguientes pasos:
 
 1.	Ha creado una **factoría de datos** de Azure.
 2.	Ha creado dos **servicios vinculados**:
-	1.	El servicio vinculado **Almacenamiento de Azure** que vincula Almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
-	2.	El servicio vinculado a petición de **HDInsight de Azure** que vincula un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
+	1.	El servicio vinculado **Almacenamiento de Azure** para vincular el almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
+	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
 3.	Ha creado dos **conjuntos de datos**, que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización.
 4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
@@ -483,4 +478,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

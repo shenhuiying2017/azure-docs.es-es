@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Introducción a Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure | Microsoft Azure" 
-   description="Aprenda a usar la interfaz de línea de comandos de Azure para crear una cuenta de Almacén de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo." 
+   description="Aprenda a usar la interfaz de línea de comandos de Azure para crear una cuenta de Almacén de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -37,7 +37,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Autenticación**, mediante el comando siguiente:
 
 		azure login
-	Para obtener más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+	Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 - **Cambiar al modo de Administrador de recursos de Azure** con el siguiente comando:
 
 		azure config mode arm
@@ -46,7 +46,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Para crear una cuenta de Análisis de Data Lake, debe especificar lo siguiente:
 
-- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](../resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.  
+- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](../resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.
 
 	Para enumerar los grupos de recursos para la suscripción:
     
@@ -153,7 +153,7 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 	azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
 	azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## Consulte también
+## Otras referencias
 
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 - Para ver una consulta más compleja, consulte la página sobre el [análisis de registros de sitio web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
@@ -162,4 +162,4 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

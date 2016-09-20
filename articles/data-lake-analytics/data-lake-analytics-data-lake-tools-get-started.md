@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -132,8 +132,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
     - **Expandir * columnas**
 
-        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo. 
-        ![Expanda Data Lake Tools for Visual Studio *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo. ![Expanda Data Lake Tools for Visual Studio *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Haga clic en **Expand Columns (Expandir columnas)** y la herramienta reemplazará * por los nombres de columna.
 
@@ -363,4 +362,4 @@ El siguiente script de PowerShell prepara de forma automática una cuenta de Azu
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

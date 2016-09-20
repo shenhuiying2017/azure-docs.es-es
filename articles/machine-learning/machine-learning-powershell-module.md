@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -55,4 +55,4 @@ Para empezar a usar PowerShell para Aprendizaje automático, descargue el [paque
 
 Se seguirá mejorando y ampliando el módulo de PowerShell durante este período de versión preliminar. Esté al tanto de más información y noticias en [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) (Blog sobre Cortana Intelligence y Aprendizaje automático).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -19,7 +19,7 @@
     
 #Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
 
-[Implementación de AD FS en Azure](.\active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
+[Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
 
 Una infraestructura entre regiones geográficas de AD FS de alta disponibilidad permite:
 
@@ -49,7 +49,7 @@ Los principios de diseño básicos serán los mismos que se muestran en los prin
 ##Pasos para integrar Azure Traffic Manager
 
 ###Implementación de AD FS en la nueva región geográfica
-Siga los pasos y las directrices de [Implementación de AD FS en Azure](.\active-directory-aadconnect-azure-adfs.md) para implementar la misma topología en la nueva región geográfica.
+Siga los pasos y las directrices de [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) para implementar la misma topología en la nueva región geográfica.
 
 ###Etiquetas DNS para direcciones IP públicas de los equilibradores de carga (públicos) accesibles desde Internet
 Como se mencionó anteriormente, Azure Traffic Manager solo puede hacer referencia a etiquetas DNS como puntos de conexión y, por lo tanto, es importante crear etiquetas DNS para direcciones IP públicas de los equilibradores de carga externos. La captura de pantalla muestra cómo puede configurar la etiqueta DNS para la dirección IP pública.
@@ -131,4 +131,4 @@ La forma más sencilla de probar AD FS es mediante la página IdpInitiatedSignon
 * [Administrar un perfil del Administrador de tráfico de Azure](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Adición, deshabilitación, habilitación o eliminación de extremos](../traffic-manager/traffic-manager-endpoints.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

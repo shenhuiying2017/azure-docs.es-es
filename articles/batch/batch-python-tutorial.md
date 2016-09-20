@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/17/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # Introducción al cliente Python de Lote de Azure
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 Aprenda los conceptos básicos del cliente [Lote de Azure][azure_batch] y [Python de Lote][py_azure_sdk] gracias a una pequeña aplicación de Lote escrita en Python que verá. Se examina la forma en que estos dos scripts de ejemplo usan el servicio Lote para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Almacenamiento de Azure](./../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
-
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) **no se admiten actualmente** en los nodos de proceso de Linux.
 
 ![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
 
@@ -660,4 +658,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

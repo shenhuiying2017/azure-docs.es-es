@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Autenticación de Runbooks con Amazon Web Services
@@ -36,4 +36,4 @@ Después de crear y copiar las claves de seguridad de AWS, deberá crear un recu
 
 - Revise el artículo [Solución de Automatización de Azure: aprovisionamiento de una máquina virtual de AWS](../automation/automation-scenario-aws-deployment.md) para aprender a crear runbooks para automatizar las tareas en AWS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

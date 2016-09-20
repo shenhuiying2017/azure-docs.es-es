@@ -19,7 +19,9 @@
 
 # Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
 
-[Azure SQL Database](sql-database-technical-overview.md) tiene varios niveles de servicio para administrar las diferentes cargas de trabajo. Puede [cambiar los niveles de servicio](sql-database-scale-up.md) en cualquier momento con un tiempo de inactividad mínimo para la aplicación (una media de menos de cuatro segundos). También puede [crear una base de datos única](sql-database-get-started.md), con características y precios definidos. O bien, puede [crear un grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md) para administrar varias bases de datos. En ambos casos, los niveles son: **Básico**, **Estándar** y **Premium**. En estos niveles, las opciones de las bases de datos son similares para las bases de datos independientes y para los grupos elásticos, pero hay consideraciones adicionales para los grupos elásticos. Este artículo proporciona información detallada sobre los niveles de servicio para las bases de datos independientes y los grupos elásticos.
+[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio con varios niveles de rendimiento para controlar varias cargas de trabajo. Cada nivel de rendimiento proporciona un conjunto de recursos cada vez mayor, diseñado para proporcionar un mayor rendimiento. Puede administrar cada base de datos en su propio [nivel de servicio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con su propio nivel de rendimiento. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un conjunto compartido de recursos. Los recursos disponibles para las bases de datos independientes se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas o eDTU. Para más información sobre DTU y eDTU, consulte [Qué es una DTU](sql-database-what-is-a-DTU.md).
+
+En ambos casos, los niveles de servicio son: **Básico**, **Estándar** y **Premium**. En estos niveles, las opciones de las bases de datos son similares para las bases de datos independientes y para los grupos elásticos, pero hay consideraciones adicionales para los grupos elásticos. Este artículo proporciona información detallada sobre los niveles de servicio para las bases de datos independientes y los grupos elásticos.
 
 ## Niveles de servicio y opciones de las bases de datos
 Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 % y ofrecen un rendimiento predecible, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados para las diferentes cargas de trabajo de las aplicaciones.
@@ -39,8 +41,6 @@ Las características de rendimiento enumeradas se aplican a las bases de datos c
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de SQL Database](../../includes/sql-database-service-tiers-table.md)]
 
-Para conocer mejor las DTU, consulte la [sección sobre las DTU](#understanding-dtus) de este tema.
-
 >[AZURE.NOTE] Para ver una explicación detallada de todas las demás filas de esta tabla de niveles de servicio, consulte [Límites y capacidades de nivel de servicio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Niveles de servicio de grupos elásticos y rendimiento en las eDTU
@@ -53,10 +53,6 @@ En la tabla siguiente se describen las características de los niveles de servic
 [AZURE.INCLUDE [Tabla de niveles de servicio de SQL Database para grupos elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Todas las bases de datos de un grupo también se adhieren a las características de las bases de datos independientes de ese nivel. Por ejemplo, el grupo Básico tiene un límite máximo de entre 4800 y 28 800 sesiones por grupo, mientras que una base de datos de un grupo Básico tiene un límite de 300 sesiones.
-
-## Descripción de las DTU
-
-[AZURE.INCLUDE [Descripción de las DTU de SQL Database](../../includes/sql-database-understanding-dtus.md)]
 
 ## Selección de un nivel de servicio
 
@@ -92,4 +88,4 @@ Una vez determinado el nivel de servicio para el grupo, estará preparado para d
 
 Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->
