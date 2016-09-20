@@ -193,7 +193,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy** para copiar archivos en Almacenamiento de blobs de Azure. Puede usar la herramienta que prefiera (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/) o [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) para realizar esta tarea.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de \[AzCopy\]](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, agréguelo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy

@@ -64,7 +64,7 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 	
 	- **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
 	- **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
-    - **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
+	- **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
 	- **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.

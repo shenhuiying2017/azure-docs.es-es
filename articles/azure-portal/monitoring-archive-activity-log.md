@@ -46,7 +46,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Propiedad | Obligatorio | Description |
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | No | Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/es-ES/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | RetentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | Categorías | Sí | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 ## Archivo del registro de actividades a través de CLI
@@ -58,7 +58,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | Sí | Nombre de su perfil de registro. |
 | storageId | No | Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/es-ES/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | retentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
 | categories | Sí | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 

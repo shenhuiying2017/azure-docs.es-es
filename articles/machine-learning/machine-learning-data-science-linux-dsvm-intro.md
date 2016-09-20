@@ -61,7 +61,7 @@ Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo sigui
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:
 
 1.	Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+2.	 Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente. ![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
   a. **Aspectos básicos**:

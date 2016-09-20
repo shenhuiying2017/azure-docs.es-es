@@ -65,7 +65,7 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Información general de los Centros de eventos de Azure]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

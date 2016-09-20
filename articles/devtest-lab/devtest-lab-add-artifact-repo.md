@@ -82,7 +82,7 @@ Para obtener la dirección URL de clonación del repositorio de Visual Studio Te
     - Elija la opción **Todos los ámbitos**.
     - Elija **Crear token**.
 
-1. Cuando termine, el nuevo token aparecerá en la lista **Tokens de acceso personal**. Seleccione ** token** y luego guarde el valor del token para usarlo más adelante.
+1. Cuando termine, el nuevo token aparecerá en la lista **Tokens de acceso personal**. Seleccione **token** y luego guarde el valor del token para usarlo más adelante.
 
 1. Continúe con la sección [Conexión del laboratorio al repositorio de artefactos](#connect-your-lab-to-the-artifact-repository).
 

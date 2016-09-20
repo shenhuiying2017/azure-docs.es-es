@@ -244,7 +244,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
      a. En el cuadro de texto **Nombre de atributo**, escriba **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. En el cuadro de texto ** Valor del atributo**, escriba o seleccione **user.userprincipalname** en la lista desplegable.
+     b. En el cuadro de texto **Valor del atributo**, escriba o seleccione **user.userprincipalname** en la lista desplegable.
      
 	![Configurar inicio de sesión único][35]
 	

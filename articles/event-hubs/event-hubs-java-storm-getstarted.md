@@ -64,7 +64,7 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general sobre Centros de eventos]: event-hubs-overview.md
 

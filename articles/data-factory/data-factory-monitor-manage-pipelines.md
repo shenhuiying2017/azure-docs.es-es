@@ -284,7 +284,7 @@ Tras solucionar los problemas y depurar los errores de una canalización, puede 
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-En caso de que el segmento no se valide debido a un error de directiva (por ejemplo: datos no disponibles), puede corregir el error y volver a validarlo haciendo clic en el botón **Validar** de la barra de comandos.![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+En caso de que el segmento no se valide debido a un error de directiva (por ejemplo: datos no disponibles), puede corregir el error y volver a validarlo haciendo clic en el botón **Validar** de la barra de comandos. ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Uso de Azure PowerShell
 
