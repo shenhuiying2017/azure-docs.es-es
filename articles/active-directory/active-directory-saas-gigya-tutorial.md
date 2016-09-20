@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Gigya
@@ -64,7 +64,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Gigya](./media/active-directory-saas-gigya-tutorial/IC789527.png "Gigya")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Gigya con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Gigya con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -94,10 +94,10 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configuración de SAML](./media/active-directory-saas-gigya-tutorial/IC789533.png "Configuración de SAML")
 
-    1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
+    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Gigya**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-    3.  En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Gigya**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL del servicio de inicio de sesión único**.
-    4.  En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Gigya**, copie el valor de **Formato de identificador de nombre** y péguelo en el cuadro de texto **Formato de id. de nombre**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Gigya**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL del servicio de inicio de sesión único**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Gigya**, copie el valor de **Formato de identificador de nombre** y péguelo en el cuadro de texto **Formato de id. de nombre**.
     5.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
         
 		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
@@ -133,7 +133,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Gigya, deben aprov
 
 ##Asignación de usuarios
   
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 ###Para asignar usuarios a Gigya, lleve a cabo los siguientes pasos:
 
@@ -147,6 +147,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-gigya-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

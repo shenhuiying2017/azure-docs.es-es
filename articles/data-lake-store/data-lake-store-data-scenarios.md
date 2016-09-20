@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/14/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Uso del Almacén de Azure Data Lake para requisitos de macrodatos
@@ -145,4 +145,4 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 * Puede comenzar con [Data Factory de Azure para mover datos desde Azure Data Lake Store a Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

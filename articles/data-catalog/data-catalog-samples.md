@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/16/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 
 # Muestras para desarrolladores del Catálogo de datos
-Introducción al desarrollo de aplicaciones del Catálogo de datos mediante la API de REST del Catálogo de datos. La API de REST del Catálogo de datos es una API basada en REST que proporciona acceso a los recursos del catálogo de datos mediante programación para registrar, anotar y buscar activos de datos mediante programación.
+Introducción al desarrollo de aplicaciones del Catálogo de datos mediante la API de REST del Catálogo de datos. La API de REST de Data Catalog es una API basada en REST que proporciona acceso a los recursos de Data Catalog mediante programación para registrar, anotar y buscar activos de datos mediante programación.
 
 Estas son las muestras de GitHub:
 
@@ -34,4 +34,4 @@ Estas son las muestras de GitHub:
 
   Un ejemplo que muestra cómo utilizar la API de REST del Catálogo de datos para capturar activos desde el Catálogo de datos de Azure y serializarlos en un archivo. También ilustra cómo tomar un conjunto de recursos serializados como JSON e insertarlos en el Catálogo. Admite la exportación de un subconjunto del catálogo mediante una consulta de búsqueda.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Exploración de tutoriales de soluciones de Base de datos SQL de Azure
@@ -27,7 +27,7 @@ La demostración y laboratorio práctico [Azure SQL Database WingTipTickets](htt
 
 ## Recopilación y supervisión de datos de uso de recursos entre varios grupos
 
-[Inicio rápido de solución: telemetría de grupo elástico con PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) proporciona una solución para la recopilación y la supervisión del uso de recursos de Base de datos SQL en varios grupos de una suscripción. Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado.
+[Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) (Inicio rápido de solución: telemetría de grupo elástico con PowerShell) proporciona una solución para la recopilación y la supervisión del uso de recursos de SQL Database en varios grupos de una suscripción. Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado.
 
 Para resolver este problema, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos. Esto ayuda a supervisar y analizar el uso de recursos de forma más eficaz.
 
@@ -71,4 +71,4 @@ Esta [aplicación de demostración de Clinic de Contoso](https://github.com/Micr
 
 [Exploración de tutoriales de Base de datos SQL de Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

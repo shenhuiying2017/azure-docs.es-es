@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Resolución de máquinas virtuales e instancias de rol"
-   description="Escenarios de resolución de nombres para IaaS de Azure, soluciones híbridas, entre servicios en la nube diferentes, Active Directory y con su propio servidor DNS"
+   description="Escenarios de resolución de nombres para IaaS de Azure, soluciones híbridas, entre servicios en la nube diferentes, Active Directory y con su propio servidor DNS "
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="08/31/2016"
    ms.author="telmos" />
 
 # Resolución de nombres para las máquinas virtuales e instancias de rol
@@ -89,9 +89,9 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 - **Ubuntu (usa resolvconf)**:
 	- instalar únicamente el paquete dnsmasq ("sudo apt-get install dnsmasq")
 - **SUSE (usa netconf)**:
-	- instalar el paquete dnsmasq ("sudo apt-get install dnsmasq") 
-	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service") 
-	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service") 
+	- instalar el paquete dnsmasq ("sudo apt-get install dnsmasq")
+	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service")
+	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service")
 	- editar “/etc/sysconfig/network/config” y cambie NETCONFIG\_DNS\_FORWARDER="" por ”dnsmasq”
 	- actualizar resolv.conf ("netconfig update") para establecer la memoria caché como el solucionador DNS local
 - **OpenLogic (usa NetworkManager)**:
@@ -107,8 +107,8 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 
 DNS es principalmente un protocolo UDP. Como el protocolo UDP no garantiza la entrega de mensajes, la lógica de reintento se controla en el mismo protocolo DNS. Cada cliente DNS (sistema operativo) puede presentar una lógica de reintento diferente, dependiendo de la preferencia de los creadores:
 
- - Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros 2, 4 y otros 4 segundos. 
- - El programa de instalación predeterminado de Linux lo intenta después de 5 segundos. Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.  
+ - Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros 2, 4 y otros 4 segundos.
+ - El programa de instalación predeterminado de Linux lo intenta después de 5 segundos. Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.
 
 Para comprobar la configuración actual en una máquina virtual Linux, 'cat /etc/resolv.conf' y busque la línea 'options', p. ej.:
 
@@ -117,13 +117,13 @@ Para comprobar la configuración actual en una máquina virtual Linux, 'cat /etc
 El archivo resolv.conf suele ser autogenerado y no se debe editar. Los pasos específicos para agregar la línea 'options' varían según la distribución:
 
 - **Ubuntu** (usa resolvconf):
-	- agregar la línea de opciones a '/ etc/resolveconf/resolv.conf.d/head' 
+	- agregar la línea de opciones a '/ etc/resolveconf/resolv.conf.d/head'
 	- ejecutar 'resolvconf -u' para actualizar
 - **SUSE** (usa netconf):
-	- agregar 'timeout:1 attempts:5' al parámetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" en '/etc/sysconfig/network/config' 
+	- agregar 'timeout:1 attempts:5' al parámetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" en '/etc/sysconfig/network/config'
 	- ejecutar 'netconfig update' para actualizar
 - **OpenLogic** (usa NetworkManager):
-	- agregar 'echo "options timeout:1 attempts:5"' a '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- agregar 'echo "options timeout:1 attempts:5"' a '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- ejecutar 'service network restart' para actualizar
 
 ## Resolución de nombres mediante su propio servidor DNS
@@ -139,13 +139,13 @@ Cuando se utiliza la resolución de nombres proporcionada por Azure, se proporci
 
 Si es necesario, el sufijo DNS interno se puede determinar con PowerShell o la API:
 
--  En el caso de redes virtuales en modelos de implementación de Resource Manager, el sufijo está disponible mediante el recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) o del cmdlet [AzureRmNetworkInterface Get](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  En el caso de redes virtuales en modelos de implementación de Resource Manager, el sufijo está disponible mediante el recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) o del cmdlet [AzureRmNetworkInterface Get](https://msdn.microsoft.com/library/mt619434.aspx).
 -  En los modelos de implementación clásica, el sufijo está disponible mediante la llamada a la [API Obtener implementación](https://msdn.microsoft.com/library/azure/ee460804.aspx) o por medio del cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debe proporcionar su propia solución de DNS. La solución de DNS deberá cumplir estos requisitos:
 
--  Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante[DDNS](virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente. 
+-  Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante[DDNS](virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente.
 -  Proporcionar la resolución recursiva adecuada para permitir la resolución de nombres de dominio externos.
 -  Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
 -  Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
@@ -181,6 +181,6 @@ Modelo de implementación clásico:
 
 - [Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710)
 - [Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
-- [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md) 
+- [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

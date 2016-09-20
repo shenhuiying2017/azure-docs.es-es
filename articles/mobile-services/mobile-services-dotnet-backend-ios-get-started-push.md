@@ -24,7 +24,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> Para más información sobre la versión de Mobile Apps equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio rápido](mobile-services-dotnet-backend-ios-get-started.md), de modo que el servicio móvil envíe una notificación push cada vez que se inserte un registro. Debe completar primero [Introducción a Servicios móviles].
 
@@ -130,6 +130,6 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-ios-xplat-localized-apns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

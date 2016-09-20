@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="09/07/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con ITRP
@@ -101,13 +101,13 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Inicio de sesión único")
 
     1.  Hacer clic en **Habilitar**.
-    2.  En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
-    3.  En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de SAML**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de SAML**.
     4.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado**.
         
 		>[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-    5.  Haga clic en **Guardar**.
+    5.  Haga clic en **Save**.
 
 9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -126,7 +126,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ITRP, tienen que a
 
 3.  En el menú emergente, seleccione **Contactos**.
 
-    ![Contactos](./media/active-directory-saas-itrp-tutorial/IC775587.png "Contactos")
+    ![Personas](./media/active-directory-saas-itrp-tutorial/IC775587.png "Personas")
 
 4.  Haga clic en **Agregar nueva persona** (“+”).
 
@@ -137,19 +137,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en ITRP, tienen que a
     ![Usuario](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuario")
 
     1.  Escriba el **nombre** y el **correo electrónico** de una cuenta válida de AAD que quiera aprovisionar.
-    2.  Haga clic en **Guardar**.
+    2.  Haga clic en **Save**.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ITRP que proporcione ITRP para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 ###Para asignar usuarios a ITRP, lleve a cabo los siguientes pasos:
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **ITRP **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **ITRP**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-itrp-tutorial/IC775588.png "Asignar usuarios")
 
@@ -157,6 +157,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-itrp-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

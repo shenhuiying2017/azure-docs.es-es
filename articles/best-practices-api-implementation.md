@@ -1110,7 +1110,7 @@ Si ha implementado la API web mediante la plantilla de API Web de ASP.NET (ya se
 
 Puede ver estos datos en tiempo real desde el Portal de administración de Azure. También puede crear pruebas web que supervisen el estado de la API web. Una prueba web envía una solicitud periódica a un URI especificado en la API web y captura la respuesta. Puede especificar la definición de una respuesta correcta (por ejemplo, el código de estado HTTP 200) y, si la solicitud no devuelve esta respuesta, puede establecer que se envíe una alerta a un administrador. Si es necesario, el administrador puede reiniciar el servidor que hospeda la API web en caso de que se haya producido un error.
 
-En la página [Application Insights: comience a supervisar el estado y el uso de la aplicación](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) del sitio web de Microsoft puede encontrar más información.
+En la página [Configurar Application Insights para ASP.NET](../articles/application-insights/app-insights-asp-net.md) del sitio web de Microsoft puede encontrar más información.
 
 ### Supervisión de una API web a través del servicio de administración de API
 
@@ -1147,8 +1147,8 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Administración de API](https://azure.microsoft.com/services/api-management/) del sitio web de Microsoft se describe cómo publicar un producto que ofrezca un acceso seguro y controlado a una API web.
 - En la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft se describe cómo usar la API de REST de administración de API para crear aplicaciones de administración personalizadas.
 - En la página [Acerca de los métodos de enrutamiento del Administrador de tráfico](../articles/traffic-manager/traffic-manager-routing-methods.md) del sitio web de Microsoft se resume cómo se puede usar el Administrador de tráfico de Azure para realizar un equilibrio de carga de las solicitudes entre varias instancias de un sitio web que hospeda una API web.
-- En la página [Application Insights: comience a supervisar el estado y el uso de la aplicación](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) del sitio web de Microsoft se ofrece información detallada sobre la instalación y configuración de Application Insights en un proyecto API Web de ASP.NET.
+- En la página [Configurar Application Insights para ASP.NET](../articles/application-insights/app-insights-asp-net.md) del sitio web de Microsoft se ofrece información detallada sobre la instalación y configuración de Application Insights en un proyecto API Web de ASP.NET.
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

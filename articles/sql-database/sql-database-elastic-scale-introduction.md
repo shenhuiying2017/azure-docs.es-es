@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/27/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Escalado horizontal con Base de datos SQL de Azure
@@ -33,10 +33,10 @@ En este gráfico, los colores de la base de datos representan esquemas. Las base
 1. Un conjunto de **bases de datos de SQL de Azure** se hospedan en Azure con la arquitectura de particionamiento.
 2. La **biblioteca de cliente de base de datos elástica** se usa para administrar un conjunto de particiones.
 3. Un subconjunto de las bases de datos se coloca en un **grupo de bases de datos elásticas**. (Consulte [¿Qué es un grupo?](sql-database-elastic-pool.md)).
-4. Un **trabajo de base de datos elástica** ejecuta scripts de T-SQL en todas las bases de datos.
+4. Un **trabajo de Elastic Database** ejecuta scripts de T-SQL programados o ad-hoc en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
 6. La **consulta de base de datos elástica** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
-7. Gracias a las **transacciones elásticas**, podrá ejecutar las transacciones que abarcan varias bases de datos. 
+7. Gracias a las **transacciones elásticas**, podrá ejecutar las transacciones que abarcan varias bases de datos.
 
 
 ![Herramientas de Base de datos elástica][1]
@@ -109,4 +109,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

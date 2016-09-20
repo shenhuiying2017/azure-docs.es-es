@@ -14,5 +14,7 @@ Cuando no se supera la comprobación de validación de DNS inverso, se producir�
 No se admite el DNS inverso para los sitios web de Azure. El DNS inverso es compatible con las máquinas virtuales de IaaS y los roles de PaaS de Azure.
 ### ¿Puedo configurar varios registros de DNS inversos para mi servicio en la nube?
 No. Azure admite un único registro de DNS inverso por cada servicio en la nube de Azure. Sin embargo, cada servicio en la nube de Azure puede tener su propio registro de DNS inverso.
+### ¿Puedo enviar correos electrónicos a dominios externos desde mis servicios de proceso de Azure?
+No. Como se indica [aquí](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), los servicios de proceso de Azure no admiten el envío de correos electrónicos a dominios externos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

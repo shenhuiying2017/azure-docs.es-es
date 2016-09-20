@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/04/2016" 
+	ms.date="08/04/2016" 
 	ms.author="heidist"/>
 
 # Uso de los perfiles de puntuación en la Búsqueda de Azure
@@ -29,7 +29,7 @@ La aplicación de ejemplo demuestra los comportamientos de puntuación con la ut
 
 La aplicación de ejemplo está escrita en C# con Visual Studio 2013. Si no tiene Visual Studio, pruebe gratuitamente la [edición Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
-Necesitará una suscripción de Azure y un servicio de Búsqueda de Azure para completar el tutorial. Consulte [Creación de un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda con la configuración del servicio.
+Necesitará una suscripción de Azure y un servicio de Azure Search para completar el tutorial. Consulte [Creación de un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda con la configuración del servicio.
 
 [AZURE.INCLUDE [Para completar este tutorial, deberá tener una cuenta de Azure:](../../includes/free-trial-note.md)]
 
@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

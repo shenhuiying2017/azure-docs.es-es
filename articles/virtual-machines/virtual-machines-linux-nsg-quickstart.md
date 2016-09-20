@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Apertura de puertos y puntos de conexión de una máquina virtual de Linux | Microsoft Azure"
-   description="Más información sobre cómo abrir un puerto o crear un punto de conexión que permita el acceso externo a la máquina virtual con Linux mediante el modelo de implementación de Resource Manager y la CLI de Azure"
+   pageTitle="Apertura de puertos para una máquina virtual Linux | Microsoft Azure"
+   description="Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,8 +16,8 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Apertura de puertos y puntos de conexión
-En Azure, se abre un puerto o se crea un punto de conexión creando un filtro de red que permita el tráfico al puerto elegido de una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80.
+# Apertura de puertos para una máquina virtual Linux en Azure
+En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80.
 
 ## Comandos rápidos
 Para crear un grupo de seguridad de red y las reglas, requerirá [la CLI de Azure](../xplat-cli-install.md) en el modo de Resource Manager (`azure config mode arm`).
@@ -52,7 +52,7 @@ Los comandos rápidos que se describen aquí le permiten ponerse a trabajar con 
 
 Los grupos de seguridad de red y las reglas de ACL también se pueden definir como parte de las plantillas de Azure Resource Manager. Más información sobre la [creación de grupos de seguridad de red con plantillas](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Si necesita utilizar el enrutamiento de puerto para asignar un único puerto externo a un puerto interno de su máquina virtual, es preciso utilizar un equilibrador de carga y las reglas de traducción de direcciones de red (NAT). Por ejemplo, puede exponer el puerto TCP 8080 externamente y dirigir el tráfico al puerto TCP 80 en una máquina virtual. Puede obtener más información sobre la [creación de un equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+Si necesita utilizar el enrutamiento de puerto para asignar un único puerto externo a un puerto interno de su máquina virtual, use un equilibrador de carga y las reglas de traducción de direcciones de red (NAT). Por ejemplo, puede exponer el puerto TCP 8080 externamente y dirigir el tráfico al puerto TCP 80 en una máquina virtual. Puede aprender sobre la [creación de un equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
@@ -61,4 +61,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Compatibilidad de Azure Resource Manager con el Equilibrador de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

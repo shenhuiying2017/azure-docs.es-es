@@ -678,7 +678,7 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 
 ## Procedimiento: Incorporación de una notificación push a la aplicación
 
-Puede [obtener información general](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) en la que se describe cómo los Centros de notificaciones de Microsoft Azure admiten una amplia variedad de notificaciones push.
+Puede [obtener información general](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) en la que se describe cómo Microsoft Azure Notification Hubs admite una amplia variedad de notificaciones push.
 
 En [este tutorial](app-service-mobile-android-get-started-push.md), cada vez que se inserta un registro, se envía una notificación push.
 
@@ -766,7 +766,7 @@ Asignar nombres de columna para una tabla estrecha con solo unas pocas columnas 
 
 Para ello, usamos la biblioteca de <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> que utiliza la biblioteca de cliente Android en segundo plano para serializar los objetos de Java en datos JSON que, a su vez, se envían a Servicios móviles de Azure.
 
-El código siguiente usa el método *setFieldNamingStrategy()*, en el que definimos un método *FieldNamingStrategy()*. Este método indica que hay que eliminar el carácter inicial (una "m") y, a continuación, poner el siguiente carácter en minúscula (en cada nombre de campo). Este código también habilita la impresión con sangría de JSON de salida.
+El código siguiente usa el método *setFieldNamingStrategy()*, en el que definimos un método *FieldNamingStrategy()*. Este método indica que hay que eliminar el carácter inicial (una "m") y, a continuación, poner el siguiente carácter en minúscula (en cada nombre de campo). Este código también habillita la impresión con sangría de JSON de salida.
 
 	client.setGsonBuilder(
 	    MobileServiceClient
@@ -837,4 +837,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Agregar autenticación a su aplicación de Android]: app-service-mobile-android-get-started-users.md
 [Introducción a la autenticación]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

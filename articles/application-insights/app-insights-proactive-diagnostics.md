@@ -44,8 +44,8 @@ Seleccione una alerta para ver sus detalles.
 
 Hay tres tipos de detección:
 
-* [Alertas de error en tiempo casi real](app-insights-nrt-proactive-diagnostics.md). Usamos el aprendizaje automático para establecer la tasa esperada de solicitudes con error para su aplicación, correlacionando la carga y otros factores. Si la tasa de error queda fuera del rango esperado, se enviará una alerta.
-* [Comportamiento anómalo](app-insights-proactive-detection.md). Buscamos patrones anómalos en los tiempos de respuesta y las tasas de error cada día. Correlacionamos estos problemas con propiedades como la ubicación, el explorador, el sistema operativo del cliente, la instancia del servidor y la hora del día.
+* [Alertas de error en tiempo casi real](app-insights-proactive-failure-diagnostics.md). Usamos el aprendizaje automático para establecer la tasa esperada de solicitudes con error para su aplicación, correlacionando la carga y otros factores. Si la tasa de error queda fuera del rango esperado, se enviará una alerta.
+* [Diagnósticos de anomalías](app-insights-proactive-anomaly-diagnostics.md). Buscamos patrones anómalos en los tiempos de respuesta y las tasas de error cada día. Correlacionamos estos problemas con propiedades como la ubicación, el explorador, el sistema operativo del cliente, la instancia del servidor y la hora del día.
 * [Servicios en la nube de Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Recibe alertas si la aplicación se hospeda en Servicios en la nube de Azure y una instancia de rol tiene errores de inicio, repetición de ciclos frecuentes o bloqueos en tiempo de ejecución.
 
 (Los vínculos a la Ayuda de cada notificación llevan a los artículos pertinentes).
@@ -53,9 +53,15 @@ Hay tres tipos de detección:
 
 ## Pasos siguientes
 
+Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
+
+* [Explorador de métricas](app-insights-metrics-explorer.md)
+* [Explorador de búsqueda](app-insights-diagnostic-search.md)
+* [Analytics: Lenguaje de consulta eficaz](app-insights-analytics-tour.md)
+
 Las detecciones proactivas son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
 * [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

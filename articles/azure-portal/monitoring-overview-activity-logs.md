@@ -39,7 +39,7 @@ Un **perfil de registro** controla cómo se exporta el registro de actividad. Co
 - Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o centros de eventos)
 - Qué categorías de eventos se deberían enviar (por ejemplo, Escritura, Eliminación, Acción)
 - Qué regiones (ubicaciones) se deben exportar
-- Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. Si se establecen directivas de retención pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
+- Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647. Si se establecen directivas de retención pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
 
 Esta configuración se puede establecer por medio de la opción "Exportar" en la hoja de registro de actividad en el portal o mediante programación [con la API de REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), los cmdlets de PowerShell o la CLI. Una suscripción solo puede tener un perfil de registro.
 
@@ -52,7 +52,7 @@ Puede transmitir el registro de actividad a un centro de eventos o almacenarlo e
 2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
 
     ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. En la hoja que aparece, puede seleccionar las regiones para las que quiere exportar eventos, la cuenta de almacenamiento en la que desea guardar eventos (así como el número de días que desee conservarlos en almacenamiento) y el espacio de nombres del Bus de servicio donde desea que se cree un centro de eventos para transmitir estos eventos.
+3. En la hoja que aparece, puede seleccionar las regiones para las que quiere exportar eventos, la cuenta de almacenamiento en la que desea guardar eventos (así como el número de días que desee conservarlos en almacenamiento; con un valor de 0 se conservarán los registros de manera indefinida) y el espacio de nombres del Bus de servicio donde desea que se cree un centro de eventos para transmitir estos eventos.
 
     ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | No | Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId | No | Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| RetentionInDays | Sí | Número de días que deben retenerse los eventos. Con el valor cero, se almacenarán los registros indefinidamente. |
+| RetentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
 | Categorías | No | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### Eliminación de perfil de registro
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId | No | Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId | No | Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| retentionInDays | Sí | Número de días que deben retenerse los eventos. Con el valor cero, se almacenan los registros indefinidamente. |
+| retentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | categories | No | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### Eliminación de perfil de registro
@@ -223,4 +223,4 @@ Cada evento en el registro de actividad tiene un blob JSON como este:
 - [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
 - [Transmisión del registro de actividad de Azure a centros de eventos](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

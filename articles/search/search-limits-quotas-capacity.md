@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/03/2016"
 	ms.author="heidist"/>
 
 # Límites de servicio en la Búsqueda de Azure
 
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si agrega Búsqueda de Azure a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
 
-- El plan **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Es una opción sin costo adicional para los suscriptores existentes que permite experimentar con el servicio antes de registrarse para obtener recursos dedicados. 
+- El plan **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Es una opción sin costo adicional para los suscriptores existentes que permite experimentar con el servicio antes de registrarse para obtener recursos dedicados.
 - El plan **Básico** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña.
 - El plan **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel, incluida la configuración mínima. Standard incluye cuatro niveles: S1, S2, S3 y S3 High Density (S3 HD). S3 and S3 HD están actualmente en versión preliminar y se ofrece una tarifa reducida del 50 % durante este período.
 
@@ -97,4 +97,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Máximo de 2 claves de administración por servicio
 - Máximo de 50 claves de consultas por servicio
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -26,10 +26,10 @@ Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante diver
 
 | Protocol | Puertos |
 | -------- | ------- |
-| HTTPS | 443 |
+| MQTT | 8883 |
 | AMQP | 5671 |
 | AMQP sobre WebSockets | 443 |
-| MQTT | 8883 |
+| HTTPS | 443 |
 | LWM2M (Administración de dispositivos) | 5684 |
 
 Una vez creado un Centro de IoT en una región de Azure, el centro mantiene la misma dirección IP durante toda su existencia. Sin embargo, para mantener la calidad de servicio, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asigna una nueva dirección IP.
@@ -59,4 +59,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

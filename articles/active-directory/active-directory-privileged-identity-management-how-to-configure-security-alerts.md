@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
@@ -30,7 +30,7 @@ Privileged Identity Management (PIM) de Azure genera alertas cuando existen acti
 | **Se están asignando roles fuera de PIM** | Se ha asignado a un administrador a un rol de forma permanente, fuera de la interfaz de PIM. | Revise la nueva asignación de roles. Puesto que otros servicios solo pueden asignar administradores permanentes, cámbiela por una asignación apta en caso necesario. |
 | **Se están activando roles con demasiada frecuencia** | Había demasiadas reactivaciones del mismo rol en el tiempo permitido en la configuración. | Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para activar automáticamente un rol. |
 | **No se necesita la autenticación multifactor para la activación de los roles** | Hay roles sin MFA habilitado en la configuración. | MFA se requiere para los roles con los privilegios más elevados, pero se recomienda encarecidamente habilitar MFA para la activación de todos los roles. |
-| **Los administradores no están usando sus roles con privilegios** | Hay administradores temporales que no han activado sus roles recientemente. | Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
+| **Los administradores no están usando sus roles con privilegios** | Hay administradores aptos que no han activado sus roles recientemente. | Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
 | **Demasiados administradores globales** | Hay más administradores globales de lo que se recomienda. | Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
 
 ## Configuración de alertas de seguridad
@@ -75,4 +75,4 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

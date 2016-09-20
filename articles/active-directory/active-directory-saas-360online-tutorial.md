@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_03.png)
 
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_04.png)
 
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -201,7 +201,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_07.png)
 
 
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
  
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_08.png)
 
@@ -285,4 +285,4 @@ Al hacer clic en el icono de 360° Online en el Panel de acceso, debería inicia
 [203]: ./media/active-directory-saas-360online-tutorial/tutorial_general_203.png
 [205]: ./media/active-directory-saas-360online-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

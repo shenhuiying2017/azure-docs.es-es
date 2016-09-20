@@ -132,12 +132,20 @@ Si tiene varios objetos en el mismo espacio conector unido al mismo objeto de me
 
 En este escenario, debe cambiar el ámbito de las reglas de sincronización para que los objetos de origen tengan reglas de sincronización diferentes en el ámbito. Esto permite definir una prioridad diferente. ![Varios objetos unidos al mismo objeto de mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)
 
-## Recursos adicionales
+## Pasos siguientes
 
-- [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md)
-- [Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
-- [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
+- Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Vea cómo se utiliza aprovisionamiento declarativo integrado en el artículo sobre la [configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).
+- Siga leyendo sobre cómo los usuarios y contactos se utilizan juntos en el artículo de [descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+
+**Temas de introducción**
+
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Temas de referencia**
+
+- [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

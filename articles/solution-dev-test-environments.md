@@ -3,9 +3,9 @@
    description="Obtenga información acerca de cómo usar las plantillas del Administrador de recursos de Azure para crear y eliminar de manera rápida y coherente entornos de desarrollo y pruebas."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""/>
+   authors="tfitzmac"
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/22/2016"
-   ms.author="jdial"/>
+   ms.author="tomfitz"/>
 
 # Entornos de desarrollo y pruebas en Microsoft Azure
 
@@ -361,4 +361,4 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 - [Asigne etiquetas](resource-group-using-tags.md) a los grupos de recursos para cada entorno o a los recursos individuales. Puede agregar una etiqueta "Entorno" a los grupos de recursos y establecer su valor para que coincida con los nombres de su entorno. Las etiquetas pueden resultar especialmente útiles si necesita organizar recursos para facturación o administración.
 - Supervise las alertas y la facturación de los recursos del grupo de recursos en el [Portal de Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

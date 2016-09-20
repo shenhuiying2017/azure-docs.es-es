@@ -19,11 +19,11 @@
 # Uso de los centros de notificaciones desde Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
-Puede tener acceso a todas las características de los Centros de notificaciones desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST del Centro de notificaciones, tal como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
+Puede tener acceso a todas las características de Notification Hubs desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST de Notification Hub, tal como se describe en el tema de MSDN [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx) (API de REST de Notification Hubs).
 
 > [AZURE.NOTE] Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones.
-
-> [AZURE.NOTE] Este ejemplo está escrito con Python 3.4.
+>
+> Este ejemplo está escrito con Python 3.4.
 
 En este tema le mostraremos cómo:
 
@@ -371,7 +371,7 @@ Observe que el encabezado HTTP de formato y el cuerpo de la carga se envían com
 
 
 ## Pasos siguientes
-En este tema hemos visto cómo crear a un cliente REST de Python sencillo para centros de notificaciones. Desde aquí puede:
+En este tema hemos visto cómo crear un cliente REST de Python sencillo para Notification Hubs. Desde aquí puede:
 
 * Descargar el [ejemplo de contenedor REST de Python] completo, que contiene el código anterior.
 * Continuar aprendiendo sobre la característica de etiquetado de Centros de notificaciones en el [tutorial de noticias de última hora].
@@ -393,4 +393,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

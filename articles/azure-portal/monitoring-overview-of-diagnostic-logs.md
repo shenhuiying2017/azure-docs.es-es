@@ -33,7 +33,7 @@ Los registros de diagnóstico para recursos no de proceso se configuran mediante
 
 - Dónde se envían los registros de diagnóstico (cuenta de almacenamiento, centros de eventos o Log Analytics de OMS).
 - Qué categorías de registro se envían.
-- Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
+- Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, este valor puede oscilar entre 1 y 2147483647. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
 
 Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos para un recurso en el Portal de Azure, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -50,13 +50,17 @@ La recopilación de registros de diagnóstico se puede habilitar como parte de l
 Para habilitar los registros de diagnóstico en el Portal de Azure al crear algunos tipos de recursos, haga lo siguiente:
 
 1.	Vaya a **Nuevo** y elija el recurso que le interesa.
-2.	Después de establecer la configuración básica y seleccionar un tamaño, en la hoja **Configuración**, en **Supervisión**, seleccione **Habilitado** y elija una cuenta de almacenamiento donde almacenar los registros de diagnóstico. Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobra según las tarifas de datos normales relativas a almacenamiento y transacciones. ![Habilitar los registros de diagnóstico durante la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	Después de establecer la configuración básica y seleccionar un tamaño, en la hoja **Configuración**, en **Supervisión**, seleccione **Habilitado** y elija una cuenta de almacenamiento donde almacenar los registros de diagnóstico. Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobra según las tarifas de datos normales relativas a almacenamiento y transacciones.
+
+    ![Habilitar los registros de diagnóstico durante la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Haga clic en **Aceptar** y cree el recurso.
 
 Para habilitar los registros de diagnóstico en el Portal de Azure una vez creado un recurso, haga lo siguiente:
 
 1.	Vaya a la hoja del recurso y abra la hoja **Diagnósticos**.
-2.	Haga clic en **Activado** y seleccione una cuenta de almacenamiento o un centro de eventos. ![Habilitar los registros de diagnóstico después de la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	Haga clic en **Activado** y seleccione una cuenta de almacenamiento o un centro de eventos.
+
+    ![Habilitar los registros de diagnóstico después de la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	En **Registros**, seleccione qué **categorías de registro** desea recopilar o transmitir.
 4.	Haga clic en **Save**.
 
@@ -104,10 +108,35 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 | Almacén de Data Lake | [Acceso a los registros de diagnóstico de Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Análisis de Data Lake | [Acceso a los registros de diagnóstico de Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Aplicaciones lógicas | No hay ningún esquema disponible. |
+| Azure Batch | No hay ningún esquema disponible. |
+| Automatización de Azure | No hay ningún esquema disponible. |
+
+## Categorías de registro admitidas por tipo de recurso
+
+|Tipo de recurso|Categoría|Nombre para mostrar de categoría|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Registros de trabajo|
+|Microsoft.Automation/automationAccounts|JobStreams|Flujos de trabajo|
+|Microsoft.Batch/batchAccounts|ServiceLog|Registros de servicios|
+|Microsoft.DataLakeAnalytics/accounts|Auditoría|Registros de auditoría|
+|Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
+|Microsoft.DataLakeStore/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.KeyVault/vaults|AuditEvent|Registros de auditoría|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico en tiempo de ejecución de flujo de trabajo|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de flujo de reglas de grupo de seguridad de red|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registro de acceso de Application Gateway|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registro de rendimiento de Application Gateway|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registro de Firewall de Application Gateway|
+|Microsoft.Search/searchServices|OperationLogs|Registros de operaciones|
 
 ## Pasos siguientes
 - [Transmisión de registros de diagnóstico de Azure a **Centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Cambio de Configuración de diagnóstico mediante la API de REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Análisis de los registros con Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

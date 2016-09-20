@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Creación de una puerta de enlace de aplicaciones mediante el portal
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples. Para obtener una lista completa de las características admitidas, visite [Introducción a Puerta de enlace de aplicaciones](application-gateway-introduction.md).
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](application-gateway-create-gateway-portal.md)
@@ -27,10 +27,6 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 - [CLI de Azure](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## Escenario
 
@@ -75,7 +71,6 @@ La información necesaria para la configuración básica es:
 
 >[AZURE.NOTE] Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el SLA no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
 
-
 ### Paso 3
 
 Una vez que se define la configuración básica, el paso siguiente es definir la red virtual que se va a usar. La red virtual albergará la aplicación para la que la puerta de enlace de aplicaciones no equilibra la carga.
@@ -88,7 +83,7 @@ Haga clic en **Elegir una red virtual** para configurar la red virtual.
 
 En la hoja *Elegir red virtual*, haga clic en **Crear nuevo**
 
-*Aunque no se explica en este escenario, en este momento se puede seleccionar una red virtual existente*
+Aunque no se explica en este escenario, en este momento se puede seleccionar una red virtual existente. Si se utiliza una red virtual existente, es importante saber que necesita una subred vacía o una de red virtual con solo los recursos de Application gateway para poder utilizarse.
 
 ![elegir hoja de red virtual][4]
 
@@ -147,7 +142,7 @@ Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la c
 
 Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md) (Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal)
 
-Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure](application-gateway-ssl-arm.md)
+Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
@@ -162,4 +157,4 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

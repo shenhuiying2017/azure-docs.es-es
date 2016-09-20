@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />
 
 # Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)
 
@@ -55,7 +55,7 @@ Para usar este perfil de puntuación, se formula la consulta para especificar el
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)](search-api-2015-02-28-preview/#SearchDocs).
+Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Haga clic en [Ejemplo](#example) para revisar un ejemplo más detallado de un perfil de puntuación.
 
@@ -175,10 +175,10 @@ Funciones usadas cuando se requieren cálculos adicionales para contextos concre
 
   - El tipo de función (actualización, magnitud, distancia, etiqueta) debe aparecer en minúsculas.
   - Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.
-  - Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)](search-api-2015-02-28/#createindex) para obtener más información acerca de los campos que se pueden filtrar.
+  - Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)](search-api-2015-02-28.md#createindex) para obtener más información acerca de los campos que se pueden filtrar.
   - Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.
 
-Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice](search-api-2015-02-28-preview/#createindex) y [Agregar o actualizar documentos](search-api-2015-02-28-preview/#AddOrUpdateDocuments) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
+Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice](search-api-2015-02-28-preview.md#createindex) y [Agregar o actualizar documentos](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
 
 <a name="bkmk_template"></a>
 ## Plantilla
@@ -239,7 +239,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 
 **Nota** Las funciones de puntuación solo pueden aplicarse a campos filtrables.
 
-| Propiedad | Descripción |
+| Propiedad | Description |
 |----------|-------------|
 | `name` | Obligatorio. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con la frase «Búsquedaazure» (distingue entre mayúsculas y minúsculas). |
 | `text` | Contiene la propiedad Weights. |
@@ -256,10 +256,10 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 | `freshness` | La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. (Tenga en cuenta que también es posible clasificar elementos, como eventos del calendario con fechas futuras, de manera que los elementos más cercanos al presente tengan una clasificación más alta que los elementos más alejados en el futuro). En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. El otro extremo es un momento en el pasado basado en el elemento `boostingDuration`. Para potenciar un intervalo de horas en el futuro use una `boostingDuration` negativa. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1. |
 | `freshness:boostingDuration` | Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ][#bkmk\_boostdur] en la sección siguiente para obtener información sobre la sintaxis y ejemplos. |
 | `distance` | La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante el parámetro de consulta `scoringParameter`) como argumento lon, lat. |
-| `distance:referencePointParameter` | Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview/#SearchDocs) para obtener descripciones de los parámetros de consulta. |
+| `distance:referencePointParameter` | Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta. |
 | `distance:boostingDistance` | Número que indica la distancia en kilómetros desde la ubicación de referencia donde finaliza el intervalo de potenciación. |
 | `tag` | La función de puntuación de etiquetas se usa para afectar a la puntuación de documentos basados en las etiquetas de documentos y las consultas de búsqueda. Los documentos que tienen etiquetas en común con la consulta de búsqueda se potenciarán. Las etiquetas de la consulta de búsqueda se proporcionan como un parámetro de puntuación en cada solicitud de búsqueda (mediante el parámetro de consulta `scoringParameter`). |
-| `tag:tagsParameter` | Parámetro que se pasará en las consultas para especificar etiquetas para una solicitud en particular. `scoringParameter` es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview/#SearchDocs) para obtener descripciones de los parámetros de consulta. |
+| `tag:tagsParameter` | Parámetro que se pasará en las consultas para especificar etiquetas para una solicitud en particular. `scoringParameter` es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta. |
 | `functionAggregation` | Opcional. Se aplica solo cuando se especifican las funciones. Entre los valores válidos se incluyen `sum` (predeterminado), `average`, `minimum`, `maximum` y `firstMatching`. Una puntuación de búsqueda es un valor único que se calcula a partir de varias variables, incluidas varias funciones. Estos atributos indican cómo se combinan la potenciación de todas las funciones en una única potenciación total que, a continuación, se aplica a la puntuación del documento base. La puntuación base se basa en el valor tf-idf calculado a partir del documento y la consulta de búsqueda. |
 | `defaultScoringProfile` | Al ejecutar una solicitud de búsqueda, si no se especifica ningún perfil de puntuación, se usará la puntuación predeterminada (tf-idf solamente). Aquí puede establecerse un nombre de perfil de puntuación predeterminado, que provocará que la Búsqueda de Azure use ese perfil cuando no se proporcione ningún perfil específico en la solicitud de búsqueda. |
 
@@ -298,4 +298,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

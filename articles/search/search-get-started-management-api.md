@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 # Introducción a la API de REST de administración de búsqueda de Azure
@@ -136,10 +136,10 @@ Si aún no [descargó la aplicación de ejemplo de Github](https://github.com/Az
 	![][9]
 
 5. Proporcione `TenantID.`.
-	- Vuelva a Active Directory | SearchTutorial (servicio). 
-	- Haga clic en **Aplicaciones** en la barra superior. 
-	- Haga clic en **Ver extremos** en la parte inferior de la página. 
-	- Copie el extremo de autorización OAUTH 2.0 en la parte inferior de la lista. 
+	- Vuelva a Active Directory | SearchTutorial (servicio).
+	- Haga clic en **Aplicaciones** en la barra superior.
+	- Haga clic en **Ver extremos** en la parte inferior de la página.
+	- Copie el extremo de autorización OAUTH 2.0 en la parte inferior de la lista.
 	- Pegue el extremo en TenantID y recorte el valor de todos los parámetros URI excepto el identificador del inquilino.
 
     Dado "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", elimine todo excepto "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
@@ -158,9 +158,9 @@ Si aún no [descargó la aplicación de ejemplo de Github](https://github.com/Az
 
 Agregue un punto de interrupción en la primera llamada al método para que pueda explorar el programa. Presione **F5** para ejecutar la aplicación y luego **F11** para recorrer el código.
 
-La aplicación de ejemplo crea un servicio de Búsqueda de Azure gratuito para una suscripción de Azure existente. Si ya existe un servicio gratuito para la suscripción, se producirá un error en la aplicación de ejemplo. Se permite solo un servicio gratuito de búsqueda por suscripción.
+La aplicación de ejemplo crea un servicio gratuito de Azure Search para una suscripción de Azure existente. Si ya existe un servicio gratuito para la suscripción, se producirá un error en la aplicación de ejemplo. Se permite solo un servicio gratuito de búsqueda por suscripción.
 
-1. Abra Program.cs desde el Explorador de soluciones y vaya a la función Main(string void). 
+1. Abra Program.cs desde el Explorador de soluciones y vaya a la función Main(string void).
  
 3. Observe que **ExecuteArmRequest** se utiliza para ejecutar solicitudes en el extremo del Administrador de recursos de Azure `https://management.azure.com/subscriptions` para `subscriptionID` especificado. Este método se utiliza en todo el programa para realizar operaciones mediante la API del Administrador de recursos de Azure o la API de administración de búsqueda.
 
@@ -168,7 +168,7 @@ La aplicación de ejemplo crea un servicio de Búsqueda de Azure gratuito para u
 
 4. Se le pedirá que inicie sesión con un nombre de usuario y una contraseña que sea válida para la suscripción.
 
-5. A continuación, se registra un nuevo servicio de Búsqueda de Azure con el proveedor del Administrador de recursos de Azure. De nuevo, este es el método **ExecuteArmRequest**, que se usa esta vez para crear el servicio Búsqueda en Azure para su suscripción a través de `providers/Microsoft.Search/register`.
+5. A continuación, se registra un nuevo servicio de Búsqueda de Azure con el proveedor del Administrador de recursos de Azure. De nuevo, este es el método **ExecuteArmRequest**, que se usa esta vez para crear el servicio Search en Azure para su suscripción a través de `providers/Microsoft.Search/register`.
 
 6. El resto del programa utiliza la [API de REST de administración de Búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx). Observe que la `api-version` de esta API es diferente de la versión de api del Administrador de recursos de Azure. Por ejemplo, `/listAdminKeys?api-version=2014-07-31-Preview` muestra la `api-version` de la API de REST de Administración de Búsqueda de Azure.
 
@@ -208,4 +208,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

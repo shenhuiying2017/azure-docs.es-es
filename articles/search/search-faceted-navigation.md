@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 #Procedimiento para implementar la navegación por facetas en Búsqueda de Azure
@@ -57,8 +57,8 @@ El punto de partida es una página de aplicación que proporciona navegación po
 
 1.	Una consulta enviada a Búsqueda de Azure especifica la estructura de la navegación por facetas mediante uno o más parámetros de consulta de faceta. Por ejemplo, la consulta podría incluir `facet=Rating`, quizá con una opción `:values` o `:sort` para refinar aún más la presentación.
 2.	La capa de presentación representa una página de búsqueda que proporciona navegación por facetas, usando las facetas especificadas en la solicitud.
-3.	En una estructura de navegación por facetas dada que incluye el campo de valoración Rating, el usuario hace clic en "4" para indicar que solo se deben mostrar los productos con una valoración de 4 o superior. 
-4.	En respuesta, la aplicación envía una consulta que incluye `$filter=Rating ge 4` 
+3.	En una estructura de navegación por facetas dada que incluye el campo de valoración Rating, el usuario hace clic en "4" para indicar que solo se deben mostrar los productos con una valoración de 4 o superior.
+4.	En respuesta, la aplicación envía una consulta que incluye `$filter=Rating ge 4`
 5.	La capa de presentación actualiza la página para mostrar un conjunto de resultados reducido únicamente con los elementos que cumplen el nuevo criterio (en este caso, los productos con una valoración de 4 y superior).
 
 Una faceta es un parámetro de consulta, pero no lo confunda con una entrada de consulta. Nunca se usa como criterio de selección en una consulta. En su lugar, piense en los parámetros de consulta de faceta como entradas a la estructura de navegación que se devuelven en la respuesta. Para cada parámetro de consulta de faceta que proporcione, Búsqueda de Azure evaluará cuántos documentos hay en los resultados parciales de cada valor de faceta.
@@ -152,7 +152,7 @@ Este es un pequeño recordatorio de lo que se debe pulir:
 
 - Para cada campo que desee usar como faceta, pregúntese si contiene valores que son adecuados como filtros en búsquedas autodirigidas. Los valores deben ser breves, descriptivos y suficientemente distintivos para ofrecer una opción clara entre las opciones de la competencia.
 - Errores ortográficos o valores casi coincidentes. Si usa Color como faceta y los valores de campo incluyen Naranja y Nraanja (una palabra incorrecta), una faceta basada en el campo Color seleccionará ambas.
-- La mezcla de mayúsculas y minúsculas en el texto también puede causar estragos en la navegación por facetas, porque naranja y Naranja aparecen como dos valores diferentes. 
+- La mezcla de mayúsculas y minúsculas en el texto también puede causar estragos en la navegación por facetas, porque naranja y Naranja aparecen como dos valores diferentes.
 - Las versiones en singular y plural del mismo valor pueden producir una faceta diferente para cada una.
 
 Como puede imaginar, la diligencia en la preparación de los datos es un aspecto esencial de una navegación por facetas eficiente.
@@ -178,7 +178,7 @@ Cuando un usuario hace clic en "Red" para indicar que solo se deben mostrar prod
 
 La siguiente lista resume algunos procedimientos recomendados.
 
-- **Precisión**<br/> Use filtros. Si confía solamente en expresiones de búsqueda, la lematización podría provocar que se devuelva un documento que no tiene un valor de faceta preciso en ninguno de sus campos. 
+- **Precisión**<br/> Use filtros. Si confía solamente en expresiones de búsqueda, la lematización podría provocar que se devuelva un documento que no tiene un valor de faceta preciso en ninguno de sus campos.
 
 - **Campos de destino**<br/> En la profundización por facetas, normalmente solo querrá incluir los documentos que tienen el valor de faceta en un campo específico (con faceta), no en cualquiera de todos los campos en los que se puede buscar. Agregar un filtro refuerza el campo de destino y dirige el servicio para que busque un valor coincidente solo en el campo con faceta.
 
@@ -250,7 +250,7 @@ En determinadas circunstancias, puede que vea que los recuentos de faceta no coi
 
 Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de particionamiento. Cada índice de búsqueda tiene varias particiones, y cada una notifica las N primeras facetas por recuento de documentos, que después se combina en un único resultado. Si algunas particiones tienen muchos valores coincidentes, mientras que otros tienen menos, verá que algunos valores de faceta faltan o se contabilizan con un número inferior en los resultados.
 
-Aunque este comportamiento podría cambiar en cualquier momento, si se produce hoy puede solucionarlo estableciendo artificialmente count:<number> en un número muy grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es muy alto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
+Aunque este comportamiento podría cambiar en cualquier momento, si se produce hoy puede solucionarlo estableciendo artificialmente count:<número> en un número muy grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es muy alto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
 
 <a name="rangefacets"></a>
 ##Navegación por facetas basada en un intervalo de valores
@@ -287,7 +287,7 @@ Es habitual ver filtros que ayudan a elegir una tienda, un restaurante o un dest
 
 Hay dos funciones geoespaciales en Búsqueda de Azure, **geo.distance** y **geo.intersects**.
 
-- La función **geo.distance** devuelve la distancia en kilómetros entre dos puntos, siendo uno un campo y el otro una constante que se pasa como parte del filtro. 
+- La función **geo.distance** devuelve la distancia en kilómetros entre dos puntos, siendo uno un campo y el otro una constante que se pasa como parte del filtro.
 
 - La función **geo.intersects** devuelve true si un punto determinado se encuentra dentro de un polígono determinado, donde el punto es un campo y el polígono se especifica como una lista constante de coordenadas que se pasa como parte del filtro.
 
@@ -298,7 +298,7 @@ Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Búsqu
 
 La demostración de Búsqueda de Azure con Adventure Works en Codeplex contiene los ejemplos a los que se hace referencia en este artículo. Cuando trabaje con los resultados de búsqueda, vigile los posibles cambios en las direcciones URL en la construcción de la consulta. Esta aplicación anexa facetas al URI a medida que las selecciona.
 
-1.	Configure la aplicación de ejemplo para usar la clave de API y la dirección URL del servicio. 
+1.	Configure la aplicación de ejemplo para usar la clave de API y la dirección URL del servicio.
 
 	Observe el esquema que se define en el archivo Program.cs del proyecto CatalogIndexer. Especifica los campos que se pueden usar como faceta para color, listPrice, size, weight, categoryName y modelName. Solo algunos de ellos (color, listPrice, categoryName) se implementan en realidad en la navegación por facetas.
 
@@ -369,4 +369,4 @@ También puede ver el vídeo de [profundización en Búsqueda de Azure](http://c
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

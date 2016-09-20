@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Roles personalizados en RBAC de Azure | Microsoft Azure"
-	description="Aprenda a definir roles personalizados con Control de acceso basado en rol de Azure para administrar las identidades de manera más precisa en la suscripción de Azure."
+	description="Aprenda a definir roles personalizados con Control de acceso basado en roles de Azure para administrar las identidades de manera más precisa en la suscripción de Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -63,7 +63,7 @@ La propiedad **Actions** de un rol personalizado especifica las operaciones de A
 Use `Get-AzureRmProviderOperation` (en PowerShell) o `azure provider operations show` (en la CLI de Azure) para mostrar las operaciones de proveedores de recursos de Azure. También puede usar estos comandos para comprobar que una cadena de operación es válida y para expandir las cadenas de operación con comodín.
 
 ```
-Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
@@ -103,7 +103,7 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 
 - ¿Quién puede ver los roles personalizados? Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación. Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito.
 
-## Consulte también
+## Otras referencias
 - [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
 - Aprenda a administrar el acceso con:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
@@ -111,4 +111,4 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 	- [API DE REST](role-based-access-control-manage-access-rest.md)
 - [Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles incluidos de forma predeterminada en RBAC.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

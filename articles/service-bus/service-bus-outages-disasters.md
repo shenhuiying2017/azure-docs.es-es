@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
 
-Las aplicaciones esenciales deben funcionar de manera continua, incluso si se producen interrupciones imprevistas o desastres. En este tema se describen técnicas que puede usar para proteger las aplicaciones del Bus de servicio ante un posible desastre o una interrupción del servicio.
+Las aplicaciones esenciales deben funcionar de manera continua, incluso si se producen interrupciones imprevistas o desastres. En este tema se describen técnicas que puede usar para proteger las aplicaciones de Service Bus ante un posible desastre o una interrupción del servicio.
 
 Se define la interrupción como la falta temporal de disponibilidad del Bus de servicio de Azure. La interrupción puede afectar a algunos componentes del Bus de servicio, como a un almacén de mensajería, o incluso a todo el centro de datos. Una vez corregido el problema, el Bus de servicio vuelva a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de error de componente es la falta de disponibilidad de un determinado almacén de mensajería. Un ejemplo de interrupción de todo el centro de datos es un error de alimentación del centro de datos o un conmutador de red defectuoso en él. Una interrupción puede durar desde unos pocos minutos hasta varios días.
 
@@ -25,9 +25,9 @@ Un desastre se define como la pérdida permanente de una unidad de escalado del 
 
 ## Arquitectura actual
 
-El Bus de servicio usa varios almacenes de mensajería para conservar los mensajes que se envían a colas o temas. Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema.
+Service Bus usa varios almacenes de mensajería para conservar los mensajes que se envían a colas o temas. Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema.
 
-Todas las entidades de mensajería del Bus de servicio (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no permite la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres que abarque varios centros de datos.
+Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no permite la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres que abarque varios centros de datos.
 
 ## Protección contra interrupciones de ACS
 
@@ -37,13 +37,13 @@ Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso co
 
 ## Protección de colas y temas contra errores en el almacén de mensajería
 
-Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Bus de servicio asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información acerca de las entidades con particiones, consulte [Entidades de mensajería con particiones][].
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información acerca de las entidades con particiones, consulte [Entidades de mensajería con particiones][].
 
 ## Protección contra desastres o interrupciones del centro de datos
 
 Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio del Bus de servicio **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de EE. UU., y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
 
-Para obtener más información, consulte la sección "Error del Bus de servicio dentro de un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][].
+Para más información, consulte la sección "Error de Service Bus dentro de un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][].
 
 ## Protección de los extremos de retransmisión contra desastres o interrupciones del centro de datos
 
@@ -85,14 +85,6 @@ Cuando se usa la replicación pasiva, en los siguientes escenarios se pueden per
 
 El ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][] muestra la replicación pasiva de entidades de mensajería.
 
-## Cola del lado cliente duradera
-
-Si la aplicación tolera que una entidad del Bus de servicio no esté disponible, pero no debe perder mensajes, el remitente puede emplear una cola del lado cliente duradera que almacene localmente todos los mensajes que no se puedan enviar al Bus de servicio. Una vez que la entidad del Bus de servicio vuelva a estar disponible, se envían todos los mensajes almacenados en búfer a esa entidad. El ejemplo de [remitente de mensaje duradero][] implementa dicha cola con la ayuda de MSMQ. Como alternativa, los mensajes pueden escribirse en el disco local.
-
-Una cola del lado cliente duradera conserva el orden de los mensajes y protege la aplicación cliente de las excepciones en caso de que la entidad del Bus de servicio no esté disponible. Se puede usar con transacciones simples y distribuidas.
-
-> [AZURE.NOTE] Este ejemplo funciona bien en escenarios de infraestructura como servicio (IaaS) donde un disco local o uno de MSMQ se asigna a una cuenta de almacenamiento y los mensajes se almacenan de forma confiable con MSMQ. Esto no resulta adecuado para escenarios de plataforma como servicio (PaaS), como aplicaciones web y servicios en la nube.
-
 ## Pasos siguientes
 
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
@@ -102,13 +94,12 @@ Para obtener más información acerca de la recuperación ante desastres, consul
 
   [Autenticación y autorización de Bus de servicio]: service-bus-authentication-and-authorization.md
   [Entidades de mensajería con particiones]: service-bus-partitioning.md
-  [Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md
+  [Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [replicación geográfica con mensajes retransmitidos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [replicación geográfica con mensajes asincrónicos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [remitente de mensaje duradero]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
   [Guía técnica sobre resistencia en Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

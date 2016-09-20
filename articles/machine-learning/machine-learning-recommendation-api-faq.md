@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/26/2016" 
 	ms.author="luisca"/>
 
 #Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
 
 
 **¿Qué son las recomendaciones?**
+
+> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+
+
 
 Para las organizaciones y empresas que dependen de las recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes, las recomendaciones de Aprendizaje automático de Azure les ofrecen un motor de recomendaciones de autoservicio. Es una implementación del filtrado de colaboración que usa la factorización matricial como algoritmo básico. Los desarrolladores de aplicaciones pueden tener acceso a recomendaciones mediante las API de REST.
 
@@ -63,7 +67,7 @@ Puede comprar o actualizar su suscripción desde la [página de oferta](https://
 
 Al actualizar una suscripción:
 
-* Las transacciones que quedan en la suscripción anterior no se agregan a la nueva. 
+* Las transacciones que quedan en la suscripción anterior no se agregan a la nueva.
 * Pagará el precio completo de la nueva suscripción, aunque tenga transacciones no utilizadas en su suscripción anterior.
 
 Proceso para actualizar una suscripción:
@@ -135,4 +139,4 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

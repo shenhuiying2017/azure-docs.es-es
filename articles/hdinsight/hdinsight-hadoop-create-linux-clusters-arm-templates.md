@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM | Microsoft Azure"
-   	description="Obtenga información acerca de cómo crear clústeres para HDInsight de Azure con plantillas de ARM de Azure."
+   pageTitle="Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager | Microsoft Azure"
+   	description="Obtenga información acerca de cómo crear clústeres para Azure HDInsight con plantillas de Azure Resource Manager."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM
+# Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
@@ -34,23 +34,31 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## Plantillas de ARM
+## Plantillas de Administrador de recursos
 
-La plantilla de ARM facilita la creación de clústeres de HDInsight, sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada) y otros recursos (como la Base de datos SQL de Azure para utilizar Apache Sqoop) para la aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
+La plantilla de Resource Manager facilita la creación de clústeres de HDInsight, sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada) y otros recursos (como Azure SQL Database para utilizar Apache Sqoop) para la aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-En el [Anexo A](#appx-a-arm-template) puede encontrar una plantilla de ARM para crear un clúster de HDInsight y la cuenta de Almacenamiento de Azure dependiente. Utilice [VSCode](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de ARM](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. En este documento, obtendrá información sobre cómo llamar a la plantilla mediante distintos métodos.
+En el [Apéndice A](#appx-a-arm-template) puede encontrar una plantilla de Resource Manager para crear un clúster de HDInsight y la cuenta de Azure Storage dependiente. Utilice [VSCode](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. En este documento, obtendrá información sobre cómo llamar a la plantilla mediante distintos métodos.
 
-Para obtener más información acerca de la plantilla de ARM, vea
+Para más información sobre la plantilla de Resource Manager, consulte
 
 - [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
 
+Para averiguar el esquema JSON para ciertos elementos, puede seguir el procedimiento siguiente:
 
+1. Abra [Azure Portal](https://porta.azure.com) para crear un clúster de HDInsight. Consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
+2. Configure los elementos requeridos y los elementos que necesite en el esquema JSON.
+3. Antes de hacer clic en **Crear**, haga clic en **Opciones de automatización** como se muestra en la siguiente captura de pantalla:
+
+    ![Hadoop en HDInsight crear clúster plantilla de Resource Manager opciones de automatización de esquemas](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
+
+    El portal creará una plantilla de Resource Manager según la configuración que haya establecido.
 ## Implementación con PowerShell
 
 El procedimiento siguiente crea el clúster de HDInsight basado en Linux.
 
-**Para implementar un clúster mediante la plantilla ARM**
+**Implementación de un clúster mediante una plantilla de Resource Manager**
 
 1. Guarde el archivo json en el [Apéndice A](#appx-a-arm-template) de la estación de trabajo. En el script de PowerShell, el nombre del archivo es *C:\\HDITutorials-ARM\\hdinsight-arm-template.json*.
 2. Si fuera necesario, establezca los parámetros y las variables.
@@ -106,11 +114,11 @@ El procedimiento siguiente crea el clúster de HDInsight basado en Linux.
 
 	El script de PowerShell solo configura el nombre del clúster. El nombre de la cuenta de almacenamiento está codificado en la plantilla. Se le pedirá que escriba la contraseña de usuario del clúster (el nombre de usuario predeterminado es *admin*) y la contraseña de usuario SSH (el nombre de usuario SSH predeterminado es *sshuser*).
 	
-Para obtener más información, consulte [Implementación con PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+Para más información, consulte [Implementación con PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Implementación con la CLI de Azure
 
-En el ejemplo siguiente se crea un clúster y su contenedor y cuenta de almacenamiento dependientes mediante una llamada a una plantilla de ARM:
+En el ejemplo siguiente se crea un clúster y su contenedor y cuenta de almacenamiento dependientes mediante una llamada a una plantilla de Resource Manager:
 
 	azure login
 	azure config mode arm
@@ -129,20 +137,22 @@ Consulte [Implementación con la API de REST](../resource-group-template-deploy.
 
 Con Visual Studio, puede crear un proyecto del grupo de recursos e implementarlo en Azure a través de la interfaz de usuario. Seleccione el tipo de recursos que incluirá en su proyecto y esos recursos se agregarán automáticamente a la plantilla del Administrador de recursos. El proyecto también ofrece un script de PowerShell para implementar la plantilla.
 
-Para obtener una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para ver una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 - Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
-- Para obtener un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).
-- Para obtener información sobre las secciones de la plantilla de Azure Resource Manager, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
-- Para obtener una lista de las funciones que puede utilizar en una plantilla de Azure Resource Manager, consulte [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md).
+- Para ver un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).
+- Para información sobre las secciones de la plantilla de Azure Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+- Para ver una lista de las funciones que puede usar en una plantilla de Azure Resource Manager, consulte [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md).
 
-##Anexo A: plantilla de ARM
+##Anexo A: Plantilla de Resource Manager
 
 La siguiente plantilla de Administrador de recursos de Azure crea un clúster de Hadoop basado en Linux con la cuenta de Almacenamiento de Azure dependiente.
+
+> [AZURE.NOTE] El ejemplo incluye información de configuración de la tienda de Hive y Oozie Metastore. Quite la sección o configúrela antes de usar la plantilla.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -164,20 +174,20 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         "clusterLoginPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the cluster login."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "sshUserName": {
         "type": "string",
         "defaultValue": "sshuser",
         "metadata": {
-            "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
+            "description": "These credentials can be used to remotely access the cluster."
         }
         },
         "sshPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the ssh user."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "location": {
@@ -214,19 +224,19 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         "metadata": {
             "description": "The type of the HDInsight cluster to create."
         }
-        },  
+        },
         "clusterWorkerNodeCount": {
         "type": "int",
         "defaultValue": 2,
         "metadata": {
             "description": "The number of nodes in the HDInsight cluster."
         }
-        }      
+        }
     },
     "variables": {
         "defaultApiVersion": "2015-05-01-preview",
         "clusterApiVersion": "2015-03-01-preview",
-        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"      
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
     },
     "resources": [
         {
@@ -234,8 +244,8 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         "type": "Microsoft.Storage/storageAccounts",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('defaultApiVersion')]",
-        "dependsOn": [],
-        "tags": {},
+        "dependsOn": [ ],
+        "tags": { },
         "properties": {
             "accountType": "Standard_LRS"
         }
@@ -245,13 +255,14 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         "type": "Microsoft.HDInsight/clusters",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('clusterApiVersion')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]"
-        ],
-        "tags": {},
+        "dependsOn": [ "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]" ],
+        "tags": {
+
+        },
         "properties": {
-            "clusterVersion": "3.2",
+            "clusterVersion": "3.4",
             "osType": "Linux",
+            "tier": "standard",
             "clusterDefinition": {
             "kind": "[parameters('clusterType')]",
             "configurations": {
@@ -259,7 +270,36 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
                 "restAuthCredential.isEnabled": true,
                 "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
                 "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-                }
+                },
+                "hive-site": {
+                    "javax.jdo.option.ConnectionDriverName": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "javax.jdo.option.ConnectionURL": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "javax.jdo.option.ConnectionUserName": "johndole",
+                    "javax.jdo.option.ConnectionPassword": "myPassword$"
+                },
+                "hive-env": {
+                    "hive_database": "Existing MSSQL Server database with SQL authentication",
+                    "hive_database_name": "myhive20160901",
+                    "hive_database_type": "mssql",
+                    "hive_existing_mssql_server_database": "myhive20160901",
+                    "hive_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "hive_hostname": "myadla0901dbserver.database.windows.net"
+                },
+                "oozie-site": {
+                    "oozie.service.JPAService.jdbc.driver": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "oozie.service.JPAService.jdbc.url": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "oozie.service.JPAService.jdbc.username": "johndole",
+                    "oozie.service.JPAService.jdbc.password": "myPassword$",
+                    "oozie.db.schema.name": "oozie"
+                },
+                "oozie-env": {
+                    "oozie_database": "Existing MSSQL Server database with SQL authentication",
+                    "oozie_database_name": "myhive20160901",
+                    "oozie_database_type": "mssql",
+                    "oozie_existing_mssql_server_database": "myhive20160901",
+                    "oozie_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "oozie_hostname": "myadla0901dbserver.database.windows.net"
+                }            
             }
             },
             "storageProfile": {
@@ -278,7 +318,7 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
                 "name": "headnode",
                 "targetInstanceCount": "2",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -291,7 +331,7 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
                 "name": "workernode",
                 "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -313,4 +353,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
     }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

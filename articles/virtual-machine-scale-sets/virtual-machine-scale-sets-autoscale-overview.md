@@ -159,7 +159,7 @@ En este ejemplo se muestra la configuración del recurso en la plantilla:
 
 En el ejemplo anterior, se crearon dos reglas para definir las acciones de escalado automático. La primera regla define la acción de escalado horizontal y la segunda regla define la acción de reducción horizontal. Estos valores se proporcionan en las reglas:
 
-- **metricName**: este es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter para la extensión de diagnóstico. En el ejemplo anterior, se utilizó el contador Número de subprocesos.  
+- **metricName**: este es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter para la extensión de diagnóstico. En el ejemplo anterior, se utilizó el contador Número de subprocesos.
 - **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales. Este identificador contiene el nombre del grupo de recursos, el nombre del proveedor de recursos y el nombre del conjunto de escalado que se va a escalar.
 - **timeGrain**: ésta es la granularidad de las métricas que se recopilan. En el ejemplo anterior, los datos se recopilaban en intervalos de un minuto. Este valor se utiliza en combinación con timeWindow.
 - **statistic**: determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max.
@@ -228,5 +228,6 @@ Azure PowerShell puede utilizarse para configurar el escalado automático de un 
 - Eche un vistazo al artículo [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-autoscale.md) para ver un ejemplo de cómo crear un conjunto de escalas con el escalado automático configurado.
 - Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de PowerShell de Azure Insights](../azure-portal/insights-powershell-samples.md).
 - Obtenga información sobre las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) y [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Más información sobre los [escenarios avanzados de escalado automático](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Crear aplicaciones .NET para HDInsight de autenticación no interactiva
@@ -25,7 +25,7 @@ Desde su aplicación .NET, necesitará:
 
 - el identificador de inquilino de su suscripción a Azure
 - el identificador de cliente de la aplicación de Azure Directory
-- la clave secreta de la aplicación de Azure Directory.  
+- la clave secreta de la aplicación de Azure Directory.
 
 El proceso principal incluye los siguientes pasos:
 
@@ -36,7 +36,7 @@ El proceso principal incluye los siguientes pasos:
 
 ##Requisitos previos
 
-- Clúster de HDInsight. Puede crear uno usando las instrucciones del [tutorial de introducción](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+- Clúster de HDInsight. Puede crear uno usando las instrucciones del [tutorial de introducción](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
@@ -115,11 +115,11 @@ O de la CLI de Azure:
     azure account show --json
 
       
-## Consulte también
+## Otras referencias
 
 - [Envío de trabajos de Hadoop en HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md)
 - [Autenticar una entidad de servicio con Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

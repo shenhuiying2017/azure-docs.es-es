@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Caso práctico para desarrolladores de Búsqueda de Azure
@@ -117,8 +117,8 @@ Así es como creamos el prototipo.
 **Desarrollar un trabajo de indexador de búsqueda: consola de Windows**
 
 1. Lea todos los distribuidores de la base de datos.
-2. Llame a la API de servicio de Búsqueda de Azure para cargar los distribuidores uno a uno (consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Establezca una propiedad en la base de datos mediante la que el distribuidor aparezca como indexado para la indexación incremental. Hemos llevado a cabo esto agregando un campo «indexador» que almacena el estado del índice de cada perfil (indexado o no). 
+2. Llame a la API de servicio de Azure Search para cargar los distribuidores uno a uno (consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Establezca una propiedad en la base de datos mediante la que el distribuidor aparezca como indexado para la indexación incremental. Hemos llevado a cabo esto agregando un campo «indexador» que almacena el estado del índice de cada perfil (indexado o no).
 
 Consulte el apéndice del fragmento de código que crea el trabajo de indexador.
 
@@ -126,7 +126,7 @@ Consulte el apéndice del fragmento de código que crea el trabajo de indexador.
 
 1. Llame al servicio de Búsqueda de Azure para obtener todos los documentos de búsqueda (consulte: http://msdn.microsoft.com/library/azure/dn798927.aspx)
 2. Extraiga lo siguiente de la respuesta del servicio de búsqueda (mediante el uso de json.net http://james.newtonking.com/json)
-   - Resultados
+   - Results
    - Facetas
    - Recuentos de resultado
    - Desarrolle una interfaz de usuario para mostrar los resultados de la búsqueda, las facetas y los recuentos (ya disponíamos de esto).
@@ -156,11 +156,11 @@ Cada uno de los documentos tiene una propiedad oculta denominada "cities" en el 
 
 ###Almacenamiento de datos
 
-Todos los datos (perfil, suscripción y contabilidad) se almacenan en la Base de datos SQL. Todos los archivos multimedia se almacenan en el almacenamiento de BLOB de Azure, incluidas imágenes y vídeos proporcionados por el distribuidor. Mediante el uso del almacenamiento BLOB independiente, se aíslan los efectos de carga de archivos; los archivos nunca están mezclados con el sitio web, por lo que no es necesario volver a generar el sitio cuando agregamos archivos.
+Todos los datos (perfil, suscripción y contabilidad) se almacenan en SQL Database. Todos los archivos multimedia se almacenan en el almacenamiento de BLOB de Azure, incluidas imágenes y vídeos proporcionados por el distribuidor. Mediante el uso del almacenamiento BLOB independiente, se aíslan los efectos de carga de archivos; los archivos nunca están mezclados con el sitio web, por lo que no es necesario volver a generar el sitio cuando agregamos archivos.
 
 Una ventaja importante de nuestro diseño del almacenamiento es que varios desarrolladores pueden compartir un almacenamiento de desarrollo único. Uno de los requisitos del proyecto WhatToPedia era poder crear un entorno de desarrollo antes de 15 minutos, incluidos vídeos, imágenes y datos del distribuidor. Mediante la obtención de los datos más recientes de TFS Online, la ejecución de un script SQL y la ejecución del trabajo de importación, puede establecerse un entorno completo en muy poco tiempo. Esta práctica también mejora el proceso de ensayo.
 
-###WebJobs
+###Trabajos web
 
 Usamos WebJobs de Azure para actualizar datos en el índice. Al crear un trabajo de indexador de búsqueda, la parte de indexación era muy fácil de integrar en nuestra solución. El único cambio de código que hicimos fue acomodar el trabajo de indexador para agregar un campo `Indexed` a nuestro modelo de datos para indicar el estado del índice. Cuando se agrega o actualiza un nuevo perfil, el campo `Indexed` se establece en false. Lo mismo se aplica si el distribuidor cambia sus datos de perfil a través del portal.
 
@@ -421,4 +421,4 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

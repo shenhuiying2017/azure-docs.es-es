@@ -101,57 +101,17 @@ La versión actual de Bus de servicio no admite reglas SAS para suscripciones in
 
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un Centro de eventos.
 
-### Creación de identidades de servicio, usuarios de confianza y reglas en ACS
-
-ACS admite varias formas de crear identidades de servicio, usuarios de confianza y reglas, pero la forma más sencilla es mediante [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Por ejemplo:
-
-1. Crear una identidad de servicio en un elemento **EventHubSender**. Esta operación devuelve el nombre de la identidad del servicio que se creó y su clave:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Otorgue a **EventHubSender** "Notificaciones de envío" para el Centro de eventos:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Crear una identidad de servicio en un receptor para un grupo de consumidores 1:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Otorgue a `consumergroup1receiver` "Notificaciones de escucha" para **ConsumerGroup1**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Crear una identidad de servicio en un receptor para un **grupo de consumidores 2**:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Otorgue a `consumergroup2receiver` "Notificaciones de escucha" para **ConsumerGroup2**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Pasos siguientes
 
 Para más información sobre Centros de eventos, visite los siguientes temas:
 
 - [Información general de los Centros de eventos]
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
 - Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
+- Una [aplicación de ejemplo completa que usa Centros de eventos].
 
 [Información general de los Centros de eventos]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

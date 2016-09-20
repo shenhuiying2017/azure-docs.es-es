@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/09/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
@@ -26,10 +26,10 @@ Para obtener información sobre otras características de caché premium, vea [C
 ## ¿Qué es Clúster Redis?
 Caché en Redis de Azure ofrece clúster de Redis como [implementado en Redis](http://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas.
 
--	La capacidad de dividir automáticamente el conjunto de datos entre varios nodos. 
--	La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se pueden comunicar con el resto del clúster. 
--	Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
--	Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
+-	La capacidad de dividir automáticamente el conjunto de datos entre varios nodos.
+-	La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se pueden comunicar con el resto del clúster.
+-	Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones.
+-	Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.
 
 Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obtener más detalles sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché Premium.
 
@@ -164,4 +164,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

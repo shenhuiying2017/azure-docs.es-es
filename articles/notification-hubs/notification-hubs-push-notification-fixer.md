@@ -224,7 +224,7 @@ Más detalles aquí:
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Información general acerca de los Centros de notificaciones]: notification-hubs-overview.md
+[Información general acerca de los Centros de notificaciones]: notification-hubs-push-notification-overview.md
 [nuestros tutoriales introductorios]: notification-hubs-windows-store-dotnet-get-started.md
 [tutoriales introductorios]: notification-hubs-windows-store-dotnet-get-started.md
 [Instrucciones para plantillas]: https://msdn.microsoft.com/library/dn530748.aspx
@@ -242,4 +242,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -37,7 +37,7 @@ De momento, no.
 
 #### ¿Puedo anunciar los mismos prefijos que los de mis prefijos de red virtual?
 
-No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual.
+No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual. Sin embargo, puede anunciar un prefijo que sea un superconjunto de lo que contenga Virtual Network. Por ejemplo, Virtual Network podría usar el espacio de direcciones 10.10.0.0/16 y usted podría anunciar 10.0.0.0/8.
 
 ### ¿Puedo usar BGP con mis conexiones de red virtual a red virtual?
 
@@ -79,4 +79,4 @@ La puerta de enlace de red local de Azure especifica los prefijos de dirección 
 
 Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dispositivo VPN que apunta al túnel VPN S2S de IPsec. Por ejemplo, si la dirección IP del par VPN de Azure es "10.12.255.30", debe agregar una ruta de host para "10.12.255.30" con una interfaz de próximo salto de la interfaz de túnel IPsec coincidente en el dispositivo VPN.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

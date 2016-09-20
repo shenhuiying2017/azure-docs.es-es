@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="09/02/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
@@ -39,15 +39,16 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 80: el puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 443: el puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
+- 990: canal de control para FTPS. Este puerto se puede bloquear de forma segura si no se utiliza FTPS. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
 - 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 
 ## Requisitos de DNS y conectividad saliente ##
-Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos que utiliza un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
+Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos que utiliza un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos de App Service con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
-Los Entornos del Servicio de aplicaciones requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno recogerá la nueva configuración de DNS.
+Los Entornos del Servicio de aplicaciones requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno de App Service en el [Portal de Azure][NewPortal], el entorno recogerá la nueva configuración de DNS.
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno. De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
 
@@ -116,7 +117,7 @@ Cuando una aplicación de un ASE está configurada para usar IP-SSL, los cliente
 
 ## Introducción
 
-Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment].
+Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment]
 
 Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
@@ -140,4 +141,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="09/05/2016"
    ms.author="smalone" />
 
 # Administración de registros de DNS inversos para los servicios mediante PowerShell
@@ -68,4 +68,4 @@ Puede quitar una propiedad DNS inversa desde una dirección IP pública existent
 
 [AZURE.INCLUDE [P+F](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->
