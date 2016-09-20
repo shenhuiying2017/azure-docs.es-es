@@ -65,12 +65,12 @@ Este es un ejemplo en el que se llena el dominio del atributo de metaverso con e
 Pueden utilizarse los siguientes operadores:
 
 - **Comparación**: <, <=, <>, =, >, >=
-- **Matemáticos**: +, -, *, -
+- **Matemáticos**: +, -, \*, -
 - **Cadena**: & (concatenar)
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
-Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
+Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (\*) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
 
 ## Atributos con varios valores
 Las funciones pueden operar tanto atributos con un solo valor como con varios valores. Para los atributos con varios valores, la función opera sobre cada valor y aplica la misma función a cada valor.
