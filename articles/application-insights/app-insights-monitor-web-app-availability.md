@@ -72,7 +72,7 @@ Agregue más pruebas. Por ejemplo, además de probar la página principal, puede
 
 ## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
 
-Después de 1 o 2 minutos, los resultados aparecen en
+Después de 1 o 2 minutos, los resultados aparecen en la hoja Prueba web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -323,4 +323,4 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

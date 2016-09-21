@@ -13,30 +13,30 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/06/2016"
+	ms.date="09/07/2016"
 	ms.author="marsma" />
 
 # Almacenamiento de la salida de trabajos y tareas de Lote de Azure
 
 Las tareas que se ejecutan normalmente en Lote producen salidas que se deben almacenar y que posteriormente otras tareas del trabajo, o la aplicación cliente que ejecutó el mismo o ambas, recuperarán. Esta salida puede consistir en archivos creados mediante el procesamiento de datos de entrada o en archivos de registro asociados con la ejecución de la tarea. Este artículo presenta una biblioteca de clases .NET que usa una técnica basada en convenciones para guardar esta salida de las tareas en el Almacenamiento de blobs de Azure, lo cual hace que esté disponible incluso después de eliminar los grupos, los trabajos y los nodos de proceso.
 
-Mediante la técnica descrita en este artículo, también podrá ver la salida de las tareas en los **archivos de salida guardados** y en los **registros guardados** en el [Portal de Azure][portal].
+Mediante la técnica descrita en este artículo, puede ver la salida de las tareas en **Archivos de salida guardados** y en **Registros guardados** en [Azure Portal][portal].
 
 ![Selectores de archivos de salida guardados y registros guardados en el portal][1]
 
->[AZURE.NOTE] El método de almacenamiento y recuperación de archivos que se analiza aquí proporciona una funcionalidad parecida a la forma en la que las **aplicaciones de Lote** (ahora en desuso) administraban la salida de las tareas.
+>[AZURE.NOTE] La biblioteca de clases .NET de [Azure Batch File Conventions][nuget_package] (Convenciones de archivos para Azure Batch) que se trata en este artículo actualmente se encuentra en versión preliminar. Algunas de las características que se describen aquí pueden cambiar antes de tener disponibilidad general.
 
 ## Consideraciones sobre la salida de las tareas
 
-Al diseñar la solución de Lote, debe tener en cuenta varios factores relacionados con las salidas de los trabajos y las tareas.
+Al diseñar la solución Batch, debe tener en cuenta varios factores relacionados con las salidas de los trabajos y las tareas.
 
 * **Duración del nodo de proceso**: los nodos de proceso a menudo son transitorios, especialmente en los grupos con escalado automático habilitado. Las salidas de las tareas que se ejecutan en un nodo solo están disponibles mientras existe el nodo y solo durante el tiempo de retención del archivo que se haya establecido para la tarea. Para asegurarse de que se guarda la salida de la tarea, las tareas deben cargar los archivos de salida en un almacén duradero como, por ejemplo, el Almacenamiento de Azure.
 
 * **Almacenamiento de salida**: para guardar los datos de salida de la tarea en un almacenamiento duradero, puede usar el [SDK de Almacenamiento de Azure](../storage/storage-dotnet-how-to-use-blobs.md) en el código de tarea para cargar la salida de la tarea en un contenedor de Almacenamiento de blobs. Si implementa un contenedor y una convención de nomenclatura de archivos, la aplicación cliente u otras tareas del trabajo pueden, a continuación, buscar y descargar este resultado basándose en esta convención.
 
-* **Recuperación de la salida**: puede recuperar la salida de la tarea directamente desde los nodos de proceso del grupo o desde el Almacenamiento de Azure si las tareas guardan su salida. Para recuperar la salida de una tarea directamente desde un nodo de proceso, necesita el nombre del archivo y la ubicación de la salida en el nodo. Si guarda la salida en el Almacenamiento de Azure, las tareas que siguen en la cadena o la aplicación cliente deberán tener la ruta de acceso completa al archivo en el Almacenamiento de Azure para poder descargarlo mediante el SDK de este servicio.
+* **Recuperación de la salida**: puede recuperar la salida de la tarea directamente desde los nodos de proceso del grupo o desde el Almacenamiento de Azure si las tareas guardan su salida. Para recuperar la salida de una tarea directamente desde un nodo de proceso, necesita el nombre del archivo y la ubicación de la salida en el nodo. Si guarda la salida en Azure Storage, las tareas de bajada o la aplicación cliente deben tener la ruta de acceso completa al archivo en Azure Storage para poder descargarlo mediante el SDK de este servicio.
 
-* **Visualización de la salida**: si navega a una tarea de Lote en el Portal de Azure y selecciona **Files on node** (Archivos del nodo), se mostrarán todos los archivos asociados a la tarea y no solo los archivos de salida que le interesan. Es más, los archivos de un nodo de proceso solo están disponibles mientras existe el nodo y solo durante el tiempo de retención del archivo que se haya establecido para la tarea. Para ver la salida de la tarea que ha almacenado en el Almacenamiento de Azure en el portal o en una aplicación como el [Explorador de almacenamiento de Azure][storage_explorer], debe conocer su ubicación y navegar hasta el archivo directamente.
+* **Visualización de la salida**: si navega a una tarea de Batch en Azure Portal y selecciona **Archivos en el nodo**, se mostrarán todos los archivos asociados a la tarea y no solo los archivos de salida que le interesan. Es más, los archivos de un nodo de proceso solo están disponibles mientras existe el nodo y solo durante el tiempo de retención del archivo que se haya establecido para la tarea. Para ver la salida de la tarea que ha almacenado en el Almacenamiento de Azure en el portal o en una aplicación como el [Explorador de almacenamiento de Azure][storage_explorer], debe conocer su ubicación y navegar hasta el archivo directamente.
 
 ## Ayuda sobre salidas almacenadas
 
@@ -72,9 +72,9 @@ Hay dos acciones principales que debe realizar al guardar las salidas de trabajo
 
 ### Creación de contenedores de almacenamiento
 
-Antes de que las tareas empiecen a guardar salidas en el almacenamiento, debe crear un contenedor de Almacenamiento de blobs en el que se carguen sus salidas. Hágalo llamando a [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión toma un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro y crea un contenedor denominado de tal forma que el Portal de Azure y los métodos de recuperación descritos más adelante en el artículo pueden detectar su contenido.
+Antes de que las tareas empiecen a guardar salidas en el almacenamiento, debe crear un contenedor de Blob Storage en el que se carguen las salidas. Hágalo llamando a [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión adopta un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro y crea un contenedor denominado de tal forma que Azure Portal y los métodos de recuperación descritos más adelante en el artículo pueden detectar su contenido.
 
-Normalmente se coloca este código en la aplicación cliente, la aplicación que crea los grupos, trabajos y tareas.
+Normalmente se coloca este código en la aplicación cliente, la aplicación que crea los grupos, los trabajos y las tareas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -91,7 +91,7 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 
 ### Almacenamiento de las salidas de tarea
 
-Ahora que ha preparado un contenedor en el almacenamiento de blobs, las tareas pueden guardar las salidas en el contenedor mediante la clase [TaskOutputStorage][net_taskoutputstorage] que se encuentra en la biblioteca de convenciones de archivos.
+Ahora que ha preparado un contenedor en Blob Storage, las tareas pueden guardar las salidas en el contenedor mediante la clase [TaskOutputStorage][net_taskoutputstorage] que se encuentra en la biblioteca de convenciones de archivos.
 
 En el código de la tarea, cree primero un objeto [TaskOutputStorage][net_taskoutputstorage], a continuación, cuando la tarea haya finalizado su trabajo, llame al método [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] para guardar su salida en el Almacenamiento de Azure.
 
@@ -113,7 +113,7 @@ El parámetro de "variante de salida" clasifica los archivos guardados. Hay cuat
 
 Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mostrar cuándo se realiza una consulta a Lote relacionada con las salidas guardadas de una tarea dada. En otras palabras, cuando muestra las salidas de una tarea, puede filtrar la lista por uno de los tipos de salida. Por ejemplo, "dame la salida *vista previa* de la tarea *109*". Aparece más información sobre la presentación y recuperación de salidas en la sección [Recuperación de salidas](#retrieve-output) más adelante en el artículo.
 
->[AZURE.TIP] La variante de salida también designa en qué lugar del Portal de Azure aparecerá un archivo determinado. *TaskOutput*: los archivos clasificados aparecerán en "Archivos de salida de tarea" y los archivos de *TaskLog* aparecerán en "Registros de tareas".
+>[AZURE.TIP] La variante de salida también designa en qué lugar de Azure Portal aparece un archivo determinado. Los archivos categorizados como *TaskOutput* aparecen en "Archivos de salida de tarea" y los archivos *TaskLog* aparecen en "Registros de tareas".
 
 ### Almacenamiento de salidas de trabajos
 
@@ -129,7 +129,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Al igual que con TaskOutputKind para las salidas de tareas, utilice el parámetro [JobOutputKind][net_joboutputkind] para clasificar los archivos guardados de un trabajo. Esto le permitirá realizar consultas posteriores (mostrar) para un tipo específico de salida. El parámetro JobOutputKind incluye los tipos de salida y de vista previa y admite la creación de tipos personalizados.
+Al igual que con TaskOutputKind para las salidas de tareas, utilice el parámetro [JobOutputKind][net_joboutputkind] para clasificar los archivos guardados de un trabajo. Este parámetro permite realizar consultas posteriores (mostrar) para un tipo específico de salida. El parámetro JobOutputKind incluye los tipos de salida y de vista previa y admite la creación de tipos personalizados.
 
 ### Almacenamiento de los registros de tareas
 
@@ -138,29 +138,39 @@ Además de guardar un archivo en un almacenamiento duradero cuando se completa u
 En el siguiente fragmento de código, utilizamos [SaveTrackedAsync][net_savetrackedasync] para actualizar `stdout.txt` en el Almacenamiento de Azure cada 15 segundos durante la ejecución de la tarea:
 
 ```csharp
+TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
 	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
+// The primary task logic is wrapped in a using statement that sends updates to
+// the stdout.txt blob in Storage every 15 seconds while the task code runs.
 using (ITrackedSaveOperation stdout =
-		taskStorage.SaveTrackedAsync(
+		await taskStorage.SaveTrackedAsync(
 		TaskOutputKind.TaskLog,
 		logFilePath,
 		"stdout.txt",
 		TimeSpan.FromSeconds(15)))
 {
 	/* Code to process data and produce output file(s) */
+
+	// We are tracking the disk file to save our standard output, but the
+	// node agent may take up to 3 seconds to flush the stdout stream to
+	// disk. So give the file a moment to catch up.
+ 	await Task.Delay(stdoutFlushDelay);
 }
 ```
 
-`Code to process data and produce output file(s)` es simplemente un marcador de posición para el código que normalmente realizaría la tarea. Por ejemplo, es posible que tenga código que descargue datos desde el Almacenamiento de Azure y realice algún tipo de transformación o cálculo en él. La parte importante de este fragmento de código demuestra cómo puede encapsular ese código en un bloque `using` para actualizar periódicamente un archivo con [SaveTrackedAsync][net_savetrackedasync].
+`Code to process data and produce output file(s)` es simplemente un marcador de posición para el código que normalmente realizaría la tarea. Por ejemplo, es posible que tenga código que descargue datos desde Azure Storage y realice alguna transformación o cálculo en él. La parte importante de este fragmento de código demuestra cómo puede encapsular ese código en un bloque `using` para actualizar periódicamente un archivo con [SaveTrackedAsync][net_savetrackedasync].
 
->[AZURE.NOTE] Si habilita el seguimiento de archivos con SaveTrackedAsync, solo se guardan en el Almacenamiento de Azure los *anexos* al archivo de seguimiento. Debe utilizar este método solo para el seguimiento de archivos de registro no rotatorios u otros archivos anexos, es decir, los datos solo se agregan al final del archivo cuando este se actualiza.
+`Task.Delay` es necesario al final de este bloque `using` para garantizar que el agente de nodo tiene tiempo para vaciar el contenido de la salida estándar al archivo stdout.txt en el nodo (el agente de nodo es un programa que se ejecuta en cada nodo del grupo y proporciona la interfaz de comando y control entre el nodo y el servicio Batch). Sin este retraso, es posible que se pierdan los últimos segundos de salida. Este retraso puede no ser necesario para todos los archivos.
+
+>[AZURE.NOTE] Si habilita el seguimiento de archivos con SaveTrackedAsync, solo se guardan en el Almacenamiento de Azure los *anexos* al archivo de seguimiento. Utilice este método solo para el seguimiento de archivos de registro no rotatorios u otros archivos anexos, es decir, los datos solo se agregan al final del archivo cuando este se actualiza.
 
 ## Recuperación de la salida
 
 Cuando recupera la salida guardada mediante la biblioteca de convenciones de archivos de Lote de Azure, lo hace basándose en las tareas y trabajos. Puede solicitar la salida de una tarea o trabajo determinado sin necesidad de conocer su ruta de acceso en el Almacenamiento de blobs o incluso sin conocer el nombre del archivo. Puede simplemente indicar "Dame los archivos de salida de la tarea *109*".
 
-El fragmento de código siguiente procesa una iteración de todas las tareas de un trabajo, imprime información acerca de los archivos de salida de la tarea y, a continuación, descarga los archivos desde el Almacenamiento.
+El fragmento de código siguiente procesa una iteración de todas las tareas de un trabajo, imprime información sobre los archivos de salida de la tarea y luego descarga los archivos desde el almacenamiento.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -180,7 +190,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## Salidas de tareas y el Portal de Azure
 
-El Portal de Azure mostrará las salidas y los registros de las tareas que se guardan en una cuenta de Almacenamiento de Azure vinculada mediante las convenciones de nomenclatura descritas en el [archivo LÉAME sobre convenciones de archivos de Lote de Azure][github_file_conventions_readme]. Puede implementar usted mismo estas convenciones en un lenguaje de su elección, o puede usar la biblioteca de convenciones de archivos en las aplicaciones. NET.
+Azure Portal muestra las salidas y los registros de las tareas que se guardan en una cuenta de Azure Storage vinculada mediante las convenciones de nomenclatura descritas en el [archivo LÉAME sobre convenciones de archivos de Azure Batch][github_file_conventions_readme]. Puede implementar usted mismo estas convenciones en un lenguaje de su elección, o puede usar la biblioteca de convenciones de archivos en las aplicaciones. NET.
 
 ### Habilitación de la presentación del portal
 
@@ -213,7 +223,7 @@ La característica [paquetes de aplicación](batch-application-packages.md) de L
 
 ### Instalación de aplicaciones y datos de ensayo
 
-Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Lote) en el foro de Lote de Azure para ver la información general de los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Incluye también algunas consideraciones especiales que se deben tener en cuenta para cada método.
+Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Lote) en el foro de Lote de Azure para ver la información general de los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Azure Batch y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Incluye también algunas consideraciones especiales para cada método.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/es-ES/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -242,4 +252,4 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 [1]: ./media/batch-task-output/task-output-01.png "Selectores de archivos de salida guardados y registros guardados en el portal"
 [2]: ./media/batch-task-output/task-output-02.png "Hoja de salidas de tareas del Portal de Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

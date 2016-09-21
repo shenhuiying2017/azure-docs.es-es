@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
@@ -49,8 +49,8 @@ Para los proyectos creados desde las **plantillas de servicio** (con o sin estad
 
 Para los proyectos creados desde las **plantillas de acto** (con o sin estado):
 
-1. Abra el archivo **"NombreProyecto".cs** donde *NombreProyecto* es el nombre que eligió para su proyecto de Visual Studio.  
-2. Busque el código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` en el método *DoWorkAsync*. Esto es un ejemplo de un seguimiento ETW personalizado creado a partir del código de aplicación.  
+1. Abra el archivo **"NombreProyecto".cs** donde *NombreProyecto* es el nombre que eligió para su proyecto de Visual Studio.
+2. Busque el código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` en el método *DoWorkAsync*. Esto es un ejemplo de un seguimiento ETW personalizado creado a partir del código de aplicación.
 3. En el archivo **ActorEventSource.cs** encontrará una sobrecarga para el método `ActorEventSource.ActorMessage` que se debe usar para los eventos de alta frecuencia causados por razones de rendimiento.
 
 Después de agregar seguimiento ETW personalizado al código del servicio, puede crear, implementar y ejecutar la aplicación de nuevo para ver sus eventos en el Visor de eventos de diagnóstico. Si depura la aplicación con **F5**, el Visor de eventos de diagnóstico se abrirá automáticamente.
@@ -60,4 +60,4 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

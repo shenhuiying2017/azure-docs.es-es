@@ -97,13 +97,14 @@ Resource Manager | Control de acceso basado en rol para recursos clásicos | Pue
 Proceso | Varias subredes asociadas con una máquina virtual | Actualice la configuración de la subred para que solo haga referencia a las subredes.
 Proceso | Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada | Opcionalmente, puede eliminar la máquina virtual.
 Proceso | Máquinas virtuales que tienen alertas, directivas de escalado automático | Se efectúa la migración y se descartan estos valores. Es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración.
-Proceso | Extensiones de VM de XML (depurador de Visual Studio, Web Deploy y depuración remota) | ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para proceder con la migración.
+Proceso | Extensiones XML de máquina virtual (BGInfo 1.*, depurador de Visual Studio, Web Deploy y depuración remota) | ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para continuar la migración o se quitarán automáticamente durante el proceso.
 Proceso | Diagnóstico de arranque con Almacenamiento premium | Deshabilite la característica de diagnósticos de arranque para las máquinas virtuales antes de continuar con la migración. Puede volver a habilitar los diagnósticos de arranque en la pila de Resource Manager una vez completada la migración. Además, se deben eliminar los blobs que se utilizan para los registros de captura de pantalla y de serie, por lo que ya no se cobra por los blobs.
 Proceso | Servicios en la nube que contienen roles web y de trabajo | Actualmente no se admite.
 Red | Redes virtuales que contienen máquinas virtuales y roles web y de trabajo | Actualmente no se admite.
 Servicio de aplicaciones de Azure | Redes virtuales que contienen entornos del Servicio de aplicaciones | Actualmente no se admite.
 HDInsight de Azure | Redes virtuales que contienen servicios de HDInsight | Actualmente no se admite.
 Dynamics Lifecycle Services | Redes virtuales que contienen máquinas virtuales administradas por Dynamics Lifecycle Services | Actualmente no se admite.
+Proceso | Extensiones de Azure Security Center con una red virtual que tiene VPN Gateway o puerta de enlace de emergencia con servidor DNS local | Azure Security Center instala automáticamente las extensiones en las máquinas virtuales para supervisar la seguridad y generar alertas. Si está habilitada la directiva de Azure Security Center en la suscripción, estas extensiones se suelen instalar automáticamente. Actualmente, no se admite la migración de puerta de enlace y esta debe eliminarse antes de continuar con la confirmación de la migración; cuando se elimina la puerta de enlace, el acceso a través de internet a la cuenta de almacenamiento de máquina virtual se pierde. Si esto ocurre, la migración no continúa, ya que no se puede rellenar el blob de estado del agente invitado. Se recomienda deshabilitar la directiva de Azure Security Center en la suscripción 3 horas antes de continuar con la migración.
 
 ## Experiencia de migración
 
@@ -205,7 +206,7 @@ Durante la migración, los recursos se transforman del modelo clásico al de Res
 
 **¿Qué pasa si estoy usando Azure Site Recovery o Copia de seguridad de Azure actualmente?**
 
-Recientemente se agregó compatibilidad con Azure Site Recovery y Copia de seguridad para máquinas virtuales en Resource Manager. Se está trabajando para hacer posible también la funcionalidad que admite la migración de máquinas virtuales a Resource Manager. Actualmente, se recomienda que no ejecute la migración si utiliza estas funcionalidades.
+Para migrar la máquina virtual habilitada para copia de seguridad, consulte [He realizado copias de seguridad de mis máquinas virtuales clásicas en el almacén de Backup. Ahora deseo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager. ¿Cómo puedo realizar una copia de seguridad de ellas en el almacén de Recovery Services?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la migración?**
 
@@ -227,6 +228,7 @@ Todos los recursos para los que se proporcionen nombres explícitamente en el mo
 
 Este mensaje se recibe cuando la máquina virtual no tiene conectividad saliente a Internet. El agente de VM utiliza conectividad saliente para llegar a la cuenta de almacenamiento de Azure a fin de actualizar el estado del agente cada cinco minutos.
 
+
 ## Pasos siguientes
 Ahora que comprende la migración de recursos de IaaS del modelo clásico al de Resource Manager, puede empezar a migrar los recursos.
 
@@ -235,4 +237,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

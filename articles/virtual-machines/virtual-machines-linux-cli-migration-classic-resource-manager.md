@@ -32,13 +32,13 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 
 ## Paso 2: Establecimiento de la suscripción y registro del proveedor
 
-Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../xplat-cli-install.md) y [seleccione su suscripción](../xplat-cli-connect.md).
+Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../xplat-cli-install.md) y [seleccione la suscripción](../xplat-cli-connect.md).
 
 Inicie sesión en su cuenta.
 	
 	azure login
 
-Seleccione la suscripción de Azure con el siguiente comando:
+Seleccione la suscripción de Azure con el siguiente comando.
 
 	azure account set "<azure-subscription-name>"
 
@@ -58,8 +58,26 @@ Ahora cambie CLI al modo `asm`.
 
 	azure config mode asm
 
+## Paso 3: Verificación para garantizar que dispone de suficientes núcleos de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
 
-## Paso 3: Opción 1: Migración de máquinas virtuales en un servicio en la nube 
+Para este paso debe cambiar a modo `arm`. Para ello, ejecute el siguiente comando.
+
+```
+azure config mode arm
+```
+
+Puede utilizar el siguiente comando de CLI para comprobar la cantidad de núcleos que tiene actualmente en Azure Resource Manager. Para más información acerca de las cuotas de núcleos, consulte [Límites y Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+
+```
+azure vm list-usage -l "<Your VNET or Deployment's Azure region"
+```
+
+Una vez comprobado este paso, puede volver a cambiar a modo `asm`.
+
+	azure config mode asm
+
+
+## Paso 4: Opción 1: Migración de máquinas virtuales de un servicio en la nube 
 
 Obtenga la lista de servicios en la nube mediante el siguiente comando y seleccione luego el servicio en la nube que quiera migrar. Tenga en cuenta que si las máquinas virtuales del servicio en la nube están en una red virtual o tienen roles web o de trabajo, recibirá un mensaje de error.
 
@@ -79,7 +97,7 @@ Si quiere migrar a una red virtual existente en el modelo de implementación de 
 
 	azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
 
-Cuando la operación de preparación finalice correctamente, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared`.
+Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared`.
 
 	azure vm show <vmName> -vv
 
@@ -93,11 +111,11 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 
 	
-## Paso 3: Opción 2: Migración de máquinas virtuales en una red virtual
+## Paso 4: Opción 2: Migración de máquinas virtuales de una red virtual
 
 Seleccione la red virtual que quiere migrar. Tenga en cuenta que si la red virtual contiene roles web o de trabajo, o bien máquinas virtuales con configuraciones no admitidas, recibirá un mensaje de error de validación.
 
-Obtenga todas las redes virtuales de la suscripción con el siguiente comando:
+Obtenga todas las redes virtuales de la suscripción con el siguiente comando.
 
 	azure network vnet list
 	
@@ -119,7 +137,7 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 	azure network vnet commit-migration <virtualNetworkName>
 
-## Paso 4: Migración de una cuenta de almacenamiento
+## Paso 5: Migración de una cuenta de almacenamiento
 
 Cuando haya terminado de migrar las máquinas virtuales, se recomienda migrar la cuenta de almacenamiento.
 
@@ -140,4 +158,4 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 - [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -3,7 +3,7 @@
    description="Más información sobre la seguridad de nivel de fila con Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Seguridad de nivel de fila con Power BI Embedded
 
@@ -99,7 +99,7 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## Consulte también
+## Otras referencias
 [Seguridad de nivel de fila](https://powerbi.microsoft.com/es-ES/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

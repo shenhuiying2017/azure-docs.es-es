@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/21/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab" />
 
 # Instrucciones y limitaciones generales de Base de datos SQL de Azure
@@ -63,4 +63,4 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

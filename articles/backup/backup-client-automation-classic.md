@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -80,15 +80,15 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent |
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Participar en Microsoft Update | - |
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - |
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
-| /ph | Dirección de host del proxy | - |
-| /po | Número de puerto de host del proxy | - |
-| /pu | Nombre de usuario de host del proxy | - |
+| /q | Instalación desatendida | - | 
+| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
+| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
+| /m | Participar en Microsoft Update | - | 
+| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
+| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
+| /ph | Dirección de host del proxy | - | 
+| /po | Número de puerto de host del proxy | - | 
+| /pu | Nombre de usuario de host del proxy | - | 
 | /pw | Contraseña del proxy | - |
 
 
@@ -599,4 +599,4 @@ Para obtener más información sobre Copia de seguridad de Azure para Windows Se
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Copia de seguridad de servidores Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

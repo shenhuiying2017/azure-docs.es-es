@@ -23,8 +23,8 @@ Un administrador de roles con privilegios puede personalizar Privileged Identity
 ## Administración de la configuración de activación del rol
 
 1. Vaya al [Portal de Azure](https://portal.azure.com) y seleccione la aplicación **Azure AD Privileged Identity Management** en el panel.
-2. Seleccione el rol que quiere administrar en la tabla de roles.
-3. Haga clic en **Configuración**.
+2. Seleccione **Administrar roles con privilegios** > **Configuración** > **Roles con privilegios**.
+3. Seleccione el rol cuya configuración desea administrar.
 
 En la página de configuración de cada rol, hay una serie de valores que puede configurar. Esta configuración solo afecta a los usuarios que son administradores aptos, no a los administradores permanentes.
 
@@ -40,19 +40,24 @@ En la página de configuración de cada rol, hay una serie de valores que puede 
 
 - No se puede deshabilitar MFA para roles con privilegios elevados en Azure AD y Office 365. Esta es una característica de seguridad porque estos roles deben protegerse cuidadosamente:
 
-    - Administrador global
-    - Administrador de roles con privilegios
-    - Administrador de cuenta de usuario
+    - Administrador de aplicaciones
+    - Administrador del servidor proxy de la aplicación
+    - Administrador de facturación
+    - Administrador de cumplimiento
+    - Administrador de servicios de CRM
+    - Aprobador del acceso a la Caja de seguridad del cliente
     - Escritor de directorio
+    - Administrador de Exchange
+    - Administrador global
+    - Administrador de servicios de Intune
+    - Administrador de buzón de correo
     - Soporte para asociados de nivel 1
     - Soporte para asociados de nivel 2
-    - Administrador de facturación
+    - Administrador de roles con privilegios
     - Administrador de seguridad
-    - Administrador de Exchange
-    - Administrador de buzón de correo
-    - Administrador de Skype Empresarial
     - Administrador de SharePoint
-    - Administrador de cumplimiento
+    - Administrador de Skype Empresarial
+    - Administrador de cuenta de usuario
 
 Para obtener más información sobre cómo usar MFA con PIM, vea [Exigencia de MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -62,4 +67,4 @@ Para obtener más información sobre cómo usar MFA con PIM, vea [Exigencia de M
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

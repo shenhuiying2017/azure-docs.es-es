@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/06/2016"
 	ms.author="ddove" />
 
 # Introducción a Trabajos de base de datos elástica
 
 Trabajos de base de datos elástica (vista previa) para Base de datos SQL de Azure permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para obtener más información sobre la característica de base de datos elástica, vea la [página de introducción a la característica](sql-database-elastic-jobs-overview.md).
 
-Este tema amplía el ejemplo que aparece en [Introducción a las herramientas de la base de datos elástica](sql-database-elastic-scale-get-started.md). Cuando termine, podrá: crear y administrar trabajos que administran un grupo de bases de datos relacionadas.
+Este tema amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, podrá: crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
 ## Requisitos previos
 
@@ -238,7 +238,7 @@ Actualmente, las directivas de ejecución permiten definir:
 * Tiempo de espera del trabajo: tiempo total antes de que Trabajos de base de datos elástica cancele un trabajo.
 * Intervalo de reintento inicial: intervalo de espera antes del primer reintento.
 * Intervalo máximo de reintento: límite de intervalos de reintento que se usan.
-* Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos. Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2). 
+* Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos. Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2).
 * Número máximo de intentos: número máximo de reintentos para llevar a cabo un trabajo.
 
 La directiva de ejecución predeterminada usa los valores siguientes:
@@ -447,4 +447,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

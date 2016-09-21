@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Habilitación del acceso externo a la máquina virtual mediante el Portal | Microsoft Azure"
-   description="Obtenga información sobre cómo abrir un puerto o crear un punto de conexión que permita el acceso externo a la máquina virtual con el modelo de implementación de Resource Manager en el Portal de Azure"
+   pageTitle="Apertura de puertos a una máquina virtual mediante Azure Portal | Microsoft Azure"
+   description="Aprenda a abrir un puerto o crear un punto de conexión a la máquina virtual Windows con el modelo de implementación de Resource Manager en Azure Portal"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Habilitación del acceso externo a la máquina virtual mediante el Portal de Azure
+# Apertura de puertos para una máquina virtual en Azure mediante Azure Portal
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandos rápidos
@@ -34,7 +34,7 @@ Seleccione el nuevo grupo de seguridad de red. Ahora puede crear una regla de en
 
 ![Agregar una regla de entrada](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Proporcione un nombre para la nueva regla. Tenga en cuenta que el puerto 80 ya está especificado de manera predeterminada. Aquí es donde podría cambiar el origen, el protocolo y el destino al agregar reglas adicionales al grupo de seguridad de red:
+Proporcione un nombre para la nueva regla. El puerto 80 aparece de forma predeterminada. En esta hoja es donde podría cambiar el origen, el protocolo y el destino al agregar reglas adicionales al grupo de seguridad de red:
 
 ![Crear una regla de entrada](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -46,7 +46,7 @@ Seleccione la red virtual y luego seleccione la subred adecuada:
 
 ![Asociar un grupo de seguridad de red a una red virtual](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
-Ahora ha creado un grupo de seguridad de red, ha creado una regla de entrada que permite el tráfico en el puerto 80 y lo ha asociado con una subred. Todas las máquinas virtuales que se conectan a esa subred estarán accesibles en el puerto 80.
+Ahora ha creado un grupo de seguridad de red, ha creado una regla de entrada que permite el tráfico en el puerto 80 y lo ha asociado con una subred. A través del puerto 80 se accede a las máquinas virtuales que se conectan a esa subred.
 
 
 ## Más información sobre los grupos de seguridad de red
@@ -54,7 +54,7 @@ Los comandos rápidos que se describen aquí le permiten ponerse a trabajar con 
 
 Los grupos de seguridad de red y las reglas de ACL también se pueden definir como parte de las plantillas de Azure Resource Manager. Más información sobre la [creación de grupos de seguridad de red con plantillas](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Si necesita utilizar el enrutamiento de puerto para asignar un único puerto externo a un puerto interno de su máquina virtual, es preciso utilizar un equilibrador de carga y las reglas de traducción de direcciones de red (NAT). Por ejemplo, puede exponer el puerto TCP 8080 externamente y dirigir el tráfico al puerto TCP 80 en una máquina virtual. Puede aprender sobre la [creación de un equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+Si necesita utilizar el enrutamiento de puerto para asignar un único puerto externo a un puerto interno de su máquina virtual, use un equilibrador de carga y las reglas de traducción de direcciones de red (NAT). Por ejemplo, puede exponer el puerto TCP 8080 externamente y dirigir el tráfico al puerto TCP 80 en una máquina virtual. Puede aprender sobre la [creación de un equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
@@ -63,4 +63,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

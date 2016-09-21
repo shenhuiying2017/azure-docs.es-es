@@ -14,25 +14,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2016"
+   ms.date="09/02/2016"
    ms.author="amitsriva" />
 
-#Registro de diagnóstico para la Puerta de enlace de aplicaciones
+# Registro de diagnóstico para la Puerta de enlace de aplicaciones
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Puertas de enlace de aplicaciones. A través del portal se puede acceder a algunos de estos recursos y todos los registros se pueden extraer de un Almacenamiento de blobs de Azure y verse en distintas herramientas, como [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Puertas de enlace de aplicaciones. Se puede acceder a algunos de estos registros a través del portal y se pueden extraer todos los registros desde un almacenamiento de blobs de Azure y verse en distintas herramientas, como [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente.
 
 - **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../azure-portal/insights-debugging-with-events.md) (anteriormente conocido como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de vista previa de Azure.
 - **Registros de acceso:** este registro se puede utilizar para ver el patrón de acceso de la puerta de enlace de aplicaciones y analizar información importante, como la IP del autor de llamada, la dirección URL solicitada, la latencia de respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de la Puerta de enlace de aplicaciones. La instancia de la Puerta de enlace de aplicaciones puede identificarse por la propiedad 'instanceId'.
-- **Registros de rendimiento:** este registro se puede utilizar para ver el rendimiento de las instancias de la puerta de enlace de aplicaciones. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y la cantidad de instancias de back-end completadas correcta e incorrectamente. El registro de rendimiento se recopila cada 60 segundos.
+- **Registros de rendimiento:** este registro se puede utilizar para ver el rendimiento de las instancias de la puerta de enlace de aplicaciones. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y la cantidad de instancias back-end completadas correcta e incorrectamente. El registro de rendimiento se recopila cada 60 segundos.
 
 >[AZURE.WARNING] Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
-##Habilitación del registro
-El registro de auditoría se habilita automáticamente siempre para todos los recursos del Administrador de recursos. Debe habilitar el registro de acceso y rendimiento para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, siga estos pasos.
+## Habilitación del registro
+El registro de auditoría se habilita automáticamente para todos los recursos de Resource Manager. Debe habilitar el registro de acceso y rendimiento para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 
-1. Observe el identificador de recurso de la cuenta de almacenamiento, donde se almacenarán los datos de registro. Esto tendría el siguiente formato: /subscriptions/<IdSuscripción>/resourceGroups/<nombreDeGrupoDeRecursos>/providers/Microsoft.Storage/storageAccounts/<nombreDeCuentaDeAlmacenamiento>. Es posible utilizar cualquier cuenta de almacenamiento de la suscripción. Para buscar esta información, se puede usar el portal de vista previa. ![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics1.png)
- 
-2. Observe el identificador de recurso de la Puerta de enlace de aplicaciones para la que se está habilitando el registro. Esto tendría el siguiente formato: /subscriptions/<IdSuscripción>/resourceGroups/<nombreDeGrupoDeRecursos>/providers/Microsoft.Network/applicationGateways/<nombreDePuertaDeEnlaceDeAplicaciones>. Para buscar esta información, se puede usar el portal de vista previa. ![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics2.png)
+1. Observe el identificador de recurso de la cuenta de almacenamiento, donde se almacenarán los datos de registro. Esto tendría el siguiente formato: /subscriptions/<IdSuscripción>/resourceGroups/<nombreDeGrupoDeRecursos>/providers/Microsoft.Storage/storageAccounts/<nombreDeCuentaDeAlmacenamiento>. Es posible utilizar cualquier cuenta de almacenamiento de la suscripción. Para buscar esta información, se puede usar el portal de vista previa.
+
+	![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics1.png)
+
+2. Observe el identificador de recurso de la Puerta de enlace de aplicaciones para la que se está habilitando el registro. Esto tendría el siguiente formato: /subscriptions/<IdSuscripción>/resourceGroups/<nombreDeGrupoDeRecursos>/providers/Microsoft.Network/applicationGateways/<nombreDePuerta de enlace de aplicaciones>. Para buscar esta información, se puede usar el portal de vista previa.
+
+	![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Habilite el registro de diagnóstico mediante el siguiente cmdlet de PowerShell.
 
@@ -40,15 +44,16 @@ El registro de auditoría se habilita automáticamente siempre para todos los re
 
 >[AZURE.INFORMATION] Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de acceso y rendimiento supondrá un costo adicional de servicio.
 
-
 ## Registro de auditoría
+
 Azure genera este registro (anteriormente conocido como "registro operativo") de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para obtener más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de auditoría](../azure-portal/insights-debugging-with-events.md).
 
 ## Registro de acceso
-Este registro solo se genera si lo habilitó para cada Puerta de enlace de aplicaciones, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de la Puerta de enlace de aplicaciones se registra en formato JSON, tal como se muestra a continuación.
+
+Este registro solo se genera si lo habilitó para cada puerta de enlace de aplicaciones, tal como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal como se muestra en el ejemplo siguiente.
 
 	{
-		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resoource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
 		"operationName": "ApplicationGatewayAccess",
 		"time": "2016-04-11T04:24:37Z",
 		"category": "ApplicationGatewayAccessLog",
@@ -69,9 +74,9 @@ Este registro solo se genera si lo habilitó para cada Puerta de enlace de aplic
 		}
 	}
 
-
 ## Registro de rendimiento
-Este registro solo se genera si lo habilitó para cada Puerta de enlace de aplicaciones, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
+
+Este registro solo se genera si lo habilitó para cada puerta de enlace de aplicaciones, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
 
 	{
 		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
@@ -91,13 +96,15 @@ Este registro solo se genera si lo habilitó para cada Puerta de enlace de aplic
 	}
 
 ## Visualización y análisis del registro de auditoría
+
 Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
 
 - **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API de REST de Azure o el Portal de vista previa de Azure. En el artículo [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
 - **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-audit-logs/) puede analizar los datos con los paneles preconfigurados que puede usar tal cual o personalizarlos.
 
-## Visualización y análisis del registro de acceso y de rendimiento 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) puede recopilar los archivos del contador y del registro de eventos desde la cuenta de Almacenamiento de blobs e incluye visualizaciones y eficaces funcionalidades de búsqueda para analizar los registros.
+## Visualización y análisis del registro de acceso y de rendimiento
+
+[Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) de Azure puede recopilar el contador de registro de eventos desde la cuenta de Almacenamiento de blobs e incluye visualizaciones y eficaces funcionalidades de búsqueda para analizar los registros.
 
 También puede conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON de los registros de acceso y rendimiento. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 
@@ -105,8 +112,8 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 ## Pasos siguientes
 
-- Visualización del contador y de los registros de eventos con [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+- Visualización del contador y de registros de eventos con [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

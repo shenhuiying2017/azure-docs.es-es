@@ -75,7 +75,7 @@ Realice la migración de la siguiente forma:
 
 	![Agregar cuenta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-	> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
+	> [AZURE.NOTE] El [Migration of storage accounts](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 10. En **Especificar cuentas**, seleccione la cuenta que creó para que el servidor de procesos acceda a la máquina e inserte la nueva versión de Mobility Service.
 
@@ -731,7 +731,7 @@ Agregue las máquinas como sigue:
 1. Cuando los equipos ya tienen el estado **Protegido**, puede configurar sus propiedades de conmutación por error. En los detalles del grupo de protección, seleccione el equipo y abra la pestaña **Configurar**.
 2. Puede modificar el nombre que se asignará al equipo de Azure después de la conmutación por error así como el tamaño de la máquina virtual de Azure. También puede seleccionar la red de Azure a la que se conectará el equipo después de la conmutación por error.
 
-	> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+	> [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 	![Establecer propiedades de máquina virtual](./media/site-recovery-vmware-to-azure-classic-legacy/vm-props.png)
 

@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante el Portal de Azure
@@ -35,16 +35,6 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Habilitación de la suscripción de Azure para la vista previa pública del Almacén de Data Lake
-
-En primer lugar, debe solicitar que se habilite la suscripción de Azure para la vista previa pública del Almacén de Data Lake. Siga los pasos que se indican a continuación.
-
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **NUEVO**, en **Datos y almacenamiento** y después en **Almacén de Azure Data Lake**.
-3. En la nueva hoja **Nuevo almacén de Data Lake**, haga clic en **Suscribirse a la vista previa**. Lea la información y haga clic en **Aceptar**. Recibirá un correo electrónico una vez que su suscripción se habilite para la vista previa pública.
-
-	![Suscribirse para la vista previa pública](./media/data-lake-store-get-started-portal/preview-signup.png "Crear una nueva cuenta de Azure Data Lake")
-
 ## ¿Obtener información más rápidamente con vídeos?
 
 Vea los vídeos siguientes para empezar a trabajar con el Almacén de Data Lake.
@@ -62,7 +52,7 @@ Vea los vídeos siguientes para empezar a trabajar con el Almacén de Data Lake.
 
 	![Crear una nueva cuenta de Almacén de Azure Data Lake](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Crear una nueva cuenta de Azure Data Lake")
 
-	- **Suscripción**. Seleccione la suscripción con la que desea crear una nueva cuenta de Almacén de Data Lake.
+	- **Suscripción**. Seleccione la suscripción con la que desea crear una cuenta de Data Lake Store.
 	- **Grupo de recursos**. Seleccione un grupo de recursos existente o haga clic en **Crear nuevo grupo de recursos** para crear uno. Un grupo de recursos es un contenedor que incluye los recursos relacionados de una aplicación. Para obtener más información, consulte [Grupos de recursos en Azure](resource-group-overview.md#resource-groups).
 	- **Ubicación**. Seleccione la ubicación donde desea crear la cuenta de Almacén de Data Lake.
 
@@ -138,4 +128,4 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

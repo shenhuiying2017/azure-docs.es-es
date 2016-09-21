@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Muestreo de telemetría en Application Insights." 
+	pageTitle="Muestreo de telemetría en Application Insights | Microsoft Azure" 
 	description="Cómo mantener el volumen de telemetría bajo control." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -20,27 +20,30 @@
 *Application Insights se encuentra en su versión de vista previa.*
 
 
-El muestreo es una característica de Application Insights que permite recopilar y almacenar un conjunto reducido de telemetría al mismo tiempo que se mantiene un análisis estadísticamente correcto de los datos de la aplicación. Reduce el tráfico y ayuda a evitar la [limitación](app-insights-pricing.md#data-rate). Los datos se filtran de manera que los elementos relacionados se permitan, para que sea posible desplazarse entre elementos cuando se realicen investigaciones de diagnóstico. Cuando los recuentos de métrica se presentan al usuario en el portal, se renormalizan para tener en cuenta el muestreo y minimizar cualquier efecto en las estadísticas.
+El muestreo es una característica de [Application Insights para Visual Studio](app-insights-overview.md). Se trata de la manera recomendada de reducir el almacenamiento y el tráfico de telemetría conservando, al mismo tiempo, un análisis estadísticamente correcto de datos de las aplicaciones. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico cuando esté realizando investigaciones de diagnóstico. Cuando los recuentos de métrica se presentan al usuario en el portal, se renormalizan para tener en cuenta el muestreo y minimizar cualquier efecto en las estadísticas.
 
-El muestreo está actualmente en versión beta y puede cambiar en el futuro.
+El muestreo reduce el tráfico, lo que ayuda a mantenerlo dentro de cuotas mensuales de datos y a evitar limitaciones.
 
 ## En resumen:
 
 * El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %.
-* El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría. El muestreo automático solo se activa con grandes volúmenes y únicamente en aplicaciones de servidor web ASP.NET.
-* También puede establecer el muestreo manualmente, bien en el portal en la página de precios (para reducir el volumen de telemetría retenida y no superar la cuota mensual), bien en el SDK de ASP.NET en el archivo .config, también para reducir el tráfico de red.
-* La velocidad de muestreo actual es una propiedad de cada registro. En la ventana de búsqueda, abra un evento, como una solicitud. Expanda las propiedades completas con los puntos suspensivos "…" para buscar la propiedad "recuento *", llamada, por ejemplo, "recuento de solicitudes" o "recuento de eventos", en función del tipo de telemetría. Si es >1, se produce el muestreo. Un recuento de 3 significaría que el muestreo está en el 33 %: cada registro retenido corresponde a tres registros generados originalmente.
+* El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría en las aplicaciones de servidor web ASP.NET.
+* También puede establecer el muestreo manualmente, bien en el portal en la página de precios, bien en el SDK de ASP.NET en el archivo .config, también para reducir el tráfico de red.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
+* El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
 
 ## Tipos de muestreo
 
+
 Existen tres métodos de muestreo alternativos:
 
-* El **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. Valor predeterminado del SDK v 2.0.0-beta3.
-* El **muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde el servidor ASP.NET y desde los exploradores de los usuarios. El usuario establece la frecuencia.
+* El **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. Valor predeterminado del SDK v 2.0.0-beta3. Actualmente solo está disponible para la telemetría de servidor ASP.NET.
+* El **muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde el servidor ASP.NET y desde los exploradores de los usuarios. El usuario establece la frecuencia. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 * El **muestreo de ingesta** reduce el volumen de telemetría retenido por el servicio de Application Insights a una frecuencia definida. Aunque no reduce el tráfico de telemetría, le ayuda a mantenerse dentro de su cuota mensual.
+
+Si el muestreo de velocidad adaptable o fija está funcionando, el muestreo de ingesta se deshabilita.
 
 ## Muestreo de ingesta
 
@@ -369,4 +372,10 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+## Pasos siguientes
+
+* La funcionalidad de [filtro](app-insights-api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
+
+<!---HONumber=AcomDC_0907_2016-->

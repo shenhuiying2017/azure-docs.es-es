@@ -35,11 +35,11 @@ A continuación se facilitan métodos que puede usar para crear un clúster de L
 
 * **Scripts de la CLI de Azure**: como se muestra más adelante en este artículo, use la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para automatizar la implementación de un clúster de máquinas virtuales Linux de tamaño A8 o A9. La CLI en modo de Administración de servicios crea los nodos del clúster en serie en el modelo de implementación clásica, por lo que la implementación de muchos nodos de proceso puede tardar varios minutos. En el modelo de implementación clásica, las máquinas virtuales A8 o A9 tienen que implementarse en el mismo servicio en la nube para conectarse a través de la red RDMA.
 
-* **Plantillas de Azure Resource Manager**: use el modelo de implementación de Resource Manager para implementar varias máquinas virtuales Linux A8 y A9 en un clúster de proceso que aproveche las ventajas de la red RDMA para ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar [las plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos proporcionan una manera rápida y confiable de implementar un clúster de Linux. En el modelo de implementación de Resource Manager, las máquinas virtuales A8 o A9 tienen que implementarse en el mismo conjunto de disponibilidad para conectarse a través de la red RDMA.
+* **Plantillas de Azure Resource Manager**: use el modelo de implementación de Resource Manager para implementar un clúster de máquinas virtuales A8 y A9 que se conecte a la red RDMA para ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar [las plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos proporcionan una manera rápida y confiable de implementar un clúster de Linux. En el modelo de implementación de Resource Manager, las máquinas virtuales A8 o A9 tienen que implementarse en el mismo conjunto de disponibilidad para conectarse a través de la red RDMA.
 
 ## Implementación de ejemplo en el modelo clásico
 
-Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una máquina virtual de HPC de SUSE Linux Enterprise Server 12 (SLES) desde Azure Marketplace, instalar la biblioteca Intel MPI y otras personalizaciones, y crear una imagen de máquina virtual personalizada. Después, use la imagen para automatizar la implementación de un clúster de máquinas virtuales A8 o A9.
+Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una máquina virtual de HPC de SUSE Linux Enterprise Server 12 (SLES) desde Azure Marketplace, instalar la biblioteca Intel MPI y crear una imagen de máquina virtual personalizada. Después, use la imagen para automatizar la implementación de un clúster de máquinas virtuales A8 o A9.
 
 >[AZURE.TIP]  Siga los mismos pasos para implementar un clúster de máquinas virtuales A8 o A9 basadas en la imagen de HPC 6.5 o 7.1 basada en CentOS en Azure Marketplace. Las diferencias se indican en los pasos. Por ejemplo, dado que las imágenes HPC basadas en CentOS incluyen Intel MPI, es necesario instalar Intel MPI por separado en las máquinas virtuales creadas desde esas imágenes.
 
@@ -107,7 +107,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
     >
     >En las imágenes HPC basadas en CentOS desde Marketplace, las actualizaciones del núcleo están deshabilitadas en el archivo de configuración **yum**. Como los controladores Linux RDMA se distribuyen en forma de paquete RPM, las actualizaciones de controladores podrían no funcionar si se actualiza el kernel.
 
-* **Actualizaciones de controladores Linux RDMA**: si implementa una máquina virtual de HPC de SLES 12, debe actualizar los controladores RDMA. Consulte [Acerca del uso de las instancias de proceso intensivo A8, A9, A10 y A11 con Windows](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12), para más información.
+* **Actualizaciones de controladores Linux RDMA**: si implementa una máquina virtual de HPC de SLES 12, debe actualizar los controladores RDMA. Consulte [Acerca del uso de las instancias de proceso intensivo A8, A9, A10 y A11 con Windows](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12), para más información.
 
 * **Intel MPI**: si ha implementado una máquina virtual de HPC de SLES 12, descargue e instale el tiempo de ejecución de Intel MPI Library 5 desde el sitio Intel.com mediante la ejecución de comandos similar a la siguiente. Este paso no es necesario si implementa una máquina virtual de HPC basada en CentOS 6.5 o 7.1.
 
@@ -129,7 +129,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
     >[AZURE.NOTE]Para realizar pruebas, también puede establecer memlock en ilimitado. Por ejemplo: `<User or group name> hard memlock unlimited.
 
-* **Claves SSH para máquinas virtuales de SLES 12**: genere claves SSH para establecer la confianza para la cuenta de usuario entre todos los nodos de proceso del clúster HPC de SLES 12 al ejecutar trabajos MPI. (Si ha implementado una máquina virtual de HPC basada en CentOS, no siga este paso. Consulte las instrucciones más adelante en este artículo para establecer una relación de confianza de SSH sin contraseña entre los nodos del clúster después de capturar la imagen y de implementar el clúster).
+* **Claves SSH para máquinas virtuales de SLES 12**: genere claves SSH para establecer la confianza para la cuenta de usuario entre los nodos de proceso del clúster HPC de SLES 12 al ejecutar trabajos MPI. (Si ha implementado una máquina virtual de HPC basada en CentOS, no siga este paso. Consulte las instrucciones más adelante en este artículo para establecer una relación de confianza de SSH sin contraseña entre los nodos del clúster después de capturar la imagen y de implementar el clúster).
 
     Ejecute el comando siguiente para crear claves SSH. Cuando se le pida una entrada, presione Entrar para generar las claves en la ubicación predeterminada sin tener que establecer una frase de contraseña.
 
@@ -398,4 +398,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS. Consulte esta [entrada de blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) para más información.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

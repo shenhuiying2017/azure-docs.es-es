@@ -6,7 +6,7 @@ La biblioteca de cliente de Java para Centros de eventos está disponible para s
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.7.2</version>
+	<version>{VERSION}</version>
 </dependency>
 ```
  
@@ -57,4 +57,4 @@ A continuación, cree un evento singular convirtiendo una cadena en su codificac
 
 ``` 
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

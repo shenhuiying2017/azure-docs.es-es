@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -129,7 +129,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 5. Inicie la sesión en el inquilino de Jive como administrador.
@@ -187,7 +187,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_05.png)
+5. En la página de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_05.png)
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -195,7 +195,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png)
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png)
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -217,7 +217,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -317,4 +317,4 @@ Al hacer clic en el icono de Jive en el panel de acceso, debería iniciar sesió
 [204]: ./media/active-directory-saas-jive-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-jive-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 El objetivo de este tutorial es mostrar cómo integrar SciQuest Spend Director con Azure Active Directory (Azure AD). La integración de SciQuest Spend Director con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a SciQuest Spend Director. 
+- Puede controlar en Azure AD quién tiene acceso a SciQuest Spend Director.
 - Puede permitir que los usuarios inicien sesión automáticamente en SciQuest Spend Director (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
@@ -41,13 +41,13 @@ Para configurar la integración de Azure AD con SciQuest Spend Director, necesit
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar SciQuest Spend Director desde la galería 
+1. Agregar SciQuest Spend Director desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de SciQuest Spend Director en Azure AD, deberá 
 
 **Para agregar SciQuest Spend Director desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -114,11 +114,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	![Configurar las opciones de la aplicación][10]
  
-     3\.1. 3.1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de SciQuest Spend Director con el siguiente patrón: **https://.*sciquest.com/.**
+     3\.1. 3.1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de SciQuest Spend Director con el siguiente patrón: *https://.*sciquest.com/.**
 
      3\.2. En el cuadro de texto **URL de respuesta**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.
 
-     3\.3. Haga clic en **Siguiente**.
+     3\.3. Haga clic en **Next**.
  
 4. En la página **Configuración de inicio de sesión único en SciQuest Spend Director**, haga clic en **Descargar metadatos** y, luego, guarde el archivo de metadatos localmente en el equipo.
 
@@ -151,11 +151,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Qué es Azure AD Connect][101]
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Qué es Azure AD Connect][102]
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Qué es Azure AD Connect][103]
 
@@ -165,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
   
 	c. Haga clic en Siguiente.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Qué es Azure AD Connect][104]
 
@@ -179,11 +179,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
   
 	e. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
 	![Qué es Azure AD Connect][105]
 
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Qué es Azure AD Connect][106]
 
@@ -270,4 +270,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

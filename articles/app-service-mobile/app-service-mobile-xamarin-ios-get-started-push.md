@@ -97,7 +97,7 @@ El servicio ahora está configurado para trabajar con las notificaciones push en
 
 3. En el mismo archivo, reemplace el evento **RegisteredForRemoteNotifications**: Con este código va a registrar una notificación de plantilla simple que se enviará a todas las plataformas admitidas por el servidor.
 
-	Para más información sobre las plantillas con centros de notificaciones, vea [Plantillas](../notification-hubs/notification-hubs-templates.md).
+	Para más información sobre las plantillas con centros de notificaciones, vea [Plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -156,4 +156,4 @@ Ha completado correctamente este tutorial.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

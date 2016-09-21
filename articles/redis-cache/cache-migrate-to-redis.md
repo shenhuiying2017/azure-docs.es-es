@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/07/2016"
     ms.author="sdanie" />
 
 # Migración desde el Servicio de caché administrado a Caché en Redis de Azure
 
-La migración de aplicaciones que usan el Servicio de caché administrado de Azure a Caché en Redis de Azure se puede realizar con unos cambios mínimos en la aplicación, según las características del Servicio de caché administrado usadas por la aplicación de almacenamiento en caché. Si bien las API no son exactamente iguales, son parecidas, y gran parte del código existente que usa el Servicio de caché administrado para tener acceso a una caché se puede reutilizar con cambios mínimos. En este tema se muestra como realizar los cambios necesarios de configuración y en las aplicaciones para migrar las aplicaciones del Servicio de caché administrado para usar Caché de Redis en Azure. También se muestra como algunas de las características de la Caché en Redis de Azure se pueden usar para implementar la funcionalidad de una caché del Servicio de caché administrado.
+La migración de aplicaciones que usan el Servicio de caché administrado de Azure a Caché en Redis de Azure se puede realizar con unos cambios mínimos en la aplicación, según las características del Servicio de caché administrado usadas por la aplicación de almacenamiento en caché. Si bien las API no son exactamente iguales, son parecidas, y gran parte del código existente que usa el Servicio de caché administrado para tener acceso a una caché se puede reutilizar con cambios mínimos. En este tema se muestra cómo realizar los cambios de aplicación y configuración necesarios para migrar las aplicaciones de Managed Cache Service y que utilicen Azure Redis Cache, y se indica cómo se pueden usar algunas de las características de Azure Redis Cache para implementar la funcionalidad de una caché de una memoria caché de Managed Cache Service.
 
 ## Pasos de migración
 
@@ -33,7 +33,7 @@ A continuación se describen los pasos necesarios para migrar una aplicación de
 	-	Conexión a la caché mediante la clase ConnectionMultiplexer
 	-	Acceder a tipos de datos primitivos en la caché
 	-	Trabajar con objetos .NET en la memoria caché
--	Migrar el estado de sesión de ASP.NET y el almacenamiento en caché de resultados a Caché en Redis de Azure 
+-	Migrar el estado de sesión de ASP.NET y el almacenamiento en caché de resultados a Caché en Redis de Azure
 
 ## Asignación de características del Servicio de caché administrado a Caché en Redis de Azure
 
@@ -78,9 +78,9 @@ Después de crear y configurar la caché, el siguiente paso consiste en eliminar
 
 Para que las aplicaciones cliente se puedan configurar para Caché en Redis de Azure, se debe eliminar la configuración y las referencias de ensamblado existentes del Servicio de caché administrado desinstalando el paquete NuGet del Servicio de caché administrado.
 
-Para desinstalar el paquete NuGet del Servicio de caché administrado, haga clic con el botón derecho en el proyecto de cliente en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Seleccione el nodo **Paquetes instalados** y escriba W**indowsAzure.Caching** en el cuadro de búsqueda de paquetes instalados. Seleccione **Windows** **Caché de Azure** (o **Windows** **Servicio de almacenamiento en caché de Azure** según la versión del paquete NuGet), haga clic en **Desinstalar** y luego haga clic en **Cerrar**.
+Para desinstalar el paquete NuGet del Servicio de caché administrado, haga clic con el botón derecho en el proyecto de cliente en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Seleccione el nodo **Paquetes instalados** y escriba **WindowsAzure.Caching** en el cuadro de búsqueda de paquetes instalados. Seleccione **Windows** **Caché de Azure** (o **Windows** **Servicio de almacenamiento en caché de Azure** según la versión del paquete NuGet), haga clic en **Desinstalar** y luego haga clic en **Cerrar**.
 
-![Desinstalación del paquete NuGet del Servicio de caché administrado de Azure](./media/cache-migrate-to-redis/IC757666.jpg)
+![Desinstalar paquetes NuGet de Azure Managed Cache Service](./media/cache-migrate-to-redis/IC757666.jpg)
 
 Al desinstalar el paquete NuGet del Servicio de caché administrado se eliminan los ensamblados del Servicio de caché administrado y sus entradas en app.config o web.config de la aplicación cliente. Como no es posible eliminar algunos valores de configuración personalizados al desinstalar el paquete NuGet, abra web.config o app.config y asegúrese de que los siguientes elementos se han eliminado completamente.
 
@@ -179,4 +179,4 @@ Caché en Redis de Azure cuenta con proveedores de estado de sesión ASP.NET y a
 
 Explore la [documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/), encontrará tutoriales, ejemplos, vídeos y mucho más.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

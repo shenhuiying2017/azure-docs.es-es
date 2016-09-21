@@ -18,7 +18,11 @@
 
 # Incorporación de usuarios de otros directorios o compañías asociadas en Azure Active Directory
 
-En este artículo se explica cómo agregar usuarios de otros directorios o de compañías asociadas en Azure Active Directory. Para información sobre cómo agregar nuevos usuarios a su organización y cómo agregar usuarios con cuentas Microsoft, consulte [Adición o cambio de usuarios en Azure Active Directory](active-directory-create-users.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
+> [AZURE.SELECTOR]
+- [Portal de Azure](active-directory-create-users-external-azure-portal.md)
+- [Portal de Azure clásico](active-directory-create-users-external.md)
+
+En este artículo se explica cómo agregar usuarios de otros directorios o de compañías asociadas en Azure Active Directory. Para más información sobre cómo agregar nuevos usuarios a su organización y cómo agregar usuarios con cuentas Microsoft, consulte el tema acerca de cómo [agregar o cambiar usuarios en Azure Active Directory](active-directory-create-users.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
 
 ## Adición de un usuario
 
@@ -31,7 +35,7 @@ En este artículo se explica cómo agregar usuarios de otros directorios o de co
 4. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**:
 
 	- **Usuario de otro directorio de Microsoft Azure AD**: agrega a su directorio una cuenta de usuario cuyo origen es otro directorio de Azure AD. Puede seleccionar un usuario de otro directorio solo si también es un miembro de ese directorio.
-	- **Usuarios en compañías asociadas**: para invitar y autorizar a usuarios de compañías asociadas a su directorio (consulte [Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube](active-directory-b2b-what-is-azure-ad-b2b.md)). Tendrá que [cargar un archivo CSV con las direcciones de correo electrónico](active-directory-b2b-references-csv-file-format.md).
+	- **Usuarios en compañías asociadas**: para invitar y autorizar a usuarios de compañías asociadas a su directorio (consulte el tema sobre [colaboración B2B de Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Tendrá que [cargar un archivo CSV con las direcciones de correo electrónico](active-directory-b2b-references-csv-file-format.md).
 
 6. En la página **Perfiles** del usuario, especifique el nombre, los apellidos y un nombre descriptivo, así como un rol de usuario en la lista **Roles**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md). Especifique si se debe **habilitar Multi-Factor Authentication** para el usuario.
 
@@ -63,7 +67,7 @@ Si se elimina un usuario en su directorio principal o se cancela su cuenta de Mi
 
 ### Servicios que actualmente permiten el acceso a los usuarios externos de Azure AD
 
-- **Portal de Azure clásico**: permite que un usuario externo que sea administrador de varios directorios administre cada uno de dichos directorios.
+- **Portal de Azure clásico**: permite que un usuario externo que sea administrador de varios directorios administre cada uno de ellos.
 - **SharePoint Online**: si el uso compartido externo está habilitado, permite que un usuario externo acceda a los recursos autorizados de SharePoint Online.
 - **Dynamics CRM**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics CRM.
 - **Dynamics AX**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics AX. Las limitaciones de los [usuarios externos de Azure AD](#known-limitations-of-azure-ad-external-users) y los [usuarios invitados](#guest-user-management-and-limitations) se aplican también a los usuarios externos en Dynamics AX.
@@ -84,4 +88,4 @@ Si se elimina un usuario en su directorio principal o se cancela su cuenta de Mi
 - [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

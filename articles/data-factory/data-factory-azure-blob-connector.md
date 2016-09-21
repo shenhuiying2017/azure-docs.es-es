@@ -18,9 +18,12 @@
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
-En este artículo se explica cómo usar la actividad de copia en Data Factory de Azure para mover datos desde y hacia el servicio Blob de Azure tomando como origen los datos de blobs de otro almacén de datos. Este artículo se basa en el artículo sobre actividades de movimiento de datos, que presenta información general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se explica cómo usar la actividad de copia en Data Factory de Azure para mover datos desde y hacia el servicio Blob de Azure tomando como origen los datos de blobs de otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), que presenta información general sobre el movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
-> [AZURE.NOTE] En la actualidad, este conector de blobs de Azure solo permite copiar y pegar blobs en bloques. Además, es compatible con Almacenamiento de Azure y con Almacenamiento de blobs de acceso esporádico y frecuente.
+> [AZURE.NOTE]
+La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente.
+> 
+> La actividad admite leer desde blobs en bloques, en anexos o en páginas, pero solo permite escribir en blobs en bloques.
 
 ## Asistente para copia de datos
 La manera más sencilla de crear una canalización que copie datos a o desde el Almacenamiento de blobs de Azure es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
@@ -449,18 +452,18 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | **PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/>**FlattenHierarchy:** todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen un nombre generado automáticamente. <br/><br/>**MergeFiles: (valor predeterminado)** combina todos los archivos de la carpeta de origen en un solo archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. | No |
 
-**BlobSource** también admite estas dos propiedades que dejarán de utilizarse pronto.
+**BlobSource** también admite estas dos propiedades para ofrecer compatibilidad con versiones anteriores.
 
 - **treatEmptyAsNull**: especifica si se debe tratar una cadena nula o vacía como un valor nulo.
 - **skipHeaderLineCount**: especifica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa TextFormat.
 
-De forma similar, **BlobSink** admite la siguiente propiedad que dejará de utilizarse pronto.
+De forma similar, **BlobSink** admite la siguiente propiedad para ofrecer compatibilidad con versiones anteriores.
 
 - **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida.
 
 Los conjuntos de datos ahora son compatibles con las siguientes propiedades que implementan la misma funcionalidad: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-La tabla siguiente proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de las propiedades de origen/receptor de blob que dejarán de utilizarse pronto.
+En la tabla siguiente se proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de estas propiedades de origen/receptor de blob.
 
 | Propiedad de la actividad de copia | Propiedad de conjunto de datos |
 | :---------------------- | :---------------- | 
@@ -494,4 +497,4 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

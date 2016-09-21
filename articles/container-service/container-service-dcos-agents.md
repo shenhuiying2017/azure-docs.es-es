@@ -1,5 +1,5 @@
 <properties
-   pageTitle="ACS de grupos de agentes públicos y privados | Microsoft Azure"
+   pageTitle="ACS de grupos de agentes de DC/OS públicos y privados | Microsoft Azure"
    description="Cómo funcionan los grupos de agentes públicos y privados con un clúster de Azure Container Service."
    services="container-service"
    documentationCenter=""
@@ -18,9 +18,9 @@
    ms.date="08/16/2016"
    ms.author="adegeo"/>
 
-# Grupos de agentes
+# Grupos de agentes de DC/OS para Azure Container Service
 
-Azure Container Service divide los agentes en varios grupos. Y aunque cada máquina virtual de un grupo es idéntica, cada grupo tiene su propia subred. Por lo tanto, cada grupo puede marcarse como público o privado, lo cual afecta a la accesibilidad entre equipos del servicio de contenedores.
+Azure Container Service en DC/OS divide los agentes en grupos públicos o privados. Una implementación puede realizarse en cualquier grupo, de tal manera que afecte a la accesibilidad entre máquinas en el servicio de contenedor. Las máquinas pueden estar expuestas a Internet (públicas) o mantenerse internas (privadas). En este artículo se ofrece una breve descripción de por qué hay un grupo público y privado.
 
 ### Agentes privados
 
@@ -32,10 +32,12 @@ Los nodos de agente público ejecutan servicios y aplicaciones de DC/OS a travé
 
 ## Uso de grupos de agente
 
-De forma predeterminada, **Marathon** implementa cualquier nueva aplicación en los nodos de agente *privado*. Tendrá que implementar explícitamente la aplicación en el nodo *público*. Lamentablemente, la implementación en el nodo público no es tan sencilla como activar una casilla de verificación Durante la creación de una nueva aplicación, vaya a la pestaña **Opcional** y escriba **slave\_public** en **Accepted Resource Roles** (Roles de recursos aceptados). Este proceso se describe [aquí](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) y en la documentación de [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
+De forma predeterminada, **Marathon** implementa cualquier nueva aplicación en los nodos de agente *privado*. Tendrá que implementar explícitamente la aplicación en el nodo *público* durante la creación de la aplicación. Seleccione la pestaña **Optional** (Opcional) y escriba **slave\_public** en el valor **Accepted Resource Roles** (Roles de recursos aceptados). Este proceso se describe [aquí](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) y en la documentación de [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
 
 ## Pasos siguientes
 
 Obtenga más información sobre cómo [administrar contenedores de DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+Obtenga información sobre cómo [abrir el firewall](container-service-enable-public-access.md) proporcionado por Azure para permitir acceso público al contenedor de DC/OS.
+
+<!---HONumber=AcomDC_0907_2016-->

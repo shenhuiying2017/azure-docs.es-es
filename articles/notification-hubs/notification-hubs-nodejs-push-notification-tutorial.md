@@ -31,7 +31,7 @@ Entre los escenarios descritos se incluye el envío de notificaciones push a apl
 * Android
 * iOS
 * Windows Phone
-* Plataforma universal de Windows 
+* Plataforma universal de Windows
 
 Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes](#next).
 
@@ -41,7 +41,7 @@ Los Centros de notificaciones de Azure proporcionan una infraestructura multipla
 
 ##Creación de una aplicación Node.js
 
-El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure][nodejswebsite], [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Node.js Cloud Service] \(con Windows PowerShell) o [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix].
+El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure][nodejswebsite], [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Node.js Cloud Service] (con Windows PowerShell) o [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix].
 
 ##Configuración de la aplicación para usar los Centros de notificaciones
 
@@ -218,4 +218,4 @@ Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmen
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

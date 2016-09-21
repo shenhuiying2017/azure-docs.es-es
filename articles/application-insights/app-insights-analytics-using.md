@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -125,11 +125,14 @@ De manera predeterminada, los resultados se muestran en un principio en forma de
 
 ## Anclar al panel
 
-Puede anclar un diagrama a uno de sus [paneles compartidos](app-insights-dashboards.md); simplemente haga clic en la chincheta. (Es posible que necesite [actualizar el paquete de precios de la aplicación](app-insights-pricing.md) para activar esta característica).
+Puede anclar un diagrama o una tabla a uno de sus [paneles compartidos](app-insights-dashboards.md); simplemente haga clic en la chincheta. (Es posible que necesite [actualizar el paquete de precios de la aplicación](app-insights-pricing.md) para activar esta característica).
 
 ![Haga clic en la chincheta](./media/app-insights-analytics-using/pin-01.png)
 
 Esto significa que, cuando elabora un panel que le ayude a supervisar el rendimiento o el uso de los servicios web, puede incluir un análisis bastante complejo junto con las demás métricas.
+
+Puede anclar una tabla al panel, si tiene cuatro o menos columnas. Se muestran solo las siete filas superiores.
+
 
 #### Actualización del panel
 
@@ -183,4 +186,4 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

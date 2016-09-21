@@ -128,7 +128,7 @@ SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios d
 
 Por último, puede especificar que un contenedor y sus blobs, o un blob específico, estén disponibles para el acceso público. Cuando se indica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Los contenedores y los blobs públicos son útiles para exponer recursos, como archivos multimedia y documentos hospedados en sitios web. Si desea reducir la latencia de red para una audiencia global, puede almacenar en caché los datos de blobs usados por los sitios web con el servicio CDN de Azure.
 
-Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md). Consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) y [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para más información sobre el acceso seguro a su cuenta de almacenamiento.
+Para más información sobre firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md). Consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) y [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para más información sobre el acceso seguro a su cuenta de almacenamiento.
 
 ## Replicación para obtener durabilidad y alta disponibilidad
 
@@ -267,4 +267,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 - [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

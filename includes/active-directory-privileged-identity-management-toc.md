@@ -1,6 +1,7 @@
 - [Introducción a Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
 - [Roles en PIM de Azure](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
 - [El asistente para seguridad](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
+- [Concesión de acceso para administrar Privileged Identity Management de Azure AD](../articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md)
 - [Incorporación o eliminación de un rol de usuario](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
 - [Activación y desactivación de un rol](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Cambio o visualización de la configuración de activación predeterminada de un rol](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
@@ -10,4 +11,4 @@
 - [Exigencia de MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Cómo utilizar el registro de auditoría](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

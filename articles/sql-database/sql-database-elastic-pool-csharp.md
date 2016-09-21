@@ -27,7 +27,7 @@
 
 En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) para bases de datos SQL desde una aplicación, mediante el uso de técnicas de desarrollo de bases de datos de C#.
 
-> [AZURE.NOTE] Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
+> [AZURE.NOTE] Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto centro-norte de EE. UU. y oeste de la India, en donde actualmente se encuentran en versión preliminar. La disponibilidad general de los grupos elásticos en estas regiones se proporcionarán tan pronto como sea posible. Además, los grupos elásticos no admiten actualmente las bases de datos mediante [OLTP en memoria o análisis en memoria](sql-database-in-memory.md).
 
 En los ejemplos usaremos la [Biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
@@ -573,4 +573,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

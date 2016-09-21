@@ -13,22 +13,22 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist" />
 
 # API de administración: versión 2015-02-28
 
-Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. En este documento se describe la versión **2015-02-28* de la API de REST de administración de Búsqueda de Azure. Desde entonces se reemplazó por versiones más recientes. Para la versión más reciente, vea [API de REST de administración de Búsqueda de Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. En este documento se describe la versión **2015-02-28* de la API de REST de administración de Azure Search. Desde entonces se reemplazó por versiones más recientes. Para la versión más reciente, vea [API de REST de administración de Búsqueda de Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
 
 ##Operaciones de administración de servicio
 
 La API de REST de administración del Servicio Búsqueda de Azure proporciona acceso mediante programación a gran parte de las funciones disponibles a través del portal, permitiendo así que los administradores automaticen las operaciones siguientes:
 
 - Crear o eliminar un servicio Búsqueda de Azure.
-- Cree, regenere o modifique `api-keys` para automatizar cambios periódicos a las claves administrativas que se usan para autenticar operaciones de datos de búsqueda. 
+- Cree, regenere o modifique `api-keys` para automatizar cambios periódicos a las claves administrativas que se usan para autenticar operaciones de datos de búsqueda.
 - Ajustar la escala de un servicio Búsqueda de Azure en respuesta a cambios en los requisitos de almacenamiento o de volumen de la consulta.
 
-Para administrar completamente el servicio mediante programación, necesitará dos API: la API de REST de administración de Búsqueda de Azure y la [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) común. La API del Administrador de recursos se utiliza para operaciones generales que no son específicas del servicio, como consultar datos de suscripción, enumerar ubicaciones geográficas, etcétera. Para crear y administrar los servicios Búsqueda de Azure de su suscripción, asegúrese de que la solicitud HTTP incluye el extremo del Administrador de recursos, el identificador de suscripción, el proveedor (en este caso, Búsqueda de Azure) y la operación específica del servicio de búsqueda.
+Para administrar completamente el servicio mediante programación, necesitará dos API: la API de REST de administración de Búsqueda de Azure y la [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) común. La API de Resource Manager se utiliza para operaciones generales que no son específicas del servicio, como consultar datos de suscripción, enumerar ubicaciones geográficas, etcétera. Para crear y administrar los servicios de Azure Search de su suscripción, asegúrese de que la solicitud HTTP incluye el punto de conexión de Resource Manager, el identificador de suscripción, el proveedor (en este caso, Azure Search) y la operación específica del servicio de búsqueda.
 
 [Introducción a la API de REST de administración de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) es un tutorial con código de ejemplo que muestra las operaciones de configuración de la aplicación y administración del servicio. La aplicación de ejemplo envía solicitudes a la API del Administrador de recursos de Azure y a la API de administración del servicio Búsqueda de Azure; así podrá hacerse una idea de cómo estructurar una aplicación coherente que se base en ambas API.
 
@@ -103,7 +103,7 @@ Las operaciones incluyen las siguientes API:
 <a name="ServiceOps"></a>
 ##Operaciones del servicio
 
-Puede aprovisionar o desaprovisionar los servicios Búsqueda de Azure enviando solicitudes HTTP según su suscripción de Azure. Entre los escenarios que posibilitan estas operaciones están la creación de herramientas de administración personalizadas y la implementación de un entorno de producción o desarrollo completo (desde la creación de servicio hasta la alimentación de un índice). Del mismo modo, los proveedores de soluciones que diseñan y venden soluciones de nube pueden desear un enfoque automatizado y repetible para aprovisionar servicios a cada cliente nuevo.
+Puede aprovisionar o desaprovisionar los servicios de Azure Search enviando solicitudes HTTP en su suscripción de Azure. Entre los escenarios que posibilitan estas operaciones están la creación de herramientas de administración personalizadas y la implementación de un entorno de producción o desarrollo completo (desde la creación de servicio hasta la alimentación de un índice). Del mismo modo, los proveedores de soluciones que diseñan y venden soluciones de nube pueden desear un enfoque automatizado y repetible para aprovisionar servicios a cada cliente nuevo.
 
 **Operaciones en un servicio**
 
@@ -129,7 +129,7 @@ La operación **Creación de servicio de búsqueda** aprovisiona un nuevo servic
 
 `resourceGroupName`: obligatorio. El nombre del grupo de recursos dentro de la suscripción del usuario. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
-`serviceName`: obligatorio. El nombre del servicio de búsqueda dentro del grupo de recursos especificado. Los nombres de los servicios solo pueden contener letras minúsculas, números o guiones, no pueden contener un guion como primero, segundo o último carácter, no pueden contener guiones consecutivos y deben tener entre 2 y 15 caracteres de longitud. Puesto que todos los nombres terminan siendo <name>.search.windows.net, los nombres de servicio deben ser únicos globalmente. No puede haber dos servicios en todas las suscripciones y grupos de recursos que tengan el mismo nombre. El nombre del servicio no se puede cambiar después de crearlo.
+`serviceName`: obligatorio. El nombre del servicio de búsqueda dentro del grupo de recursos especificado. Los nombres de los servicios solo pueden contener letras minúsculas, números o guiones, no pueden contener un guion como primero, segundo o último carácter, no pueden contener guiones consecutivos y deben tener entre 2 y 15 caracteres de longitud. Puesto que todos los nombres terminan siendo <nombre>.search.windows.net, los nombres de servicio deben ser únicos globalmente. No puede haber dos servicios en todas las suscripciones y grupos de recursos que tengan el mismo nombre. El nombre del servicio no se puede cambiar después de crearlo.
 
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. La versión actual es `2015-02-28`.
 
@@ -158,7 +158,7 @@ La operación **Creación de servicio de búsqueda** aprovisiona un nuevo servic
 `partitionCount`: opcional. El valor predeterminado es 1. Los valores válidos son 1, 2, 3, 4, 6 o 12. Válido solamente cuando `sku` es `standard`.
 
 
-### Respuesta
+### Response
 
 Cuando se actualiza una definición de servicio, se devuelve HTTP 200 (OK). Cuando se crea un nuevo servicio, se devuelve HTTP 201 (Created).
 
@@ -211,7 +211,7 @@ Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servi
 
 - `free`: clúster compartido.
 - `standard`: clúster dedicado.
-- `standard2`: utilice solo por indicación del servicio de soporte técnico de Microsoft. 
+- `standard2`: utilice solo por indicación del servicio de soporte técnico de Microsoft.
 
 `replicaCount`: indica cuántas réplicas tiene el servicio. Los valores válidos son de 1 a 6.
 
@@ -224,7 +224,7 @@ Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servi
 - `deleting`: se está eliminando el servicio de búsqueda.
 - `degraded`: el servicio de búsqueda está degradado. Esto puede ocurrir cuando el clúster encuentra un error que podría impedir que el servicio funcionara correctamente.
 - `disabled`: la Búsqueda está deshabilitada. En este estado, el servicio rechazará todas las solicitudes de API.
-- `error`: el servicio de búsqueda está en estado de error. 
+- `error`: el servicio de búsqueda está en estado de error.
 
 **Nota**: Si el servicio está en el estado `degraded`, `disabled` o `error`, significa que el equipo de Búsqueda de Azure está investigando activamente el problema subyacente. En estos estados, los servicios dedicados son todavía facturables en función del número de unidades de búsqueda aprovisionado.
 
@@ -234,7 +234,7 @@ Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servi
 
 - `succeeded`: el aprovisionamiento se ha realizado correctamente.
 - `provisioning`: se está aprovisionando el servicio.
-- `failed`: no se está aprovisionando el servicio. 
+- `failed`: no se está aprovisionando el servicio.
 
 El aprovisionamiento es un estado intermedio que se produce cuando se está estableciendo la capacidad de servicio. Cuando se configura la capacidad, `provisioningState` cambia a "succeeded" (correcto) o "failed" (error). Las aplicaciones cliente pueden usar la operación **Obtención de servicio de búsqueda** para sondear el estado de aprovisionamiento y ver cuando se completa una operación (el intervalo recomendado de sondeo es de 30 segundos y hasta un minuto). Si utiliza el servicio gratuito, este valor suele aparecer como "succeeded" directamente en la llamada para crear el servicio. Esto ocurre porque el servicio gratuito usa una capacidad que ya está configurada.
 
@@ -327,7 +327,7 @@ HTTP 200 (OK) si es correcto.
 - `deleting`: se está eliminando el servicio de búsqueda.
 - `degraded`: el servicio de búsqueda está degradado. Esto puede ocurrir cuando el clúster encuentra un error que podría impedir que el servicio funcionara correctamente.
 - `disabled`: la Búsqueda está deshabilitada. En este estado, el servicio rechazará todas las solicitudes de API.
-- `error`: el servicio de búsqueda está en estado de error. 
+- `error`: el servicio de búsqueda está en estado de error.
  
 **Nota**: Si el servicio está en el estado `degraded`, `disabled` o `error`, significa que el equipo de Búsqueda de Azure está investigando activamente el problema subyacente. En estos estados, los servicios dedicados son todavía facturables en función del número de unidades de búsqueda aprovisionado.
  
@@ -343,7 +343,7 @@ HTTP 200 (OK) si es correcto.
 <a name="ListService"></a>
 ### Enumeración de servicios de búsqueda
 
-La operación **Enumeración de servicios** devuelve una lista de todos los servicios Búsqueda de la suscripción correspondientes a un grupo de recursos específico. Esta operación devuelve definiciones de servicio, sin las claves de API de administración. Utilice la operación **Obtención de claves de administración** para recuperar las claves de administración.
+La operación **Enumeración de servicios** devuelve una lista de todos los servicios de búsqueda de la suscripción correspondientes a un grupo de recursos específico. Esta operación devuelve definiciones de servicio, sin las claves de API de administración. Utilice la operación **Obtención de claves de administración** para recuperar las claves de administración.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28
     
@@ -363,7 +363,7 @@ La operación **Enumeración de servicios** devuelve una lista de todos los serv
 
 Ninguno.
 
-####Respuesta
+####Response
 
 El código de estado es HTTP 200 (OK) si se realiza correctamente.
 
@@ -454,7 +454,7 @@ La operación **Eliminar servicio** elimina el servicio de búsqueda y los datos
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 Con HTTP 200, el cuerpo de respuesta estará vacío. HTTP 200 (OK) es la respuesta correcta si el recurso no existe.
 
@@ -520,7 +520,7 @@ Como alternativa, puede usar PUT.
 
 `partitionCount`: opcional. El valor predeterminado es 1. Los valores válidos son 1, 2, 3, 4, 6 o 12. Válido solamente cuando `sku` es `standard`.
 
-###Respuesta###
+###Response###
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK). Puede usar **Obtención de API del servicio de búsqueda** para sondear el estado del servicio de actualización. Se recomienda utilizar intervalos de sondeo de 30 segundos a un minuto.
 
@@ -592,7 +592,7 @@ Las claves de administración se crean con el servicio. Siempre son dos claves, 
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
 
@@ -644,7 +644,7 @@ La operación **Regeneración de claves de administración** elimina y vuelve a 
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
 
@@ -698,7 +698,7 @@ La operación **Creación de clave de consulta** genera una nueva clave de consu
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 Código de estado de respuesta es HTTP 200 (correcto) si la operación se realiza correctamente.
 
@@ -750,7 +750,7 @@ La operación **Enumeración de claves de consulta** devuelve las claves de cons
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 El código de estado de respuesta es HTTP 200 (OK) si la operación se realiza correctamente.
 
@@ -814,7 +814,7 @@ A diferencia de las claves de administración, las claves de consulta no se rege
 
 Ninguno.
 
-###Respuesta###
+###Response###
 
 El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
@@ -828,4 +828,4 @@ El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
 Ninguno.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

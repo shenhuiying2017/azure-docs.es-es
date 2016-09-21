@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight  
@@ -36,7 +36,7 @@ Cuando se conecte a un clúster de HBase, deberá conectarse a uno de los ZooKee
 
 **Para averiguar el nombre de host de ZooKeeper**
 
-1. Abra Ambari yendo a **https://<ClusterName>.azurehdinsight.net**.
+1. Vaya a **https://<nombreDelClúster>.azurehdinsight.net/** para abrir Ambari.
 2. Escriba el nombre de usuario HTTP (clúster) y la contraseña para iniciar sesión.
 3. En el menú izquierdo, haga clic en **ZooKeeper**. Verá una lista con 3 **servidores de ZooKeeper**.
 4. Haga clic en uno de los **servidores de ZooKeeper** que aparecen. En el panel Resumen, busque el **Nombre de host**. Es similar a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -71,7 +71,7 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para
 
 - [Información general de HBase de HDInsight][hdinsight-hbase-overview]\: HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que proporciona acceso aleatorio y una coherencia sólida para grandes cantidades de datos no estructurados y semiestructurados.
 - [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]\: con la integración de redes virtuales, los clústeres de HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
-- [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md): aprenda a configurar la replicación de HBase entre dos centros de datos de Azure. 
+- [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md): aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
 - [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]\: descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de grandes volúmenes de datos con HBase en un clúster de Hadoop en HDInsight.
 
 [azure-portal]: https://portal.azure.com
@@ -95,4 +95,4 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

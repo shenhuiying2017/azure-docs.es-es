@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 
@@ -37,8 +37,6 @@ Ahora, abra un shell y ejecute el siguiente comando, donde:
 **PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos. **PATH\_TO\_PRIVATE\_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster del servicio Contenedor. Utilice esta opción con la marca -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > El puerto de conexión SSH es el 2200 y no el puerto 22 estándar.
@@ -48,8 +46,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Para abrir un túnel a los puntos de conexión relacionados con DC/OS, ejecute un comando similar al siguiente:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -66,8 +62,6 @@ De igual forma, se puede acceder a las API de REST de cada aplicación a través
 Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -120,4 +114,4 @@ Implemente y administre contenedores con DC/OS o Swarm:
 - [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 - [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

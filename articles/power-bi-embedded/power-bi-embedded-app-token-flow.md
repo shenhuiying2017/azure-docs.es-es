@@ -3,7 +3,7 @@
    description="Autenticación y autorización con Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/26/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Autenticación y autorización con Power BI Embedded
 
@@ -34,7 +34,7 @@ Los tokens de aplicación son un JWT (JSON Web Token) que está firmado por una 
 
 El token de la aplicación puede contener las siguientes notificaciones:
 
-| Notificación | Descripción |
+| Notificación | Description |
 |--------------|------------|
 | **ver** | La versión del token de aplicación. La versión actual es 0.2.0. |
 | **aud** | El destinatario previsto del token. Para usar Power BI Embedded: "https://analysis.windows.net/powerbi/api". |
@@ -93,4 +93,4 @@ Después de que **Power BI Embedded** envíe un informe al usuario, este puede v
 - [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 - [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

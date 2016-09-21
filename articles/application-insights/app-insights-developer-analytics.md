@@ -40,9 +40,9 @@ Las herramientas de Visual Studio y Análisis del desarrollador ofrecen una expe
 ![Ciclo de DevOps de aplicaciones web](./media/app-insights-developer-analytics/040.png)
 
 * Un desarrollador protege el repositorio de código o lo combina en la rama principal. En esta ilustración, el repositorio es Git, pero podría ser igualmente [Control de versiones de Team Foundation](https://www.visualstudio.com/docs/tfvc/overview).
-* Los cambios desencadenan una compilación y una prueba unitaria. El servicio de compilación puede estar en [Visual Studio Team Services o su equivalente local, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview). 
-* Una prueba unitaria y una compilación correcta pueden [desencadenar una implementación automática](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). El host de la aplicación web puede ser su propio servidor web o Microsoft Azure. 
-* Se envía los datos de telemetría de la aplicación activa a [Application Insights](app-insights-overview.md) desde el servidor y los[exploradores de cliente](app-insights-javascript.md). Desde ahí se puede analizar el rendimiento de la aplicación y los patrones de uso. Las eficaces [herramientas de búsqueda](app-insights-analytics.md) lo ayudarán a diagnosticar cualquier problema. Las [alertas](app-insights-alerts.md) garantizan que esté al tanto de un problema en cuanto se produce. 
+* Los cambios desencadenan una compilación y una prueba unitaria. El servicio de compilación puede estar en [Visual Studio Team Services o su equivalente local, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview).
+* Una prueba unitaria y una compilación correcta pueden [desencadenar una implementación automática](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). El host de la aplicación web puede ser su propio servidor web o Microsoft Azure.
+* Se envía los datos de telemetría de la aplicación activa a [Application Insights](app-insights-overview.md) desde el servidor y los[exploradores de cliente](app-insights-javascript.md). Desde ahí se puede analizar el rendimiento de la aplicación y los patrones de uso. Las eficaces [herramientas de búsqueda](app-insights-analytics.md) lo ayudarán a diagnosticar cualquier problema. Las [alertas](app-insights-alerts.md) garantizan que esté al tanto de un problema en cuanto se produce.
 * El siguiente ciclo de desarrollo se basa en el análisis de los datos de telemetría activos.
 
 ### Aplicaciones de escritorio y de dispositivos
@@ -71,10 +71,18 @@ Para cada componente de la aplicación (móvil , web o escritorio), los pasos so
 3. Para aplicaciones de dispositivos, siga estos pasos:
  * Cargue una compilación de depuración en HockeyApp. Desde ahí puede distribuirla a un grupo de usuarios de prueba. Cada vez que se cargan las compilaciones sucesivas, se notificará al equipo.
  * Al configurar el servicio de compilación continua, cree una definición de la versión que usa el paso de complemento para cargar las compilaciones en HockeyApp.
+
+### Análisis y exportación de telemetría de HockeyApp
+
+Puede investigar la telemetría de registros y personalizada de HockeyApp mediante las características de análisis y exportación continua de Application Insights [configurando un puente](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## Pasos siguientes
  
 Aquí encontrará las instrucciones detalladas para los distintos tipos de aplicación:
 
-* [Aplicación web para ASP.NET](app-insights-asp-net.md) 
+* [Aplicación web para ASP.NET](app-insights-asp-net.md)
 * [Aplicaciones web de Java](app-insights-java-get-started.md)
 * [Aplicación web para Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [Aplicación para iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
@@ -84,4 +92,4 @@ Aquí encontrará las instrucciones detalladas para los distintos tipos de aplic
 * [Aplicación para Windows Phone 8 y 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [Aplicación para Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

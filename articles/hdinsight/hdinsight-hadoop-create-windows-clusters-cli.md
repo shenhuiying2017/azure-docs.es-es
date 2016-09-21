@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure
@@ -41,7 +41,7 @@ Use el comando siguiente para conectarse a Azure:
 
 	azure login
 
-Para obtener más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 Ejecute el siguiente comando para cambiar al modo ARM:
 
@@ -92,7 +92,7 @@ Para poder crear un clúster de HDInsight, debe tener una Administración de rec
 
 - **(Opcional) Contenedor de blobs predeterminado**: el comando **azure hdinsight cluster create** crea el contenedor si aún no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
 
-	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
+	azure storage container create --account-name "<nombre de la cuenta de almacenamiento>" --account-key <clave de la cuenta de almacenamiento> [ContainerName]
 
 Cuando tenga preparada la cuenta de almacenamiento, podrá crear un clúster.
 
@@ -132,11 +132,11 @@ Para información sobre la acción de script, vea [Personalización de clústere
 
 Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consulte [Implementación con la CLI de Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
-## Consulte también
+## Otras referencias
 
 - [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
 - [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
 - [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

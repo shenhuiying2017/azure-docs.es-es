@@ -25,7 +25,7 @@ Necesitará tener instalado el SDK 2.8 de Azure en Visual Studio.
 
 ## Obtención de un recurso de Application Insights
 
-Para lograr la mejor experiencia, [agregue el SDK de Application Insights a cada rol de la aplicación de Servicios en la nube](app-insights-cloudservices.md), o [a cualquier aplicación que vaya a ejecutar en la máquina virtual](app-insights-get-started.md). Luego, puede enviar los datos de diagnóstico para analizarlos y mostrarlos en el mismo recurso de Application Insights.
+Para lograr la mejor experiencia, [agregue el SDK de Application Insights a cada rol de la aplicación de Servicios en la nube](app-insights-cloudservices.md), o [a cualquier aplicación que vaya a ejecutar en la máquina virtual](app-insights-overview.md). Luego, puede enviar los datos de diagnóstico para analizarlos y mostrarlos en el mismo recurso de Application Insights.
 
 Como alternativa, si no desea usar el SDK, por ejemplo, porque la aplicación ya esté funcionando, puede [crear un nuevo recurso de Application Insights](app-insights-create-new-resource.md) en el Portal de Azure. Elija **Diagnósticos de Azure** como el tipo de aplicación.
 
@@ -146,4 +146,4 @@ Existen algunas limitaciones que se deben tener en cuenta con esta funcionalidad
 * [Uso de PowerShell para enviar diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Archivo de configuración de Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0907_2016-->

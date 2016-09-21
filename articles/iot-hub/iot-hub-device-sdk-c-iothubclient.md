@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # SDK de dispositivos IoT de Microsoft Azure para C: más información sobre IoTHubClient
@@ -69,7 +69,7 @@ Sin embargo, hay funciones complementarias de cada una de estas API:
 
 Estas funciones incluyen "LL" en el nombre de la API. Aparte de eso, los parámetros de cada una de estas funciones son idénticos a sus correspondiente no LL. Sin embargo, el comportamiento de estas funciones es diferente en un aspecto importante.
 
-Cuando se llama a **IoTHubClient\_CreateFromConnectionString**, las bibliotecas subyacentes crean un nuevo subproceso que se ejecuta en segundo plano. Este subproceso envía eventos al Centro de IoT y recibe mensajes del mismo. No se crea ningún subproceso de este tipo cuando se trabaja con las API "LL". La creación de subproceso en segundo plano es muy práctico para el desarrollador. No tiene que preocuparse por enviar eventos y recibir mensajes del Centro de IoT de forma explícita porque esto se produce automáticamente en segundo plano. Por el contrario, las API "LL" proporcionan un control explícito sobre la comunicación con el Centro de IoT, si lo necesita.
+Cuando se llama a **IoTHubClient\_CreateFromConnectionString**, las bibliotecas subyacentes crean un nuevo subproceso que se ejecuta en segundo plano. Este subproceso envía eventos al Centro de IoT y recibe mensajes del mismo. No se crea ningún subproceso de este tipo cuando se trabaja con las API "LL". La creación de subproceso en segundo plano es muy práctico para el desarrollador. No tiene que preocuparse por enviar eventos y recibir mensajes del Centro de IoT de forma explícita porque esto se produce automáticamente en segundo plano. Por el contrario, las API "LL" proporcionan un control explícito sobre la comunicación con IoT Hub, si lo necesita.
 
 Para comprenderlo mejor, veamos un ejemplo:
 
@@ -79,7 +79,7 @@ De forma similar, cuando se registra una función de devolución de llamada para
 
 Las API "LL" no crean un subproceso en segundo plano. En su lugar, debe llamarse una nueva API para enviar y recibir datos a y desde Centro de IoT de forma explícita. Esto se muestra en el ejemplo siguiente.
 
-La aplicación **iothub\_client\_sample\_http** que se incluye en el SDK muestra las API de nivel inferior. En este ejemplo, enviamos eventos al Centro de IoT con un código como el siguiente:
+La aplicación **iothub\_client\_sample\_http** que se incluye en el SDK muestra las API de nivel inferior. En este ejemplo, enviamos eventos a IoT Hub con un código como el siguiente:
 
 ```
 EVENT_INSTANCE message;
@@ -296,4 +296,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

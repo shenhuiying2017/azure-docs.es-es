@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -129,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Predictix Price Reporting y proporcione lo siguiente:
@@ -138,9 +138,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 	• El **identificador de entidad**
 
-	La **dirección URL de inicio de sesión único de SAML**
+	• La **dirección URL de inicio de sesión único de SAML**
 
-	La **dirección URL del servicio de cierre de sesión único**
+	• La **dirección URL del servicio de cierre de sesión único**
 
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 	
@@ -169,11 +169,11 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
+5. En la página de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -203,7 +203,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -270,4 +270,4 @@ Al hacer clic en el icono de Predictix Price Reporting en el panel de acceso, de
 [204]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

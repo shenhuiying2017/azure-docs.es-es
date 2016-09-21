@@ -34,8 +34,8 @@ Las aplicaciones hospedadas en el Servicio de aplicaciones de Azure pueden [alca
 3. Comprensión y aprovechamiento correcto de la plataforma que hospeda su aplicación.
 	* ¿Qué características debo aprovechar para lograr mis objetivos de escala?
 
-Esta sección lo ayudará a comprender todos los factores y a diseñar una estrategia que aproveche las características necesarias de Servicio de aplicaciones para lograr sus objetivos de escalabilidad.
+Esta sección lo ayudará a comprender todos los factores y a diseñar una estrategia que aproveche las características necesarias de App Service para lograr sus objetivos de escalabilidad.
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

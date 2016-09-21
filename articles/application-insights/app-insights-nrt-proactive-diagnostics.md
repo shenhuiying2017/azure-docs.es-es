@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnóstico proactivo en tiempo casi real en Application Insights" 
+	pageTitle="Diagnóstico proactivo en tiempo casi real de Application Insights | Microsoft Azure" 
 	description="Le alerta de patrones de error poco comunes en la aplicación y proporciona un análisis de diagnóstico. No necesita ninguna configuración." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@
 
 Esta característica funciona para aplicaciones web ASP.NET y de Java, hospedadas en la nube o en sus propios servidores. También funciona para cualquier aplicación que genere telemetría de solicitudes, por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Después de configurar [Application Insights para su proyecto](app-insights-get-started.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo en tiempo casi real tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
+Después de configurar [Application Insights para su proyecto](app-insights-overview.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo en tiempo casi real tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
 
 Esta es una alerta de ejemplo.
 
@@ -121,14 +121,14 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
     El diagnóstico proactivo en tiempo casi real ajusta automáticamente su umbral en respuesta a condiciones existentes.
 
-    El diagnóstico proactivo en tiempo casi real inicia el trabajo de diagnóstico por usted. 
+    El diagnóstico proactivo en tiempo casi real inicia el trabajo de diagnóstico por usted.
 * La [detección proactiva](app-insights-proactive-detection.md) también usa la inteligencia automática para descubrir patrones inusuales en las métricas, y no requiere ninguna configuración por su parte. Pero, a diferencia del diagnóstico proactivo NRT, la finalidad de la detección proactiva es encontrar segmentos del colector de uso que pudieran haberse servido incorrectamente, por ejemplo, por páginas concretas de un tipo específico de explorador. El análisis se realiza diariamente y, si se encuentra algún resultado, probablemente sea mucho menos urgente que una alerta. Por el contrario, el análisis del diagnóstico proactivo NRT se realiza continuamente en la telemetría entrante, y se le notificará en unos minutos si las tasas de errores del servidor son mayores de lo esperado.
 
 ## Si recibe una alerta del diagnóstico proactivo en tiempo casi real
 
 *¿Por qué he recibido esta alerta?*
 
-*	Hemos detectado un aumento anómalo en la tasa de solicitudes con errores en comparación con la línea de base normal del período anterior. Después de analizar los errores y la telemetría asociada, creemos que hay un problema que debe examinar. 
+*	Hemos detectado un aumento anómalo en la tasa de solicitudes con errores en comparación con la línea de base normal del período anterior. Después de analizar los errores y la telemetría asociada, creemos que hay un problema que debe examinar.
 
 *¿La notificación significa que tengo definitivamente un problema?*
 
@@ -144,7 +144,7 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
 
-*	Sí, en Reglas de alerta, haga clic en la regla Diagnóstico proactivo para configurarla. Puede deshabilitar la alerta o cambiar a los destinatarios de la misma. 
+*	Sí, en Reglas de alerta, haga clic en la regla Diagnóstico proactivo para configurarla. Puede deshabilitar la alerta o cambiar a los destinatarios de la misma.
 
 *Perdí el mensaje de correo electrónico. ¿Dónde puedo encontrar las notificaciones en el portal?*
 
@@ -159,4 +159,17 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Pasos siguientes
+
+Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
+
+* [Explorador de métricas](app-insights-metrics-explorer.md)
+* [Explorador de búsqueda](app-insights-diagnostic-search.md)
+* [Analytics: Lenguaje de consulta eficaz](app-insights-analytics-tour.md)
+
+Las detecciones proactivas son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
+
+* [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
+* [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

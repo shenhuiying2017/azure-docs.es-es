@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Inicio y cierre de sesión de la aplicación web con Azure AD
@@ -21,7 +21,7 @@
 
 Aquí usaremos Passport para:
 
-- Iniciar la sesión del usuario en la aplicación con Azure AD y el modelo de aplicación de la versión 2.0.
+- Inicie la sesión del usuario en la aplicación con Azure AD.
 - Mostrar información sobre el usuario.
 - Cerrar la sesión del usuario en la aplicación.
 
@@ -36,7 +36,7 @@ Para ello, deberá hacer lo siguiente:
 
 El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonar el esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
@@ -243,7 +243,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
+## 4\. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
 
 La aplicación ya está configurada correctamente para comunicarse con el extremo v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
 
@@ -288,9 +288,9 @@ app.get('/logout', function(req, res){
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
+// Use este middleware de ruta en cualquier recurso que se tenga que proteger.  Si
+//   la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente),
+//   se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -414,4 +414,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

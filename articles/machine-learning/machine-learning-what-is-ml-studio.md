@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="09/09/2016"
 	ms.author="garye"/>
 
 # ¿Qué es Estudio de aprendizaje automático de Azure?
@@ -29,7 +29,7 @@ Estudio de aprendizaje automático es el lugar en el que confluyen la ciencia de
 
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
-**Estudio de aprendizaje automático de Azure** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un ***lienzo*** interactivo, conectándolos todos para formar un ***experimento*** que se ***ejecuta*** en Estudio de aprendizaje automático. Para iterar su diseño de modelo, se puede ***editar*** el experimento, ***guardar*** una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego ***publicarlo*** como ***servicio web*** para que otros usuarios puedan acceder al modelo.
+**Estudio de aprendizaje automático de Azure** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un lienzo interactivo, conectándolos todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio. Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
 >[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
@@ -47,7 +47,7 @@ Hay tres pestañas en la parte superior: **Inicio** (donde se empieza), **Estudi
 
 Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
 
-- **PROYECTOS**: colecciones de experimentos, conjuntos de datos, cuadernos y otros recursos que representan un proyecto individual.
+- **PROYECTOS**: colecciones de experimentos, conjuntos de datos, cuadernos y otros recursos que representan un proyecto individual
 - **EXPERIMENTOS**: experimentos que se crearon, ejecutaron y guardaron como borradores.
 - **SERVICIOS WEB**: servicios web que implementó a partir de los experimentos
 - **CUADERNOS**: cuadernos de Jupyter que creó
@@ -116,4 +116,4 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

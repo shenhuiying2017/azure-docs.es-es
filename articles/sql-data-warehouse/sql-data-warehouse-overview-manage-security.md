@@ -21,12 +21,10 @@
 > [AZURE.SELECTOR]
 - [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
 - [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
-- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
 - [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
+- [Cifrado de datos transparente (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado de datos transparente (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 En este artículo se describen los fundamentos de la protección de una base de datos de Almacenamiento de datos SQL de Azure. En concreto, este artículo le ayudará a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos.
 
@@ -34,10 +32,9 @@ En este artículo se describen los fundamentos de la protección de una base de 
 
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública del equipo cliente o de aplicación, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener acceso a Almacenamiento de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433. Para obtener más información, consulte [Firewall de Base de datos SQL de Azure][], [sp\_set\_firewall\_rule][] y [sp\_set\_database\_firewall\_rule][].
+Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener acceso a Almacenamiento de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433. Para obtener más información, consulte [Firewall de Base de datos SQL de Azure][], [sp\_set\_firewall\_rule][] y [sp\_set\_database\_firewall\_rule][].
 
-Las conexiones a Almacenamiento de datos SQL pueden cifrarse configurando el modo de cifrado en la cadena de conexión. La sintaxis para activar el cifrado de la conexión varía según el protocolo. Para ayudarle a configurar la cadena de conexión, desplácese a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
-
+Las conexiones a su instancia de SQL Data Warehouse se cifran de forma predeterminada. Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
 
 ## Autenticación
 
@@ -125,4 +122,4 @@ Para detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con d
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

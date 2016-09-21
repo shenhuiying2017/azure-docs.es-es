@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/16/2016"
+   ms.date="09/01/2016"
    ms.author="sameerch"/>
 
 
@@ -48,7 +48,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
 4. Escriba la siguiente configuración del paquete:
 
-	Nombre | Obligatorio | Descripción
+	Nombre | Obligatorio | Description
 --- | --- | ---
 Nombre del servidor | Sí | Especifique el nombre del servidor SQL Server. Por ejemplo, escriba *SQLserver/sqlexpress* o *SQLserver.mydomain.com*.
 Port | No | El valor predeterminado es 1433.
@@ -163,4 +163,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

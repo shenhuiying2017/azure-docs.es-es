@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -46,7 +46,6 @@ Si no ha hecho esto aún:
 
 * Agregue el SDK de Application Insights a su proyecto:
  * [Proyecto de ASP.NET][greenbrown]
- * [Proyecto de Windows][windows]
  * [Proyecto de Java][java]
  * [JavaScript en cada página web][client]
 
@@ -276,7 +275,6 @@ Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es n
 
 * ASP.NET: [escritura de código para detectar excepciones](app-insights-asp-net-exceptions.md)
 * J2EE: [las excepciones se detectan automáticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Aplicaciones de Windows: [Los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
 * JavaScript: Detectado automáticamente. Si desea deshabilitar la colección automática, agregue una línea al fragmento de código que se inserta en las páginas web:
 
     ```
@@ -353,7 +351,7 @@ Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto e
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-services.md#persistence-channel).
+Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Usuarios autenticados
@@ -727,7 +725,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 *¿Cómo puedo evitar llegar al límite de velocidad de datos?*
 
-* Use el [muestreo](app-insights-sampling.md).
+* Use el [Muestreo](app-insights-sampling.md).
 
 *¿Durante cuánto tiempo se conservan los datos?*
 
@@ -747,10 +745,9 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 * [SDK básico de ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [SDK de Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Paquetes de Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [SDK de Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [SDK de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [SDK de iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Todas las plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Preguntas
@@ -788,8 +785,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

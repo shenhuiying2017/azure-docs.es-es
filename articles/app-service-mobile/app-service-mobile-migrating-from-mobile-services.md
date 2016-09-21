@@ -42,7 +42,7 @@ Para más información sobre las ventajas del Servicio de aplicaciones de Azure,
 
 Antes de empezar cualquier trabajo importante en su sitio, debe [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil].
 
-Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] \(junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
+Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
 
 ## <a name="migrating-site"></a>Migración de los sitios
 
@@ -353,7 +353,7 @@ Si tiene un sitio ASP.NET, los cambios en el archivo `Web.config` no funcionará
 </configuration>
 ```
 
-Para más información, consulte la documentación [XDT Transform Samples] \(Ejemplos de transformación de XDT) en GitHub.
+Para más información, consulte la documentación [XDT Transform Samples] (Ejemplos de transformación de XDT) en GitHub.
 
 ### Los Servicios móviles migrados no se pueden agregar al Administrador de tráfico
 
@@ -400,7 +400,7 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [Registro]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK para Node.js de Aplicaciones móviles]: https://github.com/azure/azure-mobile-apps-node
 [Servicios móviles frente al Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Centros de notificaciones]: ../notification-hubs/notification-hubs-overview.md
+[Centros de notificaciones]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [supervisión del rendimiento]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

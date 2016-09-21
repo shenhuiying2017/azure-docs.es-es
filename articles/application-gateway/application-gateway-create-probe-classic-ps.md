@@ -26,7 +26,7 @@
 
 <BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
 
@@ -47,35 +47,13 @@ Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, r
 
 En el ejemplo siguiente se crea una puerta de enlace de aplicaciones nueva mediante una red virtual denominada testvnet1 y una subred llamada subnet-1.
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* y *GatewaySize* son parámetros opcionales.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Para validar que se creó la puerta de enlace, puede usar el cmdlet **Get-AzureApplicationGateway**.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
-
 
  *VirtualIPs* y *DnsName* se muestran en blanco porque todavía no se ha iniciado la puerta de enlace. Se crearán una vez que la puerta de enlace esté en estado de ejecución.
 
@@ -87,10 +65,9 @@ La puerta de enlace de aplicaciones se puede configurar con un archivo XML o con
 
 En el ejemplo siguiente, se usa un archivo XML para configurar todos los valores de la puerta de enlace de aplicaciones y confirmarlos en el recurso de dicha puerta de enlace.
 
-### Paso 1  
+### Paso 1
 
 Copie el texto siguiente y péguelo en el Bloc de notas.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@ En el ejemplo siguiente se muestra cómo usar un archivo de configuración con e
 
 >[AZURE.IMPORTANT] El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
 
-
 Se agrega un nuevo elemento de configuración <Probe> para configurar sondeos personalizados.
 
 Los parámetros de configuración son:
@@ -183,7 +159,7 @@ El cambio de la configuración actual de una puerta de enlace de aplicaciones re
 
 Obtenga el archivo XML mediante get-AzureApplicationGatewayConfig. De esta forma, se exportará el XML de configuración que se debe modificar para agregar una configuración de sondeo.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Paso 2
@@ -200,6 +176,7 @@ Abra el archivo XML en un editor de texto. Agregue una sección `<probe>` despu�
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 En la sección backendHttpSettings del XML, agregue el nombre del sondeo tal y como se muestra en el ejemplo siguiente:
 
@@ -214,12 +191,11 @@ En la sección backendHttpSettings del XML, agregue el nombre del sondeo tal y c
 
 Guarde el archivo XML.
 
-
 ### Paso 3
 
 Actualice la configuración de la puerta de enlace de aplicaciones con el nuevo archivo XML usando **AzureApplicationGatewayConfig Set**. De esta forma, se actualizará la puerta de enlace de aplicaciones con la nueva configuración.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Pasos siguientes
@@ -228,4 +204,4 @@ Si quiere configurar la descarga de Capa de sockets seguros (SSL), vea [Configur
 
 Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

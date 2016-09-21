@@ -1,25 +1,25 @@
 #### Tipo de VPN: modelo de implementación de Resource Manager
 
-| | **Basada en enrutamiento** | **Basada en directivas** |
-|-----------------------------------|--------------------|------------------|
-| **De sitio a sitio** | yes | yes |
-| **De red virtual a red virtual** | yes | no |
-| **Multisitio** | yes | no |
-| **S2S y ExpressRoute coexisten** | todavía no disponible | no |
-| **De punto a sitio** | yes | no |
-| **Clásico a Resource Manager** | yes | no |
+| | **RouteBased** | **PolicyBased** |
+|-----------------------------------|-------------|------------------|
+| **De sitio a sitio** | Compatible | Compatible |
+| **De red virtual a red virtual** | Compatible | No compatible |
+| **Multisitio** | Compatible | No compatible |
+| **S2S y ExpressRoute coexisten** | Compatible | No compatible |
+| **De punto a sitio** | Compatible | No compatible |
+| **Clásico a Resource Manager** | Compatible | No compatible |
 
 
 #### Tipo de VPN: modelo de implementación clásica
 
 
 | | **Dinámica** | **Estática** |
-|---------------------------------------------|--------------------|--------------|
-| **De sitio a sitio** | yes | yes |
-| **De red virtual a red virtual** | yes | no |
-| **Multisitio** | yes | no |
-| **S2S y ExpressRoute coexisten** | yes | no |
-| **De punto a sitio** | yes | no |
-| **Clásico a Resource Manager** | yes | no |
+|---------------------------------------------|--------------|--------------|
+| **De sitio a sitio** | Compatible | Compatible |
+| **De red virtual a red virtual** | Compatible | No compatible |
+| **Multisitio** | Compatible | No compatible |
+| **S2S y ExpressRoute coexisten** | Compatible | No compatible |
+| **De punto a sitio** | Compatible | No compatible |
+| **Clásico a Resource Manager** | Compatible | No compatible |
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0907_2016-->

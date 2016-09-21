@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de Showpad en Azure AD, deberá agregar Showpad 
 
 **Para agregar Showpad desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Aplicaciones][1]
 
@@ -204,7 +204,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     a. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -304,4 +304,4 @@ Al hacer clic en el icono de **Showpad** del panel de acceso, debería iniciar s
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->
