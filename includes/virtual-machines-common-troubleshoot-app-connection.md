@@ -1,4 +1,4 @@
-Hay varias causas que pueden generar problemas de conexión o inicio de una aplicación que se ejecuta en una máquina virtual (VM) de Azure, por ejemplo, que la aplicación no se ejecute o no escuche en los puertos esperados, que escuche en un puerto bloqueado o que las reglas de red no pasen correctamente el tráfico a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
+Hay varios motivos que le pueden impedir iniciar o conectar con una aplicación que se ejecuta en una máquina virtual de Azure. Entre ellos se incluyen situaciones como que la aplicación no se esté ejecutando o no esté a la escucha en los puertos esperados, que el puerto de escucha esté bloqueado o que las reglas de redes no estén pasando el tráfico correctamente a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
 
 Si tiene problemas para conectarse a la máquina virtual con RDP o SSH, consulte en primer lugar uno de los siguientes artículos:
 
@@ -11,7 +11,7 @@ Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en
 
 ## Solución rápida de problemas de conectividad de punto de conexión
 
-Si tiene problemas para conectarse a una aplicación, intente los siguientes pasos de solución de problemas generales. Después de cada paso, intente conectarse a la aplicación de nuevo:
+Si tiene problemas para conectarse a una aplicación, intente los siguientes pasos de solución de problemas generales. Después de cada paso, vuelva a intentar conectarse a la aplicación:
 
 - Reiniciar la máquina virtual
 - Volver a crear el punto de conexión / reglas de firewall / reglas de grupo de seguridad de red (NSG)
@@ -118,4 +118,4 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

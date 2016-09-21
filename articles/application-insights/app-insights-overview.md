@@ -17,7 +17,7 @@
  
 # Application Insights: introducción
 
-[Application Insights de Visual Studio](app-insights-get-started.md) es un servicio de análisis extensible que supervisa su aplicación web activa. Con él podrá detectar y diagnosticar problemas de rendimiento y comprender qué hacen los usuarios realmente con su aplicación. Está diseñado para desarrolladores, para ayudar a mejorar continuamente el rendimiento y la facilidad de uso de la aplicación. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, tanto hospedadas localmente como en la nube.
+Application Insights de Visual Studio es un servicio de análisis extensible que supervisa su aplicación web activa. Con él podrá detectar y diagnosticar problemas de rendimiento y comprender qué hacen los usuarios realmente con su aplicación. Está diseñado para desarrolladores, para ayudar a mejorar continuamente el rendimiento y la facilidad de uso de la aplicación. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, tanto hospedadas localmente como en la nube.
 
 ![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
 
@@ -75,7 +75,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
  * [**Aplicación web o máquina virtual de Azure**](app-insights-monitor-performance-live-website-now.md#if-your-app-runs-as-an-azure-web-app)
  * [**J2EE**](app-insights-java-live.md)
 * **En tiempo de desarrollo: agregue Application Insights al código.** Le permite escribir datos de telemetría personalizados e instrumentalizar las aplicaciones de back-end y de escritorio.
- * [Visual Studio](app-insights-asp-net.md) 2013, actualización 2, o cualquier versión superior.
+ * [Visual Studio](app-insights-asp-net.md) 2013, actualización 2 o superior.
  * Java en [Eclipse](app-insights-java-eclipse.md) u [otras herramientas](app-insights-java-get-started.md)
  * [Node.js](app-insights-nodejs.md)
  * [Otras plataformas](app-insights-platforms.md)
@@ -116,7 +116,7 @@ Pruebe a modificar uno de estos gráficos. Por ejemplo, si la aplicación web se
     Conviene recordar que hay que seleccionar una propiedad válida para la métrica o, de lo contrario, el gráfico no mostrará ningún dato.
 4. Seleccione un tipo de gráfico. Los gráficos de áreas y de barras muestran una pantalla apilada apropiada cuando el tipo de agregación es "Sum".
 
-[Más información acerca de la exploración de métricas](app-insights-metrics-explorer.md).
+[Más información sobre la exploración de métricas](app-insights-metrics-explorer.md).
 
 ## Buscar datos de instancia
 
@@ -241,10 +241,10 @@ Además, en la línea de Code Lens sobre cada método, verá un recuento de las 
 
 Esto es conveniente si ya ha publicado una versión anterior de la aplicación. No quiere que los datos de telemetría de las sesiones de depuración se mezclen con los datos de telemetría en el portal de Application Insights de la aplicación publicada.
 
-También es útil si tiene [datos de telemetría personalizados](app-insights-api-custom-events-metrics.md) que desee depurar antes de enviarlos al portal.
+También es útil si tiene [datos de telemetría personalizados](app-insights-api-custom-events-metrics.md) que desea depurar antes de enviarlos al portal.
 
 
-* *En primer lugar, he configurado totalmente Application Insights para enviar los datos de telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
+* *En primer lugar, configuré totalmente Application Insights para enviar los datos de telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
 
  * En la configuración de la ventana de búsqueda, hay una opción para buscar diagnósticos locales, incluso si la aplicación envía datos de telemetría al portal.
  * Para detener el envío de datos de telemetría al portal, convierta en comentario la línea `<instrumentationkey>...` de ApplicationInsights.config. Cuando esté listo para enviar de nuevo datos de telemetría al portal, quite los comentarios.
@@ -253,7 +253,7 @@ También es útil si tiene [datos de telemetría personalizados](app-insights-ap
 
 Tendencias es una herramienta de Visual Studio para visualizar cómo se comporta la aplicación con el paso del tiempo.
 
-Elija **Explorar tendencias de telemetría** en el botón de la barra de herramientas de Application Insights o en la ventana de búsqueda de Application Insights. Seleccione una de las cinco consultas comunes para empezar. Puede analizar diferentes conjuntos de datos en función de los tipos de telemetría, los intervalos de tiempo y otras propiedades.
+Elija **Explorar tendencias de telemetría** con el botón de la barra de herramientas de Application Insights o en la ventana Búsqueda de Application Insights. Seleccione una de las cinco consultas comunes para empezar. Puede analizar diferentes conjuntos de datos en función de los tipos de telemetría, los intervalos de tiempo y otras propiedades.
 
 Para detectar anomalías en los datos, elija una de las opciones de anomalía en la lista desplegable "Tipo de vista". Con las opciones de filtrado de la parte inferior de la ventana, resulta más sencillo centrarse en subconjuntos específicos de la telemetría.
 
@@ -311,7 +311,7 @@ Las [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md
 Hay varias formas de obtener datos de telemetría del portal de Application Insights:
 
 * La [exportación continua](app-insights-export-telemetry.md) es ideal si desea conservar grandes cantidades de datos de telemetría durante más tiempo del período de retención estándar establecido.
-* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o de métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
+* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
 * [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría y también permite exportar los resultados.
 * La API de REST de acceso a datos se puede usar para buscar y extraer datos. Puede ejecutar consultas de Analytics.
 * Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
@@ -383,8 +383,7 @@ Comience en el tiempo de desarrollo con:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

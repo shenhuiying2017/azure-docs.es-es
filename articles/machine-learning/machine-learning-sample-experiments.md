@@ -4,7 +4,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -66,4 +66,4 @@ Se crea un nuevo experimento en el área de trabajo con el experimento de ejempl
 - [Creación de una API de servicio web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Examinar aplicaciones listas para utilizar](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

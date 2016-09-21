@@ -28,7 +28,7 @@ Este artículo aborda la forma de usar los indizadores, pero también detalla la
 
 Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**.
 
-También puede usar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure clásico](https://portal.azure.com), para crear y programar un indexador.
+También puede utilizar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure](https://portal.azure.com), para crear y programar un indexador.
 
 Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -36,19 +36,19 @@ Un **indizador** es un recurso que conecta los orígenes de datos con los índic
  
 - Realizar una copia única de los datos para rellenar un índice.
 - Actualizar un índice con los cambios del origen de datos en una programación.
-- Ejecutar a petición para actualizar un índice según sea necesario. 
+- Ejecutar a petición para actualizar un índice según sea necesario.
 
 ## Cuándo usar un indizador de SQL Azure
 
 Según varios factores relacionados con los datos, el uso del indizador de SQL Azure puede ser o no ser adecuado. Si los datos cumplen los requisitos siguientes, puede usar el indizador de SQL Azure:
 
 - Todos los datos proceden de una sola tabla o vista.
-	- Si los datos están distribuidos en varias tablas, puede crear una vista y usarla con el indizador. Sin embargo, tenga en cuenta que si usa una vista, no podrá usar la detección de cambios integrada de SQL Server. Consulte esta sección para obtener más detalles. 
-- El indizador admite los tipos de datos usados en el origen de datos. Se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener más información, consulte [Asignar tipos de datos en Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
-- No necesita actualizaciones del índice casi en tiempo real cuando una fila cambia. 
-	- El indizador puede volver a indizar la tabla cada 5 minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar directamente la [API de índice de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx). 
-- Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, su esquema nos permite identificar de forma eficaz las filas que se cambiaron (y eliminaron, si corresponde). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas». 
-- El tamaño de los campos indizados en una fila no supera el tamaño máximo de una solicitud de indización de Búsqueda de Azure, que es de 16 MB. 
+	- Si los datos están distribuidos en varias tablas, puede crear una vista y usarla con el indizador. Sin embargo, tenga en cuenta que si usa una vista, no podrá usar la detección de cambios integrada de SQL Server. Consulte esta sección para obtener más detalles.
+- El indizador admite los tipos de datos usados en el origen de datos. Se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener más información, consulte [Asignar tipos de datos en Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
+- No necesita actualizaciones del índice casi en tiempo real cuando una fila cambia.
+	- El indizador puede volver a indizar la tabla cada 5 minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar directamente la [API de índice de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx).
+- Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, su esquema nos permite identificar de forma eficaz las filas que se cambiaron (y eliminaron, si corresponde). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas».
+- El tamaño de los campos indizados en una fila no supera el tamaño máximo de una solicitud de indización de Búsqueda de Azure, que es de 16 MB.
 
 ## Crear y usar un indizador de SQL Azure
 
@@ -159,7 +159,7 @@ Esto es lo que sucede:
 
 1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
 1. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
-1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
+1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m.
 1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
 1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
 
@@ -175,7 +175,7 @@ Si la base de datos SQL admite el [seguimiento de cambios](https://msdn.microsof
 
 El seguimiento de cambios integrado se admite a partir de las siguientes versiones de la base de datos de SQL Server:
  
-- SQL Server 2008 R2 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure. 
+- SQL Server 2008 R2 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure.
 - Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
 
 Al usar la directiva de seguimiento de cambios integrada de SQL, no especifique una directiva de detección de eliminación de datos independiente, ya que esta directiva tiene compatibilidad integrada para identificar las filas eliminadas.
@@ -198,8 +198,8 @@ Para usar esta directiva, cree o actualice el origen de datos de la siguiente ma
 
 Aunque se recomienda la directiva de seguimiento de cambios integrada de SQL, no podrá usarla si los datos están en una vista, o si usa una versión anterior de la base de datos SQL de Azure. En tal caso, considere el uso de la directiva de marca de límite superior. Puede usar esta directiva si la tabla contiene una columna que cumple los criterios siguientes:
 
-- Todas las inserciones especifican un valor para la columna. 
-- Todas las actualizaciones de un elemento también cambian el valor de la columna. 
+- Todas las inserciones especifican un valor para la columna.
+- Todas las actualizaciones de un elemento también cambian el valor de la columna.
 - El valor de esta columna aumenta con cada cambio.
 - Las consultas que usan una cláusula `WHERE` similar a `WHERE [High Water Mark Column] > [Current High Water Mark Value]` pueden ejecutarse de manera eficiente.
 
@@ -257,10 +257,10 @@ Tenga en cuenta que **softDeleteMarkerValue** debe ser una cadena. Use la repres
 
 **P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?
 
-R: Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos:
+R: Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos haciendo las dos cosas siguientes. Consulte el artículo [Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
 
-1. Configure el firewall para permitir el acceso a la dirección IP del servicio de búsqueda. 
-2. Quizá deba también configurar la base de datos con un certificado de confianza para que el servicio de búsqueda pueda abrir conexiones SSL con ella.
+1. Quizá deba también configurar la base de datos con un certificado de confianza para que el servicio de búsqueda pueda abrir conexiones SSL con ella.
+2. Configure el firewall para permitir el acceso a la dirección IP del servicio de búsqueda.
 
 **P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan localmente?
 
@@ -278,4 +278,4 @@ R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. 
 
 R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

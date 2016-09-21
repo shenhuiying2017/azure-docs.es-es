@@ -656,12 +656,12 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 
 ## Más información
 - [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md)
-- [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) (Azure: conceptos básicos sobre telemetría y solución de problemas).
+- [Azure: Telemetry Basics and Troubleshooting (Azure: conceptos básicos sobre telemetría y solución de problemas).](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) y [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 - [Utilización de las colas del Bus de servicio](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Business Intelligence de SQL Server en Máquinas virtuales de Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

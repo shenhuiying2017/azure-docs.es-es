@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -363,4 +363,4 @@ El siguiente script de PowerShell prepara de forma automática una cuenta de Azu
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

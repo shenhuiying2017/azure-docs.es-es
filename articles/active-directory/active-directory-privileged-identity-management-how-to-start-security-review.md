@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Inicio de una revisión de acceso en Privileged Identity Management de Azure AD
 
-Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de seguridad en Privileged Identity Management (PIM) de Azure AD.
+Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de acceso en Azure AD Privileged Identity Management (PIM).
 
-## Inicio de una revisión de seguridad
+## Inicio de una revisión de acceso
 > [AZURE.NOTE] Si no ha agregado la aplicación PIM al panel del Portal de Azure, consulte los pasos que se indican en [Introducción a Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
-En la página principal de la aplicación PIM, hay tres formas de comenzar una revisión de seguridad:
+En la página principal de la aplicación PIM, hay tres formas de comenzar una revisión de acceso:
 
 - **Revisiones de acceso** > **Agregar**
 - **Roles** > botón **Revisar**
@@ -53,13 +53,14 @@ Cada revisión se centra solo en un rol. A menos que iniciara la revisión de ac
 
 ### Decida quién llevará a cabo la revisión
 
-Hay dos opciones para realizar una revisión. Puede hacerla usted mismo, aprobando o denegando el acceso para todos los usuarios de un rol. O bien, puede hacer que cada usuario revise su propio acceso.
+Hay tres opciones para realizar una revisión. Puede asignar la revisión a otra persona para que la complete, puede hacerlo usted mismo o hacer que cada usuario revise su propio acceso.
 
 1. Vaya a **Seleccionar revisores**
 
     ![Selección de revisores: captura de pantalla][4]
 
 2. Elija una de las opciones:
+    - **Seleccionar revisor**: utilice esta opción si no sabe quién requiere acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
     - **Yo**: resulta útil si desea obtener una vista previa de cómo funcionan las revisiones de acceso o desea revisar en nombre de personas que no pueden hacerlo.
     - **Revisión de los propios miembros**: utilice esta opción para que los usuarios revisen ellos mismos sus propias asignaciones de roles.
 
@@ -87,4 +88,4 @@ Hasta que termine el período de revisión, puede recordar a los usuarios comple
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

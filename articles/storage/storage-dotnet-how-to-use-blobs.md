@@ -102,7 +102,7 @@ Cualquier usuario de Internet puede ver los blobs de los contenedores públicos,
 
 El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. En la mayoría de los casos, se recomienda usar blobs en bloques.
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream**. De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y úsela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream**. De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía.
 
 En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
 
@@ -365,7 +365,7 @@ De forma predeterminada, Almacenamiento de Azure protege sus datos al limitar el
 De forma predeterminada, los datos Blob de su cuenta de almacenamiento solo son accesibles para el propietario de la cuenta de almacenamiento. Para autenticar las solicitudes en el Almacenamiento de blobs, se necesita la clave de acceso de la cuenta de forma predeterminada. Sin embargo, puede que quiera que determinados datos Blob estén disponibles para otros usuarios. Tiene dos opciones:
 
 - **Acceso anónimo:** puede hacer que un contenedor o sus blobs estén públicamente disponibles para el acceso anónimo. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) para más información.
-- **Firmas de acceso compartido:** puede proporcionar a los clientes una firma de acceso compartido (SAS), que ofrece acceso delegado a un recurso de la cuenta de almacenamiento, con los permisos que especifique y durante el intervalo que indique. Para más información, consulte [Firmas de acceso compartido: descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+- **Firmas de acceso compartido:** puede proporcionar a los clientes una firma de acceso compartido (SAS), que ofrece acceso delegado a un recurso de la cuenta de almacenamiento, con los permisos que especifique y durante el intervalo que indique. Consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md) para más información.
 
 ### Cifrado de datos Blob
 
@@ -407,4 +407,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

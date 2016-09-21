@@ -24,14 +24,8 @@ Para más información sobre la creación de plantillas, consulte [Creación de 
 
 Para ver la plantilla completa, consulte la [plantilla de grupo de consumidores y Centros de eventos][] en GitHub.
 
->[AZURE.NOTE] Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
->
->-    [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
->-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
->-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
->
->Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Centros de eventos.
+>[AZURE.NOTE]
+Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Centros de eventos.
 
 ## ¿Qué va a implementar?
 
@@ -156,14 +150,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
-- [Administración de Bus de servicio de Azure con Automatización de Azure](service-bus-automation-manage.md)
-- [Administración de Centros de eventos con PowerShell](service-bus-powershell-how-to-provision.md)
 - [Administración de recursos de Centros de eventos con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [plantilla de grupo de consumidores y Centros de eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

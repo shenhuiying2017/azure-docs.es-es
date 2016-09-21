@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/01/2016"
 	ms.author="rajram"/>
 
 # Introducción al conector de archivos y su incorporación a la aplicación lógica
@@ -27,8 +27,10 @@ El conector de archivos usa el Administrador de conexiones híbridas para la con
 Para usar el conector de archivos, antes deberá crear una instancia de la aplicación de API del conector de archivos. Se puede hacer de la forma siguiente:
 
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte izquierda del Portal de Azure.
-2.	Vaya a "Marketplace > Aplicaciones de API" y busque "conector de archivos".
-3.	Configure el conector de archivos de la siguiente forma: ![][1]
+2.	Busque "conector de archivos".
+3.	Seleccione **Conector de archivos (versión preliminar)** en los resultados de búsqueda.
+4.	Seleccione el botón **Crear**.
+5.	Configure el conector de archivos de la siguiente forma: ![][1]
 
 	- **Nombre**: asigne un nombre al conector de archivos.
 	- **Configuración del paquete**
@@ -54,7 +56,7 @@ Una vez creada la aplicación de API, puede usar el conector de archivos como ac
 
 3.	El conector de archivos aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
 
-4.	Puede quitar la aplicación de API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones: ![][5]
+4.	Puede quitar la aplicación de API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones: ![][5].
 
 6.	Cada uno de ellos muestra algunas propiedades. La imagen siguiente muestra una lista de las propiedades para el desencadenador y la acción Obtener archivo: ![][6]
 
@@ -70,7 +72,7 @@ Los detalles de las API se pueden encontrar en la [definición de la API del con
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea una introducción a Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Cree su aplicación del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -87,4 +89,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

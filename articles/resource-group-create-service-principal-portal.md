@@ -118,7 +118,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 1. Seleccione **Agregar una aplicación**.
 
-2. En la lista, seleccione **Azure Service Management API**. Seguidamente, seleccione el icono de proceso terminado.
+2. En la lista, seleccione **API de administración de servicios de Microsoft Azure**. Seguidamente, seleccione el icono de proceso terminado.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 - Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 - Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -55,7 +55,7 @@ De forma predeterminada, el [programador](active-directory-aadconnectsync-featur
 	- Tag (Etiqueta): deje este campo en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
 3. En la página **Scoping filter** (Filtro de ámbito), escriba **givenName ISNOTNULL**. ![Filtro del ámbito de la regla entrada](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png) Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Pero también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
 4. En el campo **Join rules** (Reglas de unión), déjelo vacío.
-5. En la página **Transformations** (Transformations), cambie FlowType por **Expression**. Seleccione el atributo de destino **giveName** y, en el origen, escriba `PCase([givenName])`. ![Transformaciones de la regla de entrada](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. El editor permite guardar y continuar, por lo que deberá volver a abrir la regla y corregir la regla.
+5. En la página **Transformations** (Transformations), cambie FlowType por **Expression**. Seleccione el atributo de destino **givenName** y, en el origen, escriba `PCase([givenName])`. ![Transformaciones de la regla de entrada](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. El editor permite guardar y continuar, por lo que deberá volver a abrir la regla y corregir la regla.
 6. Haga clic en **Agregar** para guardar la regla.
 
 La nueva regla personalizada debe aparecer con las demás reglas de sincronización en el sistema.
@@ -126,12 +126,12 @@ En Fabrikam no hemos dado cuenta de que algunos de los atributos sincronizamos c
 
 ## Pasos siguientes
 
-Obtenga más información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md) y las opciones disponibles en las reglas de sincronización.
+- Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-Obtenga más información sobre las [expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) usadas para los flujos de atributo.
+**Temas de introducción**
 
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -122,6 +122,7 @@ Si su organización ya está usando la itinerancia en Windows 10 con la suscripc
 
 - Si intenta iniciar sesión en el dispositivo Windows con una tarjeta inteligente o tarjeta inteligente virtual, la sincronización dejará de funcionar. Las futuras actualizaciones de Windows 10 pueden resolver este problema.
 - Necesitará la actualización acumulativa de julio de Windows 10 (compilación 10586.494 o posterior) para que funcione la sincronización de los favoritos de Internet Explorer.
+- No se sincronizarán los datos protegidos con Windows Information Protection a través de Enterprise State Roaming. Además, las máquinas que tienen habilitado Windows Information Protections no experimentarán la sincronización de temas.
 - En algunas circunstancias, Enterprise State Roaming no puede sincronizar los datos si se ha configurado Azure Multi-Factor Authentication.
     - Si el dispositivo está configurado para requerir [Multi-Factor Authentication](multi-factor-authentication.md) en el portal de Azure Active Directory, se puede producir un error al sincronizar la configuración cuando se inicia sesión en un dispositivo Windows 10 con una contraseña. Este tipo de configuración de Multi-Factor Authentication se ha diseñado para proteger cuentas de administrador de Azure. Los usuarios administradores pueden seguir realizando la sincronización al iniciar sesión en sus dispositivos Windows 10 con su PIN de [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o también pueden completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Office 365.
     - La sincronización puede producir un error si el administrador configura la directiva de acceso condicional de Multi-Factor Authentication de Active Directory Federation Services y caduca el token de acceso en el dispositivo. Asegúrese de iniciar sesión y de cerrarla con el PIN de [Microsoft Passport for Work](active-directory-azureadjoin-passport.md), o bien de completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Office 365.
@@ -135,4 +136,4 @@ Si su organización ya está usando la itinerancia en Windows 10 con la suscripc
 - [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

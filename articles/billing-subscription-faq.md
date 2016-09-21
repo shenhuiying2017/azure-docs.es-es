@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
 #  Preguntas más frecuentes sobre suscripciones y facturación de Azure
@@ -34,6 +34,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 
 - [¿Cómo puedo obtener una copia de la factura?](#how-do-i-get-a-copy-of-my-invoice)
 - [No veo una factura del último período de facturación. ¿Por qué?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [¿Cómo se puede realizar un pago?](#how-do-i-make-a-payment)
 
 ## Versión de prueba gratuita
 
@@ -312,6 +313,12 @@ Las suscripciones de evaluación gratuita no son aptas para aumentar la cuota. S
 
 Visite la [página de la oferta de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) y lea las [preguntas más frecuentes sobre la evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
-> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que resuelvan el problema rápidamente.
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+### ¿Cómo se puede realizar un pago?
+
+Si ha configurado una tarjeta de crédito o una tarjeta de débito como forma de pago, el pago se realizará automáticamente.
+
+Si se encuentra en un [método de factura de pago](https://azure.microsoft.com/pricing/invoicing/), envíe el pago a la ubicación indicada en la parte inferior de la factura. Para obtener ayuda, [póngase en contacto con el equipo de soporte técnico](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0907_2016-->

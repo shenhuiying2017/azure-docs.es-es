@@ -26,8 +26,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 
 >[AZURE.NOTE] Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
 
-
-| Nombre de rol | Descripción |
+| Nombre de rol | Description |
 | --------- | ----------- |
 | [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios de administración de API |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
@@ -35,7 +34,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de BizTalk](#biztalk-contributor) | Puede administrar los servicios de BizTalk |
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Puede administrar bases de datos ClearDB MySQL |
 | [Colaborador](#contributor) | Puede administrar todo el contenido, excepto el acceso |
-| [Colaborador de Factoría de datos](#data-factory-contributor) | Puede administrar las factorías de datos |
+| [Colaborador de Factoría de datos](#data-factory-contributor) | Puede crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 | [Usuario de DevTest Labs](#devtest-labs-user) | Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de DocumentDB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Puede administrar cuentas de Sistemas inteligentes |
@@ -152,12 +151,12 @@ Puede administrar todo el contenido, excepto el acceso
 | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
 
 ### Colaborador de factoría de datos
-Puede administrar las factorías de datos
+Crear y administrar factorías de datos y recursos secundarios dentro de ellos.
 
 | **Acciones** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-| Microsoft.DataFactory/dataFactories/* | Administración de factorías de datos |
+| Microsoft.DataFactory/dataFactories/* | Crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
@@ -535,4 +534,4 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 - [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
 - [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

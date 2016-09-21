@@ -107,9 +107,9 @@ Para obtener los resultados más precisos, el filtro debe asignarse antes de tod
 
 Es posible que deba [establecer excepciones para enviar los datos salientes](app-insights-ip-addresses.md).
 
-## 5\. Reinicio de la aplicación web
+## 6\. Reinicio de la aplicación web
 
-## 6\. Visualización de la telemetría en Application Insights
+## 7\. Visualización de la telemetría en Application Insights
 
 Vuelva al recurso de Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

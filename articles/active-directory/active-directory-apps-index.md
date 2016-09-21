@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>
 
 #Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 
@@ -70,7 +70,7 @@ Para habilitar el inicio de sesión único en aplicaciones que no son compatible
 | :---: | --- |
 | Una introducción al funcionamiento de SSO con contraseña y una breve introducción técnica | [Inicio de sesión único con contraseña](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Un resumen de los escenarios relacionados con el uso compartido de cuentas y la forma en que Azure AD resuelve estos problemas | [Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md) |
-| Cambio automático de la contraseña de ciertas aplicaciones a intervalos regulares | [Sustitución automática de contraseña (vista previa)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| Cambio automático de la contraseña de ciertas aplicaciones a intervalos regulares | [Sustitución automática de contraseña (vista previa)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guías de implementación y solución de problemas de la versión de Internet Explorer de la extensión de administración de contraseñas de Azure AD | [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solución de problemas de la extensión del panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 El inicio de sesión único con contraseña está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), podrá [utilizar grupos para asignar el acceso a las aplicaciones](#managing-access-to-applications). La sustitución automática de contraseña es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -218,7 +218,7 @@ Azure Active Directory proporciona varios informes y alertas que le ayudan a sup
 
 Para ver qué informes incluyen las diferentes ediciones de Azure Active Directory, [haga clic aquí](active-directory-view-access-usage-reports.md#report-editions).
 
-##Consulte también
+##Otras referencias
 
 [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 
@@ -228,4 +228,4 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/30/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -120,9 +120,9 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Grupo de usuarios de .NET de Capital City](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, Florida (EE. UU.) | 1 de septiembre de 2016 | N/D |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu y Tara Jana | Atlanta, GA | 26 a 30 de septiembre de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | Nueva York, NY | 26 a 29 de septiembre de 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Grupo de usuarios de .NET de Capital City](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, Florida (EE. UU.) | 3 de noviembre de 2016 | N/D |
 
 
 *¿Es el orador u organizador de un evento? [Queremos saber](mailto:askdocdb@microsoft.com) cómo podemos ayudarle*
@@ -268,4 +268,4 @@ Asistente | Imagen
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

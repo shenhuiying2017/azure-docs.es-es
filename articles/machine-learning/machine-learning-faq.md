@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -49,7 +49,7 @@ Los servicios web clásicos se encuentran en [Estudio de aprendizaje automático
 
 **¿Qué son los servicios web de Aprendizaje automático de Azure?**
 
-Con el servicio web de Aprendizaje automático de Azure, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Aprendizaje automático en tiempo real. Una llamada al servicio web de Aprendizaje automático devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web de Aprendizaje automático, es necesario pasar una clave de API que se haya creado al implementar el servicio web. El servicio web de Aprendizaje automático se basa en REST, una opción popular de arquitectura para proyectos de programación web.
+Con el servicio web de Aprendizaje automático de Azure, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Aprendizaje automático en tiempo real. Una llamada al servicio web de Aprendizaje automático devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web Machine Learning, es necesario pasar una clave de API que se haya creado al implementar el servicio web. El servicio web de Aprendizaje automático se basa en REST, una opción popular de arquitectura para proyectos de programación web.
 
 Aprendizaje automático de Azure tiene dos tipos de servicios:
 
@@ -361,7 +361,7 @@ Para más información sobre los precios y la facturación, consulte los [precio
 
 **¿Dispone Aprendizaje automático de una evaluación gratuita?**
 
- Aprendizaje automático de Azure tiene una opción de suscripción gratuita (para más información, consulte los [precios de Aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/)), mientras que Estudio de aprendizaje automático dispone de una versión de evaluación rápida de ocho horas (para acceder a esta versión, inicie sesión en [Estudio de aprendizaje automático](https://studio.azureml.net/?selectAccess=true&o=2)).
+ Azure Machine Learning tiene una opción de suscripción gratuita (para más información, consulte los [precios de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)), mientras que Machine Learning Studio dispone de una versión de evaluación rápida de ocho horas (para acceder a esta versión, inicie sesión en [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
  
  Además, al registrarse para obtener una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para más información sobre la prueba gratuita de Azure, visite [Preguntas más frecuentes sobre la evaluación gratuita de Azure](/pricing/free-trial-faq/).
 
@@ -480,9 +480,9 @@ Los servicios que tienen asignado un nivel de desarrollo/pruebas se detienen has
 
 **En los servicios web clásicos y cuando se supera el límite de los nuevos servicios web, ¿cómo se calculan los precios de las cargas de trabajo de los servicios de solicitud-respuesta (RRS) y de los servicios de ejecución por lotes (BES)?**
 
-Las cargas de trabajo de RRS se facturan por cada llamada de transacción de API que se realice y por el tiempo de proceso asociado a las solicitudes. Por tanto, el costo de las transacciones de API de producción del servicio RRS se calcula como el número total de llamadas API que se realizan multiplicado por el precio de cada 1.000 transacciones (prorrateado por cada transacción individual). El costo por hora de proceso de API de producción del servicio RRS se calcula como el tiempo necesario para que se ejecute cada llamada API multiplicado por el total de transacciones de API y por el precio de la hora de proceso de API de producción. Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 * 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 * 0,72 seg * 2 USD/hr), lo que haría un total de 900 USD.
+Las cargas de trabajo de RRS se facturan por cada llamada de transacción de API que se realice y por el tiempo de proceso asociado a las solicitudes. Por tanto, el costo de las transacciones de API de producción del servicio RRS se calcula como el número total de llamadas API que se realizan multiplicado por el precio de cada 1000 transacciones (prorrateado por cada transacción individual). El costo por hora de proceso de API de producción del servicio RRS se calcula como el tiempo necesario para que se ejecute cada llamada API multiplicado por el total de transacciones de API y por el precio de la hora de proceso de API de producción. Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 * 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 * 0,72 seg * 2 USD/h), lo que haría un total de 900 USD.
 
-Las cargas de trabajo de BES se facturan de la misma forma. Sin embargo, el costo de las transacciones de API representa el número de trabajos por lotes que se envían, mientras que el costo de proceso representa el tiempo de proceso asociado a esos trabajos por lotes. Por tanto, el costo por transacciones de API de producción del servicio BES se calcula como el número total de trabajos enviados multiplicado por el precio de 1 000 transacciones (prorrateado por transacción individual). El costo por horas de proceso de API de producción del servicio BES se calcula como la cantidad de tiempo necesario para que se ejecute cada fila del trabajo multiplicado por el número total de filas del trabajo y multiplicado por el número total de trabajos y por el precio de la hora de proceso de API de producción. En la calculadora de Aprendizaje automático, el medidor de transacciones representa el número de trabajos que planea enviar, mientras que el campo de tiempo por transacción representa el tiempo combinado necesario para que se ejecuten todas las filas de cada trabajo. Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si envía 100 trabajos por día con 500 filas cada uno y cada fila tarda 0,72 segundos, el costo mensual del uso por encima del límite será de 1,55 USD por las transacciones de API de producción (100 trabajos al día = 3100 trabajos/mes * 0,50 USD/1000 transacciones de API) y de 620 USD por las horas de proceso de API de producción (500 filas * 0,72 seg * 3100 trabajos * 2 USD/hr), lo que haría un total de 621,55 USD.
+Las cargas de trabajo de BES se facturan de la misma forma. Sin embargo, el costo de las transacciones de API representa el número de trabajos por lotes que se envían, mientras que el costo de proceso representa el tiempo de proceso asociado a esos trabajos por lotes. Por tanto, el costo por transacciones de API de producción del servicio BES se calcula como el número total de trabajos enviados multiplicado por el precio de 1 000 transacciones (prorrateado por transacción individual). El costo por horas de proceso de API de producción del servicio BES se calcula como la cantidad de tiempo necesario para que se ejecute cada fila del trabajo multiplicado por el número total de filas del trabajo y multiplicado por el número total de trabajos y por el precio de la hora de proceso de API de producción. En la calculadora de Aprendizaje automático, el medidor de transacciones representa el número de trabajos que planea enviar, mientras que el campo de tiempo por transacción representa el tiempo combinado necesario para que se ejecuten todas las filas de cada trabajo. Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si envía 100 trabajos por día con 500 filas cada uno y cada fila tarda 0,72 segundos, el costo mensual del uso por encima del límite será de 1,55 USD por las transacciones de API de producción (100 trabajos al día = 3100 trabajos/mes * 0,50 USD/1000 transacciones de API) y de 620 USD por las horas de proceso de API de producción (500 filas * 0,72 seg * 3100 trabajos * 2 USD/h), lo que haría un total de 621,55 USD.
 
 ### Servicios web clásicos de Aprendizaje automático de Azure
 
@@ -492,7 +492,7 @@ Las cargas de trabajo de BES se facturan de la misma forma. Sin embargo, el cost
 
 **¿Qué incluye el nivel Gratis de Aprendizaje automático de Azure?**
 
-El nivel Gratis de Aprendizaje automático de Azure está pensado para proporcionar una introducción detallada de Estudio de aprendizaje automático de Azure. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Estudio de aprendizaje automático de Azure por cada [cuenta de Microsoft](https://www.microsoft.com/account/default.aspx). También permite usar hasta 10 GB de almacenamiento y utilizar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. Las cargas de trabajo del nivel Gratis no pueden acceder a los datos conectándose a un servidor SQL Server local. En la tabla anterior se describen las diferencias entre los niveles Gratis y Estándar. Sin embargo, pueden existir otras diferencias. Además, las características del nivel Gratis pueden registrar cambios en cualquier momento.
+El nivel Gratis de Aprendizaje automático de Azure está pensado para proporcionar una introducción detallada de Estudio de aprendizaje automático de Azure. Todo lo que necesita para suscribirse es una cuenta de Microsoft. El nivel Gratis incluye acceso gratuito a un área de trabajo de Estudio de aprendizaje automático de Azure por cada [cuenta de Microsoft](https://www.microsoft.com/account/default.aspx). También permite usar hasta 10 GB de almacenamiento y utilizar modelos como API de ensayo. No hay ningún Acuerdo de Nivel de Servicio que cubra las cargas de trabajo del nivel Gratis, ya que estas cargas de trabajo están destinadas exclusivamente a desarrollo y uso personal. Las cargas de trabajo del nivel Gratis no pueden acceder a los datos conectándose a un servidor SQL Server local. En la tabla anterior se describen las diferencias entre los niveles Gratis y Estándar. Sin embargo, pueden existir otras diferencias. Además, las características del nivel Gratis pueden registrar cambios en cualquier momento.
 
 **¿Qué incluyen los planes y el nivel Estándar de Aprendizaje automático de Azure?**
 
@@ -502,7 +502,7 @@ La facturación del servicio de API de Aprendizaje automático de Azure varía e
 
 A continuación se muestran los cargos que se computan por cada área de trabajo de su suscripción.
 
-* Suscripción por puesto de Aprendizaje automático: la suscripción por puesto de Aprendizaje automático consiste en una tarifa mensual que proporciona acceso a un área de trabajo de Aprendizaje automático de Azure y que es necesaria para ejecutar experimentos tanto en Estudio como al utilizar las API de producción.
+* Suscripción por puesto de Machine Learning: la suscripción por puesto de Machine Learning consiste en una tarifa mensual que proporciona acceso a un área de trabajo de ML Studio y que es necesaria para ejecutar experimentos tanto en ML Studio como al usar las API de producción.
 * Horas de experimentación de Estudio de aprendizaje automático: este medidor suma todos los gastos de proceso acumulados por la ejecución de experimentos en Estudio de aprendizaje automático y de llamadas API en el entorno de ensayo.
 * Acceso a los datos a través de una conexión a un servidor SQL Server local de los modelos para su entrenamiento y puntuación.
 * Servicios web clásicos:
@@ -524,7 +524,7 @@ Todo lo que necesita es una cuenta de Microsoft. Vaya a la [página principal de
 
 **¿Cómo me suscribo al nivel Estándar de Aprendizaje automático de Azure?**
 
-Para poder crear un área de trabajo de Aprendizaje automático de nivel Estándar, primero debe tener acceso a una suscripción de Azure. Puede suscribirse a la versión de evaluación gratuita de Azure de 30 días y actualizar después a una suscripción de Azure de pago, o adquirir directamente una suscripción de Azure de pago. Una vez que acceda a la suscripción, puede crear un área de trabajo de Aprendizaje automático desde el Portal de Microsoft Azure clásico. Consulte [las instrucciones paso a paso](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Para poder crear un área de trabajo de Machine Learning de nivel Estándar, primero debe tener acceso a un área de trabajo de ML. Puede suscribirse a la versión de evaluación gratuita de Azure de 30 días y actualizar después a una suscripción de Azure de pago, o adquirir directamente una suscripción de Azure de pago. Una vez que acceda a la suscripción, puede crear un área de trabajo de Machine Learning desde el Portal de Microsoft Azure clásico. Consulte [las instrucciones paso a paso](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 También existe la opción de que el propietario de un área de trabajo de Aprendizaje automático de nivel Estándar le invite. De este modo, podrá obtener acceso al área de trabajo de dicho propietario.
 
@@ -547,15 +547,15 @@ Para copiar sus experimentos desde el nivel Gratis al nivel Estándar, siga los 
 1.	Inicie sesión en Estudio de aprendizaje automático de Azure y asegúrese de que puede ver tanto el área de trabajo del nivel Gratis como el área de trabajo del nivel Estándar en el selector de áreas de trabajo situado en la barra de navegación superior.
 2.	Cambie al área de trabajo del nivel Gratis si se encuentra en el área de trabajo del nivel Estándar.
 3.	En la vista de lista de experimentos, seleccione el experimento que desee copiar y haga clic en el botón de comando Copiar.
-4.	Seleccione el área de trabajo del nivel Estándar en el cuadro de dialogo desplegable y haga clic en el botón Copiar.
+4.	Seleccione el área de trabajo del nivel Estándar en el cuadro de dialogo emergente y haga clic en el botón Copiar.
 5.	Tenga en cuenta que todos los conjuntos de datos asociados, el modelo entrenado, etc. se copiarán junto con el experimento en el área de trabajo del nivel Estándar.
 6.	Por tanto, tendrá que volver a ejecutar el experimento y publicar de nuevo el servicio web en el área de trabajo del nivel Estándar.
 
 ### Área de trabajo de Estudio
 
-**¿Qué es una suscripción por puesto de Aprendizaje automático y cuándo necesito una?**
+**¿Qué es una suscripción por puesto de Machine Learning y cuándo necesito una?**
 
-Un puesto de Aprendizaje automático representa un área de trabajo. Es recomendable que cualquier usuario que ejecute un experimento en Estudio de aprendizaje automático o un servicio de API de producción disponga de una suscripción por puesto de Aprendizaje automático.
+Un puesto de Aprendizaje automático representa un área de trabajo. Es recomendable que cualquier usuario que ejecute un experimento en Machine Learning Studio o un servicio de API de producción disponga de una suscripción por puesto de Machine Learning.
 
 **¿Voy a tener facturas distintas por cada una de las áreas de trabajo?**
 
@@ -582,4 +582,4 @@ El acceso de invitado es una funcionalidad de evaluación restringida que permit
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

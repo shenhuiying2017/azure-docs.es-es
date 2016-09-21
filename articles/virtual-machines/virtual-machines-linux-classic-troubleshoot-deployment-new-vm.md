@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
+  ms.date="09/06/2016"
   ms.author="cjiang"/>
 
 # Solución de problemas de la implementación clásica con la creación de una máquina virtual de Linux en Azure
@@ -84,4 +84,4 @@ Según las restricciones del servicio en la nube que utilice para crear la nueva
 ## Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual con Linux existente en Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

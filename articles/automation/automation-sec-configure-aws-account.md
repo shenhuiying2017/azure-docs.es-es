@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Autenticación de Runbooks con Amazon Web Services
@@ -27,7 +27,7 @@ Para realizar la autenticación con AWS, debe especificar un conjunto de credenc
 ## Configuración de la cuenta de Automatización
 Para que Automatización de Azure se comunique con AWS, primero deberá recuperar las credenciales de AWS y almacenarlas como recursos en Automatización de Azure. Realice los siguientes pasos que se describen en el documento de AWS [Managing Access Keys for your AWS Account](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) (Administración de las claves de acceso para la cuenta de AWS) y copie el **id. de clave de acceso** y la **clave de acceso secreta** (también puede descargar el archivo de clave para almacenarlo en un lugar seguro).
 
-Después de crear y copiar las claves de seguridad de AWS, deberá crear un recurso de credencial con una cuenta de Automatización de Azure para almacenarlas de forma segura y hacer referencia a ellas con sus Runbooks. Siga los pasos que se describen en la sección **Creación de credenciales** en el artículo [Recursos de credenciales en Automatización de Azure] (../automation/automation-certificates.md/###Para crear credenciales con el Portal de Azure) y escriba la siguiente información:
+Después de crear y copiar las claves de seguridad de AWS, deberá crear un recurso de credencial con una cuenta de Automatización de Azure para almacenarlas de forma segura y hacer referencia a ellas con sus Runbooks. Siga los pasos que se describen en la sección **Creación de credenciales** en el artículo [Recursos de credenciales en Automatización de Azure](../automation/automation-certificates.md/###Para crear credenciales con el Portal de Azure) y escriba la siguiente información:
 
 1. En el cuadro **Nombre**, escriba **AWScred** o un valor adecuado que siga las normas de nomenclatura.
 2. Escriba su **id. de acceso** en el cuadro **Nombre de usuario**, y su **clave de acceso secreta** en los cuadros **Contraseña** y **Confirmar contraseña**.
@@ -36,4 +36,4 @@ Después de crear y copiar las claves de seguridad de AWS, deberá crear un recu
 
 - Revise el artículo [Solución de Automatización de Azure: aprovisionamiento de una máquina virtual de AWS](../automation/automation-scenario-aws-deployment.md) para aprender a crear runbooks para automatizar las tareas en AWS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

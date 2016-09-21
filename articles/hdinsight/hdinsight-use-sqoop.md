@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 #Uso de Sqoop con Hadoop en HDInsight
@@ -44,14 +44,14 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejempl
 
     | Campo | Tipo de datos |
     | ----- | --------- |
-    | clientid | cadena |
-    | querytime | cadena |
-    | market | cadena |
-    | deviceplatform | cadena |
-    | devicemake | cadena |
-    | devicemodel | cadena |
-    | state | cadena |
-    | country | cadena |
+    | clientid | string |
+    | querytime | string |
+    | market | string |
+    | deviceplatform | string |
+    | devicemake | string |
+    | devicemodel | string |
+    | state | string |
+    | country | string |
     | querydwelltime | double |
     | sessionid | bigint |
     | sessionpagevieworder | bigint |
@@ -62,23 +62,23 @@ En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base 
 
 ## Creación del clúster y la base de datos SQL
 
-En esta sección se muestra cómo crear un clúster y los esquemas de base de datos SQL para ejecutar el tutorial con el Portal de Azure y una plantilla ARM. Si prefiere usar Azure PowerShell, consulte el [apéndice A](#appendix-a---a-powershell-sample).
+En esta sección se muestra cómo crear un clúster y los esquemas de SQL Database para ejecutar el tutorial con Azure Portal y una plantilla de Azure Resource Manager. Si prefiere usar Azure PowerShell, consulte el [apéndice A](#appendix-a---a-powershell-sample).
 
-1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure.
+1. Haga clic en la imagen siguiente para abrir una plantilla de Resource Manager en Azure Portal.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    La plantilla ARM se encuentra en un contenedor de blobs público, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    La plantilla de Resource Manager se encuentra en un contenedor de blobs público: *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    La plantilla ARM llama a un paquete de bacpac para que implemente los esquemas de tabla en la base de datos SQL. El paquete de bacpac también se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
+    La plantilla de Resource Manager llama a un paquete de bacpac para que implemente los esquemas de tabla en SQL Database. El paquete de bacpac también se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
     
 2. En la hoja Parámetros, escriba lo siguiente:
 
-    - **Nombre del clúster:** escriba un nombre para el clúster de Hadoop que va a crear.
-    - **Nombre de inicio de sesión y contraseña de clúster:** el nombre de inicio de sesión predeterminado es admin.
+    - **ClusterName**: escriba un nombre para el clúster de Hadoop que va a crear.
+    - **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es admin.
     - **Nombre de usuario y contraseña de SSH**.
     - **Nombre y contraseña de inicio de sesión en el servidor de la base de datos SQL**.
 
@@ -93,9 +93,9 @@ En esta sección se muestra cómo crear un clúster y los esquemas de base de da
     
 3\. Haga clic en **Aceptar** para guardar los parámetros.
 
-4\. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, haga clic en **Nuevo** para crear un nuevo grupo de recursos. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
+4\. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, haga clic en **Nuevo** para crear un grupo de recursos nuevo. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
 
-5\. Haga clic en **Términos legales** y, luego, en **Crear**.
+5\. Haga clic en **Condiciones legales** y, luego, en **Crear**.
 
 6\. Haga clic en **Crear**. Verá un icono nuevo llamado Envío de implementación para la implementación de plantilla. Tarda aproximadamente 20 minutos en crear un clúster y la base de datos SQL.
 
@@ -629,4 +629,4 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

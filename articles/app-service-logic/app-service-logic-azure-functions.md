@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/14/2016"
+   ms.date="09/01/2016"
    ms.author="jehollan"/>
 
 # Uso de funciones de Azure con aplicaciones lógicas
@@ -26,7 +26,7 @@ Puede ejecutar fragmentos personalizados de C# o node.js mediante Funciones de A
 
 ## Creación de una función para aplicaciones lógicas
 
-Se recomienda crear una función en el portal de Funciones de Azure mediante las plantillas de **webhook de nodo genérico** y de **webhook de C# genérico**. Esto rellena automáticamente una plantilla que acepta `application/json` desde una aplicación lógica. Las funciones que usan estas plantillas se detectan automáticamente y se muestran en el diseñador de aplicaciones lógicas en **Azure Functions in my region** (Funciones de Azure en mi región).
+Se recomienda crear una función en el portal de Azure Functions mediante las plantillas de **webhook de nodo genérico** y de **webhook de C# genérico**. Esto rellena automáticamente una plantilla que acepta `application/json` desde una aplicación lógica. Las funciones que usan estas plantillas se detectan automáticamente y se muestran en el diseñador de aplicaciones lógicas en **Azure Functions in my region** (Funciones de Azure en mi región).
 
 Las funciones de Webhook aceptan una solicitud y las pasan al método mediante una variable `data`. Puede acceder a las propiedades de la carga mediante una notación de puntos, como `data.foo`. Por ejemplo, una función de JavaScript simple que convierte un valor de DateTime en una cadena de fecha es similar al siguiente ejemplo:
 
@@ -70,4 +70,4 @@ A continuación, el diseñador genera una plantilla de función que puede crear 
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

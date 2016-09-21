@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/13/2016"
+	ms.date="09/06/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -66,11 +66,10 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 
 <!-- Links -->
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general de los Centros de eventos de Azure]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Supervisión de las métricas de servicio de Microsoft Azure | Microsoft Azure"
+	pageTitle="Información general sobre las métricas en Microsoft Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# Supervisión de las métricas del servicio
+# Información general sobre las métricas en Microsoft Azure
 
 Todos los servicios de Azure realizan un seguimiento de las métricas clave que le permiten supervisar el estado, el rendimiento, la disponibilidad y el uso de los servicios. Puede ver estas métricas en el portal de Azure y, además, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para tener acceso mediante programación a todo el conjunto de métricas.
 
@@ -72,4 +72,4 @@ Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.mic
 * Utilice [aplicaciones y páginas web de Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obtener el análisis del cliente acerca de los exploradores que visitan una página web.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

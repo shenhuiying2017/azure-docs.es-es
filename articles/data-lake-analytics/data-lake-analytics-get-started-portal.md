@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -48,7 +48,7 @@ Cada cuenta de Análisis de Data Lake depende de una cuenta del [Almacén de Azu
 
 	- **Nombre**: el nombre de la cuenta de Análisis.
 	- **Almacén de Data Lake**: cada cuenta de Análisis de Data Lake depende de una cuenta del Almacén de Data Lake. La cuenta de Análisis de Data Lake y la cuenta de Almacén de Data Lake dependiente deben ubicarse en el mismo centro de datos de Azure. Siga las instrucciones para crear una nueva cuenta de Almacén de Data Lake o seleccione una existente.
-	- **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Análisis.
+	- **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Analytics.
 	- **Grupo de recursos**: seleccione un grupo de recursos de Azure existente o cree uno nuevo. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 	- **Ubicación**: seleccione un centro de datos de Azure para la cuenta de Análisis de Data Lake.
 7. Seleccione **Anclar a Panel de inicio**. Esto es necesario para seguir este tutorial.
@@ -156,4 +156,4 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 - Para registrar información de diagnóstico, consulte [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Azure Data Lake Analytics).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

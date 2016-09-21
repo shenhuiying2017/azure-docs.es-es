@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Aprovisionamiento de clústeres de HBase en Red virtual de Azure
@@ -106,7 +106,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 8. Anote el nombre de la cuenta de almacenamiento y la clave de acceso principal (o la secundaria; cualquiera de las dos sirve). Los necesitará más adelante en el tutorial.
 9. En la parte superior de la página, haga clic en **CONTENEDOR**.
 10. En la parte inferior de la página, haga clic en **AGREGAR**.
-11. Escriba el nombre del contenedor. Este contenedor se usará como contenedor predeterminado del clúster de HBase. De forma predeterminada, el nombre del contenedor predeterminado coincide con el nombre del clúster. Conserve el campo **ACCESO** como **Privado**.  
+11. Escriba el nombre del contenedor. Este contenedor se usará como contenedor predeterminado del clúster de HBase. De forma predeterminada, el nombre del contenedor predeterminado coincide con el nombre del clúster. Conserve el campo **ACCESO** como **Privado**.
 12. Haga clic en la marca de verificación para crear el contenedor.
 
 **Para aprovisionar un clúster de HBase usando el Portal de Azure clásico, siga estos pasos:**
@@ -139,7 +139,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 
 	>[AZURE.NOTE] En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
-	Haga clic en el botón derecho.
+	Haga clic con el botón derecho.
 
 5. Escriba el nombre de usuario y la contraseña que se va a usar para este clúster y, a continuación, haga clic con el botón derecho.
 
@@ -166,13 +166,13 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 			<ul>
 				<li><strong>Usar almacenamiento existente</strong></li>
 				<li><strong>Crear nuevo almacenamiento</strong></li>
-				<li><strong>Usar almacenamiento de otra suscripción</strong></li>
+				<li><strong>Use Storage From Another Subscription</strong></li>
 			</ul>
 			</td></tr>
 		<tr><td>Nombre de cuenta</td>
 			<td><ul>
 				<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
-				<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
+				<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
 			</ul></td></tr>
 		<tr><td>Clave de cuenta</td>
 			<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
@@ -436,4 +436,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

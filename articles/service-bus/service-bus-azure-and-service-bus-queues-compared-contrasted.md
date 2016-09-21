@@ -25,7 +25,7 @@ Microsoft Azure admite dos tipos de mecanismos de cola: **colas de Azure** y **c
 
 **Colas de Azure**, que forman parte de la infraestructura de [almacenamiento de Azure](https://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
 
-Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](https://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para obtener más información sobre las colas de Bus de servicio, temas/suscripciones y retransmisiones, consulte [Introducción de la mensajería del Bus de servicio](service-bus-messaging-overview.md).
+Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](https://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para más información sobre las colas de Service Bus, temas y suscripciones, y retransmisiones, consulte la [introducción a la mensajería de Service Bus](service-bus-messaging-overview.md).
 
 Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Azure se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de almacenamiento de Azure. Las colas de Service Bus se generan además de la infraestructura de "mensajería asíncrona" más amplia diseñada para integrar aplicaciones o componentes de aplicación que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza y/o entornos de red.
 
@@ -169,7 +169,7 @@ En esta sección se comparan algunas de las capacidades avanzadas ofrecidas por 
 
 - El concepto de "sesiones de mensajes" admitido por Bus de servicio permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
 
-- La funcionalidad de detección de duplicación admitida por las colas del Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+- La funcionalidad de detección de duplicación admitida por las colas de Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## Capacidad y cuotas
 
@@ -187,7 +187,7 @@ En esta sección se comparan las colas de Azure y las colas de Bus de servicio d
 
 - Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](service-bus-quotas.md).
 
-- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB y con 16 particiones, el tamaño de cola máximo pasa a ser (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [Portal de Azure clásico][].
+- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB y con 16 particiones, el tamaño de cola máximo pasa a ser (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [ortal de Azure clásico][].
 
 - Con las colas de Azure, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
 
@@ -227,30 +227,6 @@ En esta sección se comparan algunas de las características de administración 
 
 - Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Bus de servicio pueden contener letras, números, puntos, guiones y caracteres de subrayado.
 
-## Rendimiento
-
-En esta sección se comparan colas de Azure y de Service Bus desde una perspectiva de rendimiento.
-
-|Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
-|---|---|---|
-|Rendimiento máximo|**Hasta 2.000 mensajes por segundo**<br/><br/>(basado en la prueba comparativa con mensajes de 1 KB)|**Hasta 2.000 mensajes por segundo**<br/><br/>(basado en la prueba comparativa con mensajes de 1 KB)|
-|Latencia media|**10 ms**<br/><br/>(con [TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) deshabilitado)|**20-25 ms**|
-|Comportamiento de limitación|**Rechazar con código HTTP 503**<br/><br/>(las solicitudes limitadas no se consideran facturables)|**Rechazar con excepción/HTTP 503**<br/><br/>(las solicitudes limitadas no se consideran facturables)|
-
-### Información adicional
-
-- Una sola cola de Azure puede procesar hasta 2.000 transacciones por segundo. Una transacción es una operación **Put**, **Get** o **Delete**. El envío de un solo mensaje a una cola (**Put**) se cuenta como una transacción, pero la recepción de un mensaje suele ser un proceso de dos pasos que implica la recuperación (**Get**), seguido de una solicitud para quitar el mensaje de la cola (**Delete**). Como resultado, una operación de quitar de la cola correcta suele implicar dos transacciones. La recuperación de varios mensajes en un lote puede reducir el impacto de esto, ya que puede obtener (**Get**) hasta 32 mensajes en una sola transacción, seguido de una eliminación (**Delete**) para cada uno de ellos. Para un mejor rendimiento, puede crear varias colas (una cuenta de almacenamiento puede tener un número ilimitado de colas).
-
-- Cuando la aplicación alcanza el rendimiento máximo de una cola de Azure, se suele devolver una respuesta "HTTP 503 servidor ocupado" desde el servicio Cola. Cuando esto ocurre, la aplicación debe desencadenar la lógica de reintento con retraso de retroceso exponencial.
-
-- La latencia de las colas de Azure es de 10 milisegundos de media cuando se administran mensajes pequeños (de menos de 10 KB) desde un servicio hospedado que se encuentra en la misma ubicación (región) que la cuenta de almacenamiento.
-
-- Tanto las colas de Azure como las colas de Service Bus aplican el comportamiento de limitación rechazando las solicitudes a una cola que se está limitando. Sin embargo, ninguna de ellas considera facturables las solicitudes limitadas.
-
-- Para lograr un mayor rendimiento, use varias colas de Bus de servicio. Vea [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](service-bus-performance-improvements.md) para obtener más información sobre la optimización del rendimiento del Bus de servicio.
-
-- Cuando se alcance el rendimiento máximo de una cola de Bus de servicio, se devuelve una excepción [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (al usar la API de mensajería de .NET) o la respuesta HTTP 503 (al usar la API basada en REST) al cliente de la cola, que indica que se está limitando la cola.
-
 ## Autenticación y autorización
 
 En esta sección se describen las características de autenticación y autorización compatibles con las colas de Azure y las colas de Service Bus.
@@ -276,7 +252,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 |Coste de transacción en cola|**0,0036 $**<br/><br/>(por cada 100 000 transacciones)|**Nivel básico**: **0,05 $**<br/><br/>(por operaciones de millones)|
 |Operaciones facturables|**Todas**|**Enviar/recibir solo**<br/><br/>(sin coste para otras operaciones)|
 |Transacciones inactivas|**Facturables**<br/><br/>(la consulta de una cola vacía se cuenta como una transacción facturable).|**Facturables**<br/><br/>(una recepción en una cola vacía se considera un mensaje facturable).|
-|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00**|
+|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00 **|
 |Costes de transferencia de datos salientes|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|**0,12 USD - 0,19 USD**<br/><br/>(según la ubicación geográfica).|
 
 ### Información adicional
@@ -304,13 +280,14 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 - [Uso del servicio de almacenamiento en cola](../storage/storage-dotnet-how-to-use-queues.md)
 - [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](service-bus-performance-improvements.md)
-- [Introducción a las colas y los temas de Service Bus de Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
+- [Introducción a las colas y los temas de Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/)
 - [Arquitectura de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
+[ortal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

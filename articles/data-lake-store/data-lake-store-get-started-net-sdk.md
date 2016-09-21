@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
@@ -33,7 +33,6 @@ Aprenda a utilizar el [SDK de .NET de Azure Data Lake Store](https://msdn.micros
 
 * Visual Studio 2013 o 2015 Las instrucciones siguientes usan Visual Studio 2015.
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilitación de la suscripción de Azure** para la vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 * **Cree una aplicación de Azure Active Directory**. Existen dos formas de autenticación con Azure Active Directory: **interactiva** y **no interactiva**, cada una con diferentes requisitos previos.
 	* **Para la autenticación interactiva** (la que se usa en este artículo): en Azure Active Directory, debe crear una **aplicación cliente nativa**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
 		- Obtenga el **id. de cliente** y el **URI de redirección** de la aplicación.
@@ -530,4 +529,4 @@ Por último, asegúrese de que la ruta de acceso local y el nombre de archivo qu
 - [Referencia de SDK de .NET de Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Referencia de REST de Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -24,9 +24,6 @@ Azure Active Directory Identity Protection es un servicio de seguridad que propo
 ## Limitaciones de la versión preliminar actual
 En esta sección se enumeran las limitaciones que se aplican a la versión preliminar actual de Azure Active Directory Identity Protection.
 
-### Limitación de país o región
-
-La versión preliminar de Azure Active Directory Identity Protection solo se encuentra disponible actualmente para directorios con un valor de **País o región** de **Estados Unidos**. <br><br> ![Corrección](./media/active-directory-identityprotection/222.png "Corrección")
 
 
 ### Identity Protection y dominios federados
@@ -102,7 +99,7 @@ Algunos de estos eventos de riesgo han estado disponibles mediante los informes 
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | 
 | Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
@@ -416,4 +413,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection glossary (Glosario de Azure Active Directory Identity Protection)](active-directory-identityprotection-glossary.md)
  - [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

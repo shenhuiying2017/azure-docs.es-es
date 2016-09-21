@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Protección de los datos almacenados en el Almacén de Azure Data Lake
@@ -185,4 +185,4 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

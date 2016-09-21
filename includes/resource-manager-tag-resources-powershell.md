@@ -1,20 +1,22 @@
 ### Cambios en el cmdlet de las etiquetas en la versión más reciente de PowerShell
 
-La versión de agosto de 2016 de Azure PowerShell incluye cambios importantes en relación con la manera de trabajar con las etiquetas. Antes de continuar, compruebe la versión del módulo AzureRm.Resources.
+La versión de agosto de 2016 de [Azure PowerShell 2.0][powershell] incluye cambios importantes en relación con la manera de trabajar con las etiquetas. Antes de continuar, compruebe la versión del módulo AzureRm.Resources.
 
-    (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
+    Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
 Si actualizó por última vez Azure PowerShell antes de agosto de 2016, los resultados deben mostrar una versión inferior a 3.0.
 
-    Version : 2.0.2
-    Name    : AzureRM.Resources
+    Version
+    -------
+    2.0.2
 
 Si ha actualizado Azure PowerShell después de agosto de 2016, los resultados deben mostrar una versión 3.0.
 
-    Version : 3.0.1
-    Name    : AzureRM.Resources
-
-Si la versión del módulo es 3.0.1 o superior, ya cuenta con los cmdlets más recientes para trabajar con etiquetas. Si su versión es anterior a la 3.0.1, puede seguir utilizando esa versión, pero debe considerar la actualización a la versión más reciente. La versión más reciente incluye cambios que facilitan el trabajo con las etiquetas. En este tema se muestran ambos enfoques.
+    Version
+    -------
+    3.0.1
+    
+Si la versión del módulo es 3.0.1 o superior, ya cuenta con los cmdlets más recientes para trabajar con etiquetas. Esta versión del módulo de recursos de Azure se instala automáticamente al instalar o actualizar Azure PowerShell mediante la Galería de PowerShell, PowerShellGet o el Instalador de plataforma Web. Si su versión es anterior a la 3.0.1, puede seguir utilizando esa versión, pero debe considerar la actualización a la versión más reciente. La versión más reciente incluye cambios que facilitan el trabajo con las etiquetas. En este tema se muestran ambos enfoques.
 
 ### Actualización del script para los cambios de la versión más reciente 
 
@@ -228,4 +230,7 @@ Puede ver las etiquetas que comienzan con hidden-" y "link:". Se trata de etique
 
 Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. Estas etiquetas se incluyen en la característica Autocompletar, aunque todavía no se hayan aplicado a los recursos o grupos de recursos. Para quitar un nombre o valor de etiqueta, quite primero la etiqueta de los recursos con los que se pueda usar y, a continuación, use el cmdlet **Remove-AzureRmTag** para quitarla de la taxonomía.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0907_2016-->

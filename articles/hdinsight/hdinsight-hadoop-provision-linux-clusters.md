@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/08/2016"
+   	ms.date="09/06/2016"
    	ms.author="jgao"/>
 
 
@@ -216,6 +216,8 @@ La facturación se inicia cuando se crea un clúster y solo se detiene cuando se
 
 En algunos casos, es posible que desee agregar almacenamiento adicional al clúster. Por ejemplo, podría tener varias cuentas de almacenamiento de Azure para diferentes regiones geográficas, o para distintos servicios, pero querer analizarlas todas con HDInsight.
 
+Puede agregar cuentas de almacenamiento al crear un clúster de HDInsight o después de haberlo creado. Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+
 Para más información sobre el uso de Almacenamiento de blobs secundario, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para más información sobre el uso de almacenamiento de Data Lake secundario, consulte [Creación de clústeres de HDInsight con Data Lake Store con el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
@@ -297,4 +299,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Plantillas del Administrador de recursos de Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

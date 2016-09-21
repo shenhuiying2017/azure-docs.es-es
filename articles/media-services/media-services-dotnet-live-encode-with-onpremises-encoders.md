@@ -13,10 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="08/19/2016"  
+ 	ms.date="08/31/2016"  
 	ms.author="cenkdin;juliako"/>
 
 #Realización de streaming en vivo con codificadores locales mediante .NET
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+Este tutorial le guiará por los pasos para usar el SDK de .NET de Azure Media Services para crear un **Canal** que esté configurado para una entrega de paso a través.
+
 
 ##Requisitos previos
 
@@ -387,4 +395,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

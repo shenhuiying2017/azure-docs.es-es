@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de Capriza en Azure AD, deberá agregar Capriza 
 
 **Para agregar Capriza desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**. 
+1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -118,7 +118,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Capriza con el siguiente patrón: **“https://companyname.capriza.com/tenantid”**.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 4. En la página **Configurar inicio de sesión único en Capriza**, realice los pasos siguientes:
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -199,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -270,4 +270,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

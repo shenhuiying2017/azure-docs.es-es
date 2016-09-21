@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de HR2day by Merces en Azure AD, debe agregar HR
 
 **Para agregar HR2day by Merces desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -107,7 +107,7 @@ Antes de configurar la aserción SAML, debe ponerse en contacto con el equipo de
 
 **Para configurar el inicio de sesión único de Azure AD con HR2day by Merces, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **HR2day by Merces**, en el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**. 
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **HR2day by Merces**, en el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**.
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_06.png)
 
@@ -163,7 +163,7 @@ Antes de configurar la aserción SAML, debe ponerse en contacto con el equipo de
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 5. Para que se configure el SSO para la aplicación, póngase en contacto con su equipo de soporte técnico de HR2day by Merces a través de [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) y adjunte el archivo de certificado descargado a su correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
@@ -200,7 +200,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png)
 
@@ -212,7 +212,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -307,4 +307,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

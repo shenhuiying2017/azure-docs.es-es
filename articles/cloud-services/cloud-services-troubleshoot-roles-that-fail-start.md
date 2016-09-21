@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Solución de problemas de roles de servicios en la nube que no se inician
@@ -103,7 +103,7 @@ El emulador de proceso de Microsoft Azure se puede usar para diagnosticar y solu
 
 Para obtener unos mejores resultados con este método de diagnóstico, debe usar un equipo o máquina virtual que tenga una instalación limpia de Windows. Para simular lo mejor posible el entorno de Azure, use Windows Server 2008 R2 x64.
 
-1. Instale la versión independiente del [SDK de Azure](https://azure.microsoft.com/downloads/)
+1. Instale la versión independiente de [Azure SDK](https://azure.microsoft.com/downloads/).
 
 2. En la máquina de desarrollo, compile el proyecto de servicio en la nube.
 
@@ -163,4 +163,4 @@ Vea más [artículos de solución de problemas](https://azure.microsoft.com/docu
 
 Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

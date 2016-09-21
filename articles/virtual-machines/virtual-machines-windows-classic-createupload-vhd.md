@@ -95,7 +95,7 @@ Desde la ventana de Azure PowerShell que utilizó en el paso anterior, escriba e
 
 ## Paso 4: Agregar la imagen a la lista de imágenes personalizadas
 
-Use el cmdlet [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.aspx) para agregar la imagen a la lista de sus imágenes personalizadas.
+Use el cmdlet [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) para agregar la imagen a la lista de imágenes personalizadas.
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
@@ -104,4 +104,4 @@ Use el cmdlet [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.a
 
 Ahora puede [crear una máquina virtual personalizada](virtual-machines-windows-classic-createportal.md) mediante la imagen que cargó.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

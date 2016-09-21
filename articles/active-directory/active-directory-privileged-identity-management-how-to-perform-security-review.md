@@ -13,28 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Revisión de acceso en Privileged Identity Management de Azure AD
 
-Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administran las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
+Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administra el acceso con privilegios a los recursos de Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
 
-Si se le ha asignado a un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
+Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
 
-Si es un administrador de roles con privilegios interesado en las revisiones de seguridad, puede obtener más información en [Inicio de una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Si es un administrador de roles con privilegios interesado en las revisiones de acceso, puede obtener más información en [Inicio de una revisión de acceso](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Incorporación de la aplicación Privileged Identity Management
 
 Puede usar la aplicación Privileged Identity Management (PIM) de Azure AD en el [Portal de Azure](https://portal.azure.com/) para realizar la revisión. Si no tiene la aplicación en el portal, siga estos pasos para comenzar:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Si su organización tiene más de un directorio, haga clic en su nombre de usuario en la esquina superior derecha del Portal de Azure y seleccione el directorio donde va a trabajar.
+2. Seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure y elija el directorio donde va a trabajar.
 3. Seleccione **Nuevo** > **Seguridad e identidad** > **Privileged Identity Management de Azure AD**.
 
 	![Habilitación de PIM en el portal][1]
 
-4. Active la opción **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá el panel Privileged Identity Management.
+4. Active la opción **Anclar al panel** y luego haga clic en el botón **Crear**. Se abre el panel Privileged Identity Management.
 
 
 ## Aprobación o denegación de acceso
@@ -56,4 +56,4 @@ Al aprobar o denegar el acceso, lo que hace es indicar al revisor si aún usa o 
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

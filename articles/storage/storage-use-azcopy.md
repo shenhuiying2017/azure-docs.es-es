@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/02/2016"
 	ms.author="micurd"/>
 
 # Transferencia de datos con la utilidad en línea de comandos AzCopy
@@ -40,7 +40,7 @@ La sintaxis básica del comando AzCopy es:
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-Abra una ventana de comandos y vaya al directorio de instalación de AzCopy en el equipo, donde se encuentra el ejecutable `AzCopy.exe`. Si lo desea, puede agregar la ubicación de instalación de AzCopy a la ruta de acceso del sistema. De forma predeterminada, AzCopy está instalado en `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (Windows de 64 bits) o en `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (Windows de 32 bits).
+Abra una ventana de comandos y vaya al directorio de instalación de AzCopy en el equipo, donde se encuentra el ejecutable `AzCopy.exe`. Si lo desea, puede agregar la ubicación de instalación de AzCopy a la ruta de acceso del sistema. De forma predeterminada, AzCopy se instala en `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` o `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 Los ejemplos siguientes muestran diversos escenarios para copiar datos a y desde los blobs, archivos y tablas de Microsoft Azure. Consulte la sección [Parámetros de AzCopy](#azcopy-parameters) para obtener una explicación detallada de los parámetros utilizados en cada ejemplo.
 
@@ -866,4 +866,4 @@ Para más información acerca de Almacenamiento de Azure y AzCopy, consulte los 
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

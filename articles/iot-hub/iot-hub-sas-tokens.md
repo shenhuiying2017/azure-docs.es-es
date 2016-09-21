@@ -18,7 +18,7 @@
 
 # Uso de tokens de seguridad del Centro de IoT y certificados X.509
 
-El Centro de IoT usa tokens de seguridad para autenticar dispositivos y servicios para evitar el envío de claves en la conexión. Además, los tokens de seguridad están limitados en cuanto al ámbito y el período de validez. El [SDK del Centro de IoT de Azure][lnk-apis-sdks] genera automáticamente tokens sin requerir ninguna configuración especial. Algunos escenarios, sin embargo, requieren que el usuario genere y utilice directamente los tokens de seguridad. Estos incluyen el uso directo de las superficies AMQP, MQTT o HTTP o la implementación del patrón de servicio de token, como se explica en [Orientación del Centro de IoT][lnk-guidance-security].
+El Centro de IoT usa tokens de seguridad para autenticar dispositivos y servicios para evitar el envío de claves en la conexión. Además, los tokens de seguridad están limitados en cuanto al ámbito y el período de validez. El [SDK del Centro de IoT de Azure][lnk-apis-sdks] genera automáticamente tokens sin requerir ninguna configuración especial. Algunos escenarios, sin embargo, requieren que el usuario genere y utilice directamente los tokens de seguridad. Estos incluyen el uso directo de las superficies AMQP, MQTT o HTTP, o la implementación del patrón de servicio de token, tal y como se explica en las [directrices sobre IoT Hub][lnk-guidance-security].
 
 El Centro de IoT también permite a los dispositivos autenticarse con esta plataforma utilizando certificados X.509. El Centro de IoT admite la autenticación basada en X.509 de dispositivos a través de los protocolos AMQP, AMQP por WebSockets y HTTP.
 
@@ -27,7 +27,7 @@ En este artículo se describe:
 * El formato de los tokens de seguridad y cómo generarlos.
 * Los principales casos de uso para la utilización de tokens de seguridad para autenticar servicios back-end y dispositivos.
 * Los certificados X.509 compatibles con la autenticación de dispositivos.
-* El proceso de registro de un certificado de cliente X.509 ligado a un dispositivo específico.
+* Proceso de registro de un certificado de cliente X.509 ligado a un dispositivo específico.
 * El flujo en runtime entre el dispositivo y el Centro de IoT mediante un certificado de cliente X.509 para realizar autenticación.
 
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Auditoría en Almacenamiento de datos SQL de Azure
@@ -151,4 +151,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

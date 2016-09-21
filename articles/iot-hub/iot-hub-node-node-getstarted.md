@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 # Introducción al Centro de IoT de Azure para Node.js
@@ -40,9 +40,9 @@ Ahora ha creado su Centro de IoT. Ha creado el nombre de host y la cadena de con
 
 ## Creación de una identidad de dispositivo
 
-En esta sección, creará una aplicación de consola de Node.js que crea una nueva identidad de dispositivo en el registro de identidades de su Centro de IoT. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Consulte la sección **Registro de identidad de dispositivos** de la [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para obtener más información. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
+En esta sección, creará una aplicación de consola de Node.js que crea una identidad de dispositivo en el registro de identidades de IoT Hub. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Consulte la sección **Registro de identidad de dispositivos** de la [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para obtener más información. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
 
-1. Cree una nueva carpeta vacía denominada **createdeviceidentity**. En la carpeta **createdeviceidentity**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **createdeviceidentity**. En la carpeta **createdeviceidentity**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
     ```
     npm init
@@ -54,7 +54,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
     npm install azure-iothub --save
     ```
 
-3. Con un editor de texto, cree un nuevo archivo **CreateDeviceIdentity.js** en la carpeta **createdeviceidentity**.
+3. Con un editor de texto, cree un archivo **CreateDeviceIdentity.js** en la carpeta **createdeviceidentity**.
 
 4. Agregue la siguiente instrucción `require` al principio del archivo **CreateDeviceIdentity.js**:
 
@@ -72,7 +72,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
 
-6. Agregue el siguiente código para crear una nueva definición de dispositivo en el registro de identidades de dispositivo en el Centro de IoT. Este código crea un nuevo dispositivo si el identificador de dispositivo no existe en el registro o, de lo contrario, devuelve la clave del dispositivo existente:
+6. Agregue el siguiente código para crear una definición de dispositivo en el registro de identidades de dispositivo en IoT Hub. Este código crea un dispositivo si el identificador de dispositivo no existe en el registro o, de lo contrario, devuelve la clave del dispositivo existente:
 
     ```
     var device = new iothub.Device(null);
@@ -102,17 +102,17 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
     node CreateDeviceIdentity.js 
     ```
 
-9. Tome nota del **identificador de dispositivo** y de la **clave de dispositivo**. Los necesitará más adelante cuando cree una aplicación que se conecta a Centro de IoT como un dispositivo.
+9. Tome nota del **identificador de dispositivo** y de la **clave de dispositivo**. Los necesitará más adelante cuando cree una aplicación que se conecta a IoT Hub como un dispositivo.
 
 > [AZURE.NOTE] El registro de identidades del Centro de IoT solo almacena las identidades de dispositivo para permitir el acceso seguro al centro. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para más información.
 
 ## Recepción de mensajes de dispositivo a nube
 
-En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional sobre cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
+En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube de IoT Hub. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional sobre cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
 
 > [AZURE.NOTE] El punto de conexión compatible con los Centros de eventos para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQPS.
 
-1. Cree una nueva carpeta vacía denominada **readdevicetocloudmessages**. En la carpeta **readdevicetocloudmessages**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **readdevicetocloudmessages**. En la carpeta **readdevicetocloudmessages**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
     ```
     npm init
@@ -124,7 +124,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     npm install azure-event-hubs --save
     ```
 
-3. Con un editor de texto, cree un nuevo archivo **ReadDeviceToCloudMessages.js** en la carpeta **readdevicetocloudmessages**.
+3. Con un editor de texto, cree un archivo **ReadDeviceToCloudMessages.js** en la carpeta **readdevicetocloudmessages**.
 
 4. Agregue las siguientes instrucciones `require` al principio del archivo **ReadDeviceToCloudMessages.js**:
 
@@ -154,7 +154,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     };
     ```
 
-7. Agregue el código siguiente para crear el **EventHubClient**, abra la conexión al Centro de IoT y cree un receptor para cada partición. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] para más información:
+7. Agregue el código siguiente para crear el **EventHubClient**, abra la conexión al Centro de IoT y cree un receptor para cada partición. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Este filtro es útil en un entorno de prueba, porque puede ver solo el conjunto actual de mensajes. En un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub][lnk-process-d2c-tutorial] para más información:
 
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -176,9 +176,9 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
 
 ## Creación de una aplicación de dispositivo simulado
 
-En esta sección, creará una aplicación de consola de Node.js que simula un dispositivo que envía mensajes de dispositivo a nube a un Centro de IoT.
+En esta sección, creará una aplicación de consola de Node.js que simula un dispositivo que envía mensajes de dispositivo a nube a IoT Hub.
 
-1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **simulateddevice**. En la carpeta **simulateddevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
     ```
     npm init
@@ -201,7 +201,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothostname}** por el nombre del Centro de IoT que creó en la sección *Creación de un Centro de IoT* y **{yourdevicekey}** por la valor de la clave del dispositivo que generó en la sección *Creación de una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{nombreDeHostDeIoT}** por el nombre del centro de IoT que creó en la sección *Creación de un centro de IoT*. Reemplace **{nombreDeClaveDeDispositivo}** por el valor de la clave del dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -280,13 +280,13 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial, configuró un nuevo Centro de IoT en el portal y después creó una identidad de dispositivo en el registro de identidades del centro. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro los mensajes de dispositivo a la nube. También creó otra aplicación que muestra los mensajes recibidos por el centro.
 
-Para continuar la introducción al Centro de IoT y explorar otros escenarios IoT, consulte:
+Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 
 - [Conexión del dispositivo][lnk-connect-device]
 - [Introducción a la administración de dispositivos][lnk-device-management]
 - [Introducción al SDK de puerta de enlace][lnk-gateway-SDK]
 
-Para aprender a ampliar una solución IoT y a procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial].
+Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -312,4 +312,4 @@ Para aprender a ampliar una solución IoT y a procesar mensajes de dispositivo a
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

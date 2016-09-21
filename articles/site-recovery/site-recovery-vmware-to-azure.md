@@ -139,14 +139,14 @@ Para preparar la implementación deberá:
 - [Más información](../vpn-gateway/vpn-gateway-site-to-site-create.md) sobre los modelos de implementación compatibles para conexiones VPN de sitio a sitio y sobre la [configuración de una conexión](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Como alternativa, puede configurar [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Más información](../expressroute/expressroute-howto-vnet-portal-classic.md) sobre cómo configurar una red de Azure con ExpressRoute.
 
-> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 ### Configuración de una cuenta de almacenamiento de Azure
 
 - Necesitará una cuenta de almacenamiento estándar o premium para almacenar los datos replicados en Azure. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Según el modelo de recursos que desee usar para las máquinas virtuales de Azure que sean objeto de una conmutación por error, configurará una cuenta en [modo ARM](../storage/storage-create-storage-account.md) o en [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
 - Si utiliza una cuenta premium para los datos replicados, necesita crear una cuenta de almacenamiento estándar adicional para almacenar los registros de replicación que capturan los cambios continuos de los datos locales.
 
-> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of storage accounts](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ### Preparación de una cuenta de detección automática
 

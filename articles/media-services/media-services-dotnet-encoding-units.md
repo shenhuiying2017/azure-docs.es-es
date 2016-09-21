@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/26/2016"
+ 	ms.date="09/01/2016"
 	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #Escalado de codificación con el SDK de .NET
 
-
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-encoding-units.md)
+- [Portal](media-services-portal-scale-media-processing.md)
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -29,10 +28,8 @@
 
 ##Información general
 
-Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: S1, S2 o S3. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada Standard en comparación con el tipo Basic. Para obtener más información, consulte el blog acerca de los tipos de unidades reservadas de codificación escrito por [Milan Gada](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
-
-Además de especificar el tipo de unidad reservada, puede especificar el aprovisionamiento de su cuenta con unidades reservadas de codificación. El número de unidades reservadas de codificación aprovisionadas determina el número de tareas multimedia que se pueden procesar de forma simultánea en una cuenta determinada. Por ejemplo, si la cuenta tiene cinco unidades reservadas, se ejecutarán simultáneamente cinco tareas multimedia siempre que haya tareas para procesar. Las tareas restantes esperarán en la cola y se elegirán para el procesamiento secuencialmente tan pronto como finalice la tarea en ejecución. Si una cuenta no tiene ninguna unidad reservada aprovisionada, las tareas se elegirán de manera secuencial. En este caso, el tiempo de espera entre la finalización de una tarea y el inicio de la siguiente dependerá de la disponibilidad de los recursos del sistema.
-
+>[AZURE.IMPORTANT] Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md).
+ 
 Para cambiar el tipo de unidad reservada y el número de unidades reservadas de codificación mediante el SDK de .NET, haga lo siguiente:
 
 	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
@@ -81,4 +78,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -111,7 +111,7 @@ Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máqu
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para más información, consulte [Firmas de acceso compartido: descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md) para más información.
 
 En el [Portal de Azure clásico](https://manage.windowsazure.com), use **Administrar claves** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios Blob, Tabla y Cola.
 
@@ -151,7 +151,7 @@ Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
 4. Vuelva a generar la clave de acceso secundaria.
 
-## de una cuenta de almacenamiento
+## Eliminar una cuenta de almacenamiento
 
 Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en el panel o en la página **Configurar**. **Eliminar** elimina toda la cuenta de almacenamiento, incluidos todos los blobs, tablas y colas de la cuenta.
 
@@ -175,4 +175,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

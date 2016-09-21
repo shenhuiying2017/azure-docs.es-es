@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Personalización de los clústeres de HDInsight con Bootstrap
@@ -46,7 +46,7 @@ Hay tres maneras de usar bootstrap:
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
 - Uso del SDK de .NET
-- Uso de una plantilla de ARM
+- Usar plantillas de Azure Resource Manager
 
 Para obtener información acerca de cómo instalar componentes adicionales en el clúster de HDInsight durante la creación, vea:
 
@@ -108,15 +108,15 @@ Otros ejemplos de cómo personalizar otros archivos de configuración:
 	# oozie-site.xml configuration
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Para más información, vea el blog de Azim Uddin titulado [Personalización de la creación de clústeres de HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Para más información, vea el blog de Azim Uddin titulado [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) (Personalización de la creación de clústeres de HDInsight).
 
 ## Uso del SDK de .NET
 
 Consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Uso de una plantilla de ARM de Azure
+## Uso de plantillas de Resource Manager
 
-Puede usar bootstrap en una plantilla de ARM:
+Puede usar Bootstrap en la plantilla de Resource Manager:
 
     "configurations": {
         …
@@ -128,11 +128,11 @@ Puede usar bootstrap en una plantilla de ARM:
     }
 
 
-![hdinsight hadoop customize cluster bootstrap arm template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight hadoop personalizar clúster bootstrap plantilla de azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
-## Consulte también
+## Otras referencias
 
 - En [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
 - [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
@@ -261,4 +261,4 @@ Este script de PowerShell crea un clúster de HDInsight y personaliza una config
 
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

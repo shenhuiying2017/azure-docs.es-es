@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/17/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # Introducción al cliente Python de Lote de Azure
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 Aprenda los conceptos básicos del cliente [Lote de Azure][azure_batch] y [Python de Lote][py_azure_sdk] gracias a una pequeña aplicación de Lote escrita en Python que verá. Se examina la forma en que estos dos scripts de ejemplo usan el servicio Lote para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Almacenamiento de Azure](./../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
-
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) **no se admiten actualmente** en los nodos de proceso de Linux.
 
 ![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
 
@@ -60,7 +58,7 @@ O bien, puede instalar manualmente los paquetes de Python [azure-batch][pypi_bat
 
 `pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
 
-> [AZURE.TIP] Si utiliza una cuenta sin privilegios, es posible que necesite agregar a los comandos el prefijo `sudo`. Por ejemplo: `sudo pip install -r requirements.txt`. Para más información acerca de cómo instalar los paquetes de Python, consulte [Installing Packages][pypi_install] (Instalación de paquetes) en readthedocs.io.
+> [AZURE.TIP] Si utiliza una cuenta sin privilegios, es posible que necesite agregar a los comandos el prefijo `sudo`. Por ejemplo: `sudo pip install -r requirements.txt`. Para más información acerca de cómo instalar los paquetes de Python, consulte [Installing Packages][pypi_install] \(Instalación de paquetes) en readthedocs.io.
 
 ## Ejemplo de código del tutorial de Python de Lote
 
@@ -121,7 +119,7 @@ Lote incluye compatibilidad integrada con la interacción con Almacenamiento de 
 - **input**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *input*.
 - **output**: cuando las tareas completen el procesamiento de los archivos de entrada, cargarán los resultados en el contenedor *output*.
 
-Para interactuar con una cuenta de Almacenamiento y crear contenedores, se usa el paquete [azure-storage][pypi_storage] para crear un objeto [BlockBlobService][py_blockblobservice] (el "cliente del blob"). A continuación, se crearán tres contenedores en la cuenta de Almacenamiento mediante el cliente de blob.
+Para interactuar con una cuenta de Almacenamiento y crear contenedores, se usa el paquete [azure-storage][pypi_storage] para crear un objeto [BlockBlobService][py_blockblobservice] \(el "cliente del blob"). A continuación, se crearán tres contenedores en la cuenta de Almacenamiento mediante el cliente de blob.
 
 ```python
  # Create the blob client, for use in obtaining references to
@@ -374,7 +372,7 @@ Ahora que se ha creado un trabajo, se agregan las tareas para realizar dicho tra
 
 Las **tareas** de Lote son unidades de trabajo individuales que se ejecutan en los nodos de proceso. Una tarea tiene una línea de comandos y ejecuta los scripts o archivos ejecutables que se especifican en la línea de comandos.
 
-Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][py_task] se configura mediante una propiedad de línea de comandos y el objeto [ResourceFiles][py_resource_file] (al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el ejemplo, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
+Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][py_task] se configura mediante una propiedad de línea de comandos y el objeto [ResourceFiles][py_resource_file] \(al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el ejemplo, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -660,4 +658,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

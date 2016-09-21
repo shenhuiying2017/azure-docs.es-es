@@ -88,7 +88,7 @@ La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, ta
 	DocumentDBBenchmark completed successfully.
 
 
-**Paso 4 (si es necesario):** el rendimiento notificado (RU/s) de la herramienta debe ser igual o mayor que el rendimiento de aprovisionamiento de la colección. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, iniciar varias instancias de la aplicación en los mismos equipos u otros distintos lo ayudará a alcanzar el límite de aprovisionamiento en distintas instancias. Si necesita ayuda con este paso, póngase en contacto con nosotros a través de [Ask DocumentDB](askdocdb@microsoft.com) (Solicitar DocumentDB) o presente una incidencia de soporte técnico.
+**Paso 4 (si es necesario):** el rendimiento notificado (RU/s) de la herramienta debe ser igual o mayor que el rendimiento de aprovisionamiento de la colección. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, iniciar varias instancias de la aplicación en los mismos equipos u otros distintos lo ayudará a alcanzar el límite de aprovisionamiento en distintas instancias. Si necesita ayuda con este paso, escriba un correo electrónico a askdocdb@microsoft.com o rellene una incidencia de soporte técnico.
 
 Una vez que se ejecute la aplicación, puede probar diferentes [directivas de indexación](documentdb-indexing-policies.md) y [niveles de coherencia](documentdb-consistency-levels.md) para conocer su repercusión en el rendimiento y la latencia. También puede revisar el código fuente e implementar configuraciones similares a sus propios conjuntos de pruebas o aplicaciones de producción.
 
@@ -103,4 +103,4 @@ En este artículo, vimos cómo puede realizar pruebas de rendimiento y escala co
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

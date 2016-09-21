@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="09/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
@@ -24,8 +24,9 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 ## Administración de cargas de trabajo
 
 | Categoría | Descripción | Máxima |
-| :------------------ | :------------------------------------------- | :----------------- |
-| [Unidades de almacenamiento de datos (DWU)][]| Proceso, memoria y recursos de E/S | 6000 |
+| :------------------ | :------------------------------------------------ | :----------------- |
+| [Unidades de almacenamiento de datos (DWU)][]| Máximo de DWU para una sola instancia de SQL Data Warehouse | 6000 |
+| [Unidades de almacenamiento de datos (DWU)][]| Máximo de DWU para un único servidor SQL | 6000 de forma predeterminada<br/><br/> De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 45 000, lo que permite un máximo de 6000 DWU. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota [creando una incidencia de soporte técnico][] y seleccionando *Cuota* como tipo de solicitud. Para calcular las necesidades de DTU, multiplique 7,5 por el total de DWU necesario. Puede ver el consumo de DTU actual en la hoja del servidor SQL en el portal. El recuento de las bases de datos, tanto en pausa como continuo, hacia la cuota de DTU. |
 | Conexión de base de datos | Sesiones abiertas simultáneas | 1024<br/><br/>Se admite un máximo de 1024 conexiones activas, cada una de las cuales puede enviar solicitudes a una base de datos de Almacenamiento de datos SQL de forma simultánea. Tenga en cuenta que hay límites en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso.|
 | Conexión de base de datos | Memoria máxima para instrucciones preparadas | 20 MB |
 | [Administración de cargas de trabajo][] | N.º máximo de consultas simultáneas | 32<br/><br/> De forma predeterminada, Almacenamiento de datos SQL ejecutará un máximo de 32 consultas simultáneas y consultas que permanecen en cola.<br/><br/>El nivel de simultaneidad se puede reducir cuando se asigna a los usuarios a una clase de recurso superior o cuando el Almacenamiento de datos SQL está configurado con una baja unidad de almacenamiento de datos. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar.|
@@ -46,8 +47,6 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Tabla | Caracteres por valor de límite de partición| 4000 |
 | Índice | Índices no agrupados por tabla | 999<br/><br/>Solo se aplica a tablas de almacén de filas.|
 | Índice | Índices agrupados por tabla | 1<br><br/>Se aplica a tablas de almacén de filas y de almacén de columnas.|
-| Índice | Filas de un grupo de filas de índice de almacén de columnas | 1024<br/><br/>Cada índice de almacén de columnas se implementa como varios índices de almacén de columnas. Tenga en cuenta que si inserta 1024 filas en un índice de almacén de columnas de Almacenamiento de datos SQL, las filas no irán al mismo grupo de filas.|
-| Índice | Compilaciones simultáneas de índices de almacén de columnas agrupados. | 32<br/><br/>Se aplica cuando los índices de almacén de columnas agrupados se compilan en diferentes tablas. Solo se permite una compilación de índice de almacén de columnas agrupado por tabla. Las solicitudes adicionales esperan en una cola.|
 | Índice | Tamaño de clave de índice | 900 bytes<br/><br/>Se aplica solo a los índices de almacén de filas.<br/><br/>Si los datos existentes en las columnas no superan los 900 bytes cuando se crea el índice, pueden crearse índices en columnas varchar con un tamaño máximo de más de 900 bytes. Sin embargo, las posteriores acciones INSERT o UPDATE en las columnas que hacen que el número total supere los 900 bytes darán error.|
 | Índice | Columnas de clave por índice | 16<br/><br/>Solo se aplica a los índices de almacén de filas. Los índices de almacén de columnas agrupados incluyen todas las columnas.|
 | Estadísticas | Tamaño de los valores de columna combinados | 900 bytes |
@@ -107,9 +106,10 @@ Para obtener más información de referencia, vea [Información general de refer
 [Administración de cargas de trabajo]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [tipo de datos]: ./sql-data-warehouse-tables-data-types.md
+[creando una incidencia de soporte técnico]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 [Datos de desbordamiento de fila superiores a 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

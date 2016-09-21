@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Para configurar la integración de ADP GlobalView en Azure AD, es preciso agrega
 
 **Para agregar ADP GlobalView desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -127,7 +127,7 @@ Antes de configurar la aserción SAML, debe ponerse en contacto con el equipo de
 
     b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL empleada por Azure AD para publicar la respuesta a la aplicación ADP GlobalView mediante uno de los patrones siguientes: **"https:// <nombreDeServidor>.globalview.adp.com/federate2/sp/ACS.saml2"**, **"https:// <nombreDeServidor>.globalview.adp.com/federate/sp/ACS.saml2"**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 
 4. En la página **Configurar inicio de sesión único en ADP GlobalView**, siga estos pasos:
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png)
 
@@ -188,9 +188,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png)
 
@@ -283,4 +283,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

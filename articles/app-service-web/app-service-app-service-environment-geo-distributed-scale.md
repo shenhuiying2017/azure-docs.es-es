@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/07/2016" 
 	ms.author="stefsch"/>
 
 # Escala distribuida geográficamente con entornos de Servicio de aplicaciones
@@ -33,7 +33,7 @@ En el siguiente diagrama conceptual, se muestra una aplicación escalada horizon
 
 ![Arquitectura conceptual][ConceptualArchitecture]
 
-El resto de este tema lo guía por los pasos necesarios para configurar una topología distribuida para la aplicación de ejemplo usando varios entornos de Servicio de aplicaciones.
+El resto de este tema lo guía por los pasos necesarios para configurar una topología distribuida para la aplicación de ejemplo usando varios entornos de App Service.
 
 ## Planeación de la topología ##
 Antes de crear la superficie de una aplicación distribuida, resulta útil tener algunos datos con antelación.
@@ -52,7 +52,7 @@ Una vez que se implementan varias instancias de una aplicación en varios entorn
 - **webfrontend2.fe2ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el segundo entorno de Servicio de aplicaciones.
 - **webfrontend3.fe3ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el tercer entorno de Servicio de aplicaciones.
 
-La forma más sencilla de registrar varios extremos de Servicio de aplicaciones de Azure, todos los cuales se ejecutan en la **misma** región de Azure, es haciendo uso de la [compatibilidad del Administrador de recursos de Azure con la vista previa del Administrador de tráfico de Azure][ARMTrafficManager].
+La forma más sencilla de registrar varios puntos de conexión de Azure App Service, todos los cuales se ejecutan en la **misma** región de Azure, es usando la [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].
 
 El primer paso consiste en crear un perfil del Administrador de tráfico de Azure. El código siguiente muestra cómo se creó el perfil para la aplicación de ejemplo:
 
@@ -62,19 +62,24 @@ Observe cómo el parámetro *RelativeDnsName* se estableció en *scalable-ase-de
 
 El parámetro *TrafficRoutingMethod* define la directiva de equilibrio de carga que el Administrador de tráfico usará para determinar cómo distribuir la carga de los clientes entre todos los extremos disponibles. En este ejemplo, se eligió el método *Weighted*. Como resultado, las solicitudes de clientes se distribuirán entre todos los extremos de la aplicación registrados en función de las ponderaciones relativas asociadas con cada extremo.
 
-Con el perfil creado, se agrega cada instancia de la aplicación al perfil como un *extremo externo*. El código siguiente muestra las direcciones URL para cada una de las tres instancias de la aplicación que se agregan al perfil.
+Con el perfil creado, se agrega cada instancia de la aplicación al perfil como un punto de conexión nativo de Azure. El código siguiente recupera una referencia a cada aplicación web front-end y, luego, agrega cada aplicación como un punto de conexión del Administrador de tráfico por medio del parámetro *TargetResourceId*.
 
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend1.fe1ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend2.fe2ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend3.fe3ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
+
+    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
     
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-
-Observe que existe una llamada a *Add-AzureTrafficManagerEndpointConfig* para cada instancia de aplicación individual. El parámetro *Target* de cada comando de Powershell apunta al nombre de dominio completo (FQDN) de cada una de las tres instancias de la aplicación implementadas. Los distintos FQDN son los valores que se usarán para recorrer la cadena de CNAME DNS de *scalable-ase-demo.trafficmanager.net* con el fin de distribuir la carga de tráfico entre todos los extremos registrados en el perfil del Administrador de tráfico.
+    
+Observe que existe una llamada a *Add-AzureTrafficManagerEndpointConfig* para cada instancia de aplicación individual. El parámetro *TargetResourceId* de cada comando de Powershell hace referencia a una de las tres instancias de la aplicación implementada. El perfil de Traffic Manager repartirá la carga entre los tres puntos de conexión registrados en el perfil.
 
 Los tres extremos usan el mismo valor (10) para el parámetro *Weight*. Como resultado, el Administrador de tráfico distribuye las solicitudes de los clientes entre las tres instancias de la aplicación de forma relativamente uniforme.
 
-*Nota:* dado que la compatibilidad de ARM con el Administrador de tráfico se encuentra en vista previa, los extremos de Servicio de aplicaciones de Azure tienen que establecer el parámetro *Type* en *ExternalEndpoints*. En el futuro, la variante de ARM del Administrador de tráfico admitirá de forma nativa los extremos de Servicio de aplicaciones de Azure como un tipo de extremo.
 
 ## Hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico ##
 El último paso necesario es hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico. Para la aplicación de ejemplo, esto significa que debe apuntar a *www.scalableasedemo.com* en *scalable-ase-demo.trafficmanager.net*. Este paso se debe completar con el registrador de dominios que administra el dominio personalizado.
@@ -98,8 +103,8 @@ El resultado final de la configuración del Administrador de tráfico y de DNS e
 2. La entrada CNAME en el registrador de dominios hace que la búsqueda DNS se redirija al Administrador de tráfico de Azure.
 3. Se realiza una búsqueda DNS de *scalable-ase-demo.trafficmanager.net* en uno de los servidores DNS del Administrador de tráfico de Azure.
 4. Según la directiva de equilibrio de carga (el parámetro *TrafficRoutingMethod* usado antes al crear el perfil del Administrador de tráfico), el Administrador de tráfico seleccionará uno de los extremos configurados y devolverá el FQDN de ese extremo al explorador o dispositivo.
-5.  Dado que el FQDN del extremo es la dirección URL de una instancia de la aplicación que se ejecuta en un entorno de Servicio de aplicaciones, el explorador o el dispositivo pedirá a un servidor DNS de Microsoft Azure que resuelva el FQDN en una dirección IP. 
-6. El explorador o el dispositivo enviará la solicitud HTTP/S a la dirección IP.  
+5.  Dado que el FQDN del extremo es la dirección URL de una instancia de la aplicación que se ejecuta en un entorno de Servicio de aplicaciones, el explorador o el dispositivo pedirá a un servidor DNS de Microsoft Azure que resuelva el FQDN en una dirección IP.
+6. El explorador o el dispositivo enviará la solicitud HTTP/S a la dirección IP.
 7. La solicitud llegará a una de las instancias de la aplicación que se ejecutan en uno de los entornos de Servicio de aplicaciones.
 
 En la imagen de consola siguiente, se muestra una búsqueda DNS para el dominio personalizado de la aplicación de ejemplo que se ha resuelto correctamente en una instancia de la aplicación que se ejecuta en uno de los tres entornos de Servicio de aplicaciones (en este caso, el segundo de los tres):
@@ -107,9 +112,9 @@ En la imagen de consola siguiente, se muestra una búsqueda DNS para el dominio 
 ![Búsqueda DNS][DNSLookup]
 
 ## Información y vínculos adicionales ##
-Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
-Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM) con la vista previa del Administrador de tráfico de Azure][ARMTrafficManager].
+Documentación sobre [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -118,7 +123,7 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/es-ES/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->
@@ -127,4 +132,4 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

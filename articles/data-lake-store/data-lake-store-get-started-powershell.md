@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante Azure PowerShell
@@ -34,7 +34,6 @@ Aprenda a usar Azure PowerShell para crear una cuenta del Almacén de Azure Data
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 
 ##Instalar Azure PowerShell 1.0 o versiones posteriores
@@ -43,7 +42,7 @@ Consulte la sección de requisitos previos de [Uso de Azure PowerShell con Azure
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
-1. En el escritorio, abra una nueva ventana de Windows PowerShell y escriba el siguiente fragmento de código para iniciar sesión en su cuenta de Azure, establecer la suscripción y registrar el proveedor del Almacén de Data Lake. Cuando se le solicite que inicie sesión, asegúrese de iniciarla como uno de los administradores o como el propietario de la suscripción:
+1. En el escritorio, abra una nueva ventana de Windows PowerShell y escriba el siguiente fragmento de código para iniciar sesión en su cuenta de Azure, establecer la suscripción y registrar el proveedor de Data Lake Store. Cuando se le solicite iniciar sesión, asegúrese de iniciarla como uno de los administradores o propietario de la suscripción:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -63,7 +62,7 @@ Consulte la sección de requisitos previos de [Uso de Azure PowerShell con Azure
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Creación de un grupo de recursos de Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creación de un grupo de recursos de Azure")
+	![Crear un grupo de recursos de Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
 
 2. Cree una cuenta del Almacén de Azure Data Lake. El nombre que especifique debe contener solo letras minúsculas y números.
 
@@ -141,4 +140,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

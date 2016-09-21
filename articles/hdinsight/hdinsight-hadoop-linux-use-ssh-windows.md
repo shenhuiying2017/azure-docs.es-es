@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -237,4 +237,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

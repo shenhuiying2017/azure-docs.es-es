@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar SD Elements con Azure Act
 
 - Puede controlar en Azure AD quién tiene acceso a SD Elements.
 - Puede permitir que los usuarios inicien sesión automáticamente en SD Elements (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, Azure Active Directory. 
+- Puede administrar sus cuentas en una ubicación central, Azure Active Directory.
 
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -57,7 +57,7 @@ Para configurar la integración de SD Elements en Azure AD, deberá agregar SD E
 
 **Para agregar SD Elements desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -128,7 +128,7 @@ La aplicación SD Elements espera las aserciones de SAML en un formato específi
 
     > [AZURE.NOTE] Si necesita la dirección URL del emisor y la dirección URL de respuesta reales del inquilino, póngase en contacto con su [equipo de soporte técnico de SD Elements](mailto:support@sdelements.com).
       
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 
 4. En la página **Configurar inicio de sesión único en SD Elements**, siga estos pasos:
@@ -217,7 +217,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png)
 
@@ -229,7 +229,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -255,7 +255,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
 
 
@@ -355,4 +355,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

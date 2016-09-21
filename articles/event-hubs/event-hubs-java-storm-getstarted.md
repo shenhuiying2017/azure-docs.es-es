@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/16/2016"
+	ms.date="09/06/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -64,7 +64,7 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general sobre Centros de eventos]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

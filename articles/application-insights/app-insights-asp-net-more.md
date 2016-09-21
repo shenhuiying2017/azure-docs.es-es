@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso más completo de Application Insights" 
+	pageTitle="Uso más completo de Application Insights | Microsoft Azure" 
 	description="Aquí se presentan algunas características que puede explorar una vez que sepa utilizar Application Insights." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Más telemetría desde Application Insights
@@ -60,8 +60,9 @@ Si la aplicación se ejecuta como una aplicación web de Azure, vaya al panel de
 
 (También puede utilizar este método para [habilitar la supervisión en tiempo de ejecución](app-insights-monitor-performance-live-website-now.md), aunque no haya instrumentado la aplicación en Visual Studio.)
 
+## Supervisión del lado cliente
 
-## Rendimiento del explorador
+Instaló el SDK que envía datos de telemetría desde el servidor (back-end) de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos sobre usuarios, sesiones, vistas de página y cualquier excepción o bloqueo que se produce en el explorador. También podrá escribir su propio código para realizar un seguimiento de cómo trabajan los usuarios con su aplicación, hasta el nivel detallado de clics y pulsaciones de teclas.
 
 Agregue el fragmento de código de JavaScript de Application Insights a sus páginas web para obtener datos de telemetría de los exploradores cliente.
 
@@ -71,6 +72,8 @@ Agregue el fragmento de código de JavaScript de Application Insights a sus pág
 
 ![Extender en Azure](./media/app-insights-asp-net-more/100.png)
 
+Observe que el código contiene la clave de instrumentación que identifica al recurso de la aplicación.
+
 ### ¿Qué obtiene?
 
 * Puede escribir JavaScript para enviar [datos de telemetría personalizados desde las páginas web](app-insights-api-custom-events-metrics.md), por ejemplo para realizar un seguimiento de los clics de los botones.
@@ -78,6 +81,27 @@ Agregue el fragmento de código de JavaScript de Application Insights a sus pág
 * [Rendimiento de cliente y datos de uso](app-insights-javascript.md) en la hoja Exploradores.
 
 ![Extender en Azure](./media/app-insights-asp-net-more/090.png)
+
+
+[Obtenga más información sobre el seguimiento de páginas web.](app-insights-web-track-usage.md)
+
+
+
+## Versión de la aplicación de seguimiento
+
+Asegúrese de que el proceso de MSBuild genera `buildinfo.config`. En su archivo .csproj, agregue:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Cuando tenga la información de la compilación, el módulo web de Application Insights agregará automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos](app-insights-diagnostic-search.md) o al [explorar métricas](app-insights-metrics-explorer.md).
+
+Sin embargo, tenga en cuenta que el número de versión de compilación la genera únicamente MS Build, no la compilación de desarrollador en Visual Studio.
+
 
 ## Pruebas web de disponibilidad
 
@@ -121,4 +145,4 @@ Hay muchas formas de explorar los datos. Si ha iniciado recientemente con Applic
 |**API de acceso a datos**<br/>Próximamente.|
 |[**Muestreo**](app-insights-sampling.md)<br/>Reduce la velocidad de los datos y le permite permanecer dentro del límite de su plan de tarifa.|![Icono de muestreo](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

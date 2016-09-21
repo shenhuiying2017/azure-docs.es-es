@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Administración de contenedores con la API de REST
@@ -74,8 +74,6 @@ Los contenedores con formato Docker se implementan a través de Marathon mediant
 Para implementar un contenedor con formato Docker, cree su propio archivo JSON o utilice el ejemplo proporcionado en la [demostración del servicio Contenedor de Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Almacénelo en una ubicación accesible. A continuación, ejecute el siguiente comando para implementar el contenedor. Especifique el nombre del archivo JSON.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +102,6 @@ Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 >[AZURE.NOTE] El identificador URI será http://localhost/marathon/v2/apps/ y deberá agregar luego el identificador de la aplicación que se va a escalar. Si va a utilizar el ejemplo de Nginx aquí proporcionado, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +145,6 @@ Los contenedores con formato Docker se implementan a través de Marathon mediant
 Cree su propio archivo JSON o utilice el ejemplo proporcionado en la [demostración del servicio Contenedor de Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Almacénelo en una ubicación accesible. A continuación, ejecute el siguiente comando para implementar el contenedor. Especifique el nombre del archivo JSON.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +159,6 @@ Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 > [AZURE.NOTE] El identificador URI será http://localhost/marathon/v2/apps/ y deberá agregar luego el identificador de la aplicación que se va a escalar. Si se utiliza el ejemplo de Nginx aquí proporcionado, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -175,4 +167,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 - [Más información sobre los puntos de conexión HTTP de Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
 - [Más información acerca de la API de REST de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

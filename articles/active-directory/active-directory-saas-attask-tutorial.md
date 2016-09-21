@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -41,13 +41,13 @@ Para configurar la integración de Azure AD con @Task, necesita los siguientes e
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
-1. Adición de @Task desde la galería 
+1. Adición de @Task desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -56,7 +56,7 @@ Para configurar la integración de @Task en Azure AD, deberá agregar @Task desd
 
 **Para agregar @Task desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -116,9 +116,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	![Configurar las opciones de la aplicación][8]
  
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación @Task (p. ej.:*https://<Tenant name>.attask-ondemand.com*).
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación @Task (p. ej.:*https://<Nombre del cliente>.attask-ondemand.com*).
 
-     b. Haga clic en **Siguiente**.
+     b. Haga clic en **Next**.
 
 4. En la página **Configuración de inicio de sesión único en @Task**, haga clic en **Descargar metadatos**, guarde el archivo de metadatos localmente en el equipo y luego haga clic en **Siguiente**.
 
@@ -145,7 +145,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     e. En el Portal de Azure clásico, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
 
-    e. Haga clic en **Guardar**.
+    e. Haga clic en **Save**.
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_03.png)
  
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_04.png)
 
@@ -187,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -211,7 +211,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
   
     a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Haga clic en **Completo**.
+    b. Haga clic en **Complete**.
 
   
  
@@ -263,7 +263,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 	![Asignar usuario][203]
 
-1. En la lista de usuarios, seleccione **Britta Simon**.
+1. En la lista Usuarios, seleccione **Britta Simon**.
 
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
 
@@ -311,4 +311,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

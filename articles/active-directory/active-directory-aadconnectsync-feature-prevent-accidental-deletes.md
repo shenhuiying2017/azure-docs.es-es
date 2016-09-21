@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="StevenPo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="09/01/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: cómo evitar eliminaciones accidentales
@@ -21,7 +21,7 @@ En este tema se describe la característica para evitar eliminaciones accidental
 
 Al instalar Azure AD Connect, la característica para evitar eliminaciones accidentales se habilitará de forma predeterminada y se configurará para que no permita ninguna exportación con más de 500 eliminaciones. Esta característica está diseñada para protegerle de los cambios de configuración accidentales y de los cambios en el directorio local que afectarían a un gran número de usuarios y demás objetos.
 
-Escenarios comunes en los que puede observar esto son:
+Algunos de los escenarios comunes en los que puede observar esto son los siguientes:
 
 - Cambios en el [filtrado](active-directory-aadconnectsync-configure-filtering.md) donde se anula la selección de una [unidad organizativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) enteros.
 - Se eliminan todos los objetos de una unidad organizativa.
@@ -29,7 +29,7 @@ Escenarios comunes en los que puede observar esto son:
 
 El valor predeterminado de 500 objetos se puede cambiar con PowerShell mediante `Enable-ADSyncExportDeletionThreshold`. Debe configurar este valor para ajustar el tamaño de su organización. Dado que el programador de sincronización se ejecutará cada 30 minutos, el valor es el número de eliminaciones que hemos visto en 30 minutos.
 
-Si hay demasiadas eliminaciones almacenadas provisionalmente para exportarse a Azure AD, la exportación no continuará y recibirá un mensaje similar al siguiente:
+Si hay demasiadas eliminaciones almacenadas provisionalmente para exportarse a Azure AD, la exportación no continuará y recibirá un mensaje de correo electrónico similar al siguiente:
 
 ![Evitar eliminaciones accidentales del correo electrónico](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
@@ -43,19 +43,21 @@ Si no es lo esperado, investigue y tome las medidas correctivas oportunas. Para 
 2. Vaya a **Conectores**.
 3. Seleccione el conector con el tipo **Azure Active Directory**.
 4. En **Acciones** a la derecha, seleccione **Espacio del conector de búsqueda**.
-5. En la ventana emergente en **Ámbito** seleccione **Desconectado desde** y elija una hora en el pasado. Haga clic en **Búsqueda**. Esto le ofrecerá una vista de todos los objetos que se van a eliminar. Al hacer clic en cada elemento, puede obtener información adicional sobre el objeto. También puede hacer clic en **Valor de la columna** para agregar atributos adicionales para que sean visibles en la cuadrícula.
+5. En la ventana emergente en **Ámbito** seleccione **Desconectado desde** y elija una hora en el pasado. Haga clic en **Buscar**. Esta página ofrece una vista de todos los objetos que se van a eliminar. Al hacer clic en cada elemento, puede obtener información adicional sobre el objeto. También puede hacer clic en **Valor de la columna** para agregar atributos adicionales para que sean visibles en la cuadrícula.
 
 ![Espacio del conector de búsqueda](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
 Si se desean todas las eliminaciones, haga lo siguiente:
 
-1. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold` Cuando se le pidan las credenciales, proporcione una cuenta y una contraseña de administrador global de Azure AD. ![Credenciales](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+1. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD. ![Credenciales](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. Con el Conector Azure Active Directory aún seleccionado, seleccione la acción **Ejecutar** y **Exportar**.
-3. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold`
+3. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+**Temas de introducción**
 
-<!---HONumber=AcomDC_0629_2016-->
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

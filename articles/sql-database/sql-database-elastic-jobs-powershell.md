@@ -30,11 +30,11 @@ Las API de PowerShell para **Trabajos de base de datos elástica** permtein defi
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 * Paquete PowerShell para **Trabajos de base de datos elástica**: consulte [Instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md).
 
-### Selección de su suscripción a Azure
+### Selección de su suscripción de Azure
 
-Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de la suscripción que quiera del conjunto de resultados. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
+Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de la suscripción que quiera del conjunto de resultados. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
 
-	Select-AzureSubscription -SubscriptionId {SubscriptionID}
+	Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
 Se recomienda el uso de [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) para desarrollar y ejecutar scripts de PowerShell en Trabajos de base de datos elástica.
 
@@ -45,7 +45,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
 <table style="width:100%">
   <tr>
     <th>Tipo de objeto</th>
-    <th>Descripción</th>
+    <th>Description</th>
     <th>API de PowerShell relacionadas</th>
   </tr>
   <tr>
@@ -199,7 +199,7 @@ Hay dos tipos de grupos que puede crear:
 
 ## Para establecer la conexión de Trabajos de base de datos elástica
 
-Se debe establecer una conexión con la *base de datos de control* de trabajos antes de usar las API de trabajos. Al ejecutar este cmdlet se desencadena una ventana de credenciales emergente que solicita el nombre de usuario y la contraseña creados al instalar Trabajos de base de datos elástica. En todos los ejemplos que se ofrecen en este tema se supone que este primer paso ya se realizó.
+Se debe establecer una conexión con la *base de datos de control* de trabajos antes de usar las API de trabajos. Al ejecutar este cmdlet se desencadena una ventana de credenciales emergente que solicita el nombre de usuario y la contraseña creados al instalar Trabajos de base de datos elástica. En todos los ejemplos que se ofrecen en este tema se da por hecho que este primer paso ya se realizó.
 
 Apertura de una conexión a Trabajos de base de datos elástica:
 
@@ -680,4 +680,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

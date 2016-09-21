@@ -52,8 +52,9 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js][NODEJS] sen
 
     En el explorador, vaya a <http://localhost:3000> para asegurarse de que puede ver la página principal de Express. Una vez comprobado que la aplicación se ejecuta correctamente, use `Ctrl-C` para detenerla.
     
-1. Inicie sesión en Azure de este modo (necesita [CLI de Azure](#prereq) para hacerlo):
+1. Cambie al modo ASM e inicie sesión en Azure (necesita la [CLI de Azure](#prereq) para esto):
 
+        azure config mode asm
         azure login
 
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
@@ -62,7 +63,7 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js][NODEJS] sen
 
         azure site create --git {appname}
 
-    Siga las indicaciones para seleccionar una región de Azure para la implementación. Si nunca ha configurado credenciales de implementación Git/FTP para su suscripción de Azure, también se le solicitará que las cree.
+    Siga las indicaciones para seleccionar una región de Azure para la implementación. Si nunca ha configurado credenciales de implementación de Git/FTP para su suscripción de Azure, también se le solicitará que las cree.
 
 3. Abra el archivo ./config/config.js de la raíz de la aplicación y cambie el puerto de producción a `process.env.port`; la propiedad `production` en el objeto `config` debe ser similar a la del ejemplo siguiente.
 
@@ -236,4 +237,4 @@ Para habilitar Node-Inspector, siga estos pasos:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

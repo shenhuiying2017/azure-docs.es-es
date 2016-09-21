@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Administración de un dominio administrado con Servicios de dominio de Azure Active Directory
@@ -21,7 +21,7 @@ Este artículo muestra cómo administrar un dominio administrado con Servicios d
 
 
 ## Antes de empezar
-Para realizar las tareas enumeradas en este artículo, necesita:
+Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 1. Una **suscripción de Azure** válida.
 
@@ -31,13 +31,13 @@ Para realizar las tareas enumeradas en este artículo, necesita:
 
 4. Una **máquina virtual unida a un dominio** , desde la que administrará el dominio administrado de los Servicios de dominio de Azure AD. Si no tiene una máquina virtual, siga todas las tareas descritas en el artículo [Unión de una máquina virtual Windows Server a un dominio administrado](./active-directory-ds-admin-guide-join-windows-vm.md).
 
-5. Necesitará las credenciales de una **cuenta de usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD"** en el directorio con el fin de administrar el dominio administrado.
+5. Necesitará las credenciales de una **cuenta de usuario que pertenezca al grupo Administradores del controlador de dominio de AAD** en el directorio con el fin de administrar el dominio administrado.
 
 <br>
 
 
 ## Tareas administrativas que puede realizar en un dominio administrado
-Para empezar, eche un vistazo a las tareas administrativas que puede realizar en un dominio administrado. A los miembros del grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios en el dominio administrado que les permiten realizar tareas como:
+A los miembros del grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios en el dominio administrado que les permiten realizar tareas como:
 
 - Unir máquinas al dominio administrado.
 
@@ -51,7 +51,7 @@ Para empezar, eche un vistazo a las tareas administrativas que puede realizar en
 
 
 ## Privilegios de administrador que no tiene en un dominio administrado
-El dominio es administrado por Microsoft, incluidas actividades como aplicación de revisiones, supervisión, realizar copias de seguridad, etc. Por lo tanto, el dominio está bloqueado y no tiene privilegios para realizar ciertas tareas administrativas en él. A continuación se proporcionan algunos ejemplos de tareas que no puede realizar.
+Microsoft administra el dominio, incluidas actividades como aplicación de revisiones, supervisión, realizar copias de seguridad, etc. Por lo tanto, el dominio está bloqueado y no tiene privilegios para realizar ciertas tareas administrativas en él. A continuación se proporcionan algunos ejemplos de tareas que no puede realizar.
 
 - No tiene privilegios de administrador de dominio ni de administrador de organización para el dominio administrado.
 
@@ -67,8 +67,8 @@ Los dominios administrados con Servicios de dominio de Azure AD pueden administr
 
 El primer paso es configurar una máquina virtual de Windows Server que se ha unido al dominio administrado. Para ver instrucciones sobre cómo hacerlo, consulte el artículo [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md).
 
-### Administración remota del dominio administrado desde un equipo cliente (p. ej. Windows 10)
-Tenga en cuenta que en las instrucciones de este artículo se usa una máquina virtual de Windows Server para administrar el dominio administrado con AAD-DS. Sin embargo, también puede elegir usar una máquina virtual de cliente de Windows (p. ej. Windows 10) para hacerlo.
+### Administración remota del dominio administrado desde un equipo cliente (por ejemplo, Windows 10)
+En las instrucciones de este artículo se usa una máquina virtual Windows Server para administrar el dominio administrado con AAD-DS. Sin embargo, también puede elegir usar una máquina virtual de cliente Windows (por ejemplo, Windows 10) para hacerlo.
 
 Puede [instalar Herramientas de administración remota del servidor (RSAT)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) en una máquina virtual cliente de Windows siguiendo las instrucciones en TechNet.
 
@@ -76,13 +76,13 @@ Puede [instalar Herramientas de administración remota del servidor (RSAT)](http
 ## Tarea 2: Instalación de herramientas de administración de Active Directory en la máquina virtual
 Realice los pasos siguientes para instalar las herramientas de administración de Active Directory en la máquina virtual unida al dominio. Para más información sobre cómo [instalar y usar Herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx), consulte TechNet.
 
-1. Vaya al nodo **Máquinas virtuales** del Portal de Azure clásico. Seleccione la máquina virtual que acaba de crear y haga clic en la opción **Conectar** de la barra de comandos situada en la parte inferior de la ventana.
+1. Vaya al nodo **Máquinas virtuales** del Portal de Azure clásico. Seleccione la máquina virtual que acaba de crear en la tarea 1 y haga clic en la opción **Conectar** de la barra de comandos situada en la parte inferior de la ventana.
 
     ![Conexión a máquina virtual de Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. El portal clásico le solicitará que abra o guarde un archivo .rdp, que se utiliza para conectarse a la máquina virtual. Haga clic en el archivo .rdp cuando haya terminado de descargarse.
+2. El portal clásico le solicitará que abra o guarde un archivo con extensión .rdp, que se utiliza para conectarse a la máquina virtual. Haga clic en el archivo para abrirlo cuando haya terminado de descargarse.
 
-3. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, en nuestro caso "bob@domainservicespreview.onmicrosoft.com".
+3. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, en nuestro caso, bob@domainservicespreview.onmicrosoft.com.
 
 4. En la pantalla Inicio, abra **Administrador del servidor**. Haga clic en **Agregar roles y características** en el panel central de la ventana Administrador del servidor.
 
@@ -114,7 +114,7 @@ Realice los pasos siguientes para instalar las herramientas de administración d
 ## Tarea 3: Conexión con y exploración del dominio administrado
 Ahora que las herramientas administrativas de AD están instaladas en la máquina virtual unida a dominio, puede usarlas para explorar y administrar una unidad organizativa en el dominio administrado.
 
-> [AZURE.NOTE] Tendrá que ser miembro del grupo "Administradores del controlador de dominio de AAD" para administrar DNS en el dominio administrado.
+> [AZURE.NOTE] Tendrá que ser miembro del grupo Administradores del controlador de dominio de AAD para administrar el dominio administrado.
 
 1. En la pantalla Inicio, haga clic en **Herramientas administrativas**. Debería ver las herramientas administrativas de AD instaladas en la máquina virtual.
 
@@ -124,7 +124,7 @@ Ahora que las herramientas administrativas de AD están instaladas en la máquin
 
 	![Centro de administración de Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 
-3. Haga clic en el nombre de dominio en el panel izquierdo (p. ej. "contoso100.com") para explorar el dominio. Observe dos contenedores denominados "AADDC equipos" y "Usuarios de AADDC" respectivamente.
+3. Para explorar el dominio, haga clic en el nombre de dominio en el panel izquierdo (por ejemplo, "contoso100.com"). Observe dos contenedores denominados "AADDC equipos" y "Usuarios de AADDC" respectivamente.
 
     ![ADAC: ver dominio](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 
@@ -132,7 +132,7 @@ Ahora que las herramientas administrativas de AD están instaladas en la máquin
 
     ![ADAC: usuarios del dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
 
-5. Haga clic en el contenedor **Equipos de AADDC** para ver los equipos unidos a este dominio administrado. Debería ver una entrada para la máquina virtual actual, que está unida al dominio. Las cuentas de equipo para todos los equipos unidos al dominio administrado con Servicios de dominio de Azure AD aparecerán en este contenedor "AADDC equipos".
+5. Haga clic en el contenedor **Equipos de AADDC** para ver los equipos unidos a este dominio administrado. Debería ver una entrada para la máquina virtual actual, que está unida al dominio. Las cuentas de equipo de todos los equipos unidos al dominio administrado con Servicios de dominio de Azure AD aparecerán en este contenedor "AADDC equipos".
 
     ![ADAC: equipos unidos al dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
@@ -146,4 +146,4 @@ Ahora que las herramientas administrativas de AD están instaladas en la máquin
 
 - [Implementar herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

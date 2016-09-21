@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="juliako"/>
 
 # Cambio del tipo de unidad reservada
@@ -27,7 +27,7 @@
 
 ## Información general
 
-Para obtener más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md).
+>[AZURE.IMPORTANT] Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md).
 
 ## Escalar el procesamiento multimedia
 
@@ -57,4 +57,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

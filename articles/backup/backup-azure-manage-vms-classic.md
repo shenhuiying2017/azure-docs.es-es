@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/31/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
@@ -219,7 +219,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **ResourceId**: puede obtenerlo en la ventana emergente de registros de operaciones tal como se describe en la sección anterior. ResourceUri en una ventana emergente de detalles de una operación es el ResourceId que se debe indicar para este cmdlet.
 
-**OperationName**: tendrá el formato "Microsoft.Backup/backupvault/<EventName>" donde EventName es uno de estos valores: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: tendrá el formato "Microsoft.Backup/backupvault/<EventName>", donde EventName es uno de estos valores: Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy o UpdateProtectionPolicy
 
 **Status**: los valores admitidos son: Started, Succeeded y Failed.
 
@@ -227,7 +227,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **Name**: nombre de la regla de alerta.
 
-**CustomEmail**: especifique la dirección de correo electrónico personalizada a la que desea enviar la notificación de alerta
+**CustomEmail**: especifique la dirección de correo electrónico personalizada a la que desea enviar la notificación de alerta.
 
 **SendToServiceOwners**: esta opción envía la notificación de alerta a todos los administradores y coadministradores de la suscripción. Se puede utilizar en el cmdlet **New-AzureRmAlertRuleEmail**.
 
@@ -242,4 +242,4 @@ Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 - [Restauración de máquinas virtuales de Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

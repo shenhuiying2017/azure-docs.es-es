@@ -94,7 +94,7 @@ Use la [API de REST del Centro de IoT][lnk-rest-api] para crear un Centro de IoT
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Agregue el siguiente código al método **CreateIoTHub** para describir el centro de IoT para crear y generar una representación JSON:
+3. Agregue el siguiente código al método **CreateIoTHub** para describir el centro de IoT para crear y generar una representación JSON (para obtener la lista actualizada de ubicaciones que admiten IoT Hub, consulte [Estado de Azure][lnk-status]):
 
     ```
     var description = new
@@ -190,6 +190,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -202,4 +203,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -23,7 +23,7 @@ En este artículo, le mostraremos cómo puede usar el Portal de Azure, los cmdle
 Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas del registro de actividades y de diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar igualmente esa cuenta de almacenamiento para los registros de diagnóstico a fin de mantener todos los datos de supervisión en una ubicación central. La cuenta de almacenamiento que use debe ser una cuenta de almacenamiento de propósito general no una cuenta de almacenamiento de blobs.
 
 ## Configuración de diagnóstico
-Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de registros que se almacenan o transmiten y las salidas: cuenta de almacenamiento y/o Centro de eventos. También define la directiva de retención (el número de días que deben conservarse) para los eventos almacenados de cada categoría de registro en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. [Puede leer más acerca de estas opciones de diagnóstico aquí](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de registros que se almacenan o transmiten y las salidas: cuenta de almacenamiento y/o Centro de eventos. También define la directiva de retención (el número de días que deben conservarse) para los eventos almacenados de cada categoría de registro en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. De lo contrario, una directiva de retención puede ser cualquier número de días comprendido entre 1 y 2147483647. [Puede leer más acerca de estas opciones de diagnóstico aquí](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 
 ## Archivo de registros de diagnóstico mediante el portal
 
@@ -51,7 +51,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | Categorías | No | Lista de categorías de registro separadas por comas, que se van a habilitar. |
 | Enabled | Sí | Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
 | RetentionEnabled | No | Valor booleano que indica si está habilitada una directiva de retención en este recurso. |
-| RetentionInDays | No | Número de días que deben retenerse los eventos. Con el valor cero, se almacenan los registros indefinidamente. |
+| RetentionInDays | No | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 
 ## Archivo del registro de actividades mediante la CLI multiplataforma
 
@@ -124,4 +124,4 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 - [Transmisión de registros de diagnóstico de Azure a Centros de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Información general sobre los registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

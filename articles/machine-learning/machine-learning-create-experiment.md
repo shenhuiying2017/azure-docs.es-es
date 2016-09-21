@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -112,7 +112,7 @@ Cuando el experimento finalice, todos los módulos tendrán una marca de verific
 
 ![First experiment run][screen5]
 
-Todo lo que hemos hecho en el experimento hasta el momento es limpiar los datos. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Limpiar datos que faltan][clean-missing-data] ("Conjunto de datos limpiado") y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
+Todo lo que hemos hecho en el experimento hasta el momento es limpiar los datos. Si quiere ver el conjunto de datos limpio, haga clic en el puerto de salida izquierdo del módulo [Limpiar datos que faltan][clean-missing-data] \("Conjunto de datos limpiado") y seleccione **Visualizar**. Observe que la columna **normalized-losses** ya no se incluye y que no hay valores que faltan.
 
 Ahora los datos están limpios y ya puede especificar qué características se van a usar en el modelo predictivo.
 
@@ -161,7 +161,7 @@ Como queremos predecir un precio, que es un número, vamos a usar el modelo de r
 
 	En este experimento de ejemplo, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** (también puede encontrar el módulo si escribe "regresión lineal" en el cuadro de búsqueda de la paleta) y arrástrelo al lienzo de experimentos.
 
-4. Busque y arrastre el módulo [Train Module][train-model] (Entrenar modelo) al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir datos][split].
+4. Busque y arrastre el módulo [Train Module][train-model] \(Entrenar modelo) al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir datos][split].
 
 5. Seleccione el módulo [Entrenar modelo][train-model], haga clic en **Iniciar el selector de columnas** en el panel **Propiedades** y luego seleccione la columna **precio**. Este es el valor que nuestro modelo va a predecir.
 
@@ -187,7 +187,7 @@ Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos us
 
 4. Ejecute el experimento.
 
-Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar). Se muestran las siguientes estadísticas para nuestro modelo:
+Para ver la salida del módulo [Evaluate Model][evaluate-model] \(Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar). Se muestran las siguientes estadísticas para nuestro modelo:
 
 - **Desviación media** (MAE): la media de errores absolutos (un *error* es la diferencia entre el valor de predicción y el valor real).
 - **Raíz cuadrada de errores** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
@@ -246,4 +246,4 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

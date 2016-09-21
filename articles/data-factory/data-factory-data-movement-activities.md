@@ -31,7 +31,7 @@ En primer lugar, veamos cómo se produce la migración de datos entre dos almace
 > [AZURE.NOTE] Para obtener más información sobre las actividades en general, consulte el artículo sobre [canalizaciones y actividades](data-factory-create-pipelines.md).
 
 ### Copia de datos entre dos almacenes de datos en la nube
-Cuando los almacenes de datos de origen y receptor (destino) residen en la nube, la actividad de copia pasa por las siguientes fases para copiar o mover datos desde el origen hasta el receptor. El servicio que sustenta la actividad de copia realiza las siguientes acciones:
+Cuando los almacenes de datos de origen y receptor residen en la nube, la actividad de copia pasa por las siguientes fases para copiar datos desde el origen hasta el receptor. El servicio que sustenta la actividad de copia realiza las siguientes acciones:
 
 1. Lee datos del almacén de datos de origen.
 2. Realiza procesos de serialización y deserialización, compresión y descompresión, asignación de columnas, y conversión de tipos. Lleva a cabo estas operaciones basadas en las configuraciones del conjunto de datos de entrada y de salida, y la actividad de copia.
@@ -43,7 +43,7 @@ El servicio elige automáticamente la región más óptima para realizar el movi
 
 
 ### Copia de datos entre un almacén de datos local y un almacén de datos en la nube
-Para mover datos entre almacenes de datos locales detrás del firewall corporativo y un almacén de datos en la nube de forma segura, tendrá que instalar Data Management Gateway en la máquina local. Data Management Gateway es un agente que permite procesar y mover datos híbridos. Puede instalarse en la misma máquina que el propio almacén de datos o en una independiente que pueda acceder al almacén de datos.
+Para mover con seguridad datos entre almacenes de datos locales y un almacén de datos en la nube de forma segura, instale la puerta de enlace de administración de datos en la máquina local. Data Management Gateway es un agente que permite procesar y mover datos híbridos. Puede instalarse en la misma máquina que el propio almacén de datos o en una independiente que pueda acceder al almacén de datos.
 
 En este escenario, Data Management Gateway realiza procesos de serialización y deserialización, compresión y descompresión, asignación de columnas, y conversión de tipos. Los datos no fluyen a través del servicio Data Factory de Azure. En su lugar, Data Management Gateway escribe directamente los datos en el almacén de destino.
 
@@ -65,7 +65,7 @@ Otros | [Salesforce](data-factory-salesforce-connector.md)<br/> [ODBC genérico]
 
 > [AZURE.NOTE] Los almacenes de datos con * pueden ser locales o estar en la IaaS de Azure; además, requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local o de la IaaS de Azure.
 
-Si tiene que mover datos a un almacén de datos como origen o destino que no sea compatible con la actividad de copia, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para obtener más información sobre la creación y el uso de una actividad personalizada.
+Si tiene que realizar operaciones de introducción o extracción de datos en relación con un almacén de datos que no sea compatible con la actividad de copia, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para obtener más información sobre la creación y el uso de una actividad personalizada.
 
 ### Formatos de archivos admitidos
 La actividad de copia puede copiar los archivos tal y como están entre dos almacenes de datos basados en archivos como Blob de Azure, Sistema de archivos y HDFS. Para ello, puede hacer caso omiso de la [sección de formato](data-factory-create-datasets.md) de las definiciones de conjuntos de datos de entrada y de salida. Los datos se copian de forma eficaz sin procesos de serialización y deserialización.
@@ -79,17 +79,19 @@ La actividad de copia también lee y escribe en archivos de formatos especificad
 
 
 ## <a name="global"></a>Movimiento de datos disponible globalmente
-Aunque la propia instancia de Data Factory de Azure solamente esté disponible en las regiones oeste de EE. UU., este de EE. UU. y Europa del Norte, el servicio que permite la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
+Azure Data Factory solo está disponible en las regiones oeste de EE. UU., este de EE. UU. y Europa del Norte. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
 
 ### Copia de datos entre almacenes de datos en la nube
-Si los almacenes de datos del origen y del receptor residen en la nube, Data Factory de Azure utilizará una implementación de servicio en la región más cercana a la ubicación del receptor en la misma ubicación geográfica para realizar el movimiento de datos. Consulte la tabla siguiente para la asignación:
+Si los almacenes de datos del origen y del receptor residen en la nube, Data Factory utiliza una implementación de servicio en la región más cercana a la ubicación del receptor en la misma ubicación geográfica para realizar el movimiento de datos. Consulte la tabla siguiente para la asignación:
 
 Región del almacén de datos de destino | Región usada para el movimiento de datos
 :----------------------------------- | :----------------------------
 Este de EE. UU. | Este de EE. UU.
 Este de EE. UU. 2 | Este de EE. UU. 2
-Central EE. UU.: | Central EE. UU.:
 Oeste de EE. UU. | Oeste de EE. UU.
+Oeste de EE. UU. 2 | Oeste de EE. UU.
+Central EE. UU.: | Central EE. UU.:
+Centro occidental de EE.UU. | Central EE. UU.:
 Centro-Norte de EE. UU | Centro-Norte de EE. UU
 Centro-Sur de EE. UU | Centro-Sur de EE. UU
 Europa del Norte | Europa del Norte
@@ -183,11 +185,11 @@ Los diferentes almacenes de datos tienen sistemas con distintos tipos nativos. L
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Puede encontrar la asignación de un determinado sistema de tipo nativo a .NET para el almacén de datos en el respectivo artículo de almacenes de datos. (haga clic en el vínculo concreto de la tabla de [almacenes de datos compatibles](#supported-data-stores)). Puede usar estas asignaciones para determinar los tipos adecuados al crear las tablas, de forma que se realicen las conversiones adecuadas durante la actividad de copia.
+La asignación de un determinado sistema de tipo nativo a .NET para el almacén de datos se encuentra en el respectivo artículo de almacenes de datos. (haga clic en el vínculo concreto de la tabla de [almacenes de datos compatibles](#supported-data-stores)). Puede usar estas asignaciones para determinar los tipos adecuados al crear las tablas, de forma que se realicen las conversiones adecuadas durante la actividad de copia.
 
 
 ## Pasos siguientes
-- Consulte [Copia de datos de Blob de Azure en Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener más información sobre el uso general de la actividad de copia para mover datos desde un almacén de datos de origen a uno de tipo receptor.
+- Para obtener más información acerca de la actividad de copia, consulte [Copia de datos de Blob Storage a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información sobre cómo mover datos de un almacén de datos local a uno en la nube.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

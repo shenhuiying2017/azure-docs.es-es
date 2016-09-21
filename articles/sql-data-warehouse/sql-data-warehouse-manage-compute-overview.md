@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)
@@ -98,6 +98,10 @@ Para reanudar una base de datos, use cualquiera de estos métodos individuales.
 - [Reanudación del proceso con PowerShell][]
 - [Reanudación del proceso con las API de REST][]
 
+## Permisos
+
+Para escalar la base de datos, se requieren los permisos descritos en [ALTER DATABASE][]. Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL][], específicamente Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Pasos siguientes
@@ -140,9 +144,12 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 [Prácticas recomendadas]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[Colaborador de base de datos SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
