@@ -224,7 +224,9 @@ En un sistema HDFS, umask suele ser una opción de configuración de todo el sit
 
 | Grupo de usuarios | Configuración | Efecto en la ACL de acceso de un nuevo elemento secundario |
 |------------ |---------|---------------------------------------|
-| Usuario propietario | --- | Sin efecto | | Grupo propietario| --- | Sin efecto | | Otros | RWX | Se elimina lectura + escritura + ejecución |
+| Usuario propietario | --- | Sin efecto |
+| Grupo propietario| --- | Sin efecto |
+| Otros | RWX | Se elimina lectura + escritura + ejecución |
 
 En la siguiente ilustración se muestra esta umask, o máscara de usuario, en acción. El efecto neto es quitar **lectura + escritura + ejecución** para el usuario **otros**. Dado que la umask, o mascara de usuario, no especificó los bits del **usuario propietario** y del **grupo propietario**, dichos permisos no se transforman.
 
