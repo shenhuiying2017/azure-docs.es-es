@@ -71,7 +71,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 
 La tabla siguiente comparan los tres dominios de enrutamiento.
 
-|**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
+||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
 |---|---|---|---|
 |**Número máximo de prefijos admitidos por emparejamiento**|4000 de forma predeterminada, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalos de direcciones IP admitidas**|Cualquier dirección IPv4 válida de la WAN.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|
