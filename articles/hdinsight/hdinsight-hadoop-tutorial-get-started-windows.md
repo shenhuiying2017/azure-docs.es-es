@@ -5,7 +5,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -72,7 +72,7 @@ Cuando crea un clúster, crea recursos de proceso de Azure que contienen aplicac
 	|Tipo de clúster| Seleccione **Hadoop** para este tutorial. |
 	|Sistema operativo de clústeres| Seleccione **Windows Server 2012 R2 Datacenter**.|
 	|Versión de HDInsight| Seleccione la versión más reciente de este tutorial.|
-	|La suscripción| Seleccione la suscripción de Azure que se usará para el clúster.|
+	|Subscription| Seleccione la suscripción de Azure que se usará para el clúster.|
 	|El grupos de recursos | Seleccione un grupo de recursos de Azure existente o cree uno nuevo. Un clúster de HDInsight básico contiene un clúster y su cuenta de almacenamiento predeterminada. Puede agrupar los dos en un grupo de recursos para facilitar su administración.|
 	|Credenciales| Escriba el nombre de usuario y la contraseña de inicio de sesión del clúster. Los clústeres basados en Windows pueden tener dos cuentas de usuario. El usuario de clúster (o usuario HTTP) se usa para administrar el clúster y enviar trabajos. También puede crear una cuenta de usuario de Escritorio remoto (RDP) para conectarse al clúster de forma remota. Si decide habilitar Escritorio remoto, se creará la cuenta de usuario RDP.|
 	|Origen de datos| Haga clic en Crear nueva para crear una cuenta de almacenamiento de Azure predeterminada. Use el nombre del clúster como nombre de contenedor predeterminado. Cada clúster de HDinsight tiene un contenedor de blobs predeterminado en una cuenta de almacenamiento de Azure. La ubicación de la cuenta de almacenamiento de Azure predeterminada determina la ubicación del clúster de HDInsight.|
@@ -255,4 +255,4 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

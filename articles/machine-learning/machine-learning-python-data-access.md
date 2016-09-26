@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -21,9 +21,9 @@
 
 La versión preliminar de la biblioteca de cliente de Python de Aprendizaje automático de Microsoft Azure puede permitir un acceso seguro a los conjuntos de datos de Aprendizaje automático de Azure desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
 
-Este tema proporciona instrucciones sobre cómo:
+Este tema proporciona instrucciones sobre cómo realizar las siguientes acciones:
 
-* instalar la biblioteca de cliente de Python de Aprendizaje automático; 
+* instalar la biblioteca de cliente de Python de Aprendizaje automático;
 * obtener acceso y cargar conjuntos de datos, con instrucciones sobre cómo obtener autorización para el acceso a conjuntos de datos de Aprendizaje automático de Azure desde el entorno local de Python;
 *  obtener acceso a los conjuntos de datos intermedios de experimentos;
 *  usar la biblioteca de cliente de Python para enumerar conjuntos de datos, obtener acceso a los metadatos, leer el contenido de un conjunto de datos, crear nuevos conjuntos de datos y actualizar conjuntos de datos existentes.
@@ -49,7 +49,7 @@ Se recomienda utilizar una distribución de Python como [Anaconda](http://contin
 
 ###<a name="installation"></a>Cómo instalar la biblioteca de cliente de Python de Aprendizaje automático de Azure
 
-La biblioteca de cliente de Python de Aprendizaje automático de Azure también debe instalarse para completar las tareas descritas en este tema. Está disponible desde el [Índice de paquetes de Python](https://pypi.python.org/pypi/azureml). Para instalarlo en su entorno de Python, ejecute el siguiente comando desde el entorno de Python local:
+La biblioteca cliente de Python de Azure Machine Learning también debe instalarse para completar las tareas descritas en este tema. Está disponible desde el [Índice de paquetes de Python](https://pypi.python.org/pypi/azureml). Para instalarlo en su entorno de Python, ejecute el siguiente comando desde el entorno de Python local:
 
     pip install azureml
 
@@ -80,23 +80,25 @@ Si su rol no está establecido como **Propietario**, puede solicitar que se le v
 
 Para obtener el token de autorización, puede realizar una de las acciones siguientes:
 
-1. Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens principales y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
+
+
+- Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
+- Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
-Una vez que los desarrolladores han obtenido el identificador de área de trabajo y el token de autorización, podrán tener acceso al área de trabajo usando el fragmento de código independientemente de su rol.
+Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo usando el fragmento de código independientemente de su rol.
 
 Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACIÓN**, en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
 
 ### <a name="accessingDatasets"></a>Obtener acceso a los conjuntos de datos desde una aplicación local de Python
 
-1. En el Estudio de aprendizaje automático, haga clic en **CONJUNTOS DE DATOS** en la barra de navegación de la izquierda.
+1. En Machine Learning Studio, haga clic en la opción **CONJUNTOS DE DATOS** de la barra de navegación de la izquierda.
 
 2. Seleccione el conjunto de datos al que le gustaría tener acceso. Puede seleccionar cualquiera de los conjuntos de datos de la lista **MIS CONJUNTOS DE DATOS** o desde la lista **EJEMPLOS**.
 
-3. En la barra de herramientas de la parte inferior, haga clic en **Generar código de acceso a datos**. Tenga en cuenta que este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca de cliente de Python.
+3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code** (Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
 
 	![Conjuntos de datos][datasets]
 
@@ -128,7 +130,7 @@ Algunos de los módulos, como el de [División][split], dan como resultado un fo
 
 ![Formato de conjunto de datos][dataset-format]
 
-Necesitará usar un módulo de conversión, como [Convertir a CSV][convert-to-csv], para obtener un resultado en un formato compatible.
+Necesitará usar un módulo de conversión, como [Convertir en CSV][convert-to-csv], para obtener un resultado en un formato compatible.
 
 ![Formato GenericCSV][csv-format]
 
@@ -144,13 +146,14 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
 
 5. Guarde el experimento, ejecútelo y espere a que finalice su ejecución.
 
-6. Haga clic en el nodo de salida en el módulo [Convertir a CSV][convert-to-csv].
+6. Haga clic en el nodo de salida del módulo [Convertir en CSV][convert-to-csv].
 
-7. Aparecerá un menú contextual; seleccione **Generar código de acceso a datos**.
+7. Aparecerá
+8.  un menú contextual; seleccione **Generate Data Access Code** (Generar código de acceso a datos).
 
 	![Menú contextual][experiment]
 
-8. Aparecerá una ventana. Seleccione el fragmento de código y cópielo al Portapapeles.
+8. Seleccione el fragmento de código y cópielo en la ventana que se muestra.
 
 	![Código de acceso][intermediate-dataset-access-code]
 
@@ -243,7 +246,7 @@ También puede abrir una secuencia para el contenido:
 
 ### Crear un conjunto de datos nuevo
 
-La biblioteca de cliente de Python le permite cargar conjuntos de datos desde el programa de Python. Estos conjuntos de datos estarán disponibles para su uso en el área de trabajo.
+La biblioteca cliente de Python permite cargar conjuntos de datos desde el programa de Python. Estos conjuntos de datos estarán disponibles para utilizarse en el área de trabajo.
 
 Si tiene sus datos en un Pandas DataFrame, utilice el siguiente código:
 
@@ -267,7 +270,7 @@ Si sus datos ya están serializados, puede utilizar:
         description='my description'
     )
 
-La biblioteca de cliente de Python puede serializar un Pandas DataFrame a los siguientes formatos (sus constantes están en la clase `azureml.DataTypeIds`):
+La biblioteca cliente de Python puede serializar una trama de datos de Pandas en los siguientes formatos (sus constantes se encuentran en la clase `azureml.DataTypeIds`):
 
  - PlainText
  - GenericCSV
@@ -278,7 +281,7 @@ La biblioteca de cliente de Python puede serializar un Pandas DataFrame a los si
 
 ### Actualizar un registro existente
 
-Si intenta cargar un nuevo conjunto de datos con un nombre que coincida con un conjunto de datos existente, obtendrá un error de conflicto.
+Si trata de cargar un nuevo conjunto de datos con un nombre que coincida con un conjunto de datos existente, debería recibir un error de conflicto.
 
 Para actualizar un conjunto de datos existente, primero debe obtener una referencia al conjunto de datos existente:
 
@@ -343,9 +346,9 @@ Opcionalmente, puede definir un nuevo nombre especificando un valor para el par�
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Los parámetros `data_type_id`, `name` y `description` son opcionales y tienen el valor anterior como el predeterminado. El parámetro `dataframe` siempre es obligatorio.
+Los parámetros `data_type_id`, `name` y `description` son opcionales y tienen el valor anterior como predeterminado. El parámetro `dataframe` siempre es obligatorio.
 
-Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lugar de `update_from_dataframe`. Funciona de forma similar, se pasa `raw_data` en lugar `dataframe`.
+Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lugar de `update_from_dataframe`. Funcionará de forma similar si pasa `raw_data` en lugar de `dataframe`.
 
 
 
@@ -367,4 +370,4 @@ Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lug
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

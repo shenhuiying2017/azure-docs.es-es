@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="09/09/2016" 
 	ms.author="bradsev;garye" />
 
 # Depurar el modelo en Aprendizaje automático de Azure
 
 En este artículo se explica cómo depurar los modelos en Aprendizaje automático de Microsoft Azure. En concreto, se tratan las posibles razones por las cuales podría encontrar uno de los dos siguientes escenarios de error al ejecutar un modelo:
 
-* el módulo [Entrenar modelo][train-model] produce un error 
-* el módulo [Puntuar modelo][score-model] produce resultados incorrectos 
+* el módulo [Entrenar modelo][train-model] produce un error
+* el módulo [Puntuar modelo][score-model] produce resultados incorrectos
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ El módulo [Puntuar modelo][score-model] requiere dos entradas:
 
 Puede ocurrir que, aunque el experimento se realice correctamente, el módulo [Puntuar modelo][score-model] produzca resultados incorrectos. Varios escenarios pueden provocar que esto ocurra:
 
-1. Si la etiqueta especificada es de categoría y se entrena un modelo de regresión con los datos, se genera una salida incorrecta producida por el módulo [Puntuar modelo][score-model]. Esto es debido a que la regresión requiere una variable de respuesta continua. En este caso, sería más adecuado usar un modelo de clasificación. 
+1. Si la etiqueta especificada es de categoría y se entrena un modelo de regresión con los datos, se genera una salida incorrecta producida por el módulo [Puntuar modelo][score-model]. Esto es debido a que la regresión requiere una variable de respuesta continua. En este caso, sería más adecuado usar un modelo de clasificación.
 2. De forma similar, si un modelo de clasificación se entrena con un conjunto de datos con números de punto flotante en la columna de etiqueta, se podrían producir resultados no deseados. Esto es debido a que la clasificación requiere una variable de respuesta discreta que solo permite valores que abarcan un conjunto finito y generalmente bastante pequeño de clases.
 3. Si el conjunto de datos de puntuación no contiene todas las características que se usan para entrenar el modelo, [Puntuar modelo][score-model] generará un error.
 4. [Puntuar modelo][score-model] no produciría ningún resultado correspondiente a una fila del conjunto de datos de puntuación que contenga un valor que falte o un valor infinito de cualquiera de sus características.
@@ -69,4 +69,4 @@ Puede ocurrir que, aunque el experimento se realice correctamente, el módulo [P
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

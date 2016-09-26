@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -105,4 +105,4 @@ A continuación se muestra una tabla que clarifica la diferencia entre un admini
 [Estudio de aprendizaje automático]: https://studio.azureml.net/
 [Portal de Microsoft Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

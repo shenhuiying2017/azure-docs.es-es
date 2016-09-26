@@ -3,7 +3,7 @@
 	description="Migración a las herramientas de desarrollo de Azure Resource Manager para clústeres de HDInsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 
@@ -137,11 +137,11 @@ En la tabla siguiente se enumeran los cmdlets de ASM y sus nombres en el modo AR
 Los siguientes son los nuevos cmdlets que solo están disponibles en el modo de ARM.
 
 **Cmdlets relacionados con acciones de script:**
-- **Get-AzureRmHDInsightPersistedScriptAction**: obtiene las acciones de script persistentes para un clúster y las muestra en orden cronológico u obtiene detalles de una acción de script persistente concreta. 
-- **Get-AzureRmHDInsightScriptActionHistory**: obtiene el historial de una acción de script para un clúster y los datos se enumeran en orden cronológico inverso u obtiene detalles de una acción de script ejecutada anteriormente. 
+- **Get-AzureRmHDInsightPersistedScriptAction**: obtiene las acciones de script persistentes para un clúster y las muestra en orden cronológico u obtiene detalles de una acción de script persistente concreta.
+- **Get-AzureRmHDInsightScriptActionHistory**: obtiene el historial de una acción de script para un clúster y los datos se enumeran en orden cronológico inverso u obtiene detalles de una acción de script ejecutada anteriormente.
 - **Remove-AzureRmHDInsightPersistedScriptAction**: quita una acción de script persistente de un clúster de HDInsight.
 - **Set-AzureRmHDInsightPersistedScriptAction**: establece una acción de script ejecutada anteriormente para que sea una acción de script persistente.
-- **Submit-AzureRmHDInsightScriptAction**: envía una nueva acción de script a un clúster de HDInsight de Azure. 
+- **Submit-AzureRmHDInsightScriptAction**: envía una nueva acción de script a un clúster de HDInsight de Azure.
 
 Para más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -271,7 +271,7 @@ A continuación se muestran algunos ejemplos de cómo se realiza una operación 
 		//Service principal auth
 		//This will log the application in as itself, rather than on behalf of a specific user.
 		//For details, including how to set up the application, see:
-		//   https://azure.microsoft.com/es-ES/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+		//   https://azure.microsoft.com/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
 		 
 		var authFactory = new AuthenticationFactory();
 		 
@@ -375,4 +375,4 @@ A continuación se muestran algunos ejemplos de cómo se realiza una operación 
 
 		client.Clusters.Delete(resourceGroup, dnsname);
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

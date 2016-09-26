@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -122,7 +122,7 @@ Cada clúster de HDInsight está asociado a una suscripción a Azure.
 
 Con los clústeres de HDInsight, puede configurar dos cuentas de usuario durante la creación del clúster:
 
-- Usuario de HTTP. El nombre de usuario predeterminado es *admin* durante la configuración básica en el Portal de Azure. A veces, se denomina "Usuario de clúster".
+- Usuario de HTTP. El nombre de usuario predeterminado es *admin* durante la configuración básica en Azure Portal. A veces, se denomina "Usuario de clúster".
 - Usuario de SSH (clústeres de Linux). Se utiliza para conectarse al clúster mediante SSH. Puede crear más cuentas de usuario de SSH una vez que se cree el clúster siguiendo los pasos indicados en [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     >[AZURE.NOTE] En los clústeres basados en Windows, puede crear un usuario RDP para conectarse al clúster mediante RDP.
@@ -218,7 +218,7 @@ En algunos casos, es posible que desee agregar almacenamiento adicional al clús
 
 Puede agregar cuentas de almacenamiento al crear un clúster de HDInsight o después de haberlo creado. Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-Para más información sobre el uso de Almacenamiento de blobs secundario, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para más información sobre el uso de almacenamiento de Data Lake secundario, consulte [Creación de clústeres de HDInsight con Data Lake Store con el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Para más información sobre el uso de Almacenamiento de blobs secundario, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener más información sobre el uso de almacenamiento de Data Lake secundario, consulte [Creación de clústeres de HDInsight con Data Lake Store con Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
 ## Uso de la tienda de metadatos de Hive/Oozie
@@ -285,6 +285,10 @@ Algunos de los componentes nativos de Java, como Mahout y Cascading, se pueden e
 
 > Cascading no se admite en HDInsight, y no puede optar a recibir soporte técnico de Microsoft. Para ver las listas de los componentes compatibles, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight](hdinsight-component-versioning.md).
 
+## Uso de nodos perimetrales
+
+ Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas cliente instaladas y configuradas que en los nodos principales. Puede usar el nodo perimetral para acceder al clúster, y probar y hospedar sus aplicaciones cliente. Para obtener más información, consulte [Uso de nodos perimetrales vacíos en HDInsight](hdinsight-apps-use-edge-node.md).
+ 
 ## Métodos de creación de clústeres
 
 En este artículo, aprendió información básica acerca de cómo crear un clúster de HDInsight basado en Linux. Use la siguiente tabla para buscar información específica sobre cómo crear un clúster mediante el método que mejor se adapte a sus necesidades.
@@ -299,4 +303,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Plantillas del Administrador de recursos de Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -64,4 +64,4 @@ Durante los últimos dos meses, se han publicado nuevas funcionalidades para Rec
 
 Se pretende realizar esta transición lo antes posible. Podemos ayudarle a mover los modelos antiguos de su cuenta de DataMarket a la nueva suscripción de Recommendations API de Azure Cognitive Services. Póngase en contacto con nosotros en [mlapi@microsoft.com](mailto://mlapi@microsoft.com). Se le pedirá que proporcione el identificador de suscripción de DataMarket y el identificador de suscripción de Cognitive Services, antes de asociar los modelos con la nueva cuenta.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -161,8 +161,8 @@ Dependiendo del uso, puede haber miles de filas de datos de uso diario. Si desea
 
  Nombre | Descargar |
  :----------:| :-------: |
- Uso detallado .csv Versión 1| [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- Uso detallado .csv Versión 2 | [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ Uso detallado .csv Versión 1| [Archivo de muestra](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+ Uso detallado .csv Versión 2 | [Archivo de muestra](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -206,11 +206,11 @@ Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, h
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md). Los servicios que admiten la emisión de etiquetas son:
-    
+
     - Máquinas virtuales
-    
+
     - Almacenamiento y
-   
+
     - servicios de redes aprovisionados con la [API de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![etiquetas](./media/billing-understand-your-bill/tags.png)
@@ -241,4 +241,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -69,7 +69,7 @@ Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el 
 1.	Escriba un nombre para el conjunto de datos. En este tutorial, lo llamaremos "UCI German Credit Card Data".
 1.	Para el tipo de datos, seleccione **Archivo CSV genérico sin encabezado (.nh.csv)**.
 1.	Agregue una descripción si así lo desea.
-1.	Haga clic en **Aceptar**.  
+1.	Haga clic en **Aceptar**.
 
 ![Carga del conjunto de datos][1]
 
@@ -84,4 +84,4 @@ Para obtener más información acerca de la importación de diversos tipos de da
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

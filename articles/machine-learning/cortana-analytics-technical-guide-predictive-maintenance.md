@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/13/2016"
 	ms.author="fboylu" />
 
 # Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
@@ -266,10 +266,10 @@ Asegúrese de detener el generador de datos cuando no se use activamente la solu
 
 ## **Herramientas de estimación de costos**
 
-Las dos herramientas siguientes están disponibles para ayudarle a comprender mejor los costos totales implicados en la ejecución del mantenimiento predictivo para la plantilla de solución aeroespacial en su suscripción:
+Las dos herramientas siguientes están disponibles para ayudarlo a comprender mejor los costos totales implicados en la ejecución del mantenimiento predictivo para la plantilla de solución aeroespacial en su suscripción:
 
 -   [Herramienta de estimación de costos de Microsoft Azure (en línea)](https://azure.microsoft.com/pricing/calculator/)
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Realización de tareas administrativas comunes como el restablecimiento de la contraseña de administrador en Base de datos SQL de Azure
-Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base de datos SQL de Azure. Para información más completa, vea:
+Use este tema para pasos rápidos, para conceder y quitar el acceso a una base de datos SQL de Azure. Para información más completa, vea:
 
 - [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 - [Protección de bases de datos SQL](sql-database-security.md)
@@ -43,4 +43,4 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 ## Para crear inicios de sesión adicionales para usuarios con privilegios elevados en la base de datos maestra virtual
 - Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y consulte la sección "Administradores de inicio de sesión" en [Autorización y autenticación de Base de datos SQL: concesión de acceso](sql-database-manage-logins.md) para más información.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

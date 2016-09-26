@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhooks de Automatización de Azure
@@ -42,7 +42,7 @@ Cuando un cliente inicia un runbook mediante un webhook, no puede reemplazar los
 
 El objeto **$WebhookData** tendrá las siguientes propiedades:
 
-| Propiedad | Descripción |
+| Propiedad | Description |
 |:--- |:---|
 | WebhookName | Nombre del webhook. |
 | RequestHeader | Tabla hash que contiene los encabezados de la solicitud POST entrante. |
@@ -84,7 +84,7 @@ Otra estrategia es hacer que el runbook realice alguna validación de una condic
 
 Use el procedimiento siguiente para crear un nuevo Webhook vinculado a un Runbook en el Portal de Azure.
 
-1. Desde la **Hoja de Runbooks** en el Portal de Azure, haga clic en el Runbook que va a iniciar el Webhook para ver su hoja de detalles. 
+1. Desde la **Hoja de Runbooks** en el Portal de Azure, haga clic en el Runbook que va a iniciar el Webhook para ver su hoja de detalles.
 3. Haga clic en **Webhook** en la parte superior de la hoja para abrir la hoja **Agregar webhook**. <br> ![Botón Webhooks](media/automation-webhooks/webhooks-button.png)
 4. Haga clic en **Crear nuevo webhook** para abrir **Crear hoja de webhook**.
 5. Especifique un **nombre**, una **fecha de caducidad** para el webhook y si debe habilitarse. Vea [Detalles de un webhook](#details-of-a-webhook) para más información sobre estas propiedades.
@@ -101,7 +101,7 @@ Para utilizar un webhook después de que se haya creado, la aplicación cliente 
 
 El cliente recibirá uno de los siguientes códigos de retorno de la solicitud POST.
 
-| Código | Texto | Descripción |
+| Código | Texto | Description |
 |:---|:----|:---|
 | 202 | Accepted | La solicitud se aceptó y el runbook se puso en cola correctamente. |
 | 400 | Bad Request | No se aceptó la solicitud por uno de los siguientes motivos. <ul> <li>El webhook ha caducado.</li> <li>El webhook está deshabilitado.</li> <li>El token en la dirección URL no es válido.</li> </ul>|
@@ -272,4 +272,4 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 - Para más información sobre cómo ver el estado de un trabajo de Runbook, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
 - Para obtener más información sobre cómo utilizar la Automatización de Azure para tomar medidas relativas a las alertas de Azure, consulte [Solución de Automatización de Azure: corrección de las alertas de la máquina virtual de Azure](automation-azure-vm-alert-integration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

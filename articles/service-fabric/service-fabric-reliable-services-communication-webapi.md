@@ -203,7 +203,7 @@ using System.Threading.Tasks;
 
 namespace WebService
 {
-    public class OwinCommunicationListener : ICommunicationListener
+    internal class OwinCommunicationListener : ICommunicationListener
     {
         public void Abort()
         {
@@ -684,4 +684,4 @@ Para más información sobre cómo crear aplicaciones e instancias de servicio, 
 
 [Depurar la aplicación de Service Fabric con Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

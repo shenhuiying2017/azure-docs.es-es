@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Orígenes de datos de perfiles de datos
@@ -22,7 +22,7 @@
 
 El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Cuando un origen de datos se registra en el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo.
 
-El **Catálogo de datos de Azure** examina los datos de orígenes de datos admitidos en el catálogo y recopila estadísticas e información sobre esos datos. Esto se denomina **Generación de perfiles de datos**. Es fácil incluir un perfil de sus recursos de datos. Al registrar un recurso de datos, elija **Incluir perfil de datos** en la herramienta de registro de orígenes de datos.
+La característica de **perfiles de datos** de **Azure Data Catalog** examina los datos de orígenes de datos admitidos en el catálogo y recopila estadísticas e información sobre esos datos. Es fácil incluir un perfil de sus recursos de datos. Al registrar un recurso de datos, elija **Incluir perfil de datos** en la herramienta de registro de orígenes de datos.
 
 ## ¿Qué es la generación de perfiles de datos?
 
@@ -58,9 +58,9 @@ Para aprender más acerca de cómo registrar orígenes de datos, consulte [Regis
 
 
 ## Filtrado de recursos de datos que incluyen perfiles de datos
-Para detectar los recursos de datos que incluyen un perfil de datos, puede incluir **has:tableDataProfiles** o **has:columnsDataProfiles** como uno de los términos de búsqueda.
+Para detectar los recursos de datos que incluyen un perfil de datos, puede incluir `has:tableDataProfiles` o `has:columnsDataProfiles` como uno de los términos de búsqueda.
 
-> [AZURE.NOTE] Al seleccionar **Incluir perfil de datos** en la herramienta de registro de orígenes de datos, se incluirá información del perfil de nivel de tabla y columna, pero la API de Catálogo de datos permite registrar los recursos de datos solo con un conjunto de información del perfil incluido.
+> [AZURE.NOTE] Al seleccionar **Incluir perfil de datos** en la herramienta de registro de orígenes de datos, se incluye la información de perfil de nivel de columna y tabla. Sin embargo, la API de Data Catalog permite que los recursos de datos se registren con un único conjunto de información de perfil.
 
 ## Visualización de la información del perfil de datos
 
@@ -91,4 +91,4 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 -	[Registro de orígenes de datos](data-catalog-how-to-register.md)
 -	[Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

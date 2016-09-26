@@ -1,6 +1,6 @@
 <properties
    pageTitle="Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga: vista previa | Microsoft Azure "
-   description="Uso de PowerShell para el Equilibrador de carga con el Administrador de recursos de Azure (ARM) en vista previa. Uso de plantillas para el equilibrador de carga"
+   description="Uso de PowerShell para el Equilibrador de carga con la versión preliminar de Azure Resource Manager (ARM). Uso de plantillas para el equilibrador de carga"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -71,4 +71,4 @@ También puede [empezar a crear un equilibrador de carga orientado a Internet](l
 
 Aprenda a administrar la [configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Esto es importante cuando la aplicación necesita mantener las conexiones activas para servidores detrás de un equilibrador de carga.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

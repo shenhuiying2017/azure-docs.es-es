@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -81,7 +81,7 @@ Para configurar el entorno de ciencia de datos de Azure:
 3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará no solo como servidor de SQL Server, sino también como servidor de Blocs de notas de IPython.
 
 	> [AZURE.NOTE] Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual:
-	> - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts`
 	> - Cuadernos de IPython Notebook de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, donde `<user_name>` es el nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
 
 
@@ -97,7 +97,7 @@ Para copiar los datos mediante AzCopy:
 
 2. Cree un nuevo directorio en disco de datos de la máquina virtual (Nota: no use el disco temporal que se incluye con la máquina virtual como disco de datos).
 
-3. En una ventana de símbolo del sistema, ejecute la siguiente línea de comandos de Azcopy, reemplazando <path_to_data_folder> por la carpeta de datos que se creó en (2):
+3. En una ventana de símbolo del sistema, ejecute la siguiente línea de comandos de Azcopy, reemplazando <ruta\_a\_carpeta\_datos> por la carpeta de datos que se creó en (2):
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
@@ -144,7 +144,7 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 7. En la carpeta **Scripts de ejemplo**, hay dos scripts de PowerShell de ejemplo para mostrar las importaciones en bloque paralelas de datos en tablas de SQL Server.
 
 	- **bcp\\_parallel\\_generic.ps1** es un script genérico para importar datos en bloque y de forma paralela en una tabla. Modifique este script para establecer las variables de entrada y de destino, como se indica en las líneas de comentario del script.
-	- **bcp\\_parallel\\_nyctaxi.ps1** es una versión preconfigurada del script genérico y se puede usar para cargar ambas tablas para los datos de NYC Taxi Trips.  
+	- **bcp\\_parallel\\_nyctaxi.ps1** es una versión preconfigurada del script genérico y se puede usar para cargar ambas tablas para los datos de NYC Taxi Trips.
 
 8. Haga clic con el botón derecho en el nombre de script **bcp\\_parallel\\_nyctaxi.ps1** y, a continuación, en **Editar** para abrirlo en PowerShell. Revise las variables preestablecidas y modifíquelas según el nombre de la base de datos seleccionada, la carpeta de datos de entrada, la carpeta de registro de destino y las rutas de acceso a los archivos de formato de ejemplo **nyctaxi\_trip.xml** y **nyctaxi\\_fare.xml** (que se incluyen en la carpeta **Scripts de ejemplo**).
 
@@ -175,8 +175,8 @@ En este ejercicio, se hará lo siguiente:
 
 Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:
 
-1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Aprendizaje automático de Azure; o bien
-2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Importar datos][import-data] de Aprendizaje automático de Azure.
+1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning; o bien
+2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de bases de datos y usar la nueva tabla en el módulo [Importar datos][import-data] de Azure Machine Learning.
 
 En esta sección se guardará la consulta final para extraer y muestrear los datos. El segundo método se muestra en la sección [Exploración de datos e ingeniería de características en el Bloc de notas de IPython](#ipnb).
 
@@ -266,7 +266,7 @@ Las consultas de exploración de conversión geográfica y la generación de eti
 
 #### Preparación de los datos para la creación del modelo
 
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Importar datos](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][import-data] para la ingesta directa de datos de la instancia de base de datos SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Importar datos](https://studio.azureml.net) de [Azure Machine Learning Studio][import-data] para la ingesta directa de datos de la instancia de base de datos SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,7 +298,7 @@ La secuencia recomendada al trabajar con big data es la siguiente:
 
 Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:
 
-1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Aprendizaje automático de Azure. Este método se muestra en la sección [Generación de modelos en Aprendizaje automático de Azure](#mlmodel).    
+1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning. Este método se muestra en la sección [Generación de modelos en Aprendizaje automático de Azure](#mlmodel).
 2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de base de datos y usar la nueva tabla en el módulo [Importar datos][import-data].
 
 A continuación, se muestran algunas exploraciones de datos, visualizaciones de datos y ejemplos de diseño de características. Para obtener más ejemplos, vea el Bloc de notas de IPython de SQL de ejemplo en la carpeta **Blocs de notas de IPython** de ejemplo.
@@ -334,7 +334,7 @@ Inicialice la configuración de conexión de base de datos en las variables sigu
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de filas = 173179759  
+- Número total de filas = 173179759
 - Número total de columnas = 14
 
 #### Lectura de una muestra de datos pequeña de la base de datos de SQL Server
@@ -419,7 +419,7 @@ También podemos comprobar la relación entre **rate\_code** y **trip\_distance*
 
 ### Submuestreo de los datos en SQL
 
-Al preparar los datos para la creación del modelo en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo de Importar datos** o conservar los datos de ingeniería y muestreados en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una simple instrucción **SELECT * FROM <your\_new\_table\_name>**.
+Al preparar los datos para la creación del modelo en el [Estudio de Azure Machine Learning](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo de Importar datos** o conservar los datos de ingeniería y muestreados en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una simple instrucción **SELECT * FROM <nuevo\_nombre\_tabla>**.
 
 En esta sección se creará una nueva tabla para almacenar los datos de ingeniería y muestreados. En la sección [Exploración de datos e ingeniería de características en SQL Server](#dbexplore) se proporciona un ejemplo de una consulta SQL directa para la creación del modelo.
 
@@ -631,7 +631,7 @@ Un experimento de entrenamiento típico consta de las siguientes acciones:
 
 En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y también se ha decidido el tamaño de la muestra para la ingesta en Aprendizaje automático de Azure. Para crear uno o varios de los modelos de predicción, se decidió:
 
-1. Proporcionar los datos a Aprendizaje automático de Azure con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
+1. Proporcionar los datos a Azure ML con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
 
 	![Datos de importación de Aprendizaje automático de Azure][17]
 
@@ -653,7 +653,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 > [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo., cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
-> Para excluir columnas innecesarias o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o el módulo [Editar metadatos][edit-metadata]. Para más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
+> Para excluir columnas innecesarias o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o el módulo [Editar metadatos][edit-metadata]. Para obtener más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
 
 ## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
 
@@ -716,4 +716,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

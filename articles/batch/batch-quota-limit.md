@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Límites y cuotas del servicio Lote | Microsoft Azure"
-	description="Obtenga información sobre las cuotas, los límites y las restricciones en el uso del servicio Lote de Azure"
+	description="Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota."
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/10/2016"
 	ms.author="marsma"/>
 
 # Cuotas y límites del servicio de Lote de Azure
@@ -46,13 +46,13 @@ Tamaño del paquete de aplicación (cada uno) | Aprox. 195 GB<sup>1</sup>
 
 Vea las cuotas de la cuenta de Lote en el [Portal de Azure][portal].
 
-1. En el Portal, haga clic en **Cuentas de Lote** y luego en el nombre de la cuenta de Lote.
+1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
 
-2. En la hoja de la cuenta, haga clic en **Toda la configuración** > **Propiedades**.
+2. Seleccione **Propiedades** en la hoja del menú de la cuenta de Batch
+
+3. La hoja Propiedades muestra las **cuotas** que hay aplicadas actualmente en la cuenta de Batch.
 
 	![Cuotas de la cuenta de Lote][account_quotas]
-
-3. La hoja **Propiedades** muestra las cuotas que hay aplicadas actualmente en la cuenta de Lote.
 
 ## Aumento de la cuota
 
@@ -106,4 +106,4 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

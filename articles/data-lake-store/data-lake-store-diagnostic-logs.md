@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -25,7 +25,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
 ## Requisitos previos
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md).
 
 ## Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
@@ -90,7 +90,7 @@ Los registros de auditoría y de solicitud tienen un formato JSON. En esta secci
 
 ### Registros de solicitud
 
-Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. Cada blob tiene un objeto raíz llamado **records** que contiene una matriz de objetos de registro.
+Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro.
 
 	{
 	"records": 
@@ -115,7 +115,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### Esquema de un registro de solicitud
 
-| Nombre | Tipo | Descripción |
+| Nombre | Tipo | Description |
 |-----------------|--------|--------------------------------------------------------------------------------|
 | Twitter en tiempo | String | Marca de tiempo (en UTC) del registro. |
 | resourceId | String | Identificador del recurso en el que tuvo lugar la operación. |
@@ -129,7 +129,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### Esquema de propiedades de un registro de solicitud
 
-| Nombre | Tipo | Descripción |
+| Nombre | Tipo | Description |
 |----------------------|--------|-----------------------------------------------------------|
 | HttpMethod | String | Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso | String | Ruta de acceso en la que se ha realizado la operación. |
@@ -164,7 +164,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### Esquema de un registro de auditoría
 
-| Nombre | Tipo | Descripción |
+| Nombre | Tipo | Description |
 |-----------------|--------|--------------------------------------------------------------------------------|
 | Twitter en tiempo | String | Marca de tiempo (en UTC) del registro. |
 | resourceId | String | Identificador del recurso en el que tuvo lugar la operación. |
@@ -177,7 +177,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### Esquema de propiedades de un registro de auditoría
 
-| Nombre | Tipo | Descripción |
+| Nombre | Tipo | Description |
 |------------|--------|------------------------------------------|
 | StreamName | String | Ruta de acceso en la que se ha realizado la operación. |
 
@@ -187,9 +187,9 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Consulte también
+## Otras referencias
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con UserVoice
@@ -103,7 +103,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en **Inicio de sesión único (SSO)**.
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en UserVoice**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **SSO Remote Sign-In** (Inicio de sesión remoto de SSO).
     3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en UserVoice**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **SSO Remote Sign-In** (Cierre de sesión remoto de SSO).
-    4.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital de SHA1 del certificado actual**.  
+    4.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital de SHA1 del certificado actual**.
 
         >[AZURE.TIP] Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
@@ -117,7 +117,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben aprovisionarse en UserVoice. En el caso de UserVoice, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su inquilino de **UserVoice**.
 
@@ -162,4 +162,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

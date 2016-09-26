@@ -18,10 +18,12 @@
 
 # Uso de la extensión de VM de Docker para implementar el entorno
 
+> [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
+
 Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux (y también Windows). Con Azure, tiene la flexibilidad de implementar Docker de algunas maneras diferentes según sus necesidades:
 
 - Para crear rápidamente un prototipo de una aplicación, puede usar [el controlador de Azure de Docker Machine](./virtual-machines-linux-docker-machine.md) para implementar los hosts del docker en Azure.
-- Se utiliza la extensión de máquina virtual de Docker para máquinas virtuales de Azure para implementaciones basadaqs en una plantilla. Este enfoque puede integrarse con las implementaciones de plantilla de Azure Resource Manager e incluye todas las ventajas relacionadas como el acceso basado en rol, el diagnóstico y la configuración posterior a la implementación.
+- Se utiliza la extensión de máquina virtual de Docker para máquinas virtuales de Azure para implementaciones basadas en una plantilla. Este enfoque puede integrarse con las implementaciones de plantilla de Azure Resource Manager e incluye todas las ventajas relacionadas como el acceso basado en roles, el diagnóstico y la configuración posterior a la implementación.
 - La extensión de máquina virtual de Docker también admite Docker Compose. Docker Compose utiliza un archivo YAML declarativo con el fin de tomar una aplicación modelada por el desarrollador en cualquier entorno y generar una implementación coherente.
 - También puede [implementar un clúster de Docker Swarm completo en los servicios de contenedor de Azure](../container-service/container-service-deployment.md) para realizar implementaciones escalables y preparadas para la producción que usan las herramientas de administración y programación adicionales que proporciona Swarm.
 
@@ -105,7 +107,7 @@ Puede configurar el puerto TCP del demonio de Docker, la seguridad, o bien imple
 
 ## Referencia de plantilla de JSON de la extensión de VM de Docker
 
-En este ejemplo se utiliza una plantilla de inicio rápido. Para implementar la extensión de máquina virtual de Docker con sus propias plantillas de Resource Manager, agregue lo siguiente:
+En este ejemplo se utiliza una plantilla de inicio rápido. Para implementar la extensión de máquina virtual de Azure Docker con sus propias plantillas de Resource Manager, agregue lo siguiente:
 
 ```
 {
@@ -138,4 +140,4 @@ Puede obtener más pasos detallados para las distintas opciones de implementaci�
 3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

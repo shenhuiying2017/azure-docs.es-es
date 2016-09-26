@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/06/2016" 
 	ms.author="rclaus"/>
 
 
@@ -24,7 +24,7 @@ Es un escenario habitual usar el software RAID en máquinas virtuales con Linux 
 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. La razón principal para crear un dispositivo RAID es mejorar el rendimiento de la E/S de disco. Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en nuestro almacenamiento estándar con hasta 500 E/S por segundo por disco o Almacenamiento Premium con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-linux-add-disk.md) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+Se necesitan dos o más discos de datos vacíos para configurar un dispositivo RAID. La razón principal para crear un dispositivo RAID es mejorar el rendimiento de la E/S de disco. Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en nuestro almacenamiento estándar con hasta 500 E/S por segundo por disco o Almacenamiento Premium con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-linux-add-disk.md) para obtener instrucciones detalladas sobre cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
 
 ## Instalación de la utilidad mdadm
@@ -171,4 +171,4 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`". En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

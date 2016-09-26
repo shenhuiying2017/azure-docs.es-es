@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/22/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Habilitar la comunicación para instancias de rol en Azure
 
-Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **extremos de entrada** mientras que las una conexiones internas se denominan **extremos internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear extremos.
+Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **extremos de entrada** mientras que las una conexiones internas se denominan **extremos internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
 
 
 ## Extremo de entrada
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 La propiedad **Instances** devuelve una colección de objetos **RoleInstance**. Tenga en cuenta que esta colección siempre contiene la instancia actual. Si el rol no define un extremo interno, la colección incluirá la instancia actual, pero no otras instancias. El número de instancias de rol presentes en la colección siempre será 1, si resulta que no se ha definido ningún extremo interno para el rol. Si el rol define un extremo interno, sus instancias serán reconocibles en tiempo de ejecución y el número de instancias de la colección se corresponderá con el número de instancias especificadas para el rol en el archivo de configuración de servicio.
 
-> [AZURE.NOTE] La Biblioteca administrada de Azure no le proporciona una manera de determinar el estado de otras instancias de rol, pero siempre puede implementar estas evaluaciones de estado si el servicio necesita esta funcionalidad. Puede usar [Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) para obtener información acerca de las instancias de rol que se estén ejecutando.
+> [AZURE.NOTE] La Biblioteca administrada de Azure no le proporciona una manera de determinar el estado de otras instancias de rol, pero siempre puede implementar estas evaluaciones de estado si el servicio necesita esta funcionalidad. Puede usar [Diagnósticos de Azure](cloud-services-dotnet-diagnostics.md) para obtener información acerca de las instancias de rol que se estén ejecutando.
 
 Para determinar el número de puerto de un extremo interno en una instancia de rol, puede usar la propiedad [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para devolver un objeto Dictionary que contenga los nombres de extremo y sus direcciones IP y puertos correspondientes. La propiedad [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) devuelve la dirección IP y el puerto de un extremo específico. La propiedad **PublicIPEndpoint** devuelve el puerto de un extremo con equilibrio de carga. La parte de la dirección IP de la propiedad **PublicIPEndpoint** no se usa.
 
@@ -359,4 +359,4 @@ Puede encontrar una referencia del esquema XML de los elementos usados anteriorm
 ## Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md) del servicio en la nube.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

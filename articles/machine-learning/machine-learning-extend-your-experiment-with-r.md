@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="garye" />
 
 
-#Extender el experimento con R
+# Extender el experimento con R
 
 Puede extender la funcionalidad de Estudio de aprendizaje automático mediante el lenguaje R con el módulo [Ejecutar script de R][execute-r-script].
 
@@ -29,7 +29,7 @@ Para tener acceso a cada puerto de entrada del módulo, se usa un código simila
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Enumeración de todos los paquetes actualmente instalados
+## Enumeración de todos los paquetes actualmente instalados
 
 La lista de paquetes instalados puede cambiar. Para obtener la lista completa y actual de los paquetes instalados, incluida la descripción de cada paquete, escriba el código siguiente en el módulo [Ejecutar script R][execute-r-script]\:
 
@@ -40,8 +40,11 @@ Esto acción envía la lista de paquetes al puerto de salida del módulo [Ejecut
 
 ![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+<!--
+For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+-->
 
-##Importación de paquetes
+## Importación de paquetes
 
 También puede importar paquetes que todavía no están instalados desde un repositorio de Estudio de aprendizaje automático de ensayo si usa los siguientes comandos en el módulo [Ejecutar script de R][execute-r-script] y el archivo de paquetes comprimido:
 
@@ -50,9 +53,8 @@ También puede importar paquetes que todavía no están instalados desde un repo
 
 donde el archivo `my_favorite_package.zip` contiene el archivo ZIP del paquete.
 
-
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

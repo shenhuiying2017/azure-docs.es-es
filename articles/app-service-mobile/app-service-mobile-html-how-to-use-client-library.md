@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/12/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Uso de la biblioteca de cliente de JavaScript para Aplicaciones móviles de Azure
@@ -51,35 +51,47 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 ##<a name="auth"></a>Autenticación de usuarios
 
-El Servicio de aplicaciones de Azure es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación].
+Azure App Service es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación].
 
 Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de cliente. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con funcionalidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del proveedor.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>Configuración del servicio Aplicaciones móviles para direcciones URL de redirección externa
+###<a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
 
-Varios tipos de aplicaciones JavaScript usan una funcionalidad de bucle invertido para administrar los flujos de la interfaz de usuario de OAuth, por ejemplo, al ejecutar el servicio localmente, al usar la recarga activa en Ionic Framework o al redirigir la autenticación al Servicio de aplicaciones. Esto puede ocasionar problemas porque, de forma predeterminada, la autenticación del Servicio de aplicaciones solo está configurada para permitir el acceso desde el back-end de aplicaciones móviles.
+Varios tipos de aplicaciones de JavaScript utilizan funcionalidades de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth. Estas son algunas de ellas:
 
-Utilice los pasos siguientes para cambiar la configuración del Servicio de aplicaciones para permitir la autenticación desde el host local:
+* Ejecución del servicio de manera local
+* Uso de la característica Live Reload con Ionic Framework
+* Redirección a App Service para la autenticación
 
-1. Inicie sesión en el [Portal de Azure], vaya a su back-end de aplicaciones móviles y haga clic en **Herramientas** > **Explorador de recursos** > **Ir** para abrir una nueva ventana del explorador de recursos para su back-end de aplicaciones móviles (sitio).
+La ejecución local puede ocasionar problemas porque, de forma predeterminada, la autenticación de App Service solo está configurada para permitir el acceso desde el back-end de la aplicación móvil. Realice los pasos siguientes para cambiar la configuración de App Service con el fin de permitir la autenticación desde el servidor de manera local:
 
-2. Expanda el nodo **config** de la aplicación, luego haga clic en **authsettings** > **Editar**, busque el elemento **allowedExternalRedirectUrls**, que debe ser nulo, y cámbielo por lo siguiente:
+1. Inicie sesión en el [Portal de Azure].
+2. Vaya al back-end de la aplicación móvil.
+3. Seleccione **Explorador de recursos** en el menú **HERRAMIENTAS DE DESARROLLO**.
+4. Haga clic en **Ir** para abrir el Explorador de recursos del back-end de su aplicación móvil en una nueva pestaña o ventana.
+5. Expanda el nodo **config** > **authsettings** de la aplicación.
+6. Haga clic en el botón **Editar** para habilitar la edición del recurso.
+7. Busque el elemento **allowedExternalRedirectUrls**, que debe tener el valor null. Cambie su configuración a la siguiente:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Reemplace las direcciones URL de la matriz por las de su servicio; en este ejemplo, la dirección URL es `http://localhost:3000` para el servicio de ejemplo de Node.js local. También podría usar `http://localhost:4400` para el servicio Ripple o alguna otra dirección URL, según cómo esté configurada su aplicación.
+    Reemplace las direcciones URL de la matriz por las de su servicio; en este ejemplo, la URL es `http://localhost:3000` para el servicio de ejemplo de Node.js local. También podría usar `http://localhost:4400` para el servicio Ripple o alguna otra dirección URL, según cómo esté configurada la aplicación.
+
+8. En la parte superior de la página, haga clic en **Lectura/escritura** y en **PUT** para guardar las actualizaciones.
+
+También tiene que agregar las mismas direcciones URL de bucle invertido a la configuración de lista blanca de CORS:
+
+1. Vuelva a [Azure Portal].
+2. Vaya al back-end de la aplicación móvil.
+3. Haga clic en **CORS** en el menú de **API**.
+4. Escriba cada dirección URL en el cuadro de texto **Orígenes permitidos** vacío. Se crea un nuevo cuadro de texto.
+5. Haga clic en **GUARDAR**.
     
-3. En la parte superior de la página, haga clic en **Read/Write** (Lectura y escritura) y haga clic en **PUT** para guardar las actualizaciones.
-
-    Aún deberá agregar las mismas direcciones URL de bucle invertido a la configuración de lista blanca de CORS:
-
-4. De nuevo en el [Portal de Azure] en el back-end de aplicaciones móviles, haga clic en **Toda la configuración** > **CORS**, agregue las direcciones URL de bucle invertido y luego haga clic en **Guardar**.
-
 Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle invertido en la aplicación.
 
 <!-- URLs. -->
@@ -87,7 +99,9 @@ Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
 [Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
 
+[Azure portal]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 [SDK de JavaScript para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

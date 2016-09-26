@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma" />
 
 # Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure
 
 Puede usar el servicio Lote de Azure para ejecutar cargas de trabajo de proceso paralelas en máquinas virtuales Linux y Windows. Este artículo detalla cómo crear grupos de nodos de proceso de Linux en el servicio Lote mediante las bibliotecas de cliente de [Python de Lote][py_batch_package] y [.NET de Lote][api_net].
 
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Algunos aspectos de la característica aquí descrita pueden cambiar antes de tener disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) no se admiten actualmente en los nodos de proceso de Linux.
+> [AZURE.NOTE] [Application packages](batch-application-packages.md) no se admiten actualmente en los nodos de proceso de Linux.
 
 ## Configuración de la máquina virtual
 
@@ -349,6 +349,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nivel de paquetes de aplicación"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

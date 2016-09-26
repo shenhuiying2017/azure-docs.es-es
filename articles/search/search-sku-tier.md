@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -101,4 +101,4 @@ Una vez que sepa qué SKU se ajusta a sus requisitos, consulte cuáles son los s
 - [Creación de un servicio Búsqueda de Azure mediante el Portal de Azure](search-create-service-portal.md)
 - [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

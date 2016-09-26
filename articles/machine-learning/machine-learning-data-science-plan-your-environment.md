@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -42,7 +42,7 @@ Las cuestiones logísticas se refieren a la ubicación del **origen de datos**, 
 
 3. **¿Cómo va a mover los datos?** En los temas siguientes se describen los procedimientos y los recursos disponibles para introducir o cargar datos en una variedad de entornos de almacenamiento y procesamiento diferentes.
 
-	-  [Carga de datos en entornos de almacenamiento para el análisis](machine-learning-data-science-ingest-data.md) 
+	-  [Carga de datos en entornos de almacenamiento para el análisis](machine-learning-data-science-ingest-data.md)
 	-  [Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos](machine-learning-data-science-import-data,md)
 
 4. **¿Los datos necesitan moverse siguiendo una programación regular o modificarse durante la migración?** Considere el uso de Factoría de datos de Azure (ADF) cuando los datos tengan que migrarse continuamente, especialmente en el caso de un escenario híbrido en el que se tenga acceso a recursos locales y de nube, o cuando se realice una transacción de datos o estos tengan que modificarse o tener lógica de negocios agregada mientras se migran. Para más información, consulte [Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure](machine-learning-data-science-move-sql-azure-adf.md).
@@ -53,7 +53,7 @@ Las cuestiones logísticas se refieren a la ubicación del **origen de datos**, 
 ## Cuestiones sobre las características de los datos: tipo, formato y tamaño
 Estas cuestiones son clave para planear los entornos de almacenamiento y procesamiento, cada uno de los cuales es adecuado para diversos tipos de datos y cada uno cuenta con ciertas restricciones.
 
-1. **¿Cuáles son los tipos de datos?** Por ejemplo: 
+1. **¿Cuáles son los tipos de datos?** Por ejemplo:
 	- Numérico
 	- Categorías
 	- Cadenas
@@ -76,7 +76,7 @@ Veamos por ejemplo el Estudio de aprendizaje automático de Azure:
 - Para obtener una lista de los formatos de datos y los tipos admitidos por Estudio de aprendizaje automático de Azure, consulte la sección [Tipos y formatos de datos admitidos](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported).
 - Para más información sobre las limitaciones en los datos para Estudio de aprendizaje automático de Azure, consulte la sección **¿Cómo de grande puede ser el conjunto de datos para mis módulos?** en [Importación y exportación de datos para Aprendizaje automático](machine-learning-faq.md#machine-learning-studio-questions)
 
-Para más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+Para obtener más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## Cuestiones sobre la calidad de los datos: exploración y procesamiento previo
 
@@ -87,7 +87,7 @@ Para más información sobre las limitaciones de otros servicios de Azure usados
 ## Cuestiones sobre herramientas y lenguajes
 Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o herramientas necesita o prefiere usar.
  
-1. **¿Qué lenguajes prefiere usar para el análisis?**  
+1. **¿Qué lenguajes prefiere usar para el análisis?**
 	- R
 	- Python
 	- SQL
@@ -100,7 +100,7 @@ Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o her
 	- [Python Tools para Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Blocs de notas de Júpiter](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## Identificación del escenario de análisis avanzado
@@ -114,4 +114,4 @@ Cuando haya respondido a las preguntas de la sección anterior, estará listo pa
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

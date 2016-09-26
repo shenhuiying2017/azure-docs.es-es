@@ -91,4 +91,4 @@ Ahora que tiene una colección, el paso siguiente es agregar o importar document
 
 Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](documentdb-sdk-dotnet.md).
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

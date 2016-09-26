@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo StorSimple en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de origen en el centro de datos a otro dispositivo físico o incluso virtual situado en la misma ubicación geográfica o en otra diferente.
 
-La conmutación por error de un dispositivo se coordina a través de la característica de recuperación ante desastres y se inicia desde la página **Dispositivos**. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
+La recuperación ante desastres (DR) se coordina a través de la función de recuperación ante desastres del dispositivo y se inicia desde la página **Dispositivos**. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
 
 ![Página de dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -31,7 +31,9 @@ Las instrucciones de este tutorial se aplican a dispositivos físicos y virtuale
 
 ## Recuperación ante desastres y conmutación por error del dispositivo
 
-En un escenario de recuperación ante desastres, el dispositivo principal deja de funcionar. En esta situación, puede mover los datos en la nube asociados al dispositivo con error a otro dispositivo usando el dispositivo primario como *origen* y especificando otro dispositivo como *destino*. Puede seleccionar uno o varios contenedores de volúmenes para migrar al dispositivo de destino. Este proceso se conoce como *conmutación por error*. Durante la conmutación por error, los contenedores de volúmenes del dispositivo de origen cambian la propiedad y se transfieren al dispositivo de destino.
+En un escenario de recuperación ante desastres, el dispositivo principal deja de funcionar. En esta situación, puede mover los datos en la nube asociados al dispositivo con error a otro dispositivo usando el dispositivo primario como *origen* y especificando otro dispositivo como *destino*. Puede seleccionar uno o varios contenedores de volúmenes para migrar al dispositivo de destino. Este proceso se conoce como *conmutación por error*.
+
+Durante la conmutación por error, los contenedores de volúmenes del dispositivo de origen cambian la propiedad y se transfieren al dispositivo de destino. Una vez que los contenedores de volumen cambian la propiedad, estos se eliminan del dispositivo de origen. Una vez completada la eliminación, el dispositivo de destino puede conmutarse por recuperación.
 
 Normalmente, tras una recuperación ante desastres, se utiliza la copia de seguridad más reciente para restaurar los datos al dispositivo de destino. Sin embargo, si hay varias directivas de copia de seguridad para el mismo volumen, se detecta la directiva de copia de seguridad con el mayor número de volúmenes y la copia de seguridad más reciente de esa directiva se usa para restaurar los datos en el dispositivo de destino.
 
@@ -170,6 +172,35 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
+
+## Conmutación por recuperación
+
+Para Update 3 y versiones posteriores, StorSimple también admite la conmutación por recuperación. Cuando se complete la conmutación por error, se producen las siguientes acciones:
+
+- Los contenedores de volumen que se conmutan por error se borran del dispositivo de origen.
+
+- Puede verse un trabajo de eliminación por contenedor de volúmenes (con conmutación por error) en la página **Trabajos**. El tiempo para completar la eliminación de los contenedores de volúmenes es dependiente de la cantidad de datos en los contenedores. Si piensa probar la conmutación por error y la conmutación por recuperación, se recomienda que pruebe contenedores de volúmenes con menos datos (GB).
+
+- Una vez completados todos los trabajos de eliminación, puede intentar la conmutación por recuperación.
+
+## Preguntas más frecuentes
+
+P: **¿Qué ocurre si se produce un error de la recuperación ante desastres o se completa correctamente solo de forma parcial?**
+
+A. Si se produce un error en la recuperación ante desastres, recomendamos que vuelva a intentarlo. La segunda vez, la recuperación ante desastres sabe lo que todo se lleva a cabo y cuándo se detuvo el proceso la primera vez. El proceso de recuperación ante desastres se inicia desde ese punto hacia adelante.
+
+P: **¿Puedo eliminar un dispositivo mientras se realiza la conmutación por error del dispositivo?**
+
+A. No se puede eliminar un dispositivo mientras se realiza una recuperación ante desastres. Solo puede eliminar el dispositivo una vez completada la recuperación ante desastres.
+
+P: **¿Cuándo se inicia la recolección de elementos no utilizados en el dispositivo de origen para que se eliminen los datos locales en el dispositivo de origen?**
+
+A. La recopilación de elementos no utilizados se habilitará en el dispositivo de origen solo después de que el dispositivo se limpie completamente. La limpieza incluye limpiar los objetos que se han conmutado por error desde dispositivo de origen, como volúmenes, objetos de copia de seguridad (no datos), contenedores de volúmenes y directivas.
+
+P: **¿Qué ocurre si se produce un error en el trabajo de eliminación asociado con los contenedores de volúmenes en el dispositivo de origen?**
+
+A. Si se produce un error en el trabajo de eliminación, necesitará desencadenar manualmente la eliminación de los contenedores de volúmenes. En la página **Dispositivos**, seleccione el dispositivo de origen y haga clic en **Contenedores de volúmenes**. Seleccione los contenedores de volúmenes que se conmutaron por error y en la parte inferior de la página, haga clic en **Eliminar**. Una vez que haya eliminado todos los contenedores de volúmenes conmutados por error en el dispositivo de origen, puede iniciar la conmutación por recuperación.
+
 ## Recuperación ante desastres y continuidad empresarial (BCDR)
 
 Un escenario de recuperación ante desastres y continuidad empresarial (BCDR) se produce cuando todo el centro de datos de Azure deja de funcionar. Esto puede afectar al servicio de Administrador de StorSimple y a los dispositivos StorSimple asociados.
@@ -184,4 +215,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

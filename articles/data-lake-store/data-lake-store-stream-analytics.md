@@ -4,7 +4,7 @@
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -28,7 +28,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 - **Cuenta de Almacenamiento de Azure**. Usará un contenedor de blobs desde esta cuenta para introducir datos en un trabajo de Análisis de transmisiones. Para este tutorial, va a crear una cuenta de almacenamiento denominada **datalakestoreasa** y un contenedor dentro de la cuenta denominado **datalakestoreasacontainer**. Una vez creado el contenedor, va a cargar un archivo de datos de ejemplo en él. Puede obtener un archivo de datos de ejemplo en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Puede utilizar varios clientes, como el [explorador de Almacenamiento de Azure](http://storageexplorer.com/), para cargar datos en un contenedor de blobs.
 
@@ -125,8 +125,8 @@ Por último, puede usar el [Portal de Azure](https://portal.azure.com) para abri
 
 En el panel Explorador de datos, tenga en cuenta que la salida se escribe en una carpeta, según lo especificado en la configuración de salida de Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
 
-## Consulte también
+## Otras referencias
 
 * [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

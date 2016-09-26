@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Administración de los recursos de Azure a través del Portal
@@ -94,7 +94,7 @@ Cuando se selecciona un recurso, la hoja del recurso presenta los gráficos y la
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     Para aprender a trabajar con paneles, vea el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Creación de paneles personalizados en el Portal de Azure). Para ver cómo compartir el acceso a un panel publicado, consulte [Sharing Azure dashboards](azure-portal-dashboard-share-access.md) (Uso compartido de paneles de Azure).
+     Para aprender a trabajar con paneles, vea el vídeo [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
 
 ## Administración de recursos
 
@@ -151,4 +151,4 @@ Al eliminar un grupo de recursos se eliminan todos los recursos contenidos en el
 - Para implementar recursos mediante el Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 - Para administrar el acceso a los recursos, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

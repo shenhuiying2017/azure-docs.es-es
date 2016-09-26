@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/12/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -46,7 +46,7 @@ Puede especificar más detalles de las tareas de indización mediante la configu
 
 También puede procesar varios archivos multimedia a la vez mediante un archivo de manifiesto.
 
-Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](#).
+Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## Indización de un recurso
 
@@ -162,7 +162,7 @@ Si no se indizan correctamente todos los archivos multimedia de entrada, el trab
 
 El método siguiente carga varios archivos multimedia como un recurso y crea un trabajo para indizar todos esos archivos en un lote.
 
-Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -294,4 +294,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 [Indización de archivos multimedia con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

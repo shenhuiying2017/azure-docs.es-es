@@ -45,11 +45,17 @@ Por ejemplo, el número de conexiones a una base de datos SQL, así como el núm
 
 ## Niveles de servicio y niveles de rendimiento
 
-Para una base de datos única, los límites de una base de datos se definen mediante el nivel de servicio de base de datos el nivel de rendimiento. En la tabla siguiente se describen las características de las bases de datos de nivel Básico, Estándar y Premium en distintos niveles de rendimiento.
+Existen niveles de servicio y rendimiento para los grupos elásticos y los grupos de bases de datos independientes.
 
-[AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
+### Bases de datos independientes
 
-Los [grupos de bases de datos elásticas](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos de bases de datos elásticas de nivel Básico, Estándar y Premium.
+Para una base de datos independiente, los límites de una base de datos se definen mediante el nivel de servicio de base de datos el nivel de rendimiento. En la tabla siguiente se describen las características de las bases de datos de nivel Básico, Estándar y Premium en distintos niveles de rendimiento.
+
+[AZURE.INCLUDE [Tabla de niveles de servicio de SQL Database](../../includes/sql-database-service-tiers-table.md)]
+
+### Grupos elásticos
+
+Los [grupos elásticos](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos de bases de datos elásticas de nivel Básico, Estándar y Premium.
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -57,7 +63,7 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 ## Otros límites de Base de datos SQL
 
-| Ámbito | Límite | Descripción |
+| Ámbito | Límite | Description |
 |---|---|---|
 | Bases de datos que usan exportación automatizada por suscripción | 10 | La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. Para obtener más información, consulte [Bases de datos SQL: compatibilidad con exportaciones automatizadas de Base de datos SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 | Base de datos por servidor | Hasta 5000 | Se permiten hasta 5000 bases de datos por servidor en servidores V12. |  
@@ -73,4 +79,4 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

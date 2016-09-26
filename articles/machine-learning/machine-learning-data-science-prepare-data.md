@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -74,7 +74,7 @@ Para tratar los valores que faltan, es mejor identificar el motivo por el que fa
 * **Sustitución ficticia**: reemplace los valores que faltan por un valor ficticio; por ejemplo, _desconocido_ para categorías o 0 para valores numéricos.
 * **Sustitución media**: si los datos que faltan son numéricos, reemplace los valores que faltan por la media.
 * **Sustitución frecuente**: si los datos que faltan son de categoría, cambie los valores que faltan por el elemento más frecuente.
-* **Sustitución de regresión**: utilice el método de regresión para reemplazar los valores que faltan por valores con regresión.  
+* **Sustitución de regresión**: utilice el método de regresión para reemplazar los valores que faltan por valores con regresión.
 
 ## ¿Cómo normalizar datos?
 
@@ -82,22 +82,22 @@ La normalización de datos escala los valores numéricos a un intervalo especifi
 
 * **Normalización mínima-máxima**: transforme linealmente los datos a un intervalo, por ejemplo, entre 0 y 1, donde el valor mímino se escala a 0 y el máximo a 1.
 * **Normalización de puntuación z**: escale los datos en función de la desviación estándar y media: divida la diferencia entre los datos y la media por la desviación estándar.
-* **Escalado decimal**: escale los datos moviendo la coma decimal del valor del atributo.  
+* **Escalado decimal**: escale los datos moviendo la coma decimal del valor del atributo.
 
 ## ¿Cómo discretizar los datos?
 
 Los datos se pueden discretizar mediante la conversión de valores continuos en intervalos o atributos nominales. Algunas formas de hacerlo son las siguientes:
 
 * **Discretización de mismo ancho**: divida el intervalo de todos los valores posibles de un atributo en N grupos del mismo tamaño y asigne los valores que se encuentran en una ubicación con el número de ubicación.
-* **Discretización igual alto**: divida el intervalo de todos los valores posibles de un atributo en N grupos, cada uno de los cuales contiene el mismo número de instancias y, a continuación, asigne los valores que se encuentran en una ubicación con el número de ubicación.  
+* **Discretización igual alto**: divida el intervalo de todos los valores posibles de un atributo en N grupos, cada uno de los cuales contiene el mismo número de instancias y, a continuación, asigne los valores que se encuentran en una ubicación con el número de ubicación.
 
 ## ¿Cómo reducir los datos?
 
 Existen varios métodos para reducir el tamaño de los datos para un tratamiento más sencillo de los datos. Según el tamaño de los datos y el dominio, se pueden aplicar los siguientes métodos:
 
 * **Muestreo de registros**: realice un muestreo de los registros de datos y elija únicamente el subconjunto de datos representativo.
-* **Muestreo de atributos**: seleccione solo un subconjunto de los atributos más importantes de los datos.  
-* **Agregación**: divida los datos en grupos y almacene los números para cada grupo. Por ejemplo, los números de los ingresos diarios de una cadena de restaurantes durante los últimos 20 años se pueden agregar para ingresos mensuales con el fin de reducir el tamaño de los datos.  
+* **Muestreo de atributos**: seleccione solo un subconjunto de los atributos más importantes de los datos.
+* **Agregación**: divida los datos en grupos y almacene los números para cada grupo. Por ejemplo, los números de los ingresos diarios de una cadena de restaurantes durante los últimos 20 años se pueden agregar para ingresos mensuales con el fin de reducir el tamaño de los datos.
 
 ## ¿Cómo limpiar los datos de texto?
 
@@ -109,4 +109,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 
 >*\_Minería de datos: conceptos y técnicas*, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

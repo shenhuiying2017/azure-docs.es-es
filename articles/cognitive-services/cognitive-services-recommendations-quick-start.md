@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -168,4 +168,4 @@ Consulte la [documentación de obtención de recomendaciones de artículos](http
 ### Pasos siguientes
 Enhorabuena por haber llegado hasta este paso. Para obtener más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones) si tiene alguna pregunta; no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

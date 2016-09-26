@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -30,7 +30,7 @@ En primer lugar, debe obtener una nueva clave de API en el **Portal de Azure**:
 
 1. Haga clic en **Regístrese**. Este vínculo le llevará al portal de administración de Azure, donde puede registrarse en el servicio.
 
-1. Seleccione un plan. Puede seleccionar el nivel **Gratis de 5000 transacciones/mes**. Como se trata de un plan gratuito, no se le cobrará por utilizar el servicio. No se olvide de iniciar sesión en su suscripción de Azure.
+1. Seleccione un plan. Puede seleccionar el **nivel Gratis de 5 000 transacciones/mes**. Como se trata de un plan gratuito, no se le cobrará por utilizar el servicio. No se olvide de iniciar sesión en su suscripción de Azure.
 
 1. Después de registrarse en Text Analytics, se le proporcionará una **clave de API**. Copie esta clave, ya que la necesitará para los servicios de API.
 
@@ -193,7 +193,7 @@ Tenga en cuenta que, en este momento, solo se acepta el formato POST, por lo que
     }
 
 
-### Parte 4b: actualizar los formatos de temas ###
+### Parte 4b: Actualizar los formatos de temas ###
 
 #### Extremos ####
 
@@ -308,4 +308,4 @@ Cuando haya finalizado la API de temas, se devolverá un estado con el valor `su
 
 Con esto debe poder continuar. Pruebe el código con una muestra pequeña para asegurarse de que puede procesar correctamente los datos.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

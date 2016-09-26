@@ -4,7 +4,7 @@ description="Obtenga información sobre cómo exportar registros de Application 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -362,4 +362,4 @@ Para obtener información sobre cómo crear y ejecutar aplicaciones de Spark, co
 
 * [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

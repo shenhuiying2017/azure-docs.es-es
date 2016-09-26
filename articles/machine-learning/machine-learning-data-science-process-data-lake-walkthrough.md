@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,wguo123"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -70,7 +70,7 @@ Antes de empezar estos temas, debe tener lo siguiente:
 ## Preparación del entorno de la ciencia de datos para Azure Data Lake
 Para preparar el entorno de la ciencia de datos para este tutorial, cree los siguientes recursos:
 
-- Almacén de Azure Data Lake (ADLS) 
+- Almacén de Azure Data Lake (ADLS)
 - Análisis de Azure Data Lake (ADLA)
 - Cuenta de Almacenamiento de blobs de Azure
 - Cuenta de Estudio de aprendizaje automático de Azure
@@ -158,7 +158,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo--> Nuevo--> Proy
 
 ### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 
-A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_ {*} .csv** para leer los doce archivos de carreras.
+A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob\_nombre\_cuenta\_almacenamiento en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_{*}.csv** para leer los 12 archivos de carreras.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ A la ubicación de los datos en el blob de Azure se hace referencia como **wasb:
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Almacenamiento de Azure Data Lake mediante ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de Almacenamiento de blobs de Azure mediante **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Azure Data Lake Storage mediante **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de almacenamiento de Blob Storage de Azure mediante **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -213,7 +213,7 @@ Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y
 	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
 	USING Outputters.Csv();  
 
-Del mismo modo podemos leer en los conjuntos de datos de tarifas. Haga clic con el botón derecho en Almacén de Azure Data Lake; puede elegir ver los datos en **Portal de Azure--> Explorador de datos** o **Explorador de archivos** dentro de Visual Studio.
+Del mismo modo podemos leer en los conjuntos de datos de tarifas. Haga clic con el botón derecho en Azure Data Lake Store; puede elegir ver los datos en **Azure Portal --> Explorador de datos** o **Explorador de archivos** dentro de Visual Studio.
 
  ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
@@ -447,7 +447,7 @@ A continuación, se realiza un muestreo estratificado por la variable binaria ti
 
 ### <a name="run"></a>Ejecución de trabajos U-SQL
 
-Cuando termine la edición de los scripts U-SQL, puede enviarlos al servidor mediante su cuenta de Análisis de Azure Data Lake. Haga clic en **Data Lake**, **Submit Job** (Enviar trabajo), seleccione su cuenta en **Analytics Account** (Cuenta de Análisis), elija **Parallelism** (Paralelismo) y haga clic en el botón **Submit** (Enviar).
+Cuando termine la edición de los scripts U-SQL, puede enviarlos al servidor mediante su cuenta de Análisis de Azure Data Lake. Haga clic en **Data Lake**, **Submit Job** (Enviar trabajo), seleccione su cuenta en **Analytics Account** (Cuenta de Analytics), elija **Parallelism** (Paralelismo) y haga clic en el botón **Submit** (Enviar).
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -470,8 +470,8 @@ Ahora puede comprobar los archivos de salida en Almacenamiento de blobs de Azure
 
 Se demuestran las dos opciones disponibles para extraer datos e introducirlos en Aprendizaje automático de Azure para generar y
 
-- En la primera opción, usar los datos muestreados que se han escrito en un blob de Azure (en el paso anterior, **Muestreo de datos**) y usar Python para generar e implementar modelos desde Aprendizaje automático de Azure. 
-- En la segunda opción, consultar los datos en Azure Data Lake directamente mediante una consulta de Hive. Para esta opción es necesario que cree un clúster de HDInsight o use uno existente en el que las tablas de Hive apunten a los datos de los taxis de Nueva York en Almacenamiento de Azure Data Lake. Las dos opciones se explican a continuación. 
+- En la primera opción, usar los datos muestreados que se han escrito en un blob de Azure (en el paso anterior, **Muestreo de datos**) y usar Python para generar e implementar modelos desde Azure Machine Learning.
+- En la segunda opción, consultar los datos en Azure Data Lake directamente mediante una consulta de Hive. Para esta opción es necesario que cree un clúster de HDInsight o use uno existente en el que las tablas de Hive apunten a los datos de los taxis de Nueva York en Almacenamiento de Azure Data Lake. Las dos opciones se explican a continuación.
 
 ## Opción 1: Usar Python para generar e implementar modelos de aprendizaje automático
 
@@ -504,7 +504,7 @@ Para ejecutar el cuaderno de Jupyter Notebook de ejemplo o el archivo de scripts
 
 ### Lectura de los datos del blob
 
-- Cadena de conexión   
+- Cadena de conexión
 
 		CONTAINERNAME = 'test1'
 		STORAGEACCOUNTNAME = 'XXXXXXXXX'
@@ -596,7 +596,7 @@ Aquí se crea un modelo de clasificación binaria para predecir si un viaje va a
 
 Deseamos aplicar el modelo de aprendizaje automático una vez que se haya compilado. Aquí usamos el modelo de logística binaria como ejemplo. Asegúrese de que la versión de scikit-learn del equipo local es la 0.15.1. Si usa el servicio Estudio de aprendizaje automático de Azure, no es preciso que se preocupe de este tema.
 
-- Busque las credenciales del área de trabajo en la configuración de Estudio de aprendizaje automático de Azure. En Estudio de aprendizaje automático de Azure, haga clic en **Settings** (Configuración) --> **Name** (Nombre) --> **Authorization Tokens** (Tokens de autorización). 
+- Busque las credenciales del área de trabajo en la configuración de Estudio de aprendizaje automático de Azure. En Azure Machine Learning Studio, haga clic en **Settings** (Configuración) --> **Name** (Nombre) --> **Authorization Tokens** (Tokens de autorización).
 
 	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -640,13 +640,13 @@ Estudio de aprendizaje automático de Azure puede leer datos directamente desde 
 
 ### Creación de un clúster de HDInsight Linux
 
-Cree un clúster de HDInsight (Linux) desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte la sección **Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake** de [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Cree un clúster de HDInsight (Linux) desde [Azure Portal](http://portal.azure.com). Para obtener más información, consulte la sección sobre cómo **crear un clúster de HDInsight con acceso a Azure Data Lake Store** del artículo de [creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### Creación de una tabla de Hive en HDInsight
 
-Ahora se crean tablas de Hive que se usarán en Estudio de aprendizaje automático de Azure en el clúster de HDInsight con los datos que se guardaron en el Almacén de Azure Data Lake en el paso anterior. Vaya al clúster de HDInsight que acaba de crear. Haga clic en **Configuración** --> **Propiedades** --> **Identidad de AAD del clúster** --> **ADLS Access** (Acceso a ADLS) y asegúrese de que su cuenta del Almacén de Azure Data Lake se agrega a la lista con derechos de lectura, escritura y ejecución.
+Ahora se crean tablas de Hive que se usarán en Estudio de aprendizaje automático de Azure en el clúster de HDInsight con los datos que se guardaron en el Almacén de Azure Data Lake en el paso anterior. Vaya al clúster de HDInsight que acaba de crear. Haga clic en **Configuración** --> **Propiedades** --> **Identidad de AAD del clúster** --> **ADLS Access** (Acceso a ADLS) y asegúrese de que su cuenta de Azure Data Lake Store se agrega a la lista con derechos de lectura, escritura y ejecución.
 
  ![19](./media/machine-learning-data-science-process-data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -658,7 +658,7 @@ Luego, haga clic en **Panel**, junto al botón **Configuración**, y aparecerá 
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Para crear una tabla, pegue los siguientes scripts de Hive. La ubicación del origen de datos está en la referencia del Almacén de Azure Data Lake de esta manera: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Para crear una tabla, pegue los siguientes scripts de Hive. La ubicación del origen de datos está en la referencia de Azure Data Lake Store de esta manera: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -701,7 +701,7 @@ Cuando finalice la consulta, verá los resultados similares a los siguientes:
 
 Ahora estamos preparados para generar e implementar con Aprendizaje automático de Azure un modelo que prediga si se paga o no propina. Los datos de ejemplo estratificados están listos para usarse en este problema de clasificación binaria (propina o no). Los modelos predictivos que utilizan la clasificación de varias clases (tip\_class) y la regresión (tip\_amount) también se pueden generar e implementar con Estudio de aprendizaje automático de Azure. Sin embargo, aquí solo se muestra cómo hacerlo con el modelo de clasificación binaria.
 
-1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo **Importar datos**, que se encuentra disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Obtenga los datos e introdúzcalos en Azure ML mediante el módulo **Importar datos**, que se encuentra disponible en la sección **Entrada y salida de datos**. Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Seleccione **Hive Query** (Consulta de Hive) en **Data source** (Origen de datos) en el panel **Properties** (Propiedades).
 3. Pegue el siguiente script de Hive en el editor **Hive database query** (Consulta de base de datos de Hive).
 
@@ -741,4 +741,4 @@ La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](http:
 - [Proceso de ciencia de datos en equipos: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Información general sobre el proceso de ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="07/25/2016"
+   ms.date="09/07/2016"
    ms.author="brjohnst"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
@@ -55,7 +55,7 @@ La API del servicio Búsqueda de Azure admite dos sintaxis de URL para operacion
 
 [Analizador de prueba](#TestAnalyzer)
 
-    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
+    POST /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Eliminar un índice](#DeleteIndex)
 
@@ -315,7 +315,7 @@ A continuación se muestra la lista de idiomas admitidos y los nombres de analiz
 
 <table style="font-size:12">
     <tr>
-		<th>Lenguaje</th>
+		<th>Idioma</th>
 		<th>Nombre del analizador de Microsoft</th>
 		<th>Nombre del analizador de Lucene</th>
 	</tr>
@@ -644,7 +644,7 @@ Javascript del lado cliente no puede llamar a las API de forma predeterminada de
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1344,7 +1344,9 @@ La operación de **búsqueda** se emite como una solicitud GET o POST y especifi
 
 Cuando use HTTP GET para llamar a la API de **búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas o expresiones de filtro OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros y consultas mayores que GET. Con POST, el número de términos o cláusulas en una consulta es el factor limitador, no el tamaño de la consulta básica, ya que el límite de tamaño de la solicitud POST es de 16 MB aproximadamente.
 
-> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de Lucene de consulta en búsqueda de Azure](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para obtener más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda. **Solicitud**
+> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de Lucene de consulta en búsqueda de Azure](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/dn798921.aspx) para obtener más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda.
+
+**Solicitud**
 
 HTTPS es necesario para las solicitudes de servicio. La solicitud **Búsqueda** puede crearse mediante los método GET o POST.
 
@@ -1387,7 +1389,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 
 `$top=#` (opcional): número de resultados de búsqueda para recuperar. Se puede usar junto con `$skip` para implementar la paginación del lado del cliente de los resultados de la búsqueda.
 
-> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
 
 `$count=true|false` (opcional, tiene como valor predeterminado `false`): especifica si se va a obtener el número total de resultados. Este es el recuento de todos los documentos que coinciden con los parámetros `search` y `$filter`, omitiendo `$top` y `$skip`. Establecer este valor en `true` puede afectar al rendimiento. Tenga en cuenta que el número devuelto será una aproximación.
 
@@ -1420,11 +1422,11 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 - **Nota**: `count` y `sort` se pueden combinar en la misma especificación de faceta, pero no se pueden combinar con `interval` o `values`, y `interval` y `values` no se pueden combinar entre sí.
 - **Nota**: Las facetas de intervalo de fecha y hora se calculan en función de la hora UTC si `timeoffset` no se ha especificado. Por ejemplo, para `facet=lastRenovationDate,interval:day`, el límite de día comienza a las 00:00:00 UTC.
 
-> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `facets` en lugar de `facet`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es una expresión de faceta independiente.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `facets` en lugar de `facet`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es una expresión de faceta independiente.
 
 `$filter=[string]` (opcional): expresión de búsqueda estructurada en la sintaxis estándar de OData. Consulte [Sintaxis de expresiones de OData](#ODataExpressionSyntax) para obtener detalles sobre el subconjunto de la gramática de expresiones de OData que admite la Búsqueda de Azure.
 
-> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
 
 `highlight=[string]` (opcional): conjunto de nombres de campos delimitado por comas usado para los resaltados de referencias. Solo se pueden usar `searchable` campos para resaltar las referencias.
 
@@ -1444,7 +1446,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 - Para los parámetros de puntuación así como para el aprovechamiento de etiquetas que contienen comas, es posible separar tales valores de la lista mediante el uso de comillas simples. Si los propios valores contienen comillas simples, puede separarlos duplicando la comilla simple.
   - Por ejemplo, si tiene un parámetro de aprovechamiento de etiqueta llamado mytag y desea aprovechar los valores de la etiqueta Hello, O' Brien y Smith, la opción de la cadena de consulta sería `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Tenga en cuenta que las comillas solo son necesarias para los valores que contienen comas.
 
-> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par `name-values` independiente.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par `name-values` independiente.
 
 `minimumCoverage` (opcional, el valor predeterminado es 100): un número entre 0 y 100 que indica el porcentaje del índice que debe estar cubierto por una consulta de búsqueda para que la consulta se realice correctamente. De forma predeterminada, todo el índice debe estar disponible o `Search` se devolverá el código de estado HTTP 503. Si establece `minimumCoverage` y `Search` se realiza correctamente, devolverá HTTP 200 e incluye un valor `@search.coverage` en la respuesta que indica el porcentaje del índice que se incluyó en la consulta.
 
@@ -1655,7 +1657,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
       "select": "hotelName, description"
     }
 
-10) Recupere documentos que coincidan con una expresión de filtro específica
+10) Recupere documentos que coincidan con una expresión de filtro específica:
 
 
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
@@ -1878,11 +1880,11 @@ Las **sugerencias** aceptan varios parámetros que ofrecen criterios de consulta
 
 `$top=#` (opcional, valor predeterminado = 5): número de sugerencias para recuperar. Debe ser un número entre 1 y 100.
 
-> [AZURE.NOTE] Al llamar a las **sugerencias** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
+> [AZURE.NOTE] Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
 
 `$filter=[string]` (opcional): expresión que filtra los documentos que se consideran para obtener sugerencias.
 
-> [AZURE.NOTE] Al llamar a las **sugerencias** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
+> [AZURE.NOTE] Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
 
 `$orderby=[string]` (opcional): lista de expresiones separadas por comas por la que ordenar los resultados. Cada expresión puede ser un nombre de campo o una llamada a la función `geo.distance()`. Cada expresión puede ir seguida de `asc` para indicar el orden ascendente y de `desc` para indicar el orden descendente. El valor predeterminado es ascendente. Hay un límite de 32 cláusulas para `$orderby`.
 
@@ -1970,4 +1972,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

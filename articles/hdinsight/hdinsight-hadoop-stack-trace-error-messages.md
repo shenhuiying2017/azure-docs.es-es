@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter="NA"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -38,4 +38,4 @@ Los artículos se organizan por tipos de error.
 * [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Notas de la versión de los componentes de Hadoop en HDInsight de Azure](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

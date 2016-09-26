@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -19,7 +19,7 @@
  
 #Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
 
-En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde el almacenamiento de blobs de Azure. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
+En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde Azure Blob Storage. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
 
 Este **menú** siguiente redirige a temas en los que se describe cómo introducir datos en entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
@@ -29,16 +29,16 @@ Este **menú** siguiente redirige a temas en los que se describe cómo introduci
 ## Requisitos previos
 En este artículo se supone que ha:
  
-* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage). 
+* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage).
 * Aprovisionado un clúster de Hadoop personalizado con el servicio HDInsight. Si necesita instrucciones, consulte [Personalización de clústeres de Hadoop de HDInsight de Azure para análisis avanzado](machine-learning-data-science-customize-hadoop-cluster.md).
-* Habilitado el acceso remoto para el clúster, ha iniciado sesión y ha abierto la consola de la línea de comandos de Hadoop. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
+* Habilitado el acceso remoto para el clúster, ha iniciado sesión y ha abierto la consola de la línea de comandos de Hadoop. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 ## Carga de datos en el almacenamiento de blobs de Azure
 Si creó una máquina virtual de Azure siguiendo las instrucciones dadas en [Configuración de una máquina virtual de Azure para análisis avanzado](machine-learning-data-science-setup-virtual-machine.md), este archivo de script debió descargarse en el directorio *C:\\Users\\<nombre de usuario>\\Documents\\Data Science Scripts* de la máquina virtual. Estas consultas de subárbol solo requieren que conecte sus propios esquemas de datos y la configuración de almacenamiento de blobs de Azure en los campos adecuados para estar preparado para su envío.
 
 Se supone que los datos de las tablas de Hive están en un formato tabular **sin comprimir** y que se han cargado los datos en el contenedor predeterminado (o en otro adicional) de la cuenta de almacenamiento que usa el clúster Hadoop.
 
-Si desea practicar sobre _NYC Taxi Trip Data_, necesita descargar primero los 24 archivos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> (12 archivos de carreras y 12 de tarifas), **descomprimir** todos los archivos en archivos .csv y cargarlos en el contenedor predeterminado (o el contenedor adecuado) de la cuenta de almacenamiento de Azure que creó el procedimiento descrito en el tema [Personalización de clústeres Hadoop de HDInsight de Azure para tecnología y procesos de análisis avanzados](machine-learning-data-science-customize-hadoop-cluster.md). En esta [página](machine-learning-data-science-process-hive-walkthrough.md#upload) encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
+Si desea practicar sobre _NYC Taxi Trip Data_, necesita descargar primero los 24 archivos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> (12 archivos de carreras y 12 de tarifas), **descomprimir** todos los archivos en archivos .csv y cargarlos en el contenedor predeterminado (o el contenedor adecuado) de la cuenta de Azure Storage que creó el procedimiento descrito en el tema [Personalización de clústeres Hadoop de HDInsight de Azure para tecnología y procesos de análisis avanzados](machine-learning-data-science-customize-hadoop-cluster.md). En esta [página](machine-learning-data-science-process-hive-walkthrough.md#upload) encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
 
 
 ## <a name="submit"></a>Envío de consultas de Hive
@@ -154,12 +154,12 @@ Esta es la consulta de subárbol que crea una tabla de subárbol.
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-- **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...* 
+- **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
 - **&#60;nombre de tabla>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *&#60;table name>* sin &#60;nombre de base de datos>.
-- **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive. 
-- **<separador de líneas>**: separador que delimita las líneas del archivo de datos. 
-- **&#60;storage location>**: la ubicación de almacenamiento de Azure para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, la ubicación de almacenamiento debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directorio 1>/'* o *'wasb:///&#60;directorio 1>/&#60;directorio 2>/'*, etc. Después de ejecutar la consulta, se crearán los directorios relativos dentro del contenedor predeterminado. 
-- **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se cargará la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta. 
+- **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
+- **<separador de líneas>**: separador que delimita las líneas del archivo de datos.
+- **&#60;storage location>**: la ubicación de almacenamiento de Azure para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, la ubicación de almacenamiento debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directorio 1>/'* o *'wasb:///&#60;directorio 1>/&#60;directorio 2>/'*, etc. Después de ejecutar la consulta, se crearán los directorios relativos dentro del contenedor predeterminado.
+- **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se cargará la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
 
 ## <a name="load-data"></a>Carga de datos en tablas de Hive
 Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
@@ -245,4 +245,4 @@ Los usuarios no pueden cargar datos directamente desde el almacenamiento de blob
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

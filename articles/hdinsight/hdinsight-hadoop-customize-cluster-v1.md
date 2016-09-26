@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -65,7 +65,7 @@ Nombre | Script
 
 **Desde el Portal de Azure clásico**
 
-1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres usando opciones personalizadas](hdinsight-provision-clusters.md#portal). 
+1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres usando opciones personalizadas](hdinsight-provision-clusters.md#portal).
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Uso de la acción de script para personalizar un clúster")
@@ -74,7 +74,7 @@ Nombre | Script
 		<tr><th>Propiedad</th><th>Valor</th></tr>
 		<tr><td>Nombre</td>
 			<td>Especifique un nombre para la acción de script.</td></tr>
-		<tr><td>URI de script</td>
+		<tr><td>Identificador URI de script</td>
 			<td>Especifique el URI al script invocado para personalizar el clúster.</td></tr>
 		<tr><td>Tipo de nodo</td>
 			<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
@@ -161,7 +161,7 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-write-script].
 
 
-## Consulte también
+## Otras referencias
 
 - [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas][hdinsight-provision-cluster] proporciona instrucciones sobre cómo aprovisionar un clúster de HDInsight con otras opciones personalizadas.
 - [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
@@ -180,4 +180,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

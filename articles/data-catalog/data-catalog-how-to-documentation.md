@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Orígenes de datos de documentos
@@ -32,7 +32,7 @@ Las etiquetas y descripciones son excelentes para anotaciones simples. Sin embar
 
 ## Documentación de los recursos de datos
 
-La ventaja del **Catálogo de datos de Azure** es que la documentación le permite usar el Catálogo de datos como un repositorio de contenido para crear una descripción completa de los recursos de datos. Los usuarios pueden explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esto hace que los documentos existentes sean más detectables.
+La ventaja del **Catálogo de datos de Azure** es que la documentación le permite usar el Catálogo de datos como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
 
 > [AZURE.NOTE] La documentación no se incluye en el índice de búsqueda.
 
@@ -48,4 +48,4 @@ El nivel de documentación puede oscilar desde describir las características y 
 
 La documentación de orígenes de datos con el **Catálogo de datos de Azure** puede crear una descripción de los recursos de datos con el detalle que sea necesario. Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

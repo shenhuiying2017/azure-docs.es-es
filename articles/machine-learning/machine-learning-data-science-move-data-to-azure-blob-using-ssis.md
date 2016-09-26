@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -35,7 +35,7 @@ Si desea ver un análisis de los escenarios canónicos que usan SSIS para satisf
 
 ## Requisitos previos
 
-Si desea realizar las tareas que describe este artículo, debe tener configurada una suscripción de Azure y una cuenta de almacenamiento de Azure. Debe saber cuál es el nombre de la cuenta de almacenamiento de Azure y la clave de la cuneta para cargar o descargar datos.
+Si desea realizar las tareas que describe este artículo, debe tener configurada una suscripción de Azure y una cuenta de Azure Storage. Debe saber cuál es el nombre de la cuenta de almacenamiento de Azure y la clave de la cuneta para cargar o descargar datos.
 
 - Para configurar una **suscripción a Azure**, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 - Para obtener instrucciones sobre cómo crear una **cuenta de almacenamiento** y cómo obtener información sobre la cuenta y la clave, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
@@ -65,7 +65,7 @@ Para mover los datos con el Feature Pack de SSIS desde un almacenamiento local a
 A continuación, se describen los parámetros que usa la tarea:
 
 
-Campo|Descripción|
+Campo|Description|
 ----------------------|----------------|
 **AzureStorageConnection**|Especifica un Administrador de conexiones de almacenamiento de Azure existente o crea uno nuevo que hace referencia a una cuenta de almacenamiento de Azure que apunta adonde se almacenan los archivos de blob.|
 **BlobContainer**|Especifica el nombre del contenedor de blobs que mantendrá los archivos cargados como blobs.|
@@ -87,4 +87,4 @@ Aquí podemos observar que el Feature Pack de SSIS permite administrar flujos m�
 - Para ejecutar un script de Hive en un clúster de HDInsight de Azure con SSIS, use [Tarea de Hive para HDInsight de Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 - Para ejecutar un script de Pig en un clúster de HDInsight de Azure con SSIS, use [Tarea de Pig para HDInsight de Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

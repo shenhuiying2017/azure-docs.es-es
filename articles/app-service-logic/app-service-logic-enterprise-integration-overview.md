@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="09/08/2016" 
 	ms.author="deonhe"/>
 
 # Información general sobre Enterprise Integration Pack
@@ -25,7 +25,7 @@ El paquete permite a las organizaciones que utilizan distintos protocolos y form
 
 Si está familiarizado con BizTalk Server o los Servicios de BizTalk de Microsoft Azure, le resultará sencillo utilizar las características de Enterprise Integration Pack, ya que casi todos los conceptos son similares. Una diferencia importante es que Enterprise Integration Pack utiliza las cuentas de integración para simplificar la administración y el almacenamiento de los artefactos empleados en las comunicaciones B2B.
 
-Desde el punto de vista de su arquitectura, Enterprise Integration Pack se basa en las **cuentas de integración** que almacenan todos los artefactos que pueden utilizarse para diseñar, implementar y mantener aplicaciones B2B. Básicamente, una cuenta de integración es un contenedor en la nube donde se almacenan artefactos como esquemas, partners, certificados, asignaciones y contratos. Estos artefactos pueden utilizarse posteriormente en Aplicaciones lógicas con el fin de crear flujos de trabajo B2B. Antes de poder usar los artefactos en una Aplicación lógica, basta con vincular la cuenta de integración a la Aplicación lógica. Cuando lo haya hecho, la Aplicación lógica tendrá acceso a los artefactos de la cuenta de integración.
+Desde el punto de vista de su arquitectura, Enterprise Integration Pack se basa en las **cuentas de integración** que almacenan todos los artefactos que pueden utilizarse para diseñar, implementar y mantener aplicaciones B2B. Básicamente, una cuenta de integración es un contenedor en la nube donde se almacenan artefactos como esquemas, asociados, certificados, asignaciones y contratos. Estos artefactos pueden utilizarse posteriormente en Aplicaciones lógicas con el fin de crear flujos de trabajo B2B. Antes de poder usar los artefactos en una Aplicación lógica, basta con vincular la cuenta de integración a la Aplicación lógica. Cuando lo haya hecho, la Aplicación lógica tendrá acceso a los artefactos de la cuenta de integración.
 
 ## ¿Por qué se debe utilizar Enterprise Integration Pack?
 - Gracias a la integración de empresas, podrá almacenar todos los artefactos en un solo lugar: la cuenta de integración.
@@ -35,7 +35,9 @@ Desde el punto de vista de su arquitectura, Enterprise Integration Pack se basa 
 ## ¿Cómo se puede empezar a disfrutar de Enterprise Integration Pack?
 Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el diseñador de Logic Apps en el **Portal de Azure**.
 
-A continuación, se muestra un resumen de los pasos que hay que llevar a cabo para crear aplicaciones en el Portal de Azure: ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+También puede usar [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Temas de Logic Apps y PowerShell") para administrar las aplicaciones lógicas.
+
+A continuación, se muestra un resumen de los pasos que hay que llevar a cabo para crear aplicaciones en el Portal de Azure: ![Imagen de información general](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## ¿Cuáles son algunos escenarios comunes?
 
@@ -49,8 +51,8 @@ Enterprise Integration Pack admite estos estándares del sector:
 - Disponer de Visual Studio 2015 para crear esquemas y asignaciones
 - [Herramientas de integración de empresas de Aplicaciones Lógicas de Microsoft Azure para la versión 2.0 de Visual Studio 2015](https://aka.ms/vsmapsandschemas)
 
-## Inténtelo usted mismo
-¿Por qué no probarlo? Haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implementar sus propias aplicaciones lógicas de envío y recepción AS2 completamente operativas mediante las características B2B de Logic Apps.
+## Pruébelo
+[Pruébelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implementar sus propias aplicaciones lógicas de envío y recepción AS2 de ejemplo completamente operativas mediante las características B2B de Logic Apps.
 
 ## Más información sobre:
 - [Contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
@@ -63,5 +65,6 @@ Enterprise Integration Pack admite estos estándares del sector:
 - [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Información sobre los esquemas de integración de empresas")
 - [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
 - [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
+- [Conectores de integración de empresa](../connectors/apis-list.md "Información sobre los conectores de Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

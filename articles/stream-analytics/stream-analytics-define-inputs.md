@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
 
-La conexión de datos para el Análisis de transmisiones es un flujo de datos de eventos desde un origen de datos. Se denomina "entrada". El Análisis de transmisiones tiene integración de primera clase con el Centro de eventos de orígenes de la transmisión de datos de Azure, el Centro de IoT y el almacenamiento de blobs que pueden proceder de la misma suscripción de Azure o de otra diferente como su trabajo de análisis.
+La conexión de datos para el Análisis de transmisiones es un flujo de datos de eventos desde un origen de datos. Se denomina "entrada". Stream Analytics tiene integración de primera clase con las instancias de Event Hubs de orígenes de la transmisión de datos de Azure, IoT Hub y Blob Storage que pueden proceder de la misma suscripción de Azure o de otra diferente como su trabajo de análisis.
 
 ## Tipos de entrada de datos: datos de referencia y de transmisión de datos
 A medida que los datos se insertan en un origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
@@ -213,4 +213,4 @@ Ha obtenido información sobre las opciones de conexión de datos de Azure para 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

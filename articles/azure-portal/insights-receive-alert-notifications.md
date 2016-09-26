@@ -38,12 +38,13 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 
 4. Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
-5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta.
-    ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el periodo que Azure usa para supervisar y trazar actividades de alerta.
 
-6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. 
-    ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
+	![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+
+6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado.
+
+	![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Por último, puede enviar una notificación de correo electrónico a los administradores responsables.
 
@@ -64,8 +65,8 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y que responde adecuadamente.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
-* [Supervise el rendimiento de la aplicación](insights-perf-analytics.md) si desea comprender exactamente cómo está actuando su código en la nube.
+* [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo está actuando su código en la nube.
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

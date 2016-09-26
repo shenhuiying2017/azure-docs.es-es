@@ -4,8 +4,8 @@ pageTitle="Guía de programación de SCP.NET | Azure"
 description="Aprenda a usar SCP.NET para crear. topologías de Storm basadas en .NET para usarlas con Storm en HDInsight."
 services="hdinsight"
 documentationCenter=""
-authors="rperi"
-manager="paulettm"
+authors="raviperi"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -181,7 +181,7 @@ Context proporciona un entorno de ejecución para la aplicación. Cada instancia
 		public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
 	}
 
-`TopologyContext` se proporciona para obtener el contexto de la topología, resulta más útil en el caso de componentes con paralelismo múltiple. Aquí tiene un ejemplo:
+`TopologyContext` se proporciona para obtener el contexto de la topología, resulta más útil en el caso de componentes con paralelismo múltiple. Este es un ejemplo:
 
 	//demo how to get TopologyContext info
 	if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -494,7 +494,7 @@ Aquí, `microsoft.scp.example.HybridTopology.Generator` es el nombre de la clase
 
 ### Especificación de classpath de Java en el comando runSpec
 
-Si quiere enviar una topología que contenga spouts o bolts de Java, es necesario compilar primero los spouts o bolts de Java y obtener los archivos Jar. Tras ello, hay que especificar el classpath de Java que contiene los archivos Jar al enviar la topología. Aquí tiene un ejemplo:
+Si quiere enviar una topología que contenga spouts o bolts de Java, es necesario compilar primero los spouts o bolts de Java y obtener los archivos Jar. Tras ello, hay que especificar el classpath de Java que contiene los archivos Jar al enviar la topología. Este es un ejemplo:
 
 	bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target*
 
@@ -688,4 +688,4 @@ Para ver ejemplos de topologías de Storm creados con SCP, consulte lo siguiente
 * [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample) (Extracción, transformación y carga (ETL) desde Centros de eventos de Azure en HBase usando Storm en HDInsight)
 * [Poner en correlación eventos con Storm y HBase en HDInsight](hdinsight-storm-correlation-topology.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

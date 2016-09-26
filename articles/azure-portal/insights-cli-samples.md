@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="09/08/2016"
 	ms.author="ashwink"/>
 
 # Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights
 
-En este artículo se muestran comandos de la interfaz de línea de comandos (CLI) de ejemplo que le ayudarán a acceder a las características de supervisión de Azure Insights. Azure Insights permite escalar automáticamente aplicaciones web, máquinas virtuales y servicios en la nube para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
+En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Insights. Azure Insights permite escalar automáticamente aplicaciones web, máquinas virtuales y servicios en la nube para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
 
 ## Requisitos previos
@@ -46,7 +46,7 @@ El primer paso consiste en iniciar sesión en su cuenta de Azure.
 azure login
 ```
 
-Se le pedirá que inicie sesión. Después, podrá ver el id. predeterminado de la suscripción, el id. de inquilino y la cuenta. Todos los comandos funcionan en el contexto de la suscripción predeterminada.
+Después de ejecutar este comando, tendrá que iniciar sesión siguiendo las instrucciones de la pantalla. Después, podrá ver el id. predeterminado de la suscripción, el id. de inquilino y la cuenta. Todos los comandos funcionan en el contexto de la suscripción predeterminada.
 
 Para mostrar los detalles de la suscripción actual, utilice el siguiente comando.
 
@@ -110,34 +110,34 @@ Puede usar la información de la sección sobre cómo usar las alertas.
 ### Obtención de reglas de alerta en un grupo de recursos
 
 ```
-node bin\azure insights alerts rule list abhingrgtest123
-node bin\azure insights alerts rule list abhingrgtest123 --ruleName andy0323
+azure insights alerts rule list abhingrgtest123
+azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 ```
 
 ### Creación de una regla de alerta de métrica
 
 ```
-node bin\azure insights alerts actions email create --customEmails foo@microsoft.com
-node bin\azure insights alerts actions webhook create https://someuri.com
-node bin\azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
+azure insights alerts actions email create --customEmails foo@microsoft.com
+azure insights alerts actions webhook create https://someuri.com
+azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
 ```
 
 ### Creación de una regla de alerta de registro
 
 ```
-insights alerts rule log set ruleName eastus resourceGroupName someOperationName
+azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### Creación de una regla de alerta de WebTest
 
 ```
-node bin\azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
+azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
 ```
 
 ### Creación una regla de alerta
 
 ```
-node bin\azure insights alerts rule delete abhingrgtest123 andy0323
+azure insights alerts rule delete abhingrgtest123 andy0323
 ```
 
 ## Perfiles de registro
@@ -146,33 +146,33 @@ Utilice la información de esta sección para usar perfiles de registro.
 ### Obtención de un perfil de registro
 
 ```
-node bin\azure insights logprofile list
-node bin\azure insights logprofile get -n default
+azure insights logprofile list
+azure insights logprofile get -n default
 ```
 
 
 ### Adición de un perfil de registro sin retención de datos
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Eliminación de un perfil de registro
 
 ```
-node bin\azure insights logprofile delete --name default
+azure insights logprofile delete --name default
 ```
 
 ### Adición de un perfil de registro con retención de datos
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
 ### Adición de un perfil de registro con retención y EventHub
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
 
@@ -182,19 +182,19 @@ Utilice la información de esta sección para usar la configuración de diagnós
 ### Obtención de la configuración de diagnóstico
 
 ```
-node bin\azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
+azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
 
 ### Deshabilitación de la configuración de diagnóstico
 
 ```
-node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
 ```
 
 ### Habilitación de la configuración de diagnóstico sin retención
 
 ```
-node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
 ```
 
 
@@ -204,20 +204,20 @@ Utilice la información de esta sección para usar la configuración de escalado
 ### Obtención de la configuración de escalado automático de un grupo de recursos
 
 ```
-node bin\azure insights autoscale setting list montest2
+azure insights autoscale setting list montest2
 ```
 
 ### Obtención de valores de escalado automático por su nombre en un grupo de recursos
 
 ```
-node bin\azure insights autoscale setting list montest2 -n setting2
+azure insights autoscale setting list montest2 -n setting2
 ```
 
 
 ### Establecimiento de la configuración de escalado automático
 
 ```
-node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
+azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

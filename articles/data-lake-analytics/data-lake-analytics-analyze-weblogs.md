@@ -1,10 +1,10 @@
 <properties
    pageTitle="Análisis de registros de sitios web mediante Análisis de Azure Data Lake | Azure"
-   description="Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake"
+   description="Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -188,7 +188,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación. Para
 3.  Haga doble clic en **UnsuccessfulResponsees.log**.
 4.  También puede hacer doble clic en el archivo de salida en la vista de gráfico del trabajo para ir directamente a la salida.
 
-## Consulte también
+## Otras referencias
 
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
@@ -202,4 +202,4 @@ Para ver más temas de desarrollo:
 - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

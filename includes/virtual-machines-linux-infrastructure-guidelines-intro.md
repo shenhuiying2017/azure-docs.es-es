@@ -1,3 +1,3 @@
 Este artículo forma parte de una serie más amplia destinada a proporcionarle consideraciones de diseño e instrucciones durante la creación de una infraestructura de aplicación en Azure. También puede [ver los temas adicionales de la serie](#next-steps). Aunque puede crear rápidamente un entorno de desarrollo y pruebas en Azure, existen consideraciones adicionales que se deben tener en cuenta al tratar de implementar un entorno listo para producción, sumamente disponible y seguro.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

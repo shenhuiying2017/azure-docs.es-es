@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -72,7 +72,7 @@ Para crear una cadena de conexión que incluya una firma de acceso compartido, e
 
 Cada punto de conexión de servicio es opcional, aunque la cadena de conexión debe contener al menos uno.
 
-Se recomienda usar HTTPS con SAS. Para obtener más información sobre las firmas de acceso compartido, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+Se recomienda usar HTTPS con SAS. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 >[AZURE.NOTE] Si está especificando SAS en una cadena de conexión en un archivo de configuración, debe codificar caracteres especiales en la dirección URL.
 
@@ -163,4 +163,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 - [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md)
 - [Exploradores de almacenamiento de Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

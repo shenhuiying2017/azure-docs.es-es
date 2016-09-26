@@ -38,7 +38,7 @@ A continuación se indica cómo puede quitar el límite de gasto:
 
 4. Si ve el mensaje *La suscripción alcanzó un límite de gastos y se deshabilitó para evitar cargos*, haga clic en él.
 
-	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área ** Estado de la suscripción**.
+	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área **Estado de la suscripción**.
 
 5. Seleccione una de las siguientes opciones que sea adecuada para usted:
 
@@ -60,9 +60,20 @@ Para solucionar este problema, use uno de los métodos siguientes:
 - [Cambie a otra tarjeta de crédito](billing-how-to-change-credit-card.md).
 - Si tiene una empresa, puede [cambiar al método de pago de factura](https://azure.microsoft.com/pricing/invoicing/).
 
-## Procedimiento de rehabilitación de la suscripción
+## El administrador de cuentas cancela la suscripción
 
-Para rehabilitar una suscripción deshabilitada, debe crear una incidencia de soporte técnico: inicie sesión en el [Portal de Azure](https://portal.azure.com/), seleccione **Ayuda y soporte técnico**>**Nueva solicitud de soporte técnico**.
+>[AZURE.NOTE] Este método actualmente solo se aplica a las suscripciones de pago por uso. Para otros tipos de suscripción, deberá [ponerse en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Si es el administrador de cuentas, puede volver a activar su suscripción de pago por uso siguiendo estos pasos:
+
+- Seleccione la suscripción cancelada.
+- Haga clic en cualquiera de los vínculos **Reactivar** de la página de detalles de la suscripción.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+
+## Cómo volver a habilitar suscripciones que no son de pago por uso:
+
+Para reactivar una suscripción deshabilitada, debe crear una incidencia de soporte técnico: inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione **Ayuda y soporte técnico**>**Nueva solicitud de soporte técnico**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -75,4 +86,4 @@ Para más información, consulte [Creación de una incidencia de soporte técnic
 
 > [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

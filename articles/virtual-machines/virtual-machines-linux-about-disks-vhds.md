@@ -23,7 +23,7 @@ Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
+> [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
 
 ## Disco del sistema operativo
 
@@ -73,4 +73,4 @@ Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión elim
 -  [Configure el RAID de software](virtual-machines-linux-configure-raid.md) para la redundancia.
 -  [Capture una máquina virtual Linux](virtual-machines-linux-classic-capture-image.md) para poder implementar rápidamente máquinas virtuales adicionales.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

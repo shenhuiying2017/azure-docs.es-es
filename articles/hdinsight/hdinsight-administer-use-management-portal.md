@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Administración de clústeres de Hadoop en HDInsight con el Portal de Azure | Microsoft Azure"
+	pageTitle="Administración de clústeres de Hadoop en HDInsight con Azure Portal | Microsoft Azure"
 	description="Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Con el [Portal de Azure][azure-portal] puede crear clústeres de Hadoop en HDInsight de Azure, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
+Con [Azure Portal][azure-portal] puede crear clústeres de Hadoop en HDInsight de Azure, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
 
 La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para obtener información acerca de cómo administrar clústeres para Linux, haga clic en el selector de pestañas anterior.
 
@@ -48,7 +48,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 	Si **HDInsight** no aparece en el menú de la izquierda, haga clic en **Examinar**.
 
-	![Portal de Azure botón Examinar clúster](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
+	![Botón Examinar clúster de Azure Portal](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ##Creación de clústeres
 
@@ -86,8 +86,8 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	- **Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 	
 		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
-	- **Etiquetas (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png))**: las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
-	- **Vistas de Ambari**: Se trata de vínculos a Web de Ambari.
+	- **Etiquetas** (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	- **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 	
 	> [AZURE.IMPORTANT] Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -122,7 +122,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	- **Sistema operativo**: **Windows** o **Linux**.
 	- **Tipo**: Hadoop, HBase, Storm, Spark.
 	- **Versión**. Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).
-	- **Suscripción**: Nombre de la suscripción.
+	- **Suscripción**: nombre de la suscripción.
 	- **Id. de suscripción**.
 	- **Origen de datos principal**. Cuenta de almacenamiento de blobs de Azure usada como sistema de archivos predeterminado de Hadoop.
 	- **Plan de tarifa de los nodos de trabajo**.
@@ -195,7 +195,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ##Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. 
 También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
@@ -251,12 +251,12 @@ De manera predeterminada, estos servicios se conceden para el acceso. Puede revo
 
 ##Búsqueda de la cuenta de almacenamiento predeterminada
 
-Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster están en **Configuración**/**Propiedades**/**Claves de almacenamiento de Azure**. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster aparecen en **Configuración**/**Propiedades**/**Claves de almacenamiento de Azure**. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 	
 ##Búsqueda del grupo de recursos 
 
-En el modo ARM, cada clúster de HDInsight se crea con un grupo de recursos de Azure. El grupo de recursos de Azure al que pertenece un clúster aparece en:
+En el modo de Azure Resource Manager, cada clúster de HDInsight se crea con un grupo de recursos de Azure. El grupo de recursos de Azure al que pertenece un clúster aparece en:
 
 - La lista de clústeres tiene una columna **Grupo de recursos**.
 - Icono **Esencial** del clúster.
@@ -276,7 +276,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
 	![portal de hdinsight historial de trabajos](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
+	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo**. También puede descargar la consulta y la salida a la estación de trabajo.
 
 - **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
@@ -288,7 +288,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
 	![portal de hdinsight UI de Hadoop](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	En **IU de Hadoop* puede examinar los archivos y comprobar los registros.
+	En *IU de Hadoop* puede examinar los archivos y comprobar los registros.
 
 - **UI de Yarn**.
 
@@ -312,7 +312,7 @@ También puede usar la utilidad **Examinar el sistema de archivos** de la **UI d
 
 ##Supervisión del uso de los clústeres
 
-La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles para la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y la forma en que se asignan a los nodos del clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 > [AZURE.IMPORTANT] Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, vea [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -384,4 +384,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

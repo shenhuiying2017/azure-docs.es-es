@@ -1,6 +1,6 @@
-<properties 
+<properties
    pageTitle="Crear un equilibrador de carga orientado a Internet en el administrador de recursos mediante una plantilla | Microsoft Azure"
-   description="Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos mediante una plantilla ARM"
+   description="Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el Administrador de recursos mediante una plantilla"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
    ms.date="02/09/2016"
    ms.author="sewhee" />
 
-# Introducción a la creación de un equilibrador de carga orientado a Internet con una plantilla de ARM
+# Introducción a la creación de un equilibrador de carga orientado a Internet con una plantilla
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -28,13 +28,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Implementar la plantilla ARM por medio de un solo clic para implementar
+## Implementar la plantilla por medio de un solo clic para implementar
 
 La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](http://go.microsoft.com/fwlink/?LinkId=544801), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
-## Implementar la plantilla ARM mediante PowerShell
+## Implementación de la plantilla mediante PowerShell
 
-Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
+Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
@@ -42,9 +42,9 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 		New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
 
-## Implementar la plantilla ARM mediante la CLI de Azure
+## Implementación la plantilla ARM mediante la CLI de Azure
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
@@ -70,4 +70,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

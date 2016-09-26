@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -200,7 +200,7 @@ Puede realizar una serie de operaciones con las herramientas de HDInsight.
 
 	![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-5.png)
 
-4. Haga clic en el nombre del contenedor de almacenamiento asociado con el clúster. En el panel derecho, debería ver una carpeta llamada **HVACOut**. Haga doble clic para abrir la carpeta y verá archivos **part-***. Abra uno de esos archivos para ver el resultado de la aplicación.
+4. Haga clic en el nombre del contenedor de almacenamiento asociado con el clúster. En el panel derecho, debería ver una carpeta llamada "**HVACOut**". Haga doble clic para abrir la carpeta y verá archivos **part-***. Abra uno de esos archivos para ver el resultado de la aplicación.
 
 ### Acceso al servidor de historial de Spark
 
@@ -294,4 +294,4 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 * [Realización de seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

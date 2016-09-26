@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/23/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
    
 # Azure SQL Database Secures and Protects (Seguridad y protección de Base de datos SQL de Azure)
@@ -47,7 +47,7 @@ Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL.
 
 ## Pasos siguientes
 
-Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera base de datos SQL de Azure](sql-database-get-started.md).
 
 ## Recursos adicionales
 
@@ -55,4 +55,4 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

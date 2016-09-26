@@ -4,7 +4,7 @@ description="Obtenga información sobre cómo usar la vista de Tez de Ambari par
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -141,4 +141,4 @@ Para obtener información técnica más detallada sobre Tez, consulte la [págin
 
 Para obtener más información sobre el uso de Ambari con HDInsight, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->
