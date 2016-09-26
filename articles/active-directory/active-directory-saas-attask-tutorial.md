@@ -19,7 +19,8 @@
 
 # Tutorial: Integración de Azure Active Directory con @Task
 
-El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Directory (Azure AD). Integrar @Task con Azure AD proporciona las siguientes ventajas:
+El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Directory (Azure AD).  
+Integrar @Task con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a @Task.
 - Puede permitir que los usuarios inicien sesión automáticamente en @Task (inicio de sesión único) con sus cuentas de Azure AD.
@@ -45,7 +46,8 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
  
 ## Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
+El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
 1. Adición de @Task desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -273,7 +275,8 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesión automáticamente en su aplicación @Task.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
+Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesión automáticamente en su aplicación @Task.
 
 
 ## Recursos adicionales
