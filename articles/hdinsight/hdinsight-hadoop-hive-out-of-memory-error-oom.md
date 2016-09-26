@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="rashimg"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -122,4 +122,4 @@ Basada en estos valores, la consulta se ejecutó correctamente en menos de diez 
 
 Recibir un error de memoria insuficiente no significa necesariamente que el tamaño del contenedor sea demasiado pequeño. En su lugar, debe configurar las opciones de memoria para que aumente el tamaño del montón y sea de al menos el 80% del tamaño de memoria del contenedor.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

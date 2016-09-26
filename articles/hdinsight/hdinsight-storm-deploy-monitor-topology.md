@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -129,7 +129,7 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
 
 1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y seleccione **Enviar a Storm en HDInsight**.
 
-	> [AZURE.NOTE] Si se le solicita, escriba las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
+	> [AZURE.NOTE] Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
 2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, después, seleccione **Enviar**. Puede supervisar si el envío es correcto mediante la ventana **Salida**.
 
@@ -181,4 +181,4 @@ Para obtener una lista con más topologías de ejemplo, consulte [Topologías de
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

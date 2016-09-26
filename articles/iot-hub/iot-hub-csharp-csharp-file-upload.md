@@ -138,7 +138,7 @@ En esta sección, se escribe una aplicación de consola de Windows que recibe me
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1. Desde Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples**, después, elija la acción **Iniciar** para **ReadFileUploadNotification** y **SimulatedDevice**.
 
@@ -151,7 +151,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos del Centro de IoT para simplificar la carga de archivos desde los dispositivos. Puede explorar las características del Centro de IoT y distintos escenarios con los siguientes artículos:
 
-- [Create an IoT hub programatically (Crear un Centro de IoT mediante programación)][lnk-create-hub]
+- [Creación de un Centro de IoT con Powershell][lnk-create-hub]
 - [Introducción a C SDK][lnk-c-sdk]
 - [SDK de Centro de IoT][lnk-sdks]
 
@@ -197,4 +197,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

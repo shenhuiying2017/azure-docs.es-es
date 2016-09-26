@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure
@@ -31,4 +31,4 @@
 ## Para crear una copia de una base de datos para su uso fuera de Azure
 - [Exportación de un archivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

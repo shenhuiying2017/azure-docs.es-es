@@ -48,8 +48,7 @@ Puede encontrar las suscripciones disponibles mediante el siguiente comando.
 
 Establezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] El registro es un paso que solo se realiza una vez, pero debe hacerlo antes de intentar la migración. Si no se registra, recibirá el siguiente mensaje de error:
 
@@ -73,8 +72,7 @@ Puede encontrar las suscripciones disponibles mediante el siguiente comando.
 
 Establezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Paso 4: Verificación para garantizar que dispone de suficientes núcleos de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
 
@@ -189,4 +187,4 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

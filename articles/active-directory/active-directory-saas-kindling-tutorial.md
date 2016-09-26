@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,9 +21,9 @@
 
 El objetivo de este tutorial es mostrar cómo integrar Kindling con Azure Active Directory (Azure AD). La integración de Kindling con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Kindling. 
+- Puede controlar en Azure AD quién tiene acceso a Kindling.
 - Puede permitir que los usuarios inicien sesión automáticamente en Kindling (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico. 
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -42,13 +42,13 @@ Para configurar la integración de Azure AD con Kindling, necesita los siguiente
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Kindling desde la galería 
+1. Incorporación de Kindling desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
@@ -98,7 +98,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Kindling, e
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Kindling. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Kindling. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 Para configurar el inicio de sesión único para Kindling, se necesita un dominio registrado. Si aún no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico de Kindling enviando un mensaje de correo electrónico a [support@flatterfiles.com](mailto:support@kindlingapp.com).
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único para Kindling, se necesita un domini
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 
@@ -144,8 +144,8 @@ Para configurar el inicio de sesión único para Kindling, se necesita un domini
 
 	- El certificado descargado
 	- El valor de la **URL del emisor** que se asigna al **identificador de entidad** de Kindling
-	- La **dirección URL del servicio de inicio de sesión único** que se asigna a la **URL de inicio de sesión único** de Kindling 
-	- La **dirección URL del servicio de cierre de sesión único** que se asigna a la **URL de cierre de sesión único** de Kindling 
+	- La **dirección URL del servicio de inicio de sesión único** que se asigna a la **URL de inicio de sesión único** de Kindling
+	- La **dirección URL del servicio de cierre de sesión único** que se asigna a la **URL de cierre de sesión único** de Kindling
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
@@ -175,11 +175,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png)
  
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png)
 
@@ -187,9 +187,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png)
  
@@ -281,4 +281,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

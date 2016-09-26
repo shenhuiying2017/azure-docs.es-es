@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -40,4 +40,4 @@ Durante la carga, verá un mensaje que le indica que se está cargando el archiv
 
 Una vez que los datos estén cargados, se almacenan en un módulo de conjunto de datos y se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo. Puede encontrar la base de datos, junto con todos los conjuntos de datos de muestra cargados previamente, en la lista de **conjuntos de datos guardados** en la paleta de módulos cuando edita un experimento. Puede arrastrar y colocar el conjunto de datos en el lienzo de experimento cuando desee usarlo para profundizar en su análisis o para el aprendizaje automático.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

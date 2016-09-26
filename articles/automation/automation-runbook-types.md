@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Tipos de runbooks de Automatización de Azure
@@ -20,7 +20,7 @@
 Automatización de Azure admite cuatro tipos de runbooks que se describen brevemente en la tabla siguiente. Las secciones siguientes proporcionan información adicional sobre cada tipo, incluidas consideraciones sobre cuándo usar cada uno.
 
 
-| Escriba | Descripción |
+| Tipo | Description |
 |:---|:---|
 | [Gráfico](#graphical-runbooks) | Basado en Windows PowerShell y creado y editado completamente en el editor gráfico del Portal de Azure. | 
 | [Flujo de trabajo gráfico de PowerShell](#graphical-runbooks) | Basado en el flujo de trabajo de Windows PowerShell y creado y editado completamente en el editor gráfico del Portal de Azure. 
@@ -104,4 +104,4 @@ Se deben tener en cuenta las siguientes consideraciones adicionales al determina
 - Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md).
 - Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](automation-creating-importing-runbook.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

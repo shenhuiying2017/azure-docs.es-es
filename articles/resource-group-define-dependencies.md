@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/23/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Definición de dependencias en plantillas del Administrador de recursos de Azure
@@ -24,9 +24,9 @@ Administrador de recursos evalúa las dependencias entre recursos y los implemen
 
 ## dependsOn
 
-Dentro de la plantilla, el elemento dependsOn ofrece la posibilidad de definir un recurso como dependiente de uno o más recursos. Su valor puede ser una lista de nombres de recursos separados por coma.
+Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor puede ser una lista de nombres de recursos separados por coma.
 
-En el ejemplo siguiente se muestra un conjunto de escalado de máquina virtual que depende de un equilibrador de carga, una red virtual y un bucle que crea varias cuentas de almacenamiento. Esos otros recursos no aparecen a continuación, pero tienen que existir en otra ubicación de la plantilla.
+En el ejemplo siguiente se muestra un conjunto de escalado de máquinas virtuales que depende de un equilibrador de carga, una red virtual y un bucle que crea varias cuentas de almacenamiento. Esos otros recursos no aparecen a continuación, pero tendrían que existir en otra ubicación de la plantilla.
 
     {
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -44,9 +44,9 @@ En el ejemplo siguiente se muestra un conjunto de escalado de máquina virtual q
       ...
     }
 
-Si necesita definir una dependencia entre un recurso y recursos creados a través de un bucle de copia (como se muestra arriba), puede establecer el elemento dependsOn en el nombre del bucle. Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
+Para definir una dependencia entre un recurso y otros que se crean a través de un bucle copy, puede establecer el elemento dependsOn en el nombre del bucle. Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
 
-Si bien puede que se sienta tentado a usar dependsOn para asignar dependencias entre los recursos, es importante comprender por qué lo hace ya que puede afectar al rendimiento de la implementación. Por ejemplo, si lo hace porque desea documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. El ciclo de vida de dependsOn es solo para la implementación y no está disponible para después de esta. Después de la implementación, no hay ninguna manera de consultar estas dependencias. Con el uso de dependsOn corre el riesgo de que el rendimiento sea vea afectado e impedir sin darse cuenta que el motor de implementación use los paralelismos que podrían haber. Para documentar y proporcionar capacidad de consulta sobre las relaciones entre los recursos, debe usar la [vinculación de recursos](resource-group-link-resources.md).
+Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace ya que puede afectar al rendimiento de la implementación. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia. Para documentar las relaciones entre los recursos, utilice en su lugar la [vinculación de recursos](resource-group-link-resources.md).
 
 ## Recursos secundarios
 
@@ -95,11 +95,11 @@ En el ejemplo siguiente se muestran un servidor SQL y una base de datos SQL. Obs
 
 ## función reference
 
-La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, si no se especifica, la referencia es al recurso.
+La [función reference](resource-group-template-functions.md#reference) permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro.
 
     reference('resourceName').propertyPath
 
-Puede usar este elemento o el elemento dependsOn para especificar las dependencias, pero no es necesario usar ambos para el mismo recurso dependiente. Lo aconsejable es usar la referencia implícita para evitar el riesgo de tener por accidente un elemento dependsOn innecesario que impida que el motor de implementación realice aspectos de la implementación en paralelo.
+Puede usar este elemento o el elemento dependsOn para especificar las dependencias, pero no es necesario usar ambos para el mismo recurso dependiente. Siempre que sea posible, utilice una referencia implícita para evitar agregar una dependencia innecesaria de forma accidental.
 
 Para más información, consulte [función reference](resource-group-template-functions.md#reference).
 
@@ -108,4 +108,4 @@ Para más información, consulte [función reference](resource-group-template-fu
 - Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

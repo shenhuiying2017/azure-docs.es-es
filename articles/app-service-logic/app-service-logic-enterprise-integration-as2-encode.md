@@ -36,7 +36,7 @@ Conéctese a Encode AS2 Message para garantizar la seguridad y confiabilidad al 
 
 	![buscar AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
-3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión:
+3. Si no ha creado anteriormente ninguna conexión a la cuenta de integración, se le pedirán los detalles de conexión.
 	
 	![crear la conexión con la cuenta de integración](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)
 
@@ -44,10 +44,10 @@ Conéctese a Encode AS2 Message para garantizar la seguridad y confiabilidad al 
 
 	| Propiedad | Detalles |
 	| --------   | ------- |
-	| Nombre de la conexión * | Escriba cualquier nombre para la conexión. |
-	| Cuenta de integración* | Escriba el nombre de cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentran en la misma ubicación de Azure. |
+	| Nombre de la conexión * | Escriba un nombre para la conexión. |
+	| Integration Account (Cuenta de integración)* | Escriba el nombre de la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentran en la misma ubicación de Azure. |
 
-  	Una vez completado, los detalles de la conexión presentan un aspecto similar al siguiente:
+  	Una vez completados, los detalles de la conexión presentan un aspecto similar al siguiente.
 
   	![conexión de integración establecida](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)
 
@@ -66,10 +66,10 @@ Conéctese a Encode AS2 Message para garantizar la seguridad y confiabilidad al 
 
 ##Inténtelo usted mismo
 
-¿Por qué no probarlo? Haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implementar una aplicación lógica totalmente operativa de su propiedad con las características AS2 de Logic Apps.
- 
+¿Por qué no probarlo? Haga clic [aquí](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) para implementar una aplicación lógica totalmente operativa de su propiedad con las características AS2 de las Aplicaciones lógicas.
+
 ## Pasos siguientes
 
 [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

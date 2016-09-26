@@ -15,22 +15,68 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/09/2016"
 	ms.author="genli"/>
 
 # No puedo iniciar sesión para administrar mi suscripción de Azure
 
-> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver rápidamente el problema.
+Este artículo le guía por algunos de los métodos más comunes para resolver problemas de inicio de sesión.
 
-Este artículo le ayudará a solucionar algunas de las causas comunes de los problemas de inicio de sesión.
+> [AZURE.NOTE] Si necesita más ayuda sobre cualquier aspecto de este artículo, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rápidamente el problema.
 
-## ¿A qué portal está intentando obtener acceso?
+## Portales de Azure
 
-Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
+| Nombre | Description | URL |
+|---|---|---|
+| Portal de Azure |Una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. | [https://portal.azure.com](https://portal.azure.com) |
+| Portal de Azure clásico | El portal de Azure antiguo |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
+| Centro de cuentas de Azure | Una ubicación central donde puede realizar un seguimiento de su uso de Azure y administrar su suscripción. |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
 
-Para obtener más información sobre los roles de administrador de Azure, vea [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
+## Síntoma: la página se bloquea en el estado "cargando"
 
-## ¿Está la suscripción asociada a una cuenta de Microsoft o a una cuenta de organización?
+Puede ser debido a un problema que afecta el explorador de Internet.
+
+Para resolver este problema, pruebe los métodos siguientes, en el orden especificado. Después de realizar cada método, intente volver a conectarse a la página de inicio de sesión en el portal.
+
+-	Actualice la página.
+-	Use un explorador de Internet diferente.
+-	Si está usando Microsoft Internet Explorer, vaya a Azure Portal mediante el modo de exploración InPrivate. Para ello, siga estos pasos.
+
+	A. Haga clic en **Herramientas** ![botón herramientas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Seguridad** > **Exploración de InPrivate**.
+
+	B. Vaya a [Azure Portal](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com) e inicie sesión en el portal.
+
+## Síntoma: mensaje de Error "No se han encontrado suscripciones"
+
+Este problema puede producirse si la cuenta no tiene derechos de usuario suficientes. Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso a [Azure Portal](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
+
+**Escenario 1: se recibe un mensaje de error en Azure Portal o en el Portal de Azure clásico**
+
+Para resolver este problema, [agregue el rol de coadministrador o propietario](billing-add-change-azure-subscription-administrator.md) para la cuenta.
+
+**Escenario 2: se recibe un mensaje de error en el Centro de cuentas de Azure**
+
+Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprobar quién es el administrador de cuentas, siga estos pasos:
+
+1.	Inicie sesión en [Azure Portal](https://portal.azure.com).
+2.	En el menú de concentrador, seleccione **Suscripción**.
+3.	Seleccione la suscripción que quiera comprobar y, a continuación, seleccione **Configuración**.
+4.	Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas**.
+
+## Síntoma: inicia sesión automáticamente con un usuario diferente
+
+Este problema puede producirse si usa más de una cuenta de usuario en un explorador de Internet.
+
+Para solucionar este problema, pruebe uno de los métodos siguientes:
+
+- Cierre sesión en el portal y, a continuación, vuelva a iniciarla con la cuenta que quiera usar.
+-	Borre la memoria caché y elimine las cookies de Internet. Para hacer esto en Internet Explorer, haga clic en **Herramientas** ![botón herramientas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opciones de Internet** > **Eliminar**, asegúrese de que las casillas de archivos temporales, cookies, contraseñas e historial de exploración están activadas y, luego, haga clic en Eliminar.
+
+-	Restablezca la configuración de Internet Explorer para revertir la configuración personal que haya realizado. Para ello, haga clic en **Herramientas** ![botón herramientas](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opciones de Internet** > **Avanzadas** > seleccione la casilla **Eliminar configuración personal** > **Restablecer**.
+
+-	Vaya a Azure Portal en modo de exploración InPrivate. Para ello, haga clic en **Herramientas** ![botón herramientas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Seguridad** > **Exploración InPrivate**.
+
+## Cuenta de Microsoft frente a cuenta de organización
 
 Su cuenta de Microsoft es la dirección de correo electrónico que usa, junto con su contraseña para iniciar sesión en cualquier servicio o programa de Windows Live, como Outlook, Hotmail, OneDrive o MSN. Puede configurar una cuenta de Microsoft usando cualquier dirección de correo electrónico que tenga, incluido el correo electrónico de la compañía. Vea [www.microsoft.com/account](http://www.microsoft.com/account) para más detalles.
 
@@ -38,22 +84,6 @@ Si su cuenta está asociada a una cuenta de organización, seleccione la opción
 
 ![página de inicio de sesión](./media/billing-cannot-login-subscription/signin.png)
 
-## Coadministrador: ¿Está usando el tipo de cuenta correcto para administrar otras cuentas?
+> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
-- Si ha iniciado sesión con una cuenta Microsoft, solo puede agregar otras cuentas Microsoft como coadministradores. Este es un requisito de seguridad para evitar que se detecten las cuentas no organizativas si algunas cuentas (por ejemplo, janedoe@contoso.com) son válidas.
-- Si ha iniciado sesión con una cuenta organizativa, puede agregar otras cuentas organizativas de su organización como coadministradores. Por ejemplo, abby@contoso.com puede agregar bob@contoso.com como administrador de servicios o coadministrador, pero no puede agregar john@notcontoso.com. Los usuarios que han iniciado sesión con cuentas organizativas también pueden agregar usuarios de cuentas de Microsoft como coadministradores o administradores de servicios.
-
-Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos son los cambios en los requisitos de la cuenta de administrador de servicios (SA) y coadministrador (CA):
-
-| Método de inicio de sesión| ¿Agregar una cuenta Microsoft como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de la misma organización como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de una organización diferente como coadministrador o administrador de servicios?
-| ------------- | ------------- |---------------|---------------|
-|Cuenta Microsoft |Sí|No|No|
-|Cuenta de organización|Sí|Sí|No|
-
-## ¿Hay un problema con el Explorador de Internet?
-
-Trate de eliminar caché o cookies usando el modo de exploración de InPrivate de Internet Explorer y también mediante otro explorador.
-
-> [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver el problema rápidamente.
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

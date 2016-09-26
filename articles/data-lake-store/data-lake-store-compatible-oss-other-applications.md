@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -41,4 +41,4 @@ En este artículo se enumeran las aplicaciones Big Data de código abierto que f
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

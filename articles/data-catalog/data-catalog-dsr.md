@@ -3,8 +3,8 @@
    description="Especificación de los orígenes de datos compatibles actualmente."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
+   ms.date="09/13/2016"
    ms.author="trhabe"/>
 
 # Orígenes de datos compatibles con el Catálogo de datos de Azure
 
-Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante una API pública, una herramienta de registro con un solo clic o la especificación manual de información directamente en el portal web del Catálogo de datos. En la siguiente cuadrícula se resumen todos los orígenes que admite el catálogo actualmente y las funcionalidades de publicación de cada uno de ellos. También se enumeran las herramientas de datos externos que cada origen puede iniciar desde nuestra experiencia "abierta" del portal. A continuación encontrará una segunda cuadrícula que tiene una especificación más técnica de las propiedades de conexión de los orígenes de datos.
+Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante una API pública, una herramienta de registro con un solo clic o la especificación manual de información directamente en el portal web del Catálogo de datos. En la siguiente cuadrícula se resumen todos los orígenes que admite el catálogo actualmente y las funcionalidades de publicación de cada uno de ellos. También se enumeran las herramientas de datos externos que cada origen puede iniciar desde nuestra experiencia "abierta" del portal. La segunda cuadrícula del artículo tiene una especificación más técnica de las propiedades de conexión de los orígenes de datos.
 
 
 ## Lista de orígenes de datos que se admiten
@@ -73,8 +73,8 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     <tr>
       <td>Tabla de almacenamiento de Azure</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -409,12 +409,12 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
 
 </table>
 
-Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de característica mediante el [foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de característica mediante el [foro de Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 <br> <br>
 ## Especificación de referencia de origen de datos
-> [AZURE.NOTE] La columna "Estructura de DSL" de la tabla siguiente enumera solo las propiedades de conexión para el contenedor de propiedades "address" que utiliza el Catálogo de datos de Azure (es decir, el contenedor de propiedades "address" puede contener otras propiedades de conexión del origen de datos que persiste en el Catálogo de datos de Azure, pero que no usa).
+> [AZURE.NOTE] La columna Estructura de DSL de la tabla siguiente enumera solo las propiedades de conexión para el contenedor de propiedades address que utiliza Azure Data Catalog (es decir, el contenedor de propiedades address puede contener otras propiedades de conexión del origen de datos que persiste en Azure Data Catalog, pero que no usa).
 <table>
     <tr>
        <td><b>Tipo de origen</b></td>
@@ -795,6 +795,17 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Tabla</td>
+      <td>Mashup de datos</td>
+      <td>
+        Protocolo <font size=2>: power-query
+            <br>authentication: {oauth}
+            <br>dirección:
+            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Tabla</td>
       <td>Objeto</td>
@@ -858,6 +869,20 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
     </tr>
     <tr>
       <td>Almacenamiento de datos SQL</td>
+      <td>TableValuedFunction</td>
+      <td>Función con valores de tabla</td>
+      <td>
+        <font size=2> protocolo: tds
+            <br>autenticación: {protocolo, windows}
+            <br>dirección:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; objeto </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Almacenamiento de datos SQL</td>
       <td>Contenedor</td>
       <td>Base de datos</td>
       <td>
@@ -898,6 +923,20 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Función con valores de tabla</td>
+      <td>
+        <font size=2> protocolo: tds
+            <br>autenticación: {protocolo, windows}
+            <br>dirección:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; objeto </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>Contenedor</td>
       <td>Base de datos</td>
       <td>
@@ -911,7 +950,7 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
     <tr>
       <td>SQL Server</td>
       <td>Tabla</td>
-      <td>Tabla, vista, función con valores de tabla</td>
+      <td>Tabla, vista</td>
       <td>
         <font size=2> protocolo: tds
             <br>autenticación: {protocolo, windows}
@@ -1127,4 +1166,4 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

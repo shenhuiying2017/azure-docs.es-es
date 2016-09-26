@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -115,4 +115,4 @@ Con esta acción se elimina la escala automática del rol y podrá establecer el
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

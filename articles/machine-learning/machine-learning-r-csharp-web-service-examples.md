@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -74,4 +74,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

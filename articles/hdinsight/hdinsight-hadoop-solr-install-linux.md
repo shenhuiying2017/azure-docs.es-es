@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -19,7 +19,7 @@
 
 # Instalación y uso de Solr en clústeres de Hadoop de HDInsight
 
-En este tema aprenderá a instalar Solr Azure HDInsight con la acción de script. Solr es una eficaz plataforma de búsqueda eficaz y proporciona capacidades de búsqueda de nivel empresarial en datos administrados por Hadoop. Una vez que haya instalado Solr en un clúster de HDInsight, también aprenderá a buscar datos mediante Solr.
+En este tema aprenderá a instalar Solr en HDInsight de Azure con la acción de script. Solr es una eficaz plataforma de búsqueda eficaz y proporciona capacidades de búsqueda de nivel empresarial en datos administrados por Hadoop. Una vez que haya instalado Solr en un clúster de HDInsight, también aprenderá a buscar datos mediante Solr.
 
 > [AZURE.NOTE] Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de Solr con un clúster basado en Windows, vea [Instalación y uso de Solr en clústeres Hadoop de HDinsight (Windows)](hdinsight-hadoop-solr-install.md)
 
@@ -106,7 +106,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Esto emite una consulta a __collection1__ sobre cualquier documento coincidente __\*:\*__ (codificado como \*%3A\* en la cadena de consulta) y la respuesta se debe devolver como JSON. Los resultados deberían parecerse a los siguientes:
+	Esto emite una consulta a __collection1__ sobre cualquier documento coincidente __*: *__ (codificado como * %3A * en la cadena de consulta) y la respuesta se debe devolver como JSON. Los resultados deberían parecerse a los siguientes:
 
 			"response": {
 			    "numFound": 2,
@@ -184,7 +184,7 @@ Una vez establecido un túnel SSH, siga estos pasos para usar el panel de Solr:
 
 3. En las entradas que aparecen en __collection1__, seleccione __Consulta__. Use los siguientes valores para rellenar la página de búsqueda:
 
-	* En el cuadro de texto **q**, escriba **\*:**\*. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
+	* En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
 
 	* En el cuadro de texto **wt**, seleccione el formato de salida. El valor predeterminado es **json**.
 
@@ -296,19 +296,19 @@ Se recomienda que cree una copia de seguridad de los datos indexados desde los n
 Para obtener más información sobre cómo trabajar con copia de seguridad y restauraciones de Solr, consulte [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores) (Realización y restauración de copias de seguridad de SolrCores).
 
 
-## Consulte también
+## Otras referencias
 
 - [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Hue es una interfaz de usuario web que simplifica la creación, la ejecución y el guardado de trabajos de Pig y Hive, así como el examen del almacenamiento predeterminado de su clúster de HDInsight.
 
 - [Instalación de R en clústeres de HDInsight][hdinsight-install-r]. Use la personalización del clúster para instalar R en clústeres de Hadoop para HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
 
-- [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop y se puede usar con HDInsight de Azure.
+- [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure.
 
-- [Instalación de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Use la personalización del clúster para instalar Hue en clústeres de Hadoop para HDInsight. Hue es un conjunto de aplicaciones web que usan para interactuar con un clúster de Hadoop.
+- [Instalación de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Use la personalización del clúster para instalar Hue en clústeres de Hadoop para HDInsight. Hue es un conjunto de aplicaciones web que se usan para interactuar con un clúster de Hadoop.
 
 
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

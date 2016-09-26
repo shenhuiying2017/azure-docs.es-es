@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -121,4 +121,4 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

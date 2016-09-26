@@ -4,7 +4,7 @@ description="Obtener información acerca de cómo usar firmas de acceso comparti
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -290,4 +290,4 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

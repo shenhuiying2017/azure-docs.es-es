@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/30/2016"
+   ms.date="09/12/2016"
    ms.author="hermannd"/>
 
 # Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
@@ -125,9 +125,16 @@ Para más información sobre la CLI y Azure Resource Manager, consulte [Uso de l
 
 Para la certificación oficial SAP-Azure se introdujo un nuevo mecanismo para calcular la clave de hardware de SAP, que se usa para la licencia SAP. Había que adaptar el núcleo SAP para usarlo. Las versiones anteriores de kernel de SAP para Linux no incluían este cambio en el código. Por lo tanto, en determinadas situaciones (por ejemplo, el cambio de tamaño de la máquina virtual de Azure), es posible que los cambios en la clave de hardware de SAP y en la licencia de SAP ya no fueran válidos. Esto se soluciona en los kernels de Linux de SAP más recientes. Para más información, consulte la nota de SAP 1928533.
 
-## Paquete sapconf de SUSE
+## Paquete sapconf de SUSE/tuned-adm
 
 SUSE ofrece un paquete denominado "sapconf" que administra un conjunto de opciones específicas de SAP. Para más información sobre lo que hace este paquete y cómo instalarlo y usarlo, consulte [Using sapconf to prepare a SUSE Linux Enterprise Server to run SAP systems](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) (Uso de sapconf a fin de preparar SUSE Linux Enterprise Server para ejecutar sistemas SAP) y [What is sapconf or how to prepare a SUSE Linux Enterprise Server for running SAP systems?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems) (¿Qué es sapconf o cómo preparar SUSE Linux Enterprise Server para ejecutar sistemas SAP?).
+
+Mientras tanto, hay una herramienta nueva que reemplaza a sapconf - tuned-adm. Puede encontrar más detalles acerca de esta herramienta en los dos vínculos siguientes.
+
+La documentación de SLES sobre tuned-adm y el perfil de SAP Hana se encuentra [aquí](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html).
+
+Puede encontrar información sobre el ajuste de sistemas para cargas de trabajo SAP con tuned-adm [aquí](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) (capítulo 6.2).
+
 
 ## Recursos compartidos de NFS en instalaciones de SAP distribuidas
 
@@ -166,4 +173,4 @@ Si desea usar el escritorio Gnome para instalar un sistema completo de demostrac
 
 Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Aunque no es un tema específico de Azure, es importante comprenderlo. SAP no admite Oracle en SUSE ni en Red Hat en una nube pública como Azure. Para tratar este tema, póngase en contacto con Oracle directamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

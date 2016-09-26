@@ -1,6 +1,6 @@
 <properties
    pageTitle="Información general sobre seguridad de Almacenamiento de Azure | Microsoft Azure"
-   description="Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Almacenamiento de Azure."
+   description=" Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Almacenamiento de Azure. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Información general sobre seguridad de Almacenamiento de Azure
@@ -27,9 +27,9 @@ Almacenamiento de Azure es la solución de almacenamiento en la nube para las ap
 - Se puede conceder acceso delegado a los objetos de datos de Almacenamiento de Azure mediante las Firmas de acceso compartido.
 - El método de autenticación usado por alguien cuando accede a Almacenamiento puede seguirse mediante el análisis de almacenamiento.
 
-Para más información sobre la seguridad en Almacenamiento de Azure, consulte la [Guía de seguridad de Almacenamiento de Azure](../storage/storage-security-guide.md). Esta guía proporciona una profundización en las características de seguridad de Almacenamiento de Azure, como las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
+Para obtener más información sobre la seguridad en Azure Storage, consulte la [guía de seguridad de Azure Storage](../storage/storage-security-guide.md). Esta guía proporciona una profundización en las características de seguridad de Almacenamiento de Azure, como las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
 
-Este artículo ofrece una visión general de las características de seguridad de Azure que se pueden usar con Almacenamiento de Azure. Además, se incluyen vínculos a artículos que ofrecen detalles de cada característica para que pueda tener más información al respecto.
+Este artículo ofrece una visión general de las características de seguridad de Azure que se pueden usar con Azure Storage. Además, se incluyen vínculos a artículos que ofrecen detalles de cada característica para que pueda tener más información al respecto.
 
 Estas son las características principales que se tratan en este artículo:
 
@@ -42,7 +42,7 @@ Estas son las características principales que se tratan en este artículo:
 
 ## Control de acceso basado en rol (RBAC)
 
-Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../active-directory/role-based-access-built-in-roles.md), tales como el de Colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios.
+Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../active-directory/role-based-access-built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios.
 
 Más información:
 
@@ -71,7 +71,7 @@ Más información acerca del cifrado de cliente:
 
 ## Cifrado en reposo
 
-Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento con las normas y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
+Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
 - [Cifrado del servicio de almacenamiento](../storage/storage-security-guide.md#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure.
 - [Cifrado de cliente](../storage/storage-security-guide.md#client-side-encryption) también proporciona la característica de cifrado en reposo.
@@ -94,11 +94,11 @@ Más información:
 
 ## Almacén de claves de Azure
 
-Cifrado de discos de Azure usa [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en Almacenamiento de Azure. Debe usar el Almacén de claves de Azure para auditar el uso de la directiva y las claves.
+Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ayudarlo a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en Azure Storage. Debe usar el Almacén de claves de Azure para auditar el uso de la directiva y las claves.
 
 Más información:
 
 - [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 - [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

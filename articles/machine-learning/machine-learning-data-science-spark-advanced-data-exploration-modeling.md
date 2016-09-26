@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -49,7 +49,7 @@ Se muestran ejemplos donde se usan la VC y el barrido de hiperparámetros para e
 
 ## Requisitos previos
 
-Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Información general sobre la ciencia de los datos con Spark en HDInsight de Azure) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un Notebook de Jupyter en el clúster de Spark. El Notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Información general sobre la ciencia de los datos con Spark en HDInsight de Azure) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un Notebook de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -1464,7 +1464,7 @@ Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo.** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
+**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1494,6 +1494,6 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, está listo para aprender a puntuar y evaluar estos modelos.
 
-**Consumo de modelos:** Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md).
+**Consumo de modelos**: Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

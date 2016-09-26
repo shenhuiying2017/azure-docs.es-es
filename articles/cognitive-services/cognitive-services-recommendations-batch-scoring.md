@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -198,4 +198,4 @@ El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abrevi
 -	Solo se puede llamar a un único trabajo por lotes por cada suscripción.
 -	El tamaño de los archivos de entrada del trabajo por lotes no puede ser superior a 2 MB.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

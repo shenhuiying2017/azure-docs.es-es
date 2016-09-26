@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@ Le recomendamos que la mayoría de los artículos tengan 20 transacciones o más
 
 Una vez haya creado un modelo, puede realizar una [evaluación sin conexión](cognitive-services-recommendations-buildtypes.md) para comprobar las probabilidades que hay de que el modelo funcione correctamente.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

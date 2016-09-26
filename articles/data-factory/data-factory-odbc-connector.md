@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde almacenes de datos ODBC mediante Factoría de datos de Azure
 En este artículo se describe cómo se puede usar la actividad de copia en Factoría de datos de Azure para mover datos de un almacén de datos ODBC local a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
-En la actualidad, Factoría de datos solo admite el movimiento de datos desde un almacén de datos ODBC local a otros almacenes de datos, pero no el movimiento inverso.
+Data Factory solo admite actualmente el movimiento de datos desde un almacén de datos ODBC local a otros almacenes de datos. No admite el traslado de datos desde otros almacenes de datos a un almacén de datos ODBC local.
 
 
 ## Habilitación de la conectividad
-El servicio Factoría de datos admite la conexión a orígenes ODBC locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. Es preciso que sacar provecho de la puerta de enlace para conectar con un almacén de datos ODBC, aunque esté hospedado en una máquina virtual de IaaS de Azure.
+El servicio Factoría de datos admite la conexión a orígenes ODBC locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. Use la puerta de enlace para conectar con un almacén de datos ODBC, incluso si está hospedado en una máquina virtual de IaaS de Azure.
 
-Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máquina virtual de Azure como el almacén de datos ODBC, se recomienda instalar la puerta de enlace en una máquina independiente o una máquina virtual de IaaS de Azure independiente para evitar la contención de recursos y para mejorar el rendimiento. Al instalar la puerta de enlace en una máquina independiente, la máquina debería poder acceder a la máquina con el almacén de datos ODBC.
+Puede instalar la puerta de enlace en el mismo equipo local o en la máquina virtual de Azure como almacén de datos ODBC. Sin embargo, se recomienda que instale la puerta de enlace en un equipo o máquina virtual IaaS de Azure independiente para evitar la contención de recursos y mejorar el rendimiento. Al instalar la puerta de enlace en una máquina independiente, la máquina debería poder acceder a la máquina con el almacén de datos ODBC.
 
 Aparte de Data Management Gateway, también debe instalar el controlador ODBC para el almacén de datos en la máquina de puerta de enlace.
 
@@ -51,7 +51,7 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 
 El ejemplo copia los datos del resultado de una consulta en un almacén de datos ODBC en un blob cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
+En primer lugar, configure la puerta de enlace de administración de datos. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servicio vinculado de ODBC** En este ejemplo se usa la autenticación básica. Consulte la sección [Propiedades del servicio vinculado de ODBC](#odbc-linked-service-properties) para conocer los diferentes tipos de autenticación que se pueden usar.
 
@@ -87,7 +87,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 
 El ejemplo asume que ha creado una tabla, "MyTable", en una base de datos ODBC y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
 
-Si se establece "external": "true" y se especifica la directiva externalData, se informa al servicio Factoría de datos que la tabla es externa a la factoría de datos y que no se producen por ninguna actividad de la factoría de datos
+Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 	
 	{
 	    "name": "ODBCDataSet",
@@ -175,7 +175,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 	
 	{
 	    "name": "CopyODBCToBlob",
@@ -230,8 +230,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- | 
 | type | La propiedad type tiene que establecerse en: **OnPremisesOdbc** | Sí |
-| connectionString | La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea los ejemplos siguientes. | Sí
-| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador, por ejemplo “Uid=<id. de usuario>;Pwd=<contraseña>;RefreshToken=<token de actualización secreto>;”. | No
+| connectionString | La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea ejemplos en las secciones siguientes. | Sí
+| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". | No
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anonymous y Basic. | Sí | 
 | nombre de usuario | Especifique el nombre de usuario si usa la autenticación básica. | No | 
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No | 
@@ -297,21 +297,21 @@ Las credenciales se pueden cifrar mediante el cmdlet [New-AzureRMDataFactoryEncr
 
 ## Propiedades del tipo de conjunto de datos ODBC
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **RelationalTable** (que incluye el conjunto de datos ODBC) tiene las propiedades siguientes:
 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
-| tableName | Nombre de la tabla del almacén de datos ODBC a la que hace referencia el servicio vinculado. | Sí | 
+| tableName | Nombre de la tabla en el almacén de datos ODBC. | Sí | 
 
 ## Propiedades de tipo de actividad de copia de ODBC
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En el caso de la actividad de copia, si el origen es del tipo **RelationalSource** (que incluye ODBC), las propiedades siguientes están disponibles en la sección typeProperties:
+En la actividad de copia, si el origen es del tipo **RelationalSource** (que incluye ODBC), las propiedades siguientes están disponibles en la sección typeProperties:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -352,14 +352,14 @@ Cree un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy H
 	    }
 	}
 
-Debe instalar Data Management Gateway en un equipo local y registrar la puerta de enlace con el portal. La puerta de enlace instalada en su equipo local utiliza el controlador ODBC para que GE Historian se conecte al almacén de datos GE Historian, de modo que instale el controlador si aún no está instalado en el equipo de la puerta de enlace. Consulte la sección [Habilitación de la conectividad](#enabling-connectivity) para más información.
+Debe instalar Data Management Gateway en un equipo local y registrar la puerta de enlace con el portal. La puerta de enlace instalada en su equipo local utiliza el controlador ODBC para que GE Historian se conecte al almacén de datos GE Historian. Por lo tanto, instale el controlador si no está instalado aún en el equipo de puerta de enlace. Consulte la sección [Habilitación de la conectividad](#enabling-connectivity) para más información.
 
 Antes de usar el almacén GE Historian en una solución de Data Factory, compruebe si la puerta de enlace puede conectarse al almacén de datos mediante instrucciones en la sección siguiente.
 
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen en una operación de copia.
 
 ## Solución de problemas de conectividad
-Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
+Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway ** para solucionar problemas de conexión.
 
 1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 
@@ -368,10 +368,10 @@ Use la pestaña **Diagnósticos** del **Administrador de configuración de Data 
 
 	![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Seleccione el **tipo** de almacén de datos (el servicio vinculado).
-4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** para conectarse al almacén de datos.
+4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
 5. Haga clic en **Prueba de conexión** para probar la conexión con el almacén de datos.
 
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

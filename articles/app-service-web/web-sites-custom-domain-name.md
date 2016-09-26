@@ -154,7 +154,7 @@ El registro TXT adicional adopta la convención que asigna desde &lt;*subdomain*
 <a name="cname"></a>
 ### Creación de un registro CNAME
 
-Si usa un registro CNAME para asignar al nombre de dominio predeterminado de su aplicación de Azure, no es necesario un registro CNAME adicional, que sí necesitaría con un registro A.
+Si usa un registro CNAME para asignar al nombre de dominio predeterminado de su aplicación de Azure, no es necesario un registro TXT adicional, que sí necesitaría con un registro A.
 
 >[AZURE.IMPORTANT] No cree un registro CNAME para el dominio raíz (es decir, el "registro raíz"). Para más información, consulte [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain) (Por qué no se puede usar un registro CNAME en el dominio raíz). Para asignar un dominio raíz a la aplicación de Azure, utilice en su lugar un [registro A](#a).
 
@@ -249,4 +249,4 @@ Aprenda a proteger su nombre de dominio personalizado con HTTPS [comprando un ce
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

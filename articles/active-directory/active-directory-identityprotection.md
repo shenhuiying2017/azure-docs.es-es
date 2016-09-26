@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/11/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -22,11 +22,6 @@
 Azure Active Directory Identity Protection es un servicio de seguridad que proporciona una vista consolidada de eventos de riesgo y puntos vulnerables que afectan a las identidades de su organización. Microsoft ha estado protegiendo identidades basadas en la nube durante más de una década, y con Azure AD Identity Protection, Microsoft proporciona estos mismos sistemas de protección a los clientes de empresa. Identity Protection aprovecha las funciones de detección de anomalías existentes de Azure AD (disponibles mediante informes de actividad anómala de Azure AD) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
 
 ## Limitaciones de la versión preliminar actual
-En esta sección se enumeran las limitaciones que se aplican a la versión preliminar actual de Azure Active Directory Identity Protection.
-
-
-
-### Identity Protection y dominios federados
 
 Azure Active Directory Identity Protection presenta las siguientes limitaciones en combinación con los dominios federados:
 
@@ -99,8 +94,7 @@ Algunos de estos eventos de riesgo han estado disponibles mediante los informes 
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - | 
-| Bloqueo de eventos (no en la versión preliminar pública) | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | | Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
 
@@ -405,6 +399,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 ## Otras referencias
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Habilitación de Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Types of risk events detected by Azure Active Directory Identity Protection (Tipos de eventos de riesgo que detecta Azure Active Directory Identity Protection)](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection (Vulnerabilidades detectadas por Azure Active Directory Identity Protection)](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications (Notificaciones de Azure Active Directory Identity Protection)](active-directory-identityprotection-notifications.md)
@@ -413,4 +408,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection glossary (Glosario de Azure Active Directory Identity Protection)](active-directory-identityprotection-glossary.md)
  - [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

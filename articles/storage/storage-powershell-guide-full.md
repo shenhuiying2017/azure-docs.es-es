@@ -224,7 +224,7 @@ Use una de las tres formas que se presentan para crear un contexto de almacenami
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	Para obtener más información, consulte [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) y [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+	Para obtener más información, consulte [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) y [Uso de Firma de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 - Es posible que en algunos casos quiera precisar los extremos de servicio cuando crea un nuevo contexto de almacenamiento. Esto puede resultarle necesario si ha registrado un nombre de dominio personalizado para la cuenta de almacenamiento con el servicio Blob o si desea usar una firma de acceso compartido para tener acceso a los recursos de almacenamiento. Deberá configurar los extremos de servicio en una cadena de conexión y usarlos para crear un nuevo contexto de almacenamiento tal como se muestra a continuación:
 
@@ -632,7 +632,7 @@ Una firma de acceso compartido puede presentar una de estas dos formas:
 - **SAS ad hoc **: cuando se crea una SAS ad hoc, la hora de inicio, la hora de finalización y los permisos para la Firma de acceso compartido se especifican en el URI de la SAS. Este tipo de SAS puede crearse en un contenedor, blob, tabla o cola y no se puede revocar.
 - **SAS con directiva de acceso almacenada:** una directiva de acceso almacenada se define en un contenedor de recursos, un contenedor de blobs, una tabla o una cola, y puede usarla para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada. Este tipo de SAS se puede revocar.
 
-Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
+Para obtener más información, consulte [Uso de Firma de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
 
 En las siguientes secciones, obtendrá información sobre cómo crear un token de firma de acceso compartido y una directiva de acceso almacenada para las tablas de Azure. Azure PowerShell también proporciona cmdlets similares para contenedores, blobs y colas. Para ejecutar los scripts de esta sección, descargue [la versión 0.8.14 de Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o posterior.
 
@@ -752,4 +752,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -477,4 +477,4 @@ Ahora ha aprendido a usar Storm para leer los datos de los Centros de eventos, a
 
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

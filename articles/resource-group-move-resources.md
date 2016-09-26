@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -75,7 +75,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 - Puerta de enlace de aplicaciones
 - Application Insights
 - ExpressRoute
-- Almacén de Servicios de recuperación: no mueva tampoco los recursos de proceso, red y almacenamiento asociados con el almacén de Servicios de recuperación.
+- Almacén de Servicios de recuperación: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Servicios de recuperación, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 - Conjuntos de escalado de máquinas virtuales
 - Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
 - Puerta de enlace de VPN
@@ -84,10 +84,10 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 Si se trabaja con aplicaciones del Servicio de aplicaciones, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones del Servicio de aplicaciones, las opciones son:
 
-- Trasladar el plan del Servicio de aplicaciones y el resto de recursos del Servicio de aplicaciones de ese grupo de recursos a un nuevo grupo que aún no tenga recursos del Servicio de aplicaciones. De esta manera, deberá trasladar incluso los recursos del Servicio de aplicaciones que no estén asociados al plan del Servicio de aplicaciones.
+- Trasladar el plan del Servicio de aplicaciones y el resto de recursos del Servicio de aplicaciones de ese grupo de recursos a un nuevo grupo que aún no tenga recursos del Servicio de aplicaciones. Este requisito significa que debe trasladar incluso los recursos del Servicio de aplicaciones que no estén asociados al plan de App Service.
 - Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes del Servicio de aplicaciones del grupo de recursos original.
 
-Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones del Servicio de aplicaciones, se producirá un error que afectará a toda la operación de traslado. Sin embargo, no es necesario que el plan del Servicio de aplicaciones y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
+Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones de App Service, se producirá un error en toda la operación de traslado. Sin embargo, no es necesario que el plan del Servicio de aplicaciones y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
 
 Por ejemplo, si el grupo de recursos contiene:
 
@@ -114,6 +114,12 @@ Para realizar este movimiento, debe llevar a cabo dos operaciones de traslado di
 1. Mover **web-a** a **plan-group**
 2. Mover **web-a** y **plan-a** a **combined-group**
 
+## Limitaciones de Recovery Services
+
+No se admite el traslado para recursos de Storage, Network o Compute que se usan para configurar la recuperación ante desastres de Azure Site Recovery.
+
+Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure, Storage1, VM1 y Network1, en grupos de recursos dentro de la misma suscripción o entre suscripciones.
+
 ## Limitaciones de la implementación clásica
 
 Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción.
@@ -130,107 +136,12 @@ Al mover recursos de un grupo de recursos a otro **dentro de la misma suscripci�
 Al mover recursos a una **nueva suscripción**, se aplican las restricciones siguientes:
 
 - Todos los recursos clásicos de la suscripción se deben mover en la misma operación.
-- El traslado solo puede solicitarse a través del portal o mediante una API de REST independiente para el traslado de recursos clásicos. Los comandos de movimiento estándar de Resource Manager no funcionan para mover recursos clásicos a una nueva suscripción. En las secciones siguientes, se muestran los pasos para usar el portal o la API de REST.
+- La suscripción de destino no debe contener otros recursos clásicos.
+- El traslado solo puede solicitarse a través de una API de REST independiente para el traslado de recursos clásicos. Los comandos de movimiento estándar de Resource Manager no funcionan para mover recursos clásicos a una nueva suscripción.
 
-## Uso del portal para mover recursos
+Para trasladar recursos clásicos a un grupo de recursos nuevo **dentro de la misma suscripción**, utilice el [portal](#use-portal), [Azure PowerShell](#use-powershell), [CLI de Azure](#use-azure-cli) o la [API de REST](#use-rest-api).
 
-Para mover un recurso, selecciónelo y, después, haga clic en el botón **Mover**.
-
-![mover recurso](./media/resource-group-move-resources/move-resources.png)
-
-> [AZURE.NOTE] No todos los recursos admiten actualmente el traslado a través del portal. Si no ve el botón **Mover** botón para el recurso que desea trasladar, use PowerShell, CLI o la API de REST para mover el recurso.
-
-Especifique el grupo de recursos y la suscripción de destino al mover el recurso. Si deben moverse otros recursos junto con el seleccionado, se enumerarán.
-
-![seleccionar destino](./media/resource-group-move-resources/select-destination.png)
-
-En **Notificaciones**, podrá ver que la operación de traslado está en curso.
-
-![mostrar el estado del traslado](./media/resource-group-move-resources/show-status.png)
-
-Cuando haya finalizado, se le notificará del resultado.
-
-![mostrar el resultado del traslado](./media/resource-group-move-resources/show-result.png)
-
-Si desea usar otra opción para mover recursos a un nuevo grupo de recursos (pero no a una suscripción), seleccione el recurso que desea mover.
-
-![seleccionar el recurso que mover](./media/resource-group-move-resources/select-resource.png)
-
-Seleccione sus **propiedades**.
-
-![seleccionar propiedades](./media/resource-group-move-resources/select-properties.png)
-
-Si la opción está disponible para este tipo de recurso, seleccione **Cambiar el grupo de recursos**.
-
-![cambiar el grupo de recursos](./media/resource-group-move-resources/change-resource-group.png)
-
-Puede seleccionar qué recursos trasladar y el grupo de recursos al que desea moverlos.
-
-![mover recursos](./media/resource-group-move-resources/select-group.png)
-
-Al mover los recursos implementados mediante el modelo clásico a un nuevo grupo de recursos, puede usar el icono de edición situado junto al nombre del grupo de recursos.
-
-![mover recursos clásicos](./media/resource-group-move-resources/edit-rg-icon.png)
-
-Seleccione los recursos que desea mover teniendo en cuenta las [limitaciones de la implementación clásica](#classic-deployment-limitations). Seleccione **Aceptar** para iniciar el traslado.
-
- ![seleccionar recursos clásicos](./media/resource-group-move-resources/select-classic-resources.png)
- 
- Al mover los recursos implementados mediante el modelo clásico a una nueva suscripción, puede usar el icono de edición situado junto a la suscripción.
- 
- ![trasladar a nueva suscripción](./media/resource-group-move-resources/edit-subscription-icon.png)
- 
- Todos los recursos clásicos se seleccionarán automáticamente para el traslado.
-
-## Uso de PowerShell para trasladar recursos
-
-Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **Move-AzureRmResource**.
-
-El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
-
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
-
-El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
-
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-
-Para moverlos a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
-
-Se le pedirá que confirme que desea mover los recursos especificados.
-
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
-
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-
-## Uso de CLI de Azure para mover recursos
-
-Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **azure resource move**. En el siguiente ejemplo se muestra cómo trasladar una Caché de Redis a un nuevo grupo de recursos. En el parámetro **-i**, ofrezca una lista separada por comas del id. de recurso que se va a mover.
-
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
-	
-Se le pedirá que confirme que desea mover el recurso especificado.
-	
-    info:    Executing command resource move
-    Move selected resources in OldRG to NewRG? [y/n] y
-    + Moving selected resources to NewRG
-    info:    resource move command OK
-
-## Uso de la API de REST para trasladar recursos
-
-Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, ejecute:
-
-    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
-
-En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los recursos a mover. Para obtener más información acerca de la operación REST de movimiento, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
-
-Sin embargo, para mover **recursos clásicos a una nueva suscripción**, debe usar operaciones REST diferentes. Para comprobar si una suscripción puede participar como suscripción de origen o de destino en un traslado de recursos clásicos entre suscripciones, use la siguiente operación:
+Para mover **recursos clásicos a una nueva suscripción**, debe usar operaciones REST específicas para recursos clásicos. Para comprobar si una suscripción puede participar como suscripción de origen o de destino en un traslado de recursos clásicos entre suscripciones, use la siguiente operación:
 
     POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
     
@@ -267,11 +178,83 @@ Con el cuerpo de solicitud:
     }
 
 
+## Mediante el portal
+
+Para trasladar recursos a un nuevo grupo de recursos en la misma suscripción, seleccione el grupo de recursos que contiene esos recursos y, a continuación, seleccione el botón **Mover**.
+
+![mover recursos](./media/resource-group-move-resources/edit-rg-icon.png)
+
+Para trasladar recursos a una nueva suscripción, seleccione el grupo de recursos que contenga esos recursos y, a continuación, seleccione el icono de edición de la suscripción.
+
+![mover recursos](./media/resource-group-move-resources/change-subscription.png)
+
+Seleccione los recursos que trasladar y el grupo de recursos de destino. Confirme que tiene que actualizar los scripts para estos recursos y seleccione **Aceptar**. Si ha seleccionado el icono de edición de la suscripción en el paso anterior, también debe seleccionar la suscripción de destino.
+
+![seleccionar destino](./media/resource-group-move-resources/select-destination.png)
+
+En **Notificaciones**, podrá ver que la operación de traslado está en curso.
+
+![mostrar el estado del traslado](./media/resource-group-move-resources/show-status.png)
+
+Cuando haya finalizado, se le notificará del resultado.
+
+![mostrar el resultado del traslado](./media/resource-group-move-resources/show-result.png)
+
+## Uso de PowerShell
+
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **Move-AzureRmResource**.
+
+El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
+
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+
+El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
+
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+
+Para moverlos a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
+
+Se le pedirá que confirme que quiere mover los recursos especificados.
+
+    Confirm
+    Are you sure you want to move these resources to the resource group
+    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+
+## Uso de CLI de Azure
+
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **azure resource move**. En el siguiente ejemplo se muestra cómo trasladar una Caché de Redis a un nuevo grupo de recursos. En el parámetro **-i**, ofrezca una lista separada por comas del id. de recurso que se va a mover.
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+	
+Se le pedirá que confirme que quiere mover el recurso especificado.
+	
+    info:    Executing command resource move
+    Move selected resources in OldRG to NewRG? [y/n] y
+    + Moving selected resources to NewRG
+    info:    resource move command OK
+
+## Use la API de REST
+
+Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, ejecute:
+
+    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+
+En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los recursos a mover. Para obtener más información acerca de la operación REST de movimiento, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+
+
+
 
 ## Pasos siguientes
 - Para obtener información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para obtener información sobre los comandos de la CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-- Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
+- Si desea conocer las funciones del portal que permiten administrar la suscripción, consulte [Uso del Azure Portal para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

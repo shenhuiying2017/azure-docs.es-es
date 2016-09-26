@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Syncplicity
@@ -100,7 +100,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  En el cuadro de texto **Custom Domain** (Dominio personalizado), escriba el nombre de su dominio.
     2.  Seleccione **Enabled** (Habilitado) como **Single Sign-On Status** (Estado de inicio de sesión único).
-    3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad**.
+    3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad**.
     4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
     5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
     6.  En **Certificado del proveedor de identidades**, haga clic en **Elegir archivo** y después cargue el certificado que ha descargado del Portal de Azure clásico.
@@ -158,6 +158,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

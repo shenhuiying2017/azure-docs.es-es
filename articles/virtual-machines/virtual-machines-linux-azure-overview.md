@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/24/2016"
+   ms.date="09/06/2016"
    ms.author="rclaus"/>
 
 # Azure y Linux
@@ -39,7 +39,7 @@ Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas
 Microsoft Azure permite ejecutar varias de las distribuciones de Linux más populares proporcionadas y mantenidas por diversos asociados. Encontrará distribuciones como CentOS, Debian, Red Hat Enterprise, Ubuntu, FreeBSD, entre otras, en Azure Marketplace. Trabajamos activamente con distintas comunidades de Linux para agregar aun más tipos a la lista de distribuciones aprobadas. **[Consulte las distribuciones actuales](virtual-machines-linux-endorsed-distros.md)**: si su distribución de Linux favorita no está en la galería, siga las instrucciones de **[esta página](virtual-machines-linux-create-upload-generic.md)** para usar su propia máquina virtual de Linux.
 
 ## Disponibilidad y el SLA de Microsoft Azure
-Para que su implementación pueda optar a nuestro contrato de nivel de servicio de máquina virtual 99,95, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Esto garantizará que las máquinas virtuales estén distribuidas en varios dominios de error en nuestros centros de datos e implementadas en hosts con diferentes tiempos de mantenimiento. Para obtener toda la información sobre nuestro Acuerdo de Nivel de Servicio, consúltelo **[aquí en línea](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)**.
+Para que su implementación pueda optar a nuestro SLA de máquina virtual 99,95, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Esto garantizará que las máquinas virtuales estén distribuidas en varios dominios de error en nuestros centros de datos e implementadas en hosts con diferentes tiempos de mantenimiento. Para obtener toda la información sobre nuestro SLA, consúltelo **[aquí en línea](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)**.
 
 ## Tamaños de máquina virtual y cuotas
 Cuando se implementa una máquina virtual en Azure, se selecciona un tamaño de máquina virtual, dentro de nuestras series de tamaños, que sea adecuada para la carga de trabajo. El tamaño también afecta a la capacidad de procesamiento, memoria y almacenamiento de la máquina virtual. Se le facturará según la cantidad de tiempo que la máquina virtual se esté ejecutando y consumiendo los recursos asignados. Para obtener una lista más completa, consulte el siguiente artículo sobre [tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md).
@@ -48,16 +48,16 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 
 * Las máquinas virtuales de la serie A son las más económicas para empezar con cargas de trabajo ligeras y escenarios de desarrollo y pruebas. Están ampliamente disponibles en todas las regiones y puede conectarse a todos los recursos estándar disponibles para máquinas virtuales, y usarlos.
 * Los tamaños de la serie A (A8 - A11) son configuraciones especiales para procesos intensivos adecuadas para aplicaciones de clúster de proceso de alto rendimiento.
-* Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. 
+* Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal.
 * La serie Dv2 es la versión más reciente de la serie D y cuenta con una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 * Las máquinas virtuales de la serie G ofrecen la mayor cantidad de memoria y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
-Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Almacenamiento premium, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para obtener información más detallada, consulte **[Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)**.
+> [AZURE.NOTE] Las máquinas virtuales de las series DS y GS tienen acceso a Premium Storage, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para obtener información más detallada, consulte **[Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)**.
 
-Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites de cuota, envíe una incidencia de soporte técnico y solicite un aumento del límite. Para obtener más información sobre los límites de cuota, consulte **[Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)**.
+Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites de cuota, envíe una incidencia de soporte técnico y solicite un aumento del límite. Para obtener más información sobre los límites de cuota, consulte **[Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)**.
 
 ## Pasos siguientes
 
 Una cuenta de evaluación gratuita. **[Obtener una](https://azure.microsoft.com/pricing/free-trial/)**. Si ya tiene una, **[instale la CLI de Azure](../xplat-cli-install.md)** para probarla. Si ya lo ha hecho, [cree la máquina virtual de Linux ahora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

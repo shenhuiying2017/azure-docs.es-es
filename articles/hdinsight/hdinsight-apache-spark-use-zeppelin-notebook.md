@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -201,7 +201,7 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 	* **Nombre de patrón** - **zeppelinnotebook**: es solo un nombre descriptivo para el patrón.
 
-	* **Patrón de URL** - **\*hn0*** : define un patrón que coincide con el nombre de dominio completo interno del punto de conexión donde se hospedan los cuadernos de Zeppelin. Como los cuadernos de Zeppelin solo están disponibles en el nodo principal headnode0 del clúster y el punto de conexión suele ser `http://hn0-<string>.internal.cloudapp.net`, utilizando el patrón **hn0**, garantizaría que la solicitud se redirige al punto de conexión de Zeppelin.
+	* **Patrón de URL** - ***hn0****: define un patrón que coincide con el nombre de dominio completo interno del punto de conexión donde se hospedan los cuadernos de Zeppelin. Como los cuadernos de Zeppelin solo están disponibles en el nodo principal headnode0 del clúster y el punto de conexión suele ser `http://hn0-<string>.internal.cloudapp.net`, utilizando el patrón **hn0**, garantizaría que la solicitud se redirige al punto de conexión de Zeppelin.
 
 		![patrón de foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -387,4 +387,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

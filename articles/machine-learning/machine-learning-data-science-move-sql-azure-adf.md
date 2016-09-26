@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -19,7 +19,7 @@
 
 # Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure
 
-En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una base de datos de SQL Azure a través del almacenamiento de blobs de Azure mediante la Factoría de datos de Azure (ADF).
+En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una base de datos de SQL Azure a través de Azure Blob Storage mediante Data Factory de Azure (ADF).
 
 El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
@@ -48,7 +48,7 @@ Configuramos una canalización de ADF que compone dos actividades de migración 
 ## <a name="prereqs"></a>Requisitos previos
 En este tutorial se asume que dispone de:
 
-* Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial, usará una cuenta de almacenamiento de Azure para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Acceso a una **base de datos SQL de Azure**. Si debe configurar una base de datos de SQL de Azure, [Introducción a Base de datos de SQL de Microsoft Azure](../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de una base de datos de SQL de Azure.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
@@ -106,7 +106,7 @@ Cree tablas que especifiquen la estructura, la ubicación y la disponibilidad de
 Las definiciones basadas en JSON de las tablas usan los siguientes nombres:
 
 * el **nombre de la tabla** del servidor SQL Server local es *nyctaxi\_data*
-* el **nombre del contenedor** de la cuenta de almacenamiento de blobs de Azure es *containername*  
+* el **nombre del contenedor** de la cuenta de almacenamiento de blobs de Azure es *containername*
 
 Se necesitan tres definiciones de tabla para esta canalización de ADF:
 
@@ -310,4 +310,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

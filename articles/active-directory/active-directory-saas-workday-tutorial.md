@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Workday
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar la integración de Azure y Workday. En l
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
-1.  Habilitación de la integración de aplicaciones para Workday
+1.  Habilitación de la integración de aplicaciones en Workday
 2.  Configuración del inicio de sesión único
 3.  Configuración del aprovisionamiento de usuario
 4.  Configuración del aprovisionamiento de usuario
@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	b. En el cuadro de texto **Dirección URL de respuesta de Workday**, escriba la dirección URL de respuesta de Workday con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usando algo como "*http://www.myworkday.com*" funciona pero no "*http://myworkday.com*".
+	>[AZURE.NOTE] Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usando algo como *http://www.myworkday.com* funciona, pero no *http://myworkday.com*.
  
 4.  En la página **Configuración de inicio de sesión único en Workday**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -120,7 +120,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 10. En la sección **Configuración de SAML**, realice los pasos siguientes:
 
-    ![Instalación de SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Instalación de SAML")
+    ![Configuración de SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Instalación de SAML")
 
 	a. Seleccione **Enable SAML Authentication** (Habilitar autenticación SAML).
 
@@ -162,7 +162,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	d. Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-	>[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+	>[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 	e. Abra el certificado codificado en base 64 en el Bloc de notas y luego copie el contenido del mismo.
     
@@ -222,6 +222,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-workday-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -23,7 +23,7 @@ En este documento se trata la exploración de datos y generación de caracterís
 ## Carga de los datos en una trama de datos Pandas
 Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
+1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -54,7 +54,7 @@ Ya puede explorar los datos y generar características en este conjunto de datos
 
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
-1. Inspeccionar el número de filas y columnas 
+1. Inspeccionar el número de filas y columnas
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
@@ -191,4 +191,4 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

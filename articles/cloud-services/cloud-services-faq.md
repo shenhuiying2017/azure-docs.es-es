@@ -49,7 +49,17 @@ Estos siguen reapareciendo muy probablemente a causa de una herramienta que est�
 
 Cuando se recicla la instancia de máquina virtual, se pierden todos los cambios locales. Use una [tarea de inicio](cloud-services-startup-tasks.md) para instalar certificados en la máquina virtual cada vez que se inicie el rol.
 
+### No encuentro mis certificados de administración en el portal
 
+Los [certificados de administración](..\azure-api-management-certs.md) solo están disponibles en el Portal de Azure clásico. La versión actual de Azure Portal no utiliza certificados de administración.
+
+### ¿Cómo puedo deshabilitar un certificado de administración?
+
+No se pueden deshabilitar [certificados de administración](..\azure-api-management-certs.md). Se eliminan en el Portal de Azure clásico cuando ya no quiera utilizarlos más.
+
+### ¿Cómo puedo crear un certificado SSL para una dirección IP específica?
+
+Siga las instrucciones del [tutorial de creación de un tutorial](cloud-services-certs-create.md). Utilice la dirección IP como el nombre DNS.
 
 ## Solución de problemas
 
@@ -57,4 +67,4 @@ Cuando se recicla la instancia de máquina virtual, se pierden todos los cambios
 
 En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. **No** cambie la configuración mientras se está actualizando la implementación.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

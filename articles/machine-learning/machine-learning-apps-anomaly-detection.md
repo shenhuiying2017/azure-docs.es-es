@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="alokkirpal" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -155,7 +155,7 @@ La respuesta a esto será:
 
 La API de detección de anomalías admite detectores en tres categorías generales. En la siguiente tabla se pueden encontrar detalles sobre parámetros de entrada específicos y salidas para cada detector.
 
-|Categoría del detector|Detector|Descripción|Parámetros de entrada|Salidas
+|Categoría del detector|Detector|Description|Parámetros de entrada|Salidas
 |---|---|---|---|---|
 |Detectores de pico|Detector de TSpike|Detección de picos e interrupciones según la sensibilidad establecida|*tspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10, valor predeterminado: 3; cuanto más alto, menos sensible|TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario|
 ||Detector de ZSpike|Detección de picos e interrupciones según la sensibilidad establecida|*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10, valor predeterminado: 3; cuánto más alto, menos sensible|ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0'|
@@ -167,7 +167,7 @@ La API de detección de anomalías admite detectores en tres categorías general
 
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-|Parámetros de entrada|Descripción|Configuración predeterminada|Tipo|Intervalo válido|Intervalo sugerido|
+|Parámetros de entrada|Description|Configuración predeterminada|Tipo|Intervalo válido|Intervalo sugerido|
 |---|---|---|---|---|---|
 |preprocess.aggregationInterval|Intervalo de agregación en segundos para agregar series temporales de entrada|0 (no se realiza ninguna agregación)|integer|0: omitir agregación, de lo contrario, > 0|De 5 minutos a 1 día, dependiente de la serie temporal
 |preprocess.aggregationFunc|Función que se usa para agregar datos al objeto AggregationInterval especificado|mean|enumerated|mean, sum, length|N/D|
@@ -186,7 +186,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 ###Salida
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API.
 
-|Salidas|Descripción|
+|Salidas|Description|
 |---|---|
 |Hora|Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan|
 |OriginalData|Valores de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan|
@@ -211,4 +211,4 @@ Este resultado se puede analizar mediante un [analizador sencillo](https://adres
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

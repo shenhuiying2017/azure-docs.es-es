@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Wikispaces
@@ -98,7 +98,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben aprovisionarse en Wikispaces. En el caso de Wikispaces, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su sitio de la compañía de **Wikispaces** como administrador.
 
@@ -108,14 +108,14 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben 
 
 3.  Haga clic en **Invitar asistentes**.
 
-    ![Invitar asistentes](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invitar asistentes")
+    ![Invitar a contactos](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invitar asistentes")
 
 4.  En la sección **Invitar asistentes**, siga estos pasos:
 
     ![Invitar asistentes](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invitar a contactos")
 
     1.  Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
-    2.  Haga clic en **Send** (Enviar).  
+    2.  Haga clic en **Send** (Enviar).
 
         >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibe un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
@@ -137,6 +137,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

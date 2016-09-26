@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake | Azure" 
-   description="Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake." 
+   description="Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -23,12 +23,12 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
 
 ##Requisitos previos
 
-- Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado 
+- Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado
 - SDK de Microsoft Azure para .NET versión 2.5 o posterior. Instálelo usando el instalador de plataforma web.
 - Una cuenta de Análisis de Data Lake. Consulte [Introducción a Análisis de Azure Data Lake mediante el portal de Azure](data-lake-analytics-get-started-portal.md).
 - Realice el tutorial [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- Conéctese a Azure y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
-- Descargue los datos de origen y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
+- Conéctese a Azure y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure).
+- Descargue los datos de origen y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files).
 
 ## Definición y uso del operador definido por el usuario en U-SQL
 
@@ -137,14 +137,14 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
 
 **Para ver la salida del trabajo**
 
-1. En el **Explorador de servidores**, expanda **Azure**, **Análisis de Data Lake**, su cuenta de Análisis de Data Lake y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**. 
+1. En el **Explorador de servidores**, expanda **Azure**, **Análisis de Data Lake**, su cuenta de Análisis de Data Lake y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**.
 2. Expanda Ejemplos, expanda Salidas y, finalmente, haga doble clic en **Drivers.csv**.
 
 
-##Consulte también
+##Otras referencias
 
 - [Introducción a Análisis de Data Lake mediante PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 - [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

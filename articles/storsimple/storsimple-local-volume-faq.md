@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/26/2016"
+   ms.date="08/16/2016"
    ms.author="manuaery" />
 
 # Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
@@ -33,23 +33,23 @@ Las preguntas y respuestas se organizan en las siguientes categorías
 
 **P.** ¿Cuál es el tamaño máximo de un volumen anclado localmente que puedo crear en los dispositivos de la serie 8000?
 
-**R** Puede aprovisionar volúmenes anclados localmente de hasta 8 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 20 TB o volúmenes en capas de hasta 500 TB.
+**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB.
 
-**P.** Recientemente he actualizado mi dispositivo 8100 a Update 2 y cuando intento crear un volumen anclado localmente, el tamaño máximo disponible es solo de 6 TB, no de 8 TB. ¿Por qué no puedo crear un volumen de 8 TB?
+**P.** Hace poco, actualicé mi dispositivo 8100 a Update 2 y cuando trato de crear un volumen anclado localmente, el tamaño máximo disponible es solo de 6 TB, no de 8,5 TB. ¿Por qué no puedo crear un volumen de 8,5 TB?
 
-**R** Puede aprovisionar volúmenes anclados localmente de hasta 8 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. Si el dispositivo ya tiene volúmenes en capas, el espacio disponible para crear un volumen anclado localmente será proporcionalmente inferior a este límite máximo. Por ejemplo, si ya se hayan aprovisionado 100 TB de volúmenes en capas en el dispositivo 8100 (la mitad de la capacidad en capas), el tamaño máximo de un volumen local que puede crear en el dispositivo 8100 disminuirá a 4 TB (la mitad de la capacidad máxima de los volúmenes anclados localmente).
+**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. Si el dispositivo ya tiene volúmenes en capas, el espacio disponible para crear un volumen anclado localmente será proporcionalmente inferior a este límite máximo. Por ejemplo, si ya se han aprovisionado 100 TB de volúmenes en capas en el dispositivo 8100 (la mitad de la capacidad en capas), el tamaño máximo de un volumen local que puede crear en el dispositivo 8100 disminuirá a 4 TB (la mitad de la capacidad máxima de los volúmenes anclados localmente).
 
 Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el espacio de trabajo de los volúmenes en capas, el espacio disponible para crear un volumen anclado localmente se reducirá si el dispositivo tiene volúmenes en capas. Por el contrario, la creación de un volumen anclado localmente reducirá el espacio disponible proporcionalmente para volúmenes en capas. La tabla siguiente resume la capacidad en capas disponible en los dispositivos 8100 y 8600 cuando se crean volúmenes anclados localmente.
 
 |Capacidad aprovisionada de los volúmenes anclados localmente|Capacidad disponible para aprovisionar para volúmenes en capas: 8100|Capacidad disponible para aprovisionar para volúmenes en capas: 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 175 TB | 475 TB|
-|4 TB | 100 TB | 400 TB |
-|8 TB | 0 TB | 300 TB|
-|10 TB | N/A | 250 TB |
-|15 TB | N/A | 125 TB |
-|20 TB | N/A | 0 TB |
+|1 TB | 176,5 TB | 477,8 TB|
+|4 TB | 105,9 TB | 411,1 TB |
+|8,5 TB | 0 TB | 311,1 TB|
+|10 TB | N/D | 277,8 TB |
+|15 TB | N/D | 166,7 TB |
+|22,5 TB | N/D | 0 TB |
 
 
 **P.** ¿Por qué la creación de volúmenes anclados localmente es una operación de larga duración?
@@ -82,7 +82,7 @@ Los volúmenes anclados localmente tienen un aprovisionamiento denso, y esto req
 
 De forma similar, si se expande un volumen local existente o se convierte un volumen en capas en un volumen anclado localmente, la creación de un nuevo volumen anclado localmente se pondrá en cola hasta que se complete el trabajo anterior. La expansión del tamaño de un volumen anclado localmente implica la expansión del espacio local existente para dicho volumen. La conversión de un volumen en capas en uno anclado localmente también implica la creación de espacio local para el volumen anclado localmente resultante. En estas operaciones, la creación o expansión del espacio local es un trabajo de larga duración.
 
-Puede ver estos trabajos en la página **Trabajos** del servicio Azure StorSimple Manager. El trabajo que se está procesando activamente se actualizará continuamente para reflejar el progreso del aprovisionamiento del espacio. Los restantes trabajos de los volúmenes anclados localmente se marcarán como en ejecución, pero su progreso se detendrá y se procesarán en el orden en que se pusieron en cola.
+Puede ver estos trabajos en la página **Trabajos** del servicio Azure StorSimple Manager. El trabajo que se está procesando activamente se actualizará continuamente para reflejar el progreso del aprovisionamiento del espacio. El resto de los trabajos de los volúmenes anclados localmente se marcarán como en ejecución, pero su progreso se detendrá y se procesarán en el orden en que se pusieron en cola.
 
 **P.** He eliminado un volumen anclado localmente. ¿Por qué no veo el espacio recuperado reflejado en el espacio disponible cuando intento crear un nuevo volumen?
 
@@ -213,4 +213,4 @@ Más información sobre la [conmutación por error y la recuperación ante desas
 
 **R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

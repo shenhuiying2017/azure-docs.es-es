@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/13/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Tabla de Azure mediante Factoría de datos de Azure
 
-En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos desde otro almacén de datos a Tabla de Azure y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se describe cómo puede usar la actividad de copia en una factoría de datos de Azure para mover datos entre una tabla de Azure y otro origen de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos y las combinaciones del almacén de datos admitidas con la actividad de copia.
 
 ## Asistente para copia de datos
 La manera más sencilla de crear una canalización que copie datos hacia o desde Almacenamiento de tablas de Azure es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
@@ -54,7 +54,7 @@ Data Factory de Azure admite dos tipos de servicios vinculados de Almacenamiento
 
 El ejemplo se supone que ha creado una tabla "MyTable" en la tabla de Azure.
  
-Si se establece "external": "true" y se especifica la directiva externalData, se indica a la factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 
 	{
 	  "name": "AzureTableInput",
@@ -196,7 +196,7 @@ El ejemplo siguiente muestra:
 4.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) y [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 
-El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de Azure a una tabla de una base de datos de una tabla de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
+En el ejemplo se copian datos de series temporales de un blob de Azure a una tabla de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado de Almacenamiento de Azure (para tabla y blob de Azure):**
 
@@ -214,7 +214,7 @@ Data Factory de Azure admite dos tipos de servicios vinculados de Almacenamiento
 
 **Conjunto de datos de entrada de blob de Azure:**
 
-Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor "external": "true" informa al servicio Factoría de datos que esta tabla es externa a la factoría y no la produce una actividad de la factoría de datos.
+Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor external: true informa al servicio Data Factory de que el conjunto de datos es externo a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -281,7 +281,7 @@ Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo
 
 **Conjunto de datos de salida de tabla de Azure:**
 
-El ejemplo copia los datos a una tabla denominada "MyTable" en la tabla de Azure. Debe crear la tabla en la tabla de Azure con el mismo número de columnas que espera que contenga el archivo CSV de blob. Se agregan nuevas filas a la tabla cada hora.
+El ejemplo copia los datos a una tabla denominada "MyTable" en la tabla de Azure. Cree una tabla de Azure con el mismo número de columnas que espera que contenga el archivo CSV de blob. Se agregan nuevas filas a la tabla cada hora.
 
 	{
 	  "name": "AzureTableOutput",
@@ -356,7 +356,7 @@ Hay dos tipos de servicios vinculados que puede usar para vincular un almacenami
 
 ## Propiedades de tipo de conjunto de datos de tabla de Azure
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **AzureTable** tiene las propiedades siguientes.
 
@@ -367,22 +367,22 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 ### Esquema de Data Factory
 En los almacenes de datos sin esquemas como Tabla de Azure, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
 
-1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
-2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se proporciona un valor nulo para ella.
+2. Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, Data Factory deduce el esquema usando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pierden en el resultado de la operación de copia.
 
 Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
 
 ## Propiedades de tipo de actividad de copia de tabla de Azure
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, conjuntos de datos de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
 **AzureTableSource** admite las siguientes propiedades en la sección typeProperties:
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta de tabla de Azure. Vea los ejemplos siguientes. | No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino.  
+azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. | No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino.
 azureTableSourceIgnoreTableNotFound | Indica si se omite la excepción de la tabla inexistente. | TRUE<br/>FALSE | No |
 
 ### ejemplos de azureTableSourceQuery
@@ -402,14 +402,14 @@ Si la columna de la Tabla de Azure es de tipo datetime:
 Propiedad | Descripción | Valores permitidos | Obligatorio  
 -------- | ----------- | -------------- | -------- 
 azureTableDefaultPartitionKeyValue | Valor predeterminado de la clave de la partición que puede usar el receptor. | Valor de cadena. | No 
-azureTablePartitionKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se utilizan como clave de la partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. | Un nombre de columna. | No |
-azureTableRowKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se usan como clave de fila. Si no se especifica, use un GUID para cada fila. | Un nombre de columna. | No  
-azureTableInsertType | Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Tenga en cuenta que esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y que ninguna opción eliminará filas de la tabla de salida que no existan en la entrada. | merge (predeterminado)<br/>replace | No 
+azureTablePartitionKeyName | Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. | Un nombre de columna. | No |
+azureTableRowKeyName | Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. | Un nombre de columna. | No  
+azureTableInsertType | Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br>Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. | merge (predeterminado)<br/>replace | No 
 writeBatchSize | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | Entero (número de filas)| No (valor predeterminado = 10000) 
 writeBatchTimeout | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) | No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos)
 
 ### azureTablePartitionKeyName
-Debe asignar una columna de origen a una columna de destino con la propiedad JSON de traductor para poder utilizar la columna de destino como azureTablePartitionKeyName.
+Asigne una columna de origen a una columna de destino con la propiedad JSON de traductor para poder usar la columna de destino como azureTablePartitionKeyName.
 
 En el ejemplo siguiente, la columna de origen DivisionID se asigna a la columna de destino DivisionID.
 
@@ -432,31 +432,31 @@ El valor EmpID se especifica como clave de partición.
 
 ### Asignación de tipos para tabla de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de origen a tipos de receptor con el siguiente método de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos, de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos a y desde Tabla de Azure, se usarán las siguientes [asignaciones definidas por el servicio Tabla de Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Tabla de Azure al tipo .NET y viceversa.
+Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones definidas por Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Azure Table a tipos .NET y viceversa.
 
 | Tipo de datos OData | Tipo .NET | Detalles |
 | --------------- | --------- | ------- |
-| Edm.Binary | byte | Matriz de bytes de hasta 64 KB de tamaño. |
+| Edm.Binary | byte | Matriz de bytes de hasta 64 KB. |
 | Edm.Boolean | booleano | Valor booleano. |
 | Edm.DateTime | DateTime | Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a las 12:00 de la noche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
 | Edm.Double | double | Valor de punto flotante de 64 bits. |
 | Edm.Guid | Guid | Identificador único global de 128 bits. |
 | Edm.Int32 | Int32 o bien int | Entero de 32 bits. |
 | Edm.Int64 | Int64 o bien long | Entero de 64 bits. |
-| Edm.String | String | Valor codificado mediante UTF-16. Los valores de cadena pueden tener un tamaño de hasta 64 KB. |
+| Edm.String | String | Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
 
 ### Ejemplo de conversión de tipo
 
 El siguiente es un ejemplo de la copia de datos desde un blob de Azure a una tabla de Azure con conversiones de tipo.
 
-Supongamos que el conjunto de datos Blob está en formato CSV y contiene tres columnas. Una de ellas es una columna de fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.
+Supongamos que el conjunto de datos de Blob está en formato CSV y contiene tres columnas. Una de ellas es una columna de fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.
 
-Va a definir el conjunto de datos de origen de Blob como se indica a continuación junto con las definiciones de tipo para las columnas.
+Defina el conjunto de datos de origen de Blob como se indica a continuación, junto con las definiciones de tipo para las columnas.
 	
 	{
 	    "name": " AzureBlobInput",
@@ -495,7 +495,7 @@ Va a definir el conjunto de datos de origen de Blob como se indica a continuaci�
 	    }
 	}
 
-Teniendo en cuenta la asignación de tipo desde el tipo OData de una tabla de Azure al tipo .NET anterior, tendrá que definir la tabla de la tabla de Azure con el siguiente esquema.
+Teniendo en cuenta la asignación del tipo OData de Azure Table al tipo .NET anterior, definiría la tabla en Azure Table con el siguiente esquema.
 
 **Esquema de tabla de Azure:**
 
@@ -505,7 +505,7 @@ userid | Edm.Int64
 name | Edm.String 
 lastlogindate | Edm.DateTime
 
-A continuación definirá el conjunto de datos de tabla de Azure como sigue. No es necesario especificar la sección "structure" con la información de tipo porque ya se especificó en el almacén de datos subyacente.
+A continuación, defina el conjunto de datos de Azure Table de la manera siguiente. No es necesario especificar la sección "structure" con la información de tipo porque ya se especificó en el almacén de datos subyacente.
 
 	{
 	  "name": "AzureTableOutput",
@@ -522,13 +522,13 @@ A continuación definirá el conjunto de datos de tabla de Azure como sigue. No 
 	  }
 	}
 
-En este caso, la Factoría de datos realizará automáticamente las conversiones de tipos, incluido el campo Datetime con el formato personalizado de fecha y hora siguiendo la referencia cultural fr-fr, al mover datos de un blob a una tabla de Azure.
+En este caso, Data Factory realiza automáticamente conversiones de tipos, incluido el campo Datetime con el formato personalizado de fecha y hora, siguiendo la referencia cultural fr-fr al mover datos de Blob a Azure Table.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para conocer los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

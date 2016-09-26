@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -78,7 +78,7 @@ En la página **Escala**, puede aumentar o disminuir manualmente la cantidad de 
 
     Si necesita más instancias, debe cambiar el [tamaño de la máquina virtual del servicio en la nube](cloud-services-sizes-specs.md).
 
-6. Haga clic en **Guardar**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
+6. Haga clic en **Save**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
 
 >[AZURE.TIP] Siempre que vea ![][tip_icon], mueva el mouse y podrá obtener ayuda acerca de lo que realiza una configuración específica.
 
@@ -151,4 +151,4 @@ A menudo, cuando se escala un rol, es beneficioso también escalar la base de da
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

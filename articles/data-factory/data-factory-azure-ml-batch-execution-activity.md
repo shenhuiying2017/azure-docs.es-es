@@ -45,7 +45,7 @@ Después de terminar el entrenamiento, tiene que actualizar el servicio web de p
 
 Para obtener más detalles consulte la sección [Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización](#updating-azure-ml-models-using-the-update-resource-activity).
 
-## Invocación de un servicio web de Aprendizaje automático de Azure mediante la actividad de ejecución de lotes
+## Invocación de un servicio web mediante la actividad de ejecución de lotes
 
 Factoría de datos de Azure se usa para coordinar el procesamiento y el movimiento de datos y, posteriormente, realizar la ejecución por lotes mediante Aprendizaje automático de Azure. Estos son los pasos de nivel superior:
 
@@ -62,7 +62,12 @@ Factoría de datos de Azure se usa para coordinar el procesamiento y el movimien
 ### Escenario: Experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Almacenamiento de blobs de Azure
 En este escenario, el servicio web de Aprendizaje automático de Azure realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada para el servicio web mediante la propiedad JSON **webServiceInput**. **DecisionTreeResultBlob** se pasa como salida para el servicio web mediante la propiedad JSON **webServiceOutputs**.
 
-> [AZURE.NOTE] Los conjuntos de datos a los que hacen referencia las propiedades **webServiceInput** y **webServiceOutputs** (en **typeProperties**) también se deben incluir en las **entradas** y las **salidas** de la actividad.
+> [AZURE.IMPORTANT] 
+Si el servicio web toma varias entradas, use la propiedad **webServiceInputs** en lugar de usar **webServiceInput**. Consulte la sección [El servicio web requiere varias entradas](#web-service-requires-multiple-inputs) para ver un ejemplo de cómo usar la propiedad webServiceInputs.
+>  
+> Los conjuntos de datos a los que hacen referencia las propiedades **webServiceInput**/**webServiceInputs** y **webServiceOutputs** (en **typeProperties**)también se deben incluir en las **entradas** y las **salidas** de la actividad.
+> 
+> En el experimento de Azure ML, la entrada del servicio web y los puertos de salida y parámetros globales tienen nombres predeterminados (input1 e input2) que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución de lotes del punto de conexión de Azure ML para comprobar la asignación esperada.
 
 
 	{
@@ -100,8 +105,8 @@ En este escenario, el servicio web de Aprendizaje automático de Azure realiza p
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -259,8 +264,8 @@ Se recomienda que siga el tutorial [Compilación de la primera canalización con
 		        }
 		      }
 		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
+		    "start": "2016-02-13T00:00:00Z",
+		    "end": "2016-02-14T00:00:00Z"
 		  }
 		}
 
@@ -299,7 +304,7 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 ### Uso de un módulo lector para leer datos de varios archivos de blob de Azure
 La canalización de macrodatos con actividades como Pig y Hive puede generar uno o varios archivos de salida sin extensiones. Por ejemplo, cuando se especifica una tabla externa de Hive, los datos de dicha tabla se pueden almacenar en el almacenamiento de blobs de Azure con el siguiente nombre 000000\_0. Puede usar el módulo lector en un experimento para leer varios archivos y usarlos para realizar predicciones.
 
-Al usar el módulo lector en un experimento de Aprendizaje automático de Azure, puede especificar Blob de Azure como entrada. Los archivos en Blob Storage de Azure pueden ser los archivos de salida (por ejemplo, 000000\_0) que se generan mediante un script de Pig y Hive en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob** (Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y al **directorio o blob** apunta a la carpeta que contiene los archivos, tal como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
+Al usar el módulo lector en un experimento de Aprendizaje automático de Azure, puede especificar Blob de Azure como entrada. Los archivos en Blob Storage de Azure pueden ser los archivos de salida (por ejemplo, 000000\_0) que se generan mediante un script de Pig y Hive en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob** (Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y al **directorio o blob** apunta a la carpeta que contiene los archivos, tal como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/*)** se leen como parte del experimento.
 
 ![Propiedades de Blob de Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -348,8 +353,8 @@ Al usar el módulo lector en un experimento de Aprendizaje automático de Azure,
 	        },
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
  
@@ -359,6 +364,50 @@ En el ejemplo JSON anterior:
 - Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica el valor para la propiedad **end**, esta se calcula como "**start + 48 horas.**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor para la propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### Otros escenarios
+
+#### El servicio web requiere varias entradas
+Si el servicio web toma varias entradas, use la propiedad **webServiceInputs** en lugar de usar **webServiceInput**. Los conjuntos de datos a los que hace referencia **webServiceInputs** también deben incluirse en las **entradas** de la actividad.
+ 
+En el experimento de Azure ML, la entrada del servicio web y los puertos de salida y parámetros globales tienen nombres predeterminados (input1 e input2) que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución de lotes del punto de conexión de Azure ML para comprobar la asignación esperada.
+
+
+	{
+		"name": "PredictivePipeline",
+		"properties": {
+			"description": "use AzureML model",
+			"activities": [{
+				"name": "MLActivity",
+				"type": "AzureMLBatchExecution",
+				"description": "prediction analysis on batch input",
+				"inputs": [{
+					"name": "inputDataset1"
+				}, {
+					"name": "inputDataset2"
+				}],
+				"outputs": [{
+					"name": "outputDataset"
+				}],
+				"linkedServiceName": "MyAzureMLLinkedService",
+				"typeProperties": {
+					"webServiceInputs": {
+						"input1": "inputDataset1",
+						"input2": "inputDataset2"
+					},
+					"webServiceOutputs": {
+						"output1": "outputDataset"
+					}
+				},
+				"policy": {
+					"concurrency": 3,
+					"executionPriorityOrder": "NewestFirst",
+					"retry": 1,
+					"timeout": "02:00:00"
+				}
+			}],
+			"start": "2016-02-13T00:00:00Z",
+			"end": "2016-02-14T00:00:00Z"
+		}
+	}
 
 #### Servicio web no requiere una entrada
 
@@ -448,7 +497,7 @@ Las principales **ideas** obtenidas son:
 - Es posible incluir conjuntos de datos adicionales en las propiedades de entradas y salidas de la actividad, sin que typeProperties de la actividad haga referencia a ellos. Estos conjunto de datos rigen la ejecución mediante el uso de las dependencias de segmento; de no ser así, la actividad AzureMLBatchExecution los omitirá.
 
 
-## Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización
+## Actualización de modelos mediante la actividad de recursos de actualización
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
 
 1. Crear un experimento en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
@@ -683,8 +732,8 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
 	        ],
-	    	"start": "2015-02-13T00:00:00Z",
-	   		"end": "2015-02-14T00:00:00Z"
+	    	"start": "2016-02-13T00:00:00Z",
+	   		"end": "2016-02-14T00:00:00Z"
 	    }
 	}
 
@@ -739,8 +788,8 @@ Si desea continuar utilizando la actividad AzureMLBatchScoring, siga leyendo est
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -780,4 +829,4 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

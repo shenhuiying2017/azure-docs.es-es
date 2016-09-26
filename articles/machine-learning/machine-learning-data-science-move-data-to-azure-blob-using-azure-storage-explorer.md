@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -53,4 +53,4 @@ En los pasos siguientes se describe cómo cargar y descargar datos mediante el E
 8. Haga clic en **...** a la derecha del cuadro **Archivos**, seleccione uno o varios para cargarlos desde el sistema de archivos y haga clic en **Cargar** para empezar a cargarlos.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 7. Para descargar datos, seleccione el blob en el contenedor correspondiente y haga clic en el botón **Descargar**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

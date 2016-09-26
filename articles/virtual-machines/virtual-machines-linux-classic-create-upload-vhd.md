@@ -23,6 +23,7 @@
 
 En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que podrá utilizar como imagen propia para crear máquinas virtuales en Azure. Aprenda a preparar el sistema operativo que podrá utilizar para crear máquinas virtuales basadas en esa imagen.
 
+>  [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
 
 ## Requisitos previos
 En este artículo se supone que tiene los siguientes elementos:
@@ -109,4 +110,4 @@ Para obtener más información, consulte [Referencia de la CLI de Azure para el 
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

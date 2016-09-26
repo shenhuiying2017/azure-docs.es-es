@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
-
-En este tema se enumera los atributos que se sincronizan mediante Azure AD Connect Sync. Los atributos se agrupan por la aplicación de Azure AD relacionada.
+En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect. Los atributos se agrupan por la aplicación de Azure AD relacionada.
 
 ## Atributos que sincronizar
-Una pregunta frecuente es *qué es la lista de atributos mínimos que sincronizar*. El método predeterminado y recomendado consiste en mantener los atributos predeterminados para poder crear una lista global de direcciones completa en la nube y obtener todas las características en cargas de trabajo de Office 365. En algunos casos, la organización no desea que se sincronicen ciertos atributos en la nube porque contienen datos confidenciales o PII (información de identificación personal), como en el ejemplo siguiente.
+Una pregunta frecuente es *qué es la lista de atributos mínimos que sincronizar*. El método predeterminado y recomendado consiste en mantener los atributos predeterminados para poder crear una lista global de direcciones completa en la nube y obtener todas las características en cargas de trabajo de Office 365. En algunos casos, la organización no quiere que se sincronicen ciertos atributos en la nube porque contienen datos confidenciales o PII (información de identificación personal), como en el ejemplo siguiente: ![Atributos incorrectos](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png).
 
-![Atributos incorrectos](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+En este caso, comience con la lista de atributos de este tema e identifique aquellos que podrían contener datos confidenciales o PII y que, por tanto, no se pueden sincronizar. Después, anule la selección de ellos durante la instalación con el [filtrado de atributos y aplicaciones de Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
-En este caso, comience con la lista de atributos siguientes e identifique aquellos que podrían contener datos confidenciales o PII y no se pueden sincronizar. A continuación, anule la selección de ellos durante la instalación con el [filtrado de atributos y aplicaciones de Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
-
->[AZURE.WARNING] Al anular la selección de atributos, debe tener cuidado y solo anule la selección de aquellos que sean imposibles de sincronizar. Anular la selección de otros atributos podría afectar negativamente a las características.
+>[AZURE.WARNING] Al anular la selección de atributos, debe tener cuidado y solo hacerlo con aquellos que sean imposibles de sincronizar. Anular la selección de otros atributos podría afectar negativamente a las características.
 
 ## Office 365 ProPlus
 
@@ -42,7 +39,6 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | sourceAnchor| X| Propiedad mecánica. Identificador inmutable para mantener la relación entre ADDS y Azure AD.|
 | usageLocation| X| Propiedad mecánica. El país del usuario. Se usa para la asignación de licencias.|
 | userPrincipalName| X| UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
-
 
 ## Exchange Online
 
@@ -166,8 +162,6 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | userPrincipalName| X| | | UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
 | userSMIMECertificates| X| X| | |
 | wWWHomePage| X| X| | |
-
-
 
 ## SharePoint Online
 
@@ -302,7 +296,6 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | userPrincipalName| X| | | UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
 | wWWHomePage| X| X| | |
 
-
 ## Azure RMS
 
 | Nombre del atributo| Usuario| Contacto| Grupo| Comentario |
@@ -319,7 +312,6 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | sourceAnchor| X| X| X| Propiedad mecánica. Identificador inmutable para mantener la relación entre ADDS y Azure AD.|
 | usageLocation| X| | | Propiedad mecánica. El país del usuario. Se usa para la asignación de licencias.|
 | userPrincipalName| X| | | Este UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
-
 
 ## Intune
 
@@ -340,8 +332,6 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | sourceAnchor| X| X| X| Propiedad mecánica. Identificador inmutable para mantener la relación entre ADDS y Azure AD.|
 | usageLocation| X| | | Propiedad mecánica. El país del usuario. Se usa para la asignación de licencias.|
 | userPrincipalName| X| | | UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
-
-
 
 ## Dynamics CRM
 
@@ -378,12 +368,12 @@ En este caso, comience con la lista de atributos siguientes e identifique aquell
 | userPrincipalName| X| | | UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
 
 ## Aplicaciones de terceros
-Se trata de un conjunto de atributos que se usan como atributos mínimos necesarios para una carga de trabajo o aplicación genérica. Se puede usar para cargas de trabajo no enumeradas anteriormente o para una aplicación que no sea de Microsoft. Se usa explícitamente para lo siguiente:
+Este grupo es un conjunto de atributos que se usan como atributos mínimos necesarios para una carga de trabajo o aplicación genérica. Se puede emplear para cargas de trabajo que no figuren en otra sección o para una aplicación que no sea de Microsoft. Se usa explícitamente para lo siguiente:
 
-- Yammer (solo se consume realmente User)
+- Yammer (solo se consume User)
 - [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
 
-Se trata de un conjunto de atributos que se pueden usar si no se usa el directorio de Azure AD para la compatibilidad con Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales.
+Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales.
 
 | Nombre del atributo| Usuario| Contacto| Grupo| Comentario |
 | --- | :-: | :-: | :-: | --- |
@@ -404,7 +394,7 @@ Se trata de un conjunto de atributos que se pueden usar si no se usa el director
 | userPrincipalName| X| | | UPN es el identificador de inicio de sesión para el usuario. Frecuentemente el mismo que el valor [mail].|
 
 ## Windows 10
-Los equipos (dispositivos) unidos a dominio de Windows 10 sincronizarán algunos atributos con Azure AD. Para más información sobre los escenarios, vea [Conexión de dispositivos unidos a un dominio a Azure AD para experiencias en Windows 10](active-directory-azureadjoin-devices-group-policy.md). Estos atributos siempre se sincronizarán y Windows 10 no aparecerá como una aplicación de la que puede anular la selección. Un equipo unido a un dominio de Windows 10 se identifica por tener el atributo userCertificate rellenado.
+Los equipos (dispositivos) Windows 10 unidos a un dominio sincronizarán algunos atributos con Azure AD. Para obtener más información sobre los escenarios, vea [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md). Estos atributos siempre se sincronizarán y Windows 10 no aparecerá como una aplicación de la que puede anular la selección. Un equipo unido a un dominio de Windows 10 se identifica por tener el atributo userCertificate rellenado.
 
 | Nombre del atributo| Dispositivo| Comentario |
 | --- | :-: | --- |
@@ -418,7 +408,7 @@ Los equipos (dispositivos) unidos a dominio de Windows 10 sincronizarán algunos
 | operatingSystemVersion | X| También se denomina deviceOSVersion.|
 | userCertificate | X| |
 
-Estos atributos para usuario se incluyen además de las otras aplicaciones que haya seleccionado.
+Estos atributos de **User** se incluyen además de las otras aplicaciones que haya seleccionado.
 
 | Nombre del atributo| Usuario| Comentario |
 | --- | :-: | --- |
@@ -426,11 +416,11 @@ Estos atributos para usuario se incluyen además de las otras aplicaciones que h
 | domainNetBios| X| También se denomina netBiosName. Por ejemplo, CONTOSO.|
 
 ## Reescritura híbrida de Exchange
-Estos atributos se reescriben desde Azure AD en Active Directory local cuando se elige habilitar la implementación híbrida de Exchange. Dependiendo de la versión de Exchange, puede que se sincronicen menos atributos.
+Estos atributos se reescriben desde Azure AD en Active Directory local cuando se elige habilitar la **implementación híbrida de Exchange**. Dependiendo de la versión de Exchange, puede que se sincronicen menos atributos.
 
 | Nombre del atributo| Usuario| Contacto| Grupo| Comentario |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObjectID| X| | | Se deriva de cloudAnchor en Azure AD. Esto es nuevo en Exchange 2016.|
+| msDS-ExternalDirectoryObjectID| X| | | Se deriva de cloudAnchor en Azure AD. Este atributo es nuevo en Exchange 2016.|
 | msExchArchiveStatus| X| | | Archivo en línea: permite a los clientes archivar el correo electrónico.|
 | msExchBlockedSendersHash| X| | | Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes.|
 | msExchSafeRecipientsHash| X| | | Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes.|
@@ -440,7 +430,7 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 | proxyAddresses| X| X| X| Solo se inserta la dirección x500 de Exchange Online.|
 
 ## Escritura diferida de dispositivos
-Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos unidos a Azure AD o equipos unidos a un dominio de Windows 10.
+Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos unidos a Azure AD o equipos Windows 10 unidos a un dominio.
 
 | Nombre del atributo| Dispositivo| Comentario |
 | --- | :-: | --- |
@@ -461,7 +451,8 @@ Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos
 
 
 ## Notas
-- Cuando se usa un identificador alternativo, el atributo local userPrincipalName se sincronizará con el atributo de Azure AD onPremisesUserPrincipalName. El atributo Alternate ID, por ejemplo, el correo, se sincronizará con el atributo de Azure AD userPrincipalName.
+
+- Cuando se usa un identificador alternativo, el atributo local userPrincipalName se sincronizará con el de Azure AD onPremisesUserPrincipalName. El atributo de identificador alternativo, por ejemplo, mail, se sincronizará con el de Azure AD userPrincipalName.
 - En la lista anterior, el tipo de objeto **User** también se aplica al tipo de objeto **iNetOrgPerson**.
 
 ## Pasos siguientes
@@ -469,4 +460,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

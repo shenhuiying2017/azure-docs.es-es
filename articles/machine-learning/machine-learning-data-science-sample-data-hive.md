@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -20,8 +20,8 @@
 
 En este artículo, se describe cómo reducir la muestra de datos almacenados en tablas de HDInsight Hive de Azure mediante consultas de Hive. Se explican tres métodos de muestreo normalmente utilizados:
 
-* Muestreo aleatorio uniforme 
-* Muestreo aleatorio por grupos 
+* Muestreo aleatorio uniforme
+* Muestreo aleatorio por grupos
 * Muestreo estratificado
 
 **¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de ciencia de datos en equipos es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
@@ -107,4 +107,4 @@ Aquí se muestra una consulta de ejemplo:
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con SumoLogic
@@ -116,7 +116,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     7.  Como **Atributo de correo electrónico**, seleccione **Usar SAML Subject**.
     8.  Seleccione **Configuración de inicio de sesión iniciada por el SP**.
     9.  En el cuadro de texto **Ruta de acceso de inicio de sesión**, escriba **Azure**.
-    10. Haga clic en **Guardar**.
+    10. Haga clic en **Save**.
 
 10. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SumoLogic**, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completa**.
 
@@ -126,7 +126,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en SumoLogic, deben aprovisionarse a SumoLogic. En el caso de SumoLogic, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su inquilino de **SumoLogic**.
 
@@ -167,4 +167,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

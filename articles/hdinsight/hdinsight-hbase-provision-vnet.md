@@ -5,7 +5,7 @@
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -58,8 +58,8 @@ En esta sección, creará un clúster de HBase basado en Linux en HDInsight con 
     - Intervalo de direcciones de subred: 10.0.0.0/24
 
 3. Haga clic en **Aceptar** para guardar los parámetros.
-4. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, en **Nuevo** para crear un grupo de recursos. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
-5. Haga clic en **Términos legales** y, luego, haga clic en **Crear**.
+4. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, haga clic en **Nuevo** para crear un nuevo grupo de recursos. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
+5. Haga clic en **Términos legales** y, luego, en **Crear**.
 6. Haga clic en **Crear**. Verá un icono nuevo llamado "**Submitting deployment for Template deployment**" (Envío de implementación para la implementación de plantilla). Tarda aproximadamente 20 minutos en crear un clúster. Una vez creado el clúster, puede hacer clic en la hoja del clúster en el portal para abrirlo.
 
 Después de completar el tutorial, quizá desee eliminar el clúster. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso. Para ver instrucciones sobre cómo eliminar un clúster, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
@@ -284,4 +284,4 @@ En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más i
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

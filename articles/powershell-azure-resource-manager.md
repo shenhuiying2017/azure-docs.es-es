@@ -18,6 +18,13 @@
 
 # Uso de Azure PowerShell con Azure Resource Manager
 
+> [AZURE.SELECTOR]
+- [Portal](azure-portal/resource-group-portal.md)
+- [CLI de Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [API DE REST](resource-manager-rest-api.md)
+
+
 Azure Resource Manager implementa un enfoque moderno de control del ciclo de vida de los recursos de Azure. En lugar de crear y administrar recursos individuales, empiece por imaginar una solución entera, como un blog, una galería de fotos, un portal de SharePoint o un wiki. Use una plantilla, una representación declarativa de la solución, para crear un grupo de recursos que contiene todos los recursos que necesita para respaldar la solución. Luego, administre e implemente ese grupo de recursos como una unidad lógica.
 
 En este tutorial, aprenderá a usar Azure PowerShell con el Administrador de recursos de Azure. Le guía por el proceso para implementar una solución y trabajar con esa solución. Se usará una plantilla de Resource Manager y Azure PowerShell para la implementación:
@@ -376,4 +383,4 @@ Los ejemplos de implementación anteriores en este tema solo mostraban los cmdle
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

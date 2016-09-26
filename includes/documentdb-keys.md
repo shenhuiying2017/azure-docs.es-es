@@ -1,5 +1,5 @@
-Ahora, vaya a la hoja de claves de su cuenta de DocumentDB, dado que utilizaremos estos valores en la aplicación web que crearemos a continuación.
+  Ahora, vaya a la hoja de cuenta de DocumentDB y haga clic en **Claves**, dado que utilizaremos estos valores en la aplicación web que crearemos a continuación.
 
-![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+![Captura de pantalla de Azure Portal, que muestra una cuenta de DocumentDB, con el botón Claves resaltado en la hoja de cuenta de DocumentDB, y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves](./media/documentdb-keys/keys.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

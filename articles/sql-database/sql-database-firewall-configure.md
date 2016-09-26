@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/06/2016"
+   ms.date="09/14/2016"
    ms.author="rickbyh"/>
 
 # Configuración de reglas de firewall de Base de datos SQL de Azure: información general
@@ -76,7 +76,7 @@ Puede habilitar conexiones desde Azure de dos maneras:
 
 ## Crear de la primera regla de firewall de nivel de servidor
 
-La primera configuración del firewall de nivel de servidor puede crearse mediante [Azure Portal](https://portal.azure.com/) o mediante programación con la API de REST o con Azure PowerShell. Las reglas de firewall de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, así como a través de Transact-SQL. Para más información sobre reglas de firewall de nivel de servidor, consulte [Configuración de un firewall de servidor SQL de Azure mediante Azure Portal](sql-database-configure-firewall-settings.md).
+La primera configuración del firewall de nivel de servidor puede crearse mediante [Azure Portal](https://portal.azure.com/) o mediante programación con la API de REST o con Azure PowerShell. Las reglas de firewall de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, así como a través de Transact-SQL. Para mejorar el rendimiento, las reglas de firewall de nivel de servidor se almacenan temporalmente en caché en el nivel de base de datos. Para actualizar la memoria caché, consulte [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). Para más información sobre reglas de firewall de nivel de servidor, consulte [Configuración de un firewall de servidor SQL de Azure mediante Azure Portal](sql-database-configure-firewall-settings.md).
 
 ## Reglas de firewall de nivel de base de datos
 
@@ -158,4 +158,4 @@ Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

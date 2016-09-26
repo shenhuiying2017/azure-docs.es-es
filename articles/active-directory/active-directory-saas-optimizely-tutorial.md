@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="09/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ La aplicación de Optimizely espera que las aserciones SAML contengan un atribut
 
 	b. En el cuadro de texto **Identificador**, escriba `urn:auth0:optimizely:contoso`.
 
-	c. Haga clic en **Siguiente**.
+	c. Haga clic en **Next**.
 
 
 	> [AZURE.NOTE] Los valores de **URL de inicio de sesión** e **Identificador** solo son marcadores de posición de los valores reales. Más adelante en este tutorial podrá encontrar instrucciones para obtener los valores reales de Optimizely.
@@ -180,7 +180,7 @@ La aplicación de Optimizely espera que las aserciones SAML contengan un atribut
 
     a. Seleccione la confirmación de la configuración de inicio de sesión único.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 11. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
   	
@@ -224,7 +224,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
 6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
@@ -332,4 +332,4 @@ Al hacer clic en el icono de Optimizely en el panel de acceso, debería iniciar 
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

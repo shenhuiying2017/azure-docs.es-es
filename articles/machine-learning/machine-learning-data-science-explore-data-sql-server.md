@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="09/13/2016" 
+	ms.author="bradsev" />
 
 #Exploración de los datos de una máquina virtual de SQL Server en Azure
 
 
 Este documento explica cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
 
-El **menú** siguiente vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
+El siguiente **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -67,7 +67,7 @@ La [biblioteca Pandas](http://pandas.pydata.org/) en Python ofrece un amplio con
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Ya puede trabajar con la trama de datos de Pandas como se explica en los temas [Procesar datos de Blob de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md).
+Ya puede trabajar con la trama de datos de Pandas como se explica en el artículo [Proceso de datos del blob de Azure con análisis avanzado](machine-learning-data-science-process-data-blob.md).
 
 ## Ejemplo de proceso de análisis de Cortana en acción
 
@@ -75,4 +75,4 @@ Para ver un tutorial de ejemplo completo del proceso de Cortana Analytics usando
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

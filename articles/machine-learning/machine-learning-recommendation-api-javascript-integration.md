@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Recomendaciones de Aprendizaje automático de Azure: Integración con JavaScript
 
-> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+>[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 
 
 Este documento describe cómo integrar su sitio mediante JavaScript. El código JavaScript le permite enviar eventos de adquisición de datos y consumir recomendaciones una vez que se crea un modelo de recomendación. Todas las operaciones que se realizan a través de JS se pueden realizar también desde el servidor.
@@ -62,7 +62,7 @@ Los siguientes pasos permiten enviar eventos:
 1.	Incluya la biblioteca de JQuery en su código. Puede descargarlo desde nuget en la siguiente dirección URL.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
-2.	Incluya la biblioteca de recomendaciones de Java Script en la siguiente dirección URL: http://1drv.ms/1Aoa1Zp
+2.	Incluya la biblioteca de recomendaciones de Java Script en la siguiente dirección URL: http://aka.ms/RecoJSLib1
 
 3.	Inicialice la biblioteca de recomendaciones de Aprendizaje automático de Azure con los parámetros adecuados.
 
@@ -136,8 +136,7 @@ O con datos opcionales:
 
 
 ####3\.2.3. Agregar eventos de carro de la compra
-Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra. 
-Parámetros:
+Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra. Parámetros:
 * event (cadena, obligatorio) - "addshopcart"
 * item (cadena, obligatorio) - Identificador único del elemento
 * itemName (cadena, opcional) - El nombre del elemento
@@ -169,8 +168,7 @@ Este evento se debe usar cuando el usuario ha comprado su carro de la compra.
 
 Parámetros:
 * event (cadena) - "purchase"
-* items (comprados) - Matriz con una entrada por cada elemento comprado.<br><br> 
-Formato de elemento comprado:
+* items (comprados) - Matriz con una entrada por cada elemento comprado.<br><br> Formato de elemento comprado:
 	* item (cadena) - Identificador único del elemento
 	* count (entero o cadena) - Número de elementos que se compraron.
 	* price (flotante o cadena) - Campo opcional; precio del elemento.
@@ -189,11 +187,7 @@ Este evento se debe utilizar después del inicio de sesión de usuario en su sit
 
 Parámetros:
 * event (cadena) - "userlogin"
-* user (cadena) - Identificación único del usuario. 
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); 
-		</script>
+* user (cadena) - Identificación único del usuario. <script>if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
 
 ##4\. Consumir recomendaciones a través de JavaScript
 El código que consume la recomendación se activa por algunos eventos de JavaScript en la página web del cliente. La respuesta de recomendación incluye los identificadores de elementos recomendados, sus nombres y sus clasificaciones. Es preferible utilizar esta opción solo para una visualización de la lista de los elementos recomendados: debe realizarse un control más complejo (por ejemplo, para agregar los metadatos del elemento) en la integración del lado servidor.
@@ -231,4 +225,4 @@ Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

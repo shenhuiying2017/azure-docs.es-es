@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -64,7 +64,7 @@ A continuación se muestra un ejemplo muy sencillo que usa películas:
 
 ###Descripción de los datos
 
-Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de películas en un formato compatible con Mahout. Estos datos están disponibles en el almacenamiento predeterminado del clúster (en `/HdiSamples/MahoutMovieData`).
+Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de películas en un formato compatible con Mahout. Estos datos están disponibles en el almacenamiento predeterminado del clúster en `/HdiSamples/MahoutMovieData`.
 
 Existen dos archivos, `moviedb.txt` (información sobre las películas) y `user-ratings.txt`. El archivo user-ratings.txt se usa durante el análisis, mientras el archivo moviedb.txt se usa para proporcionar información de texto descriptiva al mostrar los resultados del análisis.
 
@@ -424,9 +424,9 @@ Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualment
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Una vez se complete la compilación, podrá encontrar el archivo JAR en __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Cuando Mahout 1.0 esté disponible, podrá usar los paquetes de compilación previa con HDInsight 3.0. 
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Cargue el archivo jar en __example/jars__ en el almacenamiento predeterminado del clúster. Reemplace CLUSTERNAME en el siguiente script por el nombre de su clúster de HDInsight y FILENAME por la ruta de acceso al archivo __mahout-coure-0.9-job.jar__.
 
@@ -524,4 +524,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

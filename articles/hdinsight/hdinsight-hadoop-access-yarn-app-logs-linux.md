@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="Blackmist" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -70,7 +70,7 @@ Puede ver estos registros como texto sin formato ejecutando uno de los siguiente
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 	
-Al ejecutar estos comandos debe usar la siguiente información: \<applicationId\>, \<user-who-started-the-application\>, \<containerId\> y \<worker-node-address\>.
+Al ejecutar estos comandos debe usar la siguiente información: <lt;applicationId>, <user-who-started-the-application>, <containerId> y <worker-node-address>.
 
 ##Interfaz de usuario de ResourceManager de YARN
 
@@ -96,4 +96,4 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

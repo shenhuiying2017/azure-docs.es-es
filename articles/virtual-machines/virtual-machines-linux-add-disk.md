@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="04/29/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Adición de un disco a una máquina virtual de Linux
@@ -277,4 +277,4 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 - Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 - Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

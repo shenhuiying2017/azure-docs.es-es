@@ -4,7 +4,7 @@ description="Aprenda a agregar bibliotecas de Hive (archivos JAR) a un clúster 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -88,4 +88,4 @@ Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR a
 
 En este documento ha aprendido a agregar bibliotecas de Hive contenidas en archivos JAR a un clúster de HDInsight durante la creación del clúster. Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hdinsight-use-hive.md) (Uso de Hive con HDInsight).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

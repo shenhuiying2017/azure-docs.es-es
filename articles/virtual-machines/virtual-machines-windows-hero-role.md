@@ -27,7 +27,7 @@ Si aún no ha creado su primera máquina virtual, debe volver a [Creación de la
 
 1. Abra el [Portal de Azure](https://portal.azure.com).
 2. En el menú central, haga clic en **Máquinas virtuales**. Seleccione la máquina virtual en la lista.
-3. Si el estado es **Detenido (desasignado), haga clic en el botón **Iniciar** de la hoja **Essentials** de la máquina virtual. Si el estado es **En ejecución*, puede continuar al paso siguiente.
+3. Si el estado es **Detenido (desasignado)**, haga clic en el botón **Iniciar** de la hoja **Essentials** de la máquina virtual. Si el estado es **En ejecución**, puede continuar al paso siguiente.
 
 ## Conexión a la máquina virtual e inicio de sesión
 
@@ -120,10 +120,11 @@ Para más información acerca de NSG y reglas de entrada y de salida, consulte [
 3. El explorador debe abrir la página web IIS predeterminada. Se parece a lo siguiente:
 
 	![Captura de pantalla que muestra el aspecto de la página predeterminada de IIS en un explorador](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
-	
-	
-	## Pasos siguientes
+
+    
+
+## Pasos siguientes
 
 - También puede probar a [adjuntar un disco de datos](virtual-machines-windows-attach-disk-portal.md) a la máquina virtual. Los discos de datos proporcionan más espacio de almacenamiento para la máquina virtual.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

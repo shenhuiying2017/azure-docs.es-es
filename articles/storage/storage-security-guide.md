@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 #Guía de seguridad de Almacenamiento de Azure
@@ -60,7 +60,7 @@ Esta guía se centra en el modelo de Resource Manager, que es el medio recomenda
 
 ###Protección de su cuenta de almacenamiento con el control de acceso basado en rol (RBAC)
 
-Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar el [Portal de Azure](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o [las API de REST del proveedor de recursos de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o [las API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con el modelo de Resource Manager, se coloca la cuenta de almacenamiento en un grupo de recursos y se controla el acceso al plano de la administración de dicha cuenta de almacenamiento específica mediante Azure Active Directory. Por ejemplo, puede proporcionar a usuarios específicos la posibilidad de tener acceso a las claves de la cuenta de almacenamiento, mientras que otros usuarios pueden ver información sobre la cuenta de almacenamiento pero no pueden tener acceso a sus claves.
 
@@ -138,7 +138,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 
 Las claves de la cuenta de almacenamiento son cadenas de 512 bits creadas por Azure que, junto con el nombre de la cuenta de almacenamiento, pueden utilizarse para tener acceso a los objetos de datos almacenados en la cuenta de almacenamiento; por ejemplo, blobs, entidades dentro de una tabla, mensajes de una cola y archivos en un recurso compartido de archivos de Azure. El control del acceso a las claves de la cuenta de almacenamiento controla el acceso al plano de los datos de esa cuenta de almacenamiento.
 
-Cada cuenta de almacenamiento tiene dos claves que se conocen como "Clave 1" y "Clave 2" en el [Portal de Azure](http://portal.azure.com/) y en los cmdlets de PowerShell. Es posible volver a generarlas manualmente con diferentes métodos, como el uso del [Portal de Azure](https://portal.azure.com/), PowerShell o la CLI de Azure, o mediante programación con la biblioteca de cliente de almacenamiento de .NET o la API de REST de Servicios de almacenamiento de Azure.
+Cada cuenta de almacenamiento tiene dos claves que se conocen como "Clave 1" y "Clave 2" en [Azure Portal](http://portal.azure.com/) y en los cmdlets de PowerShell. Es posible volver a generarlas manualmente con diferentes métodos, como el uso de [Azure Portal ](https://portal.azure.com/), PowerShell o la CLI de Azure, o mediante programación con la biblioteca de cliente de almacenamiento de .NET o la API de REST de servicios de Azure Storage.
 
 Hay varias razones que justifican volver a generar las claves de la cuenta de almacenamiento.
 
@@ -154,11 +154,11 @@ No es buena idea limitarse a volver a generar la clave que está utilizando sin 
 
 Antes de volver a generar las claves, asegúrese de que dispone de una lista de todas las aplicaciones que dependen de la cuenta de almacenamiento, así como cualquier otro servicio que se use en Azure. Por ejemplo, si usa Servicios multimedia de Azure que dependen de su cuenta de almacenamiento, debe volver a sincronizar las claves de acceso con los servicios multimedia después de volver a generar las claves. Si está utilizando otras aplicaciones, como un explorador de almacenamiento, debe proporcionarles también las nuevas claves. Observe que si tiene máquinas virtuales cuyos archivos VHD se almacenan en la cuenta de almacenamiento, estos no se verán afectados por la regeneración de las claves de la cuenta de almacenamiento.
 
-Puede volver a generar las claves en el Portal de Azure. Una vez que se vuelven a generar, las claves pueden tardar hasta 10 minutos en sincronizarse en todos los servicios de almacenamiento.
+Puede volver a generar las claves en Azure Portal. Una vez que se vuelven a generar, las claves pueden tardar hasta 10 minutos en sincronizarse en todos los servicios de almacenamiento.
 
 Cuando esté listo, este es el proceso general que detalla cómo se debe cambiar la clave. En este caso, suponemos que actualmente usa la Clave 1 y que va a cambiar todo para usar la Clave 2 en su lugar.
 
-1.  Vuelva a generar la Clave 2 para asegurarse de que sea segura. Puede hacerlo en el Portal de Azure.
+1.  Vuelva a generar la Clave 2 para asegurarse de que sea segura. Puede hacerlo en Azure Portal.
 
 2.  En todas las aplicaciones donde se almacena la clave de almacenamiento, cámbiela para usar el nuevo valor de la Clave 2. Pruebe y publique la aplicación.
 
@@ -206,7 +206,7 @@ Debe observar una excepción: puede permitir el acceso público a los blobs esta
 
 Las claves de la cuenta de almacenamiento son cadenas de 512 bits creadas por Azure que, junto con el nombre de la cuenta de almacenamiento, pueden utilizarse para tener acceso a los objetos de datos almacenados en la cuenta de almacenamiento.
 
-Por ejemplo, puede leer blobs, escribir en colas, crear tablas y modificar los archivos. Muchas de estas acciones pueden realizarse a través del Portal de Azure, o usando una de las muchas aplicaciones de Explorador de almacenamiento. También puede escribir código para usar la API de REST o una de las bibliotecas de cliente de almacenamiento para realizar estas operaciones.
+Por ejemplo, puede leer blobs, escribir en colas, crear tablas y modificar los archivos. Muchas de estas acciones pueden realizarse a través de Azure Portal, o usando una de las muchas aplicaciones del Explorador de almacenamiento. También puede escribir código para usar la API de REST o una de las bibliotecas de cliente de almacenamiento para realizar estas operaciones.
 
 Como se describe en la sección sobre la [Seguridad en el plano de la administración](#management-plane-security), el acceso a las claves de almacenamiento de una cuenta de almacenamiento clásica se puede conceder proporcionando acceso completo a la suscripción de Azure. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de Azure Resource Manager puede controlarse mediante el control de acceso basado en rol.
 
@@ -366,19 +366,17 @@ Aunque puede usar el Cifrado de cliente para cifrar los datos en tránsito (que 
 
 ###Cifrado del servicio de almacenamiento (SSE)
 
-SSE es una nueva característica de Almacenamiento de Azure en versión preliminar pública. Esta característica le permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure. Cuando se lean los datos desde el Almacenamiento de Azure, el servicio de almacenamiento los descifrará antes de devolverlos. De este modo, protege los datos sin tener que modificar el código o agregar código a las aplicaciones.
+SSE permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage. Cuando se lean los datos desde el Almacenamiento de Azure, el servicio de almacenamiento los descifrará antes de devolverlos. De este modo, protege los datos sin tener que modificar el código o agregar código a las aplicaciones.
 
-Se trata de una configuración que se aplica a toda la cuenta de almacenamiento. Puede habilitar y deshabilitar esta característica cambiando el valor de la configuración. Para ello, puede usar el Portal de Azure, PowerShell, la CLI de Azure, la API de REST del proveedor de recursos de almacenamiento o la biblioteca de cliente de almacenamiento de .NET. De forma predeterminada, SSE está desactivado.
+Se trata de una configuración que se aplica a toda la cuenta de almacenamiento. Puede habilitar y deshabilitar esta característica cambiando el valor de la configuración. Para ello, puede usar Azure Portal, PowerShell, la CLI de Azure, la API de REST del proveedor de recursos de almacenamiento o la biblioteca de cliente de almacenamiento de .NET. De forma predeterminada, SSE está desactivado.
 
 En este momento, Microsoft administra las claves utilizadas para el cifrado. Generamos las claves originalmente y administramos el almacenamiento seguro de las claves, así como la rotación periódica de acuerdo con la política interna de Microsoft. En el futuro, tendrá la posibilidad de administrar sus propias claves de cifrado, y proporcionaremos una ruta de migración desde las claves administradas por Microsoft a las claves administradas por el cliente.
 
-Esta característica está disponible para cuentas de Almacenamiento de tipo Estándar y Premium creadas mediante el modelo de implementación de Resource Manager después del 30/3/2016 a las 12:00 a.m. (hora estándar del Pacífico). SSE se aplica solo a blobs en bloques, blobs en páginas y blobs en anexos. Los otros tipos de datos, como tablas, colas y archivos, no se cifrarán.
+Esta característica está disponible para cuentas de Standard Sorage y Premium Storage creadas mediante el modelo de implementación de Resource Manager. SSE se aplica solo a blobs en bloques, blobs en páginas y blobs en anexos. Los otros tipos de datos, como tablas, colas y archivos, no se cifrarán.
 
 Solo se cifran los datos cuando está habilitado SSE y los datos se escriben en Almacenamiento de blobs. El hecho de habilitar o deshabilitar el SSE no afecta a los datos existentes. En otras palabras, al habilitar este cifrado, no se cifrarán los datos que ya existan; y tampoco se descifrarán los datos que ya existan al deshabilitarlo.
 
-Si desea probar esta función con una cuenta de almacenamiento creada con anterioridad a la fecha mencionada previamente, o una cuenta de almacenamiento clásica, puede crear una nueva cuenta de almacenamiento y usar AzCopy para copiar los datos a la nueva cuenta. Esto no debería ser necesario en versiones posteriores a la preliminar.
-
-Al igual que con la mayoría de las versiones preliminares, no es recomendable usarla en producción hasta que la característica esté disponible con carácter general.
+Si desea probar esta función con una cuenta de almacenamiento clásica, puede crear una nueva cuenta de almacenamiento de Resource Manager y usar AzCopy para copiar los datos en la nueva cuenta.
 
 ###Cifrado de cliente
 
@@ -460,7 +458,7 @@ El Cifrado de cliente supone más carga en el cliente; así pues, debe tener en 
 
 ####Cifrado del servicio de almacenamiento (SSE)
 
-SSE es administrado mediante Almacenamiento de Azure y es fácil de administrar. El uso de SSE no proporciona seguridad para los datos en tránsito, pero cifra los datos a medida que se escriben en Almacenamiento de Azure. El uso de esta característica no repercute sobre el rendimiento en modo alguno.
+SSE se administra mediante Azure Storage. El uso de SSE no proporciona seguridad para los datos en tránsito, pero cifra los datos a medida que se escriben en Almacenamiento de Azure. El uso de esta característica no repercute sobre el rendimiento en modo alguno.
 
 Solo puede cifrar blobs en bloques, blobs en anexos y blobs en páginas mediante SSE. Si necesita cifrar datos en tabla o en cola, considere el uso del Cifrado de cliente.
 
@@ -480,7 +478,7 @@ Esto puede resultar muy útil si se está esforzando por proteger el acceso al a
 
 ####¿Qué aspecto tienen los registros?
 
-Después de habilitar las métricas de la cuenta de almacenamiento y el registro a través del Portal de Azure, los datos del análisis empezarán a acumularse rápidamente. El registro y las métricas de cada servicio son independientes; el registro solo se escribe cuando hay actividad en esa cuenta de almacenamiento, mientras que las métricas se registrarán cada minuto, cada hora o cada día, dependiendo de la configuración.
+Después de habilitar las métricas de la cuenta de almacenamiento y el registro a través de Azure Portal, los datos del análisis empezarán a acumularse rápidamente. El registro y las métricas de cada servicio son independientes; el registro solo se escribe cuando hay actividad en esa cuenta de almacenamiento, mientras que las métricas se registrarán cada minuto, cada hora o cada día, dependiendo de la configuración.
 
 Los registros se almacenan en blobs en bloques en un contenedor denominado $logs en la cuenta de almacenamiento. Este contenedor se crea automáticamente cuando se habilita el Análisis de almacenamiento. Una vez creado este contenedor, no se puede eliminar, aunque sí puede eliminar su contenido.
 
@@ -634,4 +632,4 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

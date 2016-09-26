@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Instalación y uso de R en clústeres de Hadoop para HDInsight
@@ -51,7 +51,7 @@ Un [script de ejemplo](https://hdiconfigactions.blob.core.windows.net/rconfigact
 		<tr><th>Propiedad</th><th>Valor</th></tr>
 		<tr><td>Nombre</td>
 			<td>Especifique un nombre para la acción de script, por ejemplo, <b>Instalar R</b>.</td></tr>
-		<tr><td>URI de script</td>
+		<tr><td>Identificador URI de script</td>
 			<td>Especifique el URI al script que se invoca para personalizar el clúster, por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
 		<tr><td>Tipo de nodo</td>
 			<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo los nodos principales</b> o <b>Solo los nodos de trabajo</b>.
@@ -99,7 +99,7 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 Consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 
-## Consulte también
+## Otras referencias
 
 - [Instalación y uso de R en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 - [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
@@ -114,4 +114,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

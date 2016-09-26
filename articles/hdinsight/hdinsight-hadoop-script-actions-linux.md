@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -62,7 +62,7 @@ Las distintas versiones de HDInsight tienen distintas versiones de componentes y
 
 Debe asegurarse de que los scripts y los recursos que usan los scripts permanecen disponibles durante la vigencia del clúster, y de que las versiones de estos archivos no cambian durante ese tiempo. Estos recursos son necesarios si se agregan nodos nuevos al clúster durante operaciones de escalado.
 
-La práctica recomendada es descargar y archivar todo el contenido de una cuenta de Almacenamiento de Azure en su suscripción.
+La práctica recomendada es descargar y archivar todo el contenido de una cuenta de Azure Storage en su suscripción.
 
 > [AZURE.IMPORTANT] La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
 
@@ -160,7 +160,7 @@ Los métodos auxiliares de la acción de script son utilidades que puede usar al
 
 Esto hace que las siguientes aplicaciones auxiliares estén disponibles para su uso en el script:
 
-| Uso de la aplicación auxiliar | Descripción |
+| Uso de la aplicación auxiliar | Description |
 | ------------ | ----------- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Descarga un archivo de la dirección URL de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
 | `untar_file TARFILE DESTDIR` | Extrae un archivo tar (mediante `-xf`,) en el directorio de destino. |
@@ -268,4 +268,4 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

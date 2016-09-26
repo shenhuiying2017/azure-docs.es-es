@@ -27,7 +27,7 @@
 
 En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para el Servicio de aplicaciones](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De forma predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes puedan acceder a su aplicación en **https://*&lt;appname>*.azurewebsites.net**. Pero si desea utilizar un dominio personalizado, como **contoso.com**, **www.contoso.com** y **\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como utilizar un dominio personalizado y un certificado para él.
+Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De forma predeterminada, Azure protege el dominio con comodín ***.azurewebsites.net** con un certificado SSL único para que los clientes puedan acceder a su aplicación en **https://*&lt;appname>*.azurewebsites.net**. Pero si desea utilizar un dominio personalizado, como **contoso.com**, **www.contoso.com** y ***.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como utilizar un dominio personalizado y un certificado para él.
 
 >[AZURE.NOTE] Puede obtener ayuda de expertos de Azure en cualquier momento en los [foros de Azure](https://azure.microsoft.com/support/forums/). Para obtener un soporte técnico más personalizado, vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -442,7 +442,9 @@ Antes de continuar, revise la sección [Lo que necesita](#bkmk_domainname) y com
 
 ## Paso 3: Cambiar la asignación de nombres de dominio (solo SSL basada en IP)
 
-Si solo utiliza enlaces **SSL SNI**, omita esta sección. Varios enlaces **SSL SNI** pueden trabajar juntos en la dirección IP compartida existente asignada a la aplicación. Sin embargo, si crea un enlace **SSL basada en IP**, el Servicio de aplicaciones crea una dirección IP dedicada para el enlace porque la **SSL basada en IP** requiere una. Debido a esta dirección IP dedicada, debe configurar la aplicación más si:
+Si solo utiliza enlaces **SSL SNI**, omita esta sección. Varios enlaces **SSL SNI** pueden trabajar juntos en la dirección IP compartida existente asignada a la aplicación. Sin embargo, si crea un enlace **SSL basada en IP**, el Servicio de aplicaciones crea una dirección IP dedicada para el enlace porque la **SSL basada en IP** requiere una. Solo se puede crear una dirección IP específica; por lo tanto, solo puede agregarse un enlace **SSL basada en IP**.
+
+Debido a esta dirección IP dedicada, debe configurar la aplicación más si:
 
 - Ha [usado un registro A para asignar su dominio personalizado](web-sites-custom-domain-name.md#a) a la aplicación de Azure y acaba de agregar un enlace **SSL basada en IP**. En este escenario, debe reasignar el registro A existente para que apunte a la dirección IP dedicada siguiendo estos pasos:
 
@@ -547,4 +549,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

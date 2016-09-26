@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -33,7 +33,7 @@ Las aplicaciones de macrodatos son una opción natural para procesar datos no es
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilitación de la suscripción de Azure** para la vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). En este artículo se supone que tiene un clúster de HDInsight Linux con acceso a Almacén de Data Lake.
 - **Base de datos de SQL Azure**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una Base de datos SQL de Azure](../sql-database/sql-database-get-started.md).
 
@@ -120,7 +120,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 		-rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
 		-rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen,**Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
+	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen,** Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
 
 
 ### Exportación de datos de Almacén de Data Lake a Base de datos SQL de Azure
@@ -149,11 +149,11 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 		3	Erna	Myers
 		4	Annette	Simpson
 
-## Consulte también
+## Otras referencias
 
 - [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 - [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -75,10 +75,10 @@ El complemento de Power Query para Excel facilita la importación de datos desde
 
 En este artículo, ha aprendido a usar Power Query para recuperar datos de HDInsight en Excel. Del mismo modo, puede recuperar datos de HDInsight en Base de datos SQL de Azure. También se pueden cargar los datos en HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-* [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
+* [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
 
-[hdinsight-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
@@ -88,4 +88,4 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

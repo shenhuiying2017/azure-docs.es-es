@@ -4,7 +4,7 @@ description="Información sobre las distintas formas de eliminar un clúster de 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ Desde un símbolo del sistema, utilice el siguiente comando para eliminar el cl�
     
 Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

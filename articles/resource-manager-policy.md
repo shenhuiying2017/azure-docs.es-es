@@ -130,7 +130,7 @@ A continuación se muestra la definición de un alias. Como puede ver, un alias 
 
 Actualmente, los alias admitidos son:
 
-| Nombre de alias | Descripción |
+| Nombre de alias | Description |
 | ---------- | ----------- |
 | {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis y <br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
@@ -255,7 +255,7 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
 
 ### Selección de servicio: selecciona el catálogo de servicios
 
-El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\* y Microsoft.Network/\*. Se denegará todo lo demás.
+El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/* y Microsoft.Network/*. Se denegará todo lo demás.
 
     {
       "if" : {
@@ -414,6 +414,27 @@ La salida de la ejecución se almacena en el objeto $policy y se puede usar post
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Creación de una definición de directiva con la CLI de Azure
+
+Puede crear una nueva definición de directiva mediante la CLI de Azure con el comando de definición de directiva, tal y como se muestra a continuación. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+S puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva, en lugar de especificarla en línea como se muestra a continuación.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Aplicación de una directiva
 
@@ -456,17 +477,46 @@ Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlet
 
 De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
 
+### Asignación de directivas con la CLI de Azure
+
+Puede aplicar la directiva creada anteriormente a través de la CLI de Azure en el ámbito que quiera mediante el comando de asignación de directivas, tal y como se muestra a continuación:
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+En este caso, el ámbito es el nombre del grupo de recursos que especifique. Si no se conoce el valor del parámetro policy-definition-id, se puede obtener con la CLI de Azure tal y como se muestra a continuación:
+
+    azure policy definition show <policy-name>
+
+Si desea quitar la asignación de la directiva anterior, puede hacerlo de la siguiente manera:
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Puede obtener, cambiar o quitar las definiciones de directiva utilizando los comandos de visualización, establecimiento y eliminación de definiciones de directiva, respectivamente.
+
+De forma similar, puede obtener, cambiar o quitar asignaciones de directivas utilizando los comandos de visualización y eliminación de asignaciones de directivas.
+
 ##Eventos de auditoría de directivas
 
-Después de aplicar la directiva, puede empezar a ver los eventos relacionados con ella. Puede ir al portal o usar PowerShell para obtener estos datos.
+Después de aplicar la directiva, puede empezar a ver los eventos relacionados con ella. Puede ir al portal, o bien usar PowerShell o la CLI de Azure para obtener estos datos.
 
-Para ver todos los eventos relacionados con el efecto de denegación, puede usar el siguiente comando.
+### Eventos de auditoría de directivas con PowerShell
+
+Para ver todos los eventos relacionados con el efecto de denegación, puede usar el siguiente comando de PowerShell.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Eventos de auditoría de directivas con la CLI de Azure
+
+Para ver todos los eventos de un grupo de recursos relacionados con el efecto de denegación, puede usar el siguiente comando de la CLI de Azure.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando de la CLI de Azure.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -108,7 +108,7 @@ Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por l
 
 Para apagar y desasignar la máquina virtual:
 
-1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta.  
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta.
 
 2. Seleccione **MÁQUINAS VIRTUALES** en la barra de navegación de la izquierda.
 
@@ -142,4 +142,4 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en la
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

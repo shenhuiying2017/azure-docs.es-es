@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -48,7 +48,7 @@ Es necesario eliminar los siguientes módulos:
 
 - [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]
 - Los módulos [Entrenar modelo][train-model] y [Puntuar modelo][score-model] conectados a ella.
-- [Normalizar datos][normalize-data] \(ambos)
+- [Normalizar datos][normalize-data] (ambos)
 - [Evaluar modelo][evaluate-model]
 
 Simplemente seleccione el módulo y presione la tecla Supr o haga clic con el botón derecho en el módulo y seleccione **Eliminar**.
@@ -131,7 +131,7 @@ Para probar el servicio web, haga clic en la opción de menú **Probar** (consul
 
 Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.
 
-En el servicio web, los datos se escriben a través de los módulos **Web service input** (Entrada de servicio web) y [Metadata Editor][metadata-editor] \(Editor de metadatos), así como en el módulo [Score Model][score-model] \(Puntuar modelo) en el que se puntúa. Después, los resultados se generan desde el servicio web a través de los **resultados de servicio web**.
+En el servicio web, los datos se escriben a través de los módulos **Web service input** (Entrada de servicio web) y [Metadata Editor][metadata-editor] (Editor de metadatos), así como en el módulo [Score Model][score-model] (Puntuar modelo) en el que se puntúa. Después, los resultados se generan desde el servicio web a través de los **resultados de servicio web**.
 
 **Prueba de un servicio web nuevo**
 
@@ -143,7 +143,7 @@ También puede habilitar datos de ejemplo que pueden usarse para probar el servi
 
 Los resultados de la prueba se mostrarán en el lado derecho de la página en la columna de salida.
 
-> [AZURE.TIP] La forma en la que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Score Model][score-model] \(Puntuar modelo). Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente, por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Project Columns][project-columns] \(Columnas del proyecto) entre [Score Model][score-model] \(Puntuar modelo) y **Web service output** (Salida de servicio web) para eliminar las columnas que el servicio web no debe devolver.
+> [AZURE.TIP] La forma en la que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Score Model][score-model] (Puntuar modelo). Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente, por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Project Columns][project-columns] (Columnas del proyecto) entre [Score Model][score-model] (Puntuar modelo) y **Web service output** (Salida de servicio web) para eliminar las columnas que el servicio web no debe devolver.
 
 ## Administración del servicio web
 
@@ -200,4 +200,4 @@ Para supervisar el rendimiento del servicio web, siga estos pasos:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/es-ES/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -97,7 +97,7 @@ Para obtener el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nycta
 
 Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../storage/storage-use-azcopy.md).
 
-1. Desde una ventana de símbolo del sistema, emita los siguientes comandos de AzCopy, reemplazando *<path_to_data_folder>* con el destino deseado:
+1. Desde una ventana de símbolo del sistema, emita los siguientes comandos de AzCopy, reemplazando *<ruta\_a\_carpeta\_datos>* con el destino deseado:
 
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -111,7 +111,7 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***& 60; path\_to\_data\_folder >***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.  
+* ***& 60; path\_to\_data\_folder >***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.
 * ***&#60;storage account name of Hadoop cluster>***: la cuenta de almacenamiento asociada con el clúster de HDInsight.
 * ***&#60;default container of Hadoop cluster>***: el contenedor predeterminado que usa el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
 * ***&#60;storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
@@ -454,7 +454,7 @@ El argumento *-S* incluido en este comando suprime la impresión de la pantalla 
 
 Para el problema de clasificación binaria descrito en la sección [Ejemplos de tareas de predicción](machine-learning-data-science-process-hive-walkthrough.md#mltasks), es útil saber si se recibió una propina o no. Esta distribución de las propinas es binaria:
 
-* Propina dada (clase 1, tip\_amount > 0 $)  
+* Propina dada (clase 1, tip\_amount > 0 $)
 * Sin propina (clase 0, tip\_amount = 0 $)
 
 El archivo *sample\_hive\_tipped\_frequencies.hql* que se muestra a continuación lo lleva a cabo.
@@ -543,20 +543,20 @@ Para ver el contenido de un archivo determinado, por ejemplo 000000\_0, se usa e
 
 **Advertencia:** `copyToLocal` puede ser muy lento para archivos de gran tamaño y no se recomienda para su uso con ellos.
 
-Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Aprendizaje automático de Azure mediante el módulo [Importar datos][import-data].
+Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Azure Machine Learning mediante el módulo [Importar datos][import-data].
 
 
 ## <a name="#downsample"></a>Reducción de datos y creación de modelos en Aprendizaje automático de Azure
 
 **Nota**: esta tarea la suelen hacer los **científicos de datos**.
 
-Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Aprendizaje automático de Azure. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Aprendizaje automático de Azure.
+Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Aprendizaje automático de Azure. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Azure Machine Learning.
 
 ### Reducción de los datos
 
 Este procedimiento incluye dos pasos. En primer lugar se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: "medallion", "hack\_license" y "pickup\_datetime". Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
 
-Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, se deben almacenar los resultados de la consulta anterior en una tabla interna de Hive. En lo que sigue, se crea una tabla interna de Hive y se rellena su contenido con los datos reducidos y combinados.
+Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Azure Machine Learning, se deben almacenar los resultados de la consulta anterior en una tabla interna de Hive. En lo que sigue, se crea una tabla interna de Hive y se rellena su contenido con los datos reducidos y combinados.
 
 La consulta aplica funciones estándar de Hive directamente para generar la hora del día, la semana del año, el día de la semana (1 representa el lunes y 7 el domingo) a partir del campo "pickup\_datetime", y la distancia directa entre las ubicaciones de recogida y destino. Los usuarios pueden consultar [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Manual de lenguaje: campos definidos por el usuario) para obtener una lista completa de estas funciones.
 
@@ -689,11 +689,11 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Ahora tenemos una tabla interna "nyctaxidb.nyctaxi\_downsampled\_dataset", a la que se puede acceder mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure. También se puede utilizar este conjunto de datos para generar modelos de Aprendizaje automático.
+Ahora tenemos una tabla interna nyctaxidb.nyctaxi\_downsampled\_dataset, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Azure Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Aprendizaje automático.
 
 ### Uso del módulo Importar datos de Aprendizaje automático de Azure para acceder a los datos muestreados
 
-Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, se necesita acceso a un área de trabajo de Aprendizaje automático de Azure y a las credenciales del clúster y su cuenta de almacenamiento asociada.
+Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Azure Machine Learning, se necesita acceso a un área de trabajo de Azure Machine Learning y a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
 A continuación se indican algunos detalles del módulo [Importar datos][import-data] y los parámetros de entrada:
 
@@ -709,7 +709,7 @@ A continuación se indican algunos detalles del módulo [Importar datos][import-
 
 **Nombre de contenedor de Azure**: este es el nombre del contenedor predeterminado para el clúster y suele ser el mismo que el nombre del clúster. En un clúster denominado "abc123", es abc123.
 
-**Nota importante:** **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
+**Nota importante:** **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Azure Machine Learning debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
 
 Desde el símbolo de sistema del directorio de Hive, emita el siguiente comando:
 
@@ -786,7 +786,7 @@ b. En los problemas de regresión se mide la precisión de nuestra predicción m
 
 Vemos que el coeficiente de determinación es 0,709, lo que implica que aproximadamente el 71% de la varianza se explica por nuestros coeficientes de modelo.
 
-**Nota importante:** para obtener más información sobre Aprendizaje automático de Azure y cómo acceder a él y usarlo, consulte [¿Qué es el Aprendizaje automático de Microsoft Azure?](machine-learning-what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Aprendizaje automático de Azure es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Aprendizaje automático de Azure.
+**Nota importante:** para obtener más información sobre Aprendizaje automático de Azure y cómo acceder a él y usarlo, consulte [¿Qué es el Aprendizaje automático de Microsoft Azure?](machine-learning-what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Aprendizaje automático de Azure.
 
 ## Información de licencia
 
@@ -794,9 +794,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 
 ## Referencias
 
-•	[Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

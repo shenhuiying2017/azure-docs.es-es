@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -139,4 +139,4 @@ Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consul
 - [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

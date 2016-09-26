@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
 
 *Application Insights se encuentra en su versión de vista previa.*
 
-Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web.
-
-Los recopiladores de datos de Application Insights usan esta API para enviar datos de telemetría estándar como vistas de página e informes de excepciones, pero también puede usarla para enviar sus propios datos de telemetría personalizados.
+Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web. La API de telemetría principal de [Application Insights para Visual Studio](app-insights-overview.md) permite enviar métricas y eventos personalizados, así como sus propias versiones de telemetría estándar. Esta API es la misma que usan los recopiladores de datos estándar de Application Insights.
 
 ## API summary
 
@@ -103,7 +101,8 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     telemetry.trackEvent("WinGame");
 
-En este caso, "WinGame" es el nombre que aparece en el portal de Application Insights.
+
+### Visualización de eventos en Azure Portal
 
 Para ver un recuento de los eventos, abra una hoja [Explorador de métricas](app-insights-metrics-explorer.md), agregue un nuevo gráfico y seleccione Eventos.
 
@@ -243,6 +242,36 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
+
+
+## Contexto de operación
+
+Se pueden asociar elementos de telemetría asociándoles un identificador de operación común. El módulo de seguimiento de solicitud estándar realiza esta operación para excepciones y otros eventos enviados al procesar una solicitud HTTP. En [Búsqueda](app-insights-diagnostic-search.md) y [Análisis](app-insights-analytics.md), puede utilizar el identificador para encontrar fácilmente los eventos asociados a la solicitud.
+
+La manera más fácil de establecer el identificador es definir un contexto de operación mediante este patrón:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+Al igual que al establecer un contexto de operación, `StartOperation` crea un elemento de telemetría del tipo que especifique y lo envía cuando elimine la operación o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como el tipo de telemetría, su duración se establece en el intervalo cronometrado entre el inicio y la detención.
+
+Los contextos de operación no pueden estar anidados. Si ya existe un contexto de operación, entonces su identificador está asociado a todos los elementos contenidos, incluido el elemento que se ha creado con StartOperation.
+
+En la búsqueda, el contexto de la operación se utiliza para crear la lista de elementos relacionados:
+
+![Elementos relacionados](./media/app-insights-api-custom-events-metrics/21.png)
 
 
 ## Seguimiento de excepciones
@@ -517,32 +546,6 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
 
 > [AZURE.WARNING] No vuelva a usar la misma instancia de elemento de telemetría (`event` en este ejemplo) para llamar a Track*() varias veces. Esto puede hacer que se envíe la telemetría con una configuración incorrecta.
 
-## Contexto de operación
-
-Cuando su aplicación web recibe una solicitud HTTP, el módulo de seguimiento de la solicitud de Application Insights asigna un identificador a la solicitud y establece el mismo valor que el del identificador de operación actual. El identificador de operación se borra cuando se envía la respuesta a la solicitud. Cualquier llamada de seguimiento realizada durante la operación se asigna al mismo identificador de operación (siempre que usen el valor de TelemetryContext de manera predeterminada). Esto le permite poner en correlación los eventos relacionados con una solicitud determinada cuando los inspecciona en el portal.
-
-![Elementos relacionados](./media/app-insights-api-custom-events-metrics/21.png)
-
-Si está supervisando los eventos que no están asociados a una solicitud HTTP, o si no está usando el módulo de seguimiento de solicitudes (por ejemplo, si está supervisando un proceso de back-end), puede establecer su propio contexto de operación mediante este patrón:
-
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item - for example:
-        operation.Telemetry.ResponseCode = "200";
-        
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
-
-Al igual que al establecer un contexto de operación, `StartOperation` crea un elemento de telemetría del tipo que especifique y lo envía cuando elimine la operación o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como el tipo de telemetría, su duración se establece en el intervalo cronometrado entre el inicio y la detención.
-
-Los contextos de operación no pueden estar anidados. Si ya existe un contexto de operación, entonces su identificador está asociado a todos los elementos contenidos, incluido el elemento que se ha creado con StartOperation.
 
 
 ## <a name="timed"></a> Eventos de temporización
@@ -788,4 +791,4 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -31,8 +31,8 @@ En este tutorial, aprenderá a desarrollar una aplicación de consola Java que c
 * Kit de desarrollo de Java (JDK) 8 (con Java versión 1.8).
 * IntelliJ u otro entorno de desarrollo de Java adecuado. Este requisito es opcional pero recomendable. En las instrucciones siguientes se utiliza IntelliJ.
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilite su suscripción de Azure** para la versión preliminar pública de Análisis de Data Lake. Consulte las [instrucciones](data-lake-analytics-get-started-portal.md#signup).
-* Cree una aplicación de Azure Active Directory (AAD) y recupere su **identificador de cliente**, **identificador de inquilino** y **clave**. Para más información sobre las aplicaciones de AAD y obtener instrucciones sobre cómo obtener un id. de cliente, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md). El URI de respuesta y la clave también estarán disponibles desde el portal cuando haya creado la aplicación y generado la clave.
+* **Habilite su suscripción de Azure** para la versión preliminar pública de Data Lake Analytics. Consulte las [instrucciones](data-lake-analytics-get-started-portal.md#signup).
+* Cree una aplicación de Azure Active Directory (AAD) y recupere su **identificador de cliente**, **identificador de inquilino** y **clave**. Para más información sobre las aplicaciones de AAD y ver instrucciones sobre cómo obtener un id. de cliente, consulte [Creación de una aplicación de Active Directory y una entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md). El URI de respuesta y la clave también estarán disponibles desde el portal cuando haya creado la aplicación y generado la clave.
 
 ## ¿Cómo se puede autenticar mediante Azure Active Directory?
 
@@ -347,13 +347,13 @@ Para que este tutorial funcione, deberá conceder permiso a su aplicación para 
 6. Siga las indicaciones para ejecutar y completar la aplicación.
 
 
-## Consulte también
+## Otras referencias
 
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 - Para ver una consulta más compleja, consulte la página sobre el [análisis de registros de sitio web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Para aprender U-SQL, consulte [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+- Para aprender U-SQL, consulte el [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

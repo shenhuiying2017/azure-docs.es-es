@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/14/2016" 
+ms.date="09/07/2016" 
 ms.author="eugenesh" />
 
 #Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)#
@@ -39,6 +39,7 @@ Actualmente se admiten los siguientes orígenes de datos:
 - **Base de datos SQL de Azure** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 - **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](../documentdb/documentdb-search-indexer.md).
 - **Almacenamiento de blobs de Azure**, incluidos los siguientes formatos de documento: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP y archivos de texto sin formato (incluido JSON). Para obtener un tutorial de destino, consulte [este artículo](search-howto-indexing-azure-blob-storage.md).
+- **Table Storage de Azure** Para obtener un tutorial de destino, consulte [este artículo](search-howto-indexing-azure-tables.md).
 	 
 Estamos considerando agregar compatibilidad con orígenes de datos adicionales en el futuro. Para ayudarnos a priorizar estas decisiones, proporcione sus comentarios en el [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -94,7 +95,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el [Portal de Azure](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en [Azure Portal](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxis del cuerpo de la solicitud**
 
@@ -105,7 +106,7 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', 'azureblob', or 'azuretable'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
     	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
@@ -119,23 +120,24 @@ La solicitud contiene las siguientes propiedades:
 - `type`: obligatorio. Debe ser uno de los tipos de orígenes de datos compatibles:
 	- `azuresql`: base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
 	- `documentdb`: DocumentDB de Azure
-	- `azureblob`: Almacenamiento de blobs de Azure
+	- `azureblob`: Blob Storage de Azure
+	- `azuretable`: Table Storage de Azure
 - `credentials`:
 	- La propiedad `connectionString` obligatoria especifica la cadena de conexión del origen de datos. El formato de la cadena de conexión depende del tipo de origen de datos:
-		- Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando el Portal de Azure para recuperar la cadena de conexión, use la opción `ADO.NET connection string`.
-		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en el [Portal de Azure](https://portal.azure.com/).
-		- Para Almacenamiento de blobs de Azure, es la cadena de conexión de la cuenta de almacenamiento. El formato se describe [aquí](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Se requiere un protocolo para el punto de conexión HTTPS.
-		
-- `container`, obligatorio: especifica los datos que se van a indexar mediante las propiedades `name` y `query`.
+		- Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando Azure Portal para recuperar la cadena de conexión, use la opción `ADO.NET connection string`.
+		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en [Azure Portal](https://portal.azure.com/).
+		- Para Blob Storage y Table Storage de Azure, es la cadena de conexión de la cuenta de almacenamiento. El formato se describe [aquí](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Se requiere un protocolo para el punto de conexión HTTPS.
+- `container`, obligatorio: especifica los datos que se van a indexar mediante las propiedades `name` y `query`:
 	- `name`, obligatorio:
 		- SQL Azure: especifica la tabla o vista. Puede usar nombres calificados con el esquema, como `[dbo].[mytable]`.
 		- DocumentDB: especifica la colección.
-		- Almacenamiento de blobs de Azure: especifica el contenedor de almacenamiento.
+		- Blob Storage de Azure: especifica el contenedor de almacenamiento.
+		- Azure Table Storage: especifica el nombre de la columna en la tabla.
 	- `query`, opcional:
 		- DocumentDB: permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.
 		- Almacenamiento de blobs de Azure: permite especificar una carpeta virtual dentro del contenedor de blob. Por ejemplo, para la ruta de acceso de blob `mycontainer/documents/blob.pdf`, se puede usar `documents` como la carpeta virtual.
+		- Table Storage de Azure permite especificar una consulta que filtre el conjunto de filas que se importará.
 		- SQL Azure: no se admite la consulta. Si necesita esta funcionalidad, vote por [esta sugerencia](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer).
-   
 - Las propiedades `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
 
 <a name="DataChangeDetectionPolicies"></a> **Directivas de detección de cambios de datos**
@@ -194,7 +196,7 @@ El fin de una directiva de detección de eliminación de datos es identificar ef
 
 **NOTA:** Solo se admiten las columnas con cadenas, números enteros o valores booleanos. El valor usado como `softDeleteMarkerValue` debe ser una cadena, aunque la columna correspondiente contenga números enteros o booleanos. Por ejemplo, si el valor que aparece en el origen de datos es 1, use `"1"` como `softDeleteMarkerValue`.
 
-<a name="CreateDataSourceRequestExamples"></a> **Ejemplos de cuerpo de solicitud**
+<a name="CreateDataSourceRequestExamples"></a> **Ejemplo de cuerpo de solicitud**
 
 Si piensa usar el origen de datos con un indexador que se ejecuta en una programación, este ejemplo muestra cómo especificar directivas de detección de cambios y eliminaciones:
 
@@ -239,11 +241,9 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 
 La sintaxis del cuerpo de la solicitud es la misma que para [Crear solicitudes de origen de datos](#CreateDataSourceRequestSyntax).
 
-> [AZURE.NOTE]
-Algunas propiedades no se pueden actualizar en un origen de datos existente. Por ejemplo, no puede cambiar el tipo de un origen de datos existente.
+> [AZURE.NOTE] Algunas propiedades no se pueden actualizar en un origen de datos existente. Por ejemplo, no puede cambiar el tipo de un origen de datos existente.
 
-> [AZURE.NOTE]
-Si no desea cambiar la cadena de conexión para un origen de datos existente, puede especificar el literal `<unchanged>` para la cadena de conexión. Esto es útil en situaciones donde es necesario actualizar el origen de datos, pero no tiene un acceso cómodo a la cadena de conexión, ya que son datos confidenciales.
+> [AZURE.NOTE] Si no desea cambiar la cadena de conexión para un origen de datos existente, puede especificar el literal `<unchanged>` para la cadena de conexión. Esto es útil en situaciones donde es necesario actualizar el origen de datos, pero no tiene un acceso cómodo a la cadena de conexión, ya que son datos confidenciales.
 
 **Respuesta**
 
@@ -398,7 +398,6 @@ Un indexador puede especificar varios parámetros que afectan a su comportamient
 - `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base 64. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
 
 - `batchSize`: especifica el número de elementos que se leen desde el origen de datos y se indizan como un único lote para mejorar el rendimiento. El valor predeterminado depende del tipo de origen de datos: es 1000 para SQL de Azure y DocumentDB, y 10 para Almacenamiento de blobs de Azure.
-
 
 **Asignaciones de campos**
 
@@ -641,7 +640,7 @@ El resultado de la ejecución del indexador contiene las siguientes propiedades:
 
 - `endTime`: la hora en UTC en la que se finalizó esta ejecución. Este valor no se establece si la ejecución todavía está en curso.
 
-- `errors`: una lista de errores de nivel de elemento, si los hay. Cada entrada contiene una clave de documento (propiedad `key`) y un mensaje de error (propiedad `errorMessage`).
+- `errors`: una matriz de errores de nivel de elemento, si los hay. Cada entrada contiene una clave de documento (propiedad `key`) y un mensaje de error (propiedad `errorMessage`).
 
 - `itemsProcessed`: el número de elementos del origen de datos (por ejemplo, filas de tablas) que el indexador intentó indexar durante esta ejecución.
 
@@ -772,7 +771,7 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 <td></td>
 </tr>
 <tr>
-<td>cadena</td>
+<td>string</td>
 <td>Edm.String</td>
 <td></td>
 </tr>
@@ -798,4 +797,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

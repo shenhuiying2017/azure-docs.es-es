@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ A continuación se enumera el procedimiento de inicio de rol en Azure:
 
 2. Todas las tareas de inicio se ejecutan de acuerdo con su atributo **taskType**.
     - Las tareas con el valor **simple** se ejecutan sincrónicamente, una a una.
-    - Las tareas con los valores **background** y **foreground** se inician de forma asincrónica, paralelas a la tarea de inicio.  
+    - Las tareas con los valores **background** y **foreground** se inician de forma asincrónica, paralelas a la tarea de inicio.
        
     > [AZURE.WARNING] Puede que IIS no se haya configurado por completo durante la fase de la tarea de inicio en el proceso de inicio, por lo que los datos específicos de rol pueden no estar disponibles. Las tareas de inicio que requieren datos específicos de la role tienen que usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
@@ -105,7 +105,7 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
 
 **taskType** - especifica la manera en que se ejecuta una tarea de inicio.
 
-- **simple** Las tareas se ejecutan sincrónicamente, una a una, en el orden especificado en el archivo [ServiceDefinition.csdef]. Cuando una tarea de inicio **simple**finaliza con un **errorlevel** de cero, se ejecuta la siguiente tarea de inicio **simple**. Si no hay más tareas de inicio con el valor **simple** para ejecutarse, se iniciará el propio rol.   
+- **simple** Las tareas se ejecutan sincrónicamente, una a una, en el orden especificado en el archivo [ServiceDefinition.csdef]. Cuando una tarea de inicio **simple**finaliza con un **errorlevel** de cero, se ejecuta la siguiente tarea de inicio **simple**. Si no hay más tareas de inicio con el valor **simple** para ejecutarse, se iniciará el propio rol.
 
     > [AZURE.NOTE] Si la tarea **simple** finaliza con un valor **errorlevel** distinto de cero, se bloqueará la instancia. Las subsiguientes tareas de inicio **simple** y el propio rol no se iniciarán.
 
@@ -163,4 +163,4 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tas
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

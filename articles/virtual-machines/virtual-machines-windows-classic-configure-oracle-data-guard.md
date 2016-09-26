@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 #Configuración de la protección de datos de Oracle para Azure
@@ -26,10 +26,10 @@ En este tutorial se supone que ya tiene conocimientos teóricos y prácticos sob
 
 Además, en el tutorial se supone que ya se han implementado los siguientes requisitos previos:
 
-- Ya ha revisado la sección Consideraciones de recuperación ante desastres y de alta disponibilidad en el tema [Imágenes de máquina virtual de Oracle: consideraciones variadas](virtual-machines-windows-classic-oracle-considerations.md). Tenga en cuenta que actualmente Azure es compatible con las instancias de base de datos de Oracle independientes, pero no con los clústeres de aplicación reales de Oracle (RAC de Oracle).
+- Ya ha revisado la sección Consideraciones de recuperación ante desastres y de alta disponibilidad en el tema [Imágenes de máquina virtual de Oracle: consideraciones variadas](virtual-machines-windows-classic-oracle-considerations.md). Actualmente, Azure es compatible con las instancias de base de datos de Oracle independientes, pero no con los clústeres de aplicación reales de Oracle (RAC de Oracle).
 
 
-- Ha creado dos máquinas virtuales (VM) en Azure con la misma plataforma que proporciona la imagen de Oracle Enterprise Edition. Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-windows-load-balance.md) y en la misma [red virtual](azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, se recomienda colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Tenga en cuenta que la protección de datos de Oracle solo está disponible con Oracle Database Enterprise Edition. Cada máquina debe tener al menos 2 GB de memoria y 5 GB de espacio en disco. Para obtener la información más actualizada sobre los tamaños de máquina virtual proporcionados por la plataforma, consulte [Tamaños de máquina virtual de Azure](virtual-machines-windows-sizes.md). Si necesita un volumen de disco adicional para las máquinas virtuales, puede conectar discos adicionales. Para obtener información, consulte [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-windows-classic-attach-disk.md).
+- Ha creado dos máquinas virtuales (VM) en Azure con la misma plataforma que proporciona la imagen de Oracle Enterprise Edition. Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-windows-load-balance.md) y en la misma red virtual para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, se recomienda colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. La protección de datos de Oracle solo está disponible con Oracle Database Enterprise Edition. Cada máquina debe tener al menos 2 GB de memoria y 5 GB de espacio en disco. Para obtener la información más actualizada sobre los tamaños de máquina virtual proporcionados por la plataforma, consulte [Tamaños de máquina virtual de Azure](virtual-machines-windows-sizes.md). Si necesita un volumen de disco adicional para las máquinas virtuales, puede conectar discos adicionales. Para obtener información, consulte [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -65,11 +65,11 @@ Crear una base de datos física en espera
 
 	1. Configurar listener.ora en ambos servidores para mantener las entradas para ambas bases de datos
 
-	2. Configurar tnsnames.ora en las máquinas virtuales principal y en espera para contener las entradas para las bases de datos principales y en espera
+	2. Configure tnsnames.ora en las máquinas virtuales principal y en espera para contener las entradas para las bases de datos principales y en espera.
 
 	3. Inicie el agente de escucha y compruebe tnsping de ambas máquinas virtuales en ambos servicios.
 
-3. Inicie la instancia en modo de espera en estado nomount
+3. Iniciar la instancia en modo de espera en estado nomount
 
 4. Utilice RMAN para clonar la base de datos y crear una base de datos en espera
 
@@ -126,7 +126,7 @@ Antes de crear una base de datos en espera, es recomendable asegurarse de que la
 
 #### Habilitar el registro forzado
 
-Para implementar una base de datos en espera, es necesario habilitar el "Registro forzado" en la base de datos principal. Esta opción garantiza que incluso en caso de que se realice una operación de “no registro”, forzar el registro tendrá prioridad y se registrarán todas las operaciones en los registros de rehacer. Por lo tanto, nos aseguramos de que todo el contenido de la base de datos principal se registre y que la replicación en el servidor de espera incluya todas las operaciones de la base de datos principal. Ejecute la instrucción de alteración de la base de datos para habilitar el registro forzado:
+Para implementar una base de datos en espera, es necesario habilitar el "Registro forzado" en la base de datos principal. Esta opción garantiza que incluso si se realiza una operación de "no registro", forzar el registro tendrá prioridad y se registrarán todas las operaciones en los registros de rehacer. Por lo tanto, nos aseguramos de que todo el contenido de la base de datos principal se registre y que la replicación en el servidor de espera incluya todas las operaciones de la base de datos principal. Para habilitar el registro forzado, ejecute la instrucción de base de datos de alteración:
 
 	SQL> ALTER DATABASE FORCE LOGGING;
 
@@ -243,7 +243,7 @@ Puede controlar el entorno de protección de datos usando los parámetros del ar
 	SQL> create pfile from spfile;
 	File created.
 
-A continuación, deberá modificar el pfile para agregar los parámetros en espera. Para ello, abra el archivo INITTEST.ORA en la ubicación de %ORACLE\_HOME%\\database. A continuación, agregue las siguientes instrucciones al archivo INITTEST.ora. Tenga en cuenta que la convención de nomenclatura para el archivo INIT.ORA es INIT< YourDatabaseName >.ORA.
+A continuación, deberá modificar el pfile para agregar los parámetros en espera. Para ello, abra el archivo INITTEST.ORA en la ubicación de %ORACLE\_HOME%\\database. A continuación, agregue las siguientes instrucciones al archivo INITTEST.ora. La convención de nomenclatura para el archivo INIT.ORA es INIT<SuNombreDeBaseDeDatos>.ORA.
 
 	db_name='TEST'
 	db_unique_name='TEST'
@@ -334,7 +334,7 @@ A continuación, siga estos pasos:
 
 	3. Inicie el agente de escucha y compruebe tnsping de ambas máquinas virtuales en ambos servicios.
 
-3. Inicie la instancia en modo de espera en estado nomount
+3. Iniciar la instancia en modo de espera en estado nomount
 
 4. Utilice RMAN para clonar la base de datos y crear una base de datos en espera
 
@@ -368,11 +368,11 @@ El bloque de la instrucción anterior incluye dos elementos de configuración im
 -	***.LOG\_ARCHIVE\_DEST\_1:** tendrá que crear manualmente la carpeta c:\\OracleDatabase\\TEST\_STBY\\archives en Machine2.
 -	***.LOG\_ARCHIVE\_DEST\_2:** se trata de un paso opcional. Debe establecer esto como si fuese necesario cuando el equipo principal está en mantenimiento y el equipo en espera se convierte en una base de datos principal.
 
-A continuación, deberá iniciar la instancia en modo de espera. En el servidor de la base de datos en espera, escriba el siguiente comando en un símbolo del sistema de Windows para crear una instancia de Oracle mediante la creación de un nuevo servicio de Windows:
+A continuación, deberá iniciar la instancia en modo de espera. En el servidor de la base de datos en espera, escriba el siguiente comando en un símbolo del sistema de Windows para crear una instancia de Oracle mediante la creación de un servicio de Windows:
 
 	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
-Tenga en cuenta que el comando **Oradim** crea una instancia de Oracle, pero no la inicia. Puede encontrarla en el directorio C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
+El comando **Oradim** crea una instancia de Oracle, pero no la inicia. Puede encontrarla en el directorio C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
 
 ##Configurar el agente de escucha y tnsnames para admitir la base de datos en los equipos principales y en espera
 Antes de crear una base de datos en espera, tiene que asegurarse de que las bases de datos principal y en espera de la configuración puedan comunicarse entre sí. Para ello, deberá configurar el agente de escucha y TNSNames manualmente o mediante la utilidad de configuración de red NETCA. Esta es una tarea obligatoria cuando se utiliza la utilidad Administrador de recuperación (RMAN).
@@ -501,8 +501,8 @@ Abra un nuevo símbolo del sistema de Windows en máquinas virtuales principales
 	OK (260 msec)
 
 
-##Inicie la instancia en modo de espera en estado nomount
-Deberá configurar el entorno para admitir la base de datos en espera en la máquina virtual (MACHINE2) en espera.
+##Iniciar la instancia en modo de espera en estado nomount
+Para configurar el entorno para admitir la base de datos en espera en la máquina virtual (MACHINE2) en espera.
 
 En primer lugar, copie el archivo de contraseña desde el equipo principal (Machine1) en el equipo en espera (Machine2) manualmente. Esto es necesario, ya que la contraseña **sys** debe ser idéntica en ambos equipos.
 
@@ -555,7 +555,7 @@ Al abrir la base de datos en espera en el modo **MOUNT**, el envío del registro
 
 Al abrir la base de datos en espera en modo de **SOLO LECTURA**, el envío del registro de archivo continúa. Pero se detiene el proceso de recuperación administrado. Esto hace que la base de datos en espera esté cada vez más desactualizada hasta que se reanuda el proceso de recuperación administrado. Puede tener acceso a la base de datos en espera para la elaboración de informes durante este período, pero los datos pueden no reflejar los cambios más recientes.
 
-En general, se recomienda mantener la base de datos en espera en modo **MOUNT** para mantener actualizados los datos en la base de datos en espera en caso de error de la base de datos principal. Sin embargo, puede mantener la base de datos en espera en modo de **SOLO LECTURA** para la elaboración de informes en función de los requisitos de su aplicación. Los pasos siguientes muestran cómo habilitar la protección de datos en modo de solo lectura mediante SQL*Plus:
+En general, se recomienda mantener la base de datos en espera en modo **MOUNT** para mantener actualizados los datos en la base de datos en espera si hay un error de la base de datos principal. Sin embargo, puede mantener la base de datos en espera en modo de **SOLO LECTURA** para la elaboración de informes en función de los requisitos de su aplicación. Los pasos siguientes muestran cómo habilitar la protección de datos en modo de solo lectura mediante SQL*Plus:
 
 	SHUTDOWN IMMEDIATE;
 	STARTUP MOUNT;
@@ -630,4 +630,4 @@ Es recomendable habilitar la base de datos flashback en las bases de datos princ
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

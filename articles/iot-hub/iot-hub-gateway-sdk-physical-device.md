@@ -93,38 +93,6 @@ Para configurar el dispositivo Edison y familiarizarse con él, debe completar t
 
 Antes de ejecutar el ejemplo, debe comprobar que la placa Edison puede conectarse al dispositivo SensorTag.
 
-Primero debe actualizar la versión del software BlueZ en el dispositivo Edison. Tenga en cuenta que, aunque ya tenga la versión 5.37 instalada, debe completar los pasos siguientes para garantizar que está correcta:
-
-1. Detenga el demonio de bluetooth en ejecución.
-    
-    ```
-    systemctl stop bluetooth
-    ```
-
-2. Descargue y extraiga el [código fuente](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) para la versión 5.37 de BlueZ.
-    
-    ```
-    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-    tar -xvf bluez-5.37.tar.xz
-    cd bluez-5.37
-    ```
-
-3. Cree e instale BlueZ.
-    
-    ```
-    ./configure --disable-udev --disable-systemd --enable-experimental
-    make
-    make install
-    ```
-
-4. Modifique el archivo **/lib/systemd/system/bluetooth.service** para cambiar la configuración del servicio *systemd* para el bluetooth, de forma que apunte al nuevo demonio de bluetooth. Reemplace el valor del atributo **ExecStart** para que tenga el siguiente aspecto:
-    
-    ```
-    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-    ```
-
-5. Reiniciar el dispositivo Edison.
-
 Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar al dispositivo SensorTag.
 
 1. Desbloquee el bluetooth en el dispositivo Edison y compruebe que el número de versión es **5.37**.
@@ -134,20 +102,22 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     bluetoothctl --version
     ```
 
-2. Ejecute el comando **bluetoothctl**. Debería mostrarse una salida similar a esta:
+2. Ejecute el comando **bluetoothctl**. Ahora se encuentra en un shell interactivo de bluetooth.
+
+3. Escriba el comando **power on** para encender el controlador Bluetooth. Debería mostrarse una salida similar a esta:
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. Ahora se encuentra en un shell interactivo de bluetooth. Escriba el comando **scan on** para buscar dispositivos bluetooth. Debería mostrarse una salida similar a esta:
+4. Mientras esté activo el shell de Bluetooth interactivo, escriba el comando **scan on** para buscar dispositivos Bluetooth. Debería mostrarse una salida similar a esta:
     
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-4. Presione el botón pequeño (el LED verde debe parpadear) para que el dispositivo SensorTag sea visible. El dispositivo Edison debe detectar el dispositivo SensorTag:
+5. Presione el botón pequeño (el LED verde debe parpadear) para que el dispositivo SensorTag sea visible. El dispositivo Edison debe detectar el dispositivo SensorTag:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -157,14 +127,14 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     
     En este ejemplo, puede ver que la dirección MAC del dispositivo SensorTag es **A0:E6:F8:B5:F6:00**.
 
-5. Escriba el comando **scan off** para desactivar la búsqueda.
+6. Escriba el comando **scan off** para desactivar la búsqueda.
     
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-6. Escriba **connect <dirección MAC >** para conectarse al dispositivo SensorTag con la dirección MAC. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
+7. Escriba **connect <dirección MAC >** para conectarse al dispositivo SensorTag con la dirección MAC. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +155,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     
     Nota: Con el comando **list-attributes** puede volver a enumerar las características GATT del dispositivo.
 
-7. Ahora puede desconectarse del dispositivo con el comando **disconnect** y salir del shell de Bluetooth con el comando **quit**:
+8. Ahora puede desconectarse del dispositivo con el comando **disconnect** y salir del shell de Bluetooth con el comando **quit**:
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -458,4 +428,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->
