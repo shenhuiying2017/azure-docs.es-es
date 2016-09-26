@@ -129,7 +129,8 @@ Observe que cada faceta tiene una etiqueta (Colors, Categories, Prices), un enla
 <a name="buildindex"></a>
 ##Crear el índice
 
-El uso de facetas se habilita para cada campo en el índice mediante este atributo de índice: `"Facetable": true`. Todos los tipos de campo que podrían usarse en la navegación por facetas son `Facetable` de forma predeterminada. Entre estos tipos de campo se incluyen `Edm.String`, `Edm.DateTimeOffset`, y todos los tipos de campo numéricos (básicamente, todos los tipos de campo se pueden usar con facetas excepto `Edm.GeographyPoint`, que no se puede usar en la navegación por facetas).
+El uso de facetas se habilita para cada campo en el índice mediante este atributo de índice: `"Facetable": true`.  
+Todos los tipos de campo que podrían usarse en la navegación por facetas son `Facetable` de forma predeterminada. Entre estos tipos de campo se incluyen `Edm.String`, `Edm.DateTimeOffset`, y todos los tipos de campo numéricos (básicamente, todos los tipos de campo se pueden usar con facetas excepto `Edm.GeographyPoint`, que no se puede usar en la navegación por facetas).
 
 Al crear un índice, el procedimiento recomendado para la navegación por facetas desactivar explícitamente el uso de facetas para los campos que nunca deben usarse como facetas. En concreto, los campos de cadena de valores singleton, tales como un identificador o el nombre del producto, deben establecerse en `"Facetable": false` para impedir su uso accidental (e ineficaz) en una exploración por facetas.
 
