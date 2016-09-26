@@ -34,7 +34,7 @@ Si entrena el modelo basado en las compras realizadas en su tienda de electróni
 
 La compilación de recomendación tiene dos capacidades que hacen que sea atractiva:
 
-**La compilación de recomendación admite la colocación de *artículos con poca rotación***.
+**La compilación de recomendación admite la colocación de *artículos con poca* rotación**.
 
 Los artículos que no tienen un uso significativo se denominan artículos con poca rotación. Por ejemplo, si recibe un envío de un teléfono que nunca ha vendido antes, el sistema no puede inferir recomendaciones para este producto basadas solo en las transacciones. Esto significa que el sistema debe aprender de la información sobre el propio producto.
 
@@ -54,7 +54,7 @@ También debe configurar los siguientes parámetros de compilación:
 |*allowColdItemPlacement* | Se establece en **true**. Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características.
 | *modelingFeatureList* | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. Por ejemplo, "Language,Storage" en el ejemplo anterior.
 
-**La compilación de recomendación admite recomendaciones de usuario.**
+**La compilación de recomendación admite recomendaciones de usuario**.
 
 La compilación de recomendación admite [recomendaciones de usuario](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Esto significa que puede proporcionar recomendaciones personalizadas para los usuarios según sus historiales de transacción. Para las recomendaciones de usuario puede proporcionar el identificador de usuario o el historial de las transacciones recientes de dicho usuario.
 

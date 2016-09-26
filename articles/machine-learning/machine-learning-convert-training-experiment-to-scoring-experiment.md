@@ -37,7 +37,7 @@ El proceso de convertir un experimento de entrenamiento en un experimento predic
 Después de ejecutar el experimento (botón **EJECUTAR** de la parte inferior del lienzo del experimento), el botón **Configurar servicio web** (seleccione la opción **Servicio web predictivo**) realizará automáticamente los tres pasos para convertir el experimento de entrenamiento en un experimento predictivo:
 
 1.	Guarda el modelo entrenado como módulo en la sección **Modelos entrenados** de la paleta del módulo (a la izquierda del lienzo del experimento) y, a continuación, reemplaza el algoritmo de aprendizaje automático y los módulos de [Entrenar modelo][train-model] con el modelo entrenado guardado.
-2.	Elimina los módulos que claramente no se necesitan. En nuestro ejemplo, esto incluye los módulos [Split Data][split] (Datos divididos), un segundo [Score Model][evaluate-model] (Modelo de puntuación) y [Evaluate Model][score-model] (Modelo de evaluación).
+2.	Elimina los módulos que claramente no se necesitan. En nuestro ejemplo, esto incluye los módulos [Split Data][split] \(Datos divididos), un segundo [Score Model][evaluate-model] \(Modelo de puntuación) y [Evaluate Model][score-model] \(Modelo de evaluación).
 3.	Crea módulos de y salida del servicio web y los agrega en ubicaciones predeterminadas en el experimento.
 
 Por ejemplo, en el siguiente experimento se entrena un modelo de árbol de decisión aumentada de dos clases con los datos del censo de muestra:

@@ -39,7 +39,7 @@ Es fácil deshabilitar una aplicación empresarial para que ningún usuario pued
 
 	![Selección del comando Todas las aplicaciones](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
 
-7. En la hoja ***nombreDeLaAplicación*** ** Propiedades**, seleccione **No** en **¿Permitir que los usuarios inicien sesión?**
+7. En la hoja ***nombreDeLaAplicación*** **Propiedades**, seleccione **No** en **¿Permitir que los usuarios inicien sesión?**
 
 8. Haga clic en el comando **Guardar**.
 

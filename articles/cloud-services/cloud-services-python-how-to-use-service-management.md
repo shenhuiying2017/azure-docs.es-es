@@ -20,7 +20,7 @@
 
 > [AZURE.NOTE] API de administración de servicios se ha sustituido por la nueva API de administración de recursos, actualmente disponible en una versión preliminar. Consulte la [documentación de administración de recursos de Azure](http://azure-sdk-for-python.readthedocs.org/) para obtener más información acerca del uso de la nueva API de administración de recursos de Python.
 
-En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] \(como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
 ## <a name="WhatIs"> </a>Qué es la administración de servicios
 La API de administración de servicios proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [Portal de Azure clásico][management-portal]. El SDK de Azure para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
@@ -436,6 +436,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/services/cloud-services/
+[servicio en la nube]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0914_2016-->

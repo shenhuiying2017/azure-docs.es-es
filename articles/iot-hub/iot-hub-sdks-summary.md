@@ -65,7 +65,7 @@ La siguiente es una lista de vínculos a documentación en línea de referencia 
 - [SDK de servicios IoT de Microsoft Azure para Java][]
 - [SDK de dispositivos IoT de Microsoft Azure para Node.js][]
 - [SDK de servicios IoT de Microsoft Azure para Node.js][]
-- [Microsoft Azure IoT Gateway SDK][] (SDK de puerta de enlace IoT de Microsoft Azure)
+- [Microsoft Azure IoT Gateway SDK][] \(SDK de puerta de enlace IoT de Microsoft Azure)
 
 ## Pasos siguientes
 

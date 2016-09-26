@@ -144,7 +144,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 	Una vez descargados los certificados, haga clic con el botón derecho en cada uno de ellos en el Explorador de Windows y seleccione **Instalar certificado**. Use los valores predeterminados del **Asistente para importación de certificados** y seleccione repetidamente **Siguiente** hasta que la importación haya finalizado.
 
-4. Exporte el certificado SSL desde el Administrador de IIS. Para más información acerca de cómo exportar el certificado, consulte [Export a Server Certificate (IIS 7)][exportcertiis] (Exportación de un certificado de servidor [IIS 7]).
+4. Exporte el certificado SSL desde el Administrador de IIS. Para más información acerca de cómo exportar el certificado, consulte [Export a Server Certificate (IIS 7)][exportcertiis] \(Exportación de un certificado de servidor [IIS 7]).
 
 	>[AZURE.IMPORTANT] En el **Asistente para exportar certificados**, asegúrese de seleccionar **Exportar la clave privada**
 	>

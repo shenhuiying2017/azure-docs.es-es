@@ -34,7 +34,7 @@ En este artículo se explica cómo agregar usuarios de otros directorios de la v
 
 3.  En la hoja **Usuarios y grupos**, seleccione **Usuarios** y, luego, **Agregar**.
 
-    ![Selecting the Add command](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
+    ![Selecting the Add command]](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
 4. En la hoja **Usuario**, proporcione un nombre para mostrar en **Nombre** y el nombre de inicio de sesión del usuario **Nombre de usuario**.
 
@@ -42,15 +42,15 @@ En este artículo se explica cómo agregar usuarios de otros directorios de la v
 
 6. Si lo desea, seleccione **Perfil** para agregar la siguiente información de los usuarios: el nombre y los apellidos, un puesto de trabajo y un departamento.
 
-		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+	![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- Seleccione **Grupos** para agregar el usuario a uno o varios grupos.
 
-		![Adding a user to groups](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![Adding a user to groups](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- Seleccione **Rol organizativo** para asignar el usuario a un rol de la lista **Roles**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
 
-		![Assigning a user to a role](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
+		![Assigning a user to a role](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
 7. Seleccione **Crear**.
 

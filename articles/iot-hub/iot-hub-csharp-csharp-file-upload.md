@@ -80,7 +80,8 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling
+(Control de errores transitorios).
 
 ## Recepción de una notificación de carga de archivos
 

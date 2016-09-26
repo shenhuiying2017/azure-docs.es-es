@@ -38,7 +38,7 @@ A continuación se indica cómo puede quitar el límite de gasto:
 
 4. Si ve el mensaje *La suscripción alcanzó un límite de gastos y se deshabilitó para evitar cargos*, haga clic en él.
 
-	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área ** Estado de la suscripción**.
+	Si lo prefiere, haga clic en **Quitar límite del gasto** en el área **Estado de la suscripción**.
 
 5. Seleccione una de las siguientes opciones que sea adecuada para usted:
 

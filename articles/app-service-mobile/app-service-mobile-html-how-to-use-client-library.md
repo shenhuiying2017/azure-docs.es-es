@@ -97,11 +97,11 @@ Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle
 <!-- URLs. -->
 [inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
 
 [Azure portal]: https://portal.azure.com/
 [Portal de Azure]: https://portal.azure.com/
 [SDK de JavaScript para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
 <!---HONumber=AcomDC_0914_2016-->

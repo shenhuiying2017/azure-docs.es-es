@@ -41,9 +41,9 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Java:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -153,7 +153,7 @@ En esta sección, escribirá una aplicación de consola de Java que envía mensa
     }
     ```
 
-    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
 
 ## Ejecución de las aplicaciones
 

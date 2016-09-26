@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Work.com
   
-El objetivo de este tutorial es mostrar la integración de Azure y Work.com. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Work.com.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Work.com
@@ -66,7 +67,8 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Work.com con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario cargar un certificado en Work.com.com.
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Work.com con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+Como parte de este procedimiento, es necesario cargar un certificado en Work.com.com.
 
 >[AZURE.NOTE] Para configurar el inicio de sesión único, deberá configurar todavía un nombre de dominio personalizado de Work.com. Deberá definir al menos un nombre de dominio, probar su nombre de dominio e implementarlo en toda la organización.
 
@@ -157,7 +159,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben aprovisionarse a Work.com. En el caso de Work.com, el aprovisionamiento es una tarea manual.
+Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben aprovisionarse a Work.com.  
+En el caso de Work.com, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 

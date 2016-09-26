@@ -100,7 +100,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  En el cuadro de texto **Custom Domain** (Dominio personalizado), escriba el nombre de su dominio.
     2.  Seleccione **Enabled** (Habilitado) como **Single Sign-On Status** (Estado de inicio de sesión único).
-    3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad**.
+    3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad**.
     4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
     5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
     6.  En **Certificado del proveedor de identidades**, haga clic en **Elegir archivo** y después cargue el certificado que ha descargado del Portal de Azure clásico.

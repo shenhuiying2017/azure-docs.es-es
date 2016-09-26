@@ -206,7 +206,7 @@ Para implementar una aplicación como un servicio en la nube de Azure, primero d
 **CSPack** generalmente se encuentra en `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
 
 >[AZURE.NOTE]
-CSPack.exe (en Windows) está disponible cuando se ejecuta el acceso directo del **símbolo del sistema de Microsoft Azure ** que se instala con el SDK.
+CSPack.exe (en Windows) está disponible cuando se ejecuta el acceso directo del **símbolo del sistema de Microsoft Azure** que se instala con el SDK.
 >  
 >Ejecute el programa CSPack.exe por sí solo para ver documentación sobre todos los comandos y modificadores posibles.
 

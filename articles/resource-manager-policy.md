@@ -255,7 +255,7 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
 
 ### Selección de servicio: selecciona el catálogo de servicios
 
-El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/* y Microsoft.Network/*. Se denegará todo lo demás.
+El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\* y Microsoft.Network/\*. Se denegará todo lo demás.
 
     {
       "if" : {

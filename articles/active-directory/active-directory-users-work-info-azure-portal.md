@@ -30,7 +30,7 @@ En este artículo se explica cómo agregar o cambiar la información de trabajo,
 
 3.  En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
 
-    ![Apertura de la hoja Usuarios](./media/active-directory-users-work-info-azure-portal/create-users-opes-ESers-blade.png)
+    ![Apertura de la hoja Usuarios](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
 
 4. En la hoja **Usuarios y grupos - Usuarios**, seleccione un usuario de la lista.
 

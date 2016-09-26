@@ -52,8 +52,8 @@ Seguimos estos pasos para crear nuestro experimento en Aprendizaje automático d
 
 1.	Carga del conjunto de datos como un archivo csv en Aprendizaje automático de Azure (archivo muy pequeño).
 2.	Hemos creado un nuevo experimento y hemos usado el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.
-3.	Uso del módulo [Dividir datos][split] (con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.
-4.	Realizamos experimentos con el módulo [Regresión lineal][linear-regression] (solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
+3.	Uso del módulo [Dividir datos][split] \(con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.
+4.	Realizamos experimentos con el módulo [Regresión lineal][linear-regression] \(solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
 
 ### Revisión de los resultados iniciales
 Al principio, el modelo de Excel superaba claramente al de Aprendizaje automático de Azure:
@@ -87,7 +87,7 @@ Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base 
 |**Rendimiento**||||
 |R cuadrado ajustado|0,96|N/D||
 |Coeficiente de determinación|N/D|0,78|0,952049|
-|Error medio absoluto |9,5 millones de $|19,4 millones de $|9,5 millones de $|
+|Error medio absoluto|9,5 millones de $|19,4 millones de $|9,5 millones de $|
 |Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
 
 Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:

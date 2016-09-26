@@ -30,7 +30,7 @@ En este artículo se explica cómo asignar un rol administrativo a un usuario en
 
 3.  En la hoja **Usuarios y grupos**, seleccione **Todos los usuarios**.
 
-    ![Apertura de la hoja Todos los usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-opes-ESers-blade.png)
+    ![Apertura de la hoja Todos los usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. En la hoja **Usuarios y grupos - Todos los usuarios**, seleccione un usuario de la lista.
 

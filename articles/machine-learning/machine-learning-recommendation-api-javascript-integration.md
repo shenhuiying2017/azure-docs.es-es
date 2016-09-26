@@ -187,7 +187,13 @@ Este evento se debe utilizar después del inicio de sesión de usuario en su sit
 
 Parámetros:
 * event (cadena) - "userlogin"
-* user (cadena) - Identificación único del usuario. <script>if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* user (cadena) - Identificación único del usuario. 
+
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
+
 
 ##4\. Consumir recomendaciones a través de JavaScript
 El código que consume la recomendación se activa por algunos eventos de JavaScript en la página web del cliente. La respuesta de recomendación incluye los identificadores de elementos recomendados, sus nombres y sus clasificaciones. Es preferible utilizar esta opción solo para una visualización de la lista de los elementos recomendados: debe realizarse un control más complejo (por ejemplo, para agregar los metadatos del elemento) en la integración del lado servidor.
@@ -225,4 +231,4 @@ Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

@@ -40,7 +40,7 @@ Si cancela la suscripción, los datos se almacenarán los datos durante 90 días
 
 5. Haga clic en ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) para cerrar la ventana del cuadro de diálogo y volver a la página de su suscripción.
 
-	> [AZURE.NOTE] Si se ha cancelado la suscripción de pago por uso accidentalmente, puede seguir las instrucciones descritas [aquí](https://azure.microsoft.com/es-ES/documentation/articles/billing-subscription-become-disable/) para volver a activarla.
+	> [AZURE.NOTE] Si se ha cancelado la suscripción de pago por uso accidentalmente, puede seguir las instrucciones descritas [aquí](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/) para volver a activarla.
 
 > [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que resuelvan el problema rápidamente.
 

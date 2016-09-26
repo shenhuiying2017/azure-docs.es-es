@@ -120,7 +120,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 		-rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
 		-rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen,** Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
+	Cada archivo **part-m-*** corresponde a una fila de la tabla de origen,**Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
 
 
 ### Exportación de datos de Almacén de Data Lake a Base de datos SQL de Azure

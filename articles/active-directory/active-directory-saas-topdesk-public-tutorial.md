@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Directory con TOPdesk - Public
 
-El objetivo de este tutorial es mostrar la integración de Azure y TOPdesk - Public. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y TOPdesk - Public.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en TOPdesk - Public
@@ -66,7 +67,8 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en TOPdesk - Public con su cuenta de Azure AD usando el protocolo SAML basado en la federación. La configuración del inicio de sesión único para TOPdesk - Public requiere cargar un archivo de icono de logotipo. Para obtener el archivo de icono, póngase en contacto con el equipo de soporte técnico de TOPdesk.
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en TOPdesk - Public con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+La configuración del inicio de sesión único para TOPdesk - Public requiere cargar un archivo de icono de logotipo. Para obtener el archivo de icono, póngase en contacto con el equipo de soporte técnico de TOPdesk.
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -89,8 +91,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     ![Configuración técnica](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Configuración técnica")
 
     1.  Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
-    2.  Abra el archivo de metadatos y luego busque el nodo **AssertionConsumerService**. ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
-    3.  Copie el valor **AssertionConsumerService**.
+    2.  Abra el archivo de metadatos y luego busque el nodo **AssertionConsumerService**.
+        ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
+    3.  Copie el valor **AssertionConsumerService**.  
 
         >[AZURE.NOTE] Necesitará el valor de la sección **Configurar dirección URL de la aplicación** más adelante en este tutorial.
 
@@ -158,7 +161,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en TOPdesk - Public, deben aprovisionarse en TOPdesk - Public. En el caso de TOPdesk - Public, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en TOPdesk - Public, deben aprovisionarse en TOPdesk - Public.  
+En el caso de TOPdesk - Public, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
