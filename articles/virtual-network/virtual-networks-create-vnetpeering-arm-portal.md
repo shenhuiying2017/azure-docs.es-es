@@ -28,7 +28,7 @@
 Para emparejar una red virtual según el escenario anterior por medio del Portal de Azure, siga los pasos a continuación.
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
-2. Para establecer el emparejamiento de VNET, debe crear dos vínculos, una para cada dirección entre dos redes virtuales. Primero puede crear un vínculo de emparejamiento de red virtual de VNET1 a VNET2. En el portal, haga clic en **Examinar** > y elija ** Redes virtuales**
+2. Para establecer el emparejamiento de VNET, debe crear dos vínculos, una para cada dirección entre dos redes virtuales. Primero puede crear un vínculo de emparejamiento de red virtual de VNET1 a VNET2. En el portal, haga clic en **Examinar** > y elija **Redes virtuales**
 
 	![Emparejamiento de VNet en el Portal de Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 
