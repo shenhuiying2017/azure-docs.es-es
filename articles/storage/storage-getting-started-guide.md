@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Introducción en cinco minutos a Almacenamiento de Microsoft Azure" 
-	description="Mejore sus habilidades rápidamente en blobs, tablas y colas de Azure de Microsoft con los tutoriales de Almacenamiento de Azure, Visual Studio y con Emulador de almacenamiento de Azure. Ejecute su primera aplicación de Almacenamiento de Azure en cinco minutos." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Introducción en cinco minutos a Almacenamiento de Microsoft Azure"
+	description="Mejore sus habilidades rápidamente en blobs, tablas y colas de Azure de Microsoft con los tutoriales de Almacenamiento de Azure, Visual Studio y con Emulador de almacenamiento de Azure. Ejecute su primera aplicación de Almacenamiento de Azure en cinco minutos."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
-	ms.date="07/21/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="09/20/2016"
+	ms.author="dineshm;tamram"/>
 
-# Introducción en cinco minutos a Almacenamiento de Azure 
+# Introducción en cinco minutos a Almacenamiento de Azure
 
 ## Información general
 
@@ -36,7 +36,7 @@ Tendrá que cumplir los siguientes requisitos previos antes de empezar:
 
 	Si no está seguro de qué versión de .NET Framework está instalada en su equipo, consulte [Cómo saber qué versiones de .NET Framework tengo instaladas](https://msdn.microsoft.com/vstudio/hh925568.aspx). O pulse el botón **Inicio** o la tecla de Windows y escriba **Panel de Control**. A continuación, haga clic en **Programas** > **Programas y características**, y compruebe si .NET Framework 4.5 aparece en la lista de los programas instalados.
 
-4. Necesitará una suscripción de Azure y una cuenta de Almacenamiento de Azure.
+4. Necesitará una suscripción de Azure y una cuenta de Azure Storage.
 
     - Para obtener una suscripción de Azure, consulte [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
     - Para crear una cuenta de almacenamiento en Azure, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
@@ -49,7 +49,7 @@ Una vez que tenga la cuenta, cree una sencilla aplicación de Almacenamiento de 
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalados** > **Plantillas** > **Visual C#**> **Nube** > **Tutoriales** > **Servicios de datos**. Seleccione una de las siguientes plantillas: **Almacenamiento de Azure: blobs**, **Almacenamiento de Azure: archivos**, **Almacenamiento de Azure: colas** o **Almacenamiento de Azure: tablas**. b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.
 	- 3\.c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
-	
+
 	![Tutoriales de Azure][Image1]
 
 Es aconsejable revisar el código fuente antes de ejecutar la aplicación. Para revisar el código, seleccione **Explorador de soluciones** en el menú **Vista** en Visual Studio. A continuación, haga doble clic en el archivo Program.cs.
@@ -78,7 +78,7 @@ Para probarlo, crearemos una sencilla aplicación de Almacenamiento de Azure con
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalados** > **Plantillas** > **Visual C#**> **Nube** > **Tutoriales** > **Servicios de datos**. Seleccione una de las siguientes plantillas: **Almacenamiento de Azure: blobs**, **Almacenamiento de Azure: archivos**, **Almacenamiento de Azure: colas** o **Almacenamiento de Azure: tablas**. b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado. c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
-	
+
 	![Tutoriales de Azure][Image1]
 
 4.	En Visual Studio, seleccione **Explorador de soluciones** en el menú **Vista**. Abra el archivo App.config y marque como comentario la cadena de conexión de la cuenta de Almacenamiento de Azure si ha agregado uno. A continuación, quite el comentario de la cadena de conexión para el emulador de Almacenamiento de Azure:
@@ -109,6 +109,5 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [API de REST de servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
- 
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

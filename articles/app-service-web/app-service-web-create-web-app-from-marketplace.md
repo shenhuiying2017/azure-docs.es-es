@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/11/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -71,7 +71,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 1. Si tiene más de una suscripción, elija la que quiere usar.
 
-	![Configuración de la suscripción para la aplicación web][ConfigSubscription]
+	![Configuración de la suscripción para la aplic. web][ConfigSubscription]
 
 1. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
@@ -180,4 +180,4 @@ Para más información acerca de cómo desarrollar aplicaciones web de WordPress
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

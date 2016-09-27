@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure
@@ -44,14 +44,14 @@
 
 Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). El elemento **SslCertificate** se agrega a **HttpListener** con el valor de la variable configurado para el certificado SSL. El puerto front-end debe actualizarse al 443.
 
-**Para habilitar la afinidad basada en cookies**: se puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para ello, es preciso inyectar una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies**: se puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Este escenario se realiza mediante la inyección de una cookie de la sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
 
 
 ## Creación de una puerta de enlace de aplicaciones
 
-La diferencia entre el uso del modelo de implementación clásica de Azure y el de Azure Resource Manager es el orden en que creará una puerta de enlace de aplicaciones y los elementos que es necesario configurar.
+La diferencia entre el uso del modelo de implementación clásica de Azure y el de Azure Resource Manager es el orden en que se crea una puerta de enlace de aplicaciones y los elementos que es preciso configurar.
 
-Con Resource Manager, todos los elementos que componen una puerta de enlace de aplicaciones se configurarán individualmente y, luego, se unirán para crear un recurso de la puerta de enlace de aplicaciones.
+Con Resource Manager, todos los componentes de una puerta de enlace de aplicaciones se configuran individualmente y, luego, se unen para crear un recurso de la puerta de enlace de aplicaciones.
 
 
 Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
@@ -69,8 +69,6 @@ Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Adminis
 ### Paso 1
 
 	Login-AzureRmAccount
-
-
 
 ### Paso 2
 
@@ -106,24 +104,25 @@ En el ejemplo siguiente se muestra cómo crear una red virtual con el Administra
 
 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-Se asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se va a usar para crear una red virtual.
+En este ejemplo se asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se va a usar para crear una red virtual.
 
 ### Paso 2
+
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Se crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región West US con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
+En este ejemplo se crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región oeste de EE. UU. con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
 
 ### Paso 3
 
 	$subnet = $vnet.Subnets[0]
 
-Se asigna el objeto de subred a la variable $subnet para los siguientes pasos.
+En este ejemplo se asigna el objeto de subred a la variable $subnet para los siguientes pasos.
 
 ## Creación de una dirección IP pública para la configuración del front-end
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Se crea un recurso de IP pública "publicIP01" en el grupo de recursos "appgw-rg" para la región West US.
+En este ejemplo se crea un recurso de IP público "publicIP01" en el grupo de recursos "appgw-rg" para la región oeste de EE. UU.
 
 
 ## Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
@@ -132,56 +131,56 @@ Se crea un recurso de IP pública "publicIP01" en el grupo de recursos "appgw-rg
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Se crea una configuración de la IP de la puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
+En este ejemplo se crea una configuración de la IP de la puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
 
 ### Paso 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Se configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP del ejemplo anterior por las direcciones IP de los puntos de conexión de la aplicación web.
+En este ejemplo se configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Estos valores las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-nd. Reemplace las direcciones IP del ejemplo anterior por las de los puntos de conexión de la aplicación web.
 
 ### Paso 3
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Configura la opción de puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
+En este ejemplo se configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
 ### Paso 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-Configura el puerto IP del front-end denominado "frontendport01" para el punto de conexión de la IP pública.
+En este ejemplo se configura el puerto IP del front-end denominado "frontendport01" para el punto de conexión de la IP pública.
 
 ### Paso 5
 
 	$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-Configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx y que la contraseña tenga entre 4 y 12 caracteres.
+En este ejemplo se configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx y que la contraseña tenga entre 4 y 12 caracteres.
 
 ### Paso 6
 
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-Crea la configuración de la IP de front-end denominada "fipconfig01" y asocia la dirección IP pública con dicha configuración.
+En este ejemplo se crea la configuración de la IP de front-end denominada "fipconfig01" y asocia la dirección IP pública con dicha configuración.
 
 ### Paso 7
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
-Crea el nombre de agente de escucha "listener01" y asocia el puerto front-end con la configuración de la IP del front-end y el certificado.
+En este ejemplo se crea el nombre de agente de escucha "listener01" y se asocia el puerto de front-end con la configuración de la IP del front-end y el certificado.
 
 ### Paso 8
 
 	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que configura el comportamiento del equilibrador de carga.
+En este ejemplo se crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que configura el comportamiento del equilibrador de carga.
 
 ### Paso 9:
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Configura el tamaño de instancia de la puerta de enlace de aplicaciones.
+En este ejemplo se configura el tamaño de instancia de la puerta de enlace de aplicaciones.
 
 >[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
@@ -189,7 +188,7 @@ Configura el tamaño de instancia de la puerta de enlace de aplicaciones.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
+En este ejemplo se crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
 
 ## Pasos siguientes
 
@@ -200,4 +199,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

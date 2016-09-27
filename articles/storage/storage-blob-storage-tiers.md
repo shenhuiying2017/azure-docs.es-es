@@ -3,8 +3,8 @@
     description="Las capas de almacenamiento de Almacenamiento de blobs de Azure ofrecen un almacenamiento rentable para datos de objetos basado en patrones de acceso. La capa de almacenamiento esporádico está optimizada para los datos a los que se accede con menos frecuencia."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
 
 
 # Almacenamiento de blobs de Azure: capas de almacenamiento de acceso frecuente y esporádico
@@ -340,4 +340,4 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 
 [Examen y exploración de cuentas de almacenamiento](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

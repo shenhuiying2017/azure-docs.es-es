@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introducción a Microsoft Azure Multi-Factor Authentication en la nube" 
-	description="En esta página de Microsoft Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA en la nube." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Introducción a Microsoft Azure Multi-Factor Authentication en la nube"
+	description="En esta página de Microsoft Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA en la nube."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Introducción a Azure Multi-Factor Authentication en la nube
 En este artículo aprenderá a usar Azure Multi-Factor Authentication en la nube.
@@ -33,7 +33,7 @@ Los siguientes requisitos previos son necesarios para poder habilitar Azure Mult
 2. [Crear un Proveedor de Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) y asignarlo a su directorio o [asignar licencias a sus usuarios](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Las licencias están disponibles para los usuarios con Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS). MFA se incluye en Azure AD Premium y en EMS. Si dispone de suficientes licencias, no necesitará crear un proveedor de autenticación.
-		
+
 
 ## Activación de la autenticación multifactor para usuarios
 Para activar la autenticación multifactor para un usuario, simplemente cambie el estado del usuario de deshabilitado a habilitado. Para más información sobre los estados de usuario, consulte [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (Estados de usuario en Azure Multi-Factor Authentication).
@@ -65,7 +65,7 @@ Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure A
 - Disabled
 
 > [AZURE.IMPORTANT]  Tenga en cuenta que si pasa directamente del estado deshabilitado al estado forzado, los clientes de autenticación no moderna dejarán de funcionar porque el usuario no ha pasado por el registro de MFA ni ha obtenido una [contraseña de aplicación](multi-factor-authentication-whats-next.md#app-passwords). Si tiene clientes de autenticación no moderna y requiere contraseñas de aplicación, se recomienda que pase del estado Deshabilitado al Habilitado. Esto permitirá a los usuarios registrar y obtener sus contraseñas de aplicación.
-		
+
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
@@ -73,7 +73,7 @@ Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure A
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 El uso de PowerShell sería una opción para habilitar usuarios de forma masiva. Actualmente no hay ninguna característica de habilitación de forma masiva en el Portal de Azure y debe seleccionar cada usuario individualmente. Si tiene muchos usuarios, esto puede ser bastante trabajo. Con la creación de un script de PowerShell mediante las opciones anteriores, puede recorrer en iteración una lista de usuarios y habilitarlos. Este es un ejemplo:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -90,4 +90,4 @@ Para más información sobre los estados de usuario, consulte [User States in Az
 ## Pasos siguientes
 Ahora que ha configurado la autenticación multifactor en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

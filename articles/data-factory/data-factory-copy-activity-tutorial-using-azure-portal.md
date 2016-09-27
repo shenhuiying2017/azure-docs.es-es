@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: crear una canalización con la actividad de copia mediante el editor de la factoría de datos | Microsoft Azure" 
+	pageTitle="Tutorial: crear una canalización con la actividad de copia con Azure Portal | Microsoft Azure" 
 	description="En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Editor de Data Factory en el Portal de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,32 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
+# Tutorial: Crear una canalización con la actividad de copia mediante Azure Portal
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Uso del Editor de Data Factory.](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+- [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 
-Este tutorial contiene los siguientes pasos:
+Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure mediante Azure Portal. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
+
+Estos son los pasos que se realizan en este tutorial:
 
 Paso | Description
 -----| -----------
 [Crear una factoría de datos de Azure](#create-data-factory) | En este paso creará una factoría de datos de Azure denominada **ADFTutorialDataFactory**.  
 [Crear servicios vinculados](#create-linked-services) | En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **AzureSqlLinkedService**. AzureStorageLinkedService vincula el Almacenamiento de Azure y AzureSqlLinkedService vincula la Base de datos SQL de Azure a ADFTutorialDataFactory. Los datos de entrada para la canalización se encuentran en un contenedor de blob en el almacenamiento de blobs de Azure y los datos de salida se almacenan en una tabla en Base de datos SQL de Azure. Por lo tanto, agregue estos almacenes de datos como servicios vinculados en la factoría de datos.      
-[Crear conjuntos de datos de entrada y salida](#create-datasets) | En el paso anterior, creó servicios vinculados que hacen referencia a los almacenes de datos que contienen datos de entrada y salida. En este paso, definirá dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blobs que contiene un blob con los datos de origen, y para EmpSQLTable, especificará la tabla SQL que almacenará los datos de salida. Especifique también otras propiedades como estructura, disponibilidad, etc. 
+[Crear conjuntos de datos de entrada y salida](#create-datasets) | En el paso anterior, creó servicios vinculados que hacen referencia a los almacenes de datos que contienen datos de entrada y salida. En este paso, definirá dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blobs que contiene un blob con los datos de origen, y para EmpSQLTable, especificará la tabla SQL que almacenará los datos de salida. Especifique también otras propiedades como estructura, disponibilidad y directiva. 
 [Crear una canalización](#create-pipeline) | En este paso, creará una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactory. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure en la tabla de salida de Azure SQL. La actividad de copia realiza el movimiento de datos en Data Factory de Azure. Funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia. 
 [Supervisión de la canalización](#monitor-pipeline) | En este paso, supervisará los sectores de las tablas de entrada y salida con el Portal de Azure.
 
 > [AZURE.IMPORTANT] 
-Lea el tema [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y realice los pasos de requisitos previos antes de completar este tutorial.
+Antes de realizar este tutorial, consulte el artículo de [información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos**.
 
 ## Creación de Data Factory
 En este paso, utilizará el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
@@ -51,7 +53,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 	1. Escriba **ADFTutorialDataFactory** como **nombre**.
 	
   		![Hoja Nueva Factoría de datos][image-data-factory-getstarted-new-data-factory-blade]
-	2. Haga clic en **NOMBRE DE GRUPO DE RECURSOS** y haga lo siguiente:
+	2. Haga clic en **NOMBRE DE GRUPO DE RECURSOS** y siga estos pasos:
 		1. Haga clic en **Crear un nuevo grupo de recursos**.
 		2. En la hoja **Crear grupo de recursos**, escriba **ADFTutorialResourceGroup** para el **nombre** del grupo de recursos y haga clic en **Aceptar**.
 
@@ -72,7 +74,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 	> Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
-10. Una vez completada la creación, puede ver la hoja **DATA FACTORY** como se muestra a continuación.
+10. Una vez completada la creación, puede ver la hoja **DATA FACTORY** como se muestra en la imagen.
 
     ![Página principal de Factoría de datos][image-data-factory-get-stated-factory-home-page]
 
@@ -151,10 +153,10 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 		}
 
 		
-     Tenga en cuenta lo siguiente:
+     Tenga en cuenta los siguientes puntos:
 	
 	- **type** de conjunto de datos está establecido en **AzureBlob**.
-	- **linkedServiceName** se establece en **AzureStorageLinkedService**. Este servicio vinculado lo había creado en el paso 2.
+	- **linkedServiceName** se establece en **AzureStorageLinkedService**. Este servicio vinculado lo creó en el paso 2.
 	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.
 	- el **tipo** de formato se establece en **TextFormat**
 	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)
@@ -182,7 +184,7 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 2. Haga clic en **Implementar** en la barra de herramientas para implementar la tabla **EmpTableFromBlob**. Confirme que aparece el mensaje **TABLA CREADA CORRECTAMENTE** en la barra de título del Editor.
 
 ### Creación del conjunto de datos de salida
-En esta parte del paso, se crea un conjunto de datos de salida denominado **EmpSQLTable**. Este conjunto de datos apunta a una tabla SQL de la base de datos SQL de Azure representada por **AzureSqlLinkedService**.
+En esta parte del paso, se crea un conjunto de datos de salida denominado **EmpSQLTable**. Este conjunto de datos apunta a una tabla SQL de Azure SQL Database representada por **AzureSqlLinkedService**.
 
 1. En el **Editor** de Data Factory, haga clic en el botón **Nuevo conjunto de datos** de la barra de herramientas y haga clic en **Azure SQL table** (Tabla SQL de Azure) en el menú desplegable.
 2. Reemplace JSON en el panel derecho por el siguiente fragmento JSON:
@@ -213,10 +215,10 @@ En esta parte del paso, se crea un conjunto de datos de salida denominado **EmpS
 		}
 
 		
-     Tenga en cuenta lo siguiente:
+     Tenga en cuenta los siguientes puntos:
 	
 	* **type** de conjunto de datos está establecido en **AzureSqlTable**.
-	* **linkedServiceName** está establecido en **AzureSqlLinkedService** (creó este servicio vinculado en el paso 2).
+	* **linkedServiceName** está establecido en **AzureSqlLinkedService** (este servicio vinculado lo creó en el paso 2).
 	* **tablename** está establecido en **emp**.
 	* Hay tres columnas (**ID**, **FirstName** y **LastName**) en la tabla emp de la base de datos. ID es una columna de identidad, por lo que en ella solo se deben especificar **FirstName** y **LastName**.
 	* El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** en **1**). El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
@@ -276,7 +278,7 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 		  }
 		} 
 
-	Tenga en cuenta lo siguiente:
+	Tenga en cuenta los siguientes puntos:
 
 	- En la sección de actividades, solo hay una actividad cuyo **tipo** está establecido en **CopyActivity**.
 	- La entrada de la actividad está establecida en **EmpTableFromBlob** y la salida en **EmpSQLTable**.
@@ -303,7 +305,7 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 
 	![Módulo de la factoría de datos: ventana de diagrama][image-datafactoryblade-diagramtile]
 
-2. Debería ver un diagrama similar al siguiente:
+2. Debería ver un diagrama similar a la siguiente imagen:
 
 	![Vista Diagrama][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +332,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 	![Conjuntos de datos con EmpTableFromBlob seleccionado][image-data-factory-get-started-datasets-emptable-selected]
 5. Observe que ya se han producido los segmentos de datos hasta la hora actual y que están **listos** porque el archivo **emp.txt** existe todo el tiempo en el contenedor de blobs: **adftutorial\\input**. Confirme que no aparecen segmentos en la sección **Segmentos que han fallado recientemente** de la parte inferior.
 
-	Tanto la lista **Segmentos actualizados recientemente** como la lista **Segmentos que han fallado recientemente** se ordenan por la **HORA DE LA ÚLTIMA ACTUALIZACIÓN**. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
+	Las listas **Segmentos actualizados recientemente** y **Segmentos erróneos recientes** se ordenan por la **HORA DE LA ÚLTIMA ACTUALIZACIÓN**. En las situaciones siguientes, se cambia la hora de actualización de un segmento:
     
 	Haga clic en el título de las listas o en **... (puntos suspensivos)** para ver la lista de segmentos mayor. Haga clic en **Filtro** en la barra de herramientas para filtrar los segmentos.
 	
@@ -461,4 +463,4 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -141,7 +141,7 @@ Para obtener más información acerca del uso de este comando, consulte [Aprovis
 
 6. Cuando se le solicite, escriba el usuario que ingresó cuando creó el clúster. Si proporcionó una contraseña para el usuario, también se le pedirá escribirla.
 
-> [AZURE.NOTE] En los pasos anteriores se da por hecho que está usando el puerto 22, que se conectará al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] En los pasos anteriores se asume que usa el puerto 22, que se conectará al nodo principal en el clúster de HDInsight. Si usa el puerto 23, se conectará al secundario. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conexión a los nodos de trabajo
 
@@ -185,9 +185,9 @@ Si proporcionó una clave SSH cuando creó la cuenta de usuario, debe realizar l
 
     > [AZURE.NOTE] Si usa una contraseña para realizar la autenticación de la sesión SSH, se le pedirá que la escriba nuevamente. Si usa una clave SSH, la conexión debiera finalizar sin que deba realizar ninguna acción.
 
-9. Una vez establecida la sesión, el símbolo del sistema de la sesión de PuTTY cambiará de `username@hn0-clustername` a `username@wn0-clustername` para indicar que está conectado al nodo de trabajo. Los comandos que ejecute en este punto se ejecutarán en el nodo de trabajo.
+9. Una vez establecida la sesión, el símbolo del sistema de la sesión de PuTTY cambiará de `username@hn#-clustername` a `username@wn#-clustername` para indicar que está conectado al nodo de trabajo. Los comandos que ejecute en este punto se ejecutarán en el nodo de trabajo.
 
-10. Una vez que haya terminado de realizar acciones en el nodo de trabajo, use el comando `exit` para cerrar la sesión en el nodo de trabajo. Con esto volverá al símbolo del sistema `username@hn0-clustername`.
+10. Una vez que haya terminado de realizar acciones en el nodo de trabajo, use el comando `exit` para cerrar la sesión en el nodo de trabajo. Con esto volverá al símbolo del sistema `username@hn#-clustername`.
 
 ##Incorporación de más cuentas
 
@@ -237,4 +237,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

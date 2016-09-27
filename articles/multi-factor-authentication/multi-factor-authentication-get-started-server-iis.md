@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Servidor de autenticación IIS y Azure Multi-Factor Authentication" 
-	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación IIS y el servidor Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Servidor de autenticación IIS y Azure Multi-Factor Authentication"
+	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación IIS y el servidor Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Autenticación IIS
 
@@ -76,4 +76,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio IP única, Intervalo IP o Subred.
 4. Escriba la dirección IP, el intervalo IP o la subred que debe estar en la lista blanca. Si introduce una subred, seleccione la máscara de red adecuada y haga clic en el botón Aceptar. Se ha agregado a la lista blanca.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

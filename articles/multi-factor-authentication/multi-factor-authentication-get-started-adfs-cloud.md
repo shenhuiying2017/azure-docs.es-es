@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS" 
-	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS"
+	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 
 Si su organización está federada con Azure Active Directory y dispone de los recursos a los que tiene acceso Azure AD, puede usar Azure Multi-Factor Authentication o Servicios de federación de Active Directory para proteger esos recursos. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
 
-## Para proteger recursos de Azure AD mediante AD FS, realice lo siguiente: 
+## Para proteger recursos de Azure AD mediante AD FS, realice lo siguiente:
 
 
 
@@ -67,7 +67,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 10. En el Asistente para agregar regla de notificaciones de transformación, seleccione Enviar notificaciones mediante regla personalizada en la lista desplegable y haga clic en Siguiente.
 11. En el cuadro situado bajo el nombre de la regla de notificación: escriba Mantener a los usuarios con la sesión iniciada.
 12. En el cuadro de regla personalizada, escriba:
-	    
+
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -93,4 +93,4 @@ Ahora que las notificaciones están listas, podemos configurar IP de confianza.
 
 ¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

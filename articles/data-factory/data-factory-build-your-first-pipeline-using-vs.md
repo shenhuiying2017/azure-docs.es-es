@@ -18,22 +18,25 @@
 
 # Tutorial: Compilación de la primera instancia de Azure Data Factory con Microsoft Visual Studio
 > [AZURE.SELECTOR]
+- [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 - [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+En este artículo usará Microsoft Visual Studio para crear su primera instancia de Azure Data Factory.
 
-## Requisitos previos adicionales
+## Requisitos previos
+1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos**.
 2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory desde Visual Studio en Azure Data Factory.
 3. Debe tener lo siguiente instalado en el equipo:
 	- Visual Studio 2013 o Visual Studio 2015.
 	- Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
 	- Descargue el último complemento de Data Factory de Azure para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si usa Visual Studio 2013, también puede actualizar el complemento mediante el proceso siguiente: haga clic en el menú **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Factoría de datos de Microsoft Azure para Visual Studio** -> **Actualizar**.
  
-Los tutoriales siguientes muestran cómo crear e implementar las entidades de la instancia de Data Factory.
+Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
+
 
 ## Creación de un proyecto de Visual Studio 
 1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debe aparecer el cuadro de diálogo **Nuevo proyecto**.
@@ -267,10 +270,12 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 21. En la página Configurar Data Factory, haga lo siguiente:
 	1. Seleccione la opción **Crear la nueva factoría de datos**.
-	2. Escriba **FirstDataFactoryUsingVS** como **nombre**.
+	2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **FirstDataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
 	
-		> [AZURE.IMPORTANT] El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
+		> [AZURE.IMPORTANT] Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
 	3. Seleccione la suscripción correcta en el campo **Suscripción**.
+	 
+		> [AZURE.IMPORTANT] Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.
 	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear.
 	5. Seleccione la **Región** de la factoría de datos.
 	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Presione la tecla **TAB** para salir del campo Nombre si el botón **Siguiente** está deshabilitado).
@@ -278,7 +283,8 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar.
 
-Tenga en cuenta lo siguiente:
+ 
+Puntos importantes que hay que tener en cuenta:
 
 - Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
 
@@ -291,15 +297,16 @@ Tenga en cuenta lo siguiente:
 			Get-AzureRmResourceProvider
 	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 - 	El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
-- 	Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
+- 	Para crear instancias de Data Factory, es preciso ser administrador o coadministrador de la suscripción de Azure
 
  
 ## Supervisión de la canalización
 
+### Supervisión de una canalización desde la vista de diagrama
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
 	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
-		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos.
+		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -322,17 +329,34 @@ Tenga en cuenta lo siguiente:
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Cuando finalice el procesamiento, el segmento aparece con el estado **Listo**.
-	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
+	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente). Por tanto, cabe esperar que la canalización tarde **aproximadamente 30 minutos** en procesar el segmento.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.
  
 	![datos de salida](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Haga clic en el segmento para ver sus detalles en una hoja **Segmento de datos**.
+
+	![Detalles de segmento de datos](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)
+12. Haga clic en una cualquiera de las ejecuciones de la lista **Ejecuciones de actividad** para ver sus detalles (una actividad de Hive en nuestro escenario) en la ventana **Detalles de la ejecución de actividad**.![Detalles de ejecución de actividad](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)
+	
+	En los archivos de registro, puede ver la consulta de Hive que se ejecutó y la información sobre el estado. Estos registros son útiles para solucionar cualquier problema.
+ 
 
 Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-También puede supervisar y administrar la aplicación para supervisar las canalizaciones de datos. Para más información acerca del uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
+### Supervisión de una canalización con la Aplicación de supervisión y administración
+La Aplicación de supervisión y administración también se puede usar para supervisar las canalizaciones. Para más información acerca del uso de esta aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
+
+1. Haga clic en el icono Supervisión y administración.
+
+	![Icono Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
+2. Debería ver la Aplicación de supervisión y administración. Cambie la **hora de inicio** y la **hora de finalización** para ajustar las horas de inicio (01-04-2016 12:00 A.M.) y finalización (02-04-2016 12:00 A.M.) de la canalización y haga clic en **Aplicar**.
+
+	![Aplicación de supervisión y administración](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
+3. Seleccione una ventana en la lista de ventanas de actividad para ver información sobre ella. ![Detalles de ventana de actividad](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta inputdata del contenedor adfgetstarted.
  
@@ -479,4 +503,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

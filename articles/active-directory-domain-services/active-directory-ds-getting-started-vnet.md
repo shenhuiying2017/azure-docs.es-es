@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Servicios de dominio de Azure AD: creación o selección de una red virtual | Microsoft Azure"
-	description="Introducción a los Servicios de dominio de Azure Active Directory (versión preliminar)"
+	description="Introducción a los Servicios de dominio de Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,37 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Servicios de dominio de Azure AD *(versión preliminar)*: crear o seleccionar una red virtual
+# Creación o selección de una red virtual para Azure Active Directory Domain Services
 
 ## Directrices para seleccionar una red virtual de Azure
-Al seleccionar una red virtual para usar con los Servicios de dominio de Azure AD, tenga en cuenta las siguientes pautas:
-
-- Asegúrese de seleccionar una red virtual de una región que sea compatible con los Servicios de dominio de Azure AD. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD.
-
-- Si planea usar una red virtual existente, asegúrese de que sea una red virtual regional. Las redes virtuales que usan el mecanismo de grupos de afinidad heredados no se puede usar con los Servicios de dominio de Azure AD. Deberá [migrar las redes virtuales heredadas a redes virtuales regionales](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-- Si planea usar una red virtual existente, asegúrese de que no haya ningún servidor DNS personalizado configurado para la red virtual. Los Servicios de dominio de Azure AD no admiten servidores DNS personalizados ni proporcionados por uno mismo.
-
-- Si planea usar una red virtual existente, asegúrese de que no tenga un dominio existente con el mismo nombre de dominio disponible en esa red virtual. Por ejemplo, supongamos que tiene un dominio llamado 'contoso.com' ya disponible en la red virtual seleccionada. Posteriormente, intenta habilitar un dominio administrado de Servicios de dominio de Azure AD con el mismo nombre de dominio (es decir, "contoso.com") en esa red virtual. Al intentar habilitar los Servicios de dominio de Azure AD, encontrará un error. Esto se debe a los conflictos de nombre en el nombre de dominio de esa red virtual. En esta situación, debe utilizar un nombre diferente para configurar el dominio administrado de los Servicios de dominio de Azure AD. Como alternativa, puede aprovisionar el dominio existente y luego proceder a habilitar los Servicios de dominio de Azure AD.
-
-- Seleccione la red virtual que hospeda o va a hospedar las máquinas virtuales que necesitan acceso a los Servicios de dominio de Azure AD. No podrá mover los Servicios de dominio a otra red virtual después de haber habilitado el servicio.
-
-- No se admiten los Servicios de dominio de Azure AD con redes virtuales creadas mediante el Administrador de recursos de Azure. Puede [conectar una red virtual clásica a una red virtual de ARM](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), a fin de utilizar los Servicios de dominio de Azure AD en una red virtual creada mediante el Administrador de recursos de Azure.
+> [AZURE.NOTE] **Antes de comenzar**: consulte [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Consideraciones de redes para Azure Active Directory Domain Services).
 
 
 ## Tarea 2: Creación de una red virtual de Azure
 La siguiente tarea de configuración consiste en crear una red virtual de Azure en la que quiere habilitar los Servicios de dominio de Azure AD. Si ya tiene una red virtual que quiere usar, puede omitir este paso.
 
-> [AZURE.NOTE] Asegúrese de que la red virtual de Azure que cree o elija usar con los Servicios de dominio de Azure AD pertenezca a una región de Azure que sea compatible con dichos servicios. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD.
+> [AZURE.NOTE] Asegúrese de que la red virtual de Azure que cree o elija usar con los Servicios de dominio de Azure AD pertenezca a una región de Azure que sea compatible con dichos servicios. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure Active Directory Domain Services.
 
-Deberá anotar el nombre de la red virtual para así seleccionar la red virtual adecuada al habilitar los Servicios de dominio de Azure AD en un paso de configuración posterior.
+Anote el nombre de la red virtual para seleccionar la red virtual adecuada al habilitar Azure Active Directory Domain Services en un paso posterior de la configuración.
 
-Realice el siguiente paso de configuración para crear una red virtual de Azure en la que quiere habilitar los Servicios de dominio de Azure AD.
+Realice los siguientes pasos de la configuración para crear una red virtual de Azure en la que desee habilitar Azure Active Directory Domain Services.
 
-1. Desplácese al **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+1. Navegue hasta el **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
 2. Seleccione el nodo **Redes** en el panel izquierdo.
 
@@ -59,15 +47,15 @@ Realice el siguiente paso de configuración para crear una red virtual de Azure 
 
 6. Escriba un **Nombre** para la red virtual. También puede elegir configurar el **Espacio de direcciones** o el **Número máximo de VM** para esta red. Por ahora, puede dejar la configuración del servidor DNS establecida en 'Ninguna'. Esta configuración se actualizará después de habilitar los Servicios de dominio de Azure AD.
 
-7. Asegúrese de seleccionar una región de Azure compatible en la lista desplegable **Ubicación**. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD. Este es un paso importante. Si selecciona una red virtual de una región de Azure que no es compatible con los Servicios de dominio de Azure AD, no podrá habilitar el servicio en esa red virtual.
+7. Asegúrese de seleccionar una región de Azure compatible en la lista desplegable **Ubicación**. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure Active Directory Domain Services.
 
-8. Haga clic en el botón **Crear una red virtual** para crear la red virtual.
+8. Para crear la red virtual, haga clic en el botón **Crear una red virtual**.
 
     ![Creación de una red virtual para los Servicios de dominio de Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 
 <br>
 
 ## Tarea 3: Habilitación de los Servicios de dominio de Azure AD
-La tarea de configuración siguiente consiste en [habilitar los Servicios de dominio de Azure AD](active-directory-ds-getting-started-enableaadds.md).
+La siguiente tarea de configuración consiste en [habilitar Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

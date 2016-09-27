@@ -13,20 +13,34 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # Acerca de Puerta de enlace de VPN
 
 
-Se usa una puerta de enlace de red virtual para enviar tráfico de red entre redes virtuales de Azure y ubicaciones locales, así como entre redes virtuales dentro de Azure (de red virtual a red virtual). Para crear una conexión, agregue una puerta de enlace de red virtual a una red virtual, junto con recursos adicionales y sus configuraciones.
+Se usa una puerta de enlace de red virtual para enviar tráfico de red entre redes virtuales de Azure y ubicaciones locales, así como entre redes virtuales dentro de Azure (de red virtual a red virtual). Cuando se configura una puerta de enlace de VPN, debe crear y configurar una puerta de enlace de red virtual y una conexión de puerta de enlace de red virtual.
 
-Cuando se crea un recurso de puerta de enlace de red virtual, se especifican varias configuraciones. Una de las configuraciones necesarias es "-GatewayType". El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace. Existen dos tipos de puerta de enlace de red virtual: Vpn y ExpressRoute. Cuando se envíe el tráfico de red en una conexión privada dedicada, use el tipo de puerta de enlace "ExpressRoute". Esto también se conoce como puerta de enlace de ExpressRoute. Cuando se envíe el tráfico de red cifrado a través de una conexión pública, use el tipo de puerta de enlace "Vpn". Esto se conoce como puerta de enlace de VPN. Las conexiones de sitio a sitio, de punto a sitio y de red virtual a red virtual utilizan una puerta de enlace de VPN.
+En el modelo de implementación de Resource Manager, cuando se crea un recurso de puerta de enlace de red virtual, se especifican varias configuraciones. Una de las configuraciones necesarias es "-GatewayType". Existen dos tipos de puerta de enlace de red virtual: Vpn y ExpressRoute.
 
-Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo de puerta de enlace. Por ejemplo, puede tener una puerta de enlace de una red virtual que use -GatewayType Vpn y otra que use -GatewayType ExpressRoute. Este artículo se centra principalmente en VPN Gateway. Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Cuando se envíe el tráfico de red en una conexión privada dedicada, use el tipo de puerta de enlace "ExpressRoute". Esto también se conoce como puerta de enlace de ExpressRoute. Cuando se envíe el tráfico de red cifrado a través de una conexión pública, use el tipo de puerta de enlace "Vpn". Esto se conoce como puerta de enlace de VPN. Las conexiones de sitio a sitio, de punto a sitio y de red virtual a red virtual utilizan una puerta de enlace de VPN.
 
-Para más información acerca de los requisitos de puerta de enlace, consulte los [requisitos de la puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#requirements). Para obtener estimaciones de rendimiento agregado, consulte [Acerca de la configuración de Puerta de enlace de VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obtener información sobre las suscripciones y los límites de servicio, consulte [Límites de red](../articles/azure-subscription-service-limits.md#networking-limits).
+Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo de puerta de enlace. Por ejemplo, puede tener una puerta de enlace de una red virtual que use -GatewayType ExpressRoute y otra que use -GatewayType Vpn. Este artículo se centra principalmente en VPN Gateway. Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
+## Precios
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
+
+
+## SKU de puerta de enlace
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
+###  <a name="skugw"></a>Estimación del rendimiento agregado por tipo de SKU y tipo de puerta de enlace
+
+En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## Configuración de una puerta de enlace de aplicaciones
 
@@ -34,7 +48,7 @@ Cuando configure una puerta de enlace de VPN, las instrucciones que use dependen
 
 Una conexión de puerta de enlace de VPN se basa en varios recursos con una configuración específica. La mayoría de los recursos puede configurarse por separado, aunque en algunos casos es necesario seguir un orden determinado. Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como el portal de Azure. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en el portal de Azure. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-Las secciones a continuación contienen tablas que muestran lo siguiente:
+Las siguientes secciones contienen tablas que muestran lo siguiente:
 
 - modelo de implementación disponible;
 - herramientas de configuración disponibles;
@@ -136,4 +150,4 @@ Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y di
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

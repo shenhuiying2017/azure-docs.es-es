@@ -1,10 +1,10 @@
-El servicio Copia de seguridad de Azure tiene dos tipos de almacenes: el almacén de Copia de seguridad y el almacén de Servicios de recuperación.
+El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y el almacén de Recovery Services. El almacén de Backup fue el primero. A continuación, surgió el almacén de Recovery Services para admitir las implementaciones expandidas de Resource Manager. Microsoft recomienda utilizar las implementaciones de Resource Manager, a menos que se requiera específicamente una implementación mediante el método clásico.
 
 | **Implementación** | **Portal** | **Almacén** |
 |-----------|------|-----|
-| Clásico | [Clásico](https://manage.windowsazure.com) | Almacén de copia de seguridad |
-| Resource Manager (recomendado) | [Las tablas de Azure](https://portal.azure.com) | Almacén de Servicios de recuperación |
+|Clásico|[Clásico](https://manage.windowsazure.com)|Copia de seguridad|
+|Resource Manager|[Las tablas de Azure](https://portal.azure.com)|Servicios de recuperación|
 
 > [AZURE.NOTE] Los almacenes de copia de seguridad no pueden proteger soluciones implementadas con Resource Manager. Sin embargo, puede usar un almacén de Servicios de recuperación para proteger los servidores y las máquinas virtuales implementados con el modelo clásico.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->
