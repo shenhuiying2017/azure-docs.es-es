@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Emparejamiento de red virtual mediante el Portal de Azure
 
@@ -60,7 +60,7 @@ Para emparejar una red virtual según el escenario anterior por medio del Portal
 
 	![Estado final del vínculo 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. NOTA: El emparejamiento de VNET se establece solo si ambos vínculos están conectados.
+    > [AZURE.NOTE] El emparejamiento de VNET se establece solo si ambos vínculos están conectados.
 
 Hay algunas propiedades configurables para cada vínculo:
 
@@ -91,7 +91,7 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    NOTA: Puede cerrar e iniciar las dos sesiones del usuario en el explorador para asegurarse de que la autorización se habilita correctamente.
+    > [AZURE.NOTE] Puede cerrar e iniciar las dos sesiones del usuario en el explorador para asegurarse de que la autorización se habilita correctamente.
 
 6. Inicie sesión en el portal como UserA, vaya a la hoja VNET3, haga clic en Peering (Emparejamiento), marque la casilla "Conozco mi id. de recurso" y escriba el identificador de recurso de VNET5 en el formato siguiente.
 
@@ -111,11 +111,33 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
     ![Emparejamiento básico](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. Después se pueden crear vínculos de emparejamiento de VNET1 a HubVnet. Tenga en cuenta que está seleccionada la opción "Permitir tráfico reenviado".
+2. Después se pueden crear vínculos de emparejamiento de VNET1 a HubVnet. Tenga en cuenta que está seleccionada la opción Permitir tráfico reenviado.
 
     ![Emparejamiento básico](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
 3. Después de establecer el emparejamiento, puede consultar este [artículo](virtual-network-create-udr-arm-ps.md) y establecer una ruta definida por el usuario (UDR) para redirigir el tráfico de VNet1 a través de una aplicación virtual para usar sus funcionalidades. Cuando se especifica la dirección Próximo salto en la ruta, puede establecerla en la dirección IP de la aplicación virtual de la red virtual HubVNet emparejada.
+
+
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+
+
+1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
+
+2. Para establecer la red virtual de emparejamiento en este escenario, debe crear solo un vínculo desde la red virtual de Azure Resource Manager a la de la implementación clásica. Es decir, desde **VNET1** a **VNET2**. En el portal, haga clic en **Examinar** y elija **Redes virtuales**.
+
+3. En la hoja de redes virtuales, elija **VNET1**. Haga clic en **Emparejamientos** y, a continuación, haga clic en **Agregar**.
+
+4. En la hoja Agregar emparejamiento, dé un nombre al vínculo. Aquí se llama **LinkToVNet2**. En Detalles de miembro del mismo nivel, seleccione **Clásico**.
+
+5. A continuación, elija la suscripción y la red virtual del mismo nivel **VNET2**. A continuación, haga clic en Aceptar.
+
+    ![Vinculación de Vnet1 con Vnet 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
+
+6. Una vez creado este vínculo de emparejamiento de red virtual, las dos redes virtuales estarán emparejadas y podrá ver lo siguiente:
+
+    ![Comprobación de la conexión de emparejamiento](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
+
 
 ## Desemparejamiento de VNET
 
@@ -130,4 +152,4 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 4. En este estado, no se puede volver a crear el vínculo hasta que cambie el estado del vínculo de emparejamiento a iniciado. Se recomienda quitar ambos vínculos antes de volver a crear el emparejamiento de VNET.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

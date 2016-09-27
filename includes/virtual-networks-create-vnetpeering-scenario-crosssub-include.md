@@ -4,6 +4,8 @@ En este escenario creará un emparejamiento entre dos redes virtuales que perten
 
 ![escenario entre suscripciones](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-En el emparejamiento de VNET, la autorización se basa en el control de acceso basado en roles (RBAC). En escenarios entre suscripciones, primero necesita conceder permisos suficientes a los usuarios que crearán el vínculo de emparejamiento. NOTA: Si el mismo usuario tiene el privilegio sobre ambas suscripciones, puede omitir los pasos del 1 al 4 que se indican a continuación.
+En el emparejamiento de VNET, la autorización se basa en el control de acceso basado en roles (RBAC). En el escenario entre suscripciones, debe conceder primero los permisos suficientes para los usuarios que crearán el vínculo de emparejamiento:
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si el mismo usuario tiene el privilegio sobre ambas suscripciones, puede ignorar los pasos 1 a 4 que se indican a continuación.
+
+<!---HONumber=AcomDC_0921_2016-->

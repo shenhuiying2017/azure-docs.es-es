@@ -75,7 +75,7 @@ Para las aplicaciones que requieren autenticación previa, concede permisos para
 
 ## Prueba de la aplicación publicada
 
-Una vez publicada la aplicación, puede probarla; para ello, vaya a la dirección URL que publicó. Asegúrese de que tiene acceso, que se representa correctamente y que todo funciona según lo previsto. Si tiene problemas o recibe mensajes de error, pruebe la [Guía de solución de problemas](active-directory-application-proxy-troubleshoot.md).
+Una vez publicada la aplicación, puede probarla; para ello, vaya a la dirección URL que publicó. Asegúrese de que puede acceder a ella, que se representa correctamente y que todo funciona como cabría esperar. Si tiene problemas o recibe mensajes de error, pruebe la [Guía de solución de problemas](active-directory-application-proxy-troubleshoot.md).
 
 ## Configuración de la aplicación
 
@@ -101,4 +101,4 @@ Para eliminar una aplicación, seleccione una aplicación en la lista y después
 
 Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

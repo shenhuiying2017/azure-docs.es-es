@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication" 
-	description="En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication"
+	description="En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
 
@@ -63,10 +63,4 @@ Para la actualización de PhoneFactor Agent v5.x o anterior al Servidor Azure Mu
 <li>Para instalar el servicio web de aplicación móvil en el servidor web, abra un símbolo del sistema como administrador y ejecute MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi. Tenga en cuenta que el nombre del directorio virtual predeterminado es ahora “MultiFactorAuthMobileAppWebService” en lugar de “PhoneFactorPhoneAppWebService”. Si desea usar el nombre anterior, debe cambiar el nombre del directorio virtual durante la instalación. Puede elegir un nombre más corto para que les sea más fácil a los usuarios finales escribirlo en sus dispositivos móviles. De lo contrario, si permite que la instalación use el nuevo nombre predeterminado, debe hacer clic en el icono de Aplicación móvil en el Servidor Multi-Factor Authentication y actualizar la dirección URL del servicio web de la aplicación móvil.</li>
 <li>Vaya a la ubicación de instalación del servicio web de aplicación móvil (por ejemplo, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) y edite el archivo web.config. Copie los valores en las secciones appSettings y applicationSettings del archivo web.config original del que se ha hecho copia de seguridad antes de actualizar al nuevo archivo web.config. Si se ha conservado el nuevo nombre de directorio virtual predeterminado al instalar el SDK del servicio web, cambie la dirección URL en la sección applicationSettings para que apunte a la ubicación correcta. Si se han cambiado otros valores predeterminados en el archivo web.config anterior, aplique estos mismos cambios al nuevo archivo web.config.</li></ol>
 
-
- 
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

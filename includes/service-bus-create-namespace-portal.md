@@ -14,19 +14,19 @@
 
 	![Crear espacio de nombres][create-namespace]
 
-6. Haga clic en el botón **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+6. Haga clic en **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
  
 ### Obtención de las credenciales de administración
 
 1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
  
-3. En la hoja **Espacio de nombres del Bus de servicio**, haga clic en **Directivas de acceso compartido**.
+3. En la hoja del espacio de nombres, haga clic en **Directivas de acceso compartido**.
 
 4. En la hoja **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
 
 	![información de conexión][connection-info]
 
-5. En la hoja **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar junto a **Cadena de conexión: clave principal**, para copiar la cadena de conexión en el portapapeles para su uso posterior.
+5. En la hoja **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar junto a **Cadena de conexión: clave principal**, para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
 
 	![connection-string][connection-string]
 
@@ -39,4 +39,4 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

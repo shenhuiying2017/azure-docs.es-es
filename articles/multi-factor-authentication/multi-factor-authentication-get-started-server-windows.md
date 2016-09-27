@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Servidor de Autenticación de Windows y Azure Multi-Factor Authentication" 
-	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la Autenticación de Windows y el servidor de Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Servidor de Autenticación de Windows y Azure Multi-Factor Authentication"
+	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la Autenticación de Windows y el servidor de Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Servidor de Autenticación de Windows y Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 
 
 >[AZURE.NOTE]Esta característica no se admite para proteger Terminal Services en Windows Server 2012 R2.
- 
+
 
 
 
@@ -49,4 +49,4 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 10. Seleccione Subred si desea especificar un intervalo de direcciones IP mediante la notación de subred. Escriba la dirección IP inicial de la subred y seleccione la máscara de red adecuada de la lista desplegable.
 11. Haga clic en el botón Aceptar.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

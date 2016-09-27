@@ -39,11 +39,11 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 ## Creación del clúster de HBase.
 
-El siguiente procedimiento utiliza una plantilla ARM de Azure para crear un clúster de HBase. Para comprender los parámetros utilizados en el procedimiento y otros métodos de creación del clúster, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+El siguiente procedimiento utiliza una plantilla de Azure Resource Manager para crear un clúster de HBase. Para comprender los parámetros utilizados en el procedimiento y otros métodos de creación del clúster, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure. La plantilla ARM se encuentra en un contenedor de blobs público.
+1. Haga clic en la imagen siguiente para abrir la plantilla en Azure Portal. La plantilla se encuentra en un contenedor de blobs público.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. En la hoja **Parámetros**, escriba lo siguiente:
 
@@ -188,7 +188,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 	* **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
 	* **-G**: indica que esta es una solicitud GET.
 
-2. Use el siguiente comando para mostrar las tablas de HBase existentes:
+2. Use el siguiente comando para enumerar las tablas de HBase existentes:
 
 		curl -u <UserName>:<Password> \
 		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
@@ -247,7 +247,7 @@ SSH también se puede usar para tunelizar las solicitudes locales, como solicitu
 4. Entre las opciones básicas para su pantalla de sesión de PuTTY, escriba los siguientes valores:
 
 	- **Nombre de host**: dirección de SSH de su servidor de HDInsight en el campo del nombre de host (o dirección IP). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, *mycluster-ssh.azurehdinsight.net*.
-	- **Puerto**: 22. El puerto ssh en el odo principal 0 es 22.
+	- **Puerto**: 22. El puerto ssh del nodo principal es el 22.
 5. En la sección **Categoría**, situada a la izquierda del cuadro de diálogo, expanda **Conexión**, **SSH** y haga clic en **Túneles**.
 6. Proporcione la siguiente información en el formulario Opciones que controlan el desvío de puertos SSH:
 
@@ -325,4 +325,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general y escenarios comunes de Servicios multimedia de Azure" 
+	pageTitle="Información general y escenarios comunes de Azure Media Services | Microsoft Azure" 
 	description="En este tema se proporciona información general de Servicios multimedia de Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="08/07/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;anilmur"/>
 
-#Información general y escenarios comunes de Servicios multimedia de Azure
+#Información general y escenarios comunes de Azure Media Services
 
 Servicios multimedia de Microsoft Azure es una plataforma extensible basada en la nube que permite a los desarrolladores crear aplicaciones de administración y entrega de contenido multimedia escalables. Servicios multimedia se basa en las API de REST, que permiten cargar, almacenar, codificar y empaquetar de forma segura contenido de audio o vídeo para la entrega bajo demanda y de streaming en vivo a varios clientes (por ejemplo, televisión, PC y dispositivos móviles).
 
@@ -24,19 +24,19 @@ Puede crear flujos de trabajo de un extremo a otro usando solamente Servicios mu
 
 Puede elegir entre transmisión del contenido en directo o entrega a petición. En este tema se muestran escenarios comunes para la entrega de contenido [en directo](media-services-overview.md#live_scenarios) o [a petición](media-services-overview.md#vod_scenarios). El tema también incluye vínculos a otros temas de interés.
 
-## SDK y herramientas 
+## SDK y herramientas
 
 Para compilar soluciones de Servicios multimedia, puede usar:
 
 - [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Uno de los SDK de cliente disponibles:
-	- [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
-	- [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
-	- [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
-	- [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
+- [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
+- [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
+- [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
 - Herramientas existentes:
-	- [Portal de Azure clásico](http://manage.windowsazure.com/)
-	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
+- [Portal de Azure clásico](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -48,13 +48,13 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 ##Requisitos previos
 
 Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
- 
+
 3. Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com).
 2. Una cuenta de Servicios multimedia de Azure. Use el Portal de Azure clásico, .NET o API de REST para crear la cuenta de Servicios multimedia de Azure. Para obtener más información, consulte [Creación de una cuenta](media-services-create-account.md).
 3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md).
 
-	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect-programmatically.md).
-4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-manage-origins.md).
+Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect-programmatically.md).
+4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-portal-manage-streaming-endpoints.md).
 
 ##Introducción y conceptos
 
@@ -64,7 +64,7 @@ Para una serie de procedimientos en que se presentan todos los componentes princ
 
 ##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 
-En esta sección se describe escenarios comunes y se proporcionan vínculos a temas importantes. En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en la entrega de contenido a petición.
+En esta sección se describe escenarios comunes y se proporcionan vínculos a temas relevantes. En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en la entrega de contenido a petición.
 
 ![Flujo de trabajo de VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
@@ -135,14 +135,14 @@ Cuando se trabaja con streaming en vivo, normalmente participan los siguientes c
 - Una cámara que se usa para difundir un evento.
 - Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo.
 
-	Opcionalmente, varios codificadores sincronizados en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo con sincronización de hora para lograr una conmutación por error perfecta sin pérdida de datos.
+Opcionalmente, varios codificadores sincronizados en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo con sincronización de hora para lograr una conmutación por error perfecta sin pérdida de datos.
 - Un servicio de streaming en vivo que permita hacer lo siguiente:
-	
-	- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
-	- (Opcionalmente) Codificar la transmisión en una transmisión con velocidad de bits adaptable.
-	- Mostrar una vista previa de la secuencia en vivo.
-	- Registrar y almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
-	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
+
+- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
+- (Opcionalmente) Codificar la transmisión en una transmisión con velocidad de bits adaptable.
+- Mostrar una vista previa de la secuencia en vivo.
+- Registrar y almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
+- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
 
 
 **Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
@@ -155,8 +155,8 @@ Un **canal** representa una canalización para procesar contenido de streaming e
 
 - Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-	>[AZURE.NOTE] El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](/pricing/details/media-services/).
-	
+>[AZURE.NOTE] El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](/pricing/details/media-services/).
+
 - Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 
@@ -185,7 +185,7 @@ Servicios multimedia de Azure proporciona las herramientas que necesita para cre
 
 ##Habilitación de CDN de Azure
 
-Servicios multimedia admite la integración con CDN de Azure. Para obtener información sobre cómo habilitar CDN de Azure, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md#enable_cdn).
+Servicios multimedia admite la integración con CDN de Azure. Para obtener información sobre cómo habilitar CDN de Azure, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md).
 
 ##Escalado de una cuenta de Servicios multimedia
 
@@ -193,7 +193,7 @@ Puede escalar **Servicios multimedia** mediante la especificación del número d
 
 También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
 
-[Este](media-services-how-to-scale.md) tema contiene vínculos a temas relevantes.
+[Este](media-services-portal-scale-streaming-endpoints.md) tema contiene vínculos a temas relevantes.
 
 ##Soporte técnico
 
@@ -220,4 +220,4 @@ Para obtener más información, consulte el [Contrato de nivel de servicio (SLA)
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

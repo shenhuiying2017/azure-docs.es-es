@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante la API de REST
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Uso del Editor de Data Factory.](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+- [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure mediante la API de REST. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
-
-La actividad de copia realiza el movimiento de datos en Data Factory de Azure. La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
 
 > [AZURE.NOTE] 
 Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referencia de API de REST de Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) para ver la documentación completa sobre los cmdlets de Data Factory.
@@ -36,7 +34,7 @@ Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referenc
 
 ## Requisitos previos
 
-- Lea [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos**.
 - Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos.
 - Siga las instrucciones de [este artículo](../resource-group-create-service-principal-portal.md) para:
 	1. Cree una aplicación web denominada **ADFCopyTutorialApp** en Azure Active Directory.
@@ -51,7 +49,7 @@ Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referenc
 	2. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
 			Get-AzureRmSubscription 
-	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription** &gt; por el nombre de su suscripción de Azure.
+	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **& lt; NameOfAzureSubscription**& gt; por el nombre de su suscripción de Azure.
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 	1. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
@@ -136,7 +134,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 
 La definición de JSON define un conjunto de datos denominado **AzureBlobInput**, que representa los datos de entrada de una actividad en la canalización. Además, especifica que los datos de entrada se encuentran en el archivo **emp.txt** que está en el contenedor de blobs **adftutorial**.
 
- Tenga en cuenta lo siguiente:
+ Tenga en cuenta los siguientes puntos:
 
 - **type** de conjunto de datos está establecido en **AzureBlob**.
 - **linkedServiceName** se establece en **AzureStorageLinkedService**.
@@ -192,7 +190,7 @@ Para establecer **folderPath** y **fileName** de forma dinámica según la hora 
 
 La definición de JSON define un conjunto de datos denominado **AzureBlobOutput**, que representa los datos de salida de una actividad en la canalización. Además, especifica que los resultados se almacenan en la tabla **emp** en la base de datos representada por AzureSqlLinkedService. La sección **disponibilidad** especifica que el conjunto de datos de salida se genere cada hora (frequency: hour e interval: 1).
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 - **type** de conjunto de datos está establecido en **AzureSqlTable**.
 - **linkedServiceName** se establece en **AzureSqlLinkedService**.
@@ -245,7 +243,7 @@ Tenga en cuenta lo siguiente:
 	}
 
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 - En la sección de actividades, solo hay una actividad cuyo **tipo** está establecido en **CopyActivity**.
 - La entrada de la actividad está establecida en **AzureBlobInput** y la salida de la actividad está establecida en **AzureSqlOutput**.
@@ -300,9 +298,9 @@ En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTu
 
 		Write-Host $results
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
  
-- El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, realice lo siguiente:
+- El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:
 	1. Cambie el nombre (por ejemplo, suNombreADFCopyTutorialDF) en el archivo **datafactory.json**.
 	2. En el primer comando donde se asigna un valor a la variable **$cmd**, reemplace ADFCopyTutorialDF por el nuevo nombre y ejecute el comando.
 	3. Ejecute los dos comandos siguientes para invocar la API de REST para crear la factoría de datos e imprimir los resultados de la operación.
@@ -493,4 +491,4 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

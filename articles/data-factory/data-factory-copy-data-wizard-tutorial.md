@@ -7,27 +7,21 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
-	ms.author="spelluru"/>
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ** ms.devlang="na" ms.topic="get-started-article" ms.date="09/16/2016" ms.author="spelluru"/>
 
 # Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Uso del Editor de Data Factory.](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+- [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
-En este tutorial, utilizará el Asistente para copia de Data Factory para crear una canalización con una actividad de copia en una factoría de datos. En primer lugar, cree una factoría de datos desde el portal de Azure. Luego, use el Asistente para copia para crear servicios vinculados, conjuntos de datos y una canalización de Data Factory con una actividad de copia que copia datos de un Almacenamiento de blobs de Azure en una base de datos SQL de Azure. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
+En este tutorial, utilizará el Asistente para copia de Data Factory para crear una canalización con una actividad de copia en una factoría de datos. En primer lugar, cree una factoría de datos desde el portal de Azure. Luego, use el Asistente para copia para crear servicios vinculados, conjuntos de datos y una canalización de Data Factory con una actividad de copia que copie datos de una instancia de Blob Storage de Azure en una instancia de Azure SQL Database. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
 
-> [AZURE.IMPORTANT] Antes de realizar este tutorial, consulte el artículo de [información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y realice los pasos de los requisitos previos.
+> [AZURE.IMPORTANT] Antes de realizar este tutorial, consulte el artículo de [información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos**.
 
 ## Creación de Data Factory
 En este paso, utilizará el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
@@ -40,7 +34,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 	1. Escriba **ADFTutorialDataFactory** como **nombre**.
 	
   		![Hoja Nueva Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-	2. Haga clic en **NOMBRE DE GRUPO DE RECURSOS** y haga lo siguiente:
+	2. Haga clic en **NOMBRE DE GRUPO DE RECURSOS** y siga estos pasos:
 		1. Haga clic en **Crear un nuevo grupo de recursos**.
 		2. En la hoja **Crear grupo de recursos**, escriba **ADFTutorialResourceGroup** para el **nombre** del grupo de recursos y haga clic en **Aceptar**.
 
@@ -57,7 +51,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 	> [AZURE.NOTE] El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
-10. Una vez completada la creación, puede ver la hoja **DATA FACTORY** que se muestra en la siguiente imagen.
+10. Una vez completada la creación, puede ver la hoja **DATA FACTORY** como se muestra en la siguiente imagen:
 
     ![Página principal de Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -88,7 +82,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 	3. Haga clic en **Next**.
 
 	![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. En la página **Configuración de formato de archivo**, seleccione los valores **predeterminados** y haga clic en **Siguiente**.
+7. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), haga clic en **Next** (Siguiente). No seleccione **Binary copy** (Copia binaria).
+
+	![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png)
+8. En la página **Configuración de formato de archivo**, seleccione los valores **predeterminados** y haga clic en **Siguiente**.
 
 	![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)
 8. En la página Almacén de datos de destino, haga clic en el icono **Base de datos SQL de Azure** y haga clic en **Siguiente**.
@@ -102,11 +99,12 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 
 	![Herramienta de copia: Asignación de tabla](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. En la página **Asignación de esquema**, haga clic en **Siguiente**.
+11. En la página **Configuración de rendimiento**, haga clic en **Siguiente**.
 11. Revise la información de la página **Resumen** y haga clic en **Finalizar**. El asistente crea dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia).
-12. En la página **Implementación correcta**, haga clic en **Haga clic aquí para supervisar canalización de copia**.
+12. En la página **Implementación correcta**, haga clic en el vínculo: **Click here to monitor copy pipeline** (Haga clic aquí para supervisar canalización de copia).
 
 	![Herramienta de copia: Implementación correcta](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
-13. Utilice las instrucciones de [Supervisar y administrar canalización mediante Aplicación de supervisión](data-factory-monitor-manage-app.md) para más información acerca de cómo supervisar la canalización que ha creado.
+13. Utilice las instrucciones de [Supervisar y administrar canalización mediante Aplicación de supervisión](data-factory-monitor-manage-app.md) para más información acerca de cómo supervisar la canalización que ha creado. Haga clic en el icono **Actualizar** de la lista de **VENTANAS DE ACTIVIDAD** para ver el segmento.
 
 	![Aplicación de supervisión](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
  
@@ -120,4 +118,4 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

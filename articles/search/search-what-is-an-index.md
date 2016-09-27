@@ -24,7 +24,7 @@ authors="ashmaka"
 
 ## ¿Qué es un índice?
 
-Un *índice* es un almacenamiento persistente de *documentos* y otras construcciones usadas por el servicio Búsqueda de Azure. Un documento es una base de datos de una sola unidad habilitada para búsquedas. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias puede tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+Un *índice* es un almacenamiento persistente de *documentos* y otras construcciones usadas por el servicio Búsqueda de Azure. Un documento es una sola unidad de datos habilitada para búsquedas. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias puede tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
 Cuando agregue o cargue documentos y envíe consultas de búsqueda a Búsqueda de Azure, envíe las solicitudes a un índice específico del servicio de búsqueda.
 
@@ -70,4 +70,4 @@ Al diseñar el índice, tómese su tiempo en la fase de planeación y reflexione
 
 Si los requisitos de almacenamiento de datos cambian con el tiempo, puede aumentar o disminuir la capacidad agregando o quitando particiones. Para más información, consulte [Administración del servicio de Búsqueda en Azure](search-manage.md) o [Límites de servicio](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Servicios de dominio de Azure AD *(versión preliminar)*: habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD
+# Servicios de dominio de Azure AD (versión preliminar): habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, ha habilitado Azure AD Domain Services para su inquilino de Azure AD. La siguiente tarea consiste en habilitar los hashes de credenciales necesarios para que la autenticación NTLM y Kerberos se sincronice en Azure AD Domain Services. Una vez configurada la sincronización de credenciales, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 Los pasos que se deben seguir son distintos en función de si su organización tiene un inquilino de Azure AD solo de nube o está configurado para sincronizarse con su directorio local mediante Azure AD Connect.
@@ -61,11 +61,11 @@ Después de haber cambiado su contraseña, la nueva contraseña se podrá usar e
 
 ## Contenido relacionado
 
-- [Habilitación de la sincronización de contraseñas con Azure AD Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Introducción a la administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+
+- [Habilitación de la sincronización de contraseñas con Azure AD Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -73,4 +73,4 @@ Después de haber cambiado su contraseña, la nueva contraseña se podrá usar e
 
 - [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
