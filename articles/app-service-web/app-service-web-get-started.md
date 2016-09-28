@@ -152,4 +152,4 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 - Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte 
 [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0920_2016-->
+<!----HONumber=AcomDC_0920_2016-->
