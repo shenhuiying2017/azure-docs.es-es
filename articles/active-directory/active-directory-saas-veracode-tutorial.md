@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Veracode
@@ -146,7 +146,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     3.  En el cuadro de texto **Valor de atributo**, seleccione el valor de atributo que se muestra para la fila.
 
-    4.  Haga clic en **Completo**.
+    4.  Haga clic en **Complete**.
 
 13. Haga clic en **Aplicar cambios**.
 
@@ -176,4 +176,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

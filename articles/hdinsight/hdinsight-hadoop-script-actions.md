@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -125,7 +125,7 @@ Los métodos auxiliares de la acción de script son utilidades que puede usar al
 
 Estos son los métodos auxiliares proporcionados por este script:
 
-Método auxiliar | Descripción
+Método auxiliar | Description
 -------------- | -----------
 **Save-HDIFile** | Descargar un archivo desde el Identificador uniforme de recursos (URI) especificado en una ubicación en el disco local asociado con el nodo de máquina virtual de Azure asignado al clúster.
 **Expand-HDIZippedFile** | Descomprimir un archivo comprimido.
@@ -254,7 +254,7 @@ Se almacenan los registros de errores de scripts, junto con otros resultados, en
 
 1. Abra Visual Studio.
 2. Haga clic en **Ver**, y, luego, haga clic en **Explorador de servidores**.
-3. Haga clic en "Azure", haga clic en Conectar a **Suscripciones de Microsoft Azure** y, luego, escriba sus credenciales.
+3. Haga clic con el botón derecho en Azure, con el botón principal en Conectar a **Suscripciones de Microsoft Azure** y, luego, escriba sus credenciales.
 4. Expanda **Almacenamiento**, expanda la cuenta de almacenamiento de Azure usada como sistema de archivos predeterminado, expanda **Tablas** y, luego, haga doble clic en el nombre de la tabla.
 
 
@@ -303,7 +303,7 @@ En este registro, está claro que la acción de script de Spark se ha ejecutado 
 En caso de que se produzca un error de ejecución, también se incluirá la salida que lo describe en este archivo de registro. La información proporcionada en estos registros debe ser útil en la depuración de los problemas de scripts que puedan surgir.
 
 
-## Consulte también
+## Otras referencias
 
 - [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
@@ -320,4 +320,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

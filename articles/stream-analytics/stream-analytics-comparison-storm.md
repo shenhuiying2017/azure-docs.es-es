@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -588,4 +588,4 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

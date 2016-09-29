@@ -19,21 +19,41 @@
 
 En la tabla siguiente aparece una descripción y vínculos a la página de referencia de cada uno de los cmdlets importantes de Programador de Azure.
 
+Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+
+Para obtener más información sobre los [cmdlets de Azure PowerShell](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx), consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+
 |Cmdlet|Descripción del cmdlet|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722516.aspx)**|Obtiene una lista de los trabajos programados o de un trabajo de programador determinado.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722471.aspx)**|Obtiene colecciones de trabajo del programador.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/library/azure/dn722514.aspx)**|Obtiene el historial de un trabajo del programador.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/library/azure/dn722505.aspx)**|Obtiene las ubicaciones disponibles del programador.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722492.aspx)**|Crea un trabajo del programador con una acción HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759640.aspx)**|Crea una colección de trabajos del programador.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722518.aspx)**|Crea un trabajo del programador con una acción de almacenamiento.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722477.aspx)**|Elimina un trabajo del programador.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722530.aspx)**|Elimina una colección de trabajos del programador.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722474.aspx)**|Actualiza un trabajo del programador con una acción HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759626.aspx)**|Actualiza una colección de trabajos del programador.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722476.aspx)**|Actualiza un trabajo del programador con una acción de almacenamiento.|
+[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133(v=azure.200).aspx) |Deshabilita una colección de trabajos. 
+[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135(v=azure.200).aspx) |Habilita una colección de trabajos.
+[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125(v=azure.200).aspx) |Obtiene trabajos de Scheduler.
+[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132(v=azure.200).aspx) |Obtiene colecciones de trabajos.
+[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126(v=azure.200).aspx) |Obtiene el historial de trabajos.
+[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136(v=azure.200).aspx) |Crea un trabajo HTTP.
+[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141(v=azure.200).aspx) |Crea una colección de trabajos.
+[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134(v=azure.200).aspx) |Crea un trabajo de cola de Service Bus.
+[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142(v=azure.200).aspx) |Crea un trabajo de tema de Service Bus.
+[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127(v=azure.200).aspx) |Crea un trabajo de cola de almacenamiento. 
+[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140(v=azure.200).aspx) |Elimina un trabajo de Scheduler.  
+[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131(v=azure.200).aspx) |Quita una colección de trabajos. 
+[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130(v=azure.200).aspx) |Modifica un trabajo HTTP de Scheduler.
+[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129(v=azure.200).aspx) |Modifica una colección de trabajos. 
+[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143(v=azure.200).aspx) |Modifica un trabajo de cola de Service Bus.  
+[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137(v=azure.200).aspx) |Modifica un trabajo de tema de Service Bus. 
+[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128(v=azure.200).aspx) |Modifica un trabajo de cola de almacenamiento.   
 
+Para obtener información más detallada, puede ejecutar cualquiera de los siguientes cmdlets:
+
+```
+Get-Help <cmdlet name> -Detailed
+```
+```
+Get-Help <cmdlet name> -Examples
+```
+```
+Get-Help <cmdlet name> -Full
+```
 
 ## Otras referencias
 
@@ -54,4 +74,4 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

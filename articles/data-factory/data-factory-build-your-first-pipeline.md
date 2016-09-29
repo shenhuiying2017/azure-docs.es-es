@@ -19,8 +19,7 @@
 
 # Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop 
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
-- [Uso del Editor de Data Factory.](data-factory-build-your-first-pipeline-using-editor.md)
+- [Uso de Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -193,7 +192,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy** para copiar archivos en Almacenamiento de blobs de Azure. Puede usar la herramienta que prefiera (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/) o [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) para realizar esta tarea.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de \[AzCopy\]](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, agréguelo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -226,4 +225,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

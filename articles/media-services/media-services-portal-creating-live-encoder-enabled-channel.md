@@ -3,7 +3,7 @@
 	description="Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como transmisión de varias velocidades de bits mediante el portal de Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>
 
 
 #Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con el portal de Azure
@@ -183,7 +183,7 @@ Existen dos formas de iniciar un evento:
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	Si ha dejado activado **Publish this event now** (Publicar este evento ahora), el programa creará las direcciones URL de publicación.
+	Si ha dejado activado **Publish this live event now** (Publicar este evento en directo ahora), se crearán las direcciones URL de publicación del evento.
 	
 	Puede presionar **Iniciar** cuando esté preparado para transmitir el evento.
 
@@ -240,4 +240,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

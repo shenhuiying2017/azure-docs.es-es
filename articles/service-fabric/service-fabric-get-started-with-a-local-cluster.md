@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
 
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
 El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza la aplicación a una nueva versión, y todo ello desde Windows PowerShell.
@@ -193,7 +193,35 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 
 3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 
-4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Quite el clúster local solo si no tiene intención utilizarlo durante algún tiempo o si necesita reclamar recursos.
+4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Quite el clúster local solo si no tiene intención utilizarlo durante algún tiempo o si necesita reclamar recursos.
+
+## Modo de clúster de un nodo y de cinco nodos
+
+Cuando se trabaja con el clúster local para desarrollar aplicaciones, a menudo se encuentra realizando iteraciones rápidas de escritura de código, depuración, cambio del código, depuración, etc. Para ayudar a optimizar este proceso, el clúster local se puede ejecutar de dos modos: en un nodo o en cinco. Ambos modos de clúster tienen sus ventajas. El modo de clúster de 5 nodos le permite trabajar con un clúster real. Puede probar escenarios de conmutación por error, trabajar con más instancias y réplicas de los servicios. El modo de clúster de un nodo está optimizado para una rápida implementación y registro de servicios que le ayudarán a validar rápidamente código mediante el tiempo de ejecución de Service Fabric.
+
+Ni el modo de clúster de un nodo ni el de cinco son emuladores o simuladores. Ejecuta el mismo código de plataforma que se encuentra en clústeres de varias máquinas.
+
+> [AZURE.NOTE] Esta característica está disponible en el SDK versión 5.2 y posteriores.
+
+Para cambiar el modo de clúster a un clúster de un nodo, utilice el administrador de clústeres local de Service Fabric o use PowerShell de la siguiente manera:
+
+1. Inicie una ventana nueva de PowerShell como administrador.
+
+2. Ejecute el script de instalación del clúster desde la carpeta del SDK:
+
+	```powershell
+	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+	```
+
+    La instalación del clúster tardará unos instantes. Una vez finalizada la instalación, debería ver una salida similar a esta:
+    
+    ![Salida de instalación de clúster][cluster-setup-success-1-node]
+
+Si está usando el administrador de clústeres local de Service Fabric:
+
+![Cambio del modo de clúster][switch-cluster-mode]
+
+> [AZURE.WARNING] Al cambiar el modo de clúster, el clúster actual se quita del sistema y se crea un nuevo clúster. Si cambia el modo de clúster, se eliminarán los datos almacenados en el clúster.
 
 ## Pasos siguientes
 - Tras la implementación y actualización de algunas aplicaciones pregeneradas, puede [intentar compilar la suya propia en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -217,5 +245,7 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

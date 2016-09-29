@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
 
-> Se trata de documentación para la API de recomendaciones antigua del mercado de datos, que quedará en desuso a partir del 31/12/2016. Ahora debe empezar a usar la [API de recomendaciones de Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
-
+>[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 
 
 En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure. Puede encontrar más detalles en la API de recomendaciones de la [galería](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
@@ -714,4 +713,4 @@ OData XML
 Este documento se ofrece "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido | Microsoft Azure"
-	description="Obtenga información acerca de cómo delegar el acceso a los recursos de Almacenamiento de Azure, incluidos blobs, colas, tablas y archivos usando firmas de acceso compartido (SAS). Las firmas de acceso compartido permiten proteger la clave de la cuenta de almacenamiento y conceden a otros usuarios acceso a los recursos de la cuenta. Puede controlar los permisos que concede y el intervalo durante el cual la firma de acceso compartido es válida. Si establece también una directiva de acceso almacenada, puede revocar la SAS por si le preocupa que la seguridad de la cuenta se vea comprometida."
+	pageTitle="Uso de Firmas de acceso compartido (SAS) | Microsoft Azure"
+	description="Obtenga información acerca de cómo delegar el acceso a los recursos de Almacenamiento de Azure, incluidos blobs, colas, tablas y archivos usando firmas de acceso compartido (SAS)."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
 
-# Firmas de acceso compartido, Parte 1: Descripción del modelo SAS
+# Uso de Firmas de acceso compartido (SAS)
 
 ## Información general
 
@@ -98,7 +98,7 @@ A continuación se muestra un ejemplo de un URI de SAS de servicio que ofrece pe
 
 	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-Nombre|Parte de SAS|Descripción
+Nombre|Parte de SAS|Description
 ---|---|---
 URI de blobs|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |La dirección del blob. Tenga en cuenta que se recomienda fehacientemente el uso de HTTPS.
 Versión de servicios de almacenamiento|sv=2015-04-05|En la versión de servicios de almacenamiento 2012-02-12 y superiores, este parámetro indica qué versión usar.
@@ -107,14 +107,14 @@ Hora de expiración|se=2015-04-30T02%3A23%3A26Z|Se especifica en hora UTC.
 Recurso|sr=b|El recurso es un blob.
 Permisos|sp=rw|Los permisos que concede la SAS son de lectura y escritura.
 Intervalo de IP|sip=168.1.5.60-168.1.5.70|El intervalo de direcciones IP desde el que se aceptará una solicitud.
-Protocolo|spr=https|Solo se permiten solicitudes con HTTPS.
+Protocol|spr=https|Solo se permiten solicitudes con HTTPS.
 Firma|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Se usa para autenticar el acceso al blob. La firma es un HMAC que se procesa mediante una cadena para firmar y una clave con el algoritmo SHA256, y que se codifica mediante Base64.
 
 Este es un ejemplo de una SAS de cuenta que usa los mismos parámetros comunes en el token. Como estos parámetros aparecen descritos anteriormente, no los vamos a describir aquí. Solo los parámetros que son específicos de la SAS de cuenta se describen en la tabla siguiente.
 
 	https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 
-Nombre|Parte de SAS|Descripción
+Nombre|Parte de SAS|Description
 ---|---|---
 URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Extremo de servicio BLOB, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET).
 Servicios|ss=bf|La SAS se aplica a los servicios Blob y Archivo
@@ -318,4 +318,4 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

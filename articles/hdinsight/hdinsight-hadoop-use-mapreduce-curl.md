@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -69,7 +69,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 	* **-d** : `-G` no se usa, la solicitud tiene como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
         * **user.name**: el usuario que ejecuta el comando.
-        * ** jar**: la ubicación del archivo jar que contiene la clase que se va a ejecutar.
+        * **jar**: la ubicación del archivo jar que contiene la clase que se va a ejecutar.
         * **class**: la clase que contiene la lógica de MapReduce.
         * **arg**: los argumentos que se pasarán al trabajo de MapReduce; en este caso, el archivo de texto de entrada y el directorio que se utilizan para la salida.
 
@@ -115,4 +115,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/14/2016"
 	ms.author="larryfr"/>
 
 #Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Linux (Hadoop)
@@ -390,4 +390,4 @@ Cuando haya terminado con el ejemplo, use el siguiente comando desde la sesión 
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

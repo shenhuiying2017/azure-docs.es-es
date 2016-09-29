@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -20,12 +20,12 @@
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Este tema describe cómo cargar modelos de aprendizaje automático creados con Spark MLlib y almacenados en Almacenamiento de blobs de Azure (WASB), y cómo puntuarlos con conjuntos de datos que también se han almacenado en WASB. Muestra cómo procesar previamente los datos de entrada, transformar las características mediante las funciones de indexación y codificación en el kit de herramientas MLlib, y cómo crear un objeto de datos de punto con etiqueta que se puede usar como entrada para la puntuación con los modelos de aprendizaje automático. Los modelos usados para la puntuación son regresión lineal, regresión logística, modelos de bosque aleatorio y modelos de árboles impulsados por gradiente.
+En este tema se describe cómo cargar modelos de Machine Learning (ML) creados con Spark MLlib y almacenados en Azure Blob Storage (WASB), además de cómo puntuarlos con conjuntos de datos que también se han guardado en WASB. Muestra cómo procesar previamente los datos de entrada, transformar las características mediante las funciones de indexación y codificación en el kit de herramientas MLlib, y cómo crear un objeto de datos de punto con etiqueta que se puede usar como entrada para la puntuación con los modelos de aprendizaje automático. Los modelos usados para la puntuación son regresión lineal, regresión logística, modelos de bosque aleatorio y modelos de árboles impulsados por gradiente.
 
 
 ## Requisitos previos
 
-1. Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un cuaderno de Jupyter en el clúster de Spark. El Notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+1. Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un cuaderno de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. También debe crear los modelos de aprendizaje automático que se puntuarán aquí; para ello, consulte el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
@@ -104,16 +104,16 @@ Establezca el contexto de Spark e importe las bibliotecas necesarias con el sigu
 
 Los kernels de PySpark que se proporcionan con los cuadernos de Jupyter tienen un contexto preestablecido, por lo que no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con la aplicación que está desarrollando, ya que están disponibles de forma predeterminada. Estos contextos son:
 
-- sc: Para Spark 
+- sc: Para Spark
 - sqlContext: Para Hive
 
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
 - **%%local** Especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
-- **%%sql -o <variable name>** Ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
+- **%%sql -o <nombre de la variable>**: ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
  
 
-Para obtener más información sobre los kernels de cuadernos de Jupyter y las “instrucciones mágicas” predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para obtener más información sobre los kernels de cuadernos de Jupyter Notebook y las instrucciones mágicas predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Inserción de datos y creación de una trama de datos limpia
@@ -191,11 +191,11 @@ Esta sección muestra cómo indexar, codificar y ajustar la escala de caracterí
 
 ### Transformación de características: indexación y codificación de características categóricas para su incorporación en modelos para puntuación 
 
-Esta sección muestra cómo indexar datos de categorías mediante `StringIndexer` y cómo codificar características con la entrada de `OneHotEncoder` en los modelos.
+En esta sección se muestra cómo indexar datos de categorías mediante `StringIndexer` y cómo codificar características con la entrada de `OneHotEncoder` en los modelos.
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) codifica una columna de cadena de etiquetas en una columna de índices de etiqueta. Los índices se ordenan por frecuencias de etiqueta.
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor uno como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores continuos, como la regresión logística, a características categóricas.
+[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores continuos, como la regresión logística, a características categóricas.
 	
 	#INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -264,7 +264,7 @@ Time taken to execute above cell: 5.37 seconds
 
 Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un objeto RDD y cómo codificarlos como “uno de n” para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos basados en árboles. Los datos indexados se almacenan en objetos de [conjunto de datos distribuido resistente (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html). Esta es la abstracción básica en Spark. Un objeto RDD representa una colección inmutable con particiones de los elementos con los que se puede trabajar en paralelo con Spark.
 
-También contiene código que muestra cómo ajustar la escala de los datos con `StandardScalar`, proporcionado por MLlib para su uso en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de modelos de aprendizaje automático. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) se usa para ajustar la escala de las características a la varianza de la unidad. El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo.
+También contiene código que muestra cómo escalar datos con el elemento `StandardScalar` que proporciona MLlib para usarse en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de modelos de aprendizaje automático. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) se usa para escalar las características a la varianza de la unidad. El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo.
 
 
 	# CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
@@ -373,7 +373,7 @@ Time taken to execute above cell: 19.22 seconds
 
 ## Puntuación de un modelo de regresión lineal
 
-Usamos [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) para entrenar un modelo de regresión lineal que usa descenso de gradiente estocástico (SGD) para la optimización para predecir los importes de las propinas.
+Usamos [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) para entrenar un modelo de regresión lineal que usa descenso de gradiente estocástico (SGD) para predecir los importes de las propinas de forma óptima.
 
 El código de esta sección muestra cómo cargar un modelo de regresión lineal desde Almacenamiento de blobs de Azure, puntuarlo mediante variables con ajuste de la escala y, después, guardar los resultados en el blob.
 
@@ -412,7 +412,7 @@ El código de esta sección muestra cómo cargar los modelos de bosque aleatorio
 
 Los [bosques aleatorios](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) son conjuntos de árboles de decisión. Combinan varios árboles de decisión para reducir el riesgo de sobreajuste. Los bosques aleatorios pueden controlar características categóricas, amplían la configuración de clasificación multiclase, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. Los bosques aleatorios son uno de los modelos de aprendizaje automático de más éxito para clasificación y regresión.
 
-[spark.mllib](http://spark.apache.org/mllib/) admite bosques aleatorios para clasificación binaria y multiclase, y para regresión, con características de categorías y continuas.
+[spark.mllib](http://spark.apache.org/mllib/) admite bosques aleatorios para realizar operaciones de clasificación binaria y multiclase, y de regresión; las dos emplean características de categorías y continuas.
 
 	# SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -458,7 +458,7 @@ Time taken to execute above cell: 31.07 seconds
 
 El código de esta sección muestra cómo cargar los modelos de árboles impulsados por gradiente de clasificación y regresión guardados en Almacenamiento de blobs de Azure, puntuar su rendimiento con medidas estándar de clasificación y regresión y, después, guardar los resultados en Almacenamiento de blobs.
 
-**spark.mllib** admite GBT para clasificación binaria y para regresión, con características de categorías y continuas.
+**spark.mllib** admite GBT para realizar operaciones de clasificación binaria y de regresión; las dos emplean características de categorías y continuas.
 
 Los [árboles impulsados por gradiente](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Los GBT pueden controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
 
@@ -529,25 +529,25 @@ Time taken to execute above cell: 14.6 seconds
 
 **SALIDA:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56.860740.txt
 
 
 
 ## Uso de modelos de Spark mediante una interfaz web
 
-Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información, consulte [Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
+Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para obtener más información, consulte [Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como **Explorador de almacenamiento de Microsoft Azure** o **AzCopy** para copiar el script en el blob del clúster. En nuestro caso, cargamos el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.
+Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En nuestro caso, cargamos el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
 
 >[AZURE.NOTE] Las claves de acceso que necesita se encuentran en el portal de la cuenta de almacenamiento asociada con el clúster de Spark.
@@ -595,12 +595,12 @@ Este es el código de Python para la llamada HTTP:
 	conn.close()
 
 
-También puede agregar este código de Python a [Funciones de Azure](https://azure.microsoft.com/documentation/services/functions/) para desencadenar el envío de un trabajo de Spark que puntúa un blob en función de diversos eventos tales como un temporizador o la creación o actualización de un blob.
+También puede agregar este código de Python a [Azure Functions](https://azure.microsoft.com/documentation/services/functions/) para desencadenar el envío de un trabajo de Spark que puntúa un blob en función de diversos eventos, como un temporizador o la creación o actualización de un blob.
 
-Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar la puntuación por lotes de Spark; para ello, defina una acción HTTP en el **Diseñador de Aplicaciones lógicas** y establezca sus parámetros.
+Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar la puntuación por lotes de Spark; para ello, defina una acción HTTP en el **Diseñador de Logic Apps** y establezca sus parámetros.
 
-- En el Portal de Azure, para crear una nueva aplicación lógica, seleccione **+Nuevo** -> **Web y móvil** -> **Aplicación lógica**. 
-- Escriba el nombre de la aplicación lógica y del plan del Servicio de aplicaciones para que aparezca el **Diseñador de Aplicaciones lógicas**.
+- En Azure Portal, cree una nueva aplicación lógica seleccionando **+Nuevo** -> **Web y móvil** -> **Aplicación lógica**.
+- Escriba el nombre de la aplicación lógica y del plan de App Service para que aparezca el **Diseñador de Logic Apps**.
 - Seleccione una acción HTTP y especifique los parámetros mostrados en la ilustración siguiente:
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
@@ -610,4 +610,4 @@ Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.mi
 
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

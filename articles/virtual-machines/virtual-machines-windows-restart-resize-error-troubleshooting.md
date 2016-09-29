@@ -14,14 +14,10 @@
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/09/2016"
    ms.author="delhan"/>
 
 # Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure
-
-> [AZURE.SELECTOR]
-- [Clásico](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Resource Manager](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
 
@@ -78,4 +74,4 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
 
 Si surgen problemas al crear una nueva máquina virtual Windows en Azure, consulte [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

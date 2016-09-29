@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Directrices de conjuntos de disponibilidad | Microsoft Azure"
+	pageTitle="Directrices para conjuntos de disponibilidad | Microsoft Azure"
 	description="Obtenga información sobre las directrices clave de diseño e implementación para implementar conjuntos de disponibilidad en los servicios de infraestructura de Azure."
 	documentationCenter=""
 	services="virtual-machines-linux"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
-# Availability sets guidelines (Directrices de conjuntos de disponibilidad)
+# Directrices para conjuntos de disponibilidad
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artículo se centra en describir los pasos de planeación necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
+Este artículo se centra en describir los pasos de planeamiento necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
 
 ## Directrices de implementación para los conjuntos de disponibilidad
 
@@ -37,9 +37,9 @@ Tareas:
 
 ## Conjuntos de disponibilidad
 
-En Azure, las máquinas virtuales (VM) se pueden colocar en una agrupación lógica llamada conjunto de disponibilidad. Al crear máquinas virtuales dentro de un conjunto de disponibilidad, la plataforma de Azure distribuirá la ubicación de esas máquinas virtuales a través de la infraestructura subyacente. Si hubiera un evento de mantenimiento planeado para la plataforma de Azure o un error de hardware o infraestructura subyacente, el uso de conjuntos de disponibilidad garantizaría que al menos una máquina virtual siguiera ejecutándose.
+En Azure, las máquinas virtuales (VM) se pueden colocar en una agrupación lógica llamada conjunto de disponibilidad. Al crear máquinas virtuales dentro de un conjunto de disponibilidad, la plataforma de Azure distribuirá la ubicación de esas máquinas virtuales a través de la infraestructura subyacente. Si hubiera un evento de mantenimiento planeado para la plataforma de Azure o un error de hardware o infraestructura subyacente, el uso de conjuntos de disponibilidad garantiza que al menos una máquina virtual siguiera ejecutándose.
 
-Como procedimiento recomendado, las aplicaciones no deben residir en una sola máquina virtual. Un conjunto de disponibilidad que contiene una sola máquina virtual no obtiene ninguna protección por parte de eventos planeados o no planeados dentro de la plataforma de Azure. El [contrato de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requiere dos o más máquinas virtuales dentro de un conjunto de disponibilidad para permitir la distribución de máquinas virtuales a través de la infraestructura subyacente.
+Como procedimiento recomendado, las aplicaciones no deben residir en una sola máquina virtual. Un conjunto de disponibilidad que contiene una sola máquina virtual no obtiene ninguna protección por parte de eventos planeados o no planeados dentro de la plataforma de Azure. El [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requiere dos o más máquinas virtuales dentro de un conjunto de disponibilidad para permitir la distribución de máquinas virtuales a través de la infraestructura subyacente.
 
 La infraestructura subyacente de Azure se divide en dominios de actualización y dominios de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y uso de los dominios de actualización y error](virtual-machines-linux-manage-availability.md).
 
@@ -51,4 +51,4 @@ Los equilibradores de carga pueden usarse delante de cada nivel de aplicación j
 ## Pasos siguientes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

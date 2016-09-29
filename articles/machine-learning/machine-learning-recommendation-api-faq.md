@@ -3,8 +3,8 @@
 	description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 #Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
@@ -21,9 +21,7 @@
 
 **¿Qué son las recomendaciones?**
 
-> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
-
-
+>[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 
 Para las organizaciones y empresas que dependen de las recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes, las recomendaciones de Aprendizaje automático de Azure les ofrecen un motor de recomendaciones de autoservicio. Es una implementación del filtrado de colaboración que usa la factorización matricial como algoritmo básico. Los desarrolladores de aplicaciones pueden tener acceso a recomendaciones mediante las API de REST.
 
@@ -139,4 +137,4 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

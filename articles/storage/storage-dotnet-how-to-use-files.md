@@ -13,7 +13,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="07/26/2016"
-	ms.author="minet" />
+	ms.author="minet;robinsh" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
 
@@ -189,7 +189,7 @@ A partir de la versión 0.9.7 de Azure PowerShell, puede copiar un archivo en ot
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montaje del recurso compartido de archivos 
+## Montaje del recurso compartido de archivos
 
 Dada su compatibilidad con SMB 3.0, el almacenamiento de archivos admite el cifrado y los identificadores persistentes de los clientes SMB 3.0. La compatibilidad con el cifrado significa que los clientes SMB 3.0 pueden montar un recurso compartido de archivos desde cualquier lugar, incluyendo desde:
 
@@ -200,7 +200,7 @@ Dada su compatibilidad con SMB 3.0, el almacenamiento de archivos admite el cifr
 Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se usa depende de la versión de SMB compatible con el sistema operativo. La tabla siguiente proporciona un resumen de la compatibilidad de los clientes de Windows. Consulte este blog para más información sobre las [versiones de SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Cliente Windows | Versión de SMB admitida |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -247,7 +247,7 @@ Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos des
 
 También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
 
-### Montaje del recurso compartido de archivos desde un cliente local con Windows 
+### Montaje del recurso compartido de archivos desde un cliente local con Windows
 
 Para montar el recurso compartido de archivos desde un cliente local, es preciso seguir estos pasos:
 
@@ -589,13 +589,13 @@ Tenga en cuenta que mientras que los almacenamientos en blobs, tablas y colas ut
 	SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido.
 
 2. **¿Se pueden ver los recursos compartidos de archivos de Azure públicamente en Internet o solos se puede acceder a ellos desde Azure?**
- 
+
 	Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet.
 
 3. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
 
 	Si el recurso compartido de archivos y la máquina virtual se encuentran en distintas regiones, el tráfico entre ellos se cargará como ancho de banda externo.
- 
+
 4. **Si el tráfico de red se produce entre una máquina virtual y un recurso compartido de archivos de la misma región, ¿es gratuito?**
 
 	Sí. Es gratis si el tráfico se produce en la misma región.
@@ -607,7 +607,7 @@ Tenga en cuenta que mientras que los almacenamientos en blobs, tablas y colas ut
 6. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
 
 	En la actualidad no se admite.
- 
+
 7. **En la actualidad, el almacenamiento de archivos solo se replica a través de LRS o GRS, ¿es así?**
 
 	Está previsto que RA-GRS se admite, pero aún no se puede indicar ninguna fecha.
@@ -667,4 +667,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

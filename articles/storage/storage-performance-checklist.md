@@ -34,7 +34,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 |¡Listo!|	Ámbito|	Categoría|	Pregunta
 |----|------|-----------|-----------
 ||Todos los servicios|	Objetivos de escalabilidad|[¿Está su aplicación diseñada para evitar aproximarse a los objetivos de escalabilidad?](#subheading1)
-||Todos los servicios|	Objetivos de escalabilidad|[Is your naming convention designed to enable better load-balancing?](#subheading47) (¿Está su convención de nomenclatura diseñada para habilitar un mejor equilibrio de carga?)
+||Todos los servicios|	Objetivos de escalabilidad|[Is your naming convention designed to enable better load-balancing? (¿Está su convención de nomenclatura diseñada para habilitar un mejor equilibrio de carga?)](#subheading47)
 ||Todos los servicios|	Redes|	[¿Tienen los dispositivos del cliente un ancho de banda grande y una latencia baja suficientes como para lograr el rendimiento necesario?](#subheading2)
 ||Todos los servicios|	Redes|	[¿Tienen los dispositivos del lado cliente un enlace con una calidad suficientemente alta?](#subheading3)
 ||Todos los servicios|	Redes|	[¿Está la aplicación cliente ubicada "cerca" de la cuenta de almacenamiento?](#subheading4)
@@ -185,7 +185,7 @@ Este código aumentará los subprocesos mínimos del grupo de subprocesos:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Para obtener más información, consulte [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
+Para obtener más información, consulte [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).
 
 ####<a name="subheading11"></a>Aprovechamiento de la recolección de elementos no usados de .NET 4.5
 Use .NET 4.5 o posterior para que la aplicación cliente aproveche las mejoras de rendimiento en la recolección de elementos no usados del servidor.
@@ -404,4 +404,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 ##Conclusión
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Aprendizaje del flujo de trabajo de Windows PowerShell
@@ -276,4 +276,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - Para empezar a trabajar con los runbooks del flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

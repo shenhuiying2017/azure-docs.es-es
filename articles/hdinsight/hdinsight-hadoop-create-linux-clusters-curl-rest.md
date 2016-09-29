@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -260,7 +260,7 @@ Por ejemplo, lo siguiente es una combinación de los archivos de plantilla y de 
 
 Este ejemplo se usará en los pasos de este documento. Debe reemplazar los marcadores de posición _value_ de la sección __Parameters__ al final del documento con los valores que desee usar para el clúster.
 
-##Iniciar sesión en su suscripción de Azure
+##Inicio de sesión en la suscripción de Azure
 
 Siga los pasos documentados en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción mediante el comando `azure login`.
 
@@ -435,4 +435,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

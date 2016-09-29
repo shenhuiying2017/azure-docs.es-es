@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -158,4 +158,4 @@ En este documento ha aprendido a enviar datos de una topología de Storm a Base 
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

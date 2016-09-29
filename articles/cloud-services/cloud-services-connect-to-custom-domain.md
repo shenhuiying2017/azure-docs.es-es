@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/22/2016"
+    ms.date="09/06/2016"
     ms.author="adegeo"/>
 
 # Conexión de los roles de Servicios en la nube de Azure a un controlador de dominio de AD personalizado que se hospeda en Azure
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 También nos gustaría que nos enviara comentarios donde indique si le resultaría útil tener una extensión que promueva una máquina virtual a un controlador de dominio. En caso de ser así, infórmenos al respecto en la sección de comentarios.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -453,4 +453,4 @@ Para obtener más información sobre el uso de IU de Storm, vea los siguientes t
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

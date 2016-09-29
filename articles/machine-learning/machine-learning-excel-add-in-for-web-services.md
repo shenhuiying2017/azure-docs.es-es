@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags=""/>
 
@@ -89,4 +89,4 @@ Haga sus preguntas a continuación o en nuestro [foro](http://go.microsoft.com/f
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

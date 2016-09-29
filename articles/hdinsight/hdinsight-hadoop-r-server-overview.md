@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -124,4 +124,4 @@ Haga clic en los siguientes vínculos para obtener más información sobre cómo
 
 - [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

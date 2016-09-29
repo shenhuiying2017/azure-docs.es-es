@@ -153,7 +153,7 @@ Si en su entorno de red corporativo se usa un servidor proxy para acceder a Inte
 
 ![Configuración del proxy durante el registro](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
 
-La puerta de enlace utiliza el servidor proxy para conectarse al servicio en la nube. Haga clic en el vínculo **Cambiar** durante la configuración inicial que muestra el cuadro de diálogo de configuración de proxy.
+La puerta de enlace utiliza el servidor proxy para conectarse al servicio en la nube. Haga clic en el vínculo **Cambiar** durante la configuración inicial. Verá el cuadro de diálogo de **configuración de proxy**.
 
 ![Configuración del proxy mediante el Administrador de configuración](media/data-factory-data-management-gateway/SetProxySettings.png)
 
@@ -181,7 +181,7 @@ Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de co
 ### Configuración del servidor proxy en diahost.exe.config
 Si selecciona la opción de configuración **Usar proxy del sistema** para el proxy HTTP, la puerta de enlace utilizará la configuración de proxy de diahost.exe.config. Si no se especifica ningún proxy en diahost.exe.config, se conectará al servicio en la nube directamente sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo de configuración.
 
-1.	En el Explorador de archivos, cree una copia segura de C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config para conservar una copia de seguridad del archivo original.
+1.	En el Explorador de archivos, cree una copia segura de C:\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config para conservar una copia de seguridad del archivo original.
 2.	Inicie Notepad.exe como administrador y abra el archivo de texto C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config. Encontrará la etiqueta predeterminada para system.net de la forma siguiente:
 
 			<system.net>
@@ -205,7 +205,7 @@ Si selecciona la opción de configuración **Usar proxy del sistema** para el pr
 Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [ Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
-Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, que impide que la puerta de enlace se conecte a Data Factory para autenticarse a sí mismo. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.
+Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, que impide que la puerta de enlace se conecte a Data Factory para autenticarse. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.
 
 1.	Al intentar registrar la puerta de enlace, recibirá el siguiente error: "Error al registrar la clave de la puerta de enlace. Antes de volver a intentar registrar la clave de la puerta de enlace, confirme que Data Management Gateway está en estado conectado y el servicio host de Data Management Gateway se ha iniciado."
 2.	Al abrir el Administrador de configuración, verá el estado Desconectado o Conectando. Cuando se consultan los registros de eventos de Windows, en Visor de eventos > Registros de aplicaciones y servicios > Data Management Gateway aparecen mensajes de error como el siguiente: `Unable to connect to the remote server` `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`.
@@ -217,7 +217,7 @@ Si usa un firewall de terceros, puede abrir manualmente el puerto 8050. Si se pr
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si decide no abrir el puerto 8050 en la máquina de la puerta de enlace, para configurar un servicio vinculado local, tendrá que emplear otros mecanismos distintos a la aplicación **Setting Credentials** (Establecer credenciales) con el fin de configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte la sección [Configuración de credenciales y seguridad](#set-credentials-and-securityy) para más información sobre cómo configurar las credenciales del almacén de datos.
+Si decide no abrir el puerto 8050 en la máquina de puerta de enlace, use otros mecanismos que no sean la aplicación de **configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte la sección [Configuración de credenciales y seguridad](#set-credentials-and-securityy) para más información sobre cómo configurar las credenciales del almacén de datos.
 
 ## Actualizar 
 De forma predeterminada, Data Management Gateway se actualiza automáticamente cuando hay disponible una versión más reciente de la puerta de enlace. La puerta de enlace no se actualiza hasta que se completan todas las tareas programadas y deja de procesar tareas hasta que se complete la operación de actualización. Si se produce un error en la actualización, la puerta de enlace se revierte a la versión anterior.
@@ -246,7 +246,7 @@ Verá el estado de la operación de actualización (manual o automática) en la 
 Se puede habilitar o deshabilitar la característica de actualización automática de la forma siguiente:
 
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
+2. Cambie a la carpeta C:\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
 		.\GatewayAutoUpdateToggle.ps1  -off
@@ -259,7 +259,7 @@ Se puede habilitar o deshabilitar la característica de actualización automáti
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 - En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-- Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta **C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared**.
+- Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta **C:\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared**.
  
 ### Página de inicio
 En la página principal puede hacer lo siguiente:
@@ -340,6 +340,32 @@ Haga clic en el vínculo **Archivar registros de puerta de enlace** para archiva
 
 ![Data Management Gateway: Archivar registros](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
+### La puerta de enlace está en línea con funcionalidad limitada 
+Verá el estado de la puerta de enlace como **en línea con funcionalidad limitada** por una de las siguientes razones.
+
+- La puerta de enlace no se puede conectar al servicio en la nube mediante el bus de servicio.
+- El servicio en la nube no se puede conectar a la puerta de enlace mediante el bus de servicio.
+
+Cuando la puerta de enlace está en línea con funcionalidad limitada, no podrá usar el Asistente para copia de Data Factory para crear canalizaciones de datos entre almacenes de datos locales.
+
+La solución de este problema (en línea con funcionalidad limitada) se basa en si la puerta de enlace no puede conectarse al servicio en la nube o viceversa. En las secciones siguientes se proporcionan estas soluciones.
+
+#### La puerta de enlace no se puede conectar al servicio en la nube mediante el bus de servicio.
+Siga estos pasos para poner en línea la puerta de enlace:
+
+1. Habilite los puertos de salida 9350-9354 en el firewall de Windows en la máquina de puerta de enlace y en el firewall corporativo. Consulte la sección [Puertos y firewall](#ports-and-firewall) para más información.
+2. Configure los valores de proxy en la puerta de enlace. Consulte la sección [Consideraciones sobre el servidor proxy](#proxy-server-considerations) para más información.
+
+Como alternativa, use Data Factory Editor en Azure Portal, Visual Studio o Azure PowerShell.
+
+#### Error: el servicio en la nube no se puede conectar a la puerta de enlace mediante el bus de servicio.
+Siga estos pasos para poner en línea la puerta de enlace:
+ 
+1. Habilite los puertos de salida 5671 y 9350-9354 en el firewall de Windows de la máquina de puerta de enlace y en el firewall corporativo. Consulte la sección [Puertos y firewall](#ports-and-firewall) para más información.
+2. Configure los valores de proxy en la puerta de enlace. Consulte la sección [Consideraciones sobre el servidor proxy](#proxy-server-considerations) para más información.
+3. Quite la limitación de IP estática en el servidor proxy.
+
+Como alternativa, puede usar Data Factory Editor en Azure Portal, Visual Studio o Azure PowerShell.
  
 ## Movimiento de la puerta de enlace de un equipo a otro
 En esta sección se proporcionan pasos para mover el cliente de puerta de enlace de un equipo a otro equipo.
@@ -406,7 +432,7 @@ Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de e
 
 Cuando se usa la aplicación **Setting Credentials** (Establecer credenciales), el portal las cifra con el certificado especificado en la pestaña **Certificado** del **Administrador de configuración de Data Management Gateway** de la máquina de la puerta de enlace.
 
-Si quiere adoptar un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede agregar credenciales cifradas al elemento **EncryptedCredential** de **connectionString** en el archivo JSON que utiliza con el cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx), o bien en el fragmento de código JSON del Editor de Data Factory.
+Si quiere adoptar un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Se agregan credenciales cifradas al elemento **EncryptedCredential** de **connectionString** en el JSON, y se usa el JSON con el cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) o en Data Factory Editor.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -442,7 +468,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
-4. En Azure PowerShell, cambie a la carpeta **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**. Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+4. En Azure PowerShell, cambie a la carpeta **C:\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\PowerShellScript**. Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
 		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
@@ -470,4 +496,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 ## Pasos siguientes
 - Consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md) para más información sobre la puerta de enlace.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

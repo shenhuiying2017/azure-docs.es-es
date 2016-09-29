@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -1164,4 +1164,4 @@ Para ver una introducción de los temas que lo guiarán por las tareas que compo
 
 El artículo [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md) muestra cómo utilizar código de Scala para cargar y puntuar automáticamente nuevos conjuntos de datos con modelos de aprendizaje automático creados en Spark y guardarlos en Almacenamiento de blobs de Azure. Se pueden seguir las instrucciones de ese artículo y, simplemente, reemplazar el código de Python por el de Scala que se indica aquí para permitir el uso automatizado.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

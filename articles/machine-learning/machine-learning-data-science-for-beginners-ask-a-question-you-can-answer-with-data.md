@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -81,7 +81,7 @@ La pregunta "¿Cuánto?" o "¿Cuántos?" predice una cantidad. Para responderla,
 
 Para ver cómo podemos transformarlas, examinemos la pregunta: "¿Qué reportaje de noticias es el más interesante para este lector?" Se pregunta por una predicción de una sola opción entre muchas posibilidades, es decir: ¿Es A, B, C o D?, y se usaría un algoritmo de clasificación.
 
-Pero esta pregunta puede ser más fácil de responder si la formula de esta forma: "¿Cuánto interés tiene cada reportaje de la lista para este lector?" Ahora puede dar a cada artículo una puntuación numérica, de esta forma será fácil identificar el artículo con la puntuación mas alta. Se trata de reformular la pregunta de clasificación como una de regresión o ¿cuánto?
+Pero esta pregunta puede ser más fácil de responder si la formula de esta forma: "¿Cuánto interés tiene cada reportaje de la lista para este lector?" Ahora puede dar a cada artículo una puntuación numérica, de esta forma será fácil identificar el artículo con la puntuación más alta. Se trata de reformular la pregunta de clasificación como una de regresión o ¿cuánto?
 
 ![Reformular la pregunta. Pregunta de clasificación frente a pregunta de regresión.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
 
@@ -93,7 +93,7 @@ Y más importante aún, formule esa pregunta directa, la pregunta que se pueda r
 
 Hemos hablado de algunos principios básicos para formular una pregunta que se pueda responder con datos.
 
-Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para principiantes" de Aprendizaje automático de Microsoft Azure.
+Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
 
 
 ## Pasos siguientes
@@ -101,4 +101,4 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

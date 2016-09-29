@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -45,7 +45,7 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 * [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md)
 
-1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal). 
+1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal).
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-solr-install-v1/hdi-script-action-solr.png "Uso de la acción de script para personalizar un clúster")
@@ -54,7 +54,7 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 		<tr><th>Propiedad</th><th>Valor</th></tr>
 		<tr><td>Nombre</td>
 			<td>Especifique un nombre para la acción de script. Por ejemplo, <b>Instalar Solr</b>.</td></tr>
-		<tr><td>URI de script</td>
+		<tr><td>Identificador URI de script</td>
 			<td>Especifique el Identificador uniforme de recursos (URI) al script que se ha invocado para personalizar el clúster. Por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
 		<tr><td>Tipo de nodo</td>
 			<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
@@ -180,7 +180,7 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 
 Consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-## Consulte también
+## Otras referencias
 
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): cómo instalar Solr en un clúster de HDInsight mediante el Portal de Azure.
 - [Instalación y uso de Solr en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
@@ -198,4 +198,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

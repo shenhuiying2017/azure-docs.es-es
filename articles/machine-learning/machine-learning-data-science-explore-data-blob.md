@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="09/13/2016" 
+	ms.author="bradsev" />
 
 #Exploración de datos en el almacenamiento de blobs de Azure con Pandas
 
 Este documento explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/).
 
-El **menú** siguiente vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
+El siguiente **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)]().
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -28,13 +28,13 @@ El **menú** siguiente vincula a temas que describen cómo usar herramientas par
 ## Requisitos previos
 En este artículo se supone que ha:
 
-* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage).
-* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure.
+* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte el artículo sobre cómo [mover con Azure Storage como origen y destino](../storage/storage-moving-data.md).
 
-## Carga de los datos en una trama de datos Pandas
+## Carga de los datos en una trama de datos de Pandas
 Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
+1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -64,7 +64,7 @@ Ya puede explorar los datos y generar características en este conjunto de datos
 
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
-1. Inspeccionar el **número de filas y columnas** 
+1. Inspeccionar el **número de filas y columnas**
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
@@ -115,4 +115,4 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

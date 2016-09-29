@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introducción a Azure Mobile Engagement para iOS en Objective C"
+	pageTitle="Introducción a Azure Mobile Engagement para iOS en Objective C | Microsoft Azure"
 	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push en aplicaciones iOS."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="09/14/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Objective C
 
 [AZURE.INCLUDE [Modificador del tutorial de imagen prominente](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a los usuarios segmentados a una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple (APN).
+En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a usuarios segmentados en una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple (APN).
 
 Este tutorial requiere lo siguiente:
 
-+ XCode 6 o XCode 7, que se puede instalar desde la tienda de aplicaciones MAC.
++ XCode 8, que se puede instalar desde la tienda de aplicaciones para Mac
 + [SDK de Mobile Engagement iOS]
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
@@ -179,4 +179,4 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

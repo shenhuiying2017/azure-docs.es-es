@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -828,4 +828,4 @@ El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
 Ninguno.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

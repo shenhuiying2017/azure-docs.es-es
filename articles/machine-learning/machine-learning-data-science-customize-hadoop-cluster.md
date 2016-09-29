@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -51,11 +51,11 @@ En la página de configuración 4, especifique el nombre de la cuenta de almacen
 
 En la última página de configuración de **Acciones de script**, haga clic en el botón **Agregar acción de script** y rellene los campos de texto con los valores siguientes.
  
-* **NOMBRE**: cualquier cadena como el nombre de esta acción de script. 
-* **TIPO DE NODO**: seleccione **Todos los nodos**. 
-* **URI DE SCRIPT**: **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
-	* *publicscripts* es un contenedor público situado en la cuenta de almacenamiento. 
-	* *getgoing* se usa para compartir archivos de script de PowerShell para facilitar el trabajo de los usuarios en Azure. 
+* **NOMBRE**: cualquier cadena como el nombre de esta acción de script.
+* **TIPO DE NODO**: seleccione **Todos los nodos**.
+* **URI DE SCRIPT**: *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts* es un contenedor público situado en la cuenta de almacenamiento.
+	* *getgoing* se usa para compartir archivos de script de PowerShell para facilitar el trabajo de los usuarios en Azure.
 * **PARÁMETROS**: (dejar en blanco)
 
 Por último, haga clic en la marca de verificación para iniciar la creación del clúster Hadoop de HDInsight personalizado.
@@ -86,4 +86,4 @@ Consulte [Cómo enviar consultas de Hive](machine-learning-data-science-move-hiv
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,30 +13,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Servicios de dominio de Azure AD *(versión preliminar)*: habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD
+# Servicios de dominio de Azure AD (versión preliminar): habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services
+En las tareas anteriores, ha habilitado Azure AD Domain Services para su inquilino de Azure AD. La siguiente tarea consiste en habilitar la sincronización de contraseñas con Azure Active Directory Domain Services. Una vez configurada la sincronización de credenciales, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
-## Tarea 5: Habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD para un inquilino de Azure AD sincronizado
-Después de habilitar los Servicios de dominio de Azure AD para su directorio de Azure AD, la siguiente tarea consiste en habilitar la sincronización de contraseñas con los Servicios de dominio de Azure AD. Después, los usuarios pueden iniciar sesión en el dominio con sus credenciales corporativas.
-
-Los pasos que deben seguirse son distintos en función de si su organización tiene un directorio de Azure AD solo de nube o está configurado para sincronizarse con su directorio local mediante Azure AD Connect.
+Los pasos que se deben seguir son distintos en función de si su organización tiene un inquilino de Azure AD solo de nube o está configurado para sincronizarse con su directorio local mediante Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Directorio de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
-- [Directorio de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Inquilino de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
+- [Inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Inquilinos sincronizados: habilitación de la sincronización de valores hash de credenciales de NTLM y Kerberos con Azure AD
+
+## Tarea 5: Habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD para un inquilino de Azure AD sincronizado
 Se establece un inquilino de Azure AD para sincronizar con el directorio local de su organización con Azure AD Connect. De forma predeterminada, Azure AD Connect no sincroniza los hashes de credenciales de NTLM y Kerberos con Azure AD. Para usar Azure AD Domain Services, debe configurar Azure AD Connect para sincronizar los hashes de credenciales necesarios para la autenticación NTLM y Kerberos. Los pasos siguientes permiten la sincronización de los hashes de credenciales necesarios con el inquilino de Azure AD.
 
-#### Instalación o actualización de Azure AD Connect
 
-Debe instalar la versión recomendada más reciente de Azure AD Connect en un equipo unido a un dominio. Si tiene una instancia existente del programa de instalación de Azure AD Connect, debe actualizarla para usar la versión más reciente de Azure AD Connect. Con el fin de evitar errores y problemas conocidos que puedan estar ya corregidos, asegúrese de usar la versión más reciente de Azure AD Connect.
+### Instalación o actualización de Azure AD Connect
+Instale la versión recomendada más reciente de Azure AD Connect en un equipo unido a un dominio. Si tiene una instancia existente del programa de instalación de Azure AD Connect, debe actualizarla para usar la versión más reciente de Azure AD Connect. Con el fin de evitar errores y problemas conocidos que puedan estar ya corregidos, asegúrese de usar la versión más reciente de Azure AD Connect.
 
 **[Descargar Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
@@ -47,8 +46,7 @@ Versión recomendada: **1.1.281.0**, publicada el 7 de septiembre de 2016.
 Puede encontrar las instrucciones de instalación de Azure AD Connect en el siguiente artículo: [Introducción a Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 
-#### Forzar la sincronización completa de contraseñas con Azure AD
-
+### Habilitación de la sincronización de valores hash de credenciales de NTLM y Kerberos con Azure AD
 Ejecute el siguiente script de PowerShell en cada bosque de AD para forzar la sincronización completa de contraseñas y permitir que los hashes de credenciales de los usuarios locales se sincronicen con el inquilino de Azure AD. Este script permite que los hashes de credenciales necesarios para que la autenticación NTLM o Kerberos se sincronice con el inquilino de Azure AD.
 
 ```
@@ -76,8 +74,8 @@ En función del tamaño de su directorio (número de usuarios o grupos, por ejem
 
 - [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md) (Unión de una máquina virtual con Windows a un dominio administrado de Servicios de dominio de Azure AD)
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Windows a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-windows-vm.md)
 
-- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md) (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/27/2016"
+   ms.date="09/14/2016"
    ms.author="larryfr"/>
 
 # Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio
@@ -345,7 +345,7 @@ Dedique un momento a leer los comentarios para entender lo que hace este código
 
 1.	En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y seleccione **Enviar a Storm en HDInsight**.
 
-	> [AZURE.NOTE] Si se le solicita, escriba las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
+	> [AZURE.NOTE] Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
 2.	Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, después, seleccione **Enviar**. Puede supervisar si el envío es correcto mediante la ventana **Salida**.
 
@@ -613,4 +613,4 @@ Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de St
 
 -	[Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

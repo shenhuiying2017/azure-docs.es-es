@@ -21,8 +21,8 @@ Saber cómo se usa la aplicación permite centrarse en el trabajo de desarrollo 
 
 Application Insights de Visual Studio proporciona dos niveles de seguimiento de uso:
 
-* **Datos de usuarios, sesiones y vistas de página**: listos para usar.  
-* **Telemetría personalizada**: debe [escribir código][api] para hacer un seguimiento de los usuarios a través de la experiencia del usuario con la aplicación. 
+* **Datos de usuarios, sesiones y vistas de página**: listos para usar.
+* **Telemetría personalizada**: debe [escribir código][api] para hacer un seguimiento de los usuarios a través de la experiencia del usuario con la aplicación.
 
 ## Instalación
 
@@ -37,7 +37,7 @@ Inicie sesión en el [portal de Azure][portal], diríjase al recurso de la aplic
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Usuarios:**: recuento de los distintos usuarios activos durante el intervalo de tiempo del gráfico. 
+* **Usuarios:**: recuento de los distintos usuarios activos durante el intervalo de tiempo del gráfico.
 * **Sesiones:**recuento de sesiones activas.
 * **Vistas de página**: cuenta el número de llamadas a trackPageView(), normalmente se llama una vez en cada página web.
 
@@ -336,7 +336,7 @@ En el inicializador de la aplicación como Global.asax.cs:
 Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo de desarrollo, no solo en algo que se cree que puede ayudar a solucionar problemas. A continuación se incluyen algunas sugerencias:
 
 * Determine la métrica clave de la aplicación. ¿Desea tantos usuarios como sea posible o preferiría un pequeño conjunto de usuarios satisfechos? ¿Desea potenciar al máximo las visitas o las ventas?
-* Planee la medición de cada caso. Cuando esboza un nuevo caso de usuario o característica o planea actualizar uno existente, siempre piensa cómo medirá el éxito del cambio. Antes de que se inicie la codificación, pregunte "¿Qué efecto tendrá en nuestras estadísticas, si funciona? ¿Debemos realizar el seguimiento cualquier evento nuevo?" Y, por supuesto, cuando se activa la característica, asegúrese de mirar el análisis y actuar en los resultados. 
+* Planee la medición de cada caso. Cuando esboza un nuevo caso de usuario o característica o planea actualizar uno existente, siempre piensa cómo medirá el éxito del cambio. Antes de que se inicie la codificación, pregunte "¿Qué efecto tendrá en nuestras estadísticas, si funciona? ¿Debemos realizar el seguimiento cualquier evento nuevo?" Y, por supuesto, cuando se activa la característica, asegúrese de mirar el análisis y actuar en los resultados.
 * Relacione otras métricas con la métrica clave. Por ejemplo, si agrega una característica "Favoritos", le gustaría saber con qué frecuencia los usuarios agregan favoritos. Pero quizás sea más interesante saber con qué frecuencia vuelven a sus favoritos. Y lo más importante, los clientes que usan favoritos ¿compran al final más de su producto?
 * Pruebas de valor controlado. Configure un modificador de característica que permite que una nueva característica sea visible solo para algunos usuarios. Use Application Insights para ver si se utiliza la nueva característica de la manera que había previsto. Realice ajustes y publíquelos para una audiencia más amplia.
 * Hable con los usuarios. El análisis no es suficiente por sí solo, pero es una herramienta complementaria para mantener una excelente relación con el cliente.
@@ -366,4 +366,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -46,7 +46,7 @@ A continuación se muestran los pasos para usar Administración de API para admi
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
-Especifique una **dirección URL** única. Esta guía usa **demoazureml**, por lo que deberá elegir algo diferente. Elija la **Suscripción** y la **Región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón Siguiente.
+Especifique una **dirección URL** única. Esta guía usa **demoazureml**, por lo que deberá elegir algo diferente. Elija la **suscripción** y la **región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón Siguiente.
 
 ![create-service-1](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-1.png)
 
@@ -130,13 +130,13 @@ Seleccione **Ejecución de RRS** para la operación. Haga clic en **Pruébelo**.
 
 Para los parámetros de solicitud, escriba su **área de trabajo**, **servicio**, **2.0** para **apiversion** y **true** para **detalles**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el Apéndice A).
 
-Para los encabezados de solicitud, haga clic en **Agregar encabezado** y escriba **Content-Type** y **application/json**, después haga clic en **Agregar encabezado** y escriba **Autorización** y **Portador<YOUR AZUREML SERVICE API-KEY>**. Puede encontrar su **clave de API** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
+Para los encabezados de solicitud, haga clic en **Agregar encabezado** y escriba **Content-Type** y **application/json**, después haga clic en **Agregar encabezado** y escriba **Autorización** y **Portador <YOUR AZUREML SERVICE API-KEY>**. Puede encontrar su **clave de API** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
 Escriba **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["Este es un buen día"]]}}, "GlobalParameters": {}}** para el cuerpo de la solicitud.
 
 ![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
-Haga clic en **Send** (Enviar).
+Haga clic en **Enviar**.
 
 ![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png)
 
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

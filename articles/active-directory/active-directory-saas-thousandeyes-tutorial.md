@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con ThousandEyes
@@ -78,7 +78,7 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ThousandEyes**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación ThousandEyes (por ejemplo: "*https://app.thousandeyes.com/login/sso*")) y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ThousandEyes**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación ThousandEyes (por ejemplo: "*https://app.thousandeyes.com/login/sso*") y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurar dirección URL de la aplicación")
 
@@ -104,12 +104,12 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 
     ![Configurar el inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Configurar el inicio de sesión único")
 
-    1.  Seleccione **Habilitar inicio de sesión único**.
+    1.  Seleccione **Enable Single Sign-On** (Habilitar inicio de sesión único).
     2.  En el Portal de Microsoft Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ThousandEyes**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Login Page URL** (Dirección URL de página de inicio de sesión).
     3.  En el Portal de Microsoft Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ThousandEyes**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Login Page URL** (Dirección URL de página de cierre de sesión).
     4.  En el Portal de Microsoft Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ThousandEyes**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor de proveedor de identidades**.
     5.  En **Certificado del proveedor de identidades**, haga clic en **Elegir archivo** y después cargue el certificado que ha descargado del Portal de Microsoft Azure clásico.
-    6.  Haga clic en **Guardar**.
+    6.  Haga clic en **Save**.
 
 10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -162,6 +162,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pengxia" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -27,11 +27,11 @@
 
 Por lo general, hay dos métodos para el análisis de opiniones. Uno es usar un algoritmo de aprendizaje supervisado y el otro se puede tratar como aprendizaje no supervisado. Generalmente, un algoritmo de aprendizaje supervisado genera un modelo de clasificación en un gran corpus anotado. La precisión se basa principalmente en la calidad de la anotación y normalmente el proceso de entrenamiento tardará mucho tiempo. Además de eso, cuando se aplica el algoritmo a otro dominio, el resultado normalmente no es bueno. En comparación con el aprendizaje supervisado, el aprendizaje no supervisado basado en léxico usa un diccionario de opinión, que no requiere almacenar un grand conjunto de datos ni aprendizaje, lo que hace que todo el proceso sea mucho más rápido.
 
-Nuestro [servicio](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) se basa en el léxico de subjetividad de MPQA, http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), que es uno de los lexicones de subjetividad más utilizados. Hay 5.097 palabras negativas y 2.533 palabras positivas en MPQA. Y todas estas palabras se anotan como polaridad fuerte o débil. El conjunto completo está sujeto a la licencia pública general GNU. El servicio web puede aplicarse a cualquier frase corta, como tweets y publicaciones de Facebook.
+Nuestro [servicio](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) se basa en el léxico de subjetividad de MPQA, http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/, que es uno de los lexicones de subjetividad más utilizados. Hay 5.097 palabras negativas y 2.533 palabras positivas en MPQA. Y todas estas palabras se anotan como polaridad fuerte o débil. El conjunto completo está sujeto a la licencia pública general GNU. El servicio web puede aplicarse a cualquier frase corta, como tweets y publicaciones de Facebook.
 
 >Este servicio web puede ser consumido por los usuarios; posiblemente a través de una aplicación móvil, a través de un sitio web o incluso en un equipo local, por ejemplo. Pero el objetivo del servicio web también es actuar como un ejemplo de cómo se puede usar Aprendizaje automático de Azure para crear servicios web encima del código R. Con tan solo unas líneas de código R y algunos clics en un botón en Estudio de aprendizaje automático de Microsoft Azure, puede crear un experimento con código R y publicarlo como servicio web. A continuación, el servicio web se puede publicar en Azure Marketplace para que lo puedan usar usuarios y dispositivos en todo el mundo sin necesidad de que el autor del servicio web configure la infraestructura.
 
-##Consumo del servicio web
+##Uso del servicio web
 
 Se puede utilizar cualquier texto como datos de entrada, pero el servicio web funciona mejor con frases cortas. El resultado es un valor numérico entre -1 y 1. Cualquier valor por debajo de 0 indica que la opinión del texto es negativa; positiva si es superior a 0. El valor absoluto del resultado indica la intensidad de la opinión asociada.
 
@@ -153,4 +153,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

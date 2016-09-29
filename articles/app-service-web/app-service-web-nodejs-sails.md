@@ -49,8 +49,10 @@ En primer lugar, cree rápidamente una aplicación Sails.js predeterminada con e
 
 A continuación, cree el recurso de aplicación del Servicio de aplicaciones. En dicho recurso implementará la aplicación Sails.js más adelante.
 
-1. En el mismo terminal, inicie sesión en Azure de la manera siguiente:
+1. Inicie sesión en Azure de la manera siguiente:
+1. En el mismo terminal, cambie al modo ASM e inicie sesión en Azure:
 
+        azure config mode asm
         azure login
 
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
@@ -59,13 +61,13 @@ A continuación, cree el recurso de aplicación del Servicio de aplicaciones. En
 
         azure site create --git <appname>
 
-    Siga las indicaciones para seleccionar una región de Azure para la implementación. Si nunca ha configurado credenciales de implementación Git/FTP para su suscripción de Azure, también se le solicitará que las cree.
+    Siga las indicaciones para seleccionar una región de Azure para la implementación. Si nunca ha configurado credenciales de implementación de Git/FTP para su suscripción de Azure, también se le solicitará que las cree.
 
     Cuando se cree el recurso de aplicación del Servicio de aplicaciones:
 
     - La aplicación de Sails.js se inicializa con Git.
     - El repositorio local inicializado con Git se conecta a la nueva aplicación del Servicio de aplicaciones como un Git remoto, acertadamente denominado "azure".
-    - Se crea el archivo iisnode.yml en el directorio raíz. Puede usar este archivo para configurar [iisnode](https://github.com/tjanczuk/iisnode), que el Servicio de aplicaciones usa para ejecutar aplicaciones Node.js.
+    - Se crea el archivo iisnode.yml en el directorio raíz. Puede usar este archivo para configurar [iisnode](https://github.com/tjanczuk/iisnode), que App Service usa para ejecutar aplicaciones Node.js.
 
 ## Paso 3: Configuración e implementación de la aplicación Sails.js
 
@@ -113,7 +115,7 @@ Siga estos pasos:
             "sails-sqlserver": "<leave-as-is>"
         },
 
-6. Guarde los cambios y pruébelos para asegurarse de que la aplicación sigue ejecutándose localmente. Para ello, elimine la carpeta `node_modules` y, a continuación, ejecute:
+6. Guarde los cambios y pruébelos para asegurarse de que la aplicación sigue ejecutándose localmente. Para ello, elimine la carpeta `node_modules` y, después, ejecute:
 
         npm install
         sails lift
@@ -134,7 +136,7 @@ Siga estos pasos:
 
 ## Solución de problemas de la implementación
 
-Si la aplicación Sails.js produce un error por algún motivo en el Servicio de aplicaciones, busque los registros stderr como ayuda para solucionar el problema. Para más información, consulte [Obtener registros stdout y stderr desde iisnode](app-service-web-nodejs-sails.md#iisnodelog). Si se ha iniciado correctamente, el registro stdout debería mostrar este mensaje conocido:
+Si la aplicación Sails.js produce un error por algún motivo en el Servicio de aplicaciones, busque los registros stderr como ayuda para solucionar el problema. Para obtener más información, consulte [Obtener registros stdout y stderr desde iisnode](app-service-web-nodejs-sails.md#iisnodelog). Si se ha iniciado correctamente, el registro stdout debería mostrar este mensaje conocido:
 
                 .-..-.
 
@@ -177,7 +179,7 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
             }
         },
 
-4. Para cada variable de entorno (`process.env.*`), debe establecerlo en el Servicio de aplicaciones. Para ello, ejecute los comandos siguientes desde su terminal:
+4. Para cada variable de entorno (`process.env.*`), debe establecerlo en App Service. Para ello, ejecute los comandos siguientes desde su terminal:
 
         azure site appsetting add dbuser="<database server administrator>"
         azure site appsetting add dbpassword="<database server password>"
@@ -213,7 +215,7 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
             migrate: 'alter'
         },
 
-    `migrate: 'alter'` le permite usar las características de migración de base de datos para crear y actualizar fácilmente las tablas de base de datos en la Base de datos SQL de Azure. Sin embargo, `migrate: 'safe'` se usa para el entorno de Azure (producción) porque Sails.js no permite utilizar `migrate: 'alter'` en un entorno de producción (consulte la [documentación acerca de Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    `migrate: 'alter'` permite usar las características de migración de base de datos para crear y actualizar fácilmente las tablas de base de datos en Azure SQL Database. Sin embargo, `migrate: 'safe'` se usa para el entorno de Azure (producción) porque Sails.js no permite utilizar `migrate: 'alter'` en un entorno de producción (consulte la [documentación sobre Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
 4. Desde el terminal, [genere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) una [API de proyecto](http://sailsjs.org/documentation/concepts/blueprints) de Sails.js como lo haría normalmente y, a continuación, ejecute `sails lift` para crear la base de datos con la migración de la base de datos de Sails.js. Por ejemplo:
 
@@ -248,4 +250,4 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 - [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure](app-service-web-nodejs-get-started.md)
 - [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

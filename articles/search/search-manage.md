@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""
     tags="azure-portal"/>
 
@@ -36,7 +36,7 @@ Como administrador de configuración de un servicio de búsqueda, uno de sus pri
 
 Sin cargo alguno para los suscriptores existentes, puede seleccionar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
 
-Las búsquedas Estándar y Básica son facturables porque se está registrando para obtener recursos dedicados y una infraestructura que solo usará su suscripción. La búsqueda Estándar y Básica se asigna en agrupaciones de particiones (almacenamiento) definidas por el usuario y réplicas (cargas de trabajo de servicio) y los precios se establecen por unidad de búsqueda. Puede escalar en particiones o réplicas de forma independiente, agregando más de cualquiera que sea el recurso requerido.
+Las búsquedas Estándar y Básica son facturables porque se está registrando para obtener recursos específicos y una infraestructura que solo usará su suscripción. La búsqueda Estándar y Básica se asigna en agrupaciones de particiones (almacenamiento) definidas por el usuario y réplicas (cargas de trabajo de servicio) y los precios se establecen por unidad de búsqueda. Puede escalar en particiones o réplicas de forma independiente, agregando más de cualquiera que sea el recurso requerido.
 
 Para planificar la capacidad y entender el impacto de facturación, recomendamos estos vínculos:
 
@@ -52,7 +52,7 @@ Puede habilitar la recopilación de datos a través de la actividad de búsqueda
 <a id="sub-2"></a>
 ## Tareas administrativas
 
-Aunque algunos servicios pueden tener coadministradores, un servicio de búsqueda de Azure tiene un administrador por suscripción. Tiene que ser un administrador para realizar las tareas descritas en esta sección. Además de agregar la búsqueda a la suscripción, el administrador es responsable de estas tareas adicionales:
+Aunque algunos servicios pueden tener coadministradores, un servicio Azure Search tiene un administrador por suscripción. Tiene que ser un administrador para realizar las tareas descritas en esta sección. Además de agregar la búsqueda a la suscripción, el administrador es responsable de estas tareas adicionales:
 
 +	Distribución de la URL de servicio (definida durante el aprovisionamiento del servicio).
 +	Administración y distribución de las claves de API.
@@ -194,4 +194,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

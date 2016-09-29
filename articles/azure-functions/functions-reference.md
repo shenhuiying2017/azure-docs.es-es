@@ -78,21 +78,19 @@ El editor de funciones integrado en el Portal de Azure le permite actualizar el 
 
 Las aplicaciones de función se integran en el Servicio de aplicaciones, por lo que todas las [opciones de implementación disponibles para las aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para las aplicaciones de función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones.
 
-#### Para usar Visual Studio Online (Monaco)
+#### Uso del Editor de App Service
 
 1. En el portal de Funciones de Azure, haga clic en **Function app settings** (Configuración de Function App).
 
 2. En la sección **Configuración avanzada**, haga clic en **Go to App Service Settings** (Ir a la configuración del Servicio de aplicaciones).
 
-3. Haga clic en **Herramientas**.
+3. Haga clic en **Editor de App Service** en el panel de navegación del menú de aplicaciones, que está debajo de **HERRAMIENTAS DE DESARROLLO**.
 
-4. En **Desarrollar**, haga clic en **Visual Studio Online**.
+4.  Haga clic en **Ir**.
 
-5. Haga clic en **Activar** si no está ya habilitado y en **Ir**.
+	Después de que se cargue el Editor de App Service, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*.
 
-	Después de que se cargue Visual Studio Online, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*.
-
-6. Abra los archivos para editarlos, o arrástrelos y colóquelos desde el equipo de desarrollo para cargar los archivos.
+5. Abra los archivos para editarlos, o arrástrelos y colóquelos desde el equipo de desarrollo para cargar los archivos.
 
 #### Para usar el punto de conexión de SCM (Kudu) del contenedor de funciones
 
@@ -151,4 +149,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

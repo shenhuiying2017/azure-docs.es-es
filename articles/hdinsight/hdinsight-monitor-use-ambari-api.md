@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
-	manager="paulettm"/>
+	manager="jhubbard"/>
 
 <tags
 	ms.service="hdinsight"
@@ -43,7 +43,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Un clúster de HDInsight de Azure**. Para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesitará los datos siguientes:
 
-    Propiedad del clúster|Nombre de variable de Azure PowerShell|Valor|Description
+    Propiedad del clúster|Nombre de variable de Azure PowerShell|Valor|Descripción
     ---|---|---|---
     Nombre del clúster de HDInsight|$clusterName||El nombre del clúster de HDInsight.
     Nombre de usuario del clúster|$clusterUsername||Nombre de usuario del clúster especificado cuando se creó el clúster.
@@ -89,7 +89,7 @@ El siguiente es un script de Azure PowerShell para obtener la información del s
 
 	$response.metrics.'mapred.JobTracker'
 
-El salida es la siguiente:
+La salida es la siguiente:
 
 ![Salida de seguimiento de trabajo][img-jobtracker-output]
 
@@ -99,7 +99,7 @@ El siguiente es un ejemplo de cómo obtener información de clústeres con cURL:
 
 	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
-El salida es la siguiente:
+La salida es la siguiente:
 
 	{"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
 	 "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
@@ -124,7 +124,7 @@ Cuando se usa el extremo Ambari, "https://{clusterDns}.azurehdinsight.net/ambari
 
 En la siguiente lista se enumeran algunas de las llamadas a API desde la supervisión de Ambari. Para obtener más información sobre la API, consulte [Referencia de API de Ambari][ambari-api-reference].
 
-Supervisión de la llamada a la API|URI|Description
+Supervisión de la llamada a la API|URI|Descripción
 ---|---|---
 Obtener clústeres|`/api/v1/clusters`|
 Obtener información de clúster.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net`|clústeres, servicios, hosts
@@ -172,4 +172,4 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

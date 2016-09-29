@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/11/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -22,11 +22,6 @@
 Azure Active Directory Identity Protection es un servicio de seguridad que proporciona una vista consolidada de eventos de riesgo y puntos vulnerables que afectan a las identidades de su organización. Microsoft ha estado protegiendo identidades basadas en la nube durante más de una década, y con Azure AD Identity Protection, Microsoft proporciona estos mismos sistemas de protección a los clientes de empresa. Identity Protection aprovecha las funciones de detección de anomalías existentes de Azure AD (disponibles mediante informes de actividad anómala de Azure AD) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
 
 ## Limitaciones de la versión preliminar actual
-En esta sección se enumeran las limitaciones que se aplican a la versión preliminar actual de Azure Active Directory Identity Protection.
-
-
-
-### Identity Protection y dominios federados
 
 Azure Active Directory Identity Protection presenta las siguientes limitaciones en combinación con los dominios federados:
 
@@ -405,6 +400,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 ## Otras referencias
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Habilitación de Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Types of risk events detected by Azure Active Directory Identity Protection (Tipos de eventos de riesgo que detecta Azure Active Directory Identity Protection)](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection (Vulnerabilidades detectadas por Azure Active Directory Identity Protection)](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications (Notificaciones de Azure Active Directory Identity Protection)](active-directory-identityprotection-notifications.md)
@@ -413,4 +409,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection glossary (Glosario de Azure Active Directory Identity Protection)](active-directory-identityprotection-glossary.md)
  - [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

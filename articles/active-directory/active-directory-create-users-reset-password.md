@@ -18,6 +18,10 @@
 
 # Restablecimiento de la contraseña de un usuario
 
+> [AZURE.SELECTOR]
+- [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
+- [Portal de Azure clásico](active-directory-create-users-reset-password.md)
+
 Si está respondiendo a un usuario que solicita un restablecimiento de contraseña después de un bloqueo, o simplemente que se ocupa de un mantenimiento de seguridad rutinario, a veces es necesario restablecer la contraseña de un usuario. Azure Active Directory (Azure AD) facilita esta tarea.
 
   1. Abra el directorio.
@@ -35,4 +39,4 @@ Si está respondiendo a un usuario que solicita un restablecimiento de contrase�
 - [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Uso de cifrado dinámico común de PlayReady o Widevine"
-	description="Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con DRM de Microsoft PlayReady. AMS también le permite entregar DASH cifrado con DRM de Widevine. En este tema se muestra cómo cifrar dinámicamente con DRM de PlayReady y Widevine."
+	pageTitle="Uso de cifrado dinámico común de PlayReady o Widevine | Microsoft Azure"
+	description="Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con DRM de Microsoft PlayReady. AMS también le permite entregar DASH cifrado con DRM de Widevine. En este tema se muestra cómo realizar cifrado dinámico con DRM de PlayReady y Widevine."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Mingfeiy"
+	authors="Mingfeiy"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;mingfeiy"/>
 
 
 #Uso de cifrado dinámico común de PlayReady o Widevine
@@ -33,11 +33,11 @@ También puede usar los siguientes asociados de AMS para ayudarle a entregar lic
 
 Servicios multimedia admite varias formas de autorizar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [Token de web simple](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [Token de web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
 
-Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También deberá configurar las directivas de entrega para el recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegurará de que se reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en un solo formato de almacenamiento y Servicios multimedia compilará y proporcionará la respuesta adecuada en función de cada solicitud de un cliente.
+Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También es preciso configurar las directivas de entrega del recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegurará de que se reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en un solo formato de almacenamiento y Servicios multimedia compilará y proporcionará la respuesta adecuada en función de cada solicitud de un cliente.
 
-Este tema será útil para los desarrolladores que trabajan en aplicaciones que entregan archivos multimedia protegidos con diversos DRM, por ejemplo, PlayReady y Widevine. Este tema describe cómo configurar el servicio de entrega de licencias de PlayReady con directivas de autorización para que solo los clientes autorizados puedan recibir licencias de PlayReady o Widevine. También muestra cómo usar el cifrado dinámico con DRM de PlayReady o Widevine a través de DASH.
+Este tema será útil para los desarrolladores que trabajan en aplicaciones que entregan medios protegidos con varios DRM, por ejemplo, PlayReady y Widevine. En este tema se muestra cómo configurar el servicio de entrega de licencias de PlayReady con directivas de autorización para que solo los clientes autorizados puedan recibir licencias de PlayReady o Widevine. También muestra cómo usar el cifrado dinámico con DRM de PlayReady o Widevine a través de DASH.
 
->[AZURE.NOTE]Para empezar a usar el cifrado dinámico, primero debe obtener al menos una unidad de escalado (también conocida como unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para empezar a usar el cifrado dinámico, primero debe obtener al menos una unidad de escalado (también conocida como unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 
 
 ##Descarga de un ejemplo
@@ -53,13 +53,13 @@ Puede descargar el ejemplo descrito en este artículo [aquí](https://github.com
 1. Creación de una clave de contenido y su asociación con el recurso codificado. En Servicios multimedia, la clave de contenido contiene la clave de cifrado del recurso.
 1. Configuración de la directiva de autorización de la clave de contenido. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave de contenido.
 
-	Al crear la directiva de autorización de claves de contenido, debe especificar lo siguiente: método de entrega (PlayReady o Widevine), restricciones (abiertas o tokens) e información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente (plantilla de licencia [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
+Al crear la directiva de autorización de claves de contenido, debe especificar lo siguiente: método de entrega (PlayReady o Widevine), restricciones (abiertas o tokens) e información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente (plantilla de licencia [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
 1. Configuración de la directiva de entrega para un recurso. La configuración de directivas de entrega incluye: el protocolo de entrega (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos), el tipo de cifrado dinámico (por ejemplo, cifrado común) y la URL de adquisición de licencias de PlayReady o Widevine.
- 
-	Puede aplicar diferentes directivas a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
+
+Puede aplicar diferentes directivas a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 1. Creación de un localizador a petición para obtener una URL de streaming.
 
-Encontrará un ejemplo completo para .NET al final del tema.
+Al final del tema encontrará un ejemplo de .NET completo.
 
 La siguiente imagen muestra el flujo de trabajo que se ha descrito anteriormente. Aquí el token se usa para la autenticación.
 
@@ -81,10 +81,10 @@ Para obtener información detallada, consulte [Carga de archivos en una cuenta d
 
 ##Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
 
-Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o de fragmento, el servidor de streaming a petición se asegurará de que reciba la transmisión en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para obtener más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
+Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o de fragmento, el servidor de streaming a petición se asegurará de que reciba la transmisión en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
-	
+
 
 ##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 
@@ -609,7 +609,9 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 		}
 
 
-##Rutas de aprendizaje de Servicios multimedia
+## Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -618,7 +620,7 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Consulte también
+##Otras referencias
 
 [CENC with Multi-DRM and Access Control (CENC con DRM múltiple y Control de acceso)](media-services-cenc-with-multidrm-access-control.md)
 
@@ -626,4 +628,4 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 [Anuncio de los servicios de entrega de licencias de Google Widevine en Servicios multimedia de Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

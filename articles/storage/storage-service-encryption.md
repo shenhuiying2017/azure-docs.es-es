@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)| Microsoft Azure"
+	pageTitle="Cifrado del servicio Azure Storage para datos en reposo| Microsoft Azure"
 	description="Use la característica Cifrado del servicio Almacenamiento de Azure para cifrar el Almacenamiento de blobs de Azure en el servicio cuando almacene los datos y descífrelos cuando los recupere."
 	services="storage"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 # Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -25,7 +25,15 @@ En las siguientes secciones, se brindan instrucciones detalladas sobre cómo usa
 ## Información general
 
 
-Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](storage-client-side-encryption.md), HTTPs o SMB 3.0. Cifrado del servicio de Almacenamiento es una característica nueva de Almacenamiento de Azure que cifrará los datos cuando se escriben en el Almacenamiento de Azure que admite blobs en bloques, blobs en páginas y blobs en anexos. Esta característica se puede habilitar para las cuentas de almacenamiento nuevas con el modelo de implementación de Azure Resource Manager y se encuentra disponible para todos los niveles de redundancia (LRS, ZRS, GRS, RA-GRS). Cifrado del servicio de Almacenamiento está disponible para el Almacenamiento premium y estándar, lo que permite controlar la administración de claves, cifrado y descifrado de manera completamente transparente. A todos los datos se les aplica el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros disponibles. La sección Viersión preliminar que aparece a continuación muestra detalles sobre cómo incorporar el programa de versión preliminar para Cifrado del servicio de Almacenamiento.
+Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](storage-client-side-encryption.md), HTTPs o SMB 3.0. El cifrado del servicio de almacenamiento proporciona cifrado en reposo, una administración de claves, cifrado y descifrado de manera completamente transparente. A todos los datos se les aplica el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros disponibles.
+
+SSE funciona mediante el cifrado de los datos cuando se escribe en Azure Storage, y puede utilizarse para blobs en bloques, blobs en páginas y blobs en anexos. Funciona para lo siguiente:
+
+	- General purpose storage accounts and Blob storage accounts
+	- Standard storage and Primary storage 
+	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
+	- Azure Resource Manager storage accounts (but not classic) 
+	- All regions
 
 En esta captura de pantalla, se muestra dónde encontrar la configuración de Cifrado del servicio de Almacenamiento a través del [Portal de Azure](https://azure.portal.com). En esta pantalla, deberá hacer clic en Cifrado para continuar.
 
@@ -34,10 +42,6 @@ En esta captura de pantalla, se muestra dónde encontrar la configuración de Ci
 Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabilitar Cifrado del servicio de Almacenamiento.
 
 ![Captura de pantalla del Portal que muestra las propiedades de la característica Cifrado](./media/storage-service-encryption/image2.png)
-
-##Disponibilidad
-
-Esta característica está disponible actualmente en todas las regiones para Almacenamiento estándar y premium.
 
 ##Escenarios de cifrado
 
@@ -49,7 +53,7 @@ Cifrado del servicio de Almacenamiento se puede habilitar en el nivel de la cuen
 
 -   El cifrado de discos de datos y OS subyacentes para las VM de IaaS creadas con los VHD.
 
-La versión preliminar pública tiene las siguientes limitaciones:
+SEE tiene las siguientes limitaciones:
 
 -   No se admite el cifrado de cuentas de almacenamiento clásico.
 
@@ -61,67 +65,41 @@ La versión preliminar pública tiene las siguientes limitaciones:
 
 -   No se cifrarán los datos de tabla, colas y archivos.
 
-##Vista previa
-
-Esta característica solo es compatible con las cuentas de almacenamiento de Resource Manager recién creadas; no se admiten las cuentas de almacenamiento clásico. Debe registrar su suscripción con los cmdlets de PowerShell si desea usar esta característica. Una vez que se apruebe la suscripción, podrá habilitar SSE para su cuenta de almacenamiento en la suscripción aprobada. Al igual que lo que ocurre con la mayoría de las versiones preliminares, no se debe usar para las cargas de trabajo de producción hasta que la característica tenga una disponibilidad general. Puede unirse a nuestro grupo de Versión preliminar de Cifrado del servicio de Almacenamiento en Yammer para proporcionar cualquier comentario que tenga con respecto a su experiencia.
-
-### Registro para la versión preliminar
-
--   [Instale los cmdlets de Azure PowerShell](../powershell-install-configure.md).
-
--   En Windows 10, abra PowerShell como administrador.
-
--   Regístrese con el espacio de nombres Proveedor de recursos de almacenamiento. Esto solo se necesita para una suscripción que todavía no se registra con SRP.
-
-    `PS E:> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage" `
-
--   Si desea registrarse para obtener la característica, puede usar el cmdlet Register-AzureRmProviderFeature de PowerShell.
-
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
-
--   Si desea consultar el estado del registro y ver si se aprobó la suscripción, puede usar el cmdlet Get-AzureRmProviderFeature de PowerShell.
-
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
-
-Cuando el estado del registro es "Registrado", significa que se aprobó la suscripción. Visite también nuestro grupo de Versión preliminar de Cifrado del servicio Almacenamiento de Azure en Yammer.
-
 ##Introducción
 
-###Paso 1: [suscribirse a la versión preliminar](#registering-for-preview).
+###Paso 1: [Crear una cuenta de almacenamiento nueva](storage-create-storage-account.md).
 
-###Paso 2: [crear una cuenta de almacenamiento nueva](storage-create-storage-account.md).
-
-###Paso 3: Habilitar el cifrado.
+###Paso 2: Habilitar el cifrado.
 
 Puede habilitar el cifrado mediante el [Portal de Azure](https://portal.azure.com).
 
-> [AZURE.NOTE] Si desea habilitar o deshabilitar mediante programación el cifrado del servicio de almacenamiento en una cuenta de almacenamiento, puede usar la [API de REST del proveedor de recursos de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx). Pronto agregaremos esta funcionalidad a la [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), Azure PowerShell y la CLI de Azure.
+> [AZURE.NOTE] Si desea habilitar o deshabilitar mediante programación el cifrado del servicio de almacenamiento en una cuenta de almacenamiento, puede usar la [API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx), la [Biblioteca del cliente proveedor de recursos de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](storage-azure-cli.md).
 
-###Paso 4: Copiar datos en una cuenta de almacenamiento.
+###Paso 3: Copiar datos en una cuenta de almacenamiento
+
+Si habilita SSE en una cuenta de almacenamiento y, a continuación, escribe blobs en esa cuenta de almacenamiento, se cifrarán los blobs. No se cifrarán los blobs que ya se encuentren en esa cuenta de almacenamiento hasta que se vuelvan a escribir. Puede copiar los datos de una cuenta de almacenamiento a una con SSE cifrado, o incluso habilitar SSE y copiar los blobs de un contenedor a otro para asegurarse de que se cifran los datos anteriores. Puede utilizar cualquiera de las siguientes herramientas para lograr esto.
 
 #### Uso de AzCopy
 
-AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs, Archivos y Almacenamiento de tablas de Microsoft Azure, mediante sencillos comandos con un rendimiento óptimo. Puede usar esta utilidad para copiar datos provenientes de una cuenta de Almacenamiento de blobs existente a la cuenta de almacenamiento nueva con la funcionalidad de cifrado habilitada.
+AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs, Archivos y Almacenamiento de tablas de Microsoft Azure, mediante sencillos comandos con un rendimiento óptimo. Puede utilizarla para copiar los blobs de una cuenta de almacenamiento a otra con SSE habilitado.
 
 Para más información, visite [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 #### Uso de las bibliotecas de cliente de almacenamiento
 
-Puede cargar y descargar datos hacia y desde el Almacenamiento de blobs, a través de nuestro completo conjunto de bibliotecas de cliente de almacenamiento, que incluyen .NET, C++, Java, Android, Node.js, PHP, Python y Ruby.
+Puede copiar datos de blobs en Almacenamiento de blobs y desde él, o entre cuentas de almacenamiento, través de nuestro completo conjunto de bibliotecas de cliente de almacenamiento, que incluyen .NET, C++, Java, Android, Node.js, PHP, Python y Ruby.
 
 Para obtener más información, visite la página [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
 
 #### Uso de un explorador de almacenamiento
 
-Un explorador de almacenamiento se puede usar para crear cuentas de almacenamiento, cargar y descargar datos, ver el contenido de los blobs y navegar entre los directorios. Muchos admiten cuentas de almacenamiento clásico o de Resource Manager.
-
-Puede usar una de estas para cargar blobs a su cuenta de almacenamiento con cifrado habilitado. Con algunos exploradores de almacenamiento, también puede copiar datos provenientes de su cuenta de almacenamiento existente a la nueva cuenta de almacenamiento que tiene habilitado SSE.
+Puede usar un explorador de almacenamiento para crear cuentas de almacenamiento, cargar y descargar datos, ver el contenido de los blobs y navegar entre los directorios. Puede usar una de estas para cargar blobs a su cuenta de almacenamiento con cifrado habilitado. Con algunos exploradores de almacenamiento, también puede copiar datos provenientes del almacenamiento de blobs existente a un contenedor diferente en la cuenta de almacenamiento o en una nueva cuenta de almacenamiento con SSE habilitado.
 
 Si desea obtener más información, visite [Exploradores de almacenamiento de Azure](storage-explorers.md).
 
-###Paso 5: Consultar el estado de los datos cifrados.
+###Paso 4: Consultar el estado de los datos cifrados
 
-Una vez que SSE esté ampliamente disponible, se implementará una versión actualizada de las bibliotecas de cliente de almacenamiento que le permitirá consultar el estado de un objeto para determinar si está cifrado o no.
+Se ha implementado una versión actualizada de las bibliotecas de cliente de almacenamiento que le permite consultar el estado de un objeto para determinar si está cifrado o no. Los ejemplos se agregarán a este documento en un futuro próximo.
 
 Mientras tanto, puede llamar a [Obtener propiedades de la cuenta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para comprobar que la cuenta de almacenamiento tenga habilitado el cifrado o consultar las propiedades de la cuenta de almacenamiento en el Portal de Azure.
 
@@ -143,7 +121,7 @@ A continuación, podrá ver una descripción breve del flujo de trabajo de cifra
 
 **P: Ya tengo una cuenta de almacenamiento clásico. ¿Puedo habilitar SSE en ella?**
 
-R: No. SSE solo es compatible con las cuentas de almacenamiento de Resource Manager creadas recientemente en la versión preliminar.
+R: No. SSE solo es compatible con las cuentas de almacenamiento de Resource Manager.
 
 **P: ¿Cómo puedo cifrar datos en mi cuenta de almacenamiento clásico?**
 
@@ -151,11 +129,11 @@ R: Puede crear una cuenta de almacenamiento de Resource Manager nueva y usar [Az
 
 **P: Ya tengo una cuenta de almacenamiento de Resource Manager. ¿Puedo habilitar SSE en ella?**
 
-R: Durante la versión preliminar de SSE, debe crear una cuenta para poder tener acceso a la nueva característica de SSE.
+R: Sí, pero solo se cifrarán los blobs recién escritos. No vuelve atrás y cifra datos que ya estaban presentes.
 
 **P: Me gustaría cifrar los datos actuales de una cuenta de almacenamiento de Resource Manager existente.**
 
-R: Si la cuenta de almacenamiento de Resource Manager existente se creó antes de este anuncio sobre la versión preliminar, puede crear una cuenta de almacenamiento de Resource Manager nueva y habilitar el cifrado. Luego, puede copiar los datos de la cuenta de almacenamiento anterior, los que se cifrarán de manera automática. Sin embargo, si la cuenta de almacenamiento de Resource Manager se creó después del anuncio sobre la versión preliminar y decidió habilitar el cifrado más adelante, puede usar el Portal de Azure para habilitar el cifrado de esta cuenta de almacenamiento y reescribir los datos no cifrados nuevamente en la cuenta de almacenamiento.
+R: Puede habilitar SSE en cualquier momento en una cuenta de almacenamiento de Resource Manager. Sin embargo, no se cifrarán los blobs que ya estaban presentes. Para cifrar los blobs, puede copiarlos en otro nombre o en otro contenedor y, a continuación, quitar las versiones sin cifrar.
 
 **P: Uso el Almacenamiento premium. ¿Puedo usar SSE?**
 
@@ -167,19 +145,11 @@ R: Sí. Se cifrarán todos los discos creados que usen la cuenta de almacenamien
 
 **P: ¿Puedo crear cuentas de almacenamiento con SSE habilitado a través de Azure PowerShell y la CLI de Azure?**
 
-R: Lanzaremos esta funcionalidad en la próxima versión de Azure PowerShell y la CLI de Azure, que actualmente está programada para fines de abril.
+R: Sí.
 
 **P: ¿El costo de Almacenamiento de Azure sube si se habilita SSE?**
 
 R: No hay costo adicional.
-
-**P: ¿Cómo me puedo suscribir a la versión preliminar?**
-
-R: Puede usar PowerShell para registrarse y obtener acceso a la versión preliminar. Una vez que se apruebe la suscripción para usar la característica, podrá usar PowerShell para habilitar Cifrado en reposo.
-
-**P: ¿Cuál es el nombre de la característica que debo registrar cuando me suscribo a la versión preliminar con PowerShell?**
-
-R: EncryptionAtRest.
 
 **P: ¿Quién administra las claves de cifrado?**
 
@@ -211,11 +181,11 @@ R: Sí, se cifran todas las copias de la cuenta de almacenamiento, además de to
 
 **P: No puedo habilitar el cifrado en mi cuenta de almacenamiento.**
 
-R: ¿Cuándo creó la cuenta de almacenamiento? Para poder usar SSE durante la versión preliminar, deberá registrar su suscripción y, además, crear una cuenta de almacenamiento nueva; no puede habilitar SSE en las cuentas de almacenamiento que se crearon antes de la versión preliminar.
+R: ¿Es una cuenta de almacenamiento de Resource Manager? Las cuentas de almacenamiento clásico no son compatibles.
 
-**P: ¿La versión preliminar de SSE solo se permite en algunas regiones específicas?**
+**P: ¿SSE solo se permite en regiones específicas?**
 
-R.: La versión preliminar de SSE está disponible en Asia Oriental y Europa Occidental en el caso del almacenamiento estándar, y en Japón Oriental en el caso del Almacenamiento premium. Actualizaremos este documento a medida que lo implementemos en más regiones durante los próximos meses.
+R: SSE está disponible en todas las regiones.
 
 **P: ¿Cómo me puedo comunicar con alguna persona si tengo problemas o si deseo enviar comentarios?**
 
@@ -225,4 +195,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

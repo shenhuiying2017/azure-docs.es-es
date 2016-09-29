@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Patrones y procedimientos recomendados de seguridad en Azure
@@ -28,9 +28,9 @@ Actualmente se pueden consultar los siguientes artículos de patrones y procedim
 - [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
 - [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Implementación de una arquitectura de red híbrida segura en Azure)
 
-Azure ofrece una plataforma segura en la que puede crear sus soluciones. También proporcionamos una gran cantidad de servicios y tecnologías que puede usar para hacer que los servicios que crea en Azure sean más seguros. Debido a las numerosas opciones disponibles, muchos usuarios han expresado su interés en los procedimientos recomendados y patrones que Microsoft puede recomendar para mejorar la seguridad en sus implementaciones de Azure.
+Azure ofrece una plataforma segura en la que puede crear sus soluciones. También proporcionamos servicios y tecnologías para proteger sus soluciones de Azure. Debido a las numerosas opciones disponibles, muchos usuarios han expresado su interés en los procedimientos recomendados y patrones que Microsoft podría recomendar para mejorar la seguridad.
 
-Somos conscientes de su interés y por ello hemos reunido una serie de documentos que describen las acciones que puede realizar dentro de un contexto adecuado y que, en nuestra opinión, le resultarán útiles para mejorar la seguridad de las implementaciones de Azure.
+Somos conscientes de su interés y por ello hemos creado una serie de documentos que describen las acciones que puede realizar dentro de un contexto adecuado y que, mejorarán la seguridad de las implementaciones de Azure.
 
 En estos artículos se aborda una serie de procedimientos recomendados y patrones útiles para temas determinados. Estos procedimientos recomendados y patrones se han diseñado a partir de nuestras experiencias con estas tecnologías y las experiencias de clientes como usted.
 
@@ -44,4 +44,4 @@ Para cada procedimiento recomendado, explicaremos:
 
 Esperamos incluir muchos más artículos sobre arquitectura de seguridad de Azure y procedimientos recomendados. Si hay algún tema que le gustaría que incluyéramos, háganoslo saber en el área de discusión en la parte inferior de esta página.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -73,7 +73,7 @@ Para configurar el modelo SVM, realice lo siguiente:
 7.	En el panel **Propiedades** del módulo [Normalizar datos][normalize-data], seleccione **Tanh** para el parámetro **Método de transformación**.
 8.	Haga clic en **Iniciar el selector de columnas**, seleccione "Ninguna columna" en **Empieza por**, **Incluir** en la primera lista desplegable, **Tipo de columna** en la segunda lista desplegable y **Numérico** en la tercera. Esto especifica que todas las columnas numéricas (y solo numéricas) se transformarán.
 9.	Haga clic en el signo más (+) a la derecha de esta fila; de esta forma, se crea una nueva fila de listas desplegables. Seleccione **Excluir** en la primera lista desplegable, seleccione **Nombres de columna** en la segunda lista desplegable y haga clic en la opción Riesgo de crédito de la lista de columnas. Especifica que se debe ignorar la columna Riesgo de crédito (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
-10.	Haga clic en **Aceptar**.  
+10.	Haga clic en **Aceptar**.
 
 
 El módulo [Normalizar datos][normalize-data] está configurado ahora para realizar una transformación Tanh en todas las columnas numéricas excepto en la columna de riesgo de crédito.
@@ -94,13 +94,13 @@ Utilizaremos los datos de prueba que se separaron mediante el módulo [Dividir d
 4.	Copie y pegue el módulo [Puntuar modelo][score-model] para crear una segunda copia, o arrastre un nuevo módulo al lienzo.
 5.	Conecte el puerto de entrada izquierdo de este módulo al modelo SVM (esto es, conéctelo al puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]).
 6.	En cuanto al modelo SVM, tenemos que realizar la misma transformación en los datos de prueba que la que realizamos con los datos de entrenamiento. Por tanto, copie y pegue el módulo [Normalizar datos][normalize-data] para crear una segunda copia y conéctelo a la salida izquierda del módulo [Ejecutar script R][execute-r-script] derecho.
-7.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida izquierda del módulo [Normalizar datos][normalize-data].  
+7.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida izquierda del módulo [Normalizar datos][normalize-data].
 
 Para evaluar los dos resultados de puntuación, usaremos el módulo [Evaluar modelo][evaluate-model].
 
 1.	Busque el módulo [Evaluar modelo][evaluate-model] y arrástrelo al lienzo.
 2.	Conecte el puerto de entrada izquierdo al puerto de salida de [Puntuar modelo][score-model] asociado al modelo del árbol de decisión ampliado.
-3.	Conecte el puerto de entrada derecho al otro módulo [Puntuar modelo][score-model].  
+3.	Conecte el puerto de entrada derecho al otro módulo [Puntuar modelo][score-model].
 
 Haga clic en el botón **EJECUTAR** bajo el lienzo para ejecutar el experimento. Esto puede tardar unos minutos. Verá un indicador giratorio en cada módulo que indica que está en ejecución; cuando haya acabado, aparecerá una marca de verificación de color verde. Cuando todos los módulos tengan una marca de verificación, habrá finalizado la ejecución del experimento.
 
@@ -116,7 +116,7 @@ A la derecha del gráfico, haga clic en **Conjunto de datos puntuados** o **Conj
 
 ![ROC curves for models][4]
 
-Al examinar estos valores, puede decidir qué modelo se acerca más a los resultados que busca. Puede volver y repetir el experimento cambiando valores en los diferentes nodos.
+Al examinar estos valores, puede decidir cuál modelo se acerca más a los resultados que busca. Puede volver y repetir el experimento cambiando valores en los diferentes nodos.
 
 > [AZURE.TIP] Cada vez que ejecute el experimento, se guardará un registro de esa iteración en el Historial de ejecuciones. Puede ver estas iteraciones y volver a cualquiera de ellas haciendo clic en **VER HISTORIAL DE EJECUCIÓN** bajo el lienzo. También puede hacer clic en **Anterior ejecución** en el panel **Propiedades** para volver a la iteración inmediatamente anterior a la que ha abierto. Puede hacer una copia de cualquier iteración de su experimento si hace clic en **GUARDAR COMO** bajo el lienzo. Utilice las propiedades **Resumen** y **Descripción** para mantener un registro de lo que ha intentado en las iteraciones del experimento.
 
@@ -143,4 +143,4 @@ Al examinar estos valores, puede decidir qué modelo se acerca más a los result
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

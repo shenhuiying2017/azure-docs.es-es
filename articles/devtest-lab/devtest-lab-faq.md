@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/13/2016"
 	ms.author="tarcher"/>
 
 # Preguntas más frecuentes sobre Azure DevTest Labs
@@ -45,6 +45,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Cómo se pueden mover las máquinas virtuales de Azure existentes a mi laboratorio de Azure DevTest Labs?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab)
 - [¿Se pueden conectar varios discos a las máquinas virtuales?](#can-i-attach-multiple-disks-to-my-vms)
 - [¿Cómo se puede automatizar el proceso de carga de archivos VHD para crear imágenes personalizadas?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images)
+- [¿Cómo puedo automatizar el proceso de eliminación de todas las máquinas virtuales en mi laboratorio?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## Artefactos 
  
@@ -56,6 +57,8 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Por qué mis máquinas virtuales se crean en distintos grupos de recursos con nombres arbitrarios? ¿Se pueden modificar estos grupos de recursos o cambiar su nombre?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups)
 - [¿Cuántos laboratorios se pueden crear con una misma suscripción?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [¿Cuántas máquinas virtuales se pueden crear por laboratorio?](#how-many-vms-can-i-create-per-lab)
+- [¿Cómo se puede compartir un vínculo directo a mi laboratorio?](#how-do-i-share-a-direct-link-to-my-lab)
+- [¿Qué es una cuenta Microsoft?](#what-is-a-microsoft-account)
  
 ## Solución de problemas 
  
@@ -168,11 +171,48 @@ Para buscar la cuenta de almacenamiento de destino asociada con el laboratorio, 
 1. Busque cargas en la lista. Si no existe ninguna, vuelva al paso 4 y pruebe con otra cuenta de almacenamiento.
 1. Use la **dirección URL** como destino del comando AzCopy.
 
+
+### ¿Cómo puedo automatizar el proceso de eliminación de todas las máquinas virtuales en mi laboratorio?
+
+Además de eliminar las máquinas virtuales del laboratorio en Azure Portal, puede eliminar todas las máquinas virtuales de su laboratorio por medio de un script de PowerShell. En el ejemplo siguiente, basta con modificar los valores de parámetro en el comentario **Values to change** (Valores para cambiar). Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` de la hoja de laboratorio en Azure Portal.
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### ¿Qué son los artefactos? 
 Los artefactos son elementos personalizables que se pueden usar para implementar los bits más recientes o las herramientas de desarrollo en una máquina virtual. Se asocian a la máquina virtual durante su creación con unos pocos clics y una vez que se ha aprovisionado la máquina virtual, los artefactos implementan y configurar la máquina virtual. Hay diversos artefactos ya existentes en el [repositorio público de Github](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) pero también puede [crear fácilmente sus propios artefactos](devtest-lab-artifact-author.md).
 
 ### ¿Cómo se crea un laboratorio a partir de una plantilla de Azure Resource Manager? 
-Tenemos un [repositorio de Github de plantillas de Azure Resource Manager de laboratorios](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio de Azure DevTest Labs en su propia suscripción de Azure.
+Hemos proporcionado una [repositorio de Github de plantillas de Azure Resource Manager de laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que se puede implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../resource-group-template-deploy.md).
  
 ### ¿Por qué mis máquinas virtuales se crean en distintos grupos de recursos con nombres arbitrarios? ¿Se pueden modificar estos grupos de recursos o cambiar su nombre? 
 Los grupos de recursos se crean de esta manera para que Azure DevTest Labs administre los permisos de usuario y el acceso a las máquinas virtuales. Aunque puede mover la máquina virtual a otro grupo de recursos con el nombre que desee, no se recomienda hacerlo. Estamos trabajando en mejorar esta experiencia para permitir más flexibilidad.
@@ -182,6 +222,21 @@ No hay ningún límite en el número de laboratorios que se pueden crear por sus
  
 ### ¿Cuántas máquinas virtuales se pueden crear por laboratorio? 
 No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. No obstante, actualmente el laboratorio admite solo la ejecución de 40 máquinas virtuales al mismo tiempo en almacenamiento estándar y 25 máquinas virtuales de forma simultánea en almacenamiento premium. En estos momentos estamos trabajando para aumentar estos límites.
+
+### ¿Cómo se puede compartir un vínculo directo a mi laboratorio?
+
+Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar el procedimiento siguiente.
+
+1. Vaya al laboratorio en Azure Portal.
+2. Copie la dirección URL del laboratorio desde el explorador y compártala con los usuarios del laboratorio.
+
+>[AZURE.NOTE] Si los usuarios de laboratorio son usuarios externos con un [cuenta MSA](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que reciban un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
+
+### ¿Qué es una cuenta Microsoft?
+
+Una cuenta de Microsoft es lo que se utiliza para casi todo lo que hace con servicios y dispositivos de Microsoft. Es una combinación de dirección de correo electrónico y contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox LIVE, e implica que los archivos, fotografías, contactos y configuraciones pueden seguirle a cualquier dispositivo.
+
+>[AZURE.NOTE] La cuenta Microsoft antes se llamaba "Windows Live ID".
  
 ### Mi artefacto produjo errores durante la creación de la máquina virtual. ¿Cómo se soluciona este problema? 
 Consulte la entrada de blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Solución de problemas de artefactos con errores en AzureDevTestLabs), escrito por uno de nuestros MVP, para más información sobre cómo obtener los registros respecto a su artefacto con errores.
@@ -189,4 +244,4 @@ Consulte la entrada de blog [How to troubleshoot failing Artifacts in AzureDevTe
 ### ¿Por qué mi máquina virtual existente no se guarda correctamente?  
 Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, pruebe a quitar los puntos, o reemplácelos por guiones, y luego intente guardar de nuevo la máquina virtual.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

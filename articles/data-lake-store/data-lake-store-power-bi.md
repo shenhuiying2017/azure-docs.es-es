@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -26,7 +26,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 - **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). En este artículo se supone que ya creó una cuenta del Almacén de Data Lake denominada **mybidatalakestore** y le cargó un archivo de datos de ejemplo (**Drivers.txt**). Este archivo de ejemplo está disponible para su descarga en [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt) (Repositorio Git de Azure Data Lake).
 
@@ -121,8 +121,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Después de crear las visualizaciones en Power BI Desktop, puede compartirlas con otros usuarios publicándolas en el servicio Power BI. Para obtener instrucciones sobre cómo hacerlo, consulte [Publicar desde Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## Consulte también
+## Otras referencias
 
 * [Análisis de datos en el Almacén de Data Lake con Análisis de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

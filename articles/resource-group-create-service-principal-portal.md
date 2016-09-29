@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos
@@ -118,7 +118,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 1. Seleccione **Agregar una aplicación**.
 
-2. En la lista, seleccione **API de administración de servicios de Microsoft Azure**. Seguidamente, seleccione el icono de proceso terminado.
+2. En la lista, seleccione **API de administración de servicios de Windows Azure**. Seguidamente, seleccione el icono de proceso terminado.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -148,9 +148,23 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
      Si no tiene los permisos correctos para conceder acceso a una aplicación, debe solicitar al Administrador de la suscripción que le agregue al rol Administrador de acceso de usuario o solicitar a un administrador que conceda este acceso a la aplicación.
 
-1. Desplácese hasta el nivel de ámbito al que desea asignar la aplicación. En este tema, puede navegar a un grupo de recursos y, en la hoja del grupo de recursos, seleccionar **Control de acceso**.
+1. Desplácese hasta el nivel de ámbito al que desea asignar la aplicación. Para asignar un rol a un grupo en el ámbito de la suscripción, seleccione **Suscripciones**.
+
+     ![seleccionar suscripción](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Seleccione la suscripción concreta que se asignará a la aplicación.
+
+     ![seleccionar suscripción para la asignación](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Seleccione el icono de **Acceder** que se encuentra en la esquina superior derecha.
+
+     ![seleccionar acceso](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     También, para asignar un rol en el ámbito del grupo de recursos, desplácese a un grupo de recursos. En la hoja Grupo de recursos, seleccione **Access Control**.
 
      ![seleccionar usuarios](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     Los siguientes pasos son los mismos para cualquier ámbito.
 
 2. Seleccione **Agregar**.
 
@@ -208,4 +222,4 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 - Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 - Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

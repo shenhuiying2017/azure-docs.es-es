@@ -8,7 +8,7 @@
 
 3. En la hoja **Crear espacio de nombres**, especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 
-	![][1]
+	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
 4. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, un grupo de recursos y la ubicación en la que se va a crear el recurso.
 
@@ -36,24 +36,22 @@
 
 5. En la hoja del espacio de nombres (no en la hoja del Centro de eventos específico), haga clic en **Directivas de acceso compartido** y, luego, en **RootManageSharedAccessKey**.
 
-	![][7]
+	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
 5. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión para usarla más adelante en el tutorial.
 
 	![][8]
 
-Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
+Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos. 
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
 [5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
 [6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[7]: ./media/event-hubs-create-event-hub/create-event-hub7.png
 [8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
 [9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
 [portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

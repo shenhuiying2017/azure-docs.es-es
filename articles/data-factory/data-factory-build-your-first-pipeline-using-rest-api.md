@@ -19,15 +19,17 @@
 
 # Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [AZURE.SELECTOR]
+- [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 - [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+En este artículo usará la API de REST de Data Factory para crear su primera instancia de Azure Data Factory.
 
-## Requisitos previos adicionales
+## Requisitos previos
+- Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos**.
 - Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos.
 - Siga las instrucciones de [este artículo](../resource-group-create-service-principal-portal.md) para:
 	1. Cree una aplicación web denominada **ADFGetStartedApp** en Azure Active Directory.
@@ -39,7 +41,7 @@
 	1. Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en el Portal de Azure.
 	2. Ejecute **Get-AzureRmSubscription** para ver todas las suscripciones de esta cuenta.
 	3. Ejecute **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription.| Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
-3. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
+3. Cree un grupo de recursos de Azure denominado **ADFTutorialResourceGroup**, para lo que debe ejecutar el siguiente comando en PowerShell:
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -94,7 +96,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 | TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
 | linkedServiceName | Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 - Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 - Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -261,7 +263,7 @@ En este paso, creará una instancia de Data Factory de Azure llamada **LogProces
 
 		Write-Host $results
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
  
 - El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:
 	1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json**. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
@@ -271,11 +273,11 @@ Tenga en cuenta lo siguiente:
 - El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
 - Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
 
-	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
+	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory:
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
+		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory:
 	
 			Get-AzureRmResourceProvider
 	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
@@ -370,6 +372,10 @@ En este paso, utilizará la API de REST de Data Factory para supervisar los segm
     	    (convertFrom-Json $results2).RemoteException
 	}
 
+
+> [AZURE.IMPORTANT] 
+La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente). Por tanto, cabe esperar que la canalización tarde **aproximadamente 30 minutos** en procesar el segmento.
+
 Ejecute Invoke-Command y el siguiente hasta que vea el segmento en estado **Listo** o **Error**. Cuando el segmento se encuentre en el estado Listo, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs. La creación de un clúster de HDInsight a petición normalmente requiere algo de tiempo.
 
 ![datos de salida](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -402,4 +408,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante las hojas del Portal de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -25,8 +25,8 @@ Las operaciones necesarias para crear características pueden consumir mucha mem
 
 También se ofrecen ejemplos de las consultas presentadas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-sEste **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
+Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Requisitos previos
@@ -151,7 +151,7 @@ Se puede encontrar una lista completa de las UDF incrustadas de Hive en la secci
 
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar y que mejoran el rendimiento de las consultas de subárbol. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 
-1. **Espacio de montón de Java**: para las consultas que implican la combinación de grandes conjuntos de datos, o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Esto se puede ajustar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Aquí tiene un ejemplo:
+1. **Espacio de montón de Java**: para las consultas que implican la combinación de grandes conjuntos de datos, o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Esto se puede ajustar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Este es un ejemplo:
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -184,4 +184,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016---->

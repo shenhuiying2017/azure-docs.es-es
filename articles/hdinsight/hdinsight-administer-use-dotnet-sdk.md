@@ -3,7 +3,7 @@
 	description="Aprenda a realizar tareas administrativas para clústeres de Hadoop en HDInsight mediante el SDK de .NET en HDInsight."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	tags="azure-portal"
 	authors="mumian"
 	documentationCenter=""/>
@@ -289,4 +289,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

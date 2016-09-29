@@ -4,7 +4,7 @@
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -85,7 +85,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Agregar entidad de servicio al clúster de HDInsight")
 
 
-	* **Elija una entidad de servicio existente**.
+	* **Elija una entidad de servicio existente.**
 
 		* En la hoja **Identidad de AAD de clúster**, haga clic en **Usar existente** y en **Entidad de servicio** y, después, en la hoja **Seleccionar entidad de servicio**, busque una entidad de servicio existente. Haga clic en un nombre de entidad de servicio y después en **Seleccionar**.
 
@@ -361,4 +361,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

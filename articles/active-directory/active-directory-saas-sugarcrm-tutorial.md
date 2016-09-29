@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con SugarCRM
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de SugarCRM**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación SugarCRM (por ejemplo: "*http://company.sugarondemand.com*") y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de SugarCRM**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación SugarCRM (por ejemplo: "**http://company.sugarondemand.com*") y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configurar dirección URL de la aplicación")
 
@@ -121,7 +121,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en SugarCRM, deben aprovisionarse a SugarCRM. En el caso de SugarCRM, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su sitio de compañía de **SugarCRM** como administrador.
 
@@ -172,4 +172,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

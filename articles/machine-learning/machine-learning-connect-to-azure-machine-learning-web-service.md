@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -121,4 +121,4 @@ Para conectarse a un servicio web de Aprendizaje automático, use la biblioteca 
 2. Asigne una clave de API con la clave de un servicio web. Consulte el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
 3. Asigne la URI de servicio a la URI de solicitud.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@ description="Más información sobre cómo migrar desde un clúster de HDInsight
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -134,7 +134,7 @@ El arranque para clústeres basados en Linux proporciona esta funcionalidad. En 
 
 ### Redes virtuales
 
-Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales del Administrador de recursos. Si tiene recursos en una red virtual clásica a la que debe conectarse el clúster de HDInsight en Linux, consulte [Conexión de una red virtual clásica a una red virtual del Administrador de recursos](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales del Administrador de recursos. Si tiene recursos en una red virtual clásica a la que debe conectarse el clúster de HDInsight en Linux, consulte [Conexión de una red virtual clásica a una red virtual del Administrador de recursos](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Para obtener más información sobre los requisitos de configuración para usar redes virtuales de Azure con HDInsight, consulte [Extensión de las funcionalidades de HDInsight con una red virtual](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -254,4 +254,4 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 -   [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -30,8 +30,8 @@ HDInsight de Microsoft Azure proporciona cmdlets de PowerShell para realizar tar
 ![Hoja de referencia de cmdlets de PowerShell para HDInsight para realizar tareas comunes de Hadoop](./media/hdinsight-hadoop-powershell-cmdlet-cheat-sheet/HDI.PowerShell.Cmdlet.CheatSheet.png)
 
 
-## Consulte también
+## Otras referencias
 
 * [Ruta de aprendizaje para HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0914_2016-->

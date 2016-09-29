@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/29/2016"
+	ms.date="09/15/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primer contacto: copia de seguridad de máquinas virtuales de Azure
 
 > [AZURE.SELECTOR]
-- [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
-- [Primer contacto: protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
+- [Protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
 
 Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure en un almacén de copia de seguridad de Azure. Este artículo describe el modelo de implementación clásica o el de Service Manager, para la creación de copias de seguridad de máquinas virtuales. Si está interesado en la realización de una copia de seguridad de una máquina virtual en un almacén de Servicios de recuperación que pertenece a un grupo de recursos, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Para completar correctamente este tutorial, deben existir estos requisitos previos:
 
@@ -213,4 +213,4 @@ Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos q
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

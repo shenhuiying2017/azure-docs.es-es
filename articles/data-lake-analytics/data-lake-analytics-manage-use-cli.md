@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis con Azure Data Lake mediante Azure. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
+Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis con Azure Data Lake mediante Azure. Para ver el tema de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
 
 **Requisitos previos**
 
@@ -32,7 +32,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Autenticación**, mediante el comando siguiente:
 
 		azure login
-	Para obtener más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+	Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 - **Cambiar al modo de Administrador de recursos de Azure** con el siguiente comando:
 
 		azure config mode arm
@@ -207,11 +207,11 @@ Puede crear todos estos componentes en un grupo de ARM para que sean más fácil
 La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure. Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
 
 
-##Consulte también 
+##Otras referencias 
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

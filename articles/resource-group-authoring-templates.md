@@ -112,7 +112,7 @@ Los valores y tipos permitidos son los siguientes:
 
 Para especificar un parámetro como opcional, proporcione un defaultValue (puede ser una cadena vacía).
 
-Si especifica un parámetro con un nombre que coincide con el de uno de los del comando usado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
+Si especifica un parámetro con un nombre que coincide con el de uno de los del comando usado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet]), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
 
 >[AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
@@ -364,4 +364,7 @@ Para más información sobre cómo trabajar con resultados, consulte [Uso compar
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+[deployment2cmdlet]: https://msdn.microsoft.com/library/mt740620(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0914_2016-->

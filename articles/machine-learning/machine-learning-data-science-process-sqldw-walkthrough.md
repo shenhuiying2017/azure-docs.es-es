@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft,wguo123"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -93,7 +93,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 
 **Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Realización de consultas en Almacenamiento de datos SQL de Azure (Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
->[AZURE.NOTE] Ejecute la siguiente consulta SQL en la base de datos que creó en el Almacenamiento de datos SQL (en lugar de la consulta proporcionada en el paso 3 del tema sobre la conexión) para **crear una clave maestra**.
+>[AZURE.NOTE] Ejecute la siguiente consulta SQL en la base de datos que creó en SQL Data Warehouse (en lugar de la consulta proporcionada en el paso 3 del tema sobre la conexión) para **crear una clave maestra**.
 
 	BEGIN TRY
 	       --Try to create the master key
@@ -103,7 +103,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 	       --If the master key exists, do nothing
 	END CATCH;
 
-**Cree un área de trabajo de Aprendizaje automático de Azure en su suscripción de Azure.** Para obtener instrucciones, vea [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md).
+**Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para obtener instrucciones, vea [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Carga de datos en Almacenamiento de datos SQL
 
@@ -969,4 +969,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

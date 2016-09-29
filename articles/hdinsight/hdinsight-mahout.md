@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -64,7 +64,7 @@ A continuación se muestra un ejemplo muy sencillo que usa películas:
 
 ###Descripción de los datos
 
-Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de películas en un formato compatible con Mahout. Estos datos están disponibles en el almacenamiento predeterminado del clúster (en `/HdiSamples/MahoutMovieData`).
+Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de películas en un formato compatible con Mahout. Estos datos están disponibles en el almacenamiento predeterminado del clúster en `/HdiSamples/MahoutMovieData`.
 
 Existen dos archivos, `moviedb.txt` (información sobre las películas) y `user-ratings.txt`. El archivo user-ratings.txt se usa durante el análisis, mientras el archivo moviedb.txt se usa para proporcionar información de texto descriptiva al mostrar los resultados del análisis.
 
@@ -524,4 +524,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/28/2016"
+ ms.date="09/13/2016"
  ms.author="xpillons"/>
 
 # Ejecución de STAR-CCM+ con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
@@ -345,4 +345,4 @@ Pruebe a ejecutar otras cargas de trabajo Linux. Por ejemplo, consulte:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

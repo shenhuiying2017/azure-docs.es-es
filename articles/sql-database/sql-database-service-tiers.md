@@ -62,7 +62,7 @@ Para decidir el nivel de servicio, empiece por determinar si la base de datos se
 
 Para decidir el nivel de servicio para una base de datos independiente, empiece por determinar las características de la base de datos que necesita para elegir la edición de SQL Database:
 
-- Tamaño de la base de datos (5 GB como máximo en el nivel Básico, 250 GB como máximo para el nivel Estándar y de 500 GB a 1 TB como máximo para el Premium, según el nivel de rendimiento)
+- Tamaño de la base de datos (2 GB como máximo en el nivel Básico, 250 GB como máximo para el nivel Estándar y de 500 GB a 1 TB como máximo para el Premium, según el nivel de rendimiento)
 - Período de retención de la copia de seguridad de la base de datos (7 días para el nivel Básico, 35 días para el Estándar y 35 días para el Premium)
 
 Cuando haya determinado la edición de SQL Database, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Este valor se puede estimar y, después, [escalar o reducir verticalmente de manera dinámica](sql-database-scale-up.md) en función de su experiencia real. También puede utilizar la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para hacer una estimación del número aproximado de DTU necesario.
@@ -88,4 +88,4 @@ Una vez determinado el nivel de servicio para el grupo, estará preparado para d
 
 Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

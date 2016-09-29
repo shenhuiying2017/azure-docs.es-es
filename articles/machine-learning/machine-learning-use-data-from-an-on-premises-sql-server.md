@@ -4,7 +4,7 @@ description="Use datos de una base de datos de SQL Server local para llevar a ca
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -51,7 +51,7 @@ Debe considerar lo siguiente cuando configure y use una instancia de Data Manage
 - Una puerta de enlace se configura para una única área de trabajo al mismo tiempo. Las puertas de enlace no se pueden compartir entre áreas de trabajo en este momento.
 - Puede configurar varias puertas de enlace para una sola área de trabajo. Por ejemplo, podría usar una puerta de enlace que esté conectada a los orígenes de datos de prueba durante el desarrollo, y una de producción cuando esté listo para ponerla en operación.
 - La puerta de enlace no necesita encontrarse en el mismo equipo que el origen de datos pero, si está cerca de él, tarda menos tiempo en conectarse al origen de datos. Se recomienda que instale la puerta de enlace en un equipo diferente del que hospeda el origen de datos local para que la puerta de enlace y el origen de datos no compitan por los recursos.
-- Si ya tiene una puerta de enlace instalada en el equipo que atiende los escenarios de Power BI o Data Factory de Azure, instale en otro equipo una independiente para Aprendizaje automático de Azure. 
+- Si ya tiene una puerta de enlace instalada en el equipo que atiende los escenarios de Power BI o Data Factory de Azure, instale en otro equipo una independiente para Aprendizaje automático de Azure.
 
     > [AZURE.NOTE] No puede ejecutar Data Management Gateway y Power BI Gateway en el mismo equipo.
 
@@ -162,4 +162,4 @@ Una vez finalizado el experimento, puede visualizar los datos importados desde l
 
 Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server local configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server local mediante **Exportar datos**, ni en experimentos ni en servicios web publicados.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

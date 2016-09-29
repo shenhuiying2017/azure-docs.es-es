@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con TeamSeer
@@ -105,9 +105,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     ![Configuración de SAML](./media/active-directory-saas-teamseer-tutorial/IC789637.png "Configuración de SAML")
 
     1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TeamSeer**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL**.
-    2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el portapapeles y luego péguelo en el cuadro de texto **Certificado público de Id**.
 
@@ -117,7 +117,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     1.  En las **Direcciones de correo electrónico de prueba**, escriba la dirección de correo electrónico del usuario de prueba.
     2.  En el cuadro de texto **Emisor**, escriba la dirección URL de emisor del proveedor de servicios.
-    3.  Haga clic en **Guardar**.
+    3.  Haga clic en **Save**.
 
 11. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -127,7 +127,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben aprovisionarse en ShiftPlanning. En el caso de TeamSeer, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su sitio de la compañía de **TeamSeer** como administrador.
 
@@ -143,7 +143,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
     ![Detalles del usuario](./media/active-directory-saas-teamseer-tutorial/IC789641.png "Detalles del usuario")
 
     1.  Escriba el **Nombre**, **Apellido**, **Nombre de usuario (dirección de correo electrónico)** de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto relacionados.
-    2.  Haga clic en **Siguiente**.
+    2.  Haga clic en **Next**.
 
 4.  Siga las instrucciones en pantalla para agregar un nuevo usuario y haga clic en **Finalizar**.
 
@@ -165,6 +165,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

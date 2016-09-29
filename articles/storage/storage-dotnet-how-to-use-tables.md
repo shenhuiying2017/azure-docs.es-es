@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Introducción al Almacenamiento de tablas de Azure mediante .NET
@@ -57,7 +57,7 @@ Para más ejemplos de uso de Almacenamiento de tablas, consulte [Getting Started
 
 Agregue las siguientes instrucciones `using` en la parte superior del archivo `program.cs`:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -81,13 +81,13 @@ En este ejemplo se muestra cómo crear una tabla si todavía no existe:
 	// Retrieve the storage account from the connection string.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
+
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-		
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -227,7 +227,7 @@ Si no desea consultar todas las entidades de una partición, puede especificar u
             entity.Email, entity.PhoneNumber);
     }
 
-## Recuperación de una sola entidad
+## una sola entidad
 
 Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente utiliza**TableOperation** para especificar el cliente "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en **TableResult.Result** es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.
 
@@ -469,4 +469,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

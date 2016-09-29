@@ -57,7 +57,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 | Nº de puerto<sup>1,2</sup> | Dentro o fuera | Ámbito de puerto | Obligatorio | Notas |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>| Fuera | WAN | No |<ul><li>El puerto de salida se usa para tener acceso a Internet para recuperar las actualizaciones.</li><li>El proxy web de salida es configurable por el usuario.</li><li>Para permitir las actualizaciones del sistema, este puerto también debe estar abierto para las direcciones IP fijas del controlador.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| Fuera | WAN | Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos de la nube.</li><li>El proxy web de salida es configurable por el usuario.</li><li>Para permitir las actualizaciones del sistema, este puerto también debe estar abierto para las direcciones IP fijas del controlador.</li></ul>|
+|TCP 443 (HTTPS)<sup>3</sup>| Fuera | WAN | Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos de la nube.</li><li>El proxy web de salida es configurable por el usuario.</li><li>Para permitir las actualizaciones del sistema, este puerto también debe estar abierto para las direcciones IP fijas del controlador.</li><li>Este puerto también se usa en los controladores de la recolección de no utilizados.</li></ul>|
 |UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 | Fuera | WAN | Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager. |
@@ -291,4 +291,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

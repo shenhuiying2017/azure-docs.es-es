@@ -18,26 +18,23 @@
 
 # Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [AZURE.SELECTOR]
+- [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 - [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+En este artículo, usará una plantilla de Azure Resource Manager para crear su primera instancia de Azure Data Factory.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
-
-## Requisitos previos adicionales
-Además de los requisitos previos enumerados en la sección anterior de requisitos previos, instale lo siguiente:
-
-- **Instale Azure PowerShell**. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar la última versión de Azure PowerShell en su equipo.
+## Requisitos previos
+- Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos**.
+- Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar la última versión de Azure PowerShell en su equipo.
 - Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 ## Creación de una plantilla de Resource Manager
 
-Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
-
-La plantilla permite crear las siguientes entidades de Factoría de datos.
+En esta sección, creará las siguientes entidades de Data Factory:
 
 1. Una **factoría de datos** denominada **TutorialDataFactoryARM**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada.
 2. Dos **servicios vinculados**: **StorageLinkedService** y **HDInsightOnDemandLinkedService**. Estos servicios permiten vincular su cuenta de Almacenamiento de Azure y un clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Identifique qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
@@ -45,8 +42,9 @@ La plantilla permite crear las siguientes entidades de Factoría de datos.
 
 Haga clic en la pestaña **Utilización del Editor de Data Factory** para cambiar al artículo con detalles sobre las propiedades JSON usadas en esta plantilla.
 
-> [AZURE.IMPORTANT] Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
+Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
 
+> [AZURE.IMPORTANT] Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -226,9 +224,10 @@ Para más información, consulte [Servicio vinculado a petición de HDInsight](d
 
 ## Creación de Data Factory
 
-1. Inicie **PowerShell** y ejecute el siguiente comando.
-	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en el Portal de Azure.
-	- Ejecute el siguiente comando para seleccionar la suscripción en la que desea crear la factoría de datos. Get-AzureRmSubscription -SubscriptionName <NOMBRE DE SUSCRIPCIÓN> | Set-AzureRmContext
+1. Inicie **Azure PowerShell** y ejecute el siguiente comando:
+	- Ejecute `Login-AzureRmAccount` y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en Azure Portal.
+	- Ejecute `Get-AzureRmSubscription` para ver todas las suscripciones de esta cuenta.
+	- Ejecute `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` para seleccionar la suscripción con la que desea trabajar. Esta suscripción debe ser la misma que la que usó en el Portal de Azure.
 1. Ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que creó en el paso 1.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -244,7 +243,7 @@ Para más información, consulte [Servicio vinculado a petición de HDInsight](d
 8. En la Vista de diagrama, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Cuando finalice el procesamiento, el segmento aparece con el estado **Listo**. La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
+9. Cuando finalice el procesamiento, el segmento aparece con el estado **Listo**. La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente). Por tanto, cabe esperar que la canalización tarde **aproximadamente 30 minutos** en procesar el segmento.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.
@@ -302,4 +301,4 @@ Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una 
 
   
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

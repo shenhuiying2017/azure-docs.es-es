@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="v-sharos" />
 
 # Implemente el dispositivo StorSimple local en el Portal de Government (Update 2)
@@ -37,7 +37,7 @@ Necesitará privilegios de administrador para completar el proceso de instalaci�
 Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conectarlo al servicio StorSimple Manager: Además de los pasos obligatorios, hay pasos y procedimientos opcionales que puede que necesite completar durante la implementación. Las instrucciones detalladas de implementación indican cuándo debe realizar cada uno de estos pasos opcionales.
 
 
-| Paso | Descripción |
+| Paso | Description |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **REQUISITOS PREVIOS** | Se deben llevar a cabo como preparación para la próxima implementación. |
 |[Lista de comprobación de la configuración de implementación](#deployment-configuration-checklist) | Use esta lista de comprobación para recopilar y registrar información antes y durante la implementación. |
@@ -111,7 +111,7 @@ El servicio de Administrador de StorSimple puede administrar varios dispositivos
 
 > [AZURE.IMPORTANT] Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
-> * Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. 
+> * Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
 > * Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
 
 ## Paso 2: Obtener la clave de registro del servicio
@@ -208,8 +208,8 @@ La actualización del dispositivo puede tardar entre varias horas. Realice los p
 
 #### Para actualizar su dispositivo
 
-1.	En la página **Inicio rápido** del dispositivo, haga clic en **Dispositivos**. Seleccione el dispositivo físico, haga clic en **Mantenimiento** y luego en **Buscar actualizaciones**.  
-2.	Se crea un trabajo para buscar las actualizaciones disponibles. Si hay actualizaciones disponibles, la opción **Buscar actualizaciones** cambia a **Instalar actualizaciones**. Haga clic en **Instalar actualizaciones**. 
+1.	En la página **Inicio rápido** del dispositivo, haga clic en **Dispositivos**. Seleccione el dispositivo físico, haga clic en **Mantenimiento** y luego en **Buscar actualizaciones**.
+2.	Se crea un trabajo para buscar las actualizaciones disponibles. Si hay actualizaciones disponibles, la opción **Buscar actualizaciones** cambia a **Instalar actualizaciones**. Haga clic en **Instalar actualizaciones**.
 3.	Se creará un trabajo de actualización. Vaya a **Trabajos** para supervisar el estado de la actualización.
 
 	> [AZURE.NOTE] Cuando se inicia el trabajo de actualización, se muestra inmediatamente el estado como 50 por ciento. El estado cambia al 100 por cien una vez completado el trabajo de actualización. No hay ningún estado en tiempo real para el proceso de actualizaciones.
@@ -222,7 +222,7 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 
 [AZURE.INCLUDE [Crear una copia de seguridad manual](../../includes/storsimple-get-iqn.md)]
 
-## Creación de una copia de seguridad manual
+## Crear una copia de seguridad manual
 
 Siga estos pasos en el Portal de Government para crear una copia de seguridad a petición para un único volumen de su dispositivo StorSimple.
 
@@ -243,4 +243,4 @@ Para instrucciones de instalación de MPIO para un dispositivo StorSimple conect
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

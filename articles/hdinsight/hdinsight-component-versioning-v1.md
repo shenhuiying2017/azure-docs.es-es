@@ -3,7 +3,7 @@
 	description="HDInsight es compatible con varias versiones de clúster de Hadoop que se pueden implementar. Vea las versiones de distribución de Hadoop y HortonWorks Data Platform (HDP) que se admiten."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	documentationCenter=""/>
 
@@ -167,4 +167,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -20,10 +20,9 @@
 # Creación de una red virtual con una conexión de sitio a sitio mediante el Portal de Azure clásico
 
 > [AZURE.SELECTOR]
-- [Portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portal de Azure clásico](vpn-gateway-site-to-site-create.md)
-- [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Clásico - Portal clásico](vpn-gateway-site-to-site-create.md)
 
 Este artículo lo guía por la creación de una red virtual y una conexión VPN de sitio a sitio a la red local mediante el **modelo de implementación de clásica** y el portal clásico. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. Actualmente, no se puede crear una configuración de sitio a sitio completa para el modelo de implementación clásica mediante el Portal de Azure.
 
@@ -55,11 +54,11 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
-3. Para crear la red virtual, rellene la información en las páginas siguientes.
+3. Para crear la red virtual, especifique las opciones de configuración en las páginas siguientes:
 
 ## Página de detalles de la red virtual
 
-Escriba la siguiente información.
+Escriba la siguiente información:
 
 - **Nombre**: Nombre de la red virtual. Por ejemplo, *EastUSVNet*. Usará este nombre de red virtual al implementar las máquinas virtuales y las instancias PaaS, por lo que probablemente no querrá que este nombre sea muy complicado.
 - **Ubicación**: La ubicación está directamente relacionada con la ubicación física (región) en la que desea que residan los recursos (máquinas virtuales). Por ejemplo, si desea que las máquinas virtuales que implementa en la red virtual se encuentren físicamente en el *Este de EE. UU.*, seleccione esa ubicación. No se puede cambiar la región asociada a la red virtual después de crearla.
@@ -107,4 +106,4 @@ Configure la puerta de enlace de red virtual para crear una conexión de sitio a
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/) para más información.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

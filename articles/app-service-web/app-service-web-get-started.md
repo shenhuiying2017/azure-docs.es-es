@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Implementación de su primera aplicación web en Azure en 5 minutos | Microsoft Azure" 
-	description="Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar realice un desarrollo real rápidamente y vea los resultados inmediatamente." 
+	description="Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -20,19 +20,24 @@
 	
 # Implementación de su primera aplicación web en Azure en 5 minutos
 
-Este tutorial lo ayuda a implementar su primera aplicación web en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). App Service se puede usar para crear Web Apps, [back-ends de Mobile Apps](/documentation/learning-paths/appservice-mobileapps/) y [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
+Este tutorial le ayudará a implementar su primera aplicación web en [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) 
+y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Podrá:
 
-- Crear una aplicación web de Java en Azure App Service.
+- Crear una aplicación web en Azure App Service.
 - Implementar ejemplo de código (elija entre ASP.NET, PHP, Node.js, Java o Python).
 - Ver la ejecución del código en directo en producción.
 - Actualizar la aplicación web del mismo modo que [insertaría confirmaciones de Git](https://git-scm.com/docs/git-push).
 
 ## Requisitos previos
 
-- [Instalación de Git](http://www.git-scm.com/downloads). Compruebe que la instalación se realizó correctamente ejecutando `git --version` en un símbolo del sistema de Windows, una ventana de PowerShell, un shell de Linux o un terminal de OS X.
-- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- [Instale Git](http://www.git-scm.com/downloads). Compruebe que la instalación se realizó correctamente ejecutando `git --version` en un símbolo del sistema de Windows, 
+una ventana de PowerShell, un shell de Linux o un terminal de OS X.
+- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede 
+[registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o 
+[activar los beneficios de suscripción de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 
@@ -49,7 +54,8 @@ Podrá:
 
     - **Nombre de la aplicación**: escriba un nombre único.
     - **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
-    - **Plan del Servicio de aplicaciones/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
+    - **Plan de App Service/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y 
+    el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
 
     Cuando haya terminado, la hoja de creación de la aplicación debe tener este aspecto:
 
@@ -93,7 +99,7 @@ Ahora vamos a implementar código en Azure mediante Git.
 
     ![Clonación del código de ejemplo de aplicación de su primera aplicación web de Azure](./media/app-service-web-get-started/html-git-clone.png)
 
-    Para *&lt;github\_sample\_url>*, use una de las siguientes direcciones URL, en función del marco que le guste:
+    Para *&lt;github_sample_url>*, use una de las siguientes direcciones URL, en función del marco que le guste:
 
     - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
     - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
@@ -110,7 +116,7 @@ Ahora vamos a implementar código en Azure mediante Git.
 
         git remote add azure <giturlfromportal>
 
-4. Implemente su ejemplo de código en la nueva aplicación de Azure igual que insertaría cualquier código con Git:
+4. Implemente su código de ejemplo en la nueva aplicación de Azure igual que insertaría cualquier código con Git:
 
         git push azure master
 
@@ -141,7 +147,9 @@ Busque los pasos de desarrollo e implementación preferidos para su plataforma d
 
 También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
-- Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione **GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
-- Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con uno cuantos clics. Consulte [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
+- Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione 
+**GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
+- Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte 
+[Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0920_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 # Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux
@@ -62,11 +62,11 @@ En este documento, conozca los aspectos básicos de administración y supervisi�
 
 Mediante programación, puede implementar una topología en Storm en HDInsight estableciendo una comunicación con el servicio Nimbus hospedado en el clúster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) proporciona un ejemplo de aplicación de Java que muestra cómo implementar e iniciar una topología a través del servicio Nimbus.
 
-##Supervisar y administrar mediante el comando de Storm
+## Supervisar y administrar mediante el comando de Storm
 
 La utilidad `storm` le permite trabajar con topologías en ejecución desde la línea de comandos. La siguiente es una lista de comandos usados habitualmente. Use `storm -h` para obtener una lista completa de comandos.
 
-###Topologías de lista
+### Topologías de lista
 
 Use el siguiente comando para enumerar todas las topologías en ejecución:
 
@@ -78,7 +78,7 @@ Devolverá información similar a la siguiente:
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###Desactivar y reactivar
+### Desactivar y reactivar
 
 Al desactivar una topología se pone en pausa hasta que se elimine o se reactive. Use lo siguiente para desactivar y reactivar:
 
@@ -86,13 +86,13 @@ Al desactivar una topología se pone en pausa hasta que se elimine o se reactive
     
     storm Activate TOPOLOGYNAME
 
-###Eliminar una topología de ejecución
+### Eliminar una topología de ejecución
 
 Las topologías de Storm, una vez iniciadas, se seguirán ejecutando hasta que se detenga. Para detener una topología, use el siguiente comando:
 
     storm stop TOPOLOGYNAME
 
-###Reequilibrar
+### Reequilibrar
 
 El reequilibrio de una topología permite que el sistema revise el paralelismo de la topología. Por ejemplo, si ha cambiado el tamaño del clúster para agregar más notas, el reequilibrio permitirá una topología en ejecución para usar los nuevos nodos.
 
@@ -100,7 +100,7 @@ El reequilibrio de una topología permite que el sistema revise el paralelismo d
 
     storm rebalance TOPOLOGYNAME
 
-##Supervisar y administrar mediante la interfaz de usuario de Storm
+## Supervisar y administrar mediante la interfaz de usuario de Storm
 
 La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la interfaz de usuario de Storm, use un explorador web para abrir __https://CLUSTERNAME.azurehdinsight.net/stormui__, donde __CLUSTERNAME\_\_ es el nombre del clúster.
 
@@ -197,4 +197,4 @@ Ahora que aprendió a implementar y supervisar topologías mediante el panel de 
 
 Para obtener una lista con más topologías de ejemplo, consulte [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

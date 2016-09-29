@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@ Debe tener lo siguiente:
 
 Antes de empezar a crear la aplicación, intentemos comprender la estructura de los datos y el tipo de análisis que se realizará en ellos.
 
-En este artículo, usamos el archivo de datos de ejemplo **HVAC.csv** que está disponible en todos los clústeres de HDInsight de manera predeterminada en **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Descargue y abra el archivo CSV para hacerse una idea de cuáles son los datos.
+En este artículo, usamos el archivo de datos **HVAC.csv** de ejemplo que está disponible en la cuenta de Azure Storage que ha asociado con el clúster de HDInsight. Dentro de la cuenta de almacenamiento, el archivo está en **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Descargue y abra el archivo CSV para hacerse una idea de cuáles son los datos.
 
 ![Instantánea de datos de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Instantánea de los datos de HVAC")
 
@@ -232,7 +232,7 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -262,4 +262,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

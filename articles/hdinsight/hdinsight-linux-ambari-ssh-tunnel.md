@@ -4,7 +4,7 @@ description="Obtenga información acerca de cómo usar un túnel SSH para ir con
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -201,4 +201,4 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

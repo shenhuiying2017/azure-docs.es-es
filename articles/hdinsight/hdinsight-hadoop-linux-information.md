@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -256,4 +256,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

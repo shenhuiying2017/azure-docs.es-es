@@ -4,7 +4,7 @@
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -26,7 +26,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 - **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Para este tutorial, vamos a crear una cuenta de Almacén de datos de Data Lake denominada **datacatalogstore**.
 
@@ -88,10 +88,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	* [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
 	* [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 
-## Consulte también
+## Otras referencias
 
 * [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
 * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integración del Almacén de Data Lake con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

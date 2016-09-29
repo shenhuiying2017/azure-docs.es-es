@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -34,7 +34,7 @@ Los servicios web nuevos de Aprendizaje automático pueden administrarse mediant
 
 Para administrar los servicios web, siga estos pasos:
 
-1.	Inicie sesión en el [portal de servicios web de Aprendizaje automático de Microsoft Azure](https://services.azureml.net/quickstart) con su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
+1.	Inicie sesión en el [portal de servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) con su cuenta de Microsoft Azure (use la que está asociada a la suscripción de Azure).
 2.	En el menú, haga clic en **Servicios web**.
 
 Se mostrará una lista de los servicios web implementados de la suscripción. Para administrar un servicio web, haga clic en el nombre en la lista para abrir la página del servicio web.
@@ -97,4 +97,4 @@ El panel de planes proporciona la siguiente información:
 * **Top Web Service By Calls** (Principales servicios web por llamadas) muestra los cuatro principales servicios web que están realizando llamadas que se cobran el plan.
 * **Top Web Services by Compute Hrs** (Principales servicios web por horas de proceso) muestra los cuatro principales servicios web que están usando recursos de proceso que se cobran el plan.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

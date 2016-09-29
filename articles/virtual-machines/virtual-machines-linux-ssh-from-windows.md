@@ -26,6 +26,7 @@ description="Obtenga información acerca de cómo generar y utilizar claves SSH 
 
 En este tema se describe cómo crear y usar archivos de clave privada y pública de formato **ssh-rsa** y **.pem** en Windows que puede usar para conectarse a las máquinas virtuales Linux en Azure con el comando **ssh**. Si ya tiene archivos **.pem** creados, puede utilizarlos para crear máquinas virtuales de Linux a las que puede conectarse con **ssh**. Hay otros comandos que usan el protocolo **SSH** y archivos clave para realizar el trabajo de forma segura, en particular **scp** o [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), que pueden copiar archivos de manera segura a y desde equipos que admiten conexiones **SSH**.
 
+> [AZURE.NOTE] Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
 
 ## ¿Qué programas SSH y de creación de claves necesita?
 
@@ -167,4 +168,4 @@ La manera más fácil de resolver este problema consiste en establecer la variab
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -90,4 +90,4 @@ Tutorial|Description
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

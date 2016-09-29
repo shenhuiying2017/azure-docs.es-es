@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Servidor de autenticación LDAP y Azure Multi-Factor Authentication" 
-	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación LDAP y el servidor Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Servidor de autenticación LDAP y Azure Multi-Factor Authentication"
+	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación LDAP y el servidor Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
-# Servidor de autenticación LDAP y Azure Multi-Factor Authentication 
+# Servidor de autenticación LDAP y Azure Multi-Factor Authentication
 
 
 De forma predeterminada, Servidor Azure Multi-Factor Authentication está configurado para importar o sincronizar usuarios desde Active Directory. Sin embargo, se puede configurar para enlazar a directorios LDAP diferentes, por ejemplo, un directorio ADAM o un controlador de dominio de Active Directory específico. Cuando se configura para conectarse a un directorio mediante LDAP, el servidor Azure Multi-Factor Authentication puede configurarse para que actúe como proxy LDAP para realizar autenticaciones. También permite el uso del enlace LDAP como destino RADIUS para la autenticación previa de usuarios al usar la autenticación de IIS o la autenticación principal en el portal de usuario de Azure Multi-Factor Authentication.
@@ -63,4 +63,4 @@ Para configurar el cliente LDAP, use las siguientes directrices:
 - Configure el tiempo de espera LDAP en entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario con el directorio LDAP, realizar la autenticación de segundo factor, recibir su respuesta y, a continuación, responder a la solicitud de acceso LDAP.
 - Si usa LDAPS, el dispositivo o el servidor que realiza las consultas LDAP debe confiar en el certificado SSL instalado en el servidor Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

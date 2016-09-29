@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
-La actividad MapReduce de HDInsight en una [canalización](data-factory-create-pipelines.md) de Factoría de datos ejecuta programas de MapReduce en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno basado en Windows/Linux [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
+La actividad MapReduce de HDInsight en una [canalización](data-factory-create-pipelines.md) de Factoría de datos ejecuta programas de MapReduce en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno basado en Windows/Linux [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 ## Introducción 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la actividad MapReduce de HDInsight.
  
-Consulte el artículo [Pig](data-factory-pig-activity.md) y [Hive](data-factory-hive-activity.md) para obtener detalles acerca de la ejecución de scripts de Pig/Hive en un clúster de HDInsight basado en Windows/Linux desde una canalización de la factoría de datos de Azure mediante actividades Pig y Hive de HDInsight.
+Consulte [Pig](data-factory-pig-activity.md) y [Hive](data-factory-hive-activity.md) para obtener detalles sobre la ejecución de scripts de Pig/Hive en un clúster de HDInsight basado en Windows/Linux desde una canalización mediante actividades Pig y Hive de HDInsight.
 
 ## JSON para la actividad MapReduce de HDInsight 
 
@@ -32,7 +32,7 @@ En la definición de JSON para la actividad de HDInsight:
 3. Especifique el nombre de la clase para la propiedad **className**.
 4. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath**.
 5. Especifique el servicio vinculado que hace referencia al almacenamiento de blobs de Azure que contiene el archivo JAR de la propiedad **jarLinkedService**.
-6. Especifique los argumentos para el programa de MapReduce en la sección **argumentos**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc... son opciones seguidas inmediatamente por sus valores).
+6. Especifique los argumentos para el programa de MapReduce en la sección **argumentos**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
 
 		{
 		    "name": "MahoutMapReduceSamplePipeline",
@@ -134,7 +134,7 @@ A continuación, cree un servicio vinculado para vincular el clúster de HDInsig
 ### Conjuntos de datos
 
 #### Conjunto de datos de salida
-La canalización de este ejemplo no toma ninguna entrada. Deberá especificar un conjunto de datos de salida para la actividad MapReduce de HDInsight. Esto es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización.
+La canalización de este ejemplo no toma ninguna entrada. Deberá especificar un conjunto de datos de salida para la actividad MapReduce de HDInsight. Este conjunto de datos es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización.
 
 	{
 	    "name": "MROutput",
@@ -163,8 +163,8 @@ Propiedad | Notas
 :-------- | :-----
 type | El tipo debe establecerse en **HDInsightMapReduce**. 
 className | El nombre de la clase es: **wordcount**
-jarFilePath | Ruta de acceso al archivo jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. 
-jarLinkedService | Servicio vinculado al Almacenamiento de Azure que contiene el archivo jar. Esto es el almacenamiento asociado al clúster de HDInsight. 
+jarFilePath | Ruta de acceso al archivo .jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. 
+jarLinkedService | Servicio vinculado al Almacenamiento de Azure que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. 
 argumentos | El programa de recuento de palabras toma dos argumentos, una entrada y una salida. El archivo de entrada es el archivo davinci.txt.
 frecuencia/intervalo | Los valores de estas propiedades coinciden con el conjunto de datos de salida. 
 linkedServiceName | hace referencia al servicio vinculado a HDInsight creado anteriormente.   
@@ -228,4 +228,4 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

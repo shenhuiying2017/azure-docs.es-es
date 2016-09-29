@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -145,4 +145,4 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 * Puede comenzar con [Data Factory de Azure para mover datos desde Azure Data Lake Store a Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

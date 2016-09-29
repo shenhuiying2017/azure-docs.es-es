@@ -4,7 +4,7 @@
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -78,10 +78,10 @@ Puede usar Power BI para importar datos desde una cuenta de Almacén de Data Lak
 Puede registrar los datos desde Almacén de Data Lake al Catálogo de datos de Azure para que los datos se puedan reconocer en toda la organización. Para más información, consulte [Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure](data-lake-store-with-data-catalog.md).
 
 
-## Consulte también
+## Otras referencias
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
 - [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Thirdlight
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar URL de aplicación**, en el cuadro de texto **URL de inicio de sesión de Thirdlight**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación Thirdlight (por ejemplo: "*http://azuresso2.thirdlight.com/*")), y luego haga clic en **Siguiente**.
+3.  En la página **Configurar URL de aplicación**, en el cuadro de texto **URL de inicio de sesión de Thirdlight**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación Thirdlight (por ejemplo: "*http://azuresso2.thirdlight.com/*"), y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configurar dirección URL de la aplicación")
 
@@ -141,6 +141,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
