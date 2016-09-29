@@ -4,7 +4,7 @@ description="Aprenda a escribir datos en Almacén de Azure Data Lake desde una t
 services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/17/2016"
+ms.date="09/06/2016"
 ms.author="larryfr"/>
 
 #Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight
@@ -27,7 +27,7 @@ Almacén de Azure Data Lake es un servicio de almacenamiento en la nube compatib
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o superior
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * Una suscripción de Azure
-* La versión 3.2 de un clúster de Apache Storm en HDInsight Para crear un nuevo clúster de Storm en HDInsight, siga los pasos descritos en el documento [Uso de HDInsight con Almacén de Data Lake mediante Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Los pasos descritos en este documento le guiarán por la creación de un clúster de HDInsight y Almacén de Azure Data Lake.  
+* La versión 3.2 de un clúster de Apache Storm en HDInsight Para crear un nuevo clúster de Storm en HDInsight, siga los pasos descritos en el documento [Uso de HDInsight con Almacén de Data Lake mediante Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Los pasos descritos en este documento le guiarán por la creación de un clúster de HDInsight y Almacén de Azure Data Lake.
 
     > [AZURE.IMPORTANT] Al crear el clúster de HDInsight, debe seleccionar __Storm__ como tipo de clúster y __3.2__ como versión. El sistema operativo puede ser Windows o Linux.
 
@@ -221,4 +221,4 @@ __Para HDInsight basado en Windows__:
 
 Ahora que ha aprendido a usar Storm para escribir en el Almacén de Azure Data Lake, descubra otros [ejemplos de Storm para HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

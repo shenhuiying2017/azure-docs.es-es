@@ -4,7 +4,7 @@ description="DataFu es un conjunto de bibliotecas para su uso con Hadoop. Aprend
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -109,4 +109,4 @@ Para obtener más información sobre DataFu o Pig, consulte los documentos sigui
 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

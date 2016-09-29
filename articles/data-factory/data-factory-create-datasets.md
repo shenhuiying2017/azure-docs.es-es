@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/13/2016" 
 	ms.author="spelluru"/>
 
 # Conjuntos de datos en Data Factory de Azure
 En este artículo se describen conjuntos de datos de Data Factory de Azure y se incluyen ejemplos, como bases de datos offset, anchorDateTime y offset/style.
 
-Cuando se crea un conjunto de datos, se crea un puntero a los datos que quiere procesar. Los datos se procesan (entrada/salida) en una actividad y una actividad está contenido en una canalización. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
+Cuando se crea un conjunto de datos, se crea un puntero a los datos que quiere procesar. Los datos se procesan (entrada/salida) en una actividad y la actividad se incluye en una canalización. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
 
-Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Después de crear un conjunto de datos, puede usarlo con actividades en una canalización. Por ejemplo, un conjunto de datos puede ser un conjunto de datos de entrada y salida de una actividad de copia o una actividad de HDInsightHive. El Portal de Azure ofrece un diseño visual de todas canalizaciones y entradas y salidas de datos. De un vistazo, puede ver todas las relaciones y dependencias de las canalizaciones de datos en todos los orígenes, así siempre sabe de dónde vienen los datos y adónde van.
+Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Después de crear un conjunto de datos, puede usarlo con las actividades de una canalización. Por ejemplo, un conjunto de datos puede ser un conjunto de datos de entrada y salida de una actividad de copia o una actividad de HDInsightHive. Azure Portal ofrece un diseño visual de todas las canalizaciones y entradas y salidas de datos. De un vistazo, puede ver todas las relaciones y dependencias de las canalizaciones en todos los orígenes, así siempre sabe de dónde vienen los datos y adónde van.
 
-En Data Factory de Azure puede obtener datos de un conjunto de datos utilizando la actividad de copia de una canalización.
+En Azure Data Factory puede obtener datos de un conjunto de datos utilizando la actividad de copia de una canalización.
 
-> [AZURE.NOTE] Si no está familiarizado con Data Factory de Azure, consulte [Introducción al servicio Data Factory de Azure](data-factory-introduction.md) para información general del servicio Data Factory de Azure y [Creación de su primera factoría de datos](data-factory-build-your-first-pipeline.md) para ver un tutorial sobre cómo crear su primera factoría de datos. Estos dos artículos le proporcionarán el contexto necesario para comprender mejor este artículo.
+> [AZURE.NOTE] Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](data-factory-introduction.md) para obtener información general sobre este servicio. Consulte [Compilación de la primera factoría de datos](data-factory-build-your-first-pipeline.md) para ver un tutorial para crear su primera factoría de datos. Estos dos artículos le proporcionarán el contexto necesario para comprender mejor este artículo.
 
 ## Definición de conjuntos de datos
 Un conjunto de datos en Data Factory de Azure se define como sigue:
@@ -71,8 +71,7 @@ La tabla siguiente describe las propiedades del JSON anterior:
 | policy | Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Consulte el tema [Directiva del conjunto de datos](#Policy) para más información. | No | N/D |
 
 ## Ejemplo de conjunto de datos
-
-A continuación se muestra un ejemplo de un conjunto de datos que representa una tabla denominada **MyTable** en una **base de datos SQL de Azure**.
+En el siguiente ejemplo, el conjunto de datos representa una tabla denominada **MyTable** en una **base de datos SQL de Azure**.
 
 	{
 	    "name": "DatasetSample",
@@ -95,7 +94,7 @@ Tenga en cuenta lo siguiente:
 
 - type está establecido en AzureSqlTable.
 - La propiedad de tipo tableName (específico del tipo AzureSqlTable) se establece en MyTable.
-- linkedServiceName hace referencia a un servicio vinculado de tipo AzureSqlDatabase. Consulte la definición de servicio vinculado a continuación.
+- linkedServiceName hace referencia a un servicio vinculado de tipo AzureSqlDatabase. Consulte la definición del siguiente servicio vinculado.
 - La frecuencia de availability se establece en Day y el intervalo en 1, lo cual significa que el segmento se produce diariamente.
 
 AzureSqlLinkedService se define como sigue:
@@ -117,13 +116,13 @@ En el ejemplo JSON anterior:
 - La propiedad de tipo connectionString especifica información para conectarse a una Base de datos SQL de Azure.
 
 
-Como puede ver, el servicio vinculado define cómo conectarse a una Base de datos SQL de Azure y el conjunto de datos define qué tabla se utiliza como entrada y salida de la factoría de datos. La sección de actividad en el código JSON de la [canalización](data-factory-create-pipelines.md) especifica si el conjunto de datos se utiliza como un conjunto de datos de entrada o salida.
+Como puede ver, el servicio vinculado define cómo conectarse a una base de datos SQL de Azure. El conjunto de datos define qué tabla se utiliza como entrada o salida de la actividad en una canalización. La sección de actividad en el código JSON de la [canalización](data-factory-create-pipelines.md) especifica si el conjunto de datos se utiliza como un conjunto de datos de entrada o salida.
 
 
-> [AZURE.IMPORTANT] A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Esto generalmente se aplica a las entradas de la primera actividad de una canalización.
+> [AZURE.IMPORTANT] A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Esta configuración se aplica generalmente a las entradas de la primera actividad de una canalización.
 
 ## <a name="Type"></a> Tipo de conjunto de datos
-Los orígenes de datos admitidos y los tipos de conjuntos de datos están alineados. Consulte los temas a los que se hace referencia en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores) para más información sobre los tipos y la configuración de los conjuntos de datos. Por ejemplo, si está usando datos de una base de datos SQL de Azure, haga clic en la base de datos SQL de Azure en la lista de almacenes de datos admitidos para ver información detallada sobre cómo usarla como origen o como almacén de datos de receptores.
+Los orígenes de datos admitidos y los tipos de conjuntos de datos están alineados. Consulte los temas a los que se hace referencia en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores) para más información sobre los tipos y la configuración de los conjuntos de datos. Por ejemplo, si está usando datos de una base de datos SQL de Azure, haga clic en la base de datos SQL de Azure en la lista de almacenes de datos admitidos para ver información detallada.
 
 ## <a name="Structure"></a>Estructura del conjunto de datos
 La sección **structure** define el esquema del conjunto de datos. Contiene una colección de nombres y tipos de datos de columnas. En el ejemplo siguiente, el conjunto de datos tiene tres columnas slicetimestamp, projectname y pageviews del tipo: String, String y Decimal respectivamente.
@@ -138,7 +137,7 @@ La sección **structure** define el esquema del conjunto de datos. Contiene una 
 ## <a name="Availability"></a> Disponibilidad del conjunto de datos
 En la sección **availability** de un conjunto de datos se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc.) o el modelo de segmentación del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
 
-La sección availability siguiente especifica que el conjunto de datos se produce cada hora en el caso de un conjunto de datos de salida (o) que está disponible cada hora en el caso de un conjunto de datos de entrada.
+La sección availability siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora.
 
 	"availability":	
 	{	
@@ -184,7 +183,7 @@ Para un programación de 12 meses (frecuency = month; interval = 12), offset: 60
 
 ## Ejemplo de desplazamiento y estilo
 
-Si necesita un conjunto de datos mensualmente en una fecha y hora específicas (supongamos que el tercer día de cada mes a las 8:00), podría usar la etiqueta **offset** para establecer la fecha y la hora en que se debería ejecutar.
+Si necesita un conjunto de datos mensualmente en una fecha y hora específicas (supongamos que el tercer día de cada mes a las 8:00 a.m.), use la etiqueta **offset** para establecer la fecha y la hora en que se debería ejecutar.
 
 	{
 	  "name": "MyDataset",
@@ -242,12 +241,12 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 
 Los conjuntos de datos externos son los que no son producidos por una canalización de ejecución en la factoría de datos. Si el conjunto de datos está marcado como **external**, la directiva **ExternalData** puede definirse para influir en el comportamiento de la disponibilidad de los segmentos del conjunto de datos.
 
-A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Generalmente, esto se aplicará a las entradas de la primera actividad de una canalización a menos que se desee aprovechar el encadenamiento de actividades o canalizaciones.
+A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Generalmente, esto se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
 
 | Nombre | Descripción | Obligatorio | Valor predeterminado |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si se supone que los datos estarán disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y el segmento correspondiente está preparado puede retrasarse mediante dataDelay.<br/><br/>Solo se aplica a la hora actual; por ejemplo, si ahora son las 13:00 y este valor es de 10 minutos, la validación se iniciará a las 13:10.<br/><br/>Esta configuración no afecta a los segmentos del pasado (los segmentos con Slice End Time + dataDelay < Now) se procesarán sin ningún retraso.<br/><br/>Un tiempo superior a 23:59 horas se debe especificar con el formato día.horas:minutos:segundos. Por ejemplo, para especificar 24 horas, no use 24:00:00; en su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. | No | 0 |
-| retryInterval | El tiempo de espera entre un error y el siguiente reintento. Se aplica a la hora actual; si el intento anterior falla, esperamos este tiempo después del último intento. <br/><br/>Si ahora son las 13:00, empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación falla, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 pm. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se realizará inmediatamente. | No | 00:01:00 (1 minuto) | 
+| dataDelay | Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si se supone que los datos estarán disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y el segmento correspondiente está preparado puede retrasarse mediante dataDelay.<br/><br/>Solo se aplica a la hora actual. Por ejemplo, si ahora es la 1:00 p.m. y este valor es de 10 minutos, la validación se iniciará a la 1:10 p.m.<br/><br/>Esta configuración no afecta a los segmentos en el pasado (los segmentos con Slice End Time + dataDelay < Now) se procesarán sin ningún retraso.<br/><br/>El tiempo superior a 23:59 horas se debe especificar con el formato día.horas:minutos:segundos. Por ejemplo, para especificar 24 horas, no use 24:00:00; en su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. | No | 0 |
+| retryInterval | El tiempo de espera entre un error y el siguiente reintento. Se aplica a la hora actual; si el intento anterior falla, esperamos este tiempo después del último intento. <br/><br/>Si ahora es la 1:00 p.m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. | No | 00:01:00 (1 minuto) | 
 | retryTimeout | El tiempo de espera de cada reintento.<br/><br/>Si se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marcará como TimedOut. | No | 00:10:00 (10 minutos) |
 | maximumRetry | Número de veces que se va a comprobar la disponibilidad de los datos externos. El valor máximo permitido es 10. | No | 3 | 
 
@@ -345,4 +344,4 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante la pr
 	    }
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

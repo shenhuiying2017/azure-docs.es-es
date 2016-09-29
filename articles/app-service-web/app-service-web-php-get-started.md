@@ -39,13 +39,13 @@ Puede aplicar lo que aprenda aquí a otras aplicaciones web PHP que implemente e
 - Instalación de [Composer](https://getcomposer.org/download/)
 - Instalación de la [CLI de Azure](../xplat-cli-install.md)
 - Instalación de [Git](http://www.git-scm.com/downloads)
-- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para obtener una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar sus ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Vea una aplicación web en acción. [Pruebe el Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
 
 ## Creación de una aplicación PHP (Laravel) en el equipo de desarrollo
 
-1. Abra un símbolo del sistema de Windows, una ventana de PowerShell, un shell de Linux o un terminal de OS X. Ejecute los comandos siguientes para comprobar que las herramientas necesarias están instaladas correctamente en el equipo. 
+1. Abra un símbolo del sistema de Windows, una ventana de PowerShell, un shell de Linux o un terminal de OS X. Ejecute los comandos siguientes para comprobar que las herramientas necesarias están instaladas correctamente en el equipo.
 
         php --version
         composer --version
@@ -82,8 +82,9 @@ Hasta ahora, este es el flujo de trabajo normal de Laravel y no se encuentra aqu
 
 Con la CLI de Azure, puede crear una aplicación web en el Servicio de aplicaciones de Azure y configurarla para la implementación de Git con solo una línea de comandos. Hagámoslo.
 
-3. Inicie sesión en Azure de la manera siguiente:
+1. Cambie al modo ASM e inicie sesión en Azure:
 
+        azure config mode asm
         azure login
     
     Siga el mensaje de ayuda para continuar con el proceso de inicio de sesión.
@@ -96,7 +97,7 @@ Con la CLI de Azure, puede crear una aplicación web en el Servicio de aplicacio
     
     ![Creación del recurso de Azure para la aplicación PHP (Laravel) en Azure](./media/app-service-web-php-get-started/create-site-cli.png)
     
-    >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. El Servicio de aplicaciones usa estas credenciales, no las de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
+    >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. App Service usa estas credenciales, no las de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
     
     Este comando permite crear un nuevo repositorio de Git en el directorio actual (con `git init`) y conectarse al repositorio en Azure como un Git remoto (con `git remote add`).
 
@@ -105,7 +106,7 @@ Con la CLI de Azure, puede crear una aplicación web en el Servicio de aplicacio
 
 Para que la aplicación Laravel funcione en Azure, debe prestar atención a varias cosas. Llevará a cabo este ejercicio con el marco de trabajo PHP de su elección de forma similar.
 
-- Configure la versión PHP 5.5.9 o superior. Consulte [Latest Laravel 5.2 Server Requirements](https://laravel.com/docs/5.2#server-requirements) (Requisitos más recientes del servidor de Laravel 5.2) para obtener la lista entera de requisitos del servidor. El resto de la lista son extensiones que ya se han habilitado mediante las instalaciones de PHP de Azure. 
+- Configure la versión PHP 5.5.9 o superior. Consulte [Latest Laravel 5.2 Server Requirements](https://laravel.com/docs/5.2#server-requirements) (Requisitos más recientes del servidor de Laravel 5.2) para obtener la lista entera de requisitos del servidor. El resto de la lista son extensiones que ya se han habilitado mediante las instalaciones de PHP de Azure.
 - Establezca las variables de entorno que la aplicación necesita. Laravel utiliza el archivo `.env` para facilitar la configuración de las variables de entorno. Sin embargo, dado que se supone que no se ha ejecutado el control de código fuente, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.2/configuration#environment-configuration) (Configuración del entorno de Laravel), para establecer la configuración de la aplicación web de Azure en su lugar.
 - Asegúrese de que el punto de entrada de la aplicación Laravel, `public/index.php`, se carga en primer lugar. Consulte [Laravel Lifecycle Overview](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview) (Información general sobre el ciclo de vida de Laravel). En otras palabras, debe establecer la dirección URL raíz de la aplicación web para que apunte al directorio `public`.
 - Habilite la extensión de Composer en Azure, ya que tiene un archivo composer.json. De este modo, puede dejar que Composer se preocupe de cómo obtener los paquetes necesarios al implementar con `git push`. Es una cuestión de comodidad. Si no habilita la automatización de Composer, bastará con quitar `/vendor` desde el archivo `.gitignore` para que Git incluya ("no ignore") todo el contenido del directorio `vendor` al ejecutar e implementar el código.
@@ -248,4 +249,4 @@ Obtenga información acerca de cómo agregar datos a la aplicación mediante la 
 - [Conversión de WordPress en multisitios en Servicio de aplicaciones de Azure](web-sites-php-convert-wordpress-multisite.md)
 - [WordPress de clase empresarial en el Servicio de aplicaciones de Azure](web-sites-php-enterprise-wordpress.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

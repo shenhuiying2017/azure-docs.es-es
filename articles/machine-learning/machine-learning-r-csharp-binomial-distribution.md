@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -29,23 +29,23 @@ El conjunto de distribución binomial es una serie de servicios web de ejemplo (
 
 >Los servicio web pueden ser consumidos por los usuarios, bien directamente en marketplace, a través de una aplicación móvil, a través de un sitio web o incluso en un equipo local, por ejemplo. Pero el objetivo del servicio web también es actuar como un ejemplo de cómo se puede usar Aprendizaje automático de Azure para crear servicios web encima del código R. Con tan solo unas líneas de código R y algunos clics en un botón en Estudio de aprendizaje automático de Microsoft Azure, puede crear un experimento con código R y publicarlo como servicio web. A continuación, el servicio web se puede publicar en Azure Marketplace para que lo puedan consumir usuarios y dispositivos en todo el mundo sin necesidad de que el autor del servicio web configure la infraestructura.
 
-##Consumo del servicio web
+##Uso del servicio web
 El conjunto de distribución binomial incluye los tres servicios siguientes.
 
 ###Calculadora de cuantil para la distribución binomial
 Este servicio acepta 4 argumentos de una distribución normal y calcula el cuantil asociado. Los argumentos de entrada son:
 
-- p: una única probabilidad agregada de varias pruebas.  
+- p: una única probabilidad agregada de varias pruebas.
 - tamaño: el número de pruebas.
 - probabilidad: la probabilidad de éxito en una prueba.
-- Lado: L para la parte inferior de la distribución, U para la parte superior de la distribución. 
+- Lado: L para la parte inferior de la distribución, U para la parte superior de la distribución.
 
 La salida del servicio es el cuantil calculado asociado con la probabilidad dada.
 
 ###Calculadora de probabilidad para la distribución binomial
 Este servicio acepta 4 argumentos de una distribución binomial y calcula la probabilidad asociada. Los argumentos de entrada son:
 
-- q: un único cuantil de un evento con distribución binomial. 
+- q: un único cuantil de un evento con distribución binomial.
 - tamaño: el número de pruebas.
 - probabilidad: la probabilidad de éxito en una prueba.
 - Lado: L para la parte inferior de la distribución, U para la parte superior de la distribución o E que es igual a un único número de éxitos.
@@ -55,7 +55,7 @@ La salida del servicio es la probabilidad calculada asociada con el cuantil dado
 ###Generador de distribución binomial
 Este servicio acepta 3 argumentos de una distribución binomial y genera una secuencia aleatoria de números que se distribuyen de manera binomial. Se le deben proporcionar los siguientes argumentos en la solicitud:
 
-- n: número de observaciones. 
+- n: número de observaciones.
 - tamaño: número de pruebas.
 - prob: probabilidad de éxito.
 
@@ -290,4 +290,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

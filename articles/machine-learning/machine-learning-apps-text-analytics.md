@@ -1,10 +1,10 @@
 <properties
 	pageTitle="API de aprendizaje automático: análisis de texto | Microsoft Azure"
-	description="La API de análisis de texto de aprendizaje automático de Microsoft puede usarse para analizar el texto no estructurado para el análisis de opiniones, la extracción de frases clave, la detección de idiomas y la detección de temas."
+	description="La API de análisis de texto de Microsoft Machine Learning puede usarse para analizar el texto no estructurado para el análisis de opiniones, la extracción de frases clave, la detección de idiomas y la detección de temas."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="onewth"/>
 
 
-# API de aprendizaje automático: análisis de texto de opinión, extracción de frases clave, detección de idiomas y detección de temas
+# API de Machine Learning: análisis de texto de opinión, extracción de frases clave, detección de idiomas y detección de temas
 
 >[AZURE.NOTE] Esta guía es para la versión 1 de la API. Para la versión 2, [**consulte este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versión 2 es ahora la versión preferida de esta API.
 
@@ -31,7 +31,7 @@ Puede ver el análisis de texto en acción en nuestro [sitio de demostración](h
 
 ---
 
-## Análisis de opiniones
+## análisis de opiniones
 
 La API devuelve una puntuación numérica comprendida entre 0 y 1. Las puntuaciones cercanas a 1 indican una opinión positiva, y las puntuaciones cercanas a 0 indican una opinión negativa. La puntuación de las opiniones se genera mediante técnicas de clasificación. Las funciones de entrada en el clasificador incluyen n-gramas, funciones generadas a partir de etiquetas de categorías gramaticales e incrustaciones de palabras. Actualmente, el inglés es el único idioma que se admite.
  
@@ -371,7 +371,7 @@ Las propiedades de cada parte de la respuesta son las siguientes:
 
 **Propiedades de TopicInfo**
 
-| Clave | Descripción |
+| Clave | Description |
 |:-----|:----|
 | TopicId | Un identificador único para cada tema. |
 | Score | Recuento de registros asignados al tema. |
@@ -379,10 +379,10 @@ Las propiedades de cada parte de la respuesta son las siguientes:
 
 **Propiedades de TopicAssignment**
 
-| Clave | Descripción |
+| Clave | Description |
 |:-----|:----|
 | Id | Identificador del registro. Equivale al identificador incluido en la entrada. |
 | TopicId | El identificador de tema que se ha asignado al registro. |
 | Distancia | Confianza de que el registro pertenece al tema. La distancia más cercana a cero indica mayor confianza. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

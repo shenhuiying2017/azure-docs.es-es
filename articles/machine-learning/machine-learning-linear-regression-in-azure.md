@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/09/2016" 
 	ms.author="kbaroni;garye" />
 
 # Uso de regresión lineal en Aprendizaje automático de Azure
@@ -29,8 +29,8 @@
 
 Nuestro proyecto se inició con dos objetivos en mente:
 
-1. Usar el análisis predictivo para mejorar la exactitud de las proyecciones de ingresos mensuales de la organización.  
-2. Usar Aprendizaje automático de Azure para confirmar, optimizar, aumentar la velocidad y escalar los resultados.  
+1. Usar el análisis predictivo para mejorar la exactitud de las proyecciones de ingresos mensuales de la organización.
+2. Usar Aprendizaje automático de Azure para confirmar, optimizar, aumentar la velocidad y escalar los resultados.
 
 Como muchas empresas, nuestra organización pasa por un proceso de previsión de ingresos mensuales. Nuestro pequeño equipo de analistas de negocios se encarga de usar Aprendizaje automático para respaldar el proceso y mejorar la precisión de la previsión. El equipo dedicó varios meses a recopilar los datos de varios orígenes y ejecutar los atributos de datos a través de análisis estadísticos a fin de identificar los atributos claves relevantes para la previsión de ventas de servicios. Los pasos siguientes consistían en comenzar el prototipo de los modelos de regresión estadística de los datos en Excel. En unas semanas, tuvimos un modelo de regresión de Excel que superaba los procesos actuales de previsión de finanzas y de campo. Esto se convirtió en el resultado de la predicción de la línea de base.
 
@@ -51,8 +51,8 @@ Calculamos el *porcentaje de error medio absoluto* y se utilizó como medida de 
 Seguimos estos pasos para crear nuestro experimento en Aprendizaje automático de Azure:
 
 1.	Carga del conjunto de datos como un archivo csv en Aprendizaje automático de Azure (archivo muy pequeño).
-2.	Hemos creado un nuevo experimento y hemos usado el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.   
-3.	Uso del módulo [Dividir datos][split] \(con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.  
+2.	Hemos creado un nuevo experimento y hemos usado el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.
+3.	Uso del módulo [Dividir datos][split] \(con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.
 4.	Realizamos experimentos con el módulo [Regresión lineal][linear-regression] \(solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
 
 ### Revisión de los resultados iniciales
@@ -71,7 +71,7 @@ Cuando ejecutamos el proceso y los resultados para los desarrolladores y cientí
 * Cuando se usa el módulo [Regresión lineal][linear-regression] en Aprendizaje automático de Azure, se proporcionan dos métodos:
 	*  Descenso de gradiente en línea: pueden resultar más adecuado para los problemas a mayor escala.
 	*  Ordinaria de mínimos cuadrados: este es el método en el que se suele pensar cuando se habla de la regresión lineal. Para los conjuntos de datos más pequeños, la regresión ordinaria de mínimos cuadrados puede ser una opción más adecuada.
-*  Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada y, para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento.    
+*  Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada y, para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento.
 
 ### ¡Misterio resuelto!
 Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base en Aprendizaje automático de Azure que con Excel:
@@ -143,7 +143,7 @@ La capacidad de transferir sistemáticamente la predicción analítica previsió
 A continuación, encontrará algunos recursos que le ayudarán a trabajar con la regresión:
 
 * Regresión en Excel. Si nunca ha intentado realizar la regresión en Excel, este tutorial le facilitará el trabajo: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. Incluye una buena descripción para aquellos que se inician en la regresión lineal: [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
+* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. Incluye una buena descripción para aquellos que se inician en la regresión lineal: [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)
 * 	Regresión lineal ordinaria con mínimos cuadrados: errores, problemas y riesgos. Introducción y análisis sobre la regresión: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
@@ -159,4 +159,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

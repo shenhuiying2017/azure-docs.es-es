@@ -15,26 +15,26 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Optimización de la máquina virtual Linux en Azure
 
-Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-generic.md).
+Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-generic.md).
 
 ## Requisitos previos
 
-En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)), ya ha [instalado la CLI de Azure](../xplat-cli-install.md) y ya ha aprovisionado una máquina virtual en su suscripción de Azure. Antes de hacer cualquier cosa con Azure, tendrá que autenticarse en su suscripción. Para hacerlo con CLI de Azure, solo tiene que escribir `azure login` para iniciar el proceso interactivo.
+En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)), ya ha [instalado la CLI de Azure](../xplat-cli-install.md) y ya ha aprovisionado una VM en su suscripción de Azure. Antes de hacer cualquier cosa con Azure, tendrá que autenticarse en su suscripción. Para hacerlo con CLI de Azure, solo tiene que escribir `azure login` para iniciar el proceso interactivo.
 
 ## Disco de sistema operativo de Azure
 
-Al crear la máquina virtual Linux en Azure, tiene dos discos asociados a ella. /dev/sda es el disco del sistema operativo, /dev/sdb es el disco temporal. No utilice el disco del sistema operativo principal (/dev/sda) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la máquina virtual y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la máquina virtual con el fin de obtener un almacenamiento optimizado y persistente para sus datos.
+Al crear la máquina virtual Linux en Azure, tiene dos discos asociados a ella. /dev/sda es el disco del sistema operativo, /dev/sdb es el disco temporal. No utilice el disco del sistema operativo principal (/dev/sda) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos.
 
 ## Adición de discos para objetivos de rendimiento y tamaño 
 
-En función del tamaño de la máquina virtual que elija, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Se recomienda agregar discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium. Para obtener más información sobre los discos de Almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium. Para obtener más información sobre los discos de Premium Storage, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de VM de Azure](../storage/storage-premium-storage.md).
 
-Para alcanzar el máximo valor de IOPS en los discos de Almacenamiento premium con la configuración de caché como “ReadOnly” o “None”, debe deshabilitar las “barreras” al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Almacenamiento premium de copia de seguridad son duraderas para esta configuración de caché.
+Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como "ReadOnly" o "None", debe deshabilitar las "barreras" al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Almacenamiento premium de copia de seguridad son duraderas para esta configuración de caché.
 
 - Si utiliza **reiserFS**, deshabilite las barreras mediante la opción de montaje “barrier=none” (para habilitar las barreras, use “barrier=flush”)
 - Si utiliza **ext3/ext4**, deshabilite las barreras mediante la opción de montaje “barrier=0” (para habilitar las barreras, use “barrier=1”)
@@ -44,15 +44,15 @@ Para alcanzar el máximo valor de IOPS en los discos de Almacenamiento premium c
 
 Cuando cree la máquina virtual Linux en Azure, asegúrese de que conecta los discos desde las cuentas de almacenamiento que residen en la misma región que la máquina virtual para garantizar la proximidad y minimizar la latencia de red. Cada cuenta de almacenamiento estándar tiene un máximo de IOPS de 20 k y una capacidad de tamaño de 500 TB. Esto nos da aproximadamente 40 discos muy utilizados, incluido el disco del sistema operativo y cualquier disco de datos que haya creado. Para las cuentas de Almacenamiento premium, no hay ningún límite máximo de IOPS, pero hay un límite de tamaño de 32 TB.
 
-Al tratar con cargas de trabajo de IOPS muy elevadas y de haber elegido el almacenamiento estándar para los discos, debe dividir los discos entre varias cuentas de almacenamiento para asegurarse de no alcanzar el límite de 20 000 IOPS para las cuentas de Almacenamiento estándar. La máquina virtual puede contener una combinación de discos de las diferentes cuentas de almacenamiento y de los tipos de cuentas de almacenamiento para alcanzar la configuración óptima.
+Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido el almacenamiento estándar para los discos, debe dividir los discos entre varias cuentas de almacenamiento para asegurarse de no alcanzar el límite de 20 000 IOPS para las cuentas de Almacenamiento estándar. La máquina virtual puede contener una combinación de discos de las diferentes cuentas de almacenamiento y de los tipos de cuentas de almacenamiento para alcanzar la configuración óptima.
 
 ## Su unidad temporal de máquina virtual
 
-De forma predeterminada, cuando se crea una nueva máquina virtual, Azure proporciona un disco de sistema operativo (/dev/sda) y un disco temporal (/dev/sdb). Todos los discos adicionales que se agreguen se mostrarán como /dev/sdc, /dev/sdd, /dev/sde, etc. Todos los datos del disco temporal (/dev/sdb) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la máquina virtual, la reimplementación o el mantenimiento, fuerzan un reinicio de la máquina virtual. El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En cualquiera de las máquinas virtuales de la serie premium (serie DS, G y DS\_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 k IOPS.
+De forma predeterminada, cuando se crea una VM, Azure proporciona un disco de sistema operativo (/dev/sda) y un disco temporal (/dev/sdb). Todos los discos adicionales que se agreguen se mostrarán como /dev/sdc, /dev/sdd, /dev/sde, etc. Todos los datos del disco temporal (/dev/sdb) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la VM, la reimplementación o el mantenimiento, fuerzan un reinicio de la VM. El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En cualquiera de las VM de la serie premium (serie DS, G y DS\_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 000 IOPS.
 
 ## Archivo de intercambio de Linux
 
-Las imágenes de máquina virtual implementadas en Azure Marketplace tienen un agente de Linux de máquina virtual integrado con el sistema operativo, que permite que la máquina virtual interactúe con varios servicios de Azure. Suponiendo que ha implementado una imagen estándar desde Azure Marketplace, deberá hacer lo siguiente para configurar correctamente los valores del archivo de intercambio de Linux:
+Las imágenes de VM implementadas en Azure Marketplace tienen un agente de Linux de VM integrado con el sistema operativo, que permite que la VM interactúe con varios servicios de Azure. Suponiendo que ha implementado una imagen estándar desde Azure Marketplace, deberá hacer lo siguiente para configurar correctamente los valores del archivo de intercambio de Linux:
 
 Busque y modifique dos entradas en el archivo **/etc/waagent.conf**. Estas entradas controlan la existencia de un archivo de intercambio dedicado y el tamaño del archivo de intercambio. Los parámetros que desea modificar son `ResourceDisk.EnableSwap=N` y `ResourceDisk.SwapSizeMB=0`.
 
@@ -61,7 +61,7 @@ Tendrá que cambiarlos a los siguientes:
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={tamaño en MB que satisfaga sus requisitos}
 
-Una vez haya realizado el cambio, debe reiniciar waagent o la máquina virtual Linux con el fin de reflejar dichos cambios. Sabrá que se han implementado los cambios y que se ha creado un archivo de intercambio cuando use el comando `free` para ver el espacio libre. En el ejemplo siguiente tiene un archivo de intercambio de 512 MB creado como resultado de modificar el archivo waagent.conf.
+Una vez haya realizado el cambio, debe reiniciar waagent o la VM Linux con el fin de reflejar dichos cambios. Sabrá que se han implementado los cambios y que se ha creado un archivo de intercambio cuando use el comando `free` para ver el espacio libre. En el ejemplo siguiente tiene un archivo de intercambio de 512 MB creado como resultado de modificar el archivo waagent.conf.
 
     admin@mylinuxvm:~$ free
                 total       used       free     shared    buffers     cached
@@ -112,7 +112,7 @@ Para la familia de distribución Redhat, solo necesita el siguiente comando:
 
 ## Uso del software RAID para alcanzar mayores IOPS
 
-Si las cargas de trabajo necesitan más IOPS de lo que puede proporcionar un único disco, debe utilizar una configuración de software RAID de varios discos. Como Azure ya realiza la resistencia de disco en el nivel de tejido local, obtendrá el máximo nivel de rendimiento en una configuración de creación de bandas RAID-0. Deberá aprovisionar y crear nuevos discos en el entorno de Azure y conectarlos a la máquina virtual Linux antes de la creación de particiones, del formato y del montaje de las unidades. Para obtener más información sobre cómo configurar el software RAID en la máquina virtual Linux en Azure, consulte el documento **[Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)**.
+Si las cargas de trabajo necesitan más IOPS de lo que puede proporcionar un único disco, debe utilizar una configuración de software RAID de varios discos. Como Azure ya realiza la resistencia de disco en el nivel de tejido local, obtendrá el máximo nivel de rendimiento en una configuración de creación de bandas RAID-0. Deberá aprovisionar y crear nuevos discos en el entorno de Azure y conectarlos a la VM Linux antes de la creación de particiones, del formato y del montaje de las unidades. Para obtener más información sobre cómo configurar el software RAID en la máquina virtual Linux en Azure, consulte el documento **[Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)**.
 
 
 ## Pasos siguientes
@@ -126,4 +126,4 @@ Algunos vínculos útiles a recursos adicionales:
 - [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](virtual-machines-linux-classic-optimize-mysql.md)
 - [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

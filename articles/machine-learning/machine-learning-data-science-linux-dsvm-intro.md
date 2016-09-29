@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="09/12/2016"
+	ms.author="bradsev" />
 
 # Aprovisionamiento de Linux Data Science Virtual Machine
 
@@ -61,10 +61,10 @@ Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo sigui
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:
 
 1.	Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente. ![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+2.	 Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
-  a. **Aspectos básicos**:
+  	a. **Aspectos básicos**:
 
   - **Nombre**: nombre del servidor de ciencia de datos que está creando.
   - **Nombre de usuario**: identificador de acceso de la primera cuenta.
@@ -73,21 +73,21 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
   - **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
   - **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red.
 
-  b. **Tamaño**:
+  	b. **Tamaño**:
 
   - Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Seleccione **Ver todo** para consultar más opciones de tamaños de máquina virtual.
 
-  c. **Configuración**:
+  	c. **Configuración**:
 
   - **Tipo de disco**: elija **Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **Estándar**.
   - **Cuenta de almacenamiento**: puede crear una nueva cuenta de almacenamiento de Azure en su suscripción o usar una existente en la misma ubicación que ha elegido en el paso **Aspectos básicos** del Asistente.
   - **Otros parámetros**: en la mayoría de los casos, usará simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
 
-  d. **Resumen**:
+  	d. **Resumen**:
 
   - Compruebe que toda la información que ha especificado es correcta.
 
-  e. **Comprar**:
+  	e. **Comprar**:
 
   - Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño**.
 
@@ -340,8 +340,9 @@ Puede salir de Rattle y R. Ahora puede modificar el script de R generado o usarl
 ## Pasos siguientes
 A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y exploración:
 
+* El tutorial [Ciencias de los datos en Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md) muestra cómo llevar a cabo varias tareas comunes de ciencia de datos con la máquina virtual de ciencia de datos Linux aprovisionada aquí.
 * Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la máquina virtual.
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -38,7 +38,7 @@ Además, puede usar la herramienta AdlCopy en dos modos diferentes:
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilitación de la suscripción de Azure** para la vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - Contenedor de **blobs de almacenamiento de Azure** con algunos datos.
 - **Cuenta de Análisis de Azure Data Lake (opcional)**. Consulte [Introducción a Análisis de Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obtener instrucciones sobre cómo crear una cuenta de Almacén de Data Lake.
 - **Herramienta AdlCopy**. Instale la herramienta AdlCopy desde [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
@@ -51,7 +51,7 @@ Use la siguiente sintaxis para trabajar con la herramienta AdlCopy.
 
 A continuación, se describen los parámetros de la sintaxis:
 
-| Opción | Descripción |
+| Opción | Description |
 |-----------|------------|
 | Origen | Especifica la ubicación de los datos de origen en el blob de almacenamiento de Azure. El origen puede ser un contenedor de blobs, un blob u otra cuenta de Data Lake Store. |
 | Dest | Especifica el destino de Almacén de Data Lake al que copiar. |
@@ -77,7 +77,7 @@ A continuación, se describen los parámetros de la sintaxis:
 	
 	>[AZURE.NOTE] La sintaxis anterior especifica el archivo que se va a copiar en una carpeta de la cuenta de Data Lake Store. La herramienta AdlCopy crea una carpeta si el nombre de carpeta especificado no existe.
 
-	Se le pedirá que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta del Almacén de Data Lake. Verá un resultado similar al siguiente:
+	Se le pedirá que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta de Azure Data Lake Store. Verá un resultado similar al siguiente:
 
 		Initializing Copy.
 		Copy Started.
@@ -109,7 +109,7 @@ También puede usar AdlCopy para copiar datos entre dos cuentas de Data Lake Sto
 
 	>[AZURE.NOTE] La sintaxis anterior especifica el archivo que se va a copiar en una carpeta de la cuenta de Data Lake Store de destino. La herramienta AdlCopy crea una carpeta si el nombre de carpeta especificado no existe.
 
-	Se le pedirá que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta del Almacén de Data Lake. Verá un resultado similar al siguiente:
+	Se le pedirá que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta de Azure Data Lake Store. Verá un resultado similar al siguiente:
 
 		Initializing Copy.
 		Copy Started.|
@@ -173,4 +173,4 @@ En esta sección, aprenderá a usar AdlCopy para copiar datos de un origen (en e
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

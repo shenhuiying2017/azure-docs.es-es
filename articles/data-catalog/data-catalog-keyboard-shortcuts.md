@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Métodos abreviados de teclado para el Catálogo de datos de Azure
@@ -22,7 +22,7 @@
 
 ### Métodos abreviados de teclado generales
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Ir a cada control de una página.|Tabulador
 |Elegir una opción.|ENTRAR o barra espaciadora
@@ -33,27 +33,27 @@
 
 ### Página de autenticación
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Iniciar sesión en el servicio.|ALT+S
 
 ### Página de selección del origen de datos
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Ir a la página siguiente (si está habilitado).|ALT+N
 |Cambiar el tipo seleccionado cuando el foco está en un icono.|Flecha izquierda, arriba, derecha o abajo
 
 ### Página de conexión al origen de datos
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Ir a la página anterior (si está habilitado).|ALT+P
 |Elegir el botón Conectar.| ALT+C
 
 ### Página de contexto de conexión
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Botón Registrar (si está habilitado).| ALT+R
 |Incluir la casilla de verificación de vista previa (si está disponible).|ALT+P
@@ -64,7 +64,7 @@
 
 ### Página de progreso de publicación
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Botón Cancelar|ALT+C
 |Botón Registrar más objetos| ALT+R
@@ -72,14 +72,14 @@
 
 ### Página de progreso de publicación
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Botón Guardar (si está habilitado)| ALT+S
 |Botón Cancelar|ALT+C
 
 ## Métodos abreviados de teclado para el portal del Catálogo de datos
 
-|Para hacer esto|Presione
+|Operación|Presione
 |---|---
 |Navegar| TAB y MAYÚS + TAB
 |Hacer clic en un elemento| BARRA ESPACIADORA O ENTRAR
@@ -92,4 +92,4 @@
 |Alternar menú **Abrir en** | ALT + O
 |Explorar el contenedor, si el recurso es un contenedor | ALT + L
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

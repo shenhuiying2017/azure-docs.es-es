@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -50,7 +50,7 @@ Twitter permite recuperar los [datos de cada tweet](https://dev.twitter.com/docs
 	| Campo | Valor |
 	|:----- |:----- |
 	| Nombre | MyHDInsightApp |
-	| Descripción | MyHDInsightApp |
+	| Description | MyHDInsightApp |
 	| Sitio web | http://www.myhdinsightapp.com |
 	
 4. Active **Yes, I agree** (Acepto) y, a continuación, haga clic en **Create your Twitter application** (Crear la aplicación de Twitter).
@@ -319,4 +319,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

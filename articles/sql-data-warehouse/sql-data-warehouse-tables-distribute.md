@@ -304,6 +304,7 @@ Para información general sobre los procedimientos recomendados, consulte [Proce
 [tipos de datos]: ./sql-data-warehouse-tables-data-types.md
 [Distribución]: ./sql-data-warehouse-tables-distribute.md
 [Índice]: ./sql-data-warehouse-tables-index.md
+[índice]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [partición]: ./sql-data-warehouse-tables-partition.md
 [Estadísticas]: ./sql-data-warehouse-tables-statistics.md

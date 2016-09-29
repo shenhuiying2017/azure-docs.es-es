@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake | Azure" 
-   description="Aprenda a usar las funciones de ventana de U-SQL." 
+   description="Aprenda a usar las funciones de ventana de U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -44,7 +44,7 @@ Las funciones de ventana se dividen en las siguientes categorías:
 
 En este tutorial, se usan dos conjuntos de datos:
 
-- QueryLog 
+- QueryLog
 
     QueryLog representa una lista de lo que se buscó en el motor de búsqueda. Cada registro de consultas incluye:
     
@@ -166,7 +166,7 @@ La suma de la columna SalaryByDept es 165000 USD, que coincide con la cifra en 
  
 En ambos casos, hay menos filas de salida que de entrada:
  
-- Sin GROUP BY, la agregación contrae todas las filas en una sola. 
+- Sin GROUP BY, la agregación contrae todas las filas en una sola.
 - Con GROUP BY, hay N filas de salida, donde N es el número de valores distintos que aparecen en los datos; en este caso, obtendrá 4 filas en la salida.
 
 ###  Uso de una función de ventana
@@ -328,7 +328,7 @@ Las funciones de categoría devuelven un valor de categoría (long) para cada fi
 Se admiten estas funciones de categoría:
 
 - RANK
-- DENSE\_RANK 
+- DENSE\_RANK
 - NTILE
 - ROW\_NUMBER
 
@@ -341,7 +341,7 @@ Se admiten estas funciones de categoría:
 	) AS <alias>
 
 - La cláusula ORDER BY es opcional para las funciones de categoría. Si se especifica ORDER BY, entonces determina el orden de las categorías. Si no se especifica ORDER BY, U-SQL asigna valores según el orden que lea en el registro. El resultado es un valor no determinista de número de fila, categoría o categoría densa si no se especificó la cláusula ORDER BY.
-- NTILE requiere una expresión que se evalúe como entero positivo. Este número especifica el número de grupos en que se debe dividir cada partición. Este identificador se usa solo con la función de categoría NTILE. 
+- NTILE requiere una expresión que se evalúe como entero positivo. Este número especifica el número de grupos en que se debe dividir cada partición. Este identificador se usa solo con la función de categoría NTILE.
 
 Para obtener más detalles sobre la cláusula OVER, consulte la [referencia sobre el lenguaje U-SQL]().
 
@@ -431,8 +431,8 @@ Los resultados son:
 
 NTILE toma un parámetro ("numgroups"). Numgroups es una expresión constante int o long positiva que especifica el número de grupos en los que se debe dividir cada partición.
 
-- Si el número de filas de la partición es divisible por numgroups, los grupos tendrán el mismo tamaño. 
-- Si el número de filas de una partición no es divisible por numgroups, los grupos tendrán dos tamaños que diferirán en un miembro. Los grupos de mayor tamaño preceden a los más pequeños en el orden especificado por la cláusula OVER. 
+- Si el número de filas de la partición es divisible por numgroups, los grupos tendrán el mismo tamaño.
+- Si el número de filas de una partición no es divisible por numgroups, los grupos tendrán dos tamaños que diferirán en un miembro. Los grupos de mayor tamaño preceden a los más pequeños en el orden especificado por la cláusula OVER.
 
 Por ejemplo:
 
@@ -561,7 +561,7 @@ Las funciones analíticas se usan para comprender las distribuciones de valores 
 
 **Funciones de ventana analíticas admitidas**
 
-- CUME\_DIST 
+- CUME\_DIST
 - PERCENT\_RANK
 - PERCENTILE\_CONT
 - PERCENTILE\_DISC
@@ -570,7 +570,7 @@ Las funciones analíticas se usan para comprender las distribuciones de valores 
 
 CUME\_DIST calcula la posición relativa de un valor especificado en un grupo de valores. Calcula el porcentaje de consultas que tienen una latencia inferior o igual a la latencia de la consulta actual en la misma vertical. Para una fila R, suponiendo que el orden sea ascendente, la CUME\_DIST de R es el número de filas con valores inferiores o iguales al valor de R, dividido por el número de filas que se evalúan en el conjunto de resultados de la consulta o de la partición. CUME\_DIST devuelve números en el intervalo 0 < x < = 1.
 
-** Sintaxis**
+**Sintaxis**
 
     CUME_DIST() 
         OVER (
@@ -606,7 +606,7 @@ Hay 6 filas en la partición donde la clave de partición es "Web" (de la cuarta
 - Hay 5 filas con un valor inferior o igual a 400, por lo que la CUME\_DIST es igual a 5/6 = 0.83.
 - Hay 4 filas con un valor inferior o igual a 300, por lo que la CUME\_DIST es igual a 4/6 = 0.66.
 - Hay 3 filas con un valor inferior o igual a 200, por lo que la CUME\_DIST es igual a 3/6 = 0.5. Hay dos filas con el mismo valor de latencia.
-- Hay 1 fila con un valor inferior o igual a 100, por lo que la CUME\_DIST es igual a 1/6 = 0.16. 
+- Hay 1 fila con un valor inferior o igual a 100, por lo que la CUME\_DIST es igual a 1/6 = 0.16.
 
 
 **Notas de uso:**
@@ -623,7 +623,7 @@ Nota: no se permite la cláusula ORDER BY si la instrucción SELECT no va seguid
 
 PERCENT\_RANK calcula el orden relativo de una fila dentro de un grupo de filas. PERCENT\_RANK se usa para evaluar la importancia relativa de un valor dentro de un conjunto de filas o una partición. El intervalo de valores devueltos por PERCENT\_RANK es mayor que 0 y menor o igual que 1. A diferencia de CUME\_DIST, PERCENT\_RANK es siempre 0 para la primera fila.
 	
-** Sintaxis**
+**Sintaxis**
 
     PERCENT_RANK() 
         OVER (
@@ -636,7 +636,7 @@ PERCENT\_RANK calcula el orden relativo de una fila dentro de un grupo de filas.
 - La primera fila de cualquier conjunto tiene un PERCENT\_RANK 0.
 - Los valores NULL se tratan como los valores más bajos posibles.
 - Debe especificar la cláusula ORDER BY para calcular PERCENT\_RANK.
-- CUME\_DIST es similar a la función PERCENT\_RANK. 
+- CUME\_DIST es similar a la función PERCENT\_RANK.
 
 
 En el ejemplo siguiente se usa la función PERCENT\_RANK para calcular el percentil de latencia para cada consulta en una vertical.
@@ -730,7 +730,7 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 
 
 
-## Consulte también
+## Otras referencias
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
@@ -743,4 +743,4 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

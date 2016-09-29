@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # Supervisión de Aplicaciones en Servicio de aplicaciones de Azure
@@ -47,7 +47,7 @@ Las **cuotas** de las aplicaciones **gratis** o **compartidas** son:
    
 La única cuota aplicable a las aplicaciones hospedadas en un plan **básico**, **estándar** o **premium** es la cuota de **sistema de archivos**.
 
-Para más información sobre cuotas específicas, límites y características disponibles para las distintas SKU del Servicio de aplicaciones, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para obtener más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#app-service-limits).
 
 #### Aplicación de cuotas
 
@@ -126,9 +126,9 @@ Por su parte, **Porcentaje de CPU** es útil para las aplicaciones hospedadas en
 
 El servicio registra y agrega las métricas para una aplicación y el plan del Servicio de aplicaciones con las siguientes directivas de retención y granularidades:
 
- * Las métricas de granularidad de **minuto** se conservan durante **24 horas**
- * Las métricas de granularidad de **hora** se conservan durante **7 días**
- * Las métricas de granularidad de **día** se conservan durante **30 días**
+ * Las métricas de granularidad de **minuto** se conservan durante **48 horas**
+ * Las métricas de granularidad de **hora** se conservan durante **30 días**
+ * Las métricas de granularidad de **día** se conservan durante **90 días**
 
 ## Supervisión de cuotas y métricas en el Portal de Azure
 
@@ -160,4 +160,4 @@ Las aplicaciones del Servicio de aplicaciones hospedadas en planes del Servicio 
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

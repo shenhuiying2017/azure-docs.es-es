@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Work.com
@@ -84,7 +84,7 @@ Como parte de este procedimiento, es necesario cargar un certificado en Work.com
 
     ![Mi dominio](./media/active-directory-saas-work-com-tutorial/IC767825.png "Mi dominio")
 
-4.  Para comprobar que el dominio se ha configurado correctamente, asegúrese de que está en el "**Paso 4 Implementación para usuarios**" y revise "**Mi configuración de dominio**".
+4.  Para comprobar que el dominio se ha configurado correctamente, asegúrese de que está en el **Paso 4 Implementación para usuarios** y revise **Mi configuración de dominio**.
 
     ![Dominio implementado al usuario](./media/active-directory-saas-work-com-tutorial/IC784377.png "Dominio implementado al usuario")
 
@@ -98,7 +98,7 @@ Como parte de este procedimiento, es necesario cargar un certificado en Work.com
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar inicio de sesión único")
 
-8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Work.com**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Work.com (por ejemplo: "*http://company.my.salesforce.com*") y luego haga clic en **Siguiente**.
+8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Work.com**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Work.com (por ejemplo: *http://company.my.salesforce.com*”) y luego haga clic en **Siguiente**:
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar dirección URL de la aplicación")
 
@@ -127,7 +127,7 @@ Como parte de este procedimiento, es necesario cargar un certificado en Work.com
 
     ![Configuración de inicio de sesión único SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuración de inicio de sesión único SAML")
 
-    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.  
+    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
 
         >[AZURE.NOTE] Si se proporciona un valor para **Name** (Nombre), el cuadro de texto **API Name** (Nombre de API) se completa automáticamente.
 
@@ -135,11 +135,11 @@ Como parte de este procedimiento, es necesario cargar un certificado en Work.com
     3.  Para cargar el certificado descargado, haga clic en **Examinar** .
     4.  En el cuadro de texto **Id. de entidad**, escriba **https://salesforce-work.com**.
     5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
-    6.  Como **Ubicación de identidad de SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción de sujeto**.
+    6.  Como **Ubicación de identidad SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción Subject**.
     7.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades).
     8.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades).
     9.  Como **Vinculación de solicitud iniciada del proveedor de servicios**, seleccione **HTTP Post**.
-    10. Haga clic en **Guardar**.
+    10. Haga clic en **Save**.
 
 15. En el portal de Work.com, en el panel de navegación izquierdo, haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y luego haga clic en la página **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
 
@@ -184,7 +184,7 @@ En el caso de Work.com, el aprovisionamiento es una tarea manual.
 
     1.  Escriba los atributos **Apellido**, **Alias**, **Correo electrónico**, **Nombre de usuario** y **Sobrenombre** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Seleccione **Role** (Rol), **User License** (Licencia de usuario) y **Profile** (Perfil).
-    3.  Haga clic en **Guardar**.  
+    3.  Haga clic en **Save**.
 
         >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
@@ -208,6 +208,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Work.com.com.
   
-Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

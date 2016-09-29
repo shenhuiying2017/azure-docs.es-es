@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="05/17/2016"
+ms.date="09/06/2016"
 ms.author="rclaus" />
 
 #Consideraciones variadas sobre las imágenes de máquina virtual de Oracle
@@ -53,7 +53,7 @@ Considere dos enfoques diferentes para la conexión de varios discos, en funció
 
 Cuando se usa la Base de datos de Oracle en máquinas virtuales de Azure, usted es responsable de implementar una solución de recuperación ante desastres y disponibilidad alta para evitar los tiempos de inactividad. También es responsable de la copia de seguridad de sus propios datos y la aplicación.
 
-La alta disponibilidad y recuperación ante desastres para Oracle Database Enterprise Edition (sin RAC) en Azure puede lograrse mediante [Protección de datos, Protección de datos activa](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), con dos bases de datos en dos máquinas virtuales independientes. Ambas máquinas virtuales deben estar en el mismo [servicio en la nube](virtual-machines-linux-classic-connect-vms.md) y en la misma [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, recomendamos colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Tenga en cuenta que solo las máquinas virtuales del mismo servicio en la nube puede participar en el mismo conjunto de disponibilidad. Cada máquina virtual debe tener al menos 2 GB de memoria y 5 GB de espacio en disco.
+La alta disponibilidad y recuperación ante desastres para Oracle Database Enterprise Edition (sin RAC) en Azure puede lograrse mediante [Protección de datos, Protección de datos activa](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), con dos bases de datos en dos máquinas virtuales independientes. Ambas máquinas virtuales deben estar en el mismo [servicio en la nube](virtual-machines-linux-classic-connect-vms.md) y en la misma [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, recomendamos colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Solo las máquinas virtuales del mismo servicio en la nube puede participar en el mismo conjunto de disponibilidad. Cada máquina virtual debe tener al menos 2 GB de memoria y 5 GB de espacio en disco.
 
 Con la Protección de datos de Oracle, se puede lograr alta disponibilidad con una base de datos principal en una máquina virtual, una base de datos secundaria (de reserva) en otra máquina virtual y la replicación unidireccional establecida entre ellos. El resultado es un acceso de lectura a la copia de la base de datos. Con Oracle GoldenGate, puede configurar la replicación bidireccional entre las dos bases de datos. Para obtener información sobre cómo configurar una solución de alta disponibilidad para bases de datos mediante estas herramientas, consulte la documentación de [Protección de datos activa](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) y [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) en el sitio web de Oracle. Si se necesita acceso de lectura-escritura a la copia de la base de datos, puede usar [Protección de datos activa de Oracle](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
@@ -61,9 +61,9 @@ Con la Protección de datos de Oracle, se puede lograr alta disponibilidad con u
 
 -  **La agrupación en clústeres solo se admite en Enterprise Edition.** Tiene licencia para usar la agrupación en clústeres de WebLogic solo cuando utiliza la versión Enterprise Edition de WebLogic Server. No use la agrupación en clústeres con WebLogic Server Standard Edition.
 
--  **Tiempos de espera de conexión:** si la aplicación se basa en las conexiones a extremos públicos de otro servicio en la nube de Azure (por ejemplo, un servicio de nivel de base de datos), Azure puede cerrar estas conexiones abiertas después de 4 minutos de inactividad. Esto puede afectar a las características y las aplicaciones basadas en grupos de conexiones, ya que es posible que las conexiones que están inactivas durante un período superior a ese límite no sigan siendo válidas. Si esto afecta a la aplicación, considere la posibilidad de habilitar la lógica "keep-alive" en sus grupos de conexiones.
+-  **Tiempos de espera de conexión**: si la aplicación se basa en las conexiones a puntos de conexión públicos de otro servicio en la nube de Azure (por ejemplo, un servicio de nivel de base de datos), Azure puede cerrar estas conexiones abiertas después de 4 minutos de inactividad. Esto puede afectar a las características y las aplicaciones basadas en grupos de conexiones, ya que es posible que las conexiones que están inactivas durante un período superior a ese límite no sigan siendo válidas. Si esto afecta a la aplicación, considere la posibilidad de habilitar la lógica "keep-alive" en sus grupos de conexiones.
 
-	Tenga en cuenta que si un extremo es *interno* a su implementación del servicio en la nube de Azure (como una máquina virtual de base de datos independiente situada dentro del *mismo* servicio en la nube que las máquinas virtuales WebLogic), la conexión es directa, no se basa en el equilibrador de carga de Azure y, por tanto, no está sujeta a un tiempo de espera de conexión.
+	Si un punto de conexión es *interno* a su implementación del servicio en la nube de Azure (como una máquina virtual de base de datos independiente situada dentro del *mismo* servicio en la nube que las máquinas virtuales WebLogic), la conexión es directa, no se basa en Azure Load Balancer y, por tanto, no está sujeta a un tiempo de espera de conexión.
 
 -  **Tampoco se admite la multidifusión UDP.** Azure admite la unidifusión UDP, pero no admite la multidifusión ni la difusión. WebLogic Server es capaz de depender de las capacidades de unidifusión UDP de Azure. Para obtener mejores resultados dependiendo de la unidifusión UDP, recomendamos que el tamaño del clúster WebLogic se mantenga estático o con no más de 10 servidores administrados incluidos en el clúster.
 
@@ -73,7 +73,7 @@ Con la Protección de datos de Oracle, se puede lograr alta disponibilidad con u
 
 		Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-	Esto se debe a que para cualquier acceso remoto T3, WebLogic Server espera que el puerto con equilibrador de carga y el puerto del servidor WebLogic administrado sean el mismo. En el caso anterior, el cliente tiene acceso al puerto 7006 (el puerto del equilibrador de carga) y el servidor administrado está escuchando en 7008 (el puerto privado). Tenga en cuenta que esta restricción se aplica solo al acceso T3, no a HTTP.
+	Esto se debe a que para cualquier acceso remoto T3, WebLogic Server espera que el puerto con equilibrador de carga y el puerto del servidor WebLogic administrado sean el mismo. En el caso anterior, el cliente tiene acceso al puerto 7006 (el puerto del equilibrador de carga) y el servidor administrado está escuchando en 7008 (el puerto privado). Esta restricción se aplica solo al acceso T3, no a HTTP.
 
 	Para evitar este problema, use una de las siguientes soluciones:
 
@@ -95,11 +95,11 @@ Para obtener información relacionada, vea el artículo de la KB **860340.1** en
 
 -  **Actualizaciones más recientes de JDK 6 y 7.** Aunque se recomienda usar la última versión compatible pública de Java (actualmente Java 8), Azure también ofrece imágenes de JDK 6 y 7. Esto está pensado para las aplicaciones heredadas que aun no están preparadas para actualizarse a JDK 8. Mientras que es posible que las actualizaciones a imágenes de JDK anteriores ya no estén disponibles para el público general, dada la asociación de Microsoft con Oracle, las imágenes de JDK 6 y 7 ofrecidas por Azure están diseñadas para contener una actualización más reciente no pública que la ofrecida normalmente por Oracle para tan solo un grupo selecto de clientes compatibles con Oracle. Con el tiempo habrá disponibles nuevas versiones de las imágenes de JDK con versiones actualizadas de JDK 6 y 7.
 
-	Tenga en cuenta que el JDK disponible en estas imágenes de JDK 6 y 7 y las máquinas virtuales e imágenes derivadas de éstas solo se podrán usar dentro de Azure.
+	Tenga en cuenta que el JDK disponible en estas imágenes de JDK 6 y 7 y las máquinas virtuales e imágenes derivadas de estas solo se podrán usar dentro de Azure.
 
 -  **JDK de 64 bits.** Las imágenes de máquina virtual de Oracle WebLogic Server y las imágenes de máquina virtual de JDK de Oracle proporcionadas por Azure contienen las versiones de 64 bits de Windows Server y el JDK.
 
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

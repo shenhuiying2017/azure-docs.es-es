@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -31,7 +31,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 
 ## Descarga y muestreado de datos
-1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
+1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -102,4 +102,4 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

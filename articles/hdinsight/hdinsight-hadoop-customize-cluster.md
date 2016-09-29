@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -49,7 +49,7 @@ Nombre | Script
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-install-r].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vea [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
 : **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
-| **Carga previa de las bibliotecas de Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Incorporación de bibliotecas de Hive en clústeres de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| **Carga previa de las bibliotecas de Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Incorporación de bibliotecas de Hive durante la creación de clústeres de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 
 ## Llamada a scripts con el Portal de Azure
@@ -65,7 +65,7 @@ Nombre | Script
 		<tr><th>Propiedad</th><th>Valor</th></tr>
 		<tr><td>Nombre</td>
 			<td>Especifique un nombre para la acción de script.</td></tr>
-		<tr><td>URI de script</td>
+		<tr><td>Identificador URI de script</td>
 			<td>Especifique el URI al script invocado para personalizar el clúster.</td></tr>
 		<tr><td>Head/Worker</td>
 			<td>Especifique los nodos (**Head** o **Worker**) en los que se ejecuta el script de personalización.</b>.
@@ -315,7 +315,7 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-write-script].
 
 
-## Consulte también
+## Otras referencias
 
 - En [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
 - [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
@@ -333,4 +333,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

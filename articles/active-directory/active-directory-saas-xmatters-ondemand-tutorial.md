@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con xMatters OnDemand
@@ -84,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	a. En el cuadro de texto **URL de inicio de sesión de XMatters OnDemand**, escriba la dirección URL con el siguiente patrón: `https://<tenant-name>.XMattersOnDemandapp.com`
 
-	b. Haga clic en **Siguiente**.
+	b. Haga clic en **Next**.
 
 
 4.  En la página **Configuración de inicio de sesión único en XMatters OnDemand**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente como **c:\\XMatters OnDemand.cer**.
@@ -134,7 +134,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en XMatters OnDemand,
     ![Agregar un usuario](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Agregar un usuario")
 
     1.  Escriba el **UserID**, **Nombre**, **Apellido**, **Sitio** de una cuenta de AAD válida que quiera aprovisionar.
-    2.  Haga clic en **Guardar**.
+    2.  Haga clic en **Save**.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de XMatters OnDemand ofrecida por XMatters OnDemand para aprovisionar cuentas de usuario de AAD.
 
@@ -146,7 +146,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **XMatters OnDemand **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **XMatters OnDemand**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Asignar usuarios")
 
@@ -156,4 +156,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

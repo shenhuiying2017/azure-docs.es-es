@@ -66,8 +66,8 @@ Tenga en cuenta que actualmente no se admiten algunas distribuciones de Linux y 
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y responde correctamente.
 * [Escale el número de instancias automáticamente](insights-how-to-scale.md) para asegurarse de que la escala de servicio está basada en la demanda.
-* [Supervise el rendimiento de la aplicación](insights-perf-analytics.md) si desea comprender exactamente cómo funciona su código en la nube.
+* [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo funciona su código en la nube.
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

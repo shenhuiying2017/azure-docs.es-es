@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -29,4 +29,4 @@ Este menú redirige a temas en los que se describe cómo configurar los diversos
 
 **Microsoft Data Science Virtual Machine** también está disponible como una imagen de máquina virtual de Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Consulte [Aprovisionamiento de Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) para aprender a utilizar esta máquina virtual.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

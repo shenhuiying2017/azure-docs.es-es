@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jeannt" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="09/12/2016" 
 	ms.author="jeannt"/>
 
 
@@ -26,7 +26,7 @@ Net#© es un lenguaje desarrollado por Microsoft que se utiliza para definir arq
 -	Conceptos básicos relacionados con redes neuronales
 -	Requisitos de red neuronal y definición de componentes principales
 -	Sintaxis y palabras clave del lenguaje de especificación Net#
--	Ejemplos de redes neuronales personalizadas creadas mediante Net# 
+-	Ejemplos de redes neuronales personalizadas creadas mediante Net#
 	
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -43,7 +43,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 
 -	**Conjuntos filtrados**. El usuario puede definir un predicado mediante las ubicaciones del nodo de la capa de origen y el nodo de la capa de destino. Los nodos se conectan siempre que el predicado sea verdadero.
 -	**Conjuntos convolucionales**. El usuario puede definir pequeñas vecindades de nodos en la capa de origen. Cada nodo de la capa de destino se conecta con una vecindad de nodos en la capa de origen.
--	**Conjuntos de agrupación** y **conjuntos de normalización de respuesta**. Son similares a los conjuntos convolucionales en cuanto que el usuario define pequeñas vecindades de nodos en la capa de origen. La diferencia es que los usos compartidos de los bordes de estas agrupaciones no son entrenables. En su lugar, se aplica una función predefinida a los valores de nodo de origen para determinar el valor del nodo de destino.  
+-	**Conjuntos de agrupación** y **conjuntos de normalización de respuesta**. Son similares a los conjuntos convolucionales en cuanto que el usuario define pequeñas vecindades de nodos en la capa de origen. La diferencia es que los usos compartidos de los bordes de estas agrupaciones no son entrenables. En su lugar, se aplica una función predefinida a los valores de nodo de origen para determinar el valor del nodo de destino.
 
 El uso de Net# para definir la estructura de una red neuronal posibilita la definición de estructuras complejas como redes neuronales profundas o convoluciones de dimensiones arbitrarias, que se sabe que mejoran el aprendizaje en datos tales como imágenes, audio o vídeo.
 
@@ -53,20 +53,20 @@ La arquitectura de los modelos de red neuronal que cree en Aprendizaje automáti
 -	Crear capas ocultas y controlar el número de nodos de cada capa.
 -	Especificar cómo se van a conectar las capas entre ellas.
 -	Definir estructuras de conectividad especial como convoluciones y conjuntos ponderados de uso compartido.
--	Especificar diferentes funciones de activación.  
+-	Especificar diferentes funciones de activación.
 
 Para obtener detalles sobre la sintaxis del lenguaje de especificación, consulte [Especificación de estructura](#Structure-specifications).
  
 Para consultar ejemplos de definición de redes neuronales para algunas tareas habituales de aprendizaje automático, desde lo simple a lo complejo, consulte [Ejemplos](#Examples-of-Net#-usage).
 
 ## Requisitos generales
--	Debe haber exactamente una capa de salida, al menos una capa de entrada y ninguna o varias capas ocultas. 
--	Cada capa tiene un número fijo de nodos, ordenados conceptualmente en una matriz rectangular de dimensiones arbitrarias. 
--	Las capas de entrada no tienen parámetros entrenables asociados y representan el punto en que los datos de la instancia entran en la red. 
--	Las capas entrenables (las capas ocultas y de salida) tienen parámetros entrenables asociados, conocidos como ponderaciones y sesgos. 
--	Los nodos de origen y de destino deben encontrarse en capas separadas. 
+-	Debe haber exactamente una capa de salida, al menos una capa de entrada y ninguna o varias capas ocultas.
+-	Cada capa tiene un número fijo de nodos, ordenados conceptualmente en una matriz rectangular de dimensiones arbitrarias.
+-	Las capas de entrada no tienen parámetros entrenables asociados y representan el punto en que los datos de la instancia entran en la red.
+-	Las capas entrenables (las capas ocultas y de salida) tienen parámetros entrenables asociados, conocidos como ponderaciones y sesgos.
+-	Los nodos de origen y de destino deben encontrarse en capas separadas.
 -	Las conexiones deben ser acíclicas; en otras palabras, no puede haber una cadena de conexiones que conduzca de nuevo al nodo de origen inicial.
--	La capa de salida no puede ser la capa de origen de un conjunto de conexiones.  
+-	La capa de salida no puede ser la capa de origen de un conjunto de conexiones.
 
 ## Especificación de estructura
 Una especificación de la estructura de red neuronal se compone de tres secciones: la **declaración de constante**, la **declaración de capa** y la **declaración de conexión**. También hay una sección de **compartir declaración** opcional. Estas secciones se pueden especificar en cualquier orden.
@@ -95,14 +95,14 @@ La declaración de capa es obligatoria. Define el tamaño y el origen de la capa
 	output Result[2] from Hidden all;  
 
 -	El producto de las dimensiones es el número de nodos de la capa. En este ejemplo, hay dos dimensiones [5,20], lo que significa que hay 100 nodos en la capa.
--	Las capas se pueden declarar en cualquier orden con una excepción: si se define más de una capa de entrada, el orden en que se declaran debe coincidir con el orden de las característica en los datos de entrada.  
+-	Las capas se pueden declarar en cualquier orden con una excepción: si se define más de una capa de entrada, el orden en que se declaran debe coincidir con el orden de las característica en los datos de entrada.
 
 
 Para especificar que el número de nodos de una capa se debe determinar de forma automática, utilice la palabra clave **auto**. La palabra clave **auto** tiene diferentes efectos, dependiendo de la capa:
 
 -	En una declaración de capas de entrada, el número de nodos es el número de características de los datos de entrada.
--	En una declaración de capas ocultas, el número de nodos es el número especificado por el valor del parámetro en **Número de nodos ocultos**. 
--	En una declaración de capas de salida, el número de nodos es 2 para una clasificación de dos clases, 1 para regresión e igual al número de nodos de salida para la clasificación de varias clases.   
+-	En una declaración de capas ocultas, el número de nodos es el número especificado por el valor del parámetro en **Número de nodos ocultos**.
+-	En una declaración de capas de salida, el número de nodos es 2 para una clasificación de dos clases, 1 para regresión e igual al número de nodos de salida para la clasificación de varias clases.
 
 Por ejemplo, la siguiente definición de red permite la determinación automática del tamaño de todas las capas:
 
@@ -123,8 +123,8 @@ Se admiten las siguientes funciones de salida:
 -	sqrt
 -	srlinear
 -	abs
--	tanh 
--	brlinear  
+-	tanh
+-	brlinear
 
 Por ejemplo, la siguiente declaración usa la función **softmax**:
 
@@ -139,7 +139,7 @@ Actualmente se admiten cinco tipos de conjuntos de conexiones:
 -	Conjuntos **filtrados**, indicados por la palabra clave **where**, seguida por una expresión de predicado
 -	Conjuntos **convolucionales**, indicados por la palabra clave **convolve** seguida de los atributos de convolución.
 -	Conjuntos de **agrupación**, indicados por las palabras clave **max pool** o **mean pool**
--	Conjuntos de **normalización de respuesta** indicados por la palabra clave **response norm**  	
+-	Conjuntos de **normalización de respuesta** indicados por la palabra clave **response norm**
 
 ## Conjuntos completos  
 
@@ -152,8 +152,8 @@ Una especificación de conjunto de conexiones filtrado incluye un predicado, exp
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	En el predicado de _ByRow_, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, _Pixels_, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta _ByRow_. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con _0 <= s[0] < 10_ y _0 <= s[1] < 20_ y **d** intervalos de todos los pares de enteros con _0 <= d[0] < 10_ y _0 <= d[1] < 12_. 
--	En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, hay un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].  
+-	En el predicado de _ByRow_, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, _Pixels_, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta _ByRow_. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con _0 <= s[0] < 10_ y _0 <= s[1] < 20_ y **d** intervalos de todos los pares de enteros con _0 <= d[0] < 10_ y _0 <= d[1] < 12_.
+-	En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, hay un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].
 
 También tiene la posibilidad de especificar un conjunto de ponderaciones para un conjunto filtrado. El valor del atributo **Weights** debe ser una tupla de los valores de punto flotante con una longitud que coincida con el número de conexiones definidas por la agrupación. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
 
@@ -175,27 +175,27 @@ Los conjuntos convolucionales admiten los siguientes atributos:
 
 Para definir la forma y las ubicaciones de los kernels, use los atributos **KernelShape**, **Stride**, **Padding**, **LowerPad** y **UpperPad**:
 
--	**KernelShape**: (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**. 
--	**Stride**: (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno. 
--	**Sharing**: (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True. 
--	**MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino. 
--	**Weights**: (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.  
+-	**KernelShape**: (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**.
+-	**Stride**: (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno.
+-	**Sharing**: (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True.
+-	**MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino.
+-	**Weights**: (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
 
 Hay dos conjuntos de propiedades que controlan el completado y que se excluyen mutuamente:
 
 -	**Padding**: (opcional) determina si la entrada debe completarse usando un **esquema de relleno predeterminado**. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para coincidir exactamente con el número de kernels _(InputShape[d] - 1) / Stride[d] + 1_ en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
 -	**UpperPad** y **LowerPad**: (opcional) proporcionan mayor control sobre la cantidad de completado que se usa. **Importante**: estos atributos pueden definirse si, y solo si, la propiedad **Padding** anterior ***no*** está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
-	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2. 
-	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2. 
-	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0. 
+	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2.
+	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2.
+	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0.
 
 La configuración de **Padding** = true permite todo el relleno que sea necesario para mantener el "centro" del kernel dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida _D_ se calcula como _D (I - K) = / S + 1_, donde _I_ es el tamaño de entrada, _K_ es el tamaño del kernel, _S_ es el intervalo y _/_ es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada _I_ es efectivamente 29 y, por lo tanto, _D = (29 - 5) / 2 + 1 = 13_. Sin embargo, cuando **Padding** = true, esencialmente _I_ aumenta en _K - 1_; por lo tanto, _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. Al especificar valores para **UpperPad** y **LowerPad**, obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
 
 Para obtener más información acerca de las redes convolucionales y sus aplicaciones, consulte estos artículos:
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
--	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf)
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
 
 ## Conjuntos de agrupación
 Un **conjunto de agrupación** aplica una geometría similar a la conectividad convolucional, pero usa funciones predefinidas sobre los valores de los nodos de origen para derivar el valor del nodo de destino. Por tanto, los conjuntos de agrupación no tienen estado entrenable (ponderaciones o sesgos). Los paquetes de agrupación admiten todos los atributos convolucionales, excepto **Sharing**, **MapCount** y **Weights**.
@@ -211,15 +211,15 @@ El ejemplo siguiente ilustra un conjunto de agrupación:
 	    Stride      = [ 1,  2,  2];
 	  }  
 
--	La aridad del conjunto es 3 (la longitud de las tuplas **InputShape**, **KernelShape** y **Stride**). 
--	El número de nodos de la capa de origen es _5 * 24 * 24 = 2880_. 
--	Esto es un nivel de agrupación local tradicional porque **KernelShape** y **Stride** son iguales. 
--	El número de nodos de la capa de destino es _5 * 12 * 12 = 1440_.  
+-	La aridad del conjunto es 3 (la longitud de las tuplas **InputShape**, **KernelShape** y **Stride**).
+-	El número de nodos de la capa de origen es _5 * 24 * 24 = 2880_.
+-	Esto es un nivel de agrupación local tradicional porque **KernelShape** y **Stride** son iguales.
+-	El número de nodos de la capa de destino es _5 * 12 * 12 = 1440_.
 	
 Para obtener más información acerca de las capas de agrupación, consulte estos artículos:
 
 -	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sección 3.4)
--	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## Conjuntos de normalización de respuesta
@@ -230,7 +230,7 @@ La **normalización de respuesta** es un esquema de normalización local present
 Las agrupaciones de normalización de respuesta admiten todos los atributos convolucionales excepto **Sharing**, **MapCount** y **Weights**.
  
 -	Si el kernel contiene neuronas en el mismo mapa que ***x***, se hace referencia al esquema de normalización como **normalización de mismo mapa**. Para definir la normalización de mismo mapa, el primer coordinado de **InputShape** debe tener un valor de 1.
--	Si el kernel contiene neuronas en la misma posición espacial que ***x***, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de **normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.  
+-	Si el kernel contiene neuronas en la misma posición espacial que ***x***, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de **normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.
 
 Dado que los conjuntos de normalización de respuesta aplican una función predefinida a los valores del nodo de origen para determinar el valor del nodo de destino, no tienen un estado entrenable (ponderaciones o sesgos).
 
@@ -238,9 +238,9 @@ Dado que los conjuntos de normalización de respuesta aplican una función prede
 
 Además de los cuatro atributos que se han descrito anteriormente, las agrupaciones de normalización de respuesta también admiten los siguientes atributos:
 
--	**Alpha**: (obligatorio) especifica un valor de punto flotante que corresponde a ***α*** en la fórmula anterior. 
--	**Beta**: (obligatorio) especifica un valor de punto flotante que corresponde a ***β*** en la fórmula anterior. 
--	**Offset**: (opcional) especifica un valor de punto flotante que corresponde a ***k*** en la fórmula anterior. El valor predeterminado es 1.  
+-	**Alpha**: (obligatorio) especifica un valor de punto flotante que corresponde a ***α*** en la fórmula anterior.
+-	**Beta**: (obligatorio) especifica un valor de punto flotante que corresponde a ***β*** en la fórmula anterior.
+-	**Offset**: (opcional) especifica un valor de punto flotante que corresponde a ***k*** en la fórmula anterior. De manera predeterminada, su valor es 1.
 
 En el ejemplo siguiente se define un conjunto de normalización de respuesta que utiliza estos atributos:
 
@@ -252,9 +252,9 @@ En el ejemplo siguiente se define un conjunto de normalización de respuesta que
 	    Beta = 0.75;
 	  }  
 
--	La capa de origen incluye cinco asignaciones, cada una con una dimensión de 12 x 12, sumando un total de 1440 nodos. 
--	El valor de **KernelShape** indica que se trata de una capa de normalización de mismo mapa, donde la vecindad es un rectángulo de 3x3. 
--	El valor predeterminado de **Padding** es falso, por lo que la capa de destino tiene solo 10 nodos en cada dimensión. A fin de incluir un nodo en la capa de destino correspondiente a cada uno de los nodos de la capa de origen, agregue Padding = [true, true, true] y cambie el tamaño de RN1 a [5, 12, 12].  
+-	La capa de origen incluye cinco asignaciones, cada una con una dimensión de 12 x 12, sumando un total de 1440 nodos.
+-	El valor de **KernelShape** indica que se trata de una capa de normalización de mismo mapa, donde la vecindad es un rectángulo de 3x3.
+-	El valor predeterminado de **Padding** es falso, por lo que la capa de destino tiene solo 10 nodos en cada dimensión. A fin de incluir un nodo en la capa de destino correspondiente a cada uno de los nodos de la capa de origen, agregue Padding = [true, true, true] y cambie el tamaño de RN1 a [5, 12, 12].
 
 ## Declaración de uso compartido 
 Net# admite opcionalmente la definición de varios conjuntos con ponderaciones compartidas. Los pesos de las dos agrupaciones se pueden compartir si sus estructuras son iguales. La siguiente sintaxis define agrupaciones con pesos compartidos:
@@ -305,9 +305,9 @@ Por ejemplo, la siguiente declaración de uso compartido especifica los nombres 
 	}
 	share { H1, H2 } // share both weights and biases  
 
--	Las características de entrada se particionan en dos capas de entrada de igual tamaño. 
--	Las capas ocultas calculan entonces características de niveles más altos en las dos capas de entrada. 
--	La declaración de uso compartido especifica que _H1_ y _H2_ deben calcularse del mismo modo desde sus entradas respectivas.  
+-	Las características de entrada se particionan en dos capas de entrada de igual tamaño.
+-	Las capas ocultas calculan entonces características de niveles más altos en las dos capas de entrada.
+-	La declaración de uso compartido especifica que _H1_ y _H2_ deben calcularse del mismo modo desde sus entradas respectivas.
  
 Es posible también especificarlo con dos declaraciones de uso compartido independientes, del modo siguiente:
 
@@ -331,9 +331,9 @@ Este sencillo ejemplo demuestra cómo crear un modelo de red neuronal que tenga 
 
 En el ejemplo se muestran algunos comandos básicos como los siguientes:
 
--	La primera línea define el nivel de entrada (denominado _Data_). Cuando se usa la palabra clave **auto**, la red neuronal incluye automáticamente todas las columnas de características en los ejemplos de entrada. 
+-	La primera línea define el nivel de entrada (denominado _Data_). Cuando se usa la palabra clave **auto**, la red neuronal incluye automáticamente todas las columnas de características en los ejemplos de entrada.
 -	La segunda línea crea la capa oculta. El nombre _H_ se asigna a la capa oculta, que tiene 200 nodos. Esta capa está conectada por completo a la capa de entrada.
--	La tercera línea define la capa de salida (denominada _O_), que contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.   
+-	La tercera línea define la capa de salida (denominada _O_), que contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.
 
 ### Definición de varias capas ocultas: ejemplo de visión de equipo
 En el ejemplo siguiente se demuestra cómo definir una red neuronal ligeramente más compleja, con varias capas personalizadas ocultas.
@@ -396,12 +396,12 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La palabra clave **convolve** indica que _Conv1_ y _Conv2_ son capas convolucionales. Cada una de estas declaraciones de capa está seguida por una lista de los atributos de convolución.
 -	La red tiene una tercera capa oculta, _Hid3_, que está totalmente conectada a la segunda capa oculta, _Conv2_.
 -	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **all** indica que la capa de salida está conectada por completo a _Hid3_..
--	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
+-	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**).
 -	El número de ponderaciones por kernel es _1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5.
 -	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Dado que **Sharing**[d] es falso solo para _d == 0_, el número de los kernel es _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
@@ -414,4 +414,4 @@ El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue de
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -32,7 +32,7 @@ En este tema se explica cómo usar el método Creación rápida para crear un nu
 > [AZURE.NOTE] Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para más información, consulte [Entrega continua a Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
 ## Conceptos
-se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
+Se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
 
 - **Definición de servicio** El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
 
@@ -102,7 +102,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
-	Puede ver el progreso de carga en el área de mensajes que se muestra a continuación. Cuando la carga termine, el certificado se agregará a la tabla. En el área de mensajes, haga clic en OK para cerrar el mensaje.
+	Puede ver el progreso de carga en el área de mensajes que se muestra a continuación. Cuando la carga termine, el certificado se agregará a la tabla. En el área de mensajes, haga clic en Aceptar para cerrar el mensaje.
 
 	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
@@ -126,7 +126,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
-	Puede supervisar el estado de la implementación en el área de mensajes. Haga clic en OK para ocultar el mensaje.
+	Puede supervisar el estado de la implementación en el área de mensajes. Haga clic en Aceptar para ocultar el mensaje.
 
 	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
@@ -141,7 +141,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
     ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
  
 ## Pasos siguientes
 
@@ -150,4 +150,4 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

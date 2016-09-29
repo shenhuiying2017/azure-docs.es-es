@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/21/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure
@@ -62,7 +62,7 @@ En este tutorial, aprenderá lo siguiente:
 ## Configuración de la máquina virtual
 Existen cinco hojas en las que puede configurar una máquina virtual de SQL Server.
 
-| Paso | Descripción |
+| Paso | Description |
 |---------------------|-------------------------------|
 | **Aspectos básicos** | [Configuración básica](#1-configure-basic-settings) |
 | **Tamaño** | [Elección del tamaño de la máquina virtual](#2-choose-virtual-machine-size) |
@@ -125,6 +125,7 @@ En la hoja **Configuración de SQL Server**, configure las optimizaciones y los 
 | [Aplicación de revisiones automatizada](#automated-patching) |
 | [Copia de seguridad automatizada](#automated-backup) |
 | [Integración del Almacén de claves de Azure](#azure-key-vault-integration) |
+| [R Services](#r-services) |
 
 ### Conectividad
 En **Conectividad SQL**, especifique el tipo de acceso que desea para la instancia de SQL Server de esta máquina virtual. En este tutorial, seleccione **Público (Internet)** para permitir que se establezcan conexiones a SQL Server desde equipos o servicios de Internet. Si esta opción está seleccionada, Azure configurará automáticamente el firewall y el grupo de seguridad de red para permitir el tráfico en el puerto 1433.
@@ -137,8 +138,10 @@ Para conectarse a SQL Server a través de Internet, también debe habilitar la a
 
 Si prefiere no permitir las conexiones al motor de base de datos a través de Internet, elija una de las siguientes opciones:
 
-- **Local (inside VM only)** [Local (solo dentro de la máquina virtual)]: elija esta opción para permitir conexiones a SQL Server únicamente desde dentro de la máquina virtual.
-- **Private (within Virtual Network)** [Privado (dentro de la red virtual)]: elija esta opción para permitir conexiones a SQL Server desde máquinas o servicios que se encuentren en la misma red virtual.
+- **Local (solo dentro de la máquina virtual)**: elija esta opción para permitir conexiones a SQL Server únicamente desde dentro de la máquina virtual.
+- **Privado (dentro de la red virtual)**: elija esta opción para permitir conexiones a SQL Server desde máquinas o servicios que se encuentren en la misma red virtual.
+
+>[AZURE.NOTE] La imagen de máquina virtual para SQL Server Express Edition no habilita automáticamente el protocolo TCP/IP. Esto es verdad incluso para las opciones de conectividad pública y privada. Para Express Edition, debe usar el Administrador de configuración de SQL Server para [habilitar manualmente el protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) después de crear la máquina virtual.
 
 En general, mejore la seguridad al elegir la conectividad más restrictiva que permita su escenario. No obstante, todas las opciones se pueden proteger mediante reglas del grupo de seguridad de red y la autenticación de SQL o Windows.
 
@@ -167,8 +170,8 @@ Puede especificar requisitos como operaciones de entrada/salida por segundo (IOP
 De forma predeterminada, Azure optimiza el almacenamiento de 5000 IOPS, 200 MB y 1 TB de espacio de almacenamiento. Puede cambiar estos valores de almacenamiento en función de la carga de trabajo. En **Storage optimized for** (Optimización de almacenamiento para), seleccione una de las siguientes opciones:
 
 - **General** es la configuración predeterminada y admite la mayoría de las cargas de trabajo.
-- El procesamiento **Transaccional** optimiza el almacenamiento en las cargas de trabajo OLTP de bases de datos tradicionales.
-- **Data warehousing** (Almacenamiento de datos) optimiza el almacenamiento en las cargas de trabajo de informes y análisis.
+- El procesamiento **Transaccional** optimiza el almacenamiento en las cargas de trabajo OLTP de las bases de datos tradicionales.
+- **Almacenamiento de datos** optimiza el almacenamiento en las cargas de trabajo de informes y análisis.
 
 >[AZURE.NOTE] Los límites superiores de los controles deslizantes varían según el tamaño de la máquina virtual seleccionada.
 
@@ -177,7 +180,7 @@ La **aplicación de revisiones automatizada** está habilitada de forma predeter
 
 ![Aplicación de revisiones automatizada de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Para más información, consulte [Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)](virtual-machines-windows-classic-sql-automated-patching.md).
+Para más información, consulte [Aplicación de revisiones automatizadas para SQL Server en Azure Virtual Machines (implementación clásica)](virtual-machines-windows-sql-automated-patching.md).
 
 ### Copia de seguridad automatizada
 Habilite las copias de seguridad automáticas en todas las bases de datos en **Copia de seguridad automatizada**. La copia de seguridad automatizada está deshabilitada de forma predeterminada.
@@ -192,10 +195,10 @@ Para cifrar la copia de seguridad, haga clic en **Habilitar**. Después, especif
 
 ![Copia de seguridad automatizada de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Para obtener más información, vea [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+ Para obtener más información, vea [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-automated-backup.md).
 
 ### Integración del Almacén de claves de Azure
-Para almacenar información confidencial de seguridad en Azure para el cifrado, haga clic en **Azure key vault integration** (Integración del Almacén de claves de Azure) y en **Enable** (Habilitar).
+Para almacenar información confidencial de seguridad en Azure para el cifrado, haga clic en **Integración de Azure Key Vault** y en **Habilitar**.
 
 ![Integración del Almacén de claves de Azure de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
@@ -208,9 +211,16 @@ En la tabla siguiente se enumeran los parámetros necesarios para configurar la 
 | **Secreto de entidad de seguridad**|Secreto de la entidad de seguridad de servicio de Azure Active Directory Este secreto también se conoce como «secreto de cliente». | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nombre de credencial**|**Nombre de credencial**: la integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial.| mycred1|
 
-Para más información, consulte [Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásica)](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Para más información, consulte [Configuración de la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
 Cuando termine de definir la configuración de SQL Server, haga clic en **Aceptar**.
+
+### R services
+En SQL Server 2016 Enterprise Edition, tiene la opción de habilitar [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Esto le permite utilizar análisis avanzado con SQL Server 2016. Haga clic en **Habilitar** en la hoja **Configuración de SQL Server**.
+
+![Habilitación de SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] En aquellas imágenes de SQL Server que no pertenecen a la versión 2016 Enterprise Edition, la opción para habilitar R Services está deshabilitada.
 
 ## 5\. Revisión del resumen
 En la hoja **Resumen**, revise el resumen y haga clic en **Aceptar** para crear la instancia de SQL Server, el grupo de recursos y los recursos especificados para esta máquina virtual.
@@ -228,7 +238,7 @@ Use los pasos siguientes para conectarse a la máquina virtual con Escritorio re
 1. El explorador descargará un archivo RDP para la máquina virtual. Abra el archivo RDP. ![Escritorio remoto para máquina virtual de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
 1. La conexión a Escritorio remoto le avisará de que no se puede identificar el publicador de esta conexión remota. Haga clic en **Conectar** para continuar.
 1. En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
-1. En **Nombre de usuario**, escriba **<nombreDeUsuario>**, donde <user name> es el nombre de usuario que especificó al configurar la máquina virtual. Tiene que agregar una barra diagonal inversa delante del nombre.
+1. En **Nombre de usuario**, escriba **<nombreDeUsuario>**, donde <nombreDeUsuario> es el nombre de usuario que especificó al configurar la máquina virtual. Tiene que agregar una barra diagonal inversa delante del nombre.
 1. Escriba la **contraseña** que configuró previamente para esta máquina virtual y haga clic en **Aceptar** para conectarse.
 1. Si se le pregunta en otro cuadro de diálogo **Conexión a Escritorio remoto** si desea conectarse, haga clic en **Sí**.
 
@@ -247,10 +257,10 @@ Las secciones siguientes muestran cómo conectarse a la instancia de SQL Server 
 > [AZURE.INCLUDE [Conexión a SQL Server en el Administrador de recursos de una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## Pasos siguientes
-Para más información sobre el uso de SQL Server en Azure, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md) y [Preguntas más frecuentes sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-faq.md).
+Para más información sobre el uso de SQL Server en Azure, consulte [Información general sobre SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) y [Preguntas más frecuentes sobre SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md).
 
-Para obtener información general sobre Máquinas virtuales de Azure, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016).
+Para obtener información general sobre Azure Virtual Machines, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016).
 
 [Explore la ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) para SQL Server en máquinas virtuales de Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

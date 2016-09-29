@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -24,15 +24,13 @@ La protección del acceso a los recursos de la empresa es importante para todas 
   
 ## ¿Por qué el acceso condicional?  
 
-Las funcionalidades de control del acceso condicional de Azure Active Directory ofrecen a las empresas varias maneras sencillas de proteger sus recursos locales y en la nube. Las directivas de acceso condicional se pueden utilizar como ayuda para la protección contra el riesgo de robo y suplantación de credenciales, ya que requieren la autenticación multifactor, así como ayudarle a mantener a salvo los datos de la compañía, ya que requiere que un dispositivo administrado por Intune conceda el acceso a los servicios confidenciales.
+Las funcionalidades de control del acceso condicional de Azure Active Directory ofrecen a las empresas varias maneras sencillas de proteger sus recursos locales y en la nube. Las directivas de acceso condicional se pueden utilizar como ayuda para la protección contra el riesgo de robo y suplantación de credenciales, ya que requieren la autenticación multifactor, así como ayudarlo a mantener a salvo los datos de la compañía, ya que requiere que un dispositivo administrado por Intune conceda el acceso a los servicios confidenciales.
 
 
 
 ## Requisitos de licencia
 
-El acceso condicional es una característica de [Azure AD Premium](http://www.microsoft.com/identity). Todos los usuarios que tengan acceso a una aplicación a la que se ha aplicado la directiva de acceso condicional, deben tener una licencia de Azure AD Premium. Más información acerca del uso con el [informe de usuarios sin licencia](https://aka.ms/utc5ix).
-
-
+El acceso condicional de Azure Active Directory es una característica de [Azure AD Premium](http://www.microsoft.com/identity). Todos los usuarios que tengan acceso a una aplicación a la que se ha aplicado la directiva de acceso condicional, deben tener una licencia de Azure AD Premium. Más información acerca del uso con el [informe de usuarios sin licencia](https://aka.ms/utc5ix).
 
 
 
@@ -57,7 +55,7 @@ Con el control de acceso condicional, Azure Active Directory comprueba las condi
 
 ## Controles
    
-- **Multi-Factor Authentication (MFA)**: puede requerir una autenticación segura con MFA. MFA puede proporcionarla Azure MFA o un proveedor de MFA local con ADFS. La autenticación de MFA sirve de ayuda para proteger el acceso a los recursos por parte de un usuario no autorizado que haya obtenido acceso al nombre de usuario y a la contraseña de un usuario válido.
+- **Multi-Factor Authentication (MFA)**: puede requerir una autenticación sólida con MFA. MFA puede proporcionarla Azure MFA o un proveedor de MFA local con ADFS. La autenticación de MFA sirve de ayuda para proteger el acceso a los recursos por parte de un usuario no autorizado que haya obtenido acceso al nombre de usuario y a la contraseña de un usuario válido.
 
 - **Bloqueo**: el acceso se puede aplicar en función de condiciones como la ubicación del usuario. Por ejemplo, se puede bloquear el acceso cuando un usuario no está en una red de confianza.
 
@@ -125,4 +123,4 @@ El mapa de contenido siguiente enumera los documentos que debe consultar para ob
 - [Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)
 - [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

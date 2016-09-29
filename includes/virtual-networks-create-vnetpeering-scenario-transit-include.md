@@ -4,8 +4,8 @@ Aunque el uso de rutas del sistema facilita el tráfico automáticamente para su
 
 ![Tránsito de NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-Nota: Por motivos de simplicidad, se supone que todas las redes virtuales están en la misma suscripción. Sin embargo, también se puede aplicar a un escenario entre suscripciones.
+> [AZURE.NOTE] Por motivos de simplicidad, se supone que todas las redes virtuales están en la misma suscripción. Sin embargo, también se puede aplicar a un escenario entre suscripciones.
 
 La propiedad principal para habilitar el enrutamiento de tránsito es el parámetro "Permitir tráfico reenviado". Este parámetro permite aceptar y enviar tráfico entre el NVA y la red virtual emparejada.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

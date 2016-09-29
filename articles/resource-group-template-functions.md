@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -1087,7 +1087,7 @@ En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento en otr
 		}
 	}
 
-Las propiedades en el objeto devuelto varían según el tipo de recurso.
+Las propiedades del objeto devuelto desde la función de **referencia** varían según el tipo de recurso. Para ver los nombres y los valores de propiedad de un tipo de recurso, cree una plantilla sencilla que devuelva el objeto en la sección de **salidas**. Si tiene un recurso existente de ese tipo, la plantilla devuelve simplemente el objeto sin necesidad de implementar los nuevos recursos. Si no tiene un recurso existente de ese tipo, la plantilla implementa solo ese tipo y devuelve el objeto. Después, agregue las propiedades a otras plantillas que necesite para recuperar dinámicamente los valores durante la implementación.
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -1217,4 +1217,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

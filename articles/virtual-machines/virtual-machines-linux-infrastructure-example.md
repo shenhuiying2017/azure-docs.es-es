@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
-# Example Azure infrastructure walkthrough (Tutorial de la infraestructura de Azure de ejemplo)
+# Tutorial de la infraestructura de Azure de ejemplo
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artículo le guía a través de la creación de una infraestructura de la aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
+Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
 
 
 ## Carga de trabajo de ejemplo
@@ -33,8 +33,8 @@ Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azu
 - Dos servidores MongoDB parte de un clúster particionado para almacenar pedidos y datos de productos en un nivel de base de datos
 - Dos controladores de dominio de Active Directory para los proveedores y las cuentas de cliente en un nivel de autenticación
 - Todos los servidores se encuentran en dos subredes:
-	- una subred front-end para los servidores web
-	- una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
+	- Una subred front-end para los servidores web
+	- Una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
 
 ![Diagrama de distintos niveles de infraestructura de aplicaciones](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
@@ -52,9 +52,9 @@ El diseño resultante incluirá:
 Todo lo anterior seguirá estas convenciones de nomenclatura:
 
 - Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
-	- En este ejemplo, "**azos**" (tienda en línea de Azure) es el nombre de la carga de trabajo de TI y "**use**" (este de EE.UU. 2) es la ubicación
+	- En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE.UU. 2") es la ubicación
 - Las cuentas de almacenamiento usan adventureazosusesa**[descripción]**
-	- Tenga en cuenta que se agregó ''adventure'' al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
+	- Se agregó adventure al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
 - Las redes virtuales usan AZOS-USE-VN**[número]**
 - Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
 - Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
@@ -132,4 +132,4 @@ Esta configuración incluye:
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@ description="Una lista de puertos utilizados por los servicios Hadoop que se eje
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 | Agente | Nodos de trabajo | 9092 | [Protocolo de conexión de Kafka](http://kafka.apache.org/protocol.html) | Se utiliza para la comunicación del cliente |
 | &nbsp; | Nodos Zookeeper | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

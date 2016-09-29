@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -297,4 +297,4 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 Para ver cómo pueden usarse las funcionalidades de análisis de textos, como una opinión, como parte de un bot, vea el ejemplo [Emotional Bot](http://docs.botframework.com/es-ES/bot-intelligence/language/#example-emotional-bot) en el sitio de Bot Framework.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

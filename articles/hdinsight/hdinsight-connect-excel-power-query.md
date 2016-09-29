@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -78,7 +78,7 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 * [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
 * [Carga de datos en HDInsight][hdinsight-upload-data]
 
-[hdinsight-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
@@ -88,4 +88,4 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

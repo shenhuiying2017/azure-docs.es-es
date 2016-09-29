@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor=""
    tags="azure-portal"/>
 
@@ -27,7 +27,7 @@ También puede usar la nueva función de análisis de tráfico de búsqueda para
 
 ##Ver recuentos y métricas en el portal 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Abra el panel del servicio Búsqueda de Azure. Puede buscar los mosaicos del servicio en la página principal, o puede desplazarse hasta el servicio usando Explorar, en la barra de salto. Consulte [Crear un servicio](search-create-service-portal.md) para obtener instrucciones paso a paso.
 
@@ -59,4 +59,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

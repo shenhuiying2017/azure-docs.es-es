@@ -46,10 +46,10 @@ En este tutorial verá cómo usar las acciones AS2 y X12 para crear una Aplicaci
 8. Agregue los **encabezados** que se necesitan para AS2. Estos serán los encabezados de solicitud HTTP. En este ejemplo, seleccione los encabezados de la solicitud HTTP que desencadenó la Aplicación lógica.
 9. Ahora, agregue la acción Decode X12 message (Descodificar mensaje X12) seleccionando de nuevo **Agregar una acción**. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
 10. Escriba la palabra **x12** en el cuadro de búsqueda para filtrar todas las acciones que quiera usar. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. Seleccione la acción **X12 - Decode X12 message** (X12: descodificar mensaje X12) que va a agregar a la Aplicación lógica ![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)
+11. Seleccione la acción **X12 - Decode X12 message** (X12: descodificar mensaje X12) que va a agregar a la Aplicación lógica ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
 12. Ahora debe especificar la entrada a esta acción que, a su vez, será la salida de la acción AS2 anterior. El contenido real del mensaje se encuentra en un objeto JSON con codificación Base64. Por lo tanto, debe especificar una expresión como entrada para escribir la siguiente expresión en el campo de entrada **X12 FLAT FILE MESSAGE TO DECODE** (MENSAJE DE ARCHIVO SIN FORMATO X12 PARA DESCODIFICAR).
 
-    @base64ToString(body('Decode\_AS2\_message')?['Message']?['Content'])
+    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
 
 13. Con este paso se descodificarán los datos X12 recibidos del socio comercial y se obtendrá como resultado varios elementos en un objeto JSON. Para informar a los partners de la recepción de los datos, puede volver a enviar una respuesta que contenga la notificación de disposición del mensaje (MDN) AS2 en una acción de respuesta HTTP.
 14. Agregar la acción **Respuesta** seleccionando **Agregar una acción**. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
@@ -75,4 +75,4 @@ En este momento, ya ha terminado de configurar su Aplicación lógica B2B. En un
 
 [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

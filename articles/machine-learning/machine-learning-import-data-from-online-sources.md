@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -54,7 +54,7 @@ Tenga en cuenta que, como a estos datos de entrenamiento se tiene acceso mientra
 ## Orígenes de datos en línea admitidos
 El módulo **Importar datos** de Aprendizaje automático Azure admite los siguientes orígenes de datos:
 
-Origen de datos | Descripción | Parámetros |
+Origen de datos | Description | Parámetros |
 ---|---|---|
 Dirección URL web a través de HTTP |Lee datos en valores separados por comas (CSV), valores separados por tabulaciones (TSV), formato de archivo de atributo-relación (ARFF) y formatos de máquinas de vectores de soporte (SVM-light), desde cualquier dirección URL web que use HTTP | <b>URL</b>: especifica el nombre completo del archivo, incluidos la dirección URL del sitio y el nombre de archivo, con cualquier extensión. <br/><br/><b>Formato de datos</b>: especifica uno de los formatos de datos compatibles: CSV, TSV, ARFF o SVM-light. Si los datos tienen una fila de encabezado, esta se usa para asignar nombres de columna.|
 Hadoop/HDFS|Lee datos de almacenamiento distribuido de Hadoop. Especifique los datos que desee mediante HiveQL, un lenguaje de consulta similar a SQL. HiveQL también se puede usar para agregar datos y realizar un filtrado de datos antes de agregarlos al Estudio de aprendizaje automático.|<b>Consulta de base de datos de Hive</b>: especifica la consulta de Hive que se usa para generar los datos.<br/><br/><b>URI del servidor de HCatalog </b>: especifica el nombre del clúster con el formato *&lt;nombre del clúster&gt;.azurehdinsight.net.*<br/><br/><b>Nombre de cuenta de usuario de Hadoop</b>: especifica el nombre de cuenta de usuario de Hadoop que se usa para aprovisionar el clúster.<br/><br/><b>Contraseña de cuenta de usuario de Hadoop</b>: especifica las credenciales que se usan durante el aprovisionamiento del clúster. Para obtener más información, consulte [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-provision-clusters.md).<br/><br/><b>Ubicación de los datos de salida</b>: especifica si los datos se almacenan en un sistema de archivos distribuido de Hadoop (HDFS) o en Azure. <br/><ul>Si almacena datos de salida en HDFS, especifique el URI del servidor HDFS. (Asegúrese de usar el nombre del clúster de HDInsight sin el prefijo HTTPS://). <br/><br/>Si almacena los datos de salida en Azure, debe especificar el nombre de cuenta del Almacenamiento de Azure, la clave de acceso del Almacenamiento y el nombre del contenedor del Almacenamiento.</ul>|
@@ -68,4 +68,4 @@ Proveedor de fuente de distribución de datos | Lee datos de un proveedor de fue
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

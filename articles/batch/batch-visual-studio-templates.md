@@ -382,9 +382,9 @@ El método Run() es responsable de ejecutar la línea de comandos, iniciar uno o
 
 La implementación de Run() dispone de acceso a:
 
-* Los parámetros de tareas, a través del campo \_parameters.
-* Los identificadores de trabajos y tareas, a través de los campos \_jobId y \_taskId.
-* La configuración de la tarea, a través del campo \_configuración.
+* Los parámetros de tareas, a través del campo `_parameters`.
+* Los identificadores de trabajos y tareas, a través de los campos `_jobId`y `_taskId`.
+* La configuración de la tarea, a través del campo `_configuration`.
 
 **Error de tarea**
 
@@ -427,7 +427,7 @@ Si prefiere usar una dirección URL de contenedor con SAS, también puede pasar 
 
 Se recomienda que la tarea del administrador de clientes o de trabajos cree los contenedores requeridos por las tareas antes de agregar las tareas al trabajo. Esto es obligatorio si se utiliza una dirección URL de contenedor con SAS, ya que dicha dirección URL no incluye permisos para crear el contenedor. Se recomienda incluso si pasa las credenciales de la cuenta de almacenamiento, puesto que se guarda cada tarea que tiene que llamar a CloudBlobContainer.CreateIfNotExistsAsync en el contenedor.
 
-## Transferencia de parámetros y variables de entorno a partir del código de cliente
+## Transferencia de parámetros y variables de entorno
 
 ### Configuración del entorno de transferencia
 
@@ -463,7 +463,7 @@ parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros.
 
 ### Guardar salidas de trabajos y tareas en Azure Storage
 
-Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. En [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
+Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] \(Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. En [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
 
 ### Foro de Batch
 
@@ -482,4 +482,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

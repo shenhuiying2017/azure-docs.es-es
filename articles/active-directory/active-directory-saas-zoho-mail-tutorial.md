@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Zoho Mail
@@ -84,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	a. En el cuadro de texto **URL de inicio de sesión de Zoho Mail**, escriba la dirección URL con el siguiente patrón: `http://<company name>.ZohoMail.com`
 
-	b. Haga clic en **Siguiente**.
+	b. Haga clic en **Next**.
 
 
 4.  En la página **Configuración de inicio de sesión único en Zoho Mail**, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
@@ -108,9 +108,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
-    4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **PublicKey**
     6.  Como **Algoritmo** seleccione **RSA**.
@@ -124,7 +124,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en Zoho Mail, deben aprovisionarse a Zoho Mail. En el caso de Zoho Mail, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su sitio de la compañía de **Zoho Mail** como administrador.
 
@@ -139,7 +139,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoho Mail, deben a
     ![Agregar usuario](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Agregar usuario")
 
     1.  Escriba el **Nombre**, **Apellido**, **Id. de correo electrónico**, **Contraseña** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
-    2.  Haga clic en **Aceptar**.  
+    2.  Haga clic en **Aceptar**.
 
         >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
@@ -153,7 +153,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **Zoho Mail **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **Zoho Mail**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Asignar usuarios")
 
@@ -161,6 +161,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

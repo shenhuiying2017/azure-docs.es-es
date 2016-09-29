@@ -50,7 +50,7 @@ Estos son los valores esperados:
 | {URL-encoded-resourceURI} | Codificación de dirección URL en minúsculas del URI del recurso en minúsculas |
 | {policyName} | El nombre de la directiva de acceso compartido a la que hace referencia este token. Ausente en el caso de los token que hacen referencia a las credenciales del registro de dispositivos. |
 
-**Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
+**Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo, `/a/b` es un prefijo de `/a/b/c`, pero no de `/a/bc`.
 
 Se trata de una función de nodo que calcula el token a partir de las entradas `resourceUri, signingKey, policyName, expiresInMins`. Las secciones siguientes detallan cómo inicializar las entradas diferentes para los distintos casos de uso de token.
 
@@ -213,7 +213,7 @@ Un dispositivo puede usar un token de seguridad o un certificado X.509 para real
 
 ## Registro de certificados de cliente X.509 en un dispositivo
 
-El [SDK de servicio de IoT de Azure para C#][lnk-service-sdk] (versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado de cliente X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
+El [SDK de servicio de IoT de Azure para C#][lnk-service-sdk] \(versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado de cliente X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
 
 ### Compatibilidad con C#
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Uso de certificados de cliente X.509 durante las operaciones en runtime
 
-El [SDK de dispositivo IoT de Azure para .NET][lnk-client-sdk] (versión 1.0.11 o posterior) permite utilizar certificados de cliente X.509.
+El [SDK de dispositivo IoT de Azure para .NET][lnk-client-sdk] \(versión 1.0.11 o posterior) permite utilizar certificados de cliente X.509.
 
 ### Compatibilidad con C#
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

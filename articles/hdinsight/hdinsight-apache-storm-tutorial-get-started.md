@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 
@@ -45,7 +45,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 3. Escriba un __nombre de clúster__. Si está disponible, aparece una marca de verificación verde junto a __Nombre de clúster__.
 
-4. Si tienes más de una suscripción, selecciona la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
+4. Si tiene más de una suscripción, seleccione la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
 
 5.  Utilice __Seleccionar tipo de clúster__ para elegir un clúster __Storm__. En __Sistema operativo__, seleccione Windows. En el caso de __Cluster Tier__ (Nivel de clúster), seleccione Estándar. Por último, use el botón de selección para guardar la configuración.
 
@@ -245,4 +245,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

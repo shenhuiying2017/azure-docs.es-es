@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -1308,9 +1308,9 @@ Existen muchas obras sobre el código R que pueden servirle como punto de partid
 
 - R in Action de Robert Kabacoff es otro libro que puede resultarle muy útil. Sitio web complementario Quick R es un recurso útil en http://www.statmethods.net/.
 
-- R Inferno de Patrick Burns es un libro muy divertido que le ayudará a abordar numerosos temas complejos con los que puede encontrarse a la hora de programar en código R. Esta obra está disponible de manera gratuita en http://www.burns-stat.com/documents/books/the-r-inferno/.
+- R Inferno de Patrick Burns es un libro muy divertido que lo ayudará a abordar numerosos temas complejos con los que puede encontrarse a la hora de programar en código R. Esta obra está disponible de manera gratuita en http://www.burns-stat.com/documents/books/the-r-inferno/.
 
-- Si desea obtener información más detallada sobre temas avanzados de R, le recomiendo el título Advanced R de Hadley Wickham. La versión en línea de este libro está disponible de forma gratuita en http://adv-r.had.co.nz/.
+- Si desea obtener información más detallada sobre temas avanzados de R, recomendamos el título Advanced R de Hadley Wickham. La versión en línea de este libro está disponible de forma gratuita en http://adv-r.had.co.nz/.
 
 Encontrará un catálogo de paquetes de series temporales de R en la vista de tareas CRAN que podrá utilizar para realizar análisis de series temporales: http://cran.r-project.org/web/views/TimeSeries.html. Para obtener información sobre paquetes de objetos de series temporales, debe hacer referencia a la documentación de ese paquete.
 
@@ -1358,4 +1358,4 @@ Algunos recursos excelentes en Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

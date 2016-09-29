@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple con .NET" 
+	pageTitle="Realización de streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET | Microsoft Azure" 
 	description="Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits con .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple con .NET
@@ -24,7 +24,7 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [API DE REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
->[AZURE.NOTE]
+> [AZURE.NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Información general
@@ -36,7 +36,7 @@ Para más información sobre los canales habilitados para la codificación en di
 
 ##Escenario común de streaming en vivo
 
-Los pasos siguientes describen las tareas para crear aplicaciones comunes de streaming en vivo.
+En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones comunes de streaming en vivo.
 
 >[AZURE.NOTE] Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
 
@@ -52,7 +52,7 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 
 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
 2. Cree un recurso.
 3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
@@ -71,7 +71,7 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 
 ## Temas que se abordarán
 
-Este tema muestra cómo ejecutar distintas operaciones en los canales y programas mediante el SDK .NET de Servicios multimedia. Dado que la ejecución de muchas de las operaciones es prolongada, se usan las API de .NET que administran operaciones de este tipo.
+Este tema muestra cómo ejecutar distintas operaciones en los canales y programas mediante el SDK de .NET de Media Services. Dado que la ejecución de muchas de las operaciones es prolongada, se usan las API de .NET que administran operaciones de este tipo.
 
 En el tema se muestra cómo:
 
@@ -518,7 +518,9 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 	}	
 
 
-##Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -530,4 +532,4 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

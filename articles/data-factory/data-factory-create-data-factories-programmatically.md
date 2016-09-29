@@ -13,44 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2016" 
+	ms.date="09/14/2016" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
 ## Información general
-Puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de .NET de la factoría de datos. Este artículo contiene un tutorial que puede seguir para crear una aplicación de consola .NET de ejemplo que crea y controla una factoría de datos. Vea la [Referencia de la biblioteca de clases de Factoría de datos][adf-class-library-reference] para obtener más información sobre el SDK de .NET de la factoría de datos.
-
-
+Puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de .NET de la factoría de datos. Este artículo contiene un tutorial que puede seguir para crear una aplicación de consola .NET de ejemplo que crea y controla una factoría de datos. Vea la [Referencia de la biblioteca de clases de Factoría de datos](https://msdn.microsoft.com/library/mt415893.aspx) para obtener más información sobre el SDK de .NET de la factoría de datos.
 
 ## Requisitos previos
 
 - Visual Studio 2012, 2013 o 2015
-- Descargue e instale el [SDK de .NET de Azure][azure-developer-center].
+- Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/).
+- Agregue una aplicación cliente nativa a Azure Active Directory. Para conocer los pasos para agregar la aplicación, consulte [Integración de aplicaciones con Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Anote los valores de **ID DE CLIENTE** y **URI DE REDIRECCIÓN** en la página **CONFIGURAR**.
+- Obtenga su **id. de suscripción** e **id. de inquilino** de Azure. Consulte [Obtención de los id. de suscripción y de inquilino de Azure](#get-azure-subscription-and-tenant-ids) para recibir instrucciones.
 - Descargue e instale paquetes de NuGet para la factoría de datos de Azure. Las instrucciones están en el tutorial.
 
 ## Tutorial
 1. Con Visual Studio 2012 o 2013, cree una aplicación de consola .NET de C#.
-	<ol type="a">
-		<li>Inicie <b>Visual Studio 2012</b> r <b>Visual Studio 2013</b>.</li>
-		<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li> 
-		<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.</li> 
-		<li>Seleccione <b>Aplicación de consola</b> en la lista de tipos de proyecto de la derecha.</li>
-		<li>Escriba <b>DataFactoryAPITestApp</b> para el <b>nombre</b>.</li> 
-		<li>Seleccione <b>C:\ADFGetStarted</b> para la <b>ubicación</b>.</li>
-		<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
-	</ol>
-2. Haga clic en <b>Herramientas</b>, seleccione <b>Administrador de paquetes de NuGet</b> y haga clic en <b>Consola del Administrador de paquetes</b>.
-3.	En la ventana <b>Consola del administrador de paquetes</b>, ejecute los siguientes comandos uno a uno.</b>.
+	1. Inicie **Visual Studio 2012/2013/2015**.
+	2. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**.
+	3. Expanda **Plantillas** y seleccione **Visual C#**. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.
+	4. Seleccione **Aplicación de consola** en la lista de tipos de proyecto de la derecha.
+	5. Escriba **DataFactoryAPITestApp** para el **nombre**.
+	6. Seleccione **C:\\ADFGetStarted** para la **ubicación**.
+	7. Haga clic en **Aceptar** para crear el proyecto.
+2. Haga clic en **Herramientas**, seleccione **Administrador de paquetes NuGet** y haga clic en **Consola del Administrador de paquetes**.
+3.	En **Consola del Administrador de paquetes**, ejecute los siguientes comandos uno a uno.
 
-		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-6. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Estos se usan por el método auxiliar: **GetAuthorizationHeader**.
+			Install-Package Microsoft.Azure.Management.DataFactories
+			Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+4. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Estos valores de configuración se usan en el método **GetAuthorizationHeader**.
 
-	Reemplace los valores para **AdfClientId**, **RedirectUri**, **SubscriptionId** y **ActiveDirectoryTenantId** con sus propios valores.
-
-	Puede obtener los valores de los identificadores de suscripción y de inquilino ejecutando **Get-AzureAccount -Format-List** desde Azure PowerShell (es posible que tenga que iniciar sesión primero usando Add-AzureAccount) después de iniciar sesión con el inicio de sesión AzureRmAccount.
-
-	Puede obtener el identificador de cliente y el URI de redireccionamiento para la aplicación de AD en el Portal de Azure.
+	> [AZURE.IMPORTANT] Reemplace los valores de **AdfClientId**, **RedirectUri**, **SubscriptionId** y **ActiveDirectoryTenantId** por los suyos propios.
  
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -58,12 +52,12 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
 		    <!-- Replace the following values with your own -->
-		    <add key="AdfClientId" value="Your AD application ID" />
-		    <add key="RedirectUri" value="Your AD application's redirect URI" />
+		    <add key="AdfClientId" value="Your AAD application ID" />
+		    <add key="RedirectUri" value="Your AAD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
-6. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
+5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
 		using System.Threading;
 		using System.Configuration;
@@ -75,7 +69,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Usará este objeto para crear una factoría de datos, un servicio vinculado, conjuntos de datos de entrada y salida y una canalización. También lo utilizará para supervisar los segmentos de un conjunto de datos en tiempo de ejecución.
+6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos de entrada y salida, y una canalización. También se usa para supervisar los segmentos de un conjunto de datos en tiempo de ejecución.
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -129,10 +123,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         );
 9. Agregue el siguiente código que crea **conjuntos de datos de entrada y salida** en el método **Main**.
 
-	Tenga en cuenta que la **FolderPath** para el blob de entrada se establece en **adftutorial/** donde **adftutorial** es el nombre del contenedor en el almacenamiento de blobs. Si este contenedor no existe en el almacenamiento de blobs de Azure, cree un contenedor con este nombre: **adftutorial** y cargue un archivo de texto al contenedor.
+	Tenga en cuenta que el valor de **FolderPath** para el blob de entrada está establecido en **adftutorial/**, donde **adftutorial** es el nombre del contenedor en el almacenamiento de blobs. Si este contenedor no existe en el almacenamiento de blobs de Azure, cree un contenedor con este nombre: **adftutorial** y cargue un archivo de texto al contenedor.
 	
-	Tenga en cuenta que la FolderPath para el blob de salida se establece en: **adftutorial/apifactoryoutput/{Segmento}** donde **Segmento** se calcula dinámicamente en función del valor de **SliceStart** (fecha y hora de inicio de cada segmento).
-
+	Tenga en cuenta que el valor de FolderPath para el blob de salida está establecido en: **adftutorial/apifactoryoutput/{Segmento}**, donde **Segmento** se calcula dinámicamente en función del valor de **SliceStart** (fecha y hora de inicio de cada segmento).
  
         // create input and output datasets
         Console.WriteLine("Creating input and output datasets");
@@ -207,9 +200,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             });
 
-11. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor.
+10. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor.
 
-La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Movimiento de datos y actividad de copia: migración de datos a la nube y entre almacenes en la nube](data-factory-data-movement-activities.md) para más información sobre la actividad de copia.
+	La actividad de copia realiza el movimiento de datos en Data Factory de Azure. La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia.
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -265,9 +258,7 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
                 }
             });
 
-	
-
-12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el Portal de Azure.
+11. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo que le permite proporcionar un **nombre de usuario** y una **contraseña** para iniciar sesión en Azure Portal.
  
 		public static string GetAuthorizationHeader()
         {
@@ -337,7 +328,7 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
             }
         }
 
-14. **(Opcional)** Agregue el código siguiente para obtener detalles de ejecución de un segmento de datos en el método **Main**.
+13. **(Opcional)** Agregue el código siguiente para obtener detalles de ejecución de un segmento de datos en el método **Main**.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -369,13 +360,12 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. En el Explorador de soluciones, expanda el proyecto (**DataFactoryAPITestApp**), haga clic con el botón derecho en **Referencias**, y haga clic en **Agregar referencia**. Seleccione la casilla para el ensamblado **System.Configuration** y haga clic en **Aceptar**.
-16. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**.
+14. En el Explorador de soluciones, expanda el proyecto (**DataFactoryAPITestApp**), haga clic con el botón derecho en **Referencias**, y haga clic en **Agregar referencia**. Seleccione la casilla del ensamblado de `System.Configuration` y haga clic en **Aceptar**.
+15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**.
 16. Confirme que hay al menos un archivo en el contenedor de adftutorial del almacenamiento de blobs de Azure. En caso contrario, cree el archivo Emp.txt en el Bloc de notas con el siguiente contenido y cárguelo en el contenedor de adftutorial.
 
         John, Doe
-		Jane, Doe
-	 
+		Jane, Doe 
 17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**. Cuando vea **Obteniendo los detalles de ejecución de un segmento de datos**, espere unos minutos y presione **ENTRAR**.
 18. Use el Portal de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos:
 	- Servicio vinculado: **LinkedService\_AzureStorage**
@@ -383,13 +373,14 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
 	- Canalización: **PipelineBlobSample**
 18. Compruebe que se crea un archivo de salida en la carpeta **apifactoryoutput** en el contenedor de **adftutorial**.
 
-
 ## Inicio de sesión sin cuadro de diálogo emergente 
-El código de ejemplo anterior inicia un cuadro de diálogo para que escriba las credenciales de Azure. Si necesita iniciar sesión mediante programación sin usar un cuadro de diálogo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+El código de ejemplo anterior de este tutorial inicia un cuadro de diálogo para escribir las credenciales de Azure. Si necesita iniciar sesión mediante programación sin usar un cuadro de diálogo, consulte [Autenticación de una entidad de servicio con Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+
+> [AZURE.IMPORTANT] Agregue una aplicación web a Azure Active Directory y anote el id. de cliente y el secreto de cliente de la aplicación.
 
 ### Ejemplo
 
-Cree el método GetAuthorizationHeaderNoPopup tal como se muestra a continuación:
+Cree el método GetAuthorizationHeaderNoPopup.
 
     public static string GetAuthorizationHeaderNoPopup()
     {
@@ -403,7 +394,7 @@ Cree el método GetAuthorizationHeaderNoPopup tal como se muestra a continuació
         throw new InvalidOperationException("Failed to acquire token");
     }
 
-Reemplace la llamada **GetAuthorizationHeader** con una llamada a **GetAuthorizationHeaderNoPopup** en la función **Main**:
+Reemplace la llamada a **GetAuthorizationHeader** por una llamada a **GetAuthorizationHeaderNoPopup** en la función **Main**:
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -429,15 +420,24 @@ Así es como puede crear la aplicación de Active Directory, entidad de servicio
 		$azureAdApplication
 
 
-Anote el identificador de aplicación y la contraseña (secreto del cliente) y úselo en el código anterior.
+Anote el id. de aplicación y la contraseña (secreto de cliente) y úselos en el tutorial.
 
-[data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
- 
-[adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/downloads/
- 
+## Obtención de los id. de suscripción y de inquilino de Azure
+Si no tiene instalada la última versión de PowerShell en su máquina, siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para hacerlo.
 
-<!---HONumber=AcomDC_0803_2016-->
+1. Inicie Azure PowerShell y ejecute el comando siguiente.
+2. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
+
+		Login-AzureRmAccount
+
+	Si solo tiene una suscripción de Azure asociada con esta cuenta, no es necesario que realice los dos pasos siguientes.
+3. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
+
+		Get-AzureRmSubscription
+4. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **NameOfAzureSubscription** por el nombre de su suscripción de Azure.
+
+		Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext 
+
+Anote los valores de **SubscriptionId** y **TenantId**.
+
+<!---HONumber=AcomDC_0914_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 
@@ -43,7 +43,7 @@ Además, en el tutorial se supone que ya se han implementado los siguientes requ
 
 En este tutorial, aprenderá lo siguiente:
 
-1. Configurar la base de datos en los sitios A y B  
+1. Configurar la base de datos en los sitios A y B
 
 	1. Realizar la carga inicial de datos
 
@@ -601,4 +601,4 @@ Establezca un escritorio remoto en el sitio A y compruebe si la replicación ha 
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

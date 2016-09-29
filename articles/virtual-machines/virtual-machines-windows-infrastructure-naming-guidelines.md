@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Infrastructure naming guidelines (Directrices de nomenclatura de la infraestructura)
@@ -31,7 +31,7 @@ Decisiones:
 
 Tareas:
 
-- Defina los afijos que usará en sus recursos para mantener la coherencia.
+- Defina los afijos para usar en sus recursos para mantener la coherencia.
 - Defina los nombres de cuentas de almacenamiento una vez especificado el requisito para que sean únicos globalmente.
 - Documente la convención de nomenclatura que se va a usar y distribúyala a todas las partes implicadas para garantizar la coherencia entre las implementaciones.
 
@@ -74,7 +74,7 @@ A menudo es importante determinar la fecha de creación a partir del nombre de u
 
 ## Asignación de nombres a recursos
 
-Debe definir cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definan cómo asignar nombres a cada recurso que se cree. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
+Defina cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definan cómo asignar nombres a cada recurso que se cree. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
 
 - Suscripciones
 - Cuentas
@@ -110,4 +110,4 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 ## Pasos siguientes
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

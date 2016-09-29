@@ -41,4 +41,4 @@ Eso es todo. Ahora la aplicación lógica está completa.
 A continuación, puede probarla: en Salesforce, cree un nuevo cliente potencial que cumpla la condición que creó. Si ha seguido completamente este tutorial, cree simplemente un cliente potencial con una dirección de correo electrónico que contenga *amazon.com*. Al cabo de unos segundos, la aplicación lógica se debería desencadenar. Los resultados pueden ser parecidos a estos:  
 ![Imagen 9 de acción de Salesforce](./media/connectors-create-api-salesforce/action-9.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

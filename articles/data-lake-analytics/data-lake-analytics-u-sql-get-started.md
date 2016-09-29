@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio | Azure" 
-   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL." 
+   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -56,7 +56,7 @@ Algunos conceptos y palabras clave que se encuentran en el script:
 - **Variables de conjunto de filas**: cada expresión de consulta que produce un conjunto de filas se puede asignar a una variable. U-SQL sigue el patrón de nomenclatura de variables de T-SQL; por ejemplo, **@searchlog** en el script. Tenga en cuenta que la asignación no fuerza la ejecución. Simplemente da nombre a la expresión y ofrece la posibilidad de crear expresiones más complejas.
 - **EXTRACT** proporciona la capacidad de definir un esquema al leer. El esquema se especifica mediante un par de nombre de columna y nombre de tipo de C# por columna. Usa lo que se conoce como **extractor**, por ejemplo, **Extractors.Tsv()**, para extraer los archivos tsv. Puede desarrollar extractores personalizados.
 - **OUTPUT** toma un conjunto de filas y lo serializa. Outputters.Csv() genera un archivo delimitado por comas en la ubicación especificada. También puede desarrollar a outputters personalizados.
-- Observe que las dos rutas de acceso son relativas. También puede usar rutas de acceso absolutas. Por ejemplo: 
+- Observe que las dos rutas de acceso son relativas. También puede usar rutas de acceso absolutas. Por ejemplo:
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -402,10 +402,10 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 - Desarrollo de operadores definidos por el usuario como extractores, outputters, procesadores o agregadores definidos por el usuario en C#.
 - Uso de las funciones de ventana de U-SQL.
 - Administración del código de U-SQL con vistas, funciones con valores de tabla y procedimientos almacenados.
-- Ejecución de código personalizado arbitrario en sus nodos de procesamiento. 
+- Ejecución de código personalizado arbitrario en sus nodos de procesamiento.
 - Conexión a bases de datos SQL de Azure y federación de consultas entre ellas y sus datos de U-SQL y Azure Data Lake.
 
-## Consulte también 
+## Otras referencias 
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -419,4 +419,4 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 - [Proporcione comentarios sobre U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

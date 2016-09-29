@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -27,7 +27,7 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Store y 
 | Conceptos clave | La cuenta de Data Lake Store contiene carpetas, que a su vez contienen datos almacenados como archivos | La cuenta de almacenamiento tiene contenedores, que a su vez tienen datos en forma de blobs |
 | sección Estructura | Sistema de archivos jerárquico | Almacén de objetos con el espacio de nombres plano |
 | API | API de REST a través de HTTPS | API de REST a través de HTTP/HTTPS |
-| API de servidor | [WebHDFS-compatible REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) (API de REST compatible con WebHDFS) | [Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) (API de REST de Almacenamiento de blobs de Azure) |
+| API de servidor | [WebHDFS-compatible REST API (API de REST compatible con WebHDFS)](https://msdn.microsoft.com/library/azure/mt693424.aspx) | [Azure Blob Storage REST API (API de REST de Almacenamiento de blobs de Azure)](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Cliente de sistema de archivos de Hadoop | Sí | Sí |
 | Operaciones de datos: autenticación | Basado en las [identidades de Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) | Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/storage-create-storage-account.md#manage-your-storage-account) y [claves de firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md). |
 | Operaciones de datos: protocolo de autenticación | OAuth 2.0. Las llamadas deben contener un JWT válido (JSON Web Token) emitido por Azure Active Directory | Código de autenticación de mensajes basado en hash (HMAC). Las llamadas deben contener un hash SHA-256 codificado en Base64 en una parte de la solicitud HTTP. |
@@ -48,4 +48,4 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Store y 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Introducción al Almacén de Data Lake](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

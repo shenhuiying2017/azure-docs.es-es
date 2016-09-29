@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/19/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: crear una canalización con la actividad de copia mediante la API de NET
 > [AZURE.SELECTOR]
-- [Información general del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Uso del Editor de Data Factory.](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+- [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 Este tutorial muestra cómo crear y supervisar una instancia de Data Factory de Azure mediante la API de .NET. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
 
@@ -34,7 +34,7 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure. L
 Este artículo no abarca todas las API de .NET de Data Factory. Para más información sobre el SDK de .NET de Data Factory, consulte [Referencia de API de. NTR de Data Factory](https://msdn.microsoft.com/library/mt415893.aspx).
 
 ## Requisitos previos
-- Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener información general sobre el tutorial y todos los requisitos previos.
+- Para obtener información general del tutorial y completar los pasos de los **requisitos previos**, consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Visual Studio 2012, 2013 o 2015
 - Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/).
 - Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
@@ -49,7 +49,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 2. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
 		Get-AzureRmSubscription 
-3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription** &gt; por el nombre de su suscripción de Azure.
+3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure.
 
 		Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
@@ -458,4 +458,4 @@ Debe tener los cuatro valores siguientes de estos pasos:
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

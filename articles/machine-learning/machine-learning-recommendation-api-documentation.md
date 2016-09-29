@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2016" 
+	ms.date="09/08/2016" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
 
-En este documento se representan las Recommendations API de Aprendizaje automático de Microsoft Azure expuestas mediante Marketplace.
+>[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 
-
-> Se trata de documentación correspondiente a la API de recomendaciones antiguas del mercado de datos, que estará en desuso el 31 de diciembre de 2016. Ahora debe decidirse a utilizar las [Recommendations API de Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/es-ES/recommendations-api).
+Este documento describe las API de recomendaciones de Aprendizaje automático de Microsoft Azure.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -1827,7 +1826,7 @@ El objetivo de la compilación de recomendación es generar un modelo de recomen
 
 Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado para un modelo de recomendación que implique características, debe seguir estos pasos:
 - Desencadenar una compilación de rango (a menos que la puntuación de sus características sea estable) y esperar hasta que se obtenga la puntuación de la característica.
-- Recuperar el rango de las características mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
+- Recuperar el rango de las características mediante una llamada a la API [Get Features Info](#101-get-features-info-for-last-rank-build).
 - Configurar una compilación de recomendación con los parámetros siguientes:
 	- `useFeatureInModel`: se establece en true.
 	- `ModelingFeatureList`: se establece en una lista de características separadas por coma con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
@@ -1855,7 +1854,7 @@ Los usuarios o elementos con pocos puntos de uso podrían contener más ruido de
 
 En la tabla siguiente se describen los parámetros de compilación para una compilación de rango.
 
-|Clave|Descripción|Tipo|Valor válido|
+|Clave|Description|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
@@ -1867,7 +1866,7 @@ En la tabla siguiente se describen los parámetros de compilación para una comp
 #####11\.1.3. Parámetros de compilación de recomendación
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
-|Clave|Descripción|Tipo|Valor válido|
+|Clave|Description|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
@@ -1875,7 +1874,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 |UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
-| Descripción| Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
+| Description | Descripción de la compilación. | String | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
 | ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | String | Nombres de características, hasta 512 caracteres |
@@ -1887,7 +1886,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 #####11\.1.4. Parámetros de compilación FBT
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
-|Clave|Descripción|Tipo|Valor válido (predeterminado)|
+|Clave|Description|Tipo|Valor válido (predeterminado)|
 |:-----|:----|:----|:---|
 |FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 (6) |
 |FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 (2) |
@@ -3102,4 +3101,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

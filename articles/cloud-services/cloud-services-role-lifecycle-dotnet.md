@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Personalizar el ciclo de vida de un rol web o de trabajo en .NET
@@ -33,9 +33,9 @@ Al extender **RoleEntryPoint**, debe tener en cuenta los siguientes comportamien
 
      Si se produce una excepción dentro de uno de los métodos del ciclo de vida, Azure generará el evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) y luego finalizará el proceso. Tras la desconexión del rol, se reiniciará Azure. Cuando se produzca una excepción no controlada, no se generará el evento [Detener](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) y no se llamará al método **OnStop**.
 
-Si el rol no se inicia, o se recicla entre los estados de inicialización, ocupado y detención, el código puede generar una excepción no controlada en uno de los eventos de ciclo de vida cada vez que se reinicie el rol. En este caso, use el evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar la causa de la excepción y controlarla de manera adecuada. Puede que su rol también se pueda devolver desde el método [Ejecutar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que hace que se reinicie el rol. Para obtener más información acerca de los estados de implementación, vea [Problemas comunes que hacen que se reciclen los roles](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+Si el rol no se inicia, o se recicla entre los estados de inicialización, ocupado y detención, el código puede generar una excepción no controlada en uno de los eventos de ciclo de vida cada vez que se reinicie el rol. En este caso, use el evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar la causa de la excepción y controlarla de manera adecuada. Puede que su rol también se pueda devolver desde el método [Ejecutar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que hace que se reinicie el rol. Para obtener más información acerca de los estados de implementación, vea [Problemas comunes que hacen que se reciclen los roles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] Si está usando la [Azure Tools para Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desarrollar su aplicación, las plantillas de proyecto de rol extienden automáticamente la clase **RoleEntryPoint**, en los archivos WebRole.cs y WorkerRole.cs.
+> [AZURE.NOTE] Si está usando la **Azure Tools para Microsoft Visual Studio** para desarrollar su aplicación, las plantillas de proyecto de rol extienden automáticamente la clase **RoleEntryPoint**, en los archivos *WebRole.cs* y *WorkerRole.cs*.
 
 ## Método OnStart
 
@@ -80,4 +80,4 @@ Puede usar los métodos del ciclo de vida de ASP.NET, además de los proporciona
 ## Pasos siguientes
 Aprenda cómo [crear un paquete de servicio en la nube](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

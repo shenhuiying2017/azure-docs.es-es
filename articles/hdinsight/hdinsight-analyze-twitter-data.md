@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -45,7 +45,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 La siguiente tabla enumera los archivos utilizados en este tutorial:
 
-Archivos|Descripción
+Archivos|Description
 ---|---
 /tutorials/twitter/data/tweets.txt|Los datos de origen para el trabajo de Hive.
 /tutorials/twitter/output|La carpeta de salida para el trabajo de Hive. El nombre predeterminado del archivo de salida del trabajo de Hive es **000000\_0**.
@@ -74,7 +74,7 @@ El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de
 	Campo|Valor
 	---|---
 	Nombre|MyHDInsightApp
-	Descripción|MyHDInsightApp
+	Description|MyHDInsightApp
 	Sitio web|http://www.myhdinsightapp.com
 
 4. Active **Yes, I agree** (Acepto) y, a continuación, haga clic en **Create your Twitter application** (Crear la aplicación de Twitter).
@@ -221,7 +221,7 @@ En este tutorial, usará Windows PowerShell para realizar una llamada de servici
 3. Establecen los primeros cinco a ocho variables en el script:
 
 
-	Variable|Descripción
+	Variable|Description
 	---|---
 	$clusterName|Este es el nombre del clúster de HDInsight donde desea ejecutar la aplicación.
 	$oauth\_consumer\_key|Esta es la **clave de consumidor** de la aplicación de Twitter que anotó anteriormente al crear la aplicación de Twitter.
@@ -432,10 +432,10 @@ El script de HiveQL realizará lo siguiente:
 
 4. Establezca las dos primeras variables en el script
 
-	Variable|Descripción
+	Variable|Description
 	---|---
 	$clusterName|Escriba el nombre del clúster de HDInsight donde desea ejecutar la aplicación.
-	$subscriptionID|Especifique el identificador de su suscripción a Azure
+	$subscriptionID|Especifique el identificador de su suscripción a Azure.
 	$sourceDataPath|La ubicación de almacenamiento de blobs de Azure desde donde se leerán los datos de consultas de Hive. No es necesario que cambie esta variable.
 	$outputPath|La ubicación de almacenamiento de blobs de Azure donde las consultas de Hive generarán los resultados. No es necesario que cambie esta variable.
 	$hqlScriptFile|La ubicación y el nombre de archivo del archivo de script de HiveQL. No es necesario que cambie esta variable.
@@ -565,4 +565,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

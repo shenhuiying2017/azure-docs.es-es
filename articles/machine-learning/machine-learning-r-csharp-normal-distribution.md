@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -28,7 +28,7 @@ El conjunto de distribución normal es una serie de servicios web de ejemplo ([G
 >Este servicio web puede ser consumido por los usuarios; posiblemente a través de una aplicación móvil, a través de un sitio web o incluso en un equipo local, por ejemplo. Pero el objetivo del servicio web también es actuar como un ejemplo de cómo se puede usar Aprendizaje automático de Azure para crear servicios web encima del código R. Con tan solo unas líneas de código R y algunos clics en un botón en Estudio de aprendizaje automático de Microsoft Azure, puede crear un experimento con código R y publicarlo como servicio web. A continuación, el servicio web se puede publicar en Azure Marketplace para que lo puedan usar usuarios y dispositivos en todo el mundo sin necesidad de que el autor del servicio web configure la infraestructura.
  
 
-##Consumo del servicio web
+##Uso del servicio web
 El conjunto de distribución normal incluye los tres servicios siguientes:
 
 ###Calculadora de cuantil para la distribución normal
@@ -36,9 +36,9 @@ Este servicio acepta 4 argumentos de una distribución normal y calcula el cuant
 
 Los argumentos de entrada son:
 
-* p: una única probabilidad de un evento con distribución normal. 
+* p: una única probabilidad de un evento con distribución normal.
 * Media: la media de la distribución normal
-* SD: la desviación estándar de la distribución normal. 
+* SD: la desviación estándar de la distribución normal.
 * Lado: L para la parte inferior de la distribución y U para la parte superior de la distribución.
 
 La salida del servicio es el cuantil calculado asociado con la probabilidad dada.
@@ -48,9 +48,9 @@ Este servicio acepta 4 argumentos de una distribución normal y calcula la proba
 
 Los argumentos de entrada son:
 
-* q: un único cuantil de un evento con distribución normal. 
+* q: un único cuantil de un evento con distribución normal.
 * Media: la media de la distribución normal
-* SD: la desviación estándar de la distribución normal. 
+* SD: la desviación estándar de la distribución normal.
 * Lado: L para la parte inferior de la distribución y U para la parte superior de la distribución.
 
 La salida del servicio es la probabilidad calculada asociada con el cuantil dado.
@@ -58,9 +58,9 @@ La salida del servicio es la probabilidad calculada asociada con el cuantil dado
 ###Generador de distribución normal
 Este servicio acepta 3 argumentos de una distribución normal y genera una secuencia aleatoria de números que se distribuyen de manera normal. Se le deben proporcionar los siguientes argumentos en la solicitud:
 
-* n: número de observaciones. 
+* n: número de observaciones.
 * Media: la media de la distribución normal.
-* sd: la desviación estándar de la distribución normal. 
+* sd: la desviación estándar de la distribución normal.
 
 La salida del servicio es una secuencia de longitud n con una distribución normal basada en los argumentos media y desviación estándar.
 
@@ -265,4 +265,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

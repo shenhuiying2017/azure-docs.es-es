@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="bradsev" />
 
 
 # Cómo interpretar los resultados del modelo de aprendizaje automático de Azure 
  
-**Descripción y visualización del resultado del 'Modelo de puntuación'** 
-En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
+**Descripción y visualización del resultado del 'Modelo de puntuación'**
+En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -33,28 +33,28 @@ Hay cuatro tipos de modelos de aprendizaje automático principales en Aprendizaj
 
 Los módulos usados para realizar una predicción de dichos módulos, lo cual se denomina "puntuación", dados algunos datos de prueba, son los siguientes:
 
-* módulo [Modelo de puntuación][score-model] para la clasificación y regresión; 
-* módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres; 
-* [Score Matchbox Recommender][score-matchbox-recommender] para sistemas de recomendación. 
+* módulo [Modelo de puntuación][score-model] para la clasificación y regresión;
+* módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres;
+* [Score Matchbox Recommender][score-matchbox-recommender] para sistemas de recomendación.
  
 Este documento explica cómo interpretar los resultados de predicción para cada uno de estos módulos. Para obtener información general sobre estos tipos de modelos, vea [Cómo elegir parámetros para optimizar los algoritmos de Aprendizaje automático de Azure](machine-learning-algorithm-parameters-optimize.md).
 
-Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para información acerca de cómo evaluar su modelo, vea [Cómo evaluar el rendimiento del modelo en Aprendizaje automático de Azure](machine-learning-evaluate-model-performance.md).
+Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para información acerca de cómo evaluar su modelo, vea [Cómo evaluar el rendimiento del modelo en Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
 Si no está familiarizado con Aprendizaje automático de Azure y necesita ayuda para crear un experimento simple para comenzar, vea [Crear un experimento simple en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md) en el Estudio de aprendizaje de automático de Azure.
 
 ##Clasificación
 Existen dos subcategorías de problemas de clasificación:
 
-* problemas con solo dos clases (clasificación de dos clases o binaria) 
-* problemas con más de dos clases (clase de clasificación multiclase) 
+* problemas con solo dos clases (clasificación de dos clases o binaria)
+* problemas con más de dos clases (clase de clasificación multiclase)
 
-Aprendizaje automático de Azure tiene distintos módulos para cada uno de estos tipos de clasificación. No obstante, las formas de interpretar los resultados de predicción son muy similares. Hablaremos acerca de los problemas de clasificación de dos clases primero y, a continuación, abordaremos los problemas de clasificación multiclase.
+Aprendizaje automático de Azure tiene distintos módulos para cada uno de estos tipos de clasificación. No obstante, las formas de interpretar los resultados de predicción son similares. Hablaremos acerca de los problemas de clasificación de dos clases primero y, a continuación, abordaremos los problemas de clasificación multiclase.
 
 ###Clasificación multiclase
 **Experimento de ejemplo**
 
-Un ejemplo de problema de clasificación de dos clases puede ser la clasificación de flores Iris: la tarea consiste en clasificar flores Iris en función de sus características. Tenga en cuenta que el conjunto de datos de Iris proporcionado en Aprendizaje automático de Azure es un subconjunto del [conjunto de datos de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo 2 especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
+Un ejemplo de problema de clasificación de dos clases puede ser la clasificación de flores Iris: la tarea consiste en clasificar flores Iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning es un subconjunto del [conjunto de datos de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1.png)
 
@@ -97,7 +97,7 @@ Figura 5: Resultado de servicio web de la clasificación de dos clases de Iris
 ###Clasificación multiclase
 **Experimento de ejemplo**
 
-En este experimento se llevará a cabo una tarea de reconocimiento de letras como un ejemplo de clasificación multiclase. El clasificador intentará predecir una letra determinada (clase), dados algunos valores de atributo escritos a mano extraídos de las imágenes realizadas a mano. En los datos de entrenamiento, hay dieciséis características extraídas de imágenes de letras escritas a mano. Las veintiséis letras forman nuestras veintiséis clases. Un experimento se ha configurado para entrenar un modelo de clasificación multiclase para el reconocimiento de letras y predecir en el mismo conjunto de características de un conjunto de datos de prueba, como se muestra en la figura 6.
+En este experimento se llevará a cabo una tarea de reconocimiento de letras como un ejemplo de clasificación multiclase. El clasificador intentará predecir una letra determinada (clase), dados algunos valores de atributo escritos a mano extraídos de las imágenes realizadas a mano. En los datos de entrenamiento, hay 16 funciones extraídas de imágenes de letras escritas a mano. Las veintiséis letras forman nuestras veintiséis clases. Un experimento se ha configurado para entrenar un modelo de clasificación multiclase para el reconocimiento de letras y predecir en el mismo conjunto de funciones de un conjunto de datos de prueba, como se muestra en la figura 6.
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5_1.png)
  
@@ -113,7 +113,7 @@ Figura 7: Visualizar el resultado del modelo de puntuación en la clasificación
 
 **Interpretación de resultados**
 
-Las dieciséis columnas de la izquierda representan los valores de características del conjunto de pruebas. Las columnas con nombres Probabilidades puntuadas de la clase "XX" son iguales que la columna Probabilidades de puntuación en el caso de dos clases. Muestran la probabilidad de que la entrada correspondiente se encuentre en una clase determinada. Por ejemplo, para la primera entrada, hay una probabilidad de 0,003571 de que sea una "A", una probabilidad de 0,000451 de que sea una "B", etc. Las última columna de Etiquetas puntuadas es la misma que la de Etiquetas puntuadas del caso de dos clases. Selecciona la clase con la mayor probabilidad puntuada como la clase de predicción de la entrada correspondiente. Por ejemplo, para la primera entrada, la etiqueta puntuada es "F", ya que tiene la mayor probabilidad de que sea una "F" (0,916995).
+Las 16 columnas de la izquierda representan los valores de funciones del conjunto de pruebas. Las columnas con nombres Probabilidades puntuadas de la clase "XX" son iguales que la columna Probabilidades de puntuación en el caso de dos clases. Muestran la probabilidad de que la entrada correspondiente se encuentre en una clase determinada. Por ejemplo, para la primera entrada, hay una probabilidad de 0,003571 de que sea una "A", una probabilidad de 0,000451 de que sea una "B", etc. Las última columna de Etiquetas puntuadas es la misma que la de Etiquetas puntuadas del caso de dos clases. Selecciona la clase con la mayor probabilidad puntuada como la clase de predicción de la entrada correspondiente. Por ejemplo, para la primera entrada, la etiqueta puntuada es "F", ya que tiene la mayor probabilidad de que sea una "F" (0,916995).
 
 **Publicación de servicios web**
 
@@ -127,7 +127,7 @@ Figura 8: Código R para extraer etiquetas puntuadas y las probabilidades asocia
 
 Figura 9: Experimento de puntuación final del problema de clasificación multiclase de reconocimiento de letras
 
-Después de publicar y ejecutar el servicio web y especificar algunos valores de características de entrada, el resultado devuelto será como el mostrado en la figura 10. Se prevé que esta letra escrita a mano, con sus dieciséis características extraídas, sea una "T", con una probabilidad de 0,9715.
+Después de publicar y ejecutar el servicio web y especificar algunos valores de características de entrada, el resultado devuelto será como el mostrado en la figura 10. Se prevé que esta letra escrita a mano, con sus 16 funciones extraídas, sea una "T", con una probabilidad de 0,9715.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9_1.png)
 
@@ -177,7 +177,7 @@ Figura 14: Resultado del servicio web del problema de regresión de precios de a
 
 **Experimento de ejemplo**
 
-Usemos de nuevo el conjunto de datos de Iris para generar un experimento de agrupación en clústeres. Aquí, filtramos las etiquetas de clase del conjunto de datos, de forma que solo tenga características y pueda usarse para la agrupación en clústeres. En este caso de uso de Iris, especificaremos el número de clústeres en 2 durante el proceso de entrenamiento, lo que significa que nos gustaría agrupar las flores en dos clases. El experimento se muestra en la figura 15.
+Usemos de nuevo el conjunto de datos de Iris para generar un experimento de agrupación en clústeres. Aquí, filtramos las etiquetas de clase del conjunto de datos, de forma que solo tenga características y pueda usarse para la agrupación en clústeres. En este caso de uso de Iris, especificaremos el número de clústeres en dos durante el proceso de entrenamiento, lo que significa que nos gustaría agrupar las flores en dos clases. El experimento se muestra en la figura 15.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/15.png)
 
@@ -222,9 +222,9 @@ Figura 19: Resultado de servicio web de la clasificación de dos clases de Iris
 
 Para los sistemas de recomendación, usaremos el problema de la recomendación de restaurante como ejemplo: para recomendar restaurantes a los clientes basándose en su historial de valoración. Los datos de entrada constan de tres partes:
 
-* valoraciones de restaurantes de los clientes; 
-* datos de características de los clientes; 
-* datos de características de restaurantes. 
+* valoraciones de restaurantes de los clientes;
+* datos de características de los clientes;
+* datos de características de restaurantes.
 
 Hay varias cosas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] del Aprendizaje automático de Azure:
 
@@ -271,7 +271,7 @@ Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recom
 
 Figura 23: Visualización del resultado de puntuación del sistema de recomendación: usuarios relacionados
 
-Hay seis columnas. La primera columna son los identificadores de usuario dados para buscar usuarios relacionados, proporcionados por los datos de entrada. Las cinco columnas restantes tienen los usuarios relacionados del usuario, en orden descendente en términos de relevancia. Por ejemplo, en la primera fila, el cliente más relevante para el cliente U1048 es U1051, seguido de U1066, U1044, U1017 y U1072.
+Hay seis columnas. La primera columna la componen los identificadores de usuario dados para buscar usuarios relacionados, proporcionados por los datos de entrada. Las cinco columnas restantes tienen los usuarios relacionados del usuario, en orden descendente en términos de relevancia. Por ejemplo, en la primera fila, el cliente más relevante para el cliente U1048 es U1051, seguido de U1066, U1044, U1017 y U1072.
 
 **Buscar elementos relacionados con un elemento determinado**
 
@@ -310,4 +310,4 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

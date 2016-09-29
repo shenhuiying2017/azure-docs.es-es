@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Administración del acceso de lectura anónimo a contenedores y blobs
@@ -22,7 +22,7 @@
 
 De forma predeterminada, solamente el propietario de la cuenta de almacenamiento puede acceder a los recursos de almacenamiento en esa cuenta. Únicamente en el caso del almacenamiento de blobs, puede establecer permisos de un contenedor para permitir el acceso de lectura anónimo al contenedor y sus blobs, de manera que pueda conceder acceso a esos recursos sin compartir la clave de cuenta.
 
-El acceso anónimo es mejor para escenarios donde desea que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Para un control más específico, puede crear una firma de acceso compartido, lo que permite delegar el acceso restringido mediante permisos diferentes y en un intervalo de tiempo especificado. Para obtener más información sobre firmas de acceso compartido, vea [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+El acceso anónimo es mejor para escenarios donde desea que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Para un control más específico, puede crear una firma de acceso compartido, lo que permite delegar el acceso restringido mediante permisos diferentes y en un intervalo de tiempo especificado. Para obtener más información sobre la creación de firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Concesión de permisos a usuarios anónimos a contenedores y blobs
 
@@ -152,7 +152,7 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 ## Otras referencias
 
 - [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
-- [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->
