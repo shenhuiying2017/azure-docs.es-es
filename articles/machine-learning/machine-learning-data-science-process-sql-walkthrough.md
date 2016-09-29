@@ -358,7 +358,8 @@ Inicialice la configuración de conexión de base de datos en las variables sigu
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-El tiempo empleado en leer la tabla de ejemplo es 6,492000 segundos Número de filas y columnas recuperadas = (84952, 21)
+El tiempo empleado en leer la tabla de ejemplo es 6,492000 segundos  
+Número de filas y columnas recuperadas = (84952, 21)
 
 #### Estadísticas descriptivas
 
@@ -688,7 +689,9 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 ### Referencias
 
-• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
