@@ -54,4 +54,4 @@ Ahora establezca las instancias en 10000000 para que, siempre que se agregue un 
 
 Una vez que haya instalado el paquete, vuelva a la interfaz de usuario de Sysdig y podrá explorar las diferentes métricas de uso para los contenedores dentro del clúster.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

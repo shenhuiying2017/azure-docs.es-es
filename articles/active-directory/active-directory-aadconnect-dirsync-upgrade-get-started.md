@@ -208,4 +208,4 @@ Instalación mediante configuración rápida | [Instalación rápida de Azure AD
 Instalación mediante configuración personalizada | [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 Cuentas usadas para la instalación | [Más información sobre permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!----HONumber=AcomDC_0824_2016-->
+<!-----HONumber=AcomDC_0824_2016-->
