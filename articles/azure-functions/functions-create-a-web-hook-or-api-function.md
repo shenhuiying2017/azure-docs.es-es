@@ -89,4 +89,4 @@ Consulte estos temas para más información sobre Azure Functions.
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0907_2016-->

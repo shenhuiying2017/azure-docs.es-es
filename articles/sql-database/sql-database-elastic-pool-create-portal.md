@@ -113,4 +113,4 @@ Después de agregar las bases de datos al grupo, las recomendaciones se generar�
 - [Creación y administración de bases de datos SQL con C#](sql-database-elastic-pool-manage-csharp.md)
 - [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!-----HONumber=AcomDC_0907_2016-->

@@ -94,4 +94,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes.
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md) y asociarlos a subredes.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

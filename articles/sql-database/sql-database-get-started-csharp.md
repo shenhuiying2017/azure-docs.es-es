@@ -291,4 +291,4 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

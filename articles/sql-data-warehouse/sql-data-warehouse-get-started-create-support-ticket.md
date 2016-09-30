@@ -103,4 +103,4 @@ Además, puede conectar con la comunidad de Almacenamiento de datos SQL en [Stac
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [foro de MSDN de Almacenamiento de datos SQL de Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0907_2016-->

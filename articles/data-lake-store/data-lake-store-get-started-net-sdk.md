@@ -263,4 +263,4 @@ El siguiente fragmento muestra un método `DownloadFile` que se utiliza para des
 - [Referencia de SDK de .NET de Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Referencia de REST de Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

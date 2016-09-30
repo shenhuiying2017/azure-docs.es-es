@@ -83,4 +83,4 @@ Ahora que ha establecido la conexión y ha creado el archivo con la información
 - Más información sobre las ventajas de los [grupos elásticos](sql-database-elastic-pool.md).
 - Más información en [Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
