@@ -71,4 +71,4 @@ Para las máquinas virtuales adicionales del conjunto con equilibrio de carga, r
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
