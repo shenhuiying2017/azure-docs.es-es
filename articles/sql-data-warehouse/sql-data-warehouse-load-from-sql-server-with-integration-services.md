@@ -45,7 +45,7 @@ SQL Server Integration Services (SSIS) es un conjunto flexible de herramientas q
 
 1. Use un destino de ADO.NET para conectarse a Almacenamiento de datos SQL. En este tutorial se usa un destino de ADO.NET porque es el que tiene menos opciones de configuración.
 2. Use un destino de OLE DB para conectarse a Almacenamiento de datos SQL. Esta opción puede proporcionar un rendimiento algo mejor que el destino de ADO.NET.
-3. Utilice la tarea de carga de blobs de Azure para copiar los datos provisionalmente al Almacenamiento de blobs de Azure. Después, use la tarea Ejecutar SQL de SSIS para iniciar un script de Polybase que carga los datos en Almacenamiento de datos SQL. Esta opción proporciona el mejor rendimiento de las tres que se muestran aquí. Para obtener la tarea de carga de blobs de Azure, tiene que descargar el paquete [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][] (Microsoft SQL Server 2016 Integration Services Feature Pack para Azure). Para más información sobre PolyBase, consulte [PolyBase Guide][] (Guía de PolyBase).
+3. Utilice la tarea de carga de blobs de Azure para copiar los datos provisionalmente al Almacenamiento de blobs de Azure. Después, use la tarea Ejecutar SQL de SSIS para iniciar un script de Polybase que carga los datos en Almacenamiento de datos SQL. Esta opción proporciona el mejor rendimiento de las tres que se muestran aquí. Para obtener la tarea de carga de blobs de Azure, tiene que descargar el paquete [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][] \(Microsoft SQL Server 2016 Integration Services Feature Pack para Azure). Para más información sobre PolyBase, consulte [PolyBase Guide][] \(Guía de PolyBase).
 
 ## Antes de comenzar
 
@@ -54,7 +54,7 @@ Para seguir paso a paso este tutorial, necesita:
 1. **SQL Server Integration Services (SSIS)**. SSIS es un componente de SQL Server y requiere una versión de evaluación o una versión con licencia de SQL Server. Para conseguir una versión de evaluación de SQL Server 2016 Preview, consulte [Evaluaciones de SQL Server][].
 2. **Visual Studio**. Para conseguir de forma gratuita Visual Studio 2015 Community Edition, consulte [Visual Studio Community][].
 3. **SQL Server Data Tools para Visual Studio (SSDT)**. Para obtener SQL Server Data Tools para Visual Studio 2015, consulte [Descargar las últimas herramientas de datos SQL Server][].
-4. **Datos de ejemplo**. En este tutorial, se usan datos de ejemplo almacenados en SQL Server (en la base de datos de ejemplo AdventureWorks) como datos de origen que se cargan en Almacenamiento de datos SQL. Para conseguir la base de datos de ejemplo AdventureWorks, consulte [AdventureWorks 2014 Sample Databases][] (Bases de datos de ejemplo AdventureWorks 2014).
+4. **Datos de ejemplo**. En este tutorial, se usan datos de ejemplo almacenados en SQL Server (en la base de datos de ejemplo AdventureWorks) como datos de origen que se cargan en Almacenamiento de datos SQL. Para conseguir la base de datos de ejemplo AdventureWorks, consulte [AdventureWorks 2014 Sample Databases][] \(Bases de datos de ejemplo AdventureWorks 2014).
 5. **Una base de datos de Almacenamiento de datos SQL y permisos**. En este tutorial se conecta a una instancia de Almacenamiento de datos SQL y se cargan datos en ella. Necesita permisos para crear una tabla y para cargar datos.
 6. **Una regla de firewall**. Tendrá que crear una regla de firewall en Almacenamiento de datos SQL con la dirección IP del equipo local antes de cargar datos en Almacenamiento de datos SQL.
 

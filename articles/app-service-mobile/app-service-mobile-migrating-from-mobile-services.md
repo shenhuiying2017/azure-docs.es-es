@@ -42,7 +42,7 @@ Para más información sobre las ventajas del Servicio de aplicaciones de Azure,
 
 Antes de empezar cualquier trabajo importante en su sitio, debe [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil].
 
-Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
+Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] \(junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
 
 ## <a name="migrating-site"></a>Migración de los sitios
 
@@ -353,7 +353,7 @@ Si tiene un sitio ASP.NET, los cambios en el archivo `Web.config` no funcionará
 </configuration>
 ```
 
-Para más información, consulte la documentación [XDT Transform Samples] (Ejemplos de transformación de XDT) en GitHub.
+Para más información, consulte la documentación [XDT Transform Samples] \(Ejemplos de transformación de XDT) en GitHub.
 
 ### Los Servicios móviles migrados no se pueden agregar al Administrador de tráfico
 

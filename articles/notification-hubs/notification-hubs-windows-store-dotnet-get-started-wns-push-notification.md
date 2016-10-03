@@ -244,7 +244,7 @@ Para enviar notificaciones con una aplicación de consola .NET, siga estos pasos
 
 	Debería recibir una notificación del sistema en todos los dispositivos registrados. Si hace clic o toca el banner de notificaciones se carga la aplicación.
 
-Puede encontrar todas las cargas compatibles en los temas de [catálogo de notificaciones del sistema], el [catálogo de iconos] y la [información general de distintivos] (en inglés).
+Puede encontrar todas las cargas compatibles en los temas de [catálogo de notificaciones del sistema], el [catálogo de iconos] y la [información general de distintivos] \(en inglés).
 
 ##Pasos siguientes
 

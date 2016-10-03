@@ -45,7 +45,7 @@ Dos escenarios comunes de error están relacionados con los grupos de afinidad. 
 
 En el diagrama 5 a continuación se presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error] (#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
+> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error](#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
 
 ## Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
 **Error**

@@ -72,7 +72,7 @@ Cuando registre la cuenta Twilio, obtendrá un número de teléfono gratuito par
 ### <a id="VerifyPhoneNumbers"></a>Comprobación de números de teléfono
 Además del número proporcionado por Twilio, también puede comprobar los números que controle (es decir, el número de teléfono de casa o del móvil) para usarlos en las aplicaciones.
 
-Para obtener más información sobre cómo comprobar un número de teléfono, consulte [Manage Numbers][verify_phone] (Administración de números).
+Para obtener más información sobre cómo comprobar un número de teléfono, consulte [Manage Numbers][verify_phone] \(Administración de números).
 
 ## <a id="create_app"></a>Creación de una aplicación de Ruby
 Una aplicación de Ruby que usa el servicio Twilio y que se ejecuta en Azure no es distinta a otra aplicación Ruby que use el servicio Twilio. A pesar de que los servicios Twilio están completamente basados en la técnica REST y pueden llamarse desde Ruby de diversas formas, este artículo se centrará en cómo usar los servicios Twilio con la [biblioteca auxiliar de Twilio para Ruby][twilio_ruby].

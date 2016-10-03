@@ -24,7 +24,7 @@ Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y l
 
 ## Descarga del ejemplo de chat
 
-Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO GitHub] (en inglés). Realice los siguientes pasos para descargar el ejemplo y agréguelo al proyecto que creó anteriormente.
+Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO GitHub] \(en inglés). Realice los siguientes pasos para descargar el ejemplo y agréguelo al proyecto que creó anteriormente.
 
 1.  Descargue una [versión archivada ZIP o GZ] del proyecto Socket.IO (la versión 1.3.5 se ha utilizado para este documento).
 

@@ -22,9 +22,9 @@ En este artículo se muestra cómo utilizar una plantilla de Azure Resource Mana
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
-Para obtener más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][] (Convenciones de nomenclatura recomendadas para los recursos de Azure).
+Para obtener más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][] \(Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
-Para ver la plantilla completa, consulte [Event Hub and enable Archive template][] (Plantilla de Centro de eventos y habilitación de Archivado) en GitHub.
+Para ver la plantilla completa, consulte [Event Hub and enable Archive template][] \(Plantilla de Centro de eventos y habilitación de Archivado) en GitHub.
 
 >[AZURE.NOTE]
 Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Centros de eventos.

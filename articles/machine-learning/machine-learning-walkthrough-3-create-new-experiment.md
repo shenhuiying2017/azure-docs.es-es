@@ -53,7 +53,7 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El módulo [Editar metadatos][edit-metadata] aparecerá en la lista de módulos.
 2.	Haga clic en el módulo [Editar metadatos][edit-metadata], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
-3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] \(el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 
     El experimento debería tener ahora un aspecto similar al siguiente:
 

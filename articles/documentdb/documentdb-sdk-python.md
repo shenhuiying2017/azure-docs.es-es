@@ -30,10 +30,10 @@
 
 <table>
 <tr><td>**Descarga del SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para Python] (http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
-<tr><td>**Instrucciones de instalación del SDK**</td><td>[Documentación de referencia del SDK para Python] (http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Instrucciones de instalación del SDK**</td><td>[Documentación de referencia del SDK para Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Python] (documentdb-python-application.md)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Python](documentdb-python-application.md)</td></tr>
 <tr><td>**Plataforma admitida actualmente**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 

@@ -435,7 +435,7 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para obtener más información, consulte [Push to users][6] (Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
+Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para obtener más información, consulte [Push to users][6] \(Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
 ## Procedimientos: Depuración y solución de problemas del SDK de .NET Server
 

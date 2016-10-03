@@ -180,7 +180,7 @@ Además de la tarea de preparación del trabajo, puede usar la característica d
 
 Este foro de MSDN proporciona información general de varios métodos de preparación de los nodos para la ejecución de tareas:
 
-[Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y dato de almacenamiento provisional en nodos de proceso de Batch).
+[Installing applications and staging data on Batch compute nodes][forum_post] \(Instalación de aplicaciones y dato de almacenamiento provisional en nodos de proceso de Batch).
 
 Escrito por uno de los miembros del equipo de Azure Batch, describe varias técnicas que puede utilizar para implementar aplicaciones y datos en los nodos de proceso.
 

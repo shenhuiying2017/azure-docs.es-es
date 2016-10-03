@@ -24,7 +24,7 @@ Mediante la técnica descrita en este artículo, puede ver la salida de las tare
 
 ![Selectores de archivos de salida guardados y registros guardados en el portal][1]
 
->[AZURE.NOTE] La biblioteca de clases .NET de [Azure Batch File Conventions][nuget_package] (Convenciones de archivos para Azure Batch) que se trata en este artículo actualmente se encuentra en versión preliminar. Algunas de las características que se describen aquí pueden cambiar antes de tener disponibilidad general.
+>[AZURE.NOTE] La biblioteca de clases .NET de [Azure Batch File Conventions][nuget_package] \(Convenciones de archivos para Azure Batch) que se trata en este artículo actualmente se encuentra en versión preliminar. Algunas de las características que se describen aquí pueden cambiar antes de tener disponibilidad general.
 
 ## Consideraciones sobre la salida de las tareas
 
@@ -223,7 +223,7 @@ La característica [paquetes de aplicación](batch-application-packages.md) de L
 
 ### Instalación de aplicaciones y datos de ensayo
 
-Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Lote) en el foro de Lote de Azure para ver la información general de los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Azure Batch y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Incluye también algunas consideraciones especiales para cada método.
+Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] \(Instalación de aplicaciones y datos de ensayo en nodos de proceso de Lote) en el foro de Lote de Azure para ver la información general de los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Azure Batch y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Incluye también algunas consideraciones especiales para cada método.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/es-ES/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
