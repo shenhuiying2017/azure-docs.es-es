@@ -127,7 +127,7 @@ Debería ver una salida similar a la siguiente.
 
 En este tutorial, hizo la mayoría de los pasos manualmente. En un entorno de producción, escribiría la aplicación en un equipo de desarrollo y la implementaría en la máquina virtual de Azure. Además, la mayoría de los entornos de producción hospedan la aplicación de Rails conjuntamente con otro proceso de servidor, como Apache o NginX, que controla el enrutamiento de solicitudes a varias instancias de la aplicación de Rails y el servicio a recursos estáticos. Para obtener más información, consulte http://rubyonrails.org/deploy/.
 
-Para obtener más información sobre Ruby on Rails, visite [Ruby on Rails Guides][rails-guides] (Guías de Ruby on Rails).
+Para obtener más información sobre Ruby on Rails, visite [Ruby on Rails Guides][rails-guides] \(Guías de Ruby on Rails).
 
 Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 

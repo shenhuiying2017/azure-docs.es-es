@@ -32,9 +32,9 @@
 <tr><td>**Descarga del SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Ejemplos**</td><td>[Ejemplos de código. NET](documentdb-dotnet-samples.md)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB] (documentdb-get-started.md)</td></tr>
-<tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con DocumentDB] (documentdb-dotnet-application.md)</td></tr>
-<tr><td>**Plataforma admitida actualmente**</td><td>[Microsoft .NET Framework 4.5] (https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr>
+<tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Plataforma admitida actualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Notas de la versión

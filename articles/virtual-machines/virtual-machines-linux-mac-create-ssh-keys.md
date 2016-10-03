@@ -88,7 +88,7 @@ _Explicación del comando_
 
 `ssh-keygen` = programa usado para crear las claves;
 
-`-t rsa` = tipo de clave que se va a crear, que es el [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem);
+`-t rsa` = tipo de clave que se va a crear, que es el [formato RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem);
 
 `-b 2048` = bits de la clave;
 

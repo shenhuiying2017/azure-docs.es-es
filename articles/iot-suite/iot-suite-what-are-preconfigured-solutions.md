@@ -28,7 +28,7 @@ Cada solución preconfigurada es una implementación completa que usa dispositiv
 
 Además de implementar y ejecutar las soluciones en Azure, puede descargar el código fuente completo y, después, personalizar y ampliar la solución para satisfacer sus necesidades de IoT específicas.
 
-> [AZURE.NOTE] Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] (Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
+> [AZURE.NOTE] Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] \(Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
 
 La tabla siguiente muestra cómo se asignan estas soluciones a las características específicas de IoT:
 
@@ -75,7 +75,7 @@ El Centro de IoT hace que la telemetría recibida esté disponible mediante el p
 
 ## Análisis de transmisiones de Azure
 
-La solución preconfigurada usa tres trabajos de [Análisis de transmisiones de Azure][lnk-asa] (ASA) para filtrar la transmisión de la telemetría procedente de los dispositivos.
+La solución preconfigurada usa tres trabajos de [Análisis de transmisiones de Azure][lnk-asa] \(ASA) para filtrar la transmisión de la telemetría procedente de los dispositivos.
 
 
 - *Trabajo DeviceInfo*: envía los datos a un Centro de eventos que enruta los mensajes específicos del registro del dispositivo que se envían cuando un dispositivo se conecta por primera vez o en respuesta a un comando **Change device state**, al registro de dispositivos de la solución (una base de datos de DocumentDB).

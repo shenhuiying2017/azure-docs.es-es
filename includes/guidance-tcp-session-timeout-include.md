@@ -1,11 +1,11 @@
 ##Configuración de TCP para máquinas virtuales de Azure
 
-Las máquinas virtuales de Azure se comunican con la red pública de Internet mediante [NAT][nat] (traducción de direcciones de red). Los dispositivos NAT asignan un puerto y una dirección IP pública a una máquina virtual de Azure, lo que le permite establecer un socket para comunicarse con otros dispositivos. Si, transcurrido un tiempo específico, dejan de pasar paquetes por ese socket, el dispositivo NAT elimina la asignación y el socket estará disponible para que lo usen otras máquinas virtuales.
+Las máquinas virtuales de Azure se comunican con la red pública de Internet mediante [NAT][nat] \(traducción de direcciones de red). Los dispositivos NAT asignan un puerto y una dirección IP pública a una máquina virtual de Azure, lo que le permite establecer un socket para comunicarse con otros dispositivos. Si, transcurrido un tiempo específico, dejan de pasar paquetes por ese socket, el dispositivo NAT elimina la asignación y el socket estará disponible para que lo usen otras máquinas virtuales.
 
 Se trata de un comportamiento común de NAT que puede causar problemas de comunicación en aplicaciones basadas en TCP que esperan un socket que se mantenga más allá de un período de tiempo de espera. Hay dos opciones de tiempo de espera de inactividad que hay que tener en cuenta en las sesiones que tienen el estado de *conexión establecida*:
 
 - **entrante** a través de [Azure Load Balancer][azure-lb-timeout]. Este tiempo de espera predeterminado es de 4 minutos, pero se puede ajustar hasta 30 minutos.
-- **saliente** con [SNAT][snat] (NAT de origen). Este tiempo de espera está establecido en 4 minutos y no se puede ajustar.
+- **saliente** con [SNAT][snat] \(NAT de origen). Este tiempo de espera está establecido en 4 minutos y no se puede ajustar.
 
 Para garantizar que no se pierden conexiones más allá del límite de tiempo de espera, debe asegurarse de que su aplicación mantiene la sesión activa, o bien configurar el sistema operativo subyacente para ello. Las opciones de configuración que se usarán son diferentes en los sistemas Linux y Windows, tal y como se muestra aquí.
 

@@ -26,7 +26,7 @@ Tendrá que hacer lo siguiente para utilizar el código de este tema:
 
 1. Adquiera una cuenta de Twilio y un token de autenticación. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse para obtener una cuenta de prueba en [https://www.twilio.com/try-twilio][try_twilio]. Para obtener información acerca de la API proporcionada por Twilio, consulte [http://www.twilio.com/api][twilio_api].
 2. Instale la [biblioteca de Twilio para PHP](https://github.com/twilio/twilio-php) como paquete PEAR. Para obtener más información, consulte el [archivo Léame](https://github.com/twilio/twilio-php/blob/master/README.md).
-3. Instale el SDK de Azure para PHP. Para obtener información general sobre el SDK e instrucciones sobre cómo instalarlo, consulte [Set up the Azure SDK for PHP][setup_php_sdk] (Configuración del SDK de Azure para PHP).
+3. Instale el SDK de Azure para PHP. Para obtener información general sobre el SDK e instrucciones sobre cómo instalarlo, consulte [Set up the Azure SDK for PHP][setup_php_sdk] \(Configuración del SDK de Azure para PHP).
 
 ## Creación de un formulario web para hacer una llamada
 

@@ -41,7 +41,7 @@ Los Centros de notificaciones de Azure proporcionan una infraestructura multipla
 
 ##Creación de una aplicación Node.js
 
-El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure][nodejswebsite], [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Node.js Cloud Service] (con Windows PowerShell) o [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix].
+El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure][nodejswebsite], [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Node.js Cloud Service] \(con Windows PowerShell) o [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix].
 
 ##Configuración de la aplicación para usar los Centros de notificaciones
 

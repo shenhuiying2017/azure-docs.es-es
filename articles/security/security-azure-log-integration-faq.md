@@ -99,7 +99,7 @@ Consulte [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquin
 
 ### Modificación de la configuración de WAD
 
-El ejemplo siguiente muestra una configuración en la que se recopilan solo los eventos EventID 4624 y EventId 4625 desde el registro de eventos de seguridad. Los eventos de Microsoft Antimalware se recopilan desde el registro de eventos del sistema. Consulte [Consuming events (Eventos de consumo)] (https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) para más información sobre el uso de expresiones de XPath.
+El ejemplo siguiente muestra una configuración en la que se recopilan solo los eventos EventID 4624 y EventId 4625 desde el registro de eventos de seguridad. Los eventos de Microsoft Antimalware se recopilan desde el registro de eventos del sistema. Consulte [Consuming events (Eventos de consumo)](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) para más información sobre el uso de expresiones de XPath.
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />

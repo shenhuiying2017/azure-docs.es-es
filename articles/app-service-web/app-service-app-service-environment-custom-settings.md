@@ -78,7 +78,7 @@ TLS 1.0 se puede deshabilitar mediante la siguiente entrada de **clusterSettings
         ],
 
 ## Cambio del orden del conjunto de aplicaciones de cifrado TLS ##
-Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings**, como se muestra a continuación. La lista de conjuntos de aplicaciones de cifrado disponibles se puede recuperar [en este artículo de MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings**, como se muestra a continuación. La lista de conjuntos de aplicaciones de cifrado disponibles se puede recuperar [en este artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {

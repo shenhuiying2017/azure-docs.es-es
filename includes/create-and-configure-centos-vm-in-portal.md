@@ -49,7 +49,7 @@ Si usa Linux, realice la conexión a la máquina virtual mediante SSH. En el sí
 Especifique la contraseña del usuario.
 
 ###Conexión mediante PuTTY
-Si usa un equipo con Windows, conéctese a la máquina virtual mediante PuTTY. PuTTY puede descargarse desde la [página de descarga de PuTTY][PuTTYDownLoad] (en inglés).
+Si usa un equipo con Windows, conéctese a la máquina virtual mediante PuTTY. PuTTY puede descargarse desde la [página de descarga de PuTTY][PuTTYDownLoad] \(en inglés).
 
 1. Descargue y guarde **putty.exe** en un directorio del equipo. Abra un símbolo del sistema, vaya hasta la carpeta correspondiente y ejecute **putty.exe**.
 

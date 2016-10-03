@@ -215,13 +215,13 @@ Además, puede capturar registros desde cualquier carpeta. Solo tiene que especi
 
 ### Registros de ETW
 
-Si usa [Seguimiento de eventos para Windows] (https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) y quiere capturar registros de ETW, active la casilla **Habilitar la transferencia de registros de ETW**. Puede aumentar o disminuir el número de minutos durante los cuales se transfieren los registros a su cuenta de almacenamiento cambiando el valor **Período de transferencia (min)**.
+Si usa [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) y quiere capturar registros de ETW, active la casilla **Habilitar la transferencia de registros de ETW**. Puede aumentar o disminuir el número de minutos durante los cuales se transfieren los registros a su cuenta de almacenamiento cambiando el valor **Período de transferencia (min)**.
 
 Los eventos se capturan de los orígenes de eventos y manifiestos de eventos que especifique. Para especificar un origen de eventos, escriba un nombre en la sección **Orígenes de eventos** y luego elija el botón **Agregar origen de evento**. De forma similar, puede especificar un manifiesto de evento en la sección **Manifiestos de eventos** y luego elegir el botón **Agregar manifiesto de evento**.
 
   ![Registros de ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  El marco de trabajo de ETW se admite en ASP.NET a través de clases en el espacio de nombres [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). El espacio de nombres de Microsoft.WindowsAzure.Diagnostics, que se hereda de las clases [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) estándar y las extiende , habilita el uso de [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como un marco de registro en el entorno de Azure. Para obtener más información, vea [Tomar el control del registro y el seguimiento en Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) y [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
+  El marco de trabajo de ETW se admite en ASP.NET a través de clases en el espacio de nombres [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). El espacio de nombres de Microsoft.WindowsAzure.Diagnostics, que se hereda de las clases [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) estándar y las extiende , habilita el uso de [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como un marco de registro en el entorno de Azure. Para obtener más información, vea [Tomar el control del registro y el seguimiento en Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) y [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Volcados de memoria
 

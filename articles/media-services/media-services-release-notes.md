@@ -349,7 +349,7 @@ Actualmente, cuenta con las dos opciones siguientes para resolver el problema.
 
 ##<a id="august_changes_14"></a>Versión de agosto de 2014
 
-Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para obtener más información, consulte los temas [Input Metadata] (Metadatos de entrada) y [Output Metadata] (Metadatos de salida).
+Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para obtener más información, consulte los temas [Input Metadata] \(Metadatos de entrada) y [Output Metadata] \(Metadatos de salida).
 
 
 ##<a id="july_changes_14"></a>Versión de julio de 2014

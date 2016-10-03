@@ -42,9 +42,9 @@ A continuación se muestra una captura de pantalla de la aplicación final:
 
 ##Requisitos
 
-- Descargue e instale [Sencha Touch] (http://wwww.sencha.com/products/touch/download"target =" \_blank").
+- Descargue e instale [Sencha Touch](http://wwww.sencha.com/products/touch/download"target =" \_blank").
 
-- Descargue e instale la [herramienta Sencha Cmd] (http://www.sencha.com/products/sencha-cmd/download"target =" \_blank").
+- Descargue e instale la [herramienta Sencha Cmd](http://www.sencha.com/products/sencha-cmd/download"target =" \_blank").
 
 - Java Runtime Environment (JRE) o Kit de desarrollo de Java (si está creando aplicaciones de Android).
 - Gema Ruby y SASS.
