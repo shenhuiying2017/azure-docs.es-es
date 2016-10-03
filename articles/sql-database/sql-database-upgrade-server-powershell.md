@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 # Actualización a la Base de datos SQL V12 de Azure mediante PowerShell
@@ -36,7 +36,7 @@ Durante el proceso de actualización a la versión V12, podrá actualizar cualqu
 
 Asimismo, la migración a un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) puede resultarle más rentable que actualizar a niveles de rendimiento individuales (planes de tarifas) de bases de datos únicas. De igual manera, los grupos le permitirán simplificar la administración de sus bases de datos, ya que realmente solo necesita administrar la configuración de rendimiento del grupo, en vez de dedicarse a administrar independientemente los niveles de rendimiento de las bases de datos individuales. Si tiene bases de datos en varios servidores, puede considerar la posibilidad de colocarlas todas en el mismo servidor y aprovecharse de las ventajas que supondría implementarlas en un grupo.
 
-Además, puede migrar de forma automática y con facilidad las bases de datos de los servidores V11 a grupos de bases de datos elásticas, siguiendo los pasos de este artículo.
+Puede seguir los pasos de este artículo para migrar de forma fácil las bases de datos de los servidores V11 a grupos de bases de datos elásticas.
 
 Tenga en cuenta que las bases de datos permanecerán en línea y seguirán funcionando durante toda la operación de actualización. En el momento en que realice la transición al nuevo nivel de rendimiento, es posible que se produzca una caída temporal de las conexiones a la base de datos, aunque no durarán mucho; normalmente oscilarán entre los 90 segundos y los 5 minutos. Si su aplicación tiene una [gestión de errores temporal para terminaciones de conexiones](sql-database-connectivity-issues.md), entonces es suficiente con que tome precauciones contra las interrupciones de la conexión al final de la actualización.
 
@@ -53,9 +53,7 @@ Después de realizar la actualización a V12, las [recomendaciones de nivel de s
 
 ## Requisitos previos
 
-Para actualizar un servidor a V12 con PowerShell, deberá tener Azure PowerShell instalado y en ejecución y, dependiendo de la versión, es posible que tenga que cambiarlos en el modo de administrador de recursos para acceder a los cmdlets de PowerShell del Administrador de recursos de Azure.
-
-Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Para actualizar un servidor a V12 con PowerShell, debe tener la versión más reciente de Azure PowerShell instalada y ejecutándose. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Configuración de las credenciales y selección de la suscripción
@@ -66,11 +64,11 @@ Para ejecutar los cmdlets de PowerShell en su suscripción de Azure debe estable
 
 Después de iniciar sesión correctamente, se mostrará información en la pantalla que incluye el identificador con el que ha iniciado sesión y las suscripciones a Azure a las que tiene acceso.
 
-Para seleccionar la suscripción con la que quiera trabajar, necesita el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de suscripción deseada del conjunto de resultados.
+Para seleccionar la suscripción con la que quiere trabajar, necesita el identificador de suscripción (**-SubscriptionId**) o el nombre de suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de suscripción deseada del conjunto de resultados.
 
 Ejecute el siguiente cmdlet con la información de suscripción para establecer la suscripción actual:
 
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Set-AzureRmContext -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 Los siguientes comandos se ejecutarán en la suscripción que acaba de seleccionar.
 
@@ -80,7 +78,7 @@ Para obtener la recomendación para la actualización del servidor, ejecute el s
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-Para más información, consulte [Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de Azure](sql-database-elastic-pool-create-portal.md) y [Recomendaciones sobre el plan de tarifa de Base de datos SQL](sql-database-service-tier-advisor.md).
+Para obtener más información, consulte el artículo sobre [creación de un grupo de bases de datos elásticas escalables para Azure SQL Database en Azure Portal](sql-database-elastic-pool-create-portal.md) y [recomendaciones sobre el plan de tarifa de Azure SQL Database](sql-database-service-tier-advisor.md).
 
 
 
@@ -109,7 +107,7 @@ Cuando ejecute este comando, comenzará el proceso de actualización. Puede pers
 
     # Selecting the right subscription
     #
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Set-AzureRmContext -SubscriptionName $SubscriptionName
 
     # Getting the upgrade recommendations
     #
@@ -163,7 +161,7 @@ Después de la actualización, es recomendable que supervise la base de datos de
 Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-manage-portal.md) o mediante [PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 
-**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
+**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -182,7 +180,7 @@ Información de supervisión adicional:
 
 
 
-**Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
+**Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en Azure Portal con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
 
 Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
@@ -201,4 +199,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

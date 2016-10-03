@@ -68,6 +68,29 @@ Con el archivo function.json de ejemplo anterior, el enlace de entrada de Docume
 	    document.text = "This has changed.";
 	}
 
+#### Ejemplo de código de entrada de Azure DocumentDB para un desencadenador de cola de F#
+
+Con el archivo function.json de ejemplo anterior, el enlace de entrada de DocumentDB recuperará el documento con el identificador que coincida con la cadena del mensaje en la cola y lo pasará al parámetro 'document'. Si no se encuentra el documento, el parámetro 'document' será nulo. El documento se actualiza entonces con el nuevo valor de texto cuando se completa la función.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+Necesitará un archivo `project.json` que use NuGet para especificar los paquetes `FSharp.Interop.Dynamic` y `Dynamitey` como dependencias de paquete, de este modo:
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+Se usará NuGet para capturar las dependencias y se hará referencia a ellas en el script.
+
 #### Ejemplo de código de entrada de Azure DocumentDB para un desencadenador de cola de Node.js
  
 Con el ejemplo de function.json anterior, el enlace de entrada de DocumentDB recuperará el documento con el identificador que coincida con la cadena del mensaje en cola y lo pasará a la propiedad del enlace `documentIn`. En las funciones de Node.js, los documentos actualizados no se envían de nuevo a la colección. Sin embargo, puede pasar el enlace de entrada directamente a un enlace de salida de DocumentDB denominado `documentOut` para admitir las actualizaciones. Este ejemplo de código actualiza la propiedad de texto del documento de entrada y lo establece como documento de salida.
@@ -131,6 +154,12 @@ El documento de salida:
 	}
  
 
+#### Ejemplo de código de salida de Azure DocumentDB para un desencadenador de cola de F#
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### Ejemplo de código de salida de Azure DocumentDB para un desencadenador de cola de C#
 
 
@@ -178,6 +207,27 @@ Podría utilizar el siguiente código de C# en una función de desencadenador de
 	    };
 	}
 
+O el código de F# equivalente:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 Salida de ejemplo:
 
 	{
@@ -191,4 +241,4 @@ Salida de ejemplo:
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/13/2016" 
 	ms.author="nitinme"/>
 
 # Instalación y uso de Hue en clústeres de Hadoop para HDInsight
@@ -68,15 +68,24 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 1. Consulte la información de [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md) para crear un túnel SSH desde el sistema cliente al clúster de HDInsight y luego configurar el explorador web para usar el túnel SSH como proxy.
 
-2. Después de crear un túnel SSH y configurar el explorador para redirigir el tráfico mediante proxy a través de él, debe encontrar el nombre de host del nodo principal. Use los pasos siguientes para obtener esta información de Ambari:
+2. Después de crear un túnel SSH y configurar el explorador para redirigir el tráfico mediante proxy a través de él, debe encontrar el nombre de host del nodo principal primario. Para ello, puede conectarse al clúster mediante SSH en el puerto 22. Por ejemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, donde __USERNAME__ es el nombre de usuario SSH y __CLUSTERNAME__ es el nombre del clúster.
 
-    1. En un explorador, vaya a https://CLUSTERNAME.azurehdinsight.net. Cuando se le solicite, use el nombre de usuario y la contraseña de administrador para autenticarse en el sitio.
-    
-    2. En el menú que aparece en la parte superior de la página, seleccione __Hosts__.
-    
-    3. Seleccione la entrada que comienza con __hn0__. Cuando se abre la página, se mostrará el nombre de host en la parte superior. El formato del nombre de host es __hn0 CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Es el nombre de host que debe usar al conectarse a Hue.
+    Para más información sobre el uso de SSH, consulte los documentos siguientes:
 
-2. Después de crear un túnel SSH y configurar el explorador para redirigir el tráfico mediante proxy a través de él, use el explorador para abrir el portal de Hue en http://HOSTNAME:8888. Reemplace HOSTNAME por el nombre obtenido en Ambari en el paso anterior.
+    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+3. Una vez conectado, use el comando siguiente para obtener el nombre de dominio completo del nodo principal primario:
+
+        hostname -f
+
+    Devolverá un nombre similar al siguiente:
+
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    
+    Este es el nombre de host del nodo principal primario donde se encuentra el sitio web Hue.
+
+2. Use el explorador para abrir el portal de Hue en http://HOSTNAME:8888. Reemplace HOSTNAME por el nombre obtenido en el paso anterior.
 
     > [AZURE.NOTE] Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
 
@@ -108,7 +117,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 ## Consideraciones importantes
 
-1. El script que se usó para instalar Hue lo instala solo en el nodo principal 0 del clúster.
+1. El script que se usó para instalar Hue lo instala solo en el nodo principal primario del clúster.
 
 2. Durante la instalación, se reinician varios servicios de Hadoop (HDFS, YARN, MR2, Oozie) para actualizar la configuración. Cuando el script finaliza la instalación de Hue, puede tardar algún tiempo hasta que otros servicios de Hadoop se inicien. Esto podría afectar inicialmente al rendimiento de Hue. Una vez que todos los servicios se inician, la funcionalidad de Hue será total.
 
@@ -116,11 +125,11 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 		set hive.execution.engine=mr;
 
-4.	Con los clústeres de Linux, puede tener un escenario en el que los servicios se ejecutan en el nodo principal 0 mientras el Administrador de recursos podría ejecutarse en el nodo principal 1. Este escenario podría producir errores (que se muestra a continuación) cuando se usa Hue para ver detalles de trabajos de ejecución en el clúster. De todas formas, puede ver los detalles del trabajo una vez que el trabajo se complete.
+4.	Con los clústeres de Linux, se puede dar el caso de que los servicios se ejecutan en el nodo principal primario mientras Resource Manager se ejecuta en el secundario. Este escenario podría producir errores (que se muestra a continuación) cuando se usa Hue para ver detalles de trabajos de ejecución en el clúster. De todas formas, puede ver los detalles del trabajo una vez que el trabajo se complete.
 
 	![Error en el portal de Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Error en el portal de Hue")
 
-	Este es un problema conocido. Como alternativa, modifique Ambari para que el Administrador de recursos que está activo también se ejecute en el nodo principal 0.
+	Este es un problema conocido. Como alternativa, modifique Ambari para que la instancia de Resource Manager que está activa también se ejecute en el nodo principal primario.
 
 5.	Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasbs://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue dice HDFS en lugares (como cuando se mueve el mouse sobre el **Explorador de archivos**), se debe interpretar como WASB.
 
@@ -137,4 +146,4 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/16/2016"
 	ms.author="andrela"/>
 
 
@@ -50,4 +50,4 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 * [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

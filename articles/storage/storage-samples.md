@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="tamram"
-	manager="na"
+	manager="carmonm"
 	editor="tysonn" />
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="08/03/2016"
-	ms.author="tamram" />
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram" />
 
 # Ejemplos de Almacenamiento de Azure
 
@@ -33,12 +33,12 @@ En la [biblioteca de códigos de ejemplo de Azure](https://azure.microsoft.com/d
 
 Para explorar los ejemplos de .NET, descargue la [biblioteca de cliente de almacenamiento de .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). La biblioteca de cliente de almacenamiento de .NET también está disponible en el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/).
 
-* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Introducción al servicio BLOB de Azure en .NET)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/) (Introducción al servicio Cola de Azure en .NET)
-* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Introducción al servicio Tabla de Azure en .NET)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/) (Introducción al servicio Archivo de Azure en .NET)
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/) (Aplicación web de la galería de fotos de Almacenamiento de blobs de Azure)
-* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114) (Administración de la simultaneidad mediante Almacenamiento de Azure)
+* [Getting Started with Azure Blob Service in .NET (Introducción al servicio BLOB de Azure en .NET)](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [Getting Started with Azure Queue Service in .NET (Introducción al servicio Cola de Azure en .NET)](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
+* [Getting Started with Azure Table Service in .NET (Introducción al servicio Tabla de Azure en .NET)](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* [Getting Started with Azure File Service in .NET (Introducción al servicio Archivo de Azure en .NET)](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
+* [Azure Blob Storage Photo Gallery Web Application (Aplicación web de la galería de fotos de Almacenamiento de blobs de Azure)](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
+* [Managing concurrency using Azure Storage (Administración de la simultaneidad mediante Almacenamiento de Azure)](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 
 ## Ejemplos de Java
 
@@ -90,4 +90,4 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 - [Código fuente de la biblioteca de cliente de almacenamiento de C++](https://github.com/Azure/azure-storage-cpp)
 - [Referencia a la biblioteca de clientes de C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

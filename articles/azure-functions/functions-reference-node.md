@@ -22,15 +22,16 @@
 
 > [AZURE.SELECTOR]
 - [Script de C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script de F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
-La experiencia de Node/JavaScript para Funciones de Azure facilita la exportación de una función en que se transmite un objeto `context` para comunicarse con el runtime, y recibir y enviar datos por medio de enlaces.
+La experiencia de Node/JavaScript para Azure Functions facilita la exportación de una función en que se transmite un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
 
-En este artículo se da por hecho que ya se ha leído el tema [Referencia para desarrolladores de Funciones de Azure](functions-reference.md).
+En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
 ## Exportación de una función
 
-Todas las funciones de JavaScript deben exportar un elemento `function` único mediante `module.exports` para que el runtime encuentre la función y la ejecute. Esta función siempre debe incluir un objeto `context`.
+Todas las funciones de JavaScript tiene que exportar un elemento `function` único mediante `module.exports` para que el sistema en tiempo de ejecución encuentre la función y la ejecute. Esta función siempre tiene que incluir un objeto `context`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -46,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Se transmiten enlaces de `direction === "in"` junto a los argumentos de la función, lo que significa que se pueden usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para controlar dinámicamente entradas nuevas (por ejemplo, utilizando `arguments.length` para iterar en todas las entradas). Esta funcionalidad resulta muy práctica si solo dispone de un desencadenador carente de entradas adicionales, ya que puede acceder de manera predecible a los datos del desencadenador sin hacer referencia al objeto `context`.
+Los enlaces de `direction === "in"` se transmiten como argumentos de la función, lo que significa que se pueden usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para controlar de forma dinámica las entradas nuevas (por ejemplo, utilizando `arguments.length` para iterar en todas las entradas). Esta funcionalidad resulta muy práctica si solo dispone de un desencadenador sin entradas adicionales, ya que puede acceder de manera predecible a los datos del desencadenador sin hacer referencia al objeto `context`.
 
-Los argumentos siempre se transmiten junto con la función en el orden en el que figuren en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, de todos modos podrá obtener el valor de `b` en el código de función si hace referencia a `arguments[3]`.
+Los argumentos siempre se transmiten a la función en el orden en el que figuren en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, podrá seguir obteniendo el valor `b` en el código de función si hace referencia a `arguments[3]`.
 
 Todos los enlaces, al margen de la dirección, también se transmiten junto con el objeto `context` (consulte la información siguiente).
 
 ## objeto de contexto
 
-El runtime usa un objeto `context` para transmitir datos desde la función y hacia esta, así como para posibilitar la comunicación con dicho runtime.
+El sistema en tiempo de ejecución usa un objeto `context` para transmitir datos desde la función y hacia esta, así como para posibilitar la comunicación con dicho sistema en tiempo de ejecución.
 
-El objeto de contexto siempre es el primer parámetro de una función y se debe incluir en todos los casos, porque incorpora métodos como `context.done` y `context.log`, que se precisan para usar correctamente el runtime. Puede ponerle el nombre que desee al objeto (es decir, `ctx` o `c`).
+El objeto de contexto siempre es el primer parámetro de una función y se debe incluir siempre, porque incorpora métodos como `context.done` y `context.log`, que se precisan para usar correctamente el sistema en tiempo de ejecución. Puede ponerle el nombre que desee al objeto (es decir, `ctx` o `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -89,9 +90,9 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-La función `context.done` le indica al runtime que ya se terminó la ejecución. Es importante llamar a esta función cuando termina con la ejecución; si no lo hace, el tiempo de ejecución nunca sabrá que se completó la función.
+La función `context.done` le indica al sistema en tiempo de ejecución que ya se terminó la ejecución. Es importante llamar a esta función cuando termina con la ejecución; si no lo hace, el tiempo de ejecución nunca sabrá que se completó la función.
 
-La función `context.done` permite transmitir un error definido por el usuario al runtime, además de un conjunto de propiedades que sobrescribirá las propiedades existentes del objeto `context.bindings`.
+La función `context.done` permite transmitir un error definido por el usuario al sistema en tiempo de ejecución, además de un contenedor de propiedades que sobrescribirá las propiedades existentes del objeto `context.bindings`.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -105,7 +106,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ## context.log(mensaje)
 
-El método `context.log` permite generar instrucciones de registro de salida que se ponen en correlación con el fin de crear registros. Si usa `console.log`, los mensajes solo se mostrarán para el registro de nivel de proceso, lo que no reviste la misma utilidad.
+El método `context.log` permite generar instrucciones de registro de salida que se ponen en correlación con el fin de crear registros. Si usa `console.log`, los mensajes solo se mostrarán para el registro de nivel de proceso, lo que no resulta tan útil.
 
 ```javascript
 /* You can use context.log to log output specific to this 
@@ -129,7 +130,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ## Desencadenadores HTTP: context.req y context.res
 
-En el caso de desencadenadores HTTP, como usar `req` y `res` para los objetos de solicitud y respuesta HTTP constituye un patrón común, decidimos facilitar el acceso a los desencadenadores existentes en el objeto de contexto en lugar de obligarle a utilizar el patrón `context.bindings.name` completo.
+En el caso de desencadenadores HTTP, ya que usar `req` y `res` para los objetos de solicitud y respuesta HTTP constituye un patrón común, decidimos facilitar el acceso a los desencadenadores en el objeto de contexto, en lugar de obligarle a utilizar el patrón `context.bindings.name` completo.
 
 ```javascript
 // You can access your http request off of the context ...
@@ -142,11 +143,11 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 Actualmente, la versión de Node está bloqueada en `5.9.1`. Estamos investigando para agregar compatibilidad con más versiones y hacerlo configurable.
 
-Puede incluir paquetes en la función cargando un archivo *package.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Para obtener las instrucciones de la carga, consulte la sección **Actualización de los archivos de la aplicación de función** del tema [Referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
+Puede incluir paquetes en la función cargando un archivo *package.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Para obtener instrucciones para la carga, consulte la sección **Actualización de los archivos de la aplicación de función** del tema [Referencia para desarrolladores de Azure Functions](functions-reference.md#fileupdate).
 
 También puede utilizar `npm install` en la interfaz de la línea de comandos de SCM (Kudu) de la aplicación de función:
 
-1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
+1. Vaya a `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Haga clic en **Consola de depuración > CMD**.
 
@@ -169,7 +170,7 @@ module.exports = function(context) {
 
 ## Variables de entorno
 
-Para obtener una variable de entorno o un valor de configuración de la aplicación, utilice `process.env` como se muestra en el ejemplo de código siguiente:
+Para obtener una variable de entorno o un valor de configuración de aplicación, use `process.env`, como se muestra en el ejemplo de código siguiente:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -198,6 +199,7 @@ Para obtener más información, consulte los siguientes recursos:
 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
-* [Enlaces y desencadenadores de Funciones de Azure](functions-triggers-bindings.md)
+* [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
+* [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

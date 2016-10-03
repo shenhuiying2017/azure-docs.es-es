@@ -60,9 +60,9 @@ Para obtener más información acerca de opciones de implementación que podría
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. Normalmente, al implementar una nueva plantilla, desea crear un grupo de recursos para contener los recursos. Si ya tiene un grupo de recursos en el que desea realizar la implementación, puede omitir este paso y simplemente usar ese grupo de recursos.
+3. Normalmente, al implementar una nueva plantilla, desea crear un grupo de recursos para contener los recursos. Si ya tiene un grupo de recursos en el que desea realizar la implementación, puede omitir este paso y usar ese grupo.
 
-     Para crear un grupo de recursos, proporcione un nombre y una ubicación para el grupo de recursos.
+     Para crear un grupo de recursos, proporcione un nombre y una ubicación para el grupo de recursos. Debe proporcionar una ubicación para el grupo de recursos porque este almacena metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación en la que vayan a residir la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -193,4 +193,4 @@ Para más información sobre el uso de una referencia KeyVault para pasar valore
 - Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 - Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

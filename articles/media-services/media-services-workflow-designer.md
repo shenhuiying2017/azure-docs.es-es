@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo" 
+	pageTitle="Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo | Microsoft Azure" 
 	description="Aprenda a crear flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo
@@ -74,8 +74,9 @@ El vídeo del día 3 trata de:
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## Paso siguiente
 
-##Rutas de aprendizaje de Servicios multimedia
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -90,4 +91,4 @@ Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo 
 
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
@@ -61,4 +61,4 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
   - [Cliente de OAuth2 para Android](https://github.com/wuman/android-oauth-client)
   - [Cliente de OpenID Connect para Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

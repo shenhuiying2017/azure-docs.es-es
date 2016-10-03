@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
-   ms.author="seanmck"/>
+   ms.date="09/09/2016"
+   ms.author="seanmck;mikhegn"/>
 
 # Uso de Visual Studio para simplificar la escritura y la administración de las aplicaciones de Service Fabric
 
@@ -30,26 +30,32 @@ De forma predeterminada, la implementación de una aplicación combina los pasos
 4. Eliminación de cualquier instancia de aplicación en ejecución
 5. Creación de una nueva instancia de aplicación
 
-En Visual Studio, al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. Para más información, consulte [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).
+En Visual Studio, al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. Para obtener más información, consulte [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### Application Debug Mode
 
-De forma predeterminada, Visual Studio quitará las instancias existentes de su tipo de aplicación cuando detenga la depuración o, si se implementa la aplicación sin asociar el depurador, cuando vuelva a implementar la aplicación. En ese caso, se quitarán todos los datos de la aplicación. Cuando se depura localmente, podría mantener los datos que ya ha creado al probar una nueva versión de la aplicación. Service Fabric Tools para Visual Studio proporciona una propiedad llamada **Application Debug Mode** (Modo de depuración de aplicación), que controla si al presionar **F5** se debe desinstalar la aplicación o mantenerla después de finalizar una sesión de depuración.
+De forma predeterminada, Visual Studio quita las instancias existentes de su tipo de aplicación cuando detenga la depuración o, si se implementa la aplicación sin asociar el depurador, cuando vuelva a implementar la aplicación. En ese caso, se quitarán todos los datos de la aplicación. Mientras se realiza la depuración local, puede que quiera conservar los datos que ya ha creado al probar una nueva versión de la aplicación, mantener en ejecución la aplicación o que las sesiones de depuración posteriores actualicen la aplicación. Service Fabric Tools para Visual Studio proporciona una propiedad llamada "**Application Debug Mode**" (Modo de depuración de aplicación), que controla si al presionar **F5** se debe desinstalar la aplicación, mantenerla después de finalizar una sesión de depuración o permitir que se actualice en las sesiones de depuración posteriores, en lugar de eliminarla y volver a implementarla.
 
 #### Establecimiento de la propiedad Application Debug Mode
 
 1. En el menú de acceso directo del proyecto de la aplicación, elija **Propiedades** (o presione la tecla **F4**).
-2. En la ventana **Propiedades**, establezca la propiedad **Application Debug Mode** (Modo de depuración de aplicación) en **Quitar** o en **Actualización automática**.
+2. En la ventana **Propiedades**, establezca la propiedad **Application Debug Mode** (Modo de depuración de aplicación).
 
     ![Establecer la propiedad Application Debug Mode][debugmodeproperty]
 
-Si establece el valor de esta propiedad en **Actualización automática**, la aplicación seguirá ejecutándose en el clúster local. La siguiente vez que presione **F5** se considerará la implementación como una actualización y se usará el modo automático no supervisado para actualizar rápidamente la aplicación a una versión más reciente con una cadena de fecha anexada. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
+Estas son las opciones disponibles de **Application Debug Mode** (Modo de depuración de aplicación).
 
-![Ejemplo de la nueva versión de la aplicación con date1 anexado][preservedate]
+1. **Actualización automática**: la aplicación continúa ejecutándose cuando finaliza la sesión de depuración. La siguiente vez que presione **F5** se considerará la implementación como una actualización y se usará el modo automático no supervisado para actualizar rápidamente la aplicación a una versión más reciente con una cadena de fecha anexada. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
 
-Se conservan los datos por medio de las funcionalidades de actualización de aplicaciones de Service Fabric, pero esto está optimizado para mejorar el rendimiento más que la seguridad. Para más información sobre la actualización de aplicaciones y cómo se realiza una actualización en un entorno real, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
+2. **Keep Application** (Mantener aplicación): la aplicación sigue ejecutándose en el clúster cuando finaliza la sesión de depuración. La siguiente vez que presione **F5** se quitará la aplicación y se implementará la aplicación recién creada en el clúster.
 
->[AZURE.NOTE] Esta propiedad no existe antes de la versión 1.1 de Service Fabric Tools para Visual Studio. Antes de 1.1, use la propiedad **Conservar datos al iniciar** para obtener el mismo comportamiento.
+3. **Quitar aplicación**: la aplicación se quita cuando finaliza la sesión de depuración.
+
+Se conservan los datos de **Actualización automática** por medio de las funcionalidades de actualización de aplicaciones de Service Fabric, pero esto está optimizado para mejorar el rendimiento más que la seguridad. Para obtener más información sobre la actualización de aplicaciones y cómo se realiza una actualización en un entorno real, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
+
+![Ejemplo de la nueva versión de aplicación con la fecha anexada][preservedata]
+
+>[AZURE.NOTE] Esta propiedad no existe antes de la versión 1.1 de Service Fabric Tools para Visual Studio. Antes de la versión 1.1, use la propiedad **Conservar datos al iniciar** para obtener el mismo comportamiento. La opción Keep Application (Mantener aplicación) se introdujo en la versión 1.2 de Service Fabric Tools para Visual Studio.
 
 ## Agregue un servicio a su aplicación Service Fabric
 
@@ -75,7 +81,7 @@ Puede realizar operaciones básicas de administración de clúster desde Visual 
 
 ![Eliminación de una aplicación](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
->[AZURE.TIP] Para una mejor funcionalidad de administración de clúster, consulte [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] Para obtener una mejor funcionalidad de administración de clúster, consulte [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -93,7 +99,6 @@ Puede realizar operaciones básicas de administración de clúster desde Visual 
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
-[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 [debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

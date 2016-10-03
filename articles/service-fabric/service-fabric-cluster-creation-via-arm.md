@@ -63,7 +63,7 @@ El primer paso es crear un nuevo grupo de recursos específicamente para el Alma
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
+	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
 	WARNING: The output object type of this cmdlet will be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
@@ -80,7 +80,7 @@ Cree un Almacén de claves en el nuevo grupo de recursos. El Almacén de claves 
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
 	
 	
 	Vault Name                       : myvault
@@ -156,7 +156,7 @@ Para facilitar este proceso, hay un módulo de PowerShell [disponible en GitHub]
 El comando `Invoke-AddCertToKeyVault` de este módulo de PowerShell convierte automáticamente una clave privada de certificado en una cadena JSON y la carga en el Almacén de claves. Úsela para agregar el certificado de clúster y cualquier certificado de aplicación adicional al Almacén de claves. Basta con que repita este paso con cualquier certificado adicional que quiera instalar en el clúster.
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
@@ -488,4 +488,4 @@ En este punto, tiene un clúster seguro con autenticación de Azure Active Direc
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

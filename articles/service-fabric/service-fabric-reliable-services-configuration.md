@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/30/2016"
+   ms.date="09/20/2016"
    ms.author="sumukhs"/>
 
 # Configurar servicios de confianza con estado
@@ -154,7 +154,7 @@ BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "
 
 El valor de CheckpointThresholdInMB controla la cantidad de espacio en disco que el replicador puede usar para almacenar información de estado en el archivo de registro específico de la réplica. Aumentar este valor a un valor mayor que el predeterminado puede acelerar los tiempos de reconfiguración cuando se agrega una nueva réplica al conjunto. Esto se debe a la transferencia de estado parcial que tiene lugar debido a la disponibilidad de mayor cantidad de historial de operaciones en el registro. Esto podría aumentar el tiempo de recuperación de una réplica después de un error.
 
-El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
+El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
@@ -162,4 +162,4 @@ Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obl
  - [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
  - [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

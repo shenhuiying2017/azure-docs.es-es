@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -114,9 +114,9 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 4.	Escriba o seleccione los valores siguientes en la tercera página:
 
 	* **Alias de entrada**: escriba un nombre descriptivo para esta entrada del trabajo, como *CallStream*. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante.
-	* **Centro de eventos**: si el Centro de eventos que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el Centro de eventos.
+	* **Centro de eventos**: si el Centro de eventos que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 
-	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
+	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres Bus de servicio**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
 	* **Nombre de Centro de eventos**: seleccione el nombre del Centro de eventos.
 
@@ -155,7 +155,7 @@ Si desea archivar todos los eventos, puede usar una consulta de paso a través p
 	> Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que especificó anteriormente.
 
 3.	Haga clic en **Prueba** en el editor de consultas.
-4.	Proporcione un archivo de prueba, ya sea uno creado siguiendo los pasos anteriores o [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Haga clic en el botón de comprobación y vea los resultados que aparecen debajo de la definición de consulta.
 
 	![Resultados de la definición de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -232,7 +232,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 	* **Contenedor**: seleccione el nombre del contenedor
 	* **Prefijo de nombre de archivo**: escriba un prefijo de archivo que se usará al escribir la salida del blob
 
-4.	Haga clic con el botón secundario.
+4.	Haga clic con el botón derecho.
 5.	Especifique los siguientes valores:
 
 	* **FORMATO DEL SERIALIZADOR DE EVENTOS**: JSON
@@ -265,4 +265,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

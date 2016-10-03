@@ -3,7 +3,7 @@
 	description="Aprenda a actualizar a la versión más reciente de Azure Authenticator."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="femila"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Microsoft Authenticator
 
@@ -70,7 +70,7 @@ Siga uno de los procedimientos siguientes para cada cuenta que desee agregar a l
 
 7. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
 8. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación. Especifique el país en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país. Seleccione **Siguiente**.
-9. Llegados a este punto, ya ha configurado el método de contacto. Ahora es el momento de configurar contraseñas de aplicación para las aplicaciones sin explorador, como Outlook 2010 o anterior. Si no utiliza estas aplicaciones, seleccione **Listo**. De lo contrario, continúe con el paso siguiente.
+9. Llegados a este punto, ya ha configurado el método de contacto. Ahora es el momento de configurar contraseñas para aplicaciones que no son aplicaciones de explorador, como Outlook 2010 o anteriores. Si no utiliza estas aplicaciones, seleccione **Listo**. De lo contrario, continúe con el paso siguiente.
 
 	![Pantalla para crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
@@ -137,4 +137,4 @@ Para quitar una cuenta de la aplicación Microsoft Authenticator, selecciónela 
 
 ![Botón Eliminar](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

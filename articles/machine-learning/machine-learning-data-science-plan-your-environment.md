@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
-¿Qué recursos debe incluir al configurar un entorno para realizar un procesamiento de análisis avanzado en un conjunto de datos? Este artículo sugiere una serie de preguntas que le ayudarán a identificar las tareas y los recursos pertinentes para su escenario. El orden de los pasos generales para el análisis predictivo se describe en el documento [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](data-science-process-overview.md). Cada uno de estos pasos requiere recursos específicos para las tareas relevantes para su escenario concreto. La clave para identificar su escenario la encontrará en las cuestiones relacionadas con logística de datos, las características, la calidad de los conjuntos de datos y las herramientas y lenguajes que prefiera usar para el análisis.
+¿Qué recursos debe incluir al configurar un entorno para realizar un procesamiento de análisis avanzado en un conjunto de datos? Este artículo sugiere una serie de preguntas que le ayudarán a identificar las tareas y los recursos pertinentes para su escenario. El orden de los pasos generales para el análisis predictivo se describe en [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](data-science-process-overview.md). Cada uno de estos pasos requiere recursos específicos para las tareas relevantes para su escenario concreto. La clave para identificar su escenario la encontrará en las cuestiones relacionadas con logística de datos, las características, la calidad de los conjuntos de datos y las herramientas y lenguajes que prefiera usar para el análisis.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -114,4 +114,4 @@ Cuando haya respondido a las preguntas de la sección anterior, estará listo pa
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

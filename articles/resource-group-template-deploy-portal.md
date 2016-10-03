@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
@@ -34,7 +34,7 @@ Actualmente, no todos los servicios son compatibles con el portal o con el Admin
 
     ![crear un grupo de recursos vacío](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. Asígnele un nombre y una ubicación y, si es necesario, seleccione una suscripción.
+2. Asígnele un nombre y una ubicación y, si es necesario, seleccione una suscripción. Debe proporcionar una ubicación para el grupo de recursos porque este almacena metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación en la que vayan a residir la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
 
     ![establecer valores de grupo](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -50,7 +50,7 @@ Una vez creado el grupo de recursos, puede implementar recursos en él desde Mar
 
     ![buscar en Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. Según el tipo de recurso que haya seleccionado, tendrá una colección de propiedades pertinentes que hay que establecer antes de la implementación. Estas opciones no se muestran aquí, dado que varía según el tipo de recurso. Para todos los tipos, debe seleccionar un grupo de recursos de destino. En la imagen siguiente se muestra cómo crear una aplicación web e implementarla en el grupo de recursos que ha creado.
+3. Según el tipo del recurso seleccionado, tiene una colección de propiedades pertinentes que debe establecer antes de la implementación. Estas opciones no se muestran aquí, dado que varía según el tipo de recurso. Para todos los tipos, debe seleccionar un grupo de recursos de destino. En la imagen siguiente se muestra cómo crear una aplicación web e implementarla en el grupo de recursos que ha creado.
 
     ![crear grupo de recursos](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -118,4 +118,4 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
 - Para solucionar problemas de implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para recuperar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

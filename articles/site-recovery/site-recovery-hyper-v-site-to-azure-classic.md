@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/03/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -243,7 +243,7 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		- **Subred**: para cada adaptador de red de la máquina virtual, seleccione la subred en la red de Azure a la que debe conectarse el equipo después de una conmutación por error.
 		- **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error. Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
 		
-        > [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+        > [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
@@ -300,4 +300,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

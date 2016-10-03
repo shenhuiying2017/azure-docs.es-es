@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight
 
-En este tutorial se describe cómo utilizar el proceso de ciencia de datos en equipos en un escenario completo con un [clúster de Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Aprendizaje automático de Azure para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
+En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](data-science-process-overview.md) en un escenario completo con un [clúster de Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Aprendizaje automático de Azure para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
 
 Para acceder a un tutorial que muestra cómo controlar un conjunto de datos de mayor tamaño (1 terabyte) para un escenario similar con clústeres de Hadoop de HDInsight para el procesamiento de datos, consulte [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -434,10 +434,10 @@ Un objetivo común del análisis de exploración de datos consiste en descartar 
 
 Aquí se muestra el contenido del archivo *sample\_hive\_quality\_assessment.hql* para su inspección.
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -564,10 +564,10 @@ Después esta consulta reduce los datos para que los resultados quepan en Estudi
 
 A continuación se muestra el contenido del archivo *sample\_hive\_prepare\_for\_aml\_full.hql* que prepara los datos para la creación de modelos en Aprendizaje automático de Azure.
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ A continuación se muestra el contenido del archivo *sample\_hive\_prepare\_for\
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -794,9 +794,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 
 ## Referencias
 
-• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) 
-• [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) 
-• [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -22,15 +22,16 @@
 
 > [AZURE.SELECTOR]
 - [Script de C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script de F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
  
-La experiencia en C# para las Funciones de Azure se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json` y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
+La experiencia en C# para las Funciones de Azure se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
 
-En este artículo se supone que ya leyó la [referencia para desarrolladores de Funciones de Azure](functions-reference.md).
+En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
 ## Funcionamiento de .csx
 
-El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. En Funciones de Azure, incluya solo las referencias a ensamblados y espacios de nombres que necesite, como de costumbre, y en lugar de ajustar todo en un espacio de nombres y una clase, simplemente defina el método `Run`. Si necesita incluir todas las clases, por ejemplo para definir objetos POCO, puede incluir una clase dentro del mismo archivo.
+El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. En Azure Functions, incluya solo las referencias a ensamblados y espacios de nombres que necesite, como de costumbre, y en lugar de ajustar todo en un espacio de nombres y una clase, simplemente defina el método `Run`. Si necesita incluir todas las clases, por ejemplo para definir objetos POCO, puede incluir una clase dentro del mismo archivo.
 
 ## Enlace a argumentos
 
@@ -51,7 +52,7 @@ public class MyClass
 
 ## Registro
 
-Para registrar la salida en sus registros de streaming en C#, puede incluir un argumento con tipo `TraceWriter`. Es recomendable que lo denomine `log`. Le recomendamos que evite `Console.Write` en Funciones de Azure.
+Para registrar la salida en sus registros de streaming en C#, puede incluir un argumento con tipo `TraceWriter`. Es recomendable que lo denomine `log`. Le recomendamos que evite `Console.Write` en Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -62,7 +63,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-Para hacer que una función sea asincrónica, utilice la palabra clave `async` y devuelva un objeto `Task`.
+Para convertir una función en asincrónica, use la palabra clave `async` y devuelva un objeto `Task`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -150,7 +151,7 @@ Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de
 
 ## Administración de paquetes
 
-Para utilizar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
+Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
 
 ```json
 {
@@ -171,11 +172,11 @@ Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene 
 
 ### Cómo cargar un archivo project.json
 
-1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure. 
+1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure.
 
 	Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
 
-2. Para cargar un archivo project.json, utilice uno de los métodos descritos en la sección **Actualización de los archivos de la aplicación de función** del [tema Referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
+2. Para cargar un archivo project.json, use uno de los métodos descritos en la sección **Actualización de los archivos de la aplicación de función** del [tema Referencia para desarrolladores de Azure Functions](functions-reference.md#fileupdate).
 
 3. Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
@@ -198,7 +199,7 @@ Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene 
 
 ## Variables de entorno
 
-Para obtener una variable de entorno o un valor de configuración de aplicación, utilice `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
+Para obtener una variable de entorno o un valor de configuración de aplicación, use `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -217,7 +218,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## Reutilización del código .csx
 
-Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*, como se muestra en el ejemplo siguiente.
+Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, use directivas `#load` en el archivo *run.csx*, como se muestra en el ejemplo siguiente.
 
 Archivo *run.csx* de ejemplo:
 
@@ -255,7 +256,8 @@ La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con ar
 Para obtener más información, consulte los siguientes recursos:
 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)
+* [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-fsharp.md)
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

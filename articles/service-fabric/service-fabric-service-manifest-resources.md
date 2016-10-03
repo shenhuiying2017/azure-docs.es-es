@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 # Especificación de los recursos en un manifiesto de servicio
@@ -24,7 +24,7 @@ El manifiesto de servicio permite que los recursos que utilizará el servicio se
 
 ## Extremos
 
-Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos de aplicación reservados si no se especifica un puerto concreto (por ejemplo, mire el punto de conexión *ServiceEndpoint1* a continuación). Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Estos puertos pueden ser utilizados por las réplicas de servicio para varios propósitos, como la replicación, la escucha de solicitudes de cliente, etc.
+Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Por ejemplo, analice el punto de conexión *ServiceEndpoint1* especificado en el fragmento de manifiesto que encontrará después de este párrafo. Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Las réplicas de servicio pueden usar estos puertos según sea necesario para la replicación y procesar solicitudes de cliente.
 
 ```xml
 <Resources>
@@ -90,12 +90,12 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 
 ## Ejemplo: Especificación de un punto de conexión HTTPS para el servicio
 
-El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar esta opción en el servicio Service Fabric, al definir el servicio, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
+El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar HTTPS en el servicio Service Fabric, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
 
 >[AZURE.NOTE] No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación, porque esto supondría un cambio importante.
 
 
-Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesitará proporcionar la huella digital para el certificado). EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado Endpointcertificates.
+Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitará proporcionar la huella digital para el certificado. EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado EndpointCertificate.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,4 +137,4 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesita
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

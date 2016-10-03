@@ -2,6 +2,6 @@ Esta es la información de referencia para desarrolladores de Funciones de Azure
 
 * [Creación de su primera función de Azure](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Referencia para desarrolladores de Funciones de Azure](../articles/azure-functions/functions-reference.md)
-* Referencia para desarrolladores de [C#](../articles/azure-functions/functions-reference-csharp.md) o [Node](../articles/azure-functions/functions-reference-node.md)
+* Referencia para desarrolladores de [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md) o [Node](../articles/azure-functions/functions-reference-node.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

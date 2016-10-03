@@ -3,7 +3,7 @@
 	description="Muestra las funciones de exploración y modelado de datos del kit de herramientas MLlib de Spark."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Exploración y modelado de datos con Spark
 
@@ -39,7 +39,7 @@ Los pasos de modelado también contienen código que muestra cómo entrenar, eva
 
 ## Requisitos previos
 
-Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí, y obtener instrucciones sobre cómo ejecutar código de un Notebook de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un cuaderno de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -1105,4 +1105,4 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 **Validación cruzada y barrido de hiperparámetros**: consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

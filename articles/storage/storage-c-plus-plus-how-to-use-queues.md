@@ -3,8 +3,8 @@
     description="Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=jahogg""
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # Uso del almacenamiento de colas de C++  
 
@@ -228,6 +228,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 	queue.delete_queue_if_exists();  
 
 ## Pasos siguientes
+
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, siga estos vínculos para obtener más información sobre Almacenamiento de Azure.
 
 -	[Cómo usar el almacenamiento de blobs de C++](storage-c-plus-plus-how-to-use-blobs.md)
@@ -236,4 +237,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

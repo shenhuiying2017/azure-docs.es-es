@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory
@@ -94,13 +94,13 @@ No se admiten las cuentas de Microsoft (por ejemplo, outlook.com, hotmail.com, l
 - La autenticación de Azure Active Directory se admite para Base de datos SQL con las hojas **Importar base de datos** y **Exportar base de datos** del Portal de Azure. La importación y exportación mediante la autenticación de Azure Active Directory también se admite desde el comando de PowerShell.
 
 
-## 1. Crear y rellenar una instancia de Azure AD.
+## 1\. Crear y rellenar una instancia de Azure AD.
 
 Cree una instancia de Azure Active Directory y rellénela con usuarios y grupos. Azure Active Directory puede ser el dominio administrado de Azure AD de dominio inicial. Azure Active Directory también puede ser una instancia local de Servicios de dominio de Active Directory que se federa con Azure Active Directory.
 
 Para más información, consulte [Integración de las identidades locales con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server Active Directory), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
-## 2. Asegurarse de que la versión de Base de datos SQL sea la versión 12.
+## 2\. Asegurarse de que la versión de Base de datos SQL sea la versión 12.
 
 La última versión de Base de datos SQL V12 admite la autenticación de Azure Active Directory. Para más información sobre Base de datos SQL V12 y para saber si está disponible en su región, consulte [Novedades de la actualización de Base de datos SQL V12](sql-database-v12-whats-new.md). Este paso no es necesario para Almacenamiento de datos SQL de Azure porque Almacenamiento de datos SQL solo está disponible en V12.
 
@@ -134,7 +134,7 @@ En los procedimientos siguientes se ofrecen instrucciones paso a paso sobre cóm
 
 > [AZURE.NOTE] Cuando se cambia el directorio, el acceso de todos los coadministradores, usuarios y grupos de Azure AD y usuarios de recursos con respaldo del directorio se quitan y dejan de tener acceso a la suscripción y sus recursos. Solo el administrador del servicio puede configurar el acceso para las entidades de seguridad según el nuevo directorio. Este cambio podría tardar una cantidad considerable de tiempo en propagarse a todos los recursos. Al cambiar el directorio también se modifica el administrador de Azure AD de Base de datos SQL y Almacenamiento de datos SQL, y se deshabilita el acceso a la base de datos de los usuarios de Azure AD existentes. El administrador de Azure AD debe restablecerse (como se describe a continuación) y se deben crear nuevos usuarios de Azure AD.
 
-## 4. Crear un administrador de Azure AD para Azure SQL Server.
+## 4\. Crear un administrador de Azure AD para Azure SQL Server.
 
 Cada servidor de Azure SQL Server (que hospeda una instancia de Base de datos SQL o Almacenamiento de datos SQL) se inicia con una única cuenta de administrador, que es el administrador de todo el servidor Azure SQL Server. Se debe crear un segundo administrador de SQL Server que sea una cuenta de Azure AD. Esta entidad de seguridad se crea como un usuario de base de datos independiente en la base de datos maestra. Como administradores, las cuentas de administrador del servidor son miembros del rol **db\_owner** en todas las bases de datos de usuarios y se introducen en cada base de datos de usuarios como el usuario **dbo**. Para más información sobre las cuentas de administrador del servidor, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md) y la sección **Inicios de sesión y usuarios** sección de [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](sql-database-security-guidelines.md).
 
@@ -297,7 +297,7 @@ Cuando se crea un usuario de base de datos, dicho usuario recibe el permiso **CO
 > [AZURE.NOTE] Los usuarios de Azure AD se marcan en los metadatos de la base de datos con el tipo E (EXTERNAL\_USER) y en los grupos con el tipo X (EXTERNAL\_GROUPS). Para obtener información, vea [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
-## 7. Conectarse con identidades de Azure AD.
+## 7\. Conectarse con identidades de Azure AD.
 
 La autenticación de Azure Active Directory admite los siguientes métodos de conexión a una base de datos mediante identidades de Azure AD:
 
@@ -312,7 +312,7 @@ Para usar la autenticación integrada de Windows, la instancia de Active Directo
 Para conectarse a una base de datos mediante autenticación integrada y una identidad de Azure AD, la palabra clave Authentication de la cadena de conexión de la base de datos debe establecerse como Active Directory Integrated. En el siguiente ejemplo de código de C# se usa ADO.NET.
 
 	string ConnectionString =
-	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated;";
+	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
@@ -322,14 +322,14 @@ Tenga en cuenta que no se admite la palabra clave ``Integrated Security=True`` d
 Para conectarse a una base de datos mediante autenticación integrada y una identidad de Azure AD, la palabra clave Authentication debe establecerse como Active Directory Password. La cadena de conexión debe contener las palabras clave y los valores User ID/UID y Password/PWD. En el siguiente ejemplo de código de C# se usa ADO.NET.
 
 	string ConnectionString =
-	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
+	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
 Puede encontrar más información sobre los métodos de autenticación de Azure AD con los ejemplos de código de demostración que se encuentran disponibles en la [demostración de la autenticación de Azure AD de GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth).
 
 
-### 7.3 Conexión con un token de Azure AD
+### 7\.3 Conexión con un token de Azure AD
 Este método de autenticación permite a los servicios de nivel intermedio conectarse a Base de datos SQL de Azure o Almacenamiento de datos SQL de Azure mediante la obtención de un token de Azure Active Directory (AAD). Permite escenarios sofisticados, incluida la autenticación basada en certificados. Para usar la autenticación de token de Azure AD tiene que realizar cuatro pasos básicos:
 
 1. Registrar la aplicación con Azure Active Directory y obtener el identificador de cliente para el código.
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

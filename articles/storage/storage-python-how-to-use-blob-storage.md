@@ -3,8 +3,8 @@
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-    ms.date="07/26/2016"
-	ms.author="jehine"/>
+    ms.date="09/20/2016"
+	ms.author="jwillis;tamram"/>
 
 # Uso del almacenamiento de blobs de Azure desde Python
 
@@ -127,4 +127,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

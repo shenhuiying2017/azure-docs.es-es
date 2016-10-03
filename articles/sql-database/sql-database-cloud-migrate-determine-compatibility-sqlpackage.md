@@ -29,7 +29,7 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 ## Uso de SqlPackage.exe
 
-1. Abra un símbolo del sistema y cambie a un directorio que contiene la versión más reciente de sqlpackage.exe. Esta utilidad se incluye con Visual Studio y SQL Server. Descargue la [versión más reciente de SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) para obtener la versión más reciente de la utilidad SqlPackage.
+1. Abra un símbolo del sistema y cambie a un directorio que contiene la versión más reciente de sqlpackage.exe. Esta utilidad se incluye con las versiones más recientes de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) y [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), o bien puede descargar la versión más reciente de [SqlPackage](https://www.microsoft.com/es-ES/download/details.aspx?id=53876) directamente desde el Centro de descarga Microsoft.
 2. Ejecute el siguiente comando SqlPackage con los argumentos siguientes para su entorno:
 
 	'sqlpackage.exe /Action:Export /ssn:< nombre\_servidor > /sdn:< nombre\_basedatos > /tf:< archivo\_destino > /p:TableData=< schema\_name.table\_name > > < archivo\_salida > 2>&1'
@@ -37,12 +37,12 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 	| Argumento | Descripción |
 	|---|---|
 	| < nombre\_servidor > | nombre de servidor de origen |
-	| < nombre\_basedatos > | nombre de base de datos de origen |
-	| < archivo\_destino > | nombre y ubicación del archivo BACPAC |
-	| < nombre\_esquema.nombre\_tabla > | tablas cuyos datos se envían al archivo de destino |
-	| < archivo\_salida > | nombre y ubicación del archivo de salida con los errores, si existen |
+	| <nombre\_basedatos > | nombre de base de datos de origen |
+	| <archivo\_destino > | nombre y ubicación del archivo BACPAC |
+	| <nombre\_esquema.nombre\_tabla > | tablas cuyos datos se envían al archivo de destino |
+	| <archivo\_salida > | nombre y ubicación del archivo de salida con los errores, si existen |
 
-	El motivo del argumento /p:TableName es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a Base de datos SQL de Azure V12, en lugar de exportar los datos de todas las tablas. Lamentablemente, el argumento de exportación de sqlpackage.exe no permite extraer cero tablas. Debe especificar al menos una tabla, por ejemplo, una sola tabla pequeña. El < archivo\_salida > contendrá el informe de los errores. La cadena "> 2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
+	El motivo del argumento /p:TableName es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a Base de datos SQL de Azure V12, en lugar de exportar los datos de todas las tablas. Lamentablemente, el argumento de exportación de sqlpackage.exe no permite extraer cero tablas. Debe especificar al menos una tabla, por ejemplo, una sola tabla pequeña. < archivo\_salida > contendrá el informe de los errores. La cadena "> 2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
 
 	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -62,4 +62,4 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

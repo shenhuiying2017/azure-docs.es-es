@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ Este es el primer paso del tutorial [Desarrollo de una solución de análisis pr
 6.	[Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
+
+<!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 Para usar Estudio de aprendizaje automático, debe tener un área de trabajo de Aprendizaje automático de Microsoft Azure. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.
 
@@ -51,4 +53,4 @@ Después de crear el área de trabajo de Aprendizaje automático, verá que apar
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

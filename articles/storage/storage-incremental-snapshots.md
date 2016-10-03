@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="tamram;aungoo"/>
 
 
 # Copias de seguridad de discos de máquinas virtuales de Azure con instantáneas incrementales
 
-## Información general 
+## Información general
 
 Almacenamiento de Azure permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describirá cómo mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
 
@@ -128,4 +128,4 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 - [Crear una instantánea de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

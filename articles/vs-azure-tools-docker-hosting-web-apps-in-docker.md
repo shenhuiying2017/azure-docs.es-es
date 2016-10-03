@@ -3,7 +3,7 @@
    description="Aprenda a usar Visual Studio Tools para Docker para implementar una aplicación web de ASP.NET Core en un contenedor de Docker que se ejecute en una máquina virtual Linux de host de Docker de Azure"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # Implementación de un contenedor ASP.NET en un host remoto de Docker
 
@@ -25,11 +25,12 @@ Docker es un motor de contenedor ligero, semejante de alguna manera a una máqui
 Necesita lo siguiente para completar este tutorial:
 
 - Crear una VM de host de Docker de Azure tal y como se describe en [Uso de una máquina de Docker con el controlador de Azure](./virtual-machines/virtual-machines-linux-docker-machine.md).
-- Instalar [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- Instalar [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [SDK de Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 - Instalar [Visual Studio 2015 Tools para Docker - Preview](http://aka.ms/DockerToolsForVS)
 
-## 1\. Cree una aplicación web ASP.NET 5
-Los siguientes pasos le guiarán a través del proceso de creación de una aplicación ASP.NET 5 básica que se usará en este tutorial.
+## 1\. Cree una aplicación web ASP.NET Core
+Los siguientes pasos lo guiarán en el proceso de creación de una aplicación ASP.NET Core básica que se usará en este tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

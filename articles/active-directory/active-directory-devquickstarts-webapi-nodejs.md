@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Introducción a WEB-API para Node
@@ -22,7 +22,7 @@
 
 **Passport** es middleware de autenticación para Node.js. Muy flexible y modular, Passport puede pasar discretamente a cualquier aplicación web basada en Express o Restify. Un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Microsoft Azure Active Directory. Instalaremos este módulo y, a continuación, agregaremos el complemento `passport-azure-ad` de Microsoft Azure Active Directory.
 
-Para llevar a cabo esta tarea, deberá hacer lo siguiente:
+Para ello, deberá hacer lo siguiente:
 
 1. Registrar una aplicación con Azure AD
 2. Configurar la aplicación para que use el complemento passport-azure-ad de Passport.
@@ -941,4 +941,4 @@ Solo tiene que clonar su equipo del desarrollador y configurarlo como se indica 
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

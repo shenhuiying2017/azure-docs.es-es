@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # ¿Qué es el proceso de ciencia de datos en equipos (TDSP)?
@@ -74,9 +74,9 @@ El siguiente paso consiste en obtener un conocimiento más profundo de los datos
 Los científicos de datos, en colaboración con expertos de dominio, deben identificar las características que capturan las propiedades importantes del conjunto de datos y que mejor se puedan usar para predecir las variables clave del negocio identificadas durante la planeación. Estas nuevas características pueden proceder de los datos existentes o pueden requerir que se recopilen datos adicionales. Este proceso se conoce como **ingeniería de características** y es uno de los pasos fundamentales de la creación de un sistema eficaz de análisis predictivo. Este paso requiere una combinación creativa de experiencia de dominio y de los conocimientos obtenidos en el paso de exploración de datos. Para ver instrucciones, consulte [Ingeniería de características en el proceso de análisis de Cortana](machine-learning-data-science-create-features.md).
 
 
-## 4\. Crear y entrenar modelos de aprendizaje automático
+## 4\. Crear y entrenar modelos de Machine Learning
 
-Los científicos de datos generan modelos analíticos para predecir las variables clave identificadas por los requisitos de negocio definidos en el paso de planeación, mediante los datos que se limpiaron y caracterizaron. Los sistemas de aprendizaje automático admiten varios **algoritmos de modelado** que se pueden aplicar a una amplia variedad de casos. Para obtener instrucciones, consulte [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+Los científicos de datos generan modelos analíticos para predecir las variables clave identificadas por los requisitos de negocio definidos en el paso de planeación, mediante los datos que se limpiaron y caracterizaron. Los sistemas de aprendizaje automático admiten varios **algoritmos de modelado** que se pueden aplicar a una amplia variedad de casos. Para obtener instrucciones, consulte [Cómo elegir algoritmos para Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Los científicos de datos deben elegir el modelo más adecuado para sus tareas de predicción y no es infrecuente que los resultados de varios modelos deben combinarse para obtener los mejores resultados. Los datos de entrada del modelado se suelen dividir aleatoriamente en tres partes:
 
@@ -100,4 +100,4 @@ Aunque el TDSP no prescribe tipos específicos de artefactos de **documentación
 
 También se proporcionan tutoriales completos que muestran todos los pasos del proceso en **escenarios concretos**. Aparecen con las descripciones en miniatura del tema [Tutoriales del proceso de ciencia de datos en equipos](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

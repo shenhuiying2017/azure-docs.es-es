@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cargar archivos en una cuenta de Servicios multimedia mediante .NET" 
+	pageTitle="Carga de archivos en una cuenta de Media Services mediante .NET | Microsoft Azure" 
 	description="Aprenda a obtener contenido multimedia en Servicios multimedia mediante la creación y carga de recursos." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="08/30/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,6 +28,12 @@
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
 Los archivos del recurso se denominan **archivos de recursos**. La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
+
+>[AZURE.NOTE]Al elegir un nombre de archivo de recurso, se aplican las consideraciones siguientes:
+>
+>- Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+>
+>- La longitud del nombre no debe ser superior a 260 caracteres.
 
 Al crear recursos, puede especificar las siguientes opciones de cifrado.
 
@@ -44,7 +50,6 @@ Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o u
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted** **ContentKey** para el recurso.
 
->[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
@@ -311,11 +316,11 @@ En el ejemplo siguiente se llama a la función UploadFile y se especifica el cif
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Paso siguiente
 
-##Pasos siguientes
 Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador multimedia][].
 
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

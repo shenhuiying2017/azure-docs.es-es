@@ -83,9 +83,7 @@ Para crear un nuevo contenedor, use **createContainerIfNotExists**. En el siguie
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
 	    if(!error){
-	      // Container exists and allows
-	      // anonymous read access to blob
-	      // content and metadata within this container
+	      // Container exists and is private
 	    }
 	});
 
@@ -103,7 +101,9 @@ En el ejemplo de código siguiente se demuestra cómo configurar el nivel de acc
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
-	      // Container exists and is private
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
 	    }
 	});
 
@@ -415,4 +415,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="05/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maroche"/>
 
 # Configuración del glosario empresarial para el etiquetado regulado
@@ -27,7 +27,7 @@ Una característica del Catálogo de datos que promueve una mejor comprensión d
 Sin embargo, el etiquetado a veces puede causar problemas por sí mismo. Estos son algunos ejemplos de problemas que pueden aparecer debido al etiquetado:
 
 1.	Usuarios con abreviaturas en algunos recursos y el texto expandido en otros en el etiquetado. Esta incoherencia dificulta la detección de los recursos, aunque el objetivo sea etiquetar los recursos con la misma etiqueta.
-2.	Etiquetas que tienen significados diferentes en distintos contextos. Por ejemplo, una etiqueta denominada "Ingresos" en un conjunto de datos de cliente podría significar ingresos por cliente, pero la misma etiqueta en un conjunto de datos de ventas trimestral puede significar ingresos trimestrales para la empresa.  
+2.	Etiquetas que tienen significados diferentes en distintos contextos. Por ejemplo, una etiqueta denominada "Ingresos" en un conjunto de datos de cliente podría significar ingresos por cliente, pero la misma etiqueta en un conjunto de datos de ventas trimestral puede significar ingresos trimestrales para la empresa.
 
 Para ayudar a solucionar estos y otros desafíos similares, Catálogo de datos incluye un glosario empresarial.
 
@@ -37,21 +37,21 @@ El glosario empresarial de Catálogo de datos permite a las organizaciones docum
 
 ## Disponibilidad del glosario y privilegios
 
-/*El glosario empresarial solo está disponible en la Edición Estándar del Catálogo de datos de Azure. La Edición Gratis del Catálogo de datos no incluye un glossary.*/
+/*El glosario empresarial solo está disponible en la Edición Estándar de Azure Data Catalog. La Edición Gratis de Data Catalog no incluye un glosario.*/
 
 Se puede acceder al glosario empresarial a través de la opción "Glosario" del menú de navegación del portal de Catálogo de datos.
 
 ![Acceso al glosario empresarial](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-Los administradores del Catálogo de datos pueden crear, editar y eliminar términos en el glosario empresarial. Todos los usuarios del Catálogo de datos pueden ver las definiciones de términos y pueden etiquetar recursos con los términos del glosario.
+Los administradores y los miembros del rol de administradores de glosarios de Data Catalog pueden crear, editar y eliminar términos en el glosario empresarial. Todos los usuarios del Catálogo de datos pueden ver las definiciones de términos y pueden etiquetar recursos con los términos del glosario.
 
 ![Adición de nuevo término de glosario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
 ## Creación de términos de glosario
 
-Los administradores del Catálogo de datos pueden crear nuevos términos del glosario haciendo clic en el botón Nuevo término para crear los términos del glosario con los campos siguientes:
+Los administradores de Data Catalog y de los glosarios pueden crear nuevos términos del glosario haciendo clic en el botón Nuevo término para crear los términos del glosario con los campos siguientes:
 
 * Una definición empresarial del término
 * Una descripción que captura el uso previsto o las reglas de negocios para la columna o recurso
@@ -88,4 +88,4 @@ El glosario empresarial del Catálogo de datos de Azure y el etiquetado regulado
 
 - [Documentación de API de REST para las operaciones del glosario empresarial](https://msdn.microsoft.com/library/mt708855.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

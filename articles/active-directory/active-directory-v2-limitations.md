@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # ¿Debo usar el punto de conexión v2.0?
@@ -121,4 +121,4 @@ Hay un conjunto de características para desarrolladores en el servicio de Azure
 - Notificaciones de grupo para usuarios de Azure AD
 - Roles de aplicación y notificaciones de rol
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

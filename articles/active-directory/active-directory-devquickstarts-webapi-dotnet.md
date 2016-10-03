@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -95,7 +95,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController`, es posible que la acción deba tener acceso a información sobre este. OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincpal`.  
+- Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController`, es posible que la acción deba tener acceso a información sobre este. OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincpal`.
 - Es un requisito común de las API web validar los "ámbitos" presentes en el token (esto garantiza la aceptación por parte del usuario final de los permisos necesarios para tener acceso al servicio de lista Todo):
 
 ```C#
@@ -139,4 +139,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-Dot
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

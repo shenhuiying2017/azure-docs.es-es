@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Protocolos de v2.0: OAuth 2.0 y OpenID Connect
@@ -22,7 +22,7 @@ El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con 
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 ## Conceptos básicos
 En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas en el intercambio:
@@ -54,7 +54,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Donde `{tenant}` puede adoptar uno de cuatro valores:
 
-| Valor | Descripción |
+| Valor | Description |
 | ----------------------- | ------------------------------- |
 | `common` | Permite que los usuarios con cuentas personales de Microsoft y con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
 | `organizations` | Permite que solo los usuarios con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
@@ -80,4 +80,4 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

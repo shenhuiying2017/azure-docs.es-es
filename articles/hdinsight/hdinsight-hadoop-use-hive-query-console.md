@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # Ejecución de consultas de Hive mediante la consola de consulta
@@ -23,7 +23,7 @@
 
 En este artículo, aprenderá a utilizar la consola de la consulta de HDInsight para ejecutar consultas de Hive en un clúster de Hadoop de HDInsight desde el explorador.
 
-> [AZURE.NOTE] La consola de consulta solo está disponible en los clústeres de HDInsight basados en Windows.
+> [AZURE.IMPORTANT] La consola de consulta de HDInsight solo está disponible en los clústeres de HDInsight basados en Windows. Si está usando un clúster de HDInsight basado en Linux, consulte [Ejecución de consultas de Hive mediante la vista Hive](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
 ##<a id="prereq"></a>Requisitos previos
@@ -91,9 +91,9 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Uso de la IU de Tez en HDInsight basado en Windows)
+* [Use the Tez UI on Windows-based HDInsight (Uso de la IU de Tez en HDInsight basado en Windows)](hdinsight-debug-tez-ui.md)
 
-* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md) (Uso de la vista Tez de Ambari en HDInsight basado en Linux)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -128,4 +128,4 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

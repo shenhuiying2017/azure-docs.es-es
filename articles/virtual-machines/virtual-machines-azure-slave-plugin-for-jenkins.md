@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Uso del complemento subordinado de Azure con Jenkins Continuous Integration
@@ -173,7 +173,7 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 
 1. Haga clic en **Verify Template** (Comprobar plantilla) para comprobar si los parámetros especificados son válidos.
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**.
 
 
 ## Creación de un trabajo de Jenkins que se ejecuta en un nodo subordinado en Azure
@@ -220,7 +220,7 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
 
 		ant
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**.
 
 1. En el panel de Jenkins, mantenga el mouse sobre la tarea que acaba de crear y haga clic en la flecha hacia abajo para mostrar las opciones de la tarea.
 
@@ -246,4 +246,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [checkpoint general template config]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png
 [OS Image list sample]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

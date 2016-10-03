@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el portal
@@ -38,19 +38,27 @@ El agente de escucha HTTPS busca tráfico en función de su configuración y ayu
 
 ### Paso 1
 
-Vaya al Portal de Azure y seleccione una puerta de enlace de aplicaciones existente.
+Vaya a Azure Portal y seleccione una puerta de enlace de aplicaciones existente.
 
 ![hoja de información general de puerta de enlace de aplicaciones][1]
 
 ### Paso 2
 
-Haga clic en Agentes de escucha y en el botón Agregar para agregar un nuevo agente de escucha.
+Haga clic en Agentes de escucha y en el botón Agregar para agregar un agente de escucha.
 
 ### Paso 3
 
 Rellene la información necesaria para el agente de escucha y cargue el certificado .pfx. Cuando haya terminado, haga clic en Aceptar.
 
-**Nombre**: se trata de un nombre descriptivo del agente de escucha. **Configuración de direcciones IP de front-end**: se trata de la configuración de direcciones IP de front-end que se usa para el agente de escucha. **Puerto front-end (nombre/puerto)**: un nombre descriptivo para el puerto usado en el front-end de la puerta de enlace de aplicaciones y el puerto real usado. **Protocolo**: un modificador para determinar si se usa https o http para el front-end. **Certificado (nombre/contraseña)**: si se usa la descarga SSL, un certificado .pfx se requiere para esta configuración, al igual que un nombre y contraseña descriptivos.
+**Nombre**: este valor es un nombre descriptivo del agente de escucha.
+
+**Configuración de direcciones IP de front-end**: este valor es la configuración de direcciones IP de front-end usada para el agente de escucha.
+
+**Puerto front-end (nombre/puerto)**: un nombre descriptivo para el puerto usado en el front-end de la puerta de enlace de aplicaciones y el puerto real usado.
+
+**Protocolo**: un modificador para determinar si se usa https o http para el front-end.
+
+**Certificado (nombre/contraseña)**: si se usa la descarga SSL, un certificado .pfx se requiere para esta configuración, al igual que un nombre y contraseña descriptivos.
 
 ![agregar hoja del agente de escucha][2]
 
@@ -62,13 +70,13 @@ Ahora se ha creado el agente de escucha. Es hora de crear una regla para control
 
 Haga clic en las **reglas** de la puerta de enlace de aplicaciones y, a continuación, en Agregar.
 
-![hoja de reglas appgateway][3]
+![hoja de reglas de puerta de enlace de aplicaciones][3]
 
 ### Paso 2
 
 En la hoja **Agregar regla básica**, escriba el nombre descriptivo para la regla y elija el agente de escucha creado en el paso anterior. Elija el grupo de back-end y la configuración HTTP adecuados y haga clic en **Aceptar**.
 
-![ventana de configuración de HTTPS][4]
+![ventana de configuración de https][4]
 
 Ahora, la configuración está guardada en la puerta de enlace de aplicaciones. El proceso de guardar para esta configuración puede tardar un rato antes de que pueda verse a través del portal o de PowerShell. Una vez guardada, la puerta de enlace de aplicaciones controla el cifrado y descifrado del tráfico. Todo el tráfico entre la puerta de enlace de aplicaciones y los servidores web de back-end se controlará mediante http. Cualquier comunicación dirigida de nuevo al cliente iniciada mediante https se devolverá al cliente cifrado.
 
@@ -81,4 +89,4 @@ Para aprender a configurar un sondeo de estado personalizado con Puerta de enlac
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

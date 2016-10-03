@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/11/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Notas de la versión del Catálogo de datos de Azure
@@ -58,10 +58,6 @@ Al abrir recursos de datos en Microsoft Excel desde el portal **Catálogo de dat
 
 Para obtener más información, vea [Habilitación o deshabilitación de alertas de seguridad sobre vínculos y archivos de sitios web sospechosos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-### Faltan las columnas BLOB y UDT en las vistas previas
-
-Al registrar tablas y vistas que contienen columnas de objeto binario grande (BLOB) y de tipo de datos definidos por el usuario (UDT) y al seleccionar la inclusión de una vista previa de los recursos de datos, estas columnas no se incluirán en la vista previa.
-
 ### Configuración de proxy y directiva, y registro de orígenes de datos
 
 Es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal del Catálogo de datos de Azure, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos se encuentren un mensaje de error que les impida iniciar sesión.
@@ -88,4 +84,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

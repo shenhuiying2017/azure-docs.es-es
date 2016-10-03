@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Agregar inicio de sesión a una aplicación web .NET MVC
@@ -21,7 +21,7 @@
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. En las aplicaciones web ASP.NET puede realizar esto con el OWIN middleware de Microsoft incluido en .NET Framework 4.5.
 
 > [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
  Aquí vamos a compilar una aplicación web que usa OWIN para iniciar la sesión del usuario, mostrar información sobre el usuario y cerrar la sesión del usuario en la aplicación.
  
@@ -200,7 +200,7 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ## Pasos siguientes
 
-Ahora puede pasar a temas más avanzados. Es posible que desee probar:
+Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Proteger una API web con el punto de conexión v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
@@ -212,4 +212,4 @@ Para obtener recursos adicionales, consulte:
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

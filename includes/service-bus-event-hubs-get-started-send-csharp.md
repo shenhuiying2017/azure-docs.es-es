@@ -4,13 +4,13 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Remitente**.
 
-	![][7]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes NuGet para la solución**.
 
 3. Haga clic en la pestaña **Examinar** y, después, busque `Microsoft Azure Service Bus`. Asegúrese de que el nombre del proyecto (**Remitente**) se especifica en el cuadro **Versiones**. Haga clic en **Instalar** y acepte las condiciones de uso.
 
-	![][8]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
 	Visual Studio descarga, instala y agrega una referencia al [paquete NuGet de la biblioteca del Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
@@ -65,9 +65,4 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 	SendingRandomMessages();
 	```
 
-
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

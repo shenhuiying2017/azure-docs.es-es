@@ -33,7 +33,7 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 
 
 - Guarde y cierre las aplicaciones de RemoteApp cuando haya terminado con la aplicación. Si no se cierra la aplicación se podría producir la pérdida de datos.
-- Valide las aplicaciones personalizadas antes de usarlas en RemoteApp de Azure. Esto incluye asegurarse de que funcionan en una plataforma multisesión y de que no consumen recursos innecesarios como memoria y CPU que puedan privar a otro usuario de la misma colección. Para obtener información, descargue y revise las [Prácticas recomendadas de compatibilidad de aplicaciones para servicios de Escritorio remoto](http://www.microsoft.com/download/details.aspx?id=18704).
+- Valide las aplicaciones personalizadas antes de usarlas en RemoteApp de Azure. Esto incluye asegurarse de que funcionan en una plataforma multisesión y de que no consumen recursos innecesarios como memoria y CPU que puedan privar a otro usuario de la misma colección. Para obtener información, descargue y revise las [Prácticas recomendadas de compatibilidad de aplicaciones para servicios de Escritorio remoto](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
 
 ## Configuración y administración
 
@@ -46,4 +46,4 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 	- Configure la configuración de todo el sistema en la imagen de plantilla en lugar de en las máquinas virtuales individuales de un servicio.
 	- Deshabilite las actualizaciones de software automáticas para las aplicaciones publicadas: en su lugar, aplíquelas manualmente a la imagen de plantilla y pruébelas antes de implementar desde la plantilla.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

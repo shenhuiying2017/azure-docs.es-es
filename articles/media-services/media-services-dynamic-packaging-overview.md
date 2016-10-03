@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información general sobre el empaquetado dinámico"
+	pageTitle="Información general del empaquetado dinámico | Microsoft Azure"
 	description="El tema proporciona información general sobre el empaquetado dinámico."
 	authors="Juliako"
 	manager="erikre"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ El diagrama siguiente muestra el flujo de trabajo de empaquetado dinámico.
 ![Codificación dinámica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 
 ##Escenario común
 
@@ -56,11 +56,11 @@ Si desea preparar el recurso para el streaming dinámico, tiene dos opciones:
 3. [Transmita el contenido](media-services-deliver-content-overview.md).
 
 O
- 
+
 1. Cargue archivos MP4 precodificados.
 
-	>[AZURE.NOTE] Esta opción no se recomienda.
-	
+>[AZURE.NOTE] Esta opción no se recomienda.
+
 2. [Valide los archivos precodificados](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Transmita el contenido](media-services-deliver-content-overview.md).
 
@@ -80,4 +80,4 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

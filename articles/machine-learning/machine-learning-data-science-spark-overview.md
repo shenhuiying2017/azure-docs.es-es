@@ -3,7 +3,7 @@
 	description="El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
 
@@ -37,7 +37,11 @@ Los pasos de instalación y el código proporcionados en este tutorial son para 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+<!-- -->
+
 > [AZURE.NOTE] Si quiere leer un tema que muestre cómo utilizar Scala en lugar de Python para completar las tareas de un proceso de ciencia de datos de un extremo a otro, consulte [Ciencia de datos mediante Scala con Spark de Azure](machine-learning-data-science-process-scala-walkthrough.md).
+
+<!-- -->
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@ Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuad
 
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

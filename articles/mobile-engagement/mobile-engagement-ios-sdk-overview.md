@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/14/2016"
 	ms.author="piyushjo" />
 
 #SDK de iOS para Azure Mobile Engagement
@@ -32,9 +32,10 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###3\.2.4 (30/06/2016)
+### 4\.0.0 (09/12/2016)
 
--   Agregación fija entre registros técnicos y otros registros.
+-   Notificación fija no ejecutada en dispositivos iOS 10.
+-   XCode 7 en desuso.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -46,17 +47,88 @@ Es posible que tenga que seguir varios procedimientos si se perdió varias versi
 
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.
 
-###De 2.0.0 a 3.0.0
-Soporte de iOS 4.X eliminado. A partir de esta versión, el destino de implementación de la aplicación debe ser como mínimo iOS 6.
+###De 3.0.0 a 4.0.0
 
-Si usa Reach en la aplicación, debe agregar el valor `remote-notification` a la matriz `UIBackgroundModes` en el archivo Info.plist para recibir notificaciones remotas.
+### XCode 8
+XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 
-El método `application:didReceiveRemoteNotification:` debe reemplazarse por `application:didReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación.
+> [AZURE.NOTE] Si realmente depende de XCode 7, puede usar el [SDK v3.2.4 de Engagement para iOS](https://aka.ms/r6oouh). Existe un problema conocido en el módulo de cobertura de esta versión anterior cuando se ejecuta en dispositivos iOS 10: las notificaciones del sistema no se ejecutan. Para solucionarlo, tendrá que implementar la API `application:didReceiveRemoteNotification:` en desuso en su delegado de aplicación de la manera siguiente:
 
-"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye eliminar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+	    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
-	-(void)willRetrieveLaunchMessage;
-	-(void)didFailToRetrieveLaunchMessage;
-	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+> [AZURE.IMPORTANT] **No se recomienda esta solución** ya que este comportamiento puede cambiar en la próxima actualización de la versión de iOS (por menor que sea) porque esta API de iOS está en desuso. Debe cambiar a XCode 8 tan pronto como sea posible.
 
-<!---HONumber=AcomDC_0706_2016-->
+#### Marco de UserNotifications
+Debe agregar el marco `UserNotifications` en sus fases de compilación.
+
+En el Explorador de proyectos, abra su panel de proyectos y seleccione el destino adecuado. A continuación, abra la pestaña **"Build phases"** (Fases de compilación) y en el menú **"Link Binary With Libraries"** (Vincular binarios con bibliotecas), agregue el marco `UserNotifications.framework` y establezca el vínculo como `Optional`.
+
+#### Funcionalidad de inserción de la aplicación
+XCode 8 puede restablecer la funcionalidad de inserción de su aplicación, solo tiene que marcarla dos veces en la pestaña `capability` del destino seleccionado.
+
+#### Si ya tiene su propia implementación de UNUserNotificationCenterDelegate
+
+El SDK también tiene su propia implementación del protocolo UNUserNotificationCenterDelegate. Se usa para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. Si el SDK detecta que el delegado no usa su propia implementación porque puede que solo haya un delegado UNUserNotificationCenter por aplicación. Esto significa que tendrá que agregar la lógica de Engagement a su propio delegado.
+
+Hay dos formas de hacerlo:
+
+Reenviar las llamadas del delegado al SDK:
+
+	#import <UIKit/UIKit.h>
+	#import "EngagementAgent.h"
+	#import <UserNotifications/UserNotifications.h>
+
+
+	@interface MyAppDelegate : NSObject <UIApplicationDelegate, UNUserNotificationCenterDelegate>
+	@end
+
+	@implementation MyAppDelegate
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterWillPresentNotification:notification withCompletionHandler:completionHandler]
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterDidReceiveNotificationResponse:response withCompletionHandler:completionHandler]
+	}
+	@end
+
+O bien, heredarla de la clase `AEUserNotificationHandler`
+
+	#import "AEUserNotificationHandler.h"
+	#import "EngagementAgent.h"
+
+	@interface CustomUserNotificationHandler :AEUserNotificationHandler
+	@end
+
+	@implementation CustomUserNotificationHandler
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center willPresentNotification:notification withCompletionHandler:completionHandler];
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse: UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
+	}
+
+	@end
+
+> [AZURE.NOTE] Puede determinar si una notificación proviene de Engagement o no pasando su diccionario `userInfo` al método de clase `isEngagementPushPayload:` del agente.
+
+<!---HONumber=AcomDC_0921_2016-->

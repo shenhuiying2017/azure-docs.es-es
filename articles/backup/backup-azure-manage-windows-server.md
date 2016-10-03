@@ -60,7 +60,12 @@ En la parte superior del panel:
 - El icono de eliminación: en caso de que ya no se use un almacén de Servicios de recuperación, puede eliminarlo para liberar espacio de almacenamiento. Este icono solo estará habilitado después de que todos los servidores protegidos se hayan eliminado del almacén.
 
 ![Copia de seguridad de las tareas del panel](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## Alertas de copias de seguridad mediante el agente de Azure Backup:
+| Nivel de alerta | Alertas enviadas |
+| ------------- | ------------- |
+| Crítico | Error de copia de seguridad, error de recuperación |
+| Warning (Advertencia) | Copia de seguridad completada con advertencias (cuando menos de unos cientos de archivos no se copian debido a problemas de daños y más de un millón de archivos se copian correctamente) |
+| Informativo | None |
 ## Administración de alertas de copia de seguridad
 Haga clic en el icono de **alertas de copia de seguridad** para abrir la hoja **Alertas de copias de seguridad** y administrar las alertas.
 
@@ -285,9 +290,14 @@ R3. A continuación figuran los casos en los que no se enviará la notificación
    - Se canceló el trabajo.
    - Se produjo un error en el segundo trabajo de copia de seguridad porque el trabajo de copia de seguridad original está en curso.
 
+## Solución de problemas de supervisión<br>
+#### Problema: Los trabajos y las alertas del agente de Azure Backup no aparecen en el portal.
+##### Pasos para solucionar problemas:
+"OBRecoveryServicesManagementAgent" se utiliza para enviar los datos de los trabajos y alertas al servicio Azure Backup. Abra el administrador de tareas y vea si se está ejecutando el proceso "OBRecoveryServicesManagementAgent". A veces, este proceso puede haberse detenido o apagado. Si el proceso no se está ejecutando, consulte la lista de servicios del panel de control e inicie o reinicie el "Agente de administración de Microsoft Azure Recovery Services". Para más información, consulte los registros en "carpeta de instalación del agente de Azure Backup"\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider*. <b>Ej.:</b> C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider0.errlog.
+
 ## Pasos siguientes
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 - Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

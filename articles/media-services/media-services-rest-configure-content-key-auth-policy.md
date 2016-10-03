@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuración de la directiva de autorización de claves mediante la API de REST de Servicios multimedia" 
+	pageTitle="Configuración de la directiva de autorización de clave de contenido mediante la API de REST de Media Services | Microsoft Azure" 
 	description="Aprenda a configurar una directiva de autorización para una clave de contenido mediante la API de REST de Servicios multimedia." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="juliako"/>
 
 
-#Cifrado dinámico: configuración de la directiva de autorización de claves de contenido 
+#Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
- 
+
 
 ##Información general
 
@@ -44,7 +44,7 @@ Para obtener más información, consulte
 
 ###Se aplican algunas consideraciones:
 
-- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 - El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
 - Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted**.
 - Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda encarecidamente crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
@@ -53,7 +53,7 @@ Para obtener más información, consulte
 - En este momento no se puede cifrar el formato de streaming HDS ni las descargas progresivas.
 
 
-##Cifrado dinámico AES-128 
+##Cifrado dinámico AES-128
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
@@ -483,4 +483,4 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

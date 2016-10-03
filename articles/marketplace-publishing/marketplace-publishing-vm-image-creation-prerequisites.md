@@ -22,7 +22,7 @@ Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se 
 ## Descargar herramientas y aplicaciones necesarias
 Debe tener listos los elementos siguientes antes de comenzar el proceso:
 
-- Dependiendo de su sistema operativo objetivo, instale los cmdlets de Azure PowerShell o la herramienta de la interfaz de línea de comandos de Linux desde la página de descargas de Azure.
+- Dependiendo de su sistema operativo objetivo, instale los [cmdlets de Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) o la [herramienta de la interfaz de línea de comandos de Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) desde la página de [descargas de Azure](https://azure.microsoft.com/downloads/).
 - Instale el Explorador de almacenamiento de Azure desde CodePlex.
 - Descargue e instale la herramienta Certification Test Tool for Azure Certified:
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Necesita un equipo basado en Windows para ejecutar la herramienta de certificación. Si no tiene un equipo basado en Windows disponible, puede ejecutar la herramienta con una VM basada en Windows en Azure.
@@ -46,11 +46,11 @@ Puede desarrollar discos duros virtuales de Azure en la nube o de forma local:
 ## Pasos siguientes
 Ahora que ha revisado los requisitos previos y completado la tarea necesaria, puede continuar con la creación de su oferta de imagen de máquina virtual como se detalla en [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md) (Guía de publicación de imágenes de máquina virtual).
 
-## Consulte también
+## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines-windows-hero-tutorial/)
+- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

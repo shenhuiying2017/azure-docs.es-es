@@ -27,13 +27,13 @@
 **Let y set** [let](#let-clause) | [set](#set-clause)
 
 
-**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Escalares** [Literales booleanos](#boolean-literals) | [Operadores booleanos](#boolean-operators) | [Conversiones](#casts) | [Comparaciones escalares](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Números** [Operadores aritméticos](#arithmetic-operators) | [Literales numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Números** [Operadores aritméticos](#arithmetic-operators) | [Literales numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Fecha y hora** [Expresiones de fecha y hora](#date-and-time-expressions) | [Literales de fecha y hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -721,7 +721,7 @@ Programador | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
     T | project cost=price*quantity, price
 
-Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nuevas columnas calculadas. El orden de las columnas en el resultado se especifica con el orden de los argumentos. Solamente las columnas especificadas en los argumentos se incluyen en el resultado: cualquier otra de la entrada se quita. (Consulte también `extend`).
+Seleccione las columnas que se incluirán, cambie el nombre o quite e inserte nuevas columnas calculadas. El orden de las columnas en el resultado se especifica con el orden de los argumentos. Solamente las columnas especificadas en los argumentos se incluyen en el resultado: cualquier otra de la entrada se quita. (Consulte también `extend`).
 
 
 **Sintaxis**
@@ -1053,7 +1053,7 @@ Esta versión más eficaz, produce el mismo resultado. Filtra cada tabla antes d
 
 ### Operador where
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 
@@ -1086,7 +1086,7 @@ Para obtener el rendimiento más rápido:
 **Ejemplo**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Registros con antigüedad no superior a 1 hora y que proceden desde el origen de
 
 Observe que colocamos la comparación entre dos columnas al final, ya que no puede utilizar el índice y exige un examen.
 
+
+### operador where-in
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Sintaxis**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Argumentos**
+
+* `col`: una columna de la tabla.
+* `expr1`...: una lista de expresiones escalares.
+
+Use `in` para incluir solo las filas en las que `col` es igual a una de las expresiones `expr1...`.
+
+Use `!in` para incluir solo las filas en las que `col` no es igual a ninguna de las expresiones `expr1...`.
 
 
 ## Agregaciones
@@ -1670,7 +1690,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 
 ## Números
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literales numéricos
 
@@ -1684,17 +1704,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar | 
-| / | Dividir | 
-| % | Aplicar módulo | 
-|| 
-|`<` |Menor que 
-|`<=`|Menor que o Igual a 
-|`>` |Mayor que 
-|`>=`|Mayor que o Igual a 
-|`<>`|No igual a 
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o igual a |`>` |Mayor que |`>=`|Mayor que o igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -1757,10 +1767,25 @@ La siguiente expresión calcula un histograma de duraciones, con un tamaño de d
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 Un alias para [`bin()`](#bin).
+
+### gamma
+
+La [función gamma](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Sintaxis**
+
+    gamma(x)
+
+**Argumentos**
+
+* *x*: un número real.
+
+Para números enteros positivos, `gamma(x) == (x-1)!`; por ejemplo, `gamma(5) == 4 * 3 * 2 * 1`.
+
+Consulte también [loggamma](#loggamma).
 
 
 ### log
@@ -1771,6 +1796,20 @@ Un alias para [`bin()`](#bin).
 
 
 `v` debe ser un número real > 0. De lo contrario, se devuelve null.
+
+### loggamma
+
+
+El logaritmo natural del valor absoluto de la [función gamma](#gamma).
+
+**Sintaxis**
+
+    loggamma(x)
+
+**Argumentos**
+
+* *x*: un número real.
+
 
 ### rand
 
@@ -2397,7 +2436,7 @@ Convierte una cadena a mayúsculas.
 
 ## Matrices, objetos y dinámica
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Este es el resultado de una consulta en una excepción de Application Insights. El valor de `details` es una matriz.
@@ -2699,6 +2738,24 @@ Una matriz de expresiones de ruta.
 
 Observe que "[0]" indica la presencia de una matriz, pero no especifica el índice utilizado por una ruta específica.
 
+### zip
+
+    zip(list1, list2, ...)
+
+Combina un conjunto de listas en una lista de tuplas.
+
+* `list1...`: una lista de valores.
+
+**Ejemplos**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### Nombres
 
 Los nombres pueden contener hasta 1024 caracteres. Se distinguen mayúsculas de minúsculas y pueden contener letras, dígitos y caracteres de subrayado (`_`).
@@ -2724,4 +2781,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

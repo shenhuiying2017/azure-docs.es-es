@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Activación y desactivación de roles en Privileged Identity Management de Azure AD
@@ -31,10 +31,7 @@ Use la aplicación Privileged Identity Management de Azure AD en el [Portal de A
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure y elija el directorio donde va a trabajar.
-3. Seleccione **Nuevo** > **Seguridad e identidad** > **Privileged Identity Management de Azure AD**.
-
-    ![Habilitación de PIM en el portal][1]
-
+3. Seleccione **Más servicios** y utilice el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
 4. Active **Anclar al panel** y haga clic en **Crear**. Se abre la aplicación Privileged Identity Management.
 
 ## Activación de un rol
@@ -72,4 +69,4 @@ Si le interesa aprender más sobre Privileged Identity Management de Azure AD, p
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

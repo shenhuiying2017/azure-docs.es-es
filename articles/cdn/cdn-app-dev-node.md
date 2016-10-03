@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN. Este tutorial explica paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles. No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
 
@@ -369,4 +369,4 @@ Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [ma
 
 Administración de los recursos de red CDN con [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

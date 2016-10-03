@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="09/19/2016" 
 	ms.author="mimig"/>
 
 # Sugerencias de rendimiento para DocumentDB
 
 Azure DocumentDB Azure es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con DocumentDB. Escalar o reducir verticalmente es tan sencillo como realizar una única llamada de API o con el [método SDK](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). Sin embargo, como el acceso a DocumentDB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo.
 
-De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la base de datos?", tenga en cuenta las siguientes opciones.
+De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la base de datos?", tenga en cuenta las siguientes opciones:
 
 ## Redes
 <a id="direct-connection"></a>
@@ -33,7 +33,7 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
     1. Modo de puerta de enlace (predeterminado)
     2. Modo directo
 
-    Como DocumentDB es un sistema de almacenamiento distribuido, sus recursos, como las colecciones, se particionan entre numerosas máquinas y cada partición se replica para obtener una alta disponibilidad. El traslado de la dirección lógica a física se mantiene en una tabla de enrutamiento que también esta disponible de manera interna como un recurso.
+    Como DocumentDB es un sistema de almacenamiento distribuido, sus recursos, como las colecciones, se particionan entre numerosas máquinas y cada partición se replica para obtener una alta disponibilidad. El traslado de la dirección lógica a física se mantiene en una tabla de enrutamiento que también está disponible de manera interna como un recurso.
 
     En el modo de puerta de enlace, las máquinas de puerta de enlace de DocumentDB realizan este enrutamiento, lo que permite que el código de cliente sea sencillo y compacto. Una aplicación cliente emite solicitudes a las máquinas de puerta de enlace de DocumentDB, que traducen el identificador URI lógico de la solicitud en la dirección física del nodo de back-end y reenvían la solicitud de la forma adecuada. Por el contrario, en el modo directo, los clientes deben mantener, y actualizar periódicamente, una copia de esta tabla de enrutamiento y luego conectarse directamente a los nodos de DocumentDB del back-end.
 
@@ -76,7 +76,7 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
     ![Ilustración de la directiva de conexión de DocumentDB](./media/documentdb-performance-tips/azure-documentdb-same-region.png) <a id="increase-threads"></a>
 5. **Aumento del número de subprocesos y tareas**
 
-    Dado que las llamadas a DocumentDB se realizan a través de la red, puede que tenga que variar el grado de paralelismo de las solicitudes para reducir todo lo posible el tiempo que la aplicación cliente espera entre una solicitud y otra. Por ejemplo, si utiliza la [biblioteca TPL](https://msdn.microsoft.com//library/dd460717.aspx) de .NET, cree del orden de cien tareas de lectura o escritura en DocumentDB.
+    Dado que las llamadas a DocumentDB se realizan a través de la red, puede que tenga que variar el grado de paralelismo de las solicitudes para reducir todo lo posible el tiempo que la aplicación cliente espera entre una solicitud y otra. Por ejemplo, si usa la [biblioteca TPL](https://msdn.microsoft.com//library/dd460717.aspx) de .NET, cree del orden de 100 tareas de lectura o escritura en DocumentDB.
 
 ## Uso del SDK
 
@@ -89,34 +89,46 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
     Tenga en cuenta que cada instancia de DocumentClient está protegida frente amenazas y realiza una administración de conexiones y un almacenamiento en caché de las direcciones de manera eficiente cuando funciona en modo directo. Para permitir la administración eficiente de las conexiones y un rendimiento mejor mediante DocumentClient, se recomienda usar una sola instancia de DocumentClient por AppDomain durante la vigencia de la aplicación. <a id="max-connection"></a>
 3. **Aumento de System.Net MaxConnections por host**
 
-    Las solicitudes de DocumentDB se realizan de forma predeterminada a través de HTTPS o REST y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecerlo en un valor mayor (100-1000) para que la biblioteca del cliente pueda utilizar varias conexiones simultáneas a DocumentDB. En el SDK 1.8.0 de .NET o versiones superiores, el valor predeterminado de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) es 50 y para cambiar el valor, debe establecer [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/es-ES/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) en un valor más alto.
+    Las solicitudes de DocumentDB se realizan de forma predeterminada a través de HTTPS o REST y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecer MaxConnections en un valor mayor (100-1000) para que la biblioteca del cliente pueda utilizar varias conexiones simultáneas a DocumentDB. En el SDK 1.8.0 de .NET o versiones superiores, el valor predeterminado de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) es 50 y para cambiar el valor, debe establecer [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/es-ES/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) en un valor más alto.
 
-4. **Activación de GC del lado servidor**
+4. **Ajuste de consultas paralelas en colecciones particionadas**
+
+    A partir de la versión 1.9.0 del SDK de .NET para DocumentDB se admiten consultas paralelas que permiten consultar una colección particionada en paralelo. Para más información, consulte el tema sobre cómo trabajar con los SDK y los ejemplos de código relacionados. Están diseñadas para mejorar el rendimiento y la latencia de las consultas. Las consultas paralelas proporcionan dos parámetros que los usuarios pueden adaptar según sus necesidades: (a) MaxDegreeOfParallelism, para controlar el número máximo de particiones que se pueden consultar en paralelo, y (b) MaxBufferedItemCount, para controlar el número de resultados recuperados previamente.
+    
+    (a) La consulta paralela ***Tuning MaxDegreeOfParallelism:*** lo que hace es consultar varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, establecer el parámetro MaxDegreeOfParallelism en el número de particiones tiene la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede establecer MaxDegreeOfParallelism en un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el valor de MaxDegreeOfParallelism.
+    
+    Es importante tener en cuenta que las consultas en paralelo producen los mejores beneficios si los datos se distribuyen uniformemente entre todas las particiones con respecto a la consulta. Si la colección con particiones está dividida de tal forma que todos, o la mayoría de los datos, devueltos por una consulta se concentran en algunas particiones (una partición en el peor de los casos), entonces el rendimiento de la consulta se vería afectada por cuellos de botella debido a esas particiones.
+    
+    (b) La consulta paralela ***Tuning MaxBufferedItemCount:*** está diseñada para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. La captura previa ayuda a mejorar la latencia general de una consulta. MaxBufferedItemCount es el parámetro para limitar le cantidad de resultados capturados previamente. Establecer MaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
+    
+    Tenga en cuenta que la captura previa funciona de la misma manera con independencia de MaxDegreeOfParallelism, y que hay un único búfer para los datos de todas las particiones.
+
+5. **Activación de GC del lado servidor**
     
     En algunos casos puede ser de ayuda reducir la frecuencia de recopilación de elementos no utilizados. En .NET, establezca [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) en True.
 
-5. **Implementación del retroceso según intervalos RetryAfter**
+6. **Implementación del retroceso según intervalos RetryAfter**
  
-    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Ello le permite dedicar una cantidad de tiempo de espera mínima entre reintentos. Se incluye compatibilidad con la directiva de reintentos en la versión 1.8.0 y superior de DocumentDB, [.NET](documentdb-sdk-dotnet.md) y [Java](documentdb-sdk-java.md), y en la versión 1.9.0 y superior de [Node.js](documentdb-sdk-nodejs.md) y [Python](documentdb-sdk-python.md). Para más información, consulte [Superación de los límites de rendimiento reservados](documentdb-request-units.md#exceeding-reserved-throughput-limits) y [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. Se incluye compatibilidad con la directiva de reintentos en la versión 1.8.0 y superior de DocumentDB, [.NET](documentdb-sdk-dotnet.md) y [Java](documentdb-sdk-java.md), y en la versión 1.9.0 y superior de [Node.js](documentdb-sdk-nodejs.md) y [Python](documentdb-sdk-python.md). Para más información, consulte [Superación de los límites de rendimiento reservados](documentdb-request-units.md#exceeding-reserved-throughput-limits) y [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 
-6. **Escalado horizontal de la carga de trabajo de cliente**
+7. **Escalado horizontal de la carga de trabajo de cliente**
 
     Si va a realizar pruebas en niveles de alto rendimiento (>50 000 RU/s), la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de DocumentDB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
 
-7. **Almacenamiento en caché de los identificadores URI de documentos para una latencia menor en las operaciones de lectura**
+8. **Almacenamiento en caché de los identificadores URI de documentos para una latencia menor en las operaciones de lectura**
 
     Siempre que sea posible, almacene en caché los identificadores URI para obtener el mejor rendimiento en las operaciones de lectura. <a id="tune-page-size"></a>
-8. **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento**
+9. **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento**
 
     Al realizar una lectura masiva de documentos mediante la funcionalidad de fuentes de lectura (es decir, ReadDocumentFeedAsync) o al emitir una consulta SQL de DocumentDB, los resultados se devuelven de forma segmentada si el conjunto de resultados es demasiado grande. De forma predeterminada, se devuelven resultados en fragmentos de 1 MB o de 100 artículos, el límite que se alcance primero.
 
-    Para reducir el número de recorridos de ida y vuelta de red necesarios para recuperar todos los resultados aplicables, puede aumentar el tamaño de página con el encabezado de solicitud x-ms-max-item-count hasta a 1000. En aquellos casos en los que solo sea necesario mostrar unos cuantos resultados, por ejemplo, si la interfaz de usuario o la API de aplicación solo devuelven diez resultados de una vez, también puede reducir el tamaño de página a 10 a fin de reducir el rendimiento consumido en las lecturas y consultas.
+    Para reducir el número de recorridos de ida y vuelta de red necesarios para recuperar todos los resultados aplicables, puede aumentar el tamaño de página con el encabezado de solicitud x-ms-max-item-count hasta a 1000. En aquellos casos en los que solo sea necesario mostrar unos cuantos resultados, por ejemplo, si la interfaz de usuario o la API de aplicación solo devuelven 10 resultados de una vez, también puede reducir el tamaño de página a 10 a fin de reducir el rendimiento consumido en las lecturas y consultas.
 
     También puede establecer el tamaño de página mediante los SDK de DocumentDB disponibles. Por ejemplo:
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 
-9. **Aumento del número de subprocesos y tareas**
+10. **Aumento del número de subprocesos y tareas**
 
 	Consulte [Aumento del número de subprocesos y tareas](increase-threads.md) en la sección Redes.
 
@@ -124,9 +136,9 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
 
 1. **Uso de la indexación diferida para lograr tasas de ingesta más rápidas a horas punta**
 
-    DocumentDB le permite especificar, en el nivel de colección, una directiva de indexación que le permite elegir si quiere que los documentos de una colección se indexen o no automáticamente. Además, puede elegir entre actualizaciones de índices sincrónicas (coherentes) y asincrónicas (diferidas). De forma predeterminada, el índice se actualiza de forma sincrónica con cada inserción, reemplazo o eliminación de un documento de la colección. Esto permite que las consultas tengan el mismo [nivel de coherencia](documentdb-consistency-levels.md) que el de las lecturas de los documentos sin demoras en la actualización de los índices.
+    DocumentDB le permite especificar, en el nivel de colección, una directiva de indexación que le permite elegir si quiere que los documentos de una colección se indexen o no automáticamente. Además, puede elegir entre actualizaciones de índices sincrónicas (coherentes) y asincrónicas (diferidas). De forma predeterminada, el índice se actualiza de forma sincrónica con cada inserción, reemplazo o eliminación de un documento de la colección. El modo sincrónico permite que las consultas tengan el mismo [nivel de coherencia](documentdb-consistency-levels.md) que el de las lecturas de los documentos sin demoras en la actualización de los índices.
     
-    La indexación diferida se puede considerar en escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo más prolongado. Esto permite utilizar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Sin embargo, es importante advertir que cuando la indexación diferida está habilitada, los resultados de consulta serán a la larga coherentes con independencia del nivel de coherencia configurado para la cuenta de DocumentDB.
+    La indexación diferida se puede considerar en escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo más prolongado. También permite usar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Sin embargo, es importante advertir que cuando la indexación diferida está habilitada, los resultados de consulta serán a la larga coherentes con independencia del nivel de coherencia configurado para la cuenta de DocumentDB.
 
     Por lo tanto, el modo de indexación coherente (IndexingPolicy.IndexingMode está establecido en Coherente) genera el mayor gasto de unidad de solicitud por escritura (IndexingPolicy.IndexingMode está establecido en Diferido) y la ausencia de indexación (IndexingPolicy.Automatic está establecido en False) tiene cero costos de indexación en el momento de la escritura.
 
@@ -146,7 +158,7 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
 
 1. **Medición y optimización del uso menor de unidades de solicitud por segundo**
 
-    DocumentDB ofrece un amplio conjunto de operaciones de base de datos, incluidas consultas relacionales y jerárquicas con UDF, procedimientos almacenados y desencadenadores. Todo funciona con los documentos dentro de una colección de base de datos. El coste asociado a cada una de estas operaciones variará en función de la CPU, E/S y memoria necesarios para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud de la aplicación.
+    DocumentDB ofrece un amplio conjunto de operaciones de base de datos, incluidas consultas relacionales y jerárquicas con UDF, procedimientos almacenados y desencadenadores. Todo funciona con los documentos dentro de una colección de base de datos. El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud de la aplicación.
 
     Las [unidades de solicitud](documentdb-request-units.md) se aprovisionan para cada cuenta de base de datos según el número de unidades de capacidad que adquiera. El consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para su cuenta se limitarán hasta que la frecuencia caiga por debajo del nivel reservado para la cuenta. Si su aplicación necesita un nivel mayor de capacidad de proceso, puede adquirir unidades de capacidad adicionales.
 
@@ -177,7 +189,7 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
 
     Los SDK capturan implícitamente esta respuesta, respetan el encabezado retry-after especificado por el servidor y reintentan la solicitud. A menos que varios clientes obtengan acceso a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
-    Si tiene más de un cliente que funciona acumulativamente de forma coherente por encima de la tasa de solicitudes, puede que el número de reintentos predeterminado establecido actualmente en 9 de manera interna por el cliente no sea suficiente; en este caso, el cliente producirá una excepción DocumentClientException con el código de estado 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo RetryOptions en la instancia ConnectionPolicy. De forma predeterminada, la excepción DocumentClientException con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto se produce incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario.
+    Si tiene más de un cliente que funciona acumulativamente de forma coherente por encima de la tasa de solicitudes, puede que el número de reintentos predeterminado establecido actualmente en 9 de manera interna por el cliente no sea suficiente; en este caso, el cliente producirá una excepción DocumentClientException con el código de estado 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo RetryOptions en la instancia ConnectionPolicy. De forma predeterminada, la excepción DocumentClientException con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario.
 
     Aunque el comportamiento de reintento automático ayuda a mejorar la resistencia y la usabilidad en la mayoría de las aplicaciones, podría no resultar ventajoso al realizar comparativas de rendimiento, en especial al medir la latencia. La latencia observada del cliente aumentará si el experimento llega a la limitación del servidor y hace que el SDK del cliente realice reintentos de forma silenciosa. Para evitar aumentos de latencia durante los experimentos de rendimiento, mida el gasto devuelto por cada operación y asegúrese de que las solicitudes funcionan por debajo de la tasa de solicitudes observada. Para más información, consulte [Unidades de solicitud](documentdb-request-units.md).
    
@@ -191,12 +203,12 @@ De modo que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la 
 
     Otro factor importante a tener en cuenta al optimizar el rendimiento de una aplicación de DocumentDB es el nivel de coherencia. La elección del nivel de coherencia tiene implicaciones para el rendimiento tanto de las operaciones de lectura como de escritura. Puede configurar el nivel de coherencia predeterminado en la cuenta de base de datos y el nivel de coherencia elegido se aplica entonces a todas las colecciones (en todas las bases de datos) dentro de la cuenta de DocumentDB. En cuanto a las operaciones de escritura, el impacto de cambiar el nivel de coherencia se observa como latencia de la solicitud. A medida que se utilizan niveles de coherencia más fuertes, aumentan las latencias de escritura. Por otro lado, el impacto del nivel de coherencia en las operaciones de lectura se observa en términos de rendimiento. Niveles de coherencia más débiles permiten una mayor capacidad de proceso de lectura por parte del cliente.
 
-    De manera predeterminada todas las lecturas y consultas enviadas a los recursos definidos por el usuario utilizarán el nivel de coherencia predeterminado especificado en la cuenta de la base de datos. Sin embargo, puede bajar el nivel de coherencia de una solicitud de lectura/consulta determinada especificando x-ms-consistency-level en el encabezado de la solicitud. Para más información, consulte [Niveles de coherencia en DocumentDB](documentdb-consistency-levels.md).
+    De manera predeterminada, todas las lecturas y consultas enviadas a los recursos definidos por el usuario usarán el nivel de coherencia predeterminado especificado en la cuenta de la base de datos. Sin embargo, puede bajar el nivel de coherencia de una solicitud de lectura/consulta determinada especificando x-ms-consistency-level en el encabezado de la solicitud. Para más información, consulte [Niveles de coherencia en DocumentDB](documentdb-consistency-levels.md).
 
 ## Pasos siguientes
 
-Si desea ver una aplicación de ejemplo usada para evaluar DocumentDB en escenarios de alto rendimiento en un pequeño número de máquinas cliente, consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
+Si quiere ver una aplicación de ejemplo usada para evaluar DocumentDB en escenarios de alto rendimiento en un pequeño número de máquinas cliente, consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
 
 Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

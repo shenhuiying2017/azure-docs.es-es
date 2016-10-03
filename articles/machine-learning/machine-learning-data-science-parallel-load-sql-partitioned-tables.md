@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 # Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 
-En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es posible mejorar la importación de datos en la base de datos SQL y a las consultas posteriores mediante _Tablas y vistas con particiones_.
+En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante _tablas y vistas con particiones_.
 
 
 ## Crear una nueva base de datos y un conjunto de grupos de archivos
 
-- [Creación de una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
+- [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
 - Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
-- Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nuevo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
+
+  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nuevo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
 
 - Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
 
@@ -74,7 +75,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- Sugerencia: Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
+  Sugerencia: Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- Para obtener más información, consulte [Crear tablas e índices con particiones](https://msdn.microsoft.com/library/ms188730.aspx).
+Para obtener más información, consulte [Crear tablas e índices con particiones](https://msdn.microsoft.com/library/ms188730.aspx).
 
 
 ## Importación masiva de datos para cada tabla de partición individual
@@ -187,4 +188,4 @@ o bien,
 Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

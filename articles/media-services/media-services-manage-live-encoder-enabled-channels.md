@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple" 
-	description="En este tema se describe cómo configurar un canal que recibe una secuencia de streaming en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una secuencia de velocidad de bits adaptable con Servicios multimedia. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
+	pageTitle="Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Azure" 
+	description="En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;anilmur"/>
 
 #Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
 
@@ -62,7 +62,7 @@ Estado del canal|Indicadores IU del portal|¿Es la facturación?
 Iniciando|Iniciando|No (estado transitorio)
 Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|SÍ
 Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Detenido|No
+Detenido|Stopped|No
 
 ###Cierre automático para canales no utilizados
 
@@ -100,7 +100,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
 3. Cree un programa.
 
@@ -419,7 +419,7 @@ Estado del canal|Indicadores IU del portal|¿Facturado?
 Iniciando|Iniciando|No (estado transitorio)
 Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|Sí
 Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Detenido|No
+Detenido|Stopped|No
 
 
 >[AZURE.NOTE] Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.
@@ -457,7 +457,9 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 - [API DE REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -468,7 +470,7 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 ##Temas relacionados
 
-[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-live-streaming-workflow.md)
+[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-overview.md)
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
@@ -476,4 +478,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

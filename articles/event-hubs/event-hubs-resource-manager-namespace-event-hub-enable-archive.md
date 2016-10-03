@@ -22,18 +22,18 @@ En este artículo se muestra cómo utilizar una plantilla de Azure Resource Mana
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
-Para obtener más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][] \(Convenciones de nomenclatura recomendadas para los recursos de Azure).
+Para obtener más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][] (Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
-Para ver la plantilla completa, consulte [Event Hub and enable Archive template][] \(Plantilla de Centro de eventos y habilitación de Archivado) en GitHub.
+Para ver la plantilla completa, consulte [Event Hub and enable Archive template][] (Plantilla de Centro de eventos y habilitación de Archivado) en GitHub.
 
 >[AZURE.NOTE]
 Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Centros de eventos.
 
-## ¿Qué va a implementar?
+## ¿Qué se puede implementar?
 
 Con esta plantilla, implementará un espacio de nombres de Event Hubs con un Centro de eventos y se habilitará el Archivado.
 
-[Centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. El Archivado de Event Hubs le permite entregar automáticamente los datos de transmisión de sus Centros de eventos en un servicio Azure Blob Storage de su elección a la hora especificada o el intervalo de tamaños que prefiera.
+[Centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. El Archivado de Event Hubs le permite entregar automáticamente los datos de streaming de sus Centros de eventos a un servicio Azure Blob Storage de su elección dentro de la hora especificada o el intervalo de tamaño que prefiera.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -41,7 +41,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ## Parámetros
 
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
+Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
 La plantilla define los parámetros siguientes.
 
@@ -169,7 +169,7 @@ El intervalo de tamaño en que el Archivado empieza a archivar datos en Azure Bl
 
 ### destinationStorageAccountResourceId
 
-El Archivado requerirá un identificador de recurso de la cuenta de almacenamiento para habilitar el archivado en la instancia de Azure Storage que desee.
+El Archivado requiere un identificador de recurso de la cuenta de almacenamiento para habilitar esta funcionalidad en la instancia deseada de Azure Storage.
 
 ```
  "destinationStorageAccountResourceId":{
@@ -182,7 +182,7 @@ El Archivado requerirá un identificador de recurso de la cuenta de almacenamien
 
 ### blobContainerName
 
-El contenedor del blob en el que desea que se archiven los datos de eventos.
+El contenedor del blob en el que quiere que se archiven los datos de eventos.
 
 ```
  "blobContainerName":{
@@ -286,7 +286,7 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-  [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-  [Event Hub and enable Archive template]: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
+  [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/es-ES/documentation/articles/guidance-naming-conventions/
+  [Event Hub and enable Archive template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

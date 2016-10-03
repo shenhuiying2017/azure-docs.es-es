@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/30/2016"
+   	ms.date="09/20/2016"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -23,11 +23,11 @@
 
 La CLI de Azure es una utilidad de línea de comandos multiplataforma que permite administrar los servicios de Azure. Se puede usar, junto con las plantillas de administración de recursos de Azure para crear un clúster de HDInsight, junto con las cuentas de almacenamiento asociadas y otros servicios.
 
-Las plantillas de Administración de recursos de Azure son documentos JSON que describen un __grupo de recursos__ y todos los recursos contenidos en él (por ejemplo, HDInsight). Este enfoque basado en plantillas permite definir todos los recursos que se necesitan para HDInsight en una sola plantilla y administrar los cambios realizados en el grupo en conjunto a través de __implementaciones__ que aplican los cambios al grupo.
+Las plantillas del Administrador de recursos de Azure son documentos JSON que describen un __grupo de recursos__ y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla, le permite definir todos los recursos que necesita para HDInsight en una plantilla. También le permite administrar los cambios en el grupo como un todo a través de __implementaciones__, que aplican cambios a todo el grupo.
 
 Los pasos de este documento recorren el proceso de creación de un nuevo clúster de HDInsight mediante la CLI de Azure y una plantilla:
 
-> [AZURE.IMPORTANT] Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+> [AZURE.IMPORTANT] Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo (en el momento de la creación de clústeres o escalando el clúster), tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -58,16 +58,16 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
         azure config mode arm
 
-4. Cree un nuevo grupo de recursos. Este contendrá el clúster de HDInsight y la cuenta de almacenamiento asociada.
+4. Cree un grupo de recursos. Este grupo de recursos contendrá el clúster de HDInsight y la cuenta de almacenamiento asociada.
 
         azure group create groupname location
         
     * Reemplace __groupname__ con un nombre único para el grupo.
     * Reemplace __location__ por la región geográfica en la que desee crear los recursos.
     
-        Para obtener una lista de ubicaciones válidas, use el comando `azure locations list` y, luego, una de las ubicaciones de la columna __Nombre__.
+        Para obtener una lista de ubicaciones válidas, use el comando `azure location list` y, luego, una de las ubicaciones de la columna __Nombre__.
 
-5. Cree una cuenta de almacenamiento nueva. Se usará como el almacenamiento predeterminado del clúster de HDInsight.
+5. Cree una cuenta de almacenamiento. Esta cuenta de almacenamiento se usará como almacenamiento predeterminado del clúster de HDInsight.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
@@ -86,7 +86,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
     
     En los datos que se devuelven, guarde el valor de __key__ para __key1__.
 
-6. Cree un clúster de HDInsight nuevo.
+6. Cree un clúster de HDInsight.
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
@@ -121,4 +121,4 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

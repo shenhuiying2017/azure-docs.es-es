@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Transferencia de datos de/a Oracle local mediante Data Factory de Azure 
@@ -21,12 +21,12 @@
 En este artículo se describe cómo se usa la actividad de copia de Data Factory para transferir datos de Oracle a otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
 ## Instalación 
-Para que el servicio Factoría de datos de Azure pueda conectarse a la base de datos de Oracle local, debe instalar lo siguiente:
+Para que el servicio Azure Data Factory pueda conectarse a la base de datos de Oracle local, debe instalar los siguientes componentes:
 
-- Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
-- Proveedor de datos de Oracle para. NET. Esto se incluye en [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32/64 bits) en la máquina de host en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o posterior.
+- Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un agente cliente que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
+- Proveedor de datos de Oracle para. NET. Este componente se incluye en [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32/64 bits) en la máquina de host en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o posterior.
 
-	Si elige XCopy Installation (Instalación de XCopy), siga los pasos del archivo readme.htm. Se recomienda elegir el programa de instalación con la interfaz de usuario (no puede ser una de XCopy no).
+	Si elige XCopy Installation (Instalación de XCopy), siga los pasos del archivo readme.htm. Se recomienda elegir el programa de instalación con la interfaz de usuario (no puede ser una de XCopy).
  
 	Después de instalar al proveedor, reinicie el servicio de Host de la puerta de enlace de administración de datos en la máquina con el applet Servicios o el Administrador de configuración de puerta de enlace de administración de datos.
 
@@ -48,7 +48,7 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como origen y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como receptor.
 
-El ejemplo copia datos de una tabla de una base de datos de Oracle local a un blob cada hora. Para obtener más información sobre las distintas propiedades que se usan en el ejemplo siguiente, consulte la documentación de las diferentes propiedades en las secciones de las secciones que aparecen después de los ejemplos.
+En el ejemplo de copian datos de una tabla de una base de datos de Oracle local en un blob cada hora. Para más información sobre las distintas propiedades usadas en el ejemplo, consulte la documentación de las secciones que vienen a continuación de los ejemplos.
 
 **Servicio vinculado de Oracle:**
 
@@ -79,7 +79,7 @@ El ejemplo copia datos de una tabla de una base de datos de Oracle local a un bl
 
 El ejemplo supone que ha creado una tabla "MyTable" en Oracle que contiene una columna denominada "timestampcolumn" para los datos de serie temporales.
 
-Si se establece "external": "true" y se especifica la directiva externalData, se indica a la factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 
 	{
 	    "name": "OracleInput",
@@ -217,11 +217,11 @@ La canalización contiene una actividad de copia que está configurada para usar
 	}
 
 
-Debe ajustar la cadena de consulta, según cómo se configuran las fechas en la base de datos de Oracle. Si aparece el siguiente mensaje de error:
+Debe ajustar la cadena de consulta, en función de cómo estén configuradas las fechas en la base de datos de Oracle. Si aparece el siguiente mensaje de error:
 
 	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
-puede ser necesario cambiar la consulta, como se muestra a continuación (con la función to\_date):
+puede que sea necesario cambiar la consulta, como se muestra en el siguiente ejemplo (mediante la función to\_date):
 
 	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
@@ -236,7 +236,7 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como origen y [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como receptor.
 
-El ejemplo copia datos de un blob a una tabla de una base de datos de Oracle local cada hora. Para obtener más información sobre las distintas propiedades que se usan en el ejemplo siguiente, consulte la documentación de las diferentes propiedades en las secciones de las secciones que aparecen después de los ejemplos.
+El ejemplo copia datos de un blob a una tabla de una base de datos de Oracle local cada hora. Para más información sobre las distintas propiedades usadas en el ejemplo, consulte la documentación de las secciones que vienen a continuación de los ejemplos.
 
 **Servicio vinculado de Oracle:**
 
@@ -265,7 +265,7 @@ El ejemplo copia datos de un blob a una tabla de una base de datos de Oracle loc
 
 **Conjunto de datos de entrada de blob de Azure**
 
-Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor "external": "true" informa al servicio Factoría de datos que esta tabla es externa a la factoría y no la produce una actividad de la factoría de datos.
+Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor "external": "true" informa al servicio Data Factory que esta tabla es externa a la factoría y no la produce una actividad de la factoría de datos.
 
 	{
 	  "name": "AzureBlobInput",
@@ -332,7 +332,7 @@ Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo
 
 **Conjunto de datos de salida de Oracle:**
 
-En el ejemplo se supone que ha creado una tabla "MyTable" en Oracle. Debe crear la tabla en Oracle con el mismo número de columnas que espera que contenga el archivo CSV de blob. Se agregan nuevas filas a la tabla cada hora.
+En el ejemplo se supone que ha creado una tabla "MyTable" en Oracle. Cree la tabla en Oracle con el mismo número de columnas que espera que contenga el archivo CSV de Blob. Se agregan nuevas filas a la tabla cada hora.
 
 	{
 	    "name": "OracleOutput",
@@ -408,14 +408,14 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type debe establecerse en: **OnPremisesOracle** | Sí
 connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. | Sí 
-gatewayName | Nombre de la puerta de enlace que se usará para conectarse al servidor de Oracle local | Sí
+gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor de Oracle local | Sí
 
 Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Oracle local.
 ## Propiedades del tipo de conjunto de datos de Oracle
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (Oracle, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (Oracle, Azure Blob, Azure Table, etc.).
  
-La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo OracleTable tiene las propiedades siguientes.
+La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo OracleTable tiene las propiedades siguientes:
 
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
@@ -423,14 +423,15 @@ tableName | Nombre de la tabla en la instancia de Base de datos de Oracle a la q
 
 ## Propiedades de tipo de actividad de copia de Oracle
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-**Nota:** la actividad de copia toma solo una entrada y genera una única salida.
+> [AZURE.NOTE]
+La actividad de copia toma solo una entrada y genera una única salida.
 
-Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
 ### OracleSource
-En caso de la actividad de copia si el origen es de tipo **OracleSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
+En la actividad de copia, si el origen es de tipo **OracleSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
 Propiedad | Descripción |Valores permitidos | Obligatorio
 -------- | ----------- | ------------- | --------
@@ -443,20 +444,20 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: 00:30:00 (30 minutos). | No
 writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. | Entero (número de filas)| No (valor predeterminado = 10000)  
-sqlWriterCleanupScript | Consulta especificada por el usuario para que la actividad de copia se ejecute de tal forma que se limpien los datos de un segmento específico. | Una instrucción de consulta. | No
-sliceIdentifierColumnName | Nombre de columna especificado por el usuario para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. | Nombre de columna de una columna con el tipo de datos binarios (32). | No
+sqlWriterCleanupScript | Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. | Una instrucción de consulta. | No
+sliceIdentifierColumnName | Especifique el nombre de columna para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. | Nombre de columna de una columna con el tipo de datos binarios (32). | No
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Asignación de tipos para Oracle
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos de Oracle, se usarán las siguientes asignaciones del tipo de datos de Oracle al tipo de .NET, y viceversa.
+Al mover datos de Oracle, se usan las siguientes asignaciones del tipo de datos de Oracle al tipo de .NET, y viceversa.
 
 Tipo de datos de Oracle | Tipo de datos de .NET Framework
 ---------------- | ------------------------
@@ -488,19 +489,19 @@ XML | String
 
 **Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
 
-**Causas posibles**
+**Causas posibles:**
 
 1. No se instaló el proveedor de datos de .NET Framework para Oracle.
 2. El proveedor de datos de .NET Framework para Oracle se instaló en .NET Framework 2.0 y no se encuentra en las carpetas de .NET Framework 4.0.
 
-**Resolución o solución alternativa**
+**Resolución o solución alternativa:**
 
 1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e intente de nuevo este escenario.
-2. Si recibe el mensaje de error incluso después de instalar el proveedor, haga lo siguiente:
+2. Si recibe el mensaje de error incluso después de instalar el proveedor, lleve a cabo los siguientes pasos:
 	1. Abra la configuración de máquina de .NET 2.0 desde la carpeta: <disco del sistema>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Busque **Proveedor de datos de Oracle para .NET** y deberá encontrar una entrada como la siguiente en **system.data**: **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”.
+	2. Busque **Proveedor de datos de Oracle para .NET** y encontrará una entrada como la que se muestra en el ejemplo siguiente en **system.data**: **DbProviderFactories**: “<add name="Proveedor de datos de Oracle para .NET" invariant="Oracle.DataAccess.Client" description="Proveedor de datos de Oracle para .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”.
 2.	Copie esta entrada en el archivo machine.config de la siguiente carpeta v4.0: <disco del sistema>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, and change the version to 4.xxx.x.x.
-3.	Instale <Ruta de instalación de ODP.NET>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll en la caché global de ensamblados (GAC) ejecutando gacutil /i [ruta del proveedor].
+3.	Instale <Ruta de instalación de ODP.NET>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll en la caché global de ensamblados (GAC) ejecutando `gacutil /i [provider path]`.
 
 
 
@@ -510,4 +511,4 @@ XML | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

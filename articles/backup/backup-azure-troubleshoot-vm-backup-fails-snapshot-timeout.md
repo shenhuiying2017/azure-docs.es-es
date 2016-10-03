@@ -67,7 +67,7 @@ Aprenda a configurar [un proxy HTTP para las copias de seguridad de máquinas vi
 ### Solución
 La mayoría de los errores relacionados con el agente o la extensión de máquinas virtuales de Linux están provocados por problemas que afectan a un agente VM antiguo. Como norma general, los primeros pasos para solucionar este problema son los siguientes:
 
-1. [Instale la versión más reciente del agente de la máquina virtual de Azure](https://acom-swtest-2.azurewebsites.net/documentation/articles/virtual-machines-linux-update-agent/).
+1. [Instale la versión más reciente del agente de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent).
 2. Asegúrese de que el agente de Azure se ejecuta en la máquina virtual. Para ello, ejecute el siguiente comando: ```ps -e```
 
     Si no se está ejecutando este proceso, utilice los siguientes comandos para reiniciarlo.
@@ -136,4 +136,4 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90%) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 |La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP.|DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Vea más información sobre el [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

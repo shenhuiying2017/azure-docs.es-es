@@ -75,6 +75,8 @@ El servicio de integración de registro de Azure recolecta datos de telemetría 
 
 6. Dirija el conector del reenviador de archivos SIEM estándar a la carpeta adecuada para canalizar los datos a la instancia SIEM. Consulte las [configuraciones de SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) en la configuración de SIEM.
 
+Si tiene dudas sobre la integración del registro de Azure, envíe un correo electrónico a [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+
 ## Pasos siguientes
 
 Para más información sobre los registros de auditoría de Azure y las definiciones de propiedad, consulte:
@@ -88,4 +90,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

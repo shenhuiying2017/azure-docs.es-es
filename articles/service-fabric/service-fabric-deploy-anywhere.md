@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 # Creación de clústeres independientes de Service Fabric en Windows Server o Linux
@@ -27,8 +27,8 @@ Service Fabric proporciona un paquete de instalación para crear estos clústere
 Podrá crear clústeres en máquinas virtuales o equipos que ejecuten estos sistemas operativos:
 
 * Windows Server 2012 R2
-* Windows Server 2016
-* Linux
+* Windows Server 2016 (después de anunciarse su disponibilidad con carácter general)
+* Linux (próximamente)
 
 Para obtener más información sobre Windows Server, lea [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Creación de clústeres de Service Fabric para Windows Server).
 
@@ -62,4 +62,4 @@ Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows S
 
 Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

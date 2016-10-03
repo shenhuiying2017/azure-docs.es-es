@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="daleche"/>
 
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración a menudo se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Base de datos SQL de Azure. Las aplicaciones que se conectan a Base de datos SQL de Azure se deben compilar en previsión de estos errores transitorios y de modo que sean capaces de controlarlos implementando una lógica de reintento en el código en lugar de exponerlos a los usuarios como errores de aplicación.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md).
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas cliente de Base de datos SQL](sql-database-develop-error-messages.md).
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -351,7 +351,7 @@ Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar 
 Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los registros de error y otra información.
 
 
-| Consulta de un registro | Descripción |
+| Consulta de un registro | Description |
 | :-- | :-- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo experimentó los problemas el programa cliente.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
@@ -560,4 +560,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

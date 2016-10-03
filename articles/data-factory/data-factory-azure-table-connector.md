@@ -418,7 +418,7 @@ En el ejemplo siguiente, la columna de origen DivisionID se asigna a la columna 
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-El valor EmpID se especifica como clave de partición.
+El valor DivisionID se especifica como clave de partición.
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -432,7 +432,7 @@ El valor EmpID se especifica como clave de partición.
 
 ### Asignación de tipos para tabla de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos, de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos.
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -531,4 +531,4 @@ En este caso, Data Factory realiza automáticamente conversiones de tipos, inclu
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para conocer los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

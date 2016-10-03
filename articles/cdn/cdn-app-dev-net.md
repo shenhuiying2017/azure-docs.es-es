@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 Puede usar la [biblioteca de red CDN de Azure para .NET](https://msdn.microsoft.com/library/mt657769.aspx) con el fin de automatizar la creación y la administración de perfiles y puntos de conexión de red CDN. Este tutorial describe la creación de una aplicación de consola .NET sencilla que muestra algunas de las operaciones disponibles. Con este tutorial no se pretende describir todos los aspectos de la biblioteca de red CDN de Azure para .NET en detalle.
 
@@ -339,4 +339,4 @@ Para ver más documentación sobre la biblioteca de administración de red CDN d
 
 Administración de los recursos de red CDN con [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

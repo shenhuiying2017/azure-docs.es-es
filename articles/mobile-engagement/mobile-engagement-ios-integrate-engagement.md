@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Integración del SDK de iOS de Azure Mobile Engagement"
+	pageTitle="Integración del SDK de iOS de Azure Mobile Engagement | Microsoft Azure"
 	description="Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />
 
 #Integración de Engagement en iOS
 
@@ -26,25 +26,30 @@
 
 Este procedimiento describe la manera más sencilla de activar las funciones de supervisión y análisis de Engagement en su aplicación iOS.
 
-> [AZURE.IMPORTANT] El SDK de Engagement requiere iOS6+: el destino de implementación de la aplicación debe ser como mínimo iOS 6.
+El SDK de Engagement requiere iOS6+ y Xcode 8: el destino de implementación de la aplicación debe ser como mínimo iOS 6.
+
+> [AZURE.NOTE]
+Si realmente depende de XCode 7, puede usar el [SDK v3.2.4 de Engagement para iOS](https://aka.ms/r6oouh). Existe un problema conocido en el módulo de cobertura de esta versión anterior cuando se ejecuta en dispositivos iOS 10. Consulte [la integración del módulo de cobertura](mobile-engagement-ios-integrate-engagement-reach.md) para más información. Si decide usar el SDK v3.2.4, simplemente omita la importación de `UserNotifications.framework` en el siguiente paso.
 
 Los siguientes pasos son suficientes para activar el informe de los registros necesarios para calcular todas las estadísticas en relación con los usuarios, las sesiones, las actividades, los bloqueos y los aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (vea [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su aplicación iOS](mobile-engagement-ios-use-engagement-api.md)) debido a que estas estadísticas dependen de la aplicación.
 
 ##Incrustación del SDK de Engagement en su proyecto de iOS
 
-Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj).
-Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
+- Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj).
 
-Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Fases de compilación"** en el menú **"Enlace binario con bibliotecas"** y agregue estos marcos:
+- Agregue el SDK de Engagement al proyecto de iOS: en Xcode, haga clic con el botón derecho en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
 
-> -   `AdSupport.framework` - configure el vínculo como `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+- Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Fases de compilación"** en el menú **"Enlace binario con bibliotecas"** y agregue estos marcos:
 
-> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar \<ios-sdk-engagement-idfa\> para cumplir con la nueva directiva de Apple con respecto a este identificador.
+	-   `UserNotifications.framework`- configure el vínculo como `Optional`
+	-   `AdSupport.framework`- configure el vínculo como `Optional`
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
+
+> [AZURE.NOTE] El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar <ios-sdk-engagement-idfa> para cumplir con la nueva directiva de Apple con respecto a este identificador.
 
 ##Inicializar el SDK de Engagement
 
@@ -208,4 +213,4 @@ El siguiente ejemplo de `Settings.bundle` muestra el proceso de implementación:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

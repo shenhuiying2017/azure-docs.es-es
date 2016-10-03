@@ -145,8 +145,9 @@ Esta es una tabla de todos los enlaces admitidos.
 Para obtener más información, consulte los siguientes recursos:
 
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
+* [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

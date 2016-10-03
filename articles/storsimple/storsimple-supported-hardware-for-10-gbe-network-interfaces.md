@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
@@ -33,7 +33,7 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 
 ### Cables
 
-|S. N.º |Asegúrese|Modelo|
+|S. Nº |Asegúrese|Modelo|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
 | 2\.|Cisco|SFP-H10GB-CU2M|
@@ -42,7 +42,7 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 
 ### Conmutadores
 
-|S. N.º|Asegúrese|Modelo|
+|S. Nº|Asegúrese|Modelo|
 |---|---|---|
 | 1\. |Cisco|N3K-C3172PQ-10GE|
 | 2\. |Cisco|N3K-C3048-ZM-F|
@@ -74,7 +74,7 @@ Mellanox ha probado los siguientes transceptores acoplables de factor de forma p
 
 En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S. N.º | Velocidad | Modelo | Descripción | Asegúrese |
+| S. Nº | Velocidad | Modelo | Description | Asegúrese |
 |--------|-------|-----------------------|--------------------------------------------------------|-----------------------|
 | 1\. | 10 GbE| CAB-SFP-SFP-1M | cable de cobre pasivo SFP+ 10 Gb/s 1 m | Arista |
 | 2\. | 10 GbE| CAB-SFP-SFP-2M | cable de cobre pasivo SFP+ 10 Gb/s 2 m | Arista |
@@ -116,7 +116,7 @@ En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox
 
 En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S. N.º | Velocidad | Modelo | Descripción | Asegúrese |
+| S. Nº | Velocidad | Modelo | Description | Asegúrese |
 |--------|-------|-------------|---------------------------------------------------------------------|-------------|
 | 1\. | 10 GbE | 516733-B21 | Conmutador Blade HP ProCurve 6120XG 10GbE Ethernet | HP |
 | 2\. | 10 GbE | 538113-B21 | Módulo de paso a través HP 10GbE (PTM) | HP |
@@ -130,4 +130,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 [Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

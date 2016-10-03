@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Kronos, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Un inicio de sesión único de **Kronos Workforce Central** en una suscripción con el inicio de sesión único activado
+- Una suscripción a **Kronos Workforce Central** con el inicio de sesión único habilitado
 
 
 > [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -132,7 +132,7 @@ La aplicación Kronos espera las aserciones de SAML en un formato concreto. Trab
 
     a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 5.  Para obtener SSO configurado para la aplicación, póngase en contacto con su administrador de cuentas de Kronos y le ayudará con el canal apropiado para configurar SSO. Tenga en cuenta que tendrá que enviar un correo electrónico y adjuntar el archivo de metadatos descargado.
@@ -164,7 +164,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 	
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_04.png)
 
@@ -176,9 +176,9 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_06.png)
 
@@ -271,4 +271,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [204]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="renash"/>
+	ms.date="09/21/2016"
+	ms.author="renash;robinsh"/>
 
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento de blobs
@@ -24,7 +24,7 @@
 El servicio de importación y exportación de Azure le permite transferir de forma segura grandes cantidades de datos al Almacenamiento de blobs de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. También puede usar este servicio para transferir datos desde el Almacenamiento de blobs de Azure hasta las unidades de disco duro y enviarlas al sitio local. Este servicio resulta adecuado para aquellas situaciones en la que quiere transferir varios TB de datos a o desde Azure, pero la carga o descarga a través de la red no es factible debido al ancho de banda limitado o a los costos elevados de la red.
 
 El servicio requiere que las unidades de disco duro estén cifradas con BitLocker para la seguridad de los datos. El servicio admite cuentas de almacenamiento clásicas presentes en todas las regiones de Azure público. Las unidades de disco duro se deben enviar a una de las ubicaciones especificadas más adelante en este artículo.
- 
+
 En este artículo, obtendrá más información sobre el servicio de importación y exportación de Azure y cómo enviar las unidades para copiar datos con el Almacenamiento de blobs de Azure como origen y destino.
 
 > [AZURE.IMPORTANT] Puede crear y administrar trabajos de importación y exportación de almacenamiento clásico mediante el Portal de Azure clásico o las [API de REST del servicio Importación/Exportación](http://go.microsoft.com/fwlink/?LinkID=329099). En estos momentos, no se admiten las cuentas de almacenamiento de Azure Resource Manager.
@@ -207,19 +207,19 @@ Puede realizar el seguimiento del estado de sus trabajos de importación y expor
 
 Verá uno de los siguientes estados de trabajo en función de en qué fase del proceso esté la unidad.
 
-Estado del trabajo|Description
----|---
-Creating|El trabajo se ha creado pero todavía no se ha proporcionado la información de envío.
-Envío|El trabajo se ha creado y ya se ha proporcionado la información de envío. **Nota**: Cuando la unidad se envía al centro de datos de Azure, el estado puede seguir indicando "Enviando" durante algún tiempo. Después de que el servicio inicia la copia de los datos, el estado cambia a "Transfiriendo". Si desea ver el estado más específico de la unidad, puede usar la API de REST de Importación/Exportación. 
-Transferring|Los datos se están transfiriendo desde su disco duro (para un trabajo de importación) o a su disco duro (para un trabajo de exportación).
-Packaging|Se ha completado la transferencia de datos y se está preparando su disco duro para el envío de vuelta.
-Complete|El disco duro ya se le ha enviado.
+| Estado del trabajo | Description |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Creating | El trabajo se ha creado pero todavía no se ha proporcionado la información de envío. |
+| Envío | El trabajo se ha creado y ya se ha proporcionado la información de envío. **Nota**: Cuando la unidad se envía al centro de datos de Azure, el estado puede seguir indicando "Enviando" durante algún tiempo. Después de que el servicio inicia la copia de los datos, el estado cambia a "Transfiriendo". Si desea ver el estado más específico de la unidad, puede usar la API de REST de Importación/Exportación. |
+| Transferring | Los datos se están transfiriendo desde su disco duro (para un trabajo de importación) o a su disco duro (para un trabajo de exportación). |
+| Packaging | Se ha completado la transferencia de datos y se está preparando su disco duro para el envío de vuelta. |
+| Complete | El disco duro ya se le ha enviado. |
 
-### Tiempo para procesar el trabajo 
+### Tiempo para procesar el trabajo
 
 El tiempo que se tarda en procesar un trabajo de importación o exportación varía en función de determinados factores, como el tiempo de envío, el tipo de trabajo, el tipo y el tamaño de los datos copiados o el tamaño de los discos proporcionados. El servicio Importación/Exportación no tiene un SLA (Acuerdo de Nivel de Servicio). Puede utilizar la API de REST para realizar un seguimiento más estrecho del progreso del trabajo. Hay un parámetro de porcentaje completado en la operación de lista de trabajos que proporciona una indicación del progreso de la copia. Si necesita una estimación para realizar un trabajo de importación o exportación en el que el tiempo es un factor crítico, póngase en contacto con nosotros.
 
-### Precios 
+### Precios
 
 **Cuota de manipulación de unidades**
 
@@ -243,7 +243,7 @@ Cree un trabajo de importación para copiar datos en la cuenta de almacenamiento
 
 > [AZURE.IMPORTANT] Puede enviar un único trabajo por cuenta de almacenamiento. Cada unidad que envíe se puede importar a una cuenta de almacenamiento. Por ejemplo, supongamos que desea importar datos en dos cuentas de almacenamiento. Debe utilizar unidades de disco duro independientes para cada cuenta de almacenamiento y crear trabajos independientes por cada cuenta de almacenamiento.
 
-### Preparación de las unidades	
+### Preparación de las unidades
 
 El primer paso al importar datos mediante el servicio Importación/Exportación de Azure consiste en preparar las unidades mediante la herramienta de cliente Importación/Exportación de Azure. Siga estos pasos para preparar las unidades.
 
@@ -256,7 +256,7 @@ El primer paso al importar datos mediante el servicio Importación/Exportación 
 4.	Determine los directorios o archivos independientes que se copiarán en cada unidad de disco duro.
 
 5.	Utilice la [herramienta de Importación/Exportación de Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) para copiar los datos en una o varias unidades de disco duro.
-	
+
 	- La herramienta de importación y exportación de Azure crea sesiones de copia para copiar los datos del origen en las unidades de disco duro de destino. En una única sesión de copia, la herramienta puede copiar un único directorio junto con sus subdirectorios, o un único archivo.
 
 	- Es posible que si los datos de origen están repartidos entre muchos directorios, necesite varias sesiones de copia.
@@ -505,4 +505,4 @@ Consulte [Flujo de trabajo de copia de seguridad sin conexión en Copia de segur
 
 - [Ejemplo de API de REST de Importación/Exportación de Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

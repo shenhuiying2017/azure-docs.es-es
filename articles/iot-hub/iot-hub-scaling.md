@@ -13,14 +13,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/14/2016"
+ ms.date="09/19/2016"
  ms.author="elioda"/>
 
 # Escalado del Centro de IoT
 
-El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para más información, vea [Precios del Centro de IoT][lnk-pricing]. Cada unidad del Centro de IoT permite un número de mensajes diarios.
+El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para más información, vea [Precios del Centro de IoT][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.
 
-Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga del Centro de IoT. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
+Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga de IoT Hub. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
 
 * Mensajes de dispositivo a nube
 * Mensajes de nube a dispositivo
@@ -39,8 +39,6 @@ Los mensajes de dispositivo a nube siguen estas directrices de capacidad de proc
 | S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
 | S2 | Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) | Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
 | S3 | Hasta 814 MB/minuto por unidad<br/>(1144,4 GB/día/unidad) | Promedio de 208.333 mensajes/minuto por unidad<br/>(300 millones de mensajes/día por unidad) |
-
-El rendimiento de los mensajes de nube a dispositivo escala por dispositivo, y cada dispositivo recibe hasta 5 mensajes por minuto.
 
 ## Capacidad de procesamiento para las operaciones de registro de identidad
 
@@ -75,4 +73,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

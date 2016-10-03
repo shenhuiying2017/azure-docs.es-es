@@ -74,10 +74,16 @@ Configuración de notificaciones de correo electrónico para alertas
 5. En el cuadro de diálogo **Gravedad**, elija los niveles que desee que desencadenen notificaciones de correo electrónico.
 
 6. Haga clic en **Save**.
+### Tipos de alerta disponibles para la copia de seguridad de máquinas virtuales de IaaS de Azure
+| Nivel de alerta | Alertas enviadas |
+| ------------- | ------------- |
+| Crítico | Error de copia de seguridad, error de recuperación |
+| Warning (Advertencia) | None |
+| Informativo | None | 
 
 ### ¿Existen situaciones en las que no se envía ningún correo electrónico incluso si las notificaciones se configuran?
 
-En efecto, hay situaciones en las que no se envía ninguna alerta aunque las notificaciones se hayan configurado correctamente. No se envían notificaciones por correo electrónico en las situaciones siguientes:
+En efecto, hay situaciones en las que no se envía ninguna alerta aunque las notificaciones se hayan configurado correctamente. Para evitar ruido de alertas, no se envían notificaciones por correo electrónico en las situaciones siguientes:
 
 - Si las notificaciones están configuradas mediante la opción Resumen cada hora y se genera una alerta y esta se resuelve en menos de una hora.
 - Se canceló el trabajo.
@@ -231,4 +237,4 @@ Para obtener una explicación detallada acerca de los eventos, las operaciones y
 
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Obtenga información acerca de las tareas de administración para las copias de seguridad de máquinas virtuales en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

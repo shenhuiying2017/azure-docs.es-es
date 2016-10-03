@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -159,7 +159,7 @@ La aplicación Allocadia espera las aserciones de SAML en un formato concreto. C
 
     a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 7.  Para tener SSO configurado para la aplicación, póngase en contacto con el equipo de [soporte técnico Allocadia](mailTo:support@allocadia.com), que le ayudará a configurar SSO. Tenga en cuenta que tendrá que enviar correo electrónico y adjuntar el archivo de metadatos descargado para configurar SSO en el lado de Allocadia.
@@ -195,11 +195,11 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 	
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
  
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png)
 
@@ -207,9 +207,9 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png)
 
@@ -223,11 +223,11 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     e. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png)
 
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png)
 
@@ -302,4 +302,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [204]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

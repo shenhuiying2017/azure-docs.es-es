@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
@@ -114,4 +114,4 @@ Si tiene algún problema con la operación diaria de su dispositivo StorSimple o
 
 Si no puede resolver los problemas y necesita crear una solicitud de servicio, póngase en contacto con el [Servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

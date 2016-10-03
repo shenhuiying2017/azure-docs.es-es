@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ Para configurar el entorno de ciencia de datos de Azure:
 
 1. [Cree una cuenta de almacenamiento](../storage/storage-create-storage-account.md)
 
-2. [Cree un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
+2. [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
 
 3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará no solo como servidor de SQL Server, sino también como servidor de Blocs de notas de IPython.
 
@@ -358,8 +358,7 @@ Inicialice la configuración de conexión de base de datos en las variables sigu
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-El tiempo empleado en leer la tabla de ejemplo es 6,492000 segundos  
-Número de filas y columnas recuperadas = (84952, 21)
+El tiempo empleado en leer la tabla de ejemplo es 6,492000 segundos Número de filas y columnas recuperadas = (84952, 21)
 
 #### Estadísticas descriptivas
 
@@ -609,7 +608,7 @@ Ya está todo listo para pasar a la creación del modelo y la implementación de
 
 ## <a name="mlmodel"></a>Creación de modelos en Aprendizaje automático de Azure
 
-Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Aprendizaje automático de Azure. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md).
+Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Aprendizaje automático de Azure. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](machine-learning-create-workspace.md).
 
 1. Para empezar a usar el Aprendizaje automático de Azure, consulte [¿Qué es Estudio de aprendizaje automático de Microsoft Azure?](machine-learning-what-is-ml-studio.md)
 
@@ -620,7 +619,7 @@ Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de 
 Un experimento de entrenamiento típico consta de las siguientes acciones:
 
 1. Crear un experimento **+NUEVO**.
-2. Proporcionar los datos a Aprendizaje automático de Azure.
+2. Obtener los datos para Azure Machine Learning.
 3. Preprocesar, transformar y manipular los datos según sea necesario.
 4. Generar características según sea necesario.
 5. Dividir los datos en conjuntos de datos de entrenamiento, validación y pruebas (o disponer de conjuntos de datos independientes para cada uno).
@@ -630,11 +629,11 @@ Un experimento de entrenamiento típico consta de las siguientes acciones:
 9. Evaluar los modelos para calcular las métricas relevantes para el problema de aprendizaje.
 10. Ajustar los modelos y seleccionar el mejor para su implementación.
 
-En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y también se ha decidido el tamaño de la muestra para la ingesta en Aprendizaje automático de Azure. Para crear uno o varios de los modelos de predicción, se decidió:
+En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y también se ha decidido el tamaño de la muestra para la ingesta en Azure Machine Learning. Para crear uno o varios de los modelos de predicción, se decidió:
 
-1. Proporcionar los datos a Azure ML con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
+1. Proporcionar los datos a Azure Machine Learning con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
 
-	![Datos de importación de Aprendizaje automático de Azure][17]
+	![Importar datos de Azure Machine Learning][17]
 
 2. Seleccionar **Base de datos SQL de Azure** como **Origen de datos** en el panel **Propiedades**.
 
@@ -650,7 +649,7 @@ En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y ta
 
 En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente de la base de datos de SQL Server. Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.
 
-![Entrenamiento de Aprendizaje automático de Azure][10]
+![Entrenar Azure Machine Learning][10]
 
 > [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo., cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
@@ -658,7 +657,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 ## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
 
-Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para obtener más información sobre la implementación de servicios web de Aprendizaje automático de Azure, vea [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
 
@@ -679,7 +678,7 @@ Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea n
 
 En la ilustración siguiente se muestra un ejemplo de experimento de puntuación. Cuando todo esté listo para implementar, haga clic en el botón **PUBLICAR SERVICIO WEB** de la barra de acciones inferior.
 
-![Publicación de Aprendizaje automático de Azure][11]
+![Publicar Azure Machine Learning][11]
 
 Para recapitular, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto grande de datos público de principio a fin, desde la adquisición de los datos al entrenamiento del modelo, y la implementación de un servicio web de Aprendizaje automático de Azure.
 
@@ -689,9 +688,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 ### Referencias
 
-• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -719,4 +716,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

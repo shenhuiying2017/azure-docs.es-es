@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -82,7 +82,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución
 
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -113,8 +113,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 	+ Para la conectividad remota del servidor de Bloc de notas de IPython
 	+ La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
 	+ La descarga e instalación de paquetes de Python de ciencia de datos útiles
-	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure  
-<br>
+	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure <br>
 - Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
 - El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
@@ -220,7 +219,7 @@ Para crear nuevos inicios de sesión de SQL Server con SQL Server Management Stu
 
 11. Si este es el primer inicio de sesión que crea, es posible que desee designar este inicio de sesión como administrador de SQL Server. Si es así, en la página **Roles de servidor**, active **sysadmin**.
 
-    **Nota de seguridad:** Los miembros del rol del servidor fijo sysadmin tienen el control completo del motor de base de datos. Deberá restringir cuidadosamente la suscripción en este rol.
+    > [AZURE.IMPORTANT] los miembros del rol del servidor fijo sysadmin tienen el control completo del motor de base de datos. Deberá restringir cuidadosamente la suscripción en este rol por motivos de seguridad.
 
     ![sysadmin][12]
 
@@ -240,7 +239,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En un equipo conectado a Internet, abra SQL Server Management Studio.
 
-2.  En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
+2.  En el cuadro de diálogo **Conectar al servidor ** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
 
 3.  En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
@@ -307,4 +306,4 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en [d
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

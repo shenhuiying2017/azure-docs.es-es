@@ -3,8 +3,8 @@
 	description="Aprenda a usar el servicio de almacenamiento de archivos de Azure desde Python para cargar, enumerar, descargar y eliminar archivos."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="minet;robinsh"/>
 
 # Uso del almacenamiento de archivos de Azure desde Python
 
@@ -100,4 +100,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ar
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

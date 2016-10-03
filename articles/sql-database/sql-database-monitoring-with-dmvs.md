@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="carlrab"/>
 
 # Supervisión de Base de datos SQL de Azure con vistas de administración dinámica
 
-Base de datos de SQL de Microsoft Azure habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo detectar problemas comunes de rendimiento con vistas de administración dinámica.
+Base de datos de SQL de Microsoft Azure habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
 
 Base de datos SQL admite parcialmente tres categorías de vistas de administración dinámica:
 
@@ -42,7 +42,7 @@ En una instancia de SQL Server local, las vistas de administración dinámica de
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
--- Calcula el tamaño de la base de datos. SELECT 
+-- Calculates the size of the database.
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
@@ -131,8 +131,8 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## Consulte también
+## Otras referencias
 
 [Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general de protección del contenido" 
+	pageTitle="Información general de protección del contenido | Microsoft Azure" 
 	description="En este artículo se ofrece información general de protección de contenido con Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 #Información general de protección del contenido
@@ -36,13 +36,13 @@ Servicios multimedia de Microsoft Azure le permite proteger su contenido multime
 
 Según el tipo de contenido que desea cargar, almacenar y entregar, Servicios multimedia proporciona varias opciones de cifrado de las que puede elegir.
 
-###None 
+###None
 
 No se utiliza cifrado. Este es el valor predeterminado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
 
 Si planifica entregar un MP4 mediante una descarga progresiva, use esta opción para cargar el contenido.
 
-###StorageEncrypted 
+###StorageEncrypted
 
 Utilice **StorageEncrypted** para cifrar el contenido no cifrado de manera local mediante el cifrado AES de 256 bits y, a continuación, cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
@@ -58,7 +58,7 @@ Si desea ver cómo funciona el algoritmo básico, consulte la implementación de
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected 
+###CommonEncryptionProtected
 
 Utilice **CommonEncryptionProtected** si desea cifrar contenido (o cargar contenido ya cifrado) con cifrado común. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC) y son compatibles con AMS.
 
@@ -78,7 +78,7 @@ También necesita configurar la directiva de entrega del recurso. Si desea trans
 
 Cuando un reproductor solicita una transmisión, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido mediante el cifrado AES o el cifrado común. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
->[AZURE.NOTE]Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 
 ##Servicio de entrega de licencias y claves
 
@@ -86,9 +86,9 @@ Servicios multimedia proporciona un servicio para entregar licencias DRM (PlayRe
 
 Observe que si usa el portal puede configura una directiva AES (que se aplicará a todo el contenido cifrado por AES) y una directiva de PlayReady (que se aplicará a todo el contenido cifrado por PlayReady). Use el SDK de Servicios multimedia para .NET si desea tener más control sobre las configuraciones.
 
-##Licencias de DRM 
+##Licencias de DRM
 
-###Licencia de PlayReady 
+###Licencia de PlayReady
 
 Servicios multimedia proporciona un servicio para entregar licencias de PlayReady. Cuando el reproductor del usuario final (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
 
@@ -155,4 +155,4 @@ Para obtener más información, consulte [Integración del servicio de licencia 
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

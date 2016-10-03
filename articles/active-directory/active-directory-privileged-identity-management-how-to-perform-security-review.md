@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Revisión de acceso en Privileged Identity Management de Azure AD
@@ -30,11 +30,8 @@ Puede usar la aplicación Privileged Identity Management (PIM) de Azure AD en el
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure y elija el directorio donde va a trabajar.
-3. Seleccione **Nuevo** > **Seguridad e identidad** > **Privileged Identity Management de Azure AD**.
-
-	![Habilitación de PIM en el portal][1]
-
-4. Active la opción **Anclar al panel** y luego haga clic en el botón **Crear**. Se abre el panel Privileged Identity Management.
+3. Seleccione **Más servicios** y utilice el cuadro de texto Filtro para buscar **Azure AD Privileged Identity Management**.
+4. Active **Anclar al panel** y haga clic en **Crear**. Se abrirá la aplicación Privileged Identity Management.
 
 
 ## Aprobación o denegación de acceso
@@ -56,4 +53,4 @@ Al aprobar o denegar el acceso, lo que hace es indicar al revisor si aún usa o 
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

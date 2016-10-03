@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium.
+Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium.
 
-El nivel premium de Caché en Redis de Azure incluye la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Caché en Redis de Azure premium.
+El nivel premium de Azure Redis Cache incluye características como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Caché en Redis de Azure premium.
 
-Para obtener información sobre otras características de caché premium, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md) y [Cómo configurar la compatibilidad de redes virtuales para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+Para obtener información sobre otras características de caché Premium, consulte [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 
 ## ¿Qué es Clúster Redis?
 Caché en Redis de Azure ofrece clúster de Redis como [implementado en Redis](http://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas.
 
 -	La capacidad de dividir automáticamente el conjunto de datos entre varios nodos.
--	La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se pueden comunicar con el resto del clúster.
+-	La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se puede comunicar con el resto del clúster.
 -	Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones.
 -	Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.
 
-Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obtener más detalles sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché Premium.
+Consulte el artículo [P+F de Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel premium.
 
 En Azure, el clúster de Redis se ofrece como un modelo de principal/réplica donde cada partición tiene un par de principal/réplica con la replicación donde la replicación se administra mediante el servicio de la Caché en Redis de Azure.
 
@@ -122,7 +122,7 @@ Puede conectarse a su memoria caché con los mismos [extremos, puertos y claves]
 
 Esto no se admite oficialmente. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante la utilidad redis-cli en la rama [inestable](http://redis.io/download) del repositorio de Redis en GitHub. Esta versión implementa compatibilidad básica cuando se inicia con el conmutador `-c`. Para obtener más información, consulte [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [http://redis.io](http://redis.io) en el [Tutorial del clúster de Redis](http://redis.io/topics/cluster-tutorial).
 
-Cuando no sea ssl, use los siguientes comandos:
+Cuando no sea ssl, use los siguientes comandos.
 
 	Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
 	Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -153,8 +153,7 @@ Si utiliza StackExchange.Redis y recibe `MOVE` excepciones al emplear agrupacion
 ## Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
--	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
--	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
+-	[Introducción al nivel Premium de Caché en Redis de Azure](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -164,4 +163,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

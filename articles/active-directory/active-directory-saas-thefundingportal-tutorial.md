@@ -219,7 +219,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
 ### Creación de un usuario de prueba de The Funding Portal
 
-En esta sección, creará un usuario llamado "Britta Simon" en The Funding Portal. En esta sección, creará un usuario llamado "Britta Simon" en The Funding Portal. Si no sabe cómo agregar Britta Simon a The Funding Portal, colabore con el equipo de soporte técnico de dicha plataforma para agregar el usuario de prueba y habilitar SSO. Póngase en contacto con ellos en info@regenteducation.com.
+En esta sección, creará un usuario llamado "Britta Simon" en The Funding Portal. Si no sabe cómo agregar Britta Simon a The Funding Portal, colabore con el equipo de soporte técnico de dicha plataforma para agregar el usuario de prueba y habilitar SSO. Póngase en contacto con ellos en info@regenteducation.com.
 
 ### Asignación del usuario de prueba de Azure AD
 
@@ -282,4 +282,4 @@ Al hacer clic en el icono de The Funding Portal del panel de acceso, debería in
 [204]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

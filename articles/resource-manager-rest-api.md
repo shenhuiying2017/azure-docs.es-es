@@ -43,7 +43,7 @@ En la siguiente solicitud HTTP, asegúrese de que reemplazar "Azure AD Tenant ID
 **Solicitud HTTP genérica:**
 
 ```HTTP
-POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
+POST /<Azure AD Tenant ID>/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
 Host: login.microsoftonline.com
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
@@ -68,13 +68,13 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 **Generación del token de acceso con Bash:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Generación del token de acceso con PowerShell:**
 
 ```powershell
-Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
+Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
@@ -247,4 +247,4 @@ Content-Type: application/json
 
 La respuesta JSON a esta solicitud, que es bastante larga, se ha omitido para mejorar la legibilidad de esta documentación. La respuesta contendrá información sobre la implementación de la plantilla que acaba de crear.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

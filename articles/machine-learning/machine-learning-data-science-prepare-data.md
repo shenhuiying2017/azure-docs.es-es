@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
@@ -21,11 +21,11 @@
 
 El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de ciencia de datos en equipos (TDSP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener instrucciones más detalladas sobre el proceso TDSP, consulte los pasos que se describen en el [proceso de ciencia de datos en equipos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Las tareas de procesamiento previo y de limpieza, como la tarea de exploración de datos, se pueden llevar a cabo en una amplia variedad de entornos, como SQL o Hive o Estudio de aprendizaje automático de Azure, y con diversas herramientas y lenguajes, como R o Python, en función de dónde se almacenen los datos y cómo se le apliquen formato. Como CAP es iterativo por naturaleza, estas tareas pueden tener lugar en diversos pasos del flujo de trabajo del proceso.
+Las tareas de procesamiento previo y de limpieza, como la tarea de exploración de datos, se pueden llevar a cabo en una amplia variedad de entornos, como SQL o Hive o Estudio de aprendizaje automático de Azure, y con diversas herramientas y lenguajes, como R o Python, en función de dónde se almacenen los datos y cómo se le apliquen formato. Como TDSP es iterativo por naturaleza, estas tareas pueden tener lugar en diversos pasos del flujo de trabajo del proceso.
 
 Este artículo presenta varios conceptos de procesamiento de datos y tareas que se pueden llevar a cabo antes o después de introducir datos en Aprendizaje automático de Azure.
 
-Para ver un ejemplo de exploración de datos y de procesamiento previo realizado dentro del Estudio de aprendizaje automático de Azure, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Para ver un ejemplo de exploración de datos y de procesamiento previo realizado dentro de Azure Machine Learning Studio, vea el vídeo [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) (Procesamiento previo de datos en Azure Machine Learning Studio).
 
 
 ## ¿Por qué preprocesar y limpiar datos?
@@ -54,7 +54,7 @@ Podemos comprobar la calidad general de los datos comprobando:
 
 Cuando encuentre problemas con los datos, serán necesarios los **pasos de procesamiento** que implican a menudo limpieza de los valores que faltan, normalización de datos, discretización, proceso para quitar o reemplazar caracteres incrustados que puedan afectar a la alineación de datos y tipos de datos mixtos en campos comunes, entre otros.
 
-**El aprendizaje automático de Azure consume datos tabulares con formato correcto**. Si los datos ya están en formato tabular, el preprocesamiento de datos se puede realizar directamente con Aprendizaje automático de Azure en Estudio de aprendizaje automático. Si los datos no están en formato tabular, por ejemplo, XML, se puede requerir el análisis para convertir los datos en formato tabular.
+**El aprendizaje automático de Azure consume datos tabulares con formato correcto**. Si los datos ya están en formato tabular, el procesamiento previo de datos se puede realizar directamente con Azure Machine Learning en Machine Learning Studio. Si los datos no están en formato tabular, por ejemplo, XML, se puede requerir el análisis para convertir los datos en formato tabular.
 
 ## ¿Cuáles son algunas de las tareas principales de preprocesamiento de datos?
 
@@ -109,4 +109,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 
 >*\_Minería de datos: conceptos y técnicas*, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
