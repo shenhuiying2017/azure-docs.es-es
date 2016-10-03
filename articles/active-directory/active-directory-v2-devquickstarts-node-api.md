@@ -645,7 +645,8 @@ En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
 
 A continuación, cambie al directorio y empiece el curvado...
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 

@@ -34,7 +34,8 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 
 >[AZURE.NOTE] DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo jerárquico de recursos de DocumentDB][1] **Modelo jerárquico de recursos**
+![Modelo jerárquico de recursos de DocumentDB][1] 
+**Modelo jerárquico de recursos**
 
 Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción de Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.
 
@@ -147,7 +148,8 @@ Tenga en cuenta que, además de aprovisionar, configurar y administrar la cuenta
 ## Bases de datos
 Una base de datos de DocumentDB es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de DocumentDB en función de los límites de la oferta.
 
-![Modelo jerárquico de colecciones y cuenta de base de datos][2] **Una base de datos es un contenedor lógico de usuarios y colecciones**
+![Modelo jerárquico de colecciones y cuenta de base de datos][2]
+**Una base de datos es un contenedor lógico de usuarios y colecciones**
 
 Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen.
 
@@ -429,7 +431,8 @@ A medida que sus aplicaciones necesiten escalar con el crecimiento de su usuario
 
 Independientemente de la estrategia de partición específica que seleccione, puede modelar a los usuarios reales como usuarios de base de datos de la Base de datos de documentos y asociar permisos detallados a cada usuario.
 
-![Colecciones de usuario][3] **Estrategias de partición y modelado de usuarios**
+![Colecciones de usuario][3]
+**Estrategias de partición y modelado de usuarios**
 
 Como con el resto de recursos, los usuarios de DocumentDB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. La Base de datos de documentos siempre proporciona una alta coherencia para leer o consultar los metadatos de un recurso de usuario. Es importante señalar que eliminar un usuario garantiza automáticamente que no podrá obtener acceso a ningún permiso contenido en el mismo. Incluso aunque DocumentDB reclame la cuota de permisos como parte del usuario eliminado en segundo plano, los permisos eliminados estarán de nuevo disponibles al instante para su uso.
 

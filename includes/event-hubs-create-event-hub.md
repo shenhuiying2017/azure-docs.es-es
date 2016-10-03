@@ -42,7 +42,7 @@
 
 	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
+Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos. 
 
 [portal de Azure]: https://portal.azure.com/
 

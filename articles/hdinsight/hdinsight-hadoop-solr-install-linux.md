@@ -106,7 +106,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Esto emite una consulta a __collection1__ sobre cualquier documento coincidente __*: *__ (codificado como * %3A * en la cadena de consulta) y la respuesta se debe devolver como JSON. Los resultados deberían parecerse a los siguientes:
+	Esto emite una consulta a __collection1__ sobre cualquier documento coincidente __\*:\*__ (codificado como \*%3A\* en la cadena de consulta) y la respuesta se debe devolver como JSON. Los resultados deberían parecerse a los siguientes:
 
 			"response": {
 			    "numFound": 2,
@@ -196,7 +196,7 @@ Una vez establecido un túnel SSH, siga estos pasos para usar el panel de Solr:
 
 3. En las entradas que aparecen en __collection1__, seleccione __Consulta__. Use los siguientes valores para rellenar la página de búsqueda:
 
-	* En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
+	* En el cuadro de texto **q**, escriba **\*:**\*. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
 
 	* En el cuadro de texto **wt**, seleccione el formato de salida. El valor predeterminado es **json**.
 

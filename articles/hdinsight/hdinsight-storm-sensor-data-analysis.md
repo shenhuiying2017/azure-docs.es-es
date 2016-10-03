@@ -26,7 +26,7 @@ La plantilla de Azure Resource Manager utilizada en este documento muestra cómo
 
 ## Requisitos previos
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
     > [AZURE.IMPORTANT] No necesita un clúster de HDInsight existente; los pasos descritos en este documento crearán los recursos siguientes:
     >

@@ -43,10 +43,10 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 	| Argumento | Descripción |
 	|---|---|
 	| < nombre\_servidor > | nombre de servidor de destino |
-	| <nombre\_basedatos > | nombre de base de datos de destino |
-	| <nombre\_usuario > | nombre de usuario en el servidor de destino |
+	| < nombre\_basedatos > | nombre de base de datos de destino |
+	| < nombre\_usuario > | nombre de usuario en el servidor de destino |
 	| < contraseña > | contraseña del usuario |
-	| <archivo\_origen > | nombre y ubicación del archivo BACPAC que se importa |
+	| < archivo\_origen > | nombre y ubicación del archivo BACPAC que se importa |
 
 	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
