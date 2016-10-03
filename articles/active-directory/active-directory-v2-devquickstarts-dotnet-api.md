@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Protección de una API web MVC
@@ -122,7 +122,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController`, es posible que la acción deba tener acceso a información sobre este. OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincpal`.  
+- Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController`, es posible que la acción deba tener acceso a información sobre este. OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincpal`.
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -156,7 +156,7 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## Pasos siguientes
-Ahora puede pasar a otros temas adicionales. Es posible que desee probar:
+Ahora puede pasar a otros temas adicionales. También puede probar lo siguiente:
 
 [Llamada a una API web desde una aplicación web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
@@ -168,4 +168,4 @@ Para obtener recursos adicionales, consulte:
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

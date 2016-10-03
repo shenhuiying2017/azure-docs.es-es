@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/14/2016"
+   ms.date="09/15/2016"
    ms.author="alkohli" />
 
 # Notas de la versión de Update 0.3 de la matriz virtual de StorSimple
@@ -38,7 +38,7 @@ En la tabla siguiente se proporciona un resumen de los problemas corregidos en e
 
 | No. | Característica | Problema |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | Copias de seguridad |Se ha detectado un problema en la versión anterior en el que las copias de seguridad no podían completarse. La causa raíz se identificó y corrigió en esta versión. <br></br> La corrección no se aplica con carácter retroactivo a recursos compartidos que ya están experimentando este problema. Los clientes que detecten este problema deben aplicar primero Update 0.3 y después póngase en contacto con el soporte técnico de Microsoft para realizar una copia de seguridad completa del sistema para corregir el problema. En lugar de ponerse en contacto con el soporte técnico de Microsoft, los clientes también pueden restaurar a un nuevo recurso compartido desde una copia de seguridad correcta para los recursos compartidos afectados. |
+| 1 | Copias de seguridad |Se ha detectado un problema en la versión anterior en el que las copias de seguridad no podían completarse. Si se produjo este problema, el trabajo de copia de seguridad no se realizaría correctamente y se generó una alerta crítica en el servicio StorSimple Manager para notificar al usuario. Este problema no afectó a los datos en los recursos compartidos o el acceso a los datos. La causa raíz se identificó y corrigió en esta versión. <br></br> La corrección no se aplica con carácter retroactivo a recursos compartidos que ya están experimentando este problema. Los clientes que detecten este problema deben aplicar primero Update 0.3 y después póngase en contacto con el soporte técnico de Microsoft para realizar una copia de seguridad completa del sistema para corregir el problema. En lugar de ponerse en contacto con el soporte técnico de Microsoft, los clientes también pueden restaurar a un nuevo recurso compartido desde una copia de seguridad correcta para los recursos compartidos afectados. |
 | 2 | iSCSI | Se ha detectado un problema en la versión anterior, donde los volúmenes desaparecían cuando se copiaban datos en un volumen en la matriz virtual de StorSimple. Este problema se ha corregido en esta versión. <br></br> Las revisiones surten efecto solo en volúmenes creados recientemente. Las revisiones no se aplican con carácter retroactivo a volúmenes que ya están experimentando este problema. Se recomienda a los clientes poner los volúmenes afectados en línea mediante el Portal de Azure clásico, realizar una copia de seguridad de estos volúmenes y luego restaurar estos volúmenes a nuevos volúmenes. |
 
 
@@ -78,4 +78,4 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 - [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](storsimple-ova-pp-release-notes.md)
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

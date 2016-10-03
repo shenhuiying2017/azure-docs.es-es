@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Información general de análisis de Servicios multimedia de Azure
+# Información general sobre análisis de Servicios multimedia de Azure | Microsoft Azure
 
 ##Información general
 
@@ -45,6 +45,8 @@ El siguiente diagrama muestra **Análisis multimedia** y otras partes principale
 
 - **Reconocimiento óptico de caracteres**: gracias al OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure, podrá convertir el contenido de texto de archivos de vídeo en texto digital modificable y utilizable en búsquedas. De este modo, se puede automatizar la extracción de metadatos significativos de la señal de vídeo de los elementos multimedia.
  
+- **Censura de rostros escalable**: **Redactor multimedia de Azure** es un procesador multimedia (MP) de Análisis multimedia de Azure que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este](media-services-face-redaction.md) artículo.
+
  
 ## Escenarios comunes
 
@@ -127,7 +129,9 @@ Respuesta:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -144,4 +148,4 @@ Respuesta:
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

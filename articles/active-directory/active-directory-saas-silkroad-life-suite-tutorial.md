@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -31,7 +31,7 @@ Si quiere obtener más información sobre la integración de aplicaciones SaaS c
 Para configurar la integración de Azure AD con SilkRoad Life Suite, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Un inicio de sesión único de SilkRoad Life Suite en la suscripción habilitada
+- Una suscripción habilitada para el inicio de sesión único en SilkRoad Life Suite
 
 
 > [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -138,7 +138,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     d. Pegue el valor en el cuadro de texto **Dirección URL de respuesta**.
  
-    e. Haga clic en **Siguiente**.
+    e. Haga clic en **Next**.
  
 4. En la página **Configurar inicio de sesión único en SilkRoad Life Suite**, siga estos pasos:
 
@@ -146,7 +146,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en Descargar certificado y después guarde el archivo en el equipo.
 
-    b. Haga clic en **Siguiente**.
+    b. Haga clic en **Next**.
 
 
 
@@ -188,7 +188,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     c. En el cuadro de texto **IdP Name** (Nombre de IdP), escriba un nombre que sea específico para su configuración (por ejemplo, *Azure SP*).
 
-    d. Haga clic en **Guardar**.
+    d. Haga clic en **Save**.
 
 
 6. Deshabilite todos los demás orígenes de autenticación.
@@ -233,9 +233,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Haga clic en **Siguiente**.
+    c. Haga clic en **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)
  
@@ -247,7 +247,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png)
  
@@ -346,4 +346,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)
@@ -37,7 +37,7 @@ Para crear y administrar instancias de Caché en Redis de Azure mediante la CLI 
 
 Las siguientes propiedades se utilizan al crear y actualizar instancias de caché en Redis.
 
-| Propiedad | Switch | Descripción |
+| Propiedad | Switch | Description |
 |---------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | -n,--name | Nombre de la caché en Redis. |
 | resource group | -g, --resource-group | Nombre del grupo de recursos. |
@@ -53,7 +53,7 @@ Las siguientes propiedades se utilizan al crear y actualizar instancias de cach�
 | StaticIP | -p, --static-ip <static-ip> | Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. |
 | Subred | t, --subnet <subnet> | Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. |
 | VirtualNetwork | -v, --virtual-network <virtual-network> | Si hospeda la memoria caché en una red virtual, especifica el id. de recurso de ARM exacto de la red virtual en la que se va a implementar la Caché en Redis. Formato de ejemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| La suscripción | -s, --subscription | Identificador de la suscripción. |
+| Subscription | -s, --subscription | Identificador de la suscripción. |
 
 ## Consulta de todos los comandos de caché en Redis
 
@@ -146,9 +146,9 @@ Para más información sobre este comando, ejecute el comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-## Lista de todas las memorias caché en Redis dentro de su suscripción o del grupo de recursos
+## Lista de todas las memorias Redis Cache dentro de su suscripción o del grupo de recursos
 
-Para enumerar todas las memorias caché en Redis incluidas en su suscripción o en el grupo de recursos, use el comando siguiente:
+Para enumerar todas las memorias Redis Cache incluidas en su suscripción o en el grupo de recursos, use el comando siguiente:
 
 	azure rediscache list [options]
 
@@ -271,4 +271,4 @@ Para más información sobre este comando, ejecute el comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

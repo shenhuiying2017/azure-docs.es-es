@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@ Puede importar diversos tipos de datos al experimento, dependiendo del mecanismo
 - Texto sin formato (.txt)
 - Valores separados por coma (CSV) con un encabezado (.csv) o sin encabezado (.nh.csv)
 - Valores separados con tabulaciones (TSV) con un encabezado (.tsv) o sin encabezado (.nh.tsv)
+- Archivo de Excel
+- Tabla de Azure
 - Tabla de Hive
 - Tabla de Base de datos SQL
 - Valores de OData
@@ -89,4 +91,4 @@ En caso de ser necesario, puede convertir el formato Tabla de datos de vuelta al
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

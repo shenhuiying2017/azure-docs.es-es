@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos de MySQL mediante Factoría de datos de Azure
@@ -22,7 +22,7 @@ En este artículo se describe cómo puede usar la actividad de copia en Factorí
 
 El servicio Factoría de datos admite la conexión a orígenes de MySQL locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
-> [AZURE.NOTE] Tiene que usar la puerta de enlace para conectar con MySQL, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si está intentando conectarse a una instancia de MySQL hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
+> [AZURE.NOTE] La puerta de enlace es necesaria incluso si la base de datos MySQL está hospedada en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 
 Factoría de datos solo admite actualmente el movimiento de datos desde MySQL a otros almacenes de datos, pero no de otros almacenes de datos a MySQL.
 
@@ -34,7 +34,7 @@ Para que Data Management Gateway se conecte a la Base de datos MySQL, deberá in
 ## Asistente para copia de datos
 La manera más fácil de crear una canalización que copie datos de una base de datos de MySQL en cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos MySQL al almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
+En el ejemplo siguiente se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización. Puede encontrar un tutorial completo con instrucciones paso a paso en el artículo sobre el [movimiento de datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md). Los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Azure Data Factory.
 
 ## Ejemplo: Copiar datos de MySQL a un blob de Azure
 En este ejemplo, se muestra cómo copiar datos de una base de datos MySQL local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
@@ -49,9 +49,9 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos MySQL en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
+En el ejemplo se copian datos de un resultado de consulta de una base de datos MySQL en un blob cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
+En primer lugar, configure Data Management Gateway. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servicio vinculado de MySQL**
 
@@ -323,4 +323,4 @@ Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a 
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="Uso de Azure Data Lake para realizar tareas de exploración de datos y clasificación binaria en un conjunto de datos."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Ciencia de datos escalables en Azure Data Lake: tutorial completo
 
-En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos](http://aka.ms/datascienceprocess), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
+En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](http://aka.ms/datascienceprocess), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
 
 
 ### Análisis con Azure Data Lake
@@ -76,10 +76,8 @@ Para preparar el entorno de la ciencia de datos para este tutorial, cree los sig
 - Cuenta de Estudio de aprendizaje automático de Azure
 - Herramientas de Azure Data Lake para Visual Studio (se recomienda)
 
-Esta sección proporciona instrucciones sobre cómo crear cada uno de estos recursos. Si opta por usar tablas de Hive con Aprendizaje automático de Azure, en lugar de Python, para generar un modelo, también necesitará aprovisionar un clúster de HDInsight (Hadoop). Este procedimiento alternativo se describe en la sección correspondiente.
-
->AZURE.NOTE Tenga en cuenta que se puede crear el **Almacén de Azure Data Lake** por separado o cuando se crea **Análisis de Azure Data Lake**, como almacenamiento predeterminado. A continuación, se hace referencia a las instrucciones para crear cada uno de estos recursos por separado, pero no es preciso crear la cuenta del Almacén de Data Lake de forma independiente.
-
+Esta sección proporciona instrucciones sobre cómo crear cada uno de estos recursos. Si opta por usar tablas de Hive con Azure Machine Learning, en lugar de Python, para generar un modelo, también necesitará aprovisionar un clúster de HDInsight (Hadoop). Este procedimiento alternativo se describe en la sección correspondiente. <br/>
+>AZURE.NOTE Tenga en cuenta que se puede crear el **Almacén de Azure Data Lake** por separado o cuando se crea **Análisis de Azure Data Lake**, como almacenamiento predeterminado. A continuación, se hace referencia a las instrucciones para crear cada uno de estos recursos por separado, pero no es preciso crear la cuenta del Almacén de Data Lake de forma independiente. <br/>
 ### Creación de un Almacén de Azure Data Lake
 
 Cree un ADLS desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de configurar la identidad de AAD del clúster en la hoja **Origen de datos** de la hoja **Configuración opcional** descrita allí.
@@ -741,4 +739,4 @@ La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](http:
 - [Proceso de ciencia de datos en equipos: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Información general sobre el proceso de ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

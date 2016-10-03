@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/30/2016"
+   ms.date="09/20/2016"
    ms.author="sumukhs"/>
 
 # Configuración de Reliable Actors: KVSActorStateProvider
@@ -29,7 +29,7 @@ Las configuraciones de seguridad del replicador se utilizan para proteger el can
 ### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## Configuración del replicador
+## Configuración de replicador
 Las configuraciones de replicador configuran el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable. La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
 ### Nombre de sección
@@ -42,7 +42,7 @@ Las configuraciones de replicador configuran el replicador que es responsable de
 |BatchAcknowledgementInterval|Segundos|0\.015|Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta.|
 |ReplicatorEndpoint|N/D|Ningún valor predeterminado: parámetro obligatorio|Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Service Manifest Resources](service-fabric-service-manifest-resources.md) (Recursos del manifiesto de servicio) para obtener más información sobre cómo definir recursos de punto de conexión en el manifiesto de servicio. |
 |RetryInterval|Segundos|5|Período de tiempo después del cual el replicador vuelve a transmitir un mensaje si no recibe una confirmación de una operación.|
-|MaxReplicationMessageSize|Bytes|50 MB|Tamaño máximo de los datos de replicación que se puede transmitir en un único mensaje.|
+|MaxReplicationMessageSize|Bytes|50 MB|Tamaño máximo de los datos de replicación que se puede transmitir en un único mensaje.|
 |MaxPrimaryReplicationQueueSize|Número de operaciones|1024|Número máximo de operaciones de la cola principal. Una operación se libera después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2.|
 |MaxSecondaryReplicationQueueSize|Número de operaciones|2048|Número máximo de operaciones de la cola secundaria. Una operación se libera después de que su estado pase a ser de alta disponibilidad mediante persistencia. Este valor debe ser mayor que 64 y una potencia de 2.|
 
@@ -59,7 +59,7 @@ Las configuraciones de almacén se usan para configurar el almacén local que se
 |MaxAsyncCommitDelayInMilliseconds|Milisegundos|200|Establece el intervalo máximo de procesamiento por lotes de las confirmaciones del almacén local duradero.|
 |MaxVerPages|Número de páginas|16384|El número máximo de páginas de versión en la base de datos del almacén local. Determina el número máximo de transacciones pendientes.|
 
-## Archivo de configuración de muestra
+## Archivo de configuración de ejemplo
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,4 +86,4 @@ Las configuraciones de almacén se usan para configurar el almacén local que se
 
 El parámetro BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -27,10 +27,10 @@ Los roles del servicio en la nube (los roles de trabajo y los roles web) usan un
 
 El comportamiento de los sondeos depende de:
 
-- El número de sondeos correctos que permiten que una instancia se etiquete como en ejecución.
-- El número de sondeos erróneos que permiten que una instancia se etiquete como no en ejecución.
+- El número de sondeos correctos que permiten que una instancia se etiquete como activa.
+- El número de sondeos erróneos que permiten que una instancia se etiquete como inactiva.
 
-El valor de tiempo de espera y frecuencia establecido. SuccessFailCount determina si una instancia está en ejecución o en no ejecución. En el portal de Azure, el tiempo de espera se establece en dos veces el valor de la frecuencia.
+El tiempo de espera dividido por el valor de la frecuencia de sondeo equivale a SuccessFailCount, que determina si se da por supuesto que una instancia está activa o inactiva. En el portal de Azure, el tiempo de espera se establece en dos veces el valor de la frecuencia.
 
 La configuración de los sondeos de todas las instancias con carga equilibrada para un punto de conexión (es decir, un conjunto de carga equilibrada) debe ser igual. Esto significa que no puede tener una configuración de sondeo distinta para cada instancia de rol o máquina virtual en el mismo servicio hospedado para una combinación determinada de puntos de conexión. Por ejemplo, cada instancia debe tener puertos locales y tiempos de espera idénticos.
 
@@ -77,11 +77,11 @@ Los sondeos TCP inician una conexión mediante la realización de un protocolo d
 
 Para más información sobre cómo configurar un sondeo de estado HTTP o un sondeo TCP, consulte [Introducción a la creación de un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
-## Incorporación de instancias en buen estado de nuevo en el Equilibrador de carga
+## Incorporación de instancias en buen estado de nuevo en la rotación de Load Balancer
 
 Los sondeos TCP y HTTP se consideran en buen estado y marcan la instancia de rol como en buen estado en los casos siguientes:
 
-. El Equilibrador de carga obtiene un sondeo positivo la primera vez que se inicia la VM.
+- El Equilibrador de carga obtiene un sondeo positivo la primera vez que se inicia la VM.
 - El número SuccessFailCount (descrito anteriormente) define el valor de los sondeos correctos que son necesarios para marcar la instancia de rol como en buen estado. Si se quitó una instancia de rol, el número de sondeos correctos y sucesivos debe ser igual o superior al valor de SuccessFailCount para marcar la instancia de rol como en ejecución.
 
 >[AZURE.NOTE] Si el estado de una instancia de rol fluctúa, el Equilibrador de carga espera más tiempo antes de devolver dicha instancia al estado correcto. Esto se hace mediante la directiva para proteger al usuario y a la infraestructura.
@@ -90,4 +90,4 @@ Los sondeos TCP y HTTP se consideran en buen estado y marcan la instancia de rol
 
 Puede usar el [análisis de registros para el Equilibrador de carga](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento de un sondeo y el número de sondeos. El registro se puede utilizar con Power BI o con Visión operativa de Azure para proporcionar estadísticas del estado de mantenimiento del Equilibrador de carga.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

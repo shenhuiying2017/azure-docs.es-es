@@ -20,6 +20,25 @@
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## SO invitado de septiembre 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-104 | [3183038] | Actualización de seguridad acumulativa para Internet Explorer | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| MS16-106 | [3185848] | Actualización de seguridad para el componente de gráficos de Microsoft | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| MS16-110 | [3178467] | Actualización de seguridad para Windows | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| MS16-111 | [3186973] | Actualización de seguridad para el kernel de Windows | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| MS16-112 | [3178469] | Actualización de seguridad para la pantalla de bloqueo de Windows | 4\.36 | 13 de septiembre de 2016 |
+| MS16-114 | [3185879] | Actualización de seguridad para el servidor SMB de Windows | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| MS16-115 | [3188733] | Actualización de seguridad para PDF | 4\.35, 3.43 | 13 de septiembre de 2016 |
+| MS16-116 | [3188724] | Actualización de seguridad en Automation OLE para el motor de scripting de VBScript | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| | [3174644] | Compatibilidad actualizada para el intercambio de claves Diffie-Hellman | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| | [3177723] | Actualización de zona horaria: Egipto cancela el horario de verano | 4\.36, 3.43, 2.55 | 13 de septiembre de 2016 |
+| | [3179573] | Paquete acumulativo de actualizaciones de agosto de 2016 para Windows 7 SP1 y Windows Server 2008 R2 SP1 | 2\.55 | 13 de septiembre de 2016 |
+| | [3179575] | Paquete acumulativo de actualizaciones de agosto de 2016 de Windows Server 2012 | 3\.43 | 13 de septiembre de 2016 |
+| | [3179574] | Paquete acumulativo de actualizaciones de agosto de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 | 4\.36 | 13 de septiembre de 2016 |
+
+
 ## SO invitado de agosto 
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -349,6 +368,19 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+[3183038]: http://support.microsoft.com/kb/3183038
+[3185848]: http://support.microsoft.com/kb/3185848
+[3178467]: http://support.microsoft.com/kb/3178467
+[3186973]: http://support.microsoft.com/kb/3186973
+[3178469]: http://support.microsoft.com/kb/3178469
+[3185879]: http://support.microsoft.com/kb/3185879
+[3188733]: http://support.microsoft.com/kb/3188733
+[3188724]: http://support.microsoft.com/kb/3188724
+[3174644]: http://support.microsoft.com/kb/3174644
+[3177723]: http://support.microsoft.com/kb/3177723
+[3179573]: http://support.microsoft.com/kb/3179573
+[3179575]: http://support.microsoft.com/kb/3179575
+[3179574]: http://support.microsoft.com/kb/3179574
 
 [3177356]: http://support.microsoft.com/kb/3177356
 [3177393]: http://support.microsoft.com/kb/3177393
@@ -602,4 +634,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

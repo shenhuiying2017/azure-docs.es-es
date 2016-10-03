@@ -3,7 +3,7 @@
    description="Obtenga información acerca de cómo modificar una aplicación que se ejecuta en un contenedor de Docker local, a actualizar el contenedor mediante la edición y actualización, y a establecer puntos de interrupción para la depuración"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Depuración de aplicaciones en un contenedor de Docker local
 
@@ -26,8 +26,8 @@ Visual Studio Tools para Docker ofrece una forma coherente de desarrollar y vali
 Es necesario instalar las siguientes herramientas.
 
 - [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Visual Studio 2015 Tools para Docker](https://aka.ms/DockerToolsForVS)
+- Instalar [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [SDK de Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 Para ejecutar los contenedores de Docker de forma local, se necesita a un cliente Docker local. Puede usar la versión de [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) que requiere que Hyper-V esté deshabilitado, o bien puede usar la [versión beta de Docker para Windows](https://beta.docker.com), que usa Hyper-V y requiere Windows 10.
 
@@ -125,4 +125,4 @@ Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS) puede
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

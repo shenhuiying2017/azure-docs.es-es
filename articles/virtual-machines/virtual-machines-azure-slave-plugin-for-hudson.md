@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Uso del complemento esclavo de Azure con Hudson Continuous Integration
@@ -237,4 +237,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

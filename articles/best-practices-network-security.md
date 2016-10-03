@@ -121,7 +121,7 @@ Para habilitar estas características, siga estas instrucciones relativas a los 
 >[AZURE.TIP] Mantener separados los dos grupos siguientes: las personas autorizadas a acceder al engranaje de seguridad de la red perimetral y las personas autorizadas como administradores de desarrollo, implementación u operaciones de aplicaciones. Mantener estos grupos separados permite una separación de funciones y evita que una sola persona omita la seguridad de las aplicaciones y los controles de seguridad de red.
 
 ### Preguntas que se deben plantear al crear límites de red
-En esta sección, salvo que se especifique de otro modo, el término "redes" hace referencia a las redes virtuales de Azure privadas creadas por un administrador de la suscripción. El término no hace referencia a las redes físicas subyacentes dentro de Azure.
+En esta sección, salvo que se especifique de otro modo, el término "redes" hace referencia a las redes virtuales privadas de Azure creadas por un administrador de la suscripción. El término no hace referencia a las redes físicas subyacentes dentro de Azure.
 
 Además, las redes virtuales de Azure a menudo se usan para extender las redes locales tradicionales. Es posible incorporar soluciones de redes híbridas de sitio a sitio o de ExpressRoute con arquitecturas de redes perimetrales. Esta es una consideración importante a la hora de crear límites de seguridad de red.
 
@@ -297,6 +297,10 @@ En este ejemplo, se crean dos tablas de enrutamiento para las subredes front-end
 2. Tráfico de red virtual con un próximo salto definido como firewall; esto invalida la regla predeterminada que permite que el tráfico de la red virtual local se enrute directamente.
 3. Todo el tráfico restante (0/0) con un próximo salto definido como firewall.
 
+>[AZURE.TIP] No disponer de la entrada de la subred local en el UDR hará que se interrumpan las comunicaciones de la subred local.
+> - En el ejemplo, 10.0.1.0/24 que está apuntando a VNETLocal resulta crítico ya que, de lo contrario, el paquete que sale del servidor web (10.0.1.4) con destino a otro servidor local (por ejemplo) 10.0.1.25 producirá un error ya que se enviará a NVA, que a su vez lo enviará a la subred y ésta lo reenviará nuevamente a NVA y así sucesivamente.
+> - Las posibilidades de que se produzca un bucle de enrutamiento son normalmente mayores en aplicaciones con varias NIC que están conectadas directamente a cada subred con la que se comunican, lo cual suele suceder en el caso de las aplicaciones tradicionales locales.
+
 Una vez creadas las tablas de enrutamiento, se enlazan a sus subredes. Una vez creada la tabla de enrutamiento de la subred front-end y enlazada a la subred, debe tener el siguiente aspecto:
 
         Effective routes : 
@@ -306,12 +310,9 @@ Una vez creadas las tablas de enrutamiento, se enlazan a sus subredes. Una vez c
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] Hay determinadas restricciones en el uso del enrutamiento definido por el usuario con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure:
+>[AZURE.NOTE] El enrutamiento definido por el usuario se puede aplicar ahora a la subred de puerta de enlace en la que está conectado el circuito de ExpressRoute.
 >
->- El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
-> - La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
->
->En los ejemplos 3 y 4 se muestra cómo habilitar la red perimetral con ExpressRoute o redes de sitio a sitio.
+> En los ejemplos 3 y 4 se muestra cómo habilitar la red perimetral con ExpressRoute o redes de sitio a sitio.
 
 
 #### Descripción de reenvío IP
@@ -361,7 +362,7 @@ En este ejemplo, necesitamos siete tipos de reglas:
 Una vez creadas todas las reglas anteriores, es importante revisar la prioridad de cada una para asegurarse de que el tráfico se permitirá o se denegará según se desee. En este ejemplo, las reglas están en orden de prioridad.
 
 #### Conclusión
-Se trata de una manera más compleja pero más completa de proteger y aislar la red que los ejemplos anteriores. (En el ejemplo 2 solo se protege la aplicación y en el ejemplo 1 solo se aíslan las subredes). Este diseño permite supervisar el tráfico en ambas direcciones y protege no solo el servidor de aplicaciones de entrada, sino que aplica la directiva de seguridad de red a todos los servidores de esta red. Además, según el dispositivo que se usa, se pueden lograr el reconocimiento y la auditoría de todo el tráfico. Para obtener más información, consulte las [instrucciones de compilación detalladas][Example3]. Estas instrucciones incluyen lo siguiente:
+Se trata de una manera más compleja pero más completa de proteger y aislar la red que los ejemplos anteriores. (En el ejemplo 2 solo se protege la aplicación y en el ejemplo 1 solo se aíslan las subredes). Este diseño permite supervisar el tráfico en ambas direcciones y protege no solo el servidor de aplicaciones de entrada, sino que aplica la directiva de seguridad de red a todos los servidores de esta red. Además, según el dispositivo que se usa, se pueden lograr el reconocimiento y la auditoría de todo el tráfico. Para más información, consulte las [instrucciones de compilación detalladas][Example3]. Estas instrucciones incluyen lo siguiente:
 
 - Creación de esta red perimetral de ejemplo con scripts de PowerShell.
 - Creación de este ejemplo con una plantilla de Azure Resource Manager.
@@ -504,4 +505,4 @@ La incorporación de una conexión de red de configuración entre pares privados
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0921_2016-->

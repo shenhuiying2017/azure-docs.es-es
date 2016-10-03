@@ -3,8 +3,8 @@
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
     services="storage"
     documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager="jahogg"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/25/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
 # Cómo usar el almacenamiento de blobs de C++  
 
@@ -241,4 +241,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple" 
-	description="En este tema se describe cómo configurar un canal que recibe una secuencia en directo de velocidad de bits múltiple desde un codificador local. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
+	pageTitle="Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple | Microsoft Azure" 
+	description="En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple
@@ -60,7 +60,7 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
 3. Cree un programa.
 
@@ -215,13 +215,13 @@ Estado del canal|Indicadores IU del portal|¿Facturado?
 Iniciando|Iniciando|No (estado transitorio)
 Ejecución|Listo (no hay programas en ejecución)<p>o<p>Streaming (al menos un programa en ejecución)|Sí
 Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Detenido|No
+Detenido|Stopped|No
 
 ##<a id="cc_and_ads"></a>Subtítulos e inserción de anuncios 
 
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios.
 
-Standard|Notas
+Estándar|Notas
 ---|---
 CEA-708 y EIA-608 (708/608)|CEA-708 y EIA-608 son estándares de subtítulos (CC) para Estados Unidos y Canadá.<p><p>Actualmente, solo se admiten subtítulos si se transmiten en la secuencia de entrada codificada. Debe usar un codificador multimedia en directo que pueda insertar 608 o 708 títulos en la secuencia codificada que se envía a Servicios multimedia. Servicios multimedia ofrecerá el contenido con subtítulos insertados para los usuarios.
 TTML dentro de ismt (pistas de texto Smooth Streaming)|El empaquetado dinámico de Servicios multimedia permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: MPEG DASH, HLS o Smooth Streaming. Sin embargo, si usted utiliza MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la secuencia a clientes de Smooth Streaming.
@@ -271,10 +271,10 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 [Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
 
-[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-live-streaming-workflow.md)
+[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-overview.md)
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

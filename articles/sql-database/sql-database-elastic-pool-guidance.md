@@ -131,4 +131,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos. Las
 - [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md)
 - [PowerShell script for identifying databases suitable for an elastic database pool (Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas)](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -35,7 +35,7 @@ Para crear la aplicación de trabajo completa, deberá realizar estas acciones:
 
 2. Registrar la aplicación con Azure AD
 3. Instalar y configurar ADAL
-5. Usar ADAL para obtener tokens de Azure AD
+5. Usar ADAL para obtener tokens de Azure AD.
 
 Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip). También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
@@ -60,7 +60,7 @@ Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el c
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
--	En el proyecto de buscador de directorios, abra `app.config`. Reemplace los valores de los elementos de la sesión `<appSettings>` para que reflejen los valores especificados en el Portal de Azure. El código hará referencia a estos valores cada vez que use ADAL.
+-	En el proyecto de buscador de directorios, abra `app.config`. Reemplace los valores de los elementos de la sesión `<appSettings>` para que reflejen los valores especificados en el Portal de Azure. El código hará referencia a estos valores siempre que use ADAL.
     -	`ida:Tenant` es el dominio del inquilino de Azure AD, por ejemplo, contoso.onmicrosoft.com.
     -	`ida:ClientId` es el identificador de cliente de la aplicación que copió del portal.
     -	El `ida:RedirectUri` es la URL de redirección que ha registrado en el portal.
@@ -159,7 +159,7 @@ public async void CheckForCachedToken()
 
 ¡Enhorabuena! Ahora tiene una aplicación de WPF de .NET operativa que tiene la capacidad de autenticar usuarios, realizar llamadas seguras a las API web que usan OAuth 2.0 y obtener información básica sobre el usuario. Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios. Ejecute la aplicación DirectorySearcher e inicie sesión con uno de esos usuarios. Busque otros usuarios según su UPN. Cierre la aplicación y vuelva a ejecutarla. Observe cómo la sesión del usuario permanece intacta. Cierre la sesión y vuelva a iniciarla como otro usuario.
 
-ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Se encarga de todo el trabajo duro: administración de la caché, compatibilidad con el protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de los tokens caducados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireTokenAsync(...)`.
+ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireTokenAsync(...)`.
 
 Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración). Ahora puede pasar a otros escenarios. También puede probar lo siguiente:
 
@@ -167,4 +167,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-DotN
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

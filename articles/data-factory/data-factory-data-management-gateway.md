@@ -494,6 +494,6 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 
 
 ## Pasos siguientes
-- Consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md) para más información sobre la puerta de enlace.
+- Para más información, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). El objetivo es crear una canalización que utilice la puerta de enlace para mover los datos de una base de datos de SQL Server local a un blob de Azure.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

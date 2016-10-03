@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -71,9 +71,9 @@ Esto devuelve un documento JSON que describe el servicio y, luego, jq extrae sol
 	>
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH** - &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse al nodo principal 0, mientras que el 23 se usa para conectarse al nodo principal 1. Para obtener más información sobre los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse al nodo principal primario, mientras que el 23 se usa para conectarse al secundario. Para obtener más información sobre los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE] Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
+	> [AZURE.NOTE] Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede acceder a los nodos de trabajo usando SSH desde un nodo principal.
 
 ## Ubicaciones de archivo
 
@@ -256,4 +256,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

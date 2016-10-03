@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Cómo usar el Servicio de caché administrado de Azure
 
 En esta guía se explica cómo comenzar a usar el **Servicio de caché administrado de Azure**. Los ejemplos se escriben en código C# y usan la API .NET. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché**, la **incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y la **activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información acerca del uso del servicio de caché de Azure, consulte la sección [Pasos siguientes][].
 
->[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](../redis-cache/cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Le recomendamos usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
 ## ¿Qué es el Servicio de caché administrado de Azure?
@@ -29,7 +29,7 @@ El Servicio de caché administrado de Azure es una solución escalable, distribu
 
 El servicio de caché administrado de Azure incluye las características siguientes:
 
--   Proveedores de ASP.NET previamente generados para el almacenamiento en caché del estado de la sesión y los resultados de la página, lo que permite acelerar las aplicaciones web sin necesidad de modificar su código.
+-   Proveedores de ASP.NET pregenerados para el almacenamiento en caché del estado de la sesión y los resultados de la página, lo que permite acelerar las aplicaciones web sin necesidad de modificar su código.
 -   Almacenamiento en caché de cualquier objeto administrado serializable; por ejemplo: Objetos CLR, filas, XML y datos binarios.
 -   Modelo de desarrollo coherente en Azure y Windows Server AppFabric.
 
@@ -65,7 +65,7 @@ Para crear una instancia del Servicio de caché administrado, abra una ventana d
 
 >Para obtener instrucciones de instalación y uso de PowerShell de Azure, vea [Cómo instalar y configurar PowerShell de Azure][].
 
-Invoque el cmdlet [Add-AzureAccount][] y escriba la dirección de correo electrónico y la contraseña asociadas a la cuenta. De forma predeterminada se muestra una suscripción predeterminada que aparece tras invocar el cmdlet [Add-AzureAccount][]. Para cambiar la suscripción, invoque el cmdlet [Select-AzureSubscription][].
+Invoque el cmdlet [Add-AzureAccount][] y escriba la dirección de correo electrónico y la contraseña asociadas a la cuenta. Hay una suscripción seleccionada de manera predeterminada que se muestra tras invocar el cmdlet [Add-AzureAccount][]. Para cambiar la suscripción, invoque el cmdlet [Select-AzureSubscription][].
 
 >Si ha configurado Azure PowerShell con un certificado para la cuenta, puede pasar por alto este paso. Para obtener más información sobre la conexión de PowerShell de Azure con su cuenta de Azure, consulte [Instalación y configuración de PowerShell de Azure][].
 
@@ -485,4 +485,4 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

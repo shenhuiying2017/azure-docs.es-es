@@ -194,7 +194,7 @@ Para obtener más información, consulte los siguientes recursos:
 * [Aprovisionamiento de una aplicación web con una base de datos SQL](app-service-web-arm-with-sql-database-provision.md)
 * [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md)
 * [Creación de aplicaciones reales en la nube con Azure: automatizar todo.](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para ver vínculos a documentación adicional de Azure PowerShell.
-* [Uso de scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo](http://msdn.microsoft.com/library/dn642480.aspx). Cómo usar scripts de implementación de Windows PowerShell que genera Visual Studio.
+* [Uso de scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo](../vs-azure-tools-publishing-using-powershell-scripts.md). Cómo usar scripts de implementación de Windows PowerShell que genera Visual Studio.
 
 ###<a name="api"></a>Automatización de la implementación con la API de administración de .NET
 
@@ -234,4 +234,4 @@ Para obtener información sobre cómo usar el control de acceso basado en roles 
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/21/2016"
+	ms.date="09/19/2016"
 	ms.author="pratshar"/>
 
 #  Diseño de una infraestructura de red para la recuperación ante desastres
@@ -36,7 +36,7 @@ Cuando los administradores planean implementar una solución de recuperación an
 
 Al diseñar la red del sitio de recuperación, el administrador tiene dos opciones:
 
-- Utilizar un intervalo de direcciones IP diferente para la red del sitio de recuperación. En este escenario, después de la conmutación por error la máquina virtual obtendrá una nueva dirección IP y el administrador tendría que realizar una actualización de DNS. [Aquí](site-recovery-vmm-to-vmm.md#test-your-deployment) podrá consultar más información acerca de cómo realizar la actualización de DNS. 
+- Utilizar un intervalo de direcciones IP diferente para la red del sitio de recuperación. En este escenario, después de la conmutación por error la máquina virtual obtendrá una nueva dirección IP y el administrador tendría que realizar una actualización de DNS. [Aquí](site-recovery-vmm-to-vmm.md#test-your-deployment) podrá consultar más información acerca de cómo realizar la actualización de DNS.
 - Utilizar el mismo intervalo de direcciones IP diferente para la red del sitio de recuperación. En ciertos escenarios, los administradores prefieren conservar las direcciones IP que tienen en el sitio principal, incluso después de la conmutación por error. En un escenario normal, los administradores tendrían que actualizar las rutas para que indiquen la nueva ubicación de las direcciones IP. Pero en el escenario en el que hay una VLAN ampliada entre el sitio principal y el de recuperación, conservar la dirección IP de las máquinas virtuales se convierte en una opción atractiva. Mantener las mismas direcciones IP simplifica el proceso de recuperación, ya que se eliminan todos los pasos relacionados posteriores a la conmutación por error.
 
 
@@ -120,7 +120,7 @@ Antes de la conmutación por error
 Para ayudar a Woodgrove a cumplir sus requisitos empresariales, es preciso implementar los flujos de trabajo siguientes:
 
 - Cree una red adicional, que se denominará Red de recuperación, donde se crearán las máquinas virtuales en que se ha producido la conmutación por error.
-- Para asegurarse de que la dirección IP de una máquina virtual se conserva después de una conmutación por error, vaya a la pestaña Configurar de las propiedades de la máquina virtual, especifique la misma IP que la máquina virtual tiene localmente y haga clic en Guardar. Cuando se produzca la conmutación por error de la máquina virtual, Azure Site Recovery asignará a la máquina virtual la IP proporcionada. 
+- Para asegurarse de que la dirección IP de una máquina virtual se conserva después de una conmutación por error, vaya a la pestaña Configurar de las propiedades de la máquina virtual, especifique la misma IP que la máquina virtual tiene localmente y haga clic en Guardar. Cuando se produzca la conmutación por error de la máquina virtual, Azure Site Recovery asignará a la máquina virtual la IP proporcionada.
 
 ![Propiedades de red](./media/site-recovery-network-design/network-design8.png)
 
@@ -179,4 +179,4 @@ La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Dis
 
 [Obtenga información](site-recovery-network-mapping.md) sobre cómo Site Recovery asigna las redes de origen y de destino cuando se usa un servidor VMM para administrar el sitio principal.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

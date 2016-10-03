@@ -371,7 +371,7 @@ public async Task<int> Run()
     {
         throw new TaskProcessorException(
         $"{ex.GetType().Name} exception in run task processor: {ex.Message}",
-        Ex
+        ex
         );
     }
 }
@@ -463,7 +463,7 @@ parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros.
 
 ### Guardar salidas de trabajos y tareas en Azure Storage
 
-Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] \(Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. En [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
+Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. En [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
 
 ### Foro de Batch
 
@@ -482,4 +482,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

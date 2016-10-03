@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos de Teradata mediante Factoría de datos de Azure
@@ -22,7 +22,8 @@ En este artículo se describe cómo puede usar la actividad de copia en Factorí
 
 La Factoría de datos admite la conexión a orígenes de Teradata local a través de Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
-**Nota:** tiene que aprovechar la puerta de enlace para conectar con Teradata, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si intenta conectarse a una instancia de Teradata hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
+> [AZURE.NOTE]
+La puerta de enlace es necesaria incluso si Teradata está hospedado en una máquina virtual de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual de IaaS como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 
 Factoría de datos solo admite el movimiento de datos desde Teradata a otros almacenes de datos, pero no desde otros almacenes de datos a Teradata.
 
@@ -51,7 +52,7 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos Teradata en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
+En primer lugar, configure Data Management Gateway. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servicio vinculado de Teradata:**
 
@@ -86,7 +87,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 
 El ejemplo supone que ha creado una tabla "MyTable" en Teradata y que contiene una columna denominada "timestamp" para los datos de serie temporal.
 
-Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
+Si se establece "external": true, se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
 	{
 	    "name": "TeradataDataSet",
@@ -239,18 +240,18 @@ Consulte [Configuración de credenciales y seguridad](data-factory-move-data-bet
 
 ## Propiedades del tipo de conjunto de datos de Teradata
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
-La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. No hay ninguna propiedad de tipo compatible con el conjunto de datos de Teradata esta vez.
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. Actualmente, no hay ninguna propiedad de tipo compatible con el conjunto de datos de Teradata.
 
 
 ## Propiedades de tipo de actividad de copia de Teradata
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de la actividad de copia, si el origen es de tipo **RelationalSource** (que incluye Teradata), están disponibles las propiedades siguientes en la sección **typeProperties**:
+Cuando la actividad de copia es de tipo **RelationalSource** (lo que incluye Teradata), están disponibles las propiedades siguientes en la sección **typeProperties**:
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
@@ -260,12 +261,12 @@ query | Utilice la consulta personalizada para leer los datos. | Cadena de consu
 
 ## Asignación de tipos para Teradata
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos, de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos a Teradata, se usarán las asignaciones siguientes de tipo Teradata a tipo .NET.
+Al mover datos a Teradata, se usan las asignaciones siguientes de tipo Teradata a tipo .NET.
 
 Tipo de base de datos Teradata | Tipo .NET Framework
 ----------------- | ---------------------------
@@ -316,4 +317,4 @@ Xml | String
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Informes de Azure Multi-Factor Authentication" 
-	description="Aquí se describe cómo utilizar la característica de informes de Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Informes de Azure Multi-Factor Authentication"
+	description="Aquí se describe cómo utilizar la característica de informes de Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Informes en Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ Azure Multi-Factor Authentication proporciona varios tipos de informes que usted
 Acceda a los informes a través del Portal de administración de Azure
 
 Nombre| Description
-:------------- | :------------- | 
+:------------- | :------------- |
 Uso | Los informes de uso muestran información sobre el uso general, resúmenes y detalles de usuario.
 Estado del servidor|Este informe muestra el estado de los Servidores Multi-Factor Authentication asociados a su cuenta.
 Historial de usuarios bloqueados|Estos informes muestran el historial de solicitudes para bloquear o desbloquear a los usuarios.
@@ -47,6 +47,5 @@ En cola|Enumera los informes en cola para su procesamiento y su estado. Cuando e
 
 * [Para los usuarios](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

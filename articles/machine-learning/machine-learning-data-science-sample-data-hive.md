@@ -3,7 +3,7 @@
 	description="Reducción del muestreo de datos en tablas de HDInsight Hive (Hadopop) de Azure"
 	services="machine-learning,hdinsight"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft"
+	authors="bradsev"
 	manager="jhubbard" 
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 # Muestreo de datos en tablas de HDInsight Hive de Azure
@@ -107,4 +107,4 @@ Aquí se muestra una consulta de ejemplo:
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

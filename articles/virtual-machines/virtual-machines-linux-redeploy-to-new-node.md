@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -36,7 +36,7 @@ Para volver a implementar la máquina virtual, utilice el siguiente comando de l
 azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
 ```
 
-Puede ver el estado del cambio de máquina virtual mientras recorre el proceso de nueva implementación. El elemento `PowerState` de la máquina virtual pasará de 'En ejecución' a 'Actualizando', luego 'Iniciando' y finalmente 'En ejecución' mientras se pasa por el proceso de nueva implementación en otro host. Compruebe el estado de las máquinas virtuales dentro de un grupo de recursos con:
+Puede ver el estado del cambio de máquina virtual mientras recorre el proceso de nueva implementación. El elemento `PowerState` de la máquina virtual pasará de En ejecución a Actualizando, luego Iniciando y finalmente En ejecución mientras se pasa por el proceso de nueva implementación en otro host. Compruebe el estado de las máquinas virtuales dentro de un grupo de recursos con:
 
 ```bash
 azure vm list -g <resourcegroup>
@@ -49,4 +49,4 @@ azure vm list -g <resourcegroup>
 ## Pasos siguientes
 Puede encontrar ayuda específica sobre la [solución de problemas de las conexiones SSH](virtual-machines-linux-troubleshoot-ssh-connection.md) o [pasos detallados para solucionar problemas de SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md) si tiene problemas para conectarse a la máquina virtual. También puede leer sobre la [solución de problemas de aplicaciones](virtual-machines-linux-troubleshoot-app-connection.md) si no se puede acceder a una aplicación que se ejecuta en la máquina virtual.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

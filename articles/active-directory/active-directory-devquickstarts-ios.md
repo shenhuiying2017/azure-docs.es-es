@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Integrar Azure AD en una aplicación iOS
@@ -29,9 +29,9 @@ Azure AD proporciona la biblioteca de autenticación de Active Directory (ADAL) 
 
 Para crear la aplicación de trabajo completa, deberá:
 
-2. Registrar la aplicación con Azure AD.
+2. Registrar la aplicación con Azure AD
 3. Instalar y configurar ADAL
-5. Usar ADAL para obtener tokens de Azure AD
+5. Usar ADAL para obtener tokens de Azure AD.
 
 Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
@@ -48,7 +48,7 @@ El formato de iOS para un URI de redireccionamiento es:
 - 	**aap esquema**: se registra en el proyecto de XCode. Es el modo en que otras aplicaciones pueden llamarlo. Puede encontrarlo en Info.plist -> Tipos de URL -> Identificador de URL. Debe crear uno si aún no tiene ninguno configurado.
 - 	**bundle-id**: es el identificador de paquete que se encuentra en la "identity" de la configuración del proyecto en XCode.
 
-Un ejemplo de este código de inicio rápido sería: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Un ejemplo de este código de inicio rápido sería: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Registro de la aplicación DirectorySearcher*
 Para habilitar la aplicación para obtener tokens, primero deberá registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API Graph de Azure AD:
@@ -218,7 +218,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ¡Enhorabuena! Ahora tiene una aplicación de iOS operativa que tiene la capacidad de autenticar usuarios, realizar llamadas seguras a las API web que usan OAuth 2.0 y obtener información básica sobre el usuario. Si todavía no lo ha hecho, ahora es el momento de completar el inquilino con algunos usuarios. Ejecute la aplicación QuickStart e inicie sesión con uno de esos usuarios. Busque otros usuarios según su UPN. Cierre la aplicación y vuelva a ejecutarla. Observe cómo la sesión del usuario permanece intacta.
 
-ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Se encarga de todo el trabajo duro: administración de la caché, compatibilidad con el protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de los tokens caducados, etc. Todo lo que necesita saber es una única llamada de API, `getToken`.
+ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc. Todo lo que necesita saber es una única llamada de API, `getToken`.
 
 Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración).
 
@@ -226,8 +226,8 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-iOS/
 Ahora puede pasar a otros escenarios. También puede probar lo siguiente:
 
 - [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
-- Obtener información sobre [cómo habilitar en iOS la autenticación SSO entre aplicaciones mediante ADAL](active-directory-sso-ios.md)  
+- Obtener información sobre [cómo habilitar en iOS la autenticación SSO entre aplicaciones mediante ADAL](active-directory-sso-ios.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

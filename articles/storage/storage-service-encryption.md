@@ -29,11 +29,11 @@ Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad
 
 SSE funciona mediante el cifrado de los datos cuando se escribe en Azure Storage, y puede utilizarse para blobs en bloques, blobs en páginas y blobs en anexos. Funciona para lo siguiente:
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   Cuentas de almacenamiento de fin general y cuentas de Blob Storage
+-   Premium Storage y almacenamiento principal
+-   Todos los niveles de redundancia (LRS, ZRS, GRS y RA-GRS)
+-   Cuentas de almacenamiento de Azure Resource Manager (pero no el clásico)
+-   Todas las regiones
 
 En esta captura de pantalla, se muestra dónde encontrar la configuración de Cifrado del servicio de Almacenamiento a través del [Portal de Azure](https://azure.portal.com). En esta pantalla, deberá hacer clic en Cifrado para continuar.
 
@@ -195,4 +195,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/16/2016"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -179,9 +179,12 @@ Para Update 3 y versiones posteriores, StorSimple también admite la conmutació
 
 - Los contenedores de volumen que se conmutan por error se borran del dispositivo de origen.
 
-- Puede verse un trabajo de eliminación por contenedor de volúmenes (con conmutación por error) en la página **Trabajos**. El tiempo para completar la eliminación de los contenedores de volúmenes es dependiente de la cantidad de datos en los contenedores. Si piensa probar la conmutación por error y la conmutación por recuperación, se recomienda que pruebe contenedores de volúmenes con menos datos (GB).
+- Se inicia un trabajo en segundo plano por contenedor de volúmenes (conmutación por error) en el dispositivo de origen. Si trata de realizar una conmutación por recuperación mientras el trabajo está en curso, recibirá una notificación. Debe esperar hasta que se complete para iniciar este proceso.
 
-- Una vez completados todos los trabajos de eliminación, puede intentar la conmutación por recuperación.
+	El tiempo que se tarda en eliminar los contenedores de volumen depende de varios factores, como la cantidad y la antigüedad de los datos, el número de copias de seguridad y el ancho de banda de red disponible para la operación. Si piensa probar la conmutación por error y la conmutación por recuperación, se recomienda que pruebe contenedores de volúmenes con menos datos (GB). En la mayoría de los casos, puede iniciar la conmutación por recuperación 24 horas después de que finalice la conmutación por error.
+
+
+
 
 ## Preguntas más frecuentes
 
@@ -215,4 +218,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

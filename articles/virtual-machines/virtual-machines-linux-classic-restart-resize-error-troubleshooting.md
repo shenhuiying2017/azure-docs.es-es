@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -85,4 +85,4 @@ Si el servicio en la nube existente no está asociado a una red virtual basada e
 
 Si surgen problemas al crear una nueva máquina virtual Linux en Azure, consulte [Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

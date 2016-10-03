@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -46,7 +46,7 @@ En primer lugar, cree una aplicación en el [Portal de registro de aplicaciones]
 
 - Agrega la plataforma **web** para su aplicación.
 - Escribe el **URI de redireccionamiento** correcto. El valor predeterminado en este ejemplo es `http://localhost:8080`.
-- Deja la casilla **Permitir flujo implícito** habilitada. 
+- Deja la casilla **Permitir flujo implícito** habilitada.
 
 Anota el valor de **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 
@@ -245,4 +245,4 @@ Para obtener más información sobre el punto de conexión v2.0, regrese a nuest
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

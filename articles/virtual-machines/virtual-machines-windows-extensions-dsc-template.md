@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # VMSS de Windows y configuración de estado deseado con plantillas de Azure Resource Manager
@@ -169,7 +169,7 @@ Si la configuración necesita credenciales, pueden incluirse en protectedSetting
 
 El ejemplo siguiente se deriva de la sección "Introducción" de la [página con información general sobre el controlador de la extensión DSC](virtual-machines-windows-extensions-dsc-overview.md). Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión. Guardar la configuración "IisInstall.ps1", colóquela en un archivo .ZIP y cargue el archivo en una dirección URL accesible. Este ejemplo usa el almacenamiento de blobs de Azure, pero es posible descargar archivos .ZIP desde cualquier ubicación.
 
-En la plantilla de Resource Manager, lo siguiente indica a la máquina virtual que descargue el archivo correcto y ejecute la función de PowerShell adecuada:
+En la plantilla de Azure Resource Manager, el siguiente código indica a la máquina virtual que descargue el archivo correcto y ejecute la función de PowerShell adecuada:
 
 ```json
 "settings": {
@@ -285,4 +285,14 @@ Soluciones:
 - Proporcione la propiedad que falta.
 - Quite la propiedad que necesita la propiedad que falta.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## Pasos siguientes
+[Más información sobre DSC y VMSS](virtual-machines-scale-sets-dsc.md)
+
+Puede encontrar más detalles en el artículo sobre [administración segura de credenciales de DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md).
+
+Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

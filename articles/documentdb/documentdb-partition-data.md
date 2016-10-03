@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/20/2016" 
 	ms.author="arramac"/>
 
 # Partición y escalado en Azure DocumentDB
@@ -261,7 +261,7 @@ Los SDK de DocumentDB de la versión 1.9.0 y posterior admiten opciones de ejecu
 
 Puede administrar la ejecución de consultas en paralelo ajustando los parámetros siguientes:
 
-- Al establecer `MaxDegreeOfParallelism`, puede controlar el grado de paralelismo; es decir, el número máximo de conexiones de red simultáneas en las particiones de la colección. Si lo establece en -1, el grado de paralelismo lo administra el SDK.
+- Al establecer `MaxDegreeOfParallelism`, puede controlar el grado de paralelismo; es decir, el número máximo de conexiones de red simultáneas en las particiones de la colección. Si lo establece en -1, el grado de paralelismo lo administra el SDK. Si el parámetro `MaxDegreeOfParallelism` no se especifica o está establecido en 0, que es el valor predeterminado, habrá una única conexión de red a las particiones de la colección.
 - Al establecer `MaxBufferedItemCount`, puede compensar el uso de memoria del cliente y la latencia de consulta. Si se omite este parámetro o lo establece en -1, el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo lo administrará el SDK.
 
 Como se trata del mismo estado de la colección, una consulta en paralelo devolverá resultados en el mismo orden que la ejecución en serie. Al realizar una consulta entre particiones que incluye la ordenación (ORDER BY o TOP), el SDK de DocumentDB emite la consulta en paralelo en las particiones y combina los resultados ordenados parcialmente en el lado del cliente para generar resultados ordenados globalmente.
@@ -279,12 +279,12 @@ En la siguiente sección, veremos cómo puede moverse a colecciones con particio
 
 <a name="migrating-from-single-partition"></a>
 ### Migración desde colecciones de partición única a colecciones con varias particiones
-Cuando una aplicación que usa colecciones con partición única necesita mayor capacidad de procesamiento (>10 000 RU/s) o de almacenamiento de datos (>10 GB), puede utilizar la [herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones.
+Cuando una aplicación que usa colecciones con partición única necesita mayor capacidad de procesamiento (>10 000 RU/s) o de almacenamiento de datos (>10 GB), puede usar la [herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones.
 
 Para migrar desde una colección de partición única a una colección con varias particiones
 
-1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para obtener más información.
-2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obtener más detalles.
+1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para más información.
+2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para más información.
 
 ![Migración de datos a una colección con particiones en DocumentDB][3]
 
@@ -332,7 +332,7 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 -   Realice pruebas de escala y de rendimiento con DocumentDB. Consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md) para ver ejemplos.
 -   Introducción a la codificación con [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 -   Información sobre el [procesamiento aprovisionado en DocumentDB](documentdb-performance-levels.md)
--   Si desea personalizar la forma en que la aplicación realiza particiones, puede conectar su propia implementación de particiones del lado cliente. Consulte [Client-side partitioning support](documentdb-sharding.md) (Compatibilidad con la creación de particiones del lado cliente).
+-   Si desea personalizar la forma en que la aplicación realiza particiones, puede conectar su propia implementación de particiones del lado cliente. Consulte el tema sobre la [compatibilidad con la creación de particiones del lado cliente](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -340,4 +340,4 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

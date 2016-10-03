@@ -67,6 +67,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
+#### Ejemplo de código de F# que procesa un mensaje de cola de Service Bus
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+```
+
 #### Ejemplo de código de Node.js que procesa un mensaje de cola del Bus de servicio
 
 ```javascript
@@ -168,6 +175,15 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
+#### Ejemplo de código de F# que crea un mensajes en cola de Service Bus
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
+```
+
 #### Ejemplo de código de Node.js que crea un mensajes en cola del Bus de servicio
 
 ```javascript
@@ -189,4 +205,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

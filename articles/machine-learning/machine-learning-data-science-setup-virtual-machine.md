@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -85,9 +85,9 @@ El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de A
 
 Aparecerá una advertencia que indica que _Existe un problema con el certificado de seguridad de este sitio web_ (Internet Explorer) o _Tu conexión no es privada_ (Chrome), tal y como se muestra en las ilustraciones siguientes. Haga clic en **Vaya a este sitio web (no recomendado)** (Internet Explorer) o **Avanzadas** y, a continuación, **continuar a &#60;*Nombre DNS*> (no seguro)** (Chrome) para continuar. A continuación, escriba la contraseña que especificó anteriormente para tener acceso a Blocs de notas de IPython.
 
-Internet Explorer: ![Creación del espacio de trabajo][20]
+**Internet Explorer:** ![Creación del espacio de trabajo][20]
 
-Chrome: ![Creación del espacio de trabajo][21]
+**Chrome:** ![Creación del espacio de trabajo][21]
 
 Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos cuadernos de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.![Creación del espacio de trabajo][18]
 
@@ -142,4 +142,4 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en la
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

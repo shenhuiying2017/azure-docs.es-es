@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creación de contraseñas de aplicación con el Portal Myapps para Azure Multi-Factor Authentication" 
-	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el Portal Myapps." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Creación de contraseñas de aplicación con el Portal Myapps para Azure Multi-Factor Authentication"
+	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el Portal Myapps."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Creación de contraseñas de aplicación con el Portal myapps 365 para Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ Si no usa la autenticación multifactor con Office 365 ni tiene una suscripción
 ## Para crear contraseñas de aplicación si no tiene una suscripción a Office 365 o Azure
 --------------------------------------------------------------------------------
 <ol>
-<li>Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>	
+<li>Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>En la parte superior, seleccione el perfil.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
@@ -39,7 +39,4 @@ Si no usa la autenticación multifactor con Office 365 ni tiene una suscripción
 <li>Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**</li>
 <li>Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.</li>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

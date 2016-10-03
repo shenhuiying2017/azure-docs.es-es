@@ -24,7 +24,7 @@ La compatibilidad con VPN de Administración de API le permite conectar la puert
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
 
->La conectividad VPN solo está disponible en el nivel **Premium**. Para cambiar, abra el servicio Administración de API en el [Portal de Azure clásico ][] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
+>La conectividad VPN solo está disponible en los niveles **Premium** y **Desarrollador**. Para cambiar, abra el servicio Administración de API en el [Portal de Azure clásico ][] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
 
 Para habilitar la conectividad VPN, abra su servicio Administración de API en el [Portal de Azure clásico][] y cambie a la pestaña **Configurar**.
 
@@ -86,4 +86,4 @@ Administración de API depende de varios servicios de Azure. Cuando una instanci
 [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

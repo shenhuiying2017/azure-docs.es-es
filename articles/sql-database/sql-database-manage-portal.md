@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@ Para ver el nombre de servidor de las bases de datos, haga clic en **Introducci�
 Para ver, crear, o actualizar las reglas de firewall, haga clic en **Establecer firewall de servidor** en la hoja **Base de datos SQL**. Para más información, consulte [Configuración de un firewall de nivel de servidor en Azure SQL Database mediante Azure Portal](sql-database-configure-firewall-settings.md).
 
 
-![reglas de firewall](./media/sql-database-manage-portal/commands.png)
+![reglas de firewall](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## ¿Cómo se cambia el nivel de rendimiento o de servicio de mi base de datos SQL?
@@ -128,14 +128,14 @@ Para realizar la conmutación por error a una base de datos secundaria con repli
 Para copiar una base de datos SQL, haga clic en **Copiar** en la hoja **Base de datos SQL**. Para más información, consulte [Copia de una base de datos SQL de Azure mediante Azure Portal](sql-database-copy-portal.md).
 
 
-![Configuración de la base de datos SQL](./media/sql-database-manage-portal/commands.png)
+![Configuración de la base de datos SQL](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## ¿Cómo se archiva una base de datos SQL de Azure en un archivo BACPAC?
 
 Para crear un BACPAC de una base de datos SQL, haga clic en **Exportar** en la hoja **Base de datos SQL**. Para más información, consulte [Archivar una base de datos SQL de Azure en un archivo BACPAC mediante Azure Portal](sql-database-export.md).
 
 
-![Exportación de la base de datos SQL](./media/sql-database-manage-portal/commands.png)
+![Exportación de la base de datos SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@ Para crear un BACPAC de una base de datos SQL, haga clic en **Exportar** en la h
 Para restaurar una base de datos SQL, haga clic en **Restaurar** en la hoja **Base de datos SQL**. Para más información, consulte [Restauración de una base de datos de Azure SQL a un momento dado anterior con Azure Portal](sql-database-point-in-time-restore-portal.md).
 
 
-![Configuración de la base de datos SQL](./media/sql-database-manage-portal/commands.png)
+![Configuración de la base de datos SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## ¿Cómo se crea una base de datos SQL de Azure a partir de un archivo BACPAC?
@@ -163,7 +163,7 @@ Para restaurar una base de datos SQL eliminada, haga clic en **Bases de datos el
 
 Para eliminar una base de datos SQL, haga clic en **Eliminar** en la hoja **Base de datos SQL**.
 
-![Configuración de la base de datos SQL](./media/sql-database-manage-portal/commands.png)
+![Configuración de la base de datos SQL](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
@@ -172,4 +172,4 @@ Para eliminar una base de datos SQL, haga clic en **Eliminar** en la hoja **Base
 - [Base de datos SQL](sql-database-technical-overview.md)
 - [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

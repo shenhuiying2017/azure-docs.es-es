@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -28,7 +28,7 @@ Si ha tenido dificultades para solucionar problemas con la conexión a Escritori
 
 ## Uso de Azure PowerShell
 
-Asegúrese de que tiene la versión más reciente de Azure PowerShell 1.x instalada en su equipo. Para más información, lea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+Asegúrese de que tiene la versión más reciente de Azure PowerShell 1.x instalada en su equipo. Para más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Use este comando de Azure PowerShell para volver a implementar la máquina virtual:
 
@@ -41,4 +41,4 @@ Use este comando de Azure PowerShell para volver a implementar la máquina virtu
 ## Pasos siguientes
 Puede encontrar ayuda específica sobre la [solución de problemas de las conexiones RDP](virtual-machines-windows-troubleshoot-rdp-connection.md) o [pasos detallados para solucionar problemas de RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md) si tiene problemas para conectarse a la máquina virtual. También puede leer sobre la [solución de problemas de aplicaciones](virtual-machines-windows-troubleshoot-app-connection.md) si no se puede acceder a una aplicación que se ejecuta en la máquina virtual.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

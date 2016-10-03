@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication" 
-	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication"
+	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Creación o eliminación de contraseñas de aplicación en el portal de Office 365 para Azure Multi-Factor Authentication
 
@@ -68,9 +68,4 @@ Si usa la autenticación multifactor con Office 365, le interesará crear contra
 <li>Aparece una ventana emergente que le pide que confirme la eliminación.</li>
 <li>Haga clic en **Sí**.</li>
 
-
-
- 
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

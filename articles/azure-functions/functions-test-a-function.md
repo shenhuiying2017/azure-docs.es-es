@@ -172,7 +172,7 @@ En la ventana **Registros** del portal, se registra una salida similar a la sigu
 
 Puede probar una función de desencadenador de blob mediante el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/).
 
-1. En el [Portal de Azure] para el contenedor de funciones, cree una nueva función de desencadenador de blob con Node o C#. Establezca la ruta de acceso que se va a supervisar en el nombre de su contenedor de blobs. Por ejemplo:
+1. En [Azure Portal] para la aplicación de Functions, cree una nueva función de desencadenador de blob de C#, F# o Node. Establezca la ruta de acceso que se va a supervisar en el nombre de su contenedor de blobs. Por ejemplo:
 
 		files
 
@@ -437,6 +437,7 @@ En la ventana del explorador para la función de cola, verá cada mensaje que se
 
 <!-- URLs. -->
 
+[Azure Portal]: https://portal.azure.com
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

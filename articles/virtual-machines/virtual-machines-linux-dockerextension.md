@@ -46,7 +46,7 @@ azure group create --name myDockerResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Responda a las indicaciones para asignar nombres a su cuenta de almacenamiento, el nombre DNS, el nombre de usuario, etc. y, a continuación, proporciónele algunos minutos para que finalice la implementación. Debería ver una salida similar a la siguiente:
+Responda a los mensajes para asignar nombres a su cuenta de almacenamiento, nombre de usuario y contraseña, y nombre DNS. Debería ver una salida similar a la del siguiente ejemplo:
 
 ```
 info:    Executing command group create
@@ -71,6 +71,66 @@ info:    group create command OK
 
 ```
 
+La CLI de Azure le redirige al símbolo del sistema después de unos pocos segundos, pero, en segundo plano, la plantilla se está implementando en el grupo de recursos que ha creado. Espere unos minutos a que finalice la implementación antes de tratar de conectarse mediante SSH a la máquina virtual.
+
+Puede obtener información de la implementación y el nombre DNS de la máquina virtual mediante el comando `azure vm show`. En el ejemplo siguiente, reemplace `myDockerResourceGroup` por el nombre especificado en el paso anterior:
+
+```bash
+azure vm show -g myDockerResourceGroup -n myDockerVM
+info:    Executing command vm show
++ Looking up the VM "myDockerVM"
++ Looking up the NIC "myVMNicD"
++ Looking up the public ip "myPublicIPD"
+data:    Id                              :/subscriptions/guid/resourceGroups/mydockerresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
+data:    ProvisioningState               :Succeeded
+data:    Name                            :MyDockerVM
+data:    Location                        :westus
+data:    Type                            :Microsoft.Compute/virtualMachines
+data:
+data:    Hardware Profile:
+data:      Size                          :Standard_F1
+data:
+data:    Storage Profile:
+data:      Image reference:
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
+data:        Version                     :latest
+data:
+data:      OS Disk:
+data:        OSType                      :Linux
+data:        Name                        :osdisk1
+data:        Caching                     :ReadWrite
+data:        CreateOption                :FromImage
+data:        Vhd:
+data:          Uri                       :http://mydockerstorage.blob.core.windows.net/vhds/osdiskfordockersimple.vhd
+data:
+data:    OS Profile:
+data:      Computer Name                 :MyDockerVM
+data:      User Name                     :ops
+data:      Linux Configuration:
+data:        Disable Password Auth       :false
+data:
+data:    Network Profile:
+data:      Network Interfaces:
+data:        Network Interface #1:
+data:          Primary                   :true
+data:          MAC Address               :00-0D-3A-33-D3-95
+data:          Provisioning State        :Succeeded
+data:          Name                      :myVMNicD
+data:          Location                  :westus
+data:            Public IP address       :13.91.107.235
+data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com
+data:
+data:    Diagnostics Instance View:
+info:    vm show command OK
+```
+
+Cerca de la parte superior de la salida, verá el elemento `ProvisioningState` de la máquina virtual. Cuando se muestra `Succeeded`, la implementación ha finalizado y puede conectarse mediante SSH a la máquina virtual.
+
+Hacia el final de la salida, `FQDN` muestra el nombre de dominio completo basado en el nombre DNS proporcionado y la ubicación seleccionada. Este FQDN es lo que se utiliza para conectarse mediante SSH a la máquina virtual en los pasos restantes.
+
+
 ## Implementación del primer contenedor nginx
 Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Vamos a intentar ejecutar un contenedor de nginx:
 
@@ -78,7 +138,7 @@ Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Do
 sudo docker run -d -p 80:80 nginx
 ```
 
-Debería ver una salida similar a la siguiente:
+Debería ver una salida similar a la del siguiente ejemplo:
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -103,11 +163,11 @@ Para ver el contenedor en acción, abra un explorador web y escriba el nombre DN
 
 ![Ejecución del contenedor ngnix](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-Puede configurar el puerto TCP del demonio de Docker, la seguridad, o bien implementar contenedores mediante Docker Compose. Consulte la [extensión de máquina virtual de Azure para el proyecto de GitHub de Docker](https://github.com/Azure/azure-docker-extension/) para más información.
+Puede configurar el puerto TCP del demonio de Docker, la seguridad, o bien implementar contenedores mediante Docker Compose. Consulte la [extensión de máquina virtual de Azure para el proyecto de GitHub de Docker](https://github.com/Azure/azure-docker-extension/) para obtener más información.
 
 ## Referencia de plantilla de JSON de la extensión de VM de Docker
 
-En este ejemplo se utiliza una plantilla de inicio rápido. Para implementar la extensión de máquina virtual de Azure Docker con sus propias plantillas de Resource Manager, agregue lo siguiente:
+En este ejemplo se utiliza una plantilla de inicio rápido. Para implementar la extensión de máquina virtual de Azure Docker con sus propias plantillas de Resource Manager, agregue el siguiente código JSON:
 
 ```
 {
@@ -140,4 +200,4 @@ Puede obtener más pasos detallados para las distintas opciones de implementaci�
 3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

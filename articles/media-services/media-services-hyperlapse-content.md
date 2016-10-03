@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Archivos multimedia de Hyperlapse con Azure Media Hyperlapse"
+	pageTitle="Archivos multimedia de Hyperlapse con Azure Media Hyperlapse | Microsoft Azure"
 	description="Azure Media Hyperlapse crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción. En este tema se muestra cómo usar el Indizador multimedia."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="adsolank"/>
 
 
@@ -29,13 +29,13 @@ Para ver las actualizaciones más recientes de Azure Media Hyperlapse, consulte 
 
 ## Aplicar Hyperlapse a un recurso
 
-Primero debe cargar el archivo de entrada deseado en Servicios multimedia de Azure. Para obtener más información acerca de los conceptos relacionados con la carga y la administración de contenido, consulte el [artículo de administración de contenido](media-services-manage-content.md#upload).
+Primero debe cargar el archivo de entrada deseado en Servicios multimedia de Azure. Para obtener más información acerca de los conceptos relacionados con la carga y la administración de contenido, consulte el [artículo de administración de contenido](media-services-portal-vod-get-started.md).
 
 ###  <a id="configuration"></a>Preestablecimiento de configuración para Hyperlapse
 
 Una vez que el contenido esté en su cuenta de Servicios multimedia, deberá generar la configuración preestablecida. En la tabla siguiente se describen los campos especificados por el usuario:
 
- Campo | Descripción
+ Campo | Description
 -------|-------------
 StartFrame|El fotograma en el que debe comenzar el procesamiento de Microsoft Hyperlapse.
 NumFrames|El número de fotogramas para procesar.
@@ -75,68 +75,28 @@ El siguiente es un ejemplo de un archivo de configuración compatible en JSON y 
 
 El método siguiente carga un archivo multimedia como un recurso y crea un trabajo con el procesador de multimedia de Azure Media Hyperlapse.
 
-> [AZURE.NOTE] Ya debe tener un CloudMediaContext con el nombre "context" para que este código funcione. Para obtener más información al respecto, lea el [artículo sobre administración de contenido](media-services-manage-content.md).
+> [AZURE.NOTE] Ya debe tener un CloudMediaContext con el nombre "context" para que este código funcione. Para obtener más información al respecto, lea el [artículo sobre administración de contenido](media-services-dotnet-get-started.md).
 
 > [AZURE.NOTE] El argumento de cadena "hyperConfig" debe ser una configuración preestablecida compatible en JSON o XML, como se describió anteriormente.
 
-	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
-	{
-		// create asset with input file
-		IAsset asset = context
-					   .Assets
-					   .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
+static bool RunHyperlapseJob(string input, string output, string hyperConfig) { // crear recurso con archivo de entrada IAsset asset = context .Assets .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
-		// grab instances of Azure Media Hyperlapse MP
-		IMediaProcessor mp = context
-							 .MediaProcessors
-							 .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+// obtener instancias de Azure Media Hyperlapse MP IMediaProcessor mp = context .MediaProcessors .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
 
-		// create Job with Hyperlapse task
-		IJob job = context
-				   .Jobs
-				   .Create(String.Format("Hyperlapse {0}", input));
+// crear trabajo con tarea de Hyperlapse IJob job = context .Jobs .Create(String.Format("Hyperlapse {0}", input));
 
-		if (String.IsNullOrEmpty(hyperConfig))
-		{
-			// config cannot be empty
-			return false;
-		}
+if (String.IsNullOrEmpty(hyperConfig)) { // config no puede estar vacío devolver false; }
 
-		hyperConfig = File.ReadAllText(hyperConfig);
+hyperConfig = File.ReadAllText(hyperConfig);
 
-		ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
-												mp,
-												hyperConfig,
-												TaskOptions.None);
-		hyperlapseTask.InputAssets.Add(asset);
-		hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
-											AssetCreationOptions.None);
+ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task", mp, hyperConfig, TaskOptions.None); hyperlapseTask.InputAssets.Add(asset); hyperlapseTask.OutputAssets.AddNew("Hyperlapse output", AssetCreationOptions.None);
 
 
-		job.Submit();
+job.Submit();
 
-		// Create progress printing and querying tasks
-			Task progressPrintTask = new Task(() =>
-			{
+// Crear tareas de impresión y consulta de progreso Task progressPrintTask = new Task(() => {
 
-				IJob jobQuery = null;
-				do
-				{
-					var progressContext = context;
-					jobQuery = progressContext.Jobs
-											  .Where(j => j.Id == job.Id)
-											  .First();
-					Console.WriteLine(string.Format("{0}\t{1}\t{2}",
-									  DateTime.Now,
-									  jobQuery.State,
-									  jobQuery.Tasks[0].Progress));
-					Thread.Sleep(10000);
-				}
-				while (jobQuery.State != JobState.Finished &&
-					   jobQuery.State != JobState.Error &&
-					   jobQuery.State != JobState.Canceled);
-			});
-			progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
 			Task progressJobTask = job.GetExecutionProgressTask(
 												 CancellationToken.None);
@@ -215,4 +175,4 @@ El método siguiente carga un archivo multimedia como un recurso y crea un traba
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/16/2016"
 	ms.author="cjiang"/>
 
 # Asociación del inquilino de Office 365 con una suscripción de Azure
@@ -23,7 +23,7 @@ Escenarios: Adquirió las suscripciones de Azure y Office 365 por separado en el
 > [AZURE.NOTE] Este artículo no es aplicable para clientes del contrato Enterprise (EA).
 
 ## Guía rápida
-Si desea asociar el inquilino de Office 365 a su suscripción de Azure, use su cuenta de Azure para agregarlo y, después, asociar su suscripción de Azure a dicho inquilino. Consulte los pasos detallados.
+Si desea asociar el inquilino de Office 365 a su suscripción de Azure, use su cuenta de Azure para agregarlo y, después, asocie su suscripción de Azure a dicho inquilino. Consulte los pasos detallados.
 
 ## Pasos detallados
 En este escenario, Kelley Wall es una usuaria que tiene una suscripción de Azure con la cuenta kelly.wall@outlook.com. Kelley también tiene una suscripción a Office 365 con la cuenta kelley.wall@contoso.onmicrosoft.com. Ahora Kelley desea obtener acceso a los inquilinos de Office 365 con la suscripción de Azure.
@@ -43,7 +43,7 @@ En este escenario, Kelley Wall es una usuaria que tiene una suscripción de Azur
 	Para cambiar el administrador de servicios, siga estos pasos:
 
 	1. Inicie sesión en el [Portal de administración de la cuenta](https://account.windowsazure.com/subscriptions).
-	2. Seleccione la suscripción que desea cancelar.
+	2. Seleccione la suscripción que desea cambiar.
 	3. En la parte derecha, haga clic en **Editar detalles de suscripción**.
 
 		![azure-edit-subscription-details](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
@@ -145,4 +145,4 @@ Para asociar el inquilino de Office 365 con la suscripción de Azure, siga estos
 ## Pasos siguientes
 Hay escenarios relacionados donde ya dispone de una suscripción de Office 365 y desea obtener una suscripción de Azure, pero quiere utilizar sus cuentas de usuario actuales de Office 365 para la suscripción de Azure. También es posible que ya sea suscriptor de Azure y desee obtener una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory. Para aprender cómo realizar estas tareas, consulte [Uso de una cuenta de Office 365 con una suscripción de Azure y viceversa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

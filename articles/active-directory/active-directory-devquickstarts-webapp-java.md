@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -50,7 +50,7 @@ Para habilitar su aplicación a fin de autenticar a los usuarios, primero deber�
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `http://localhost:8080/adal4jsample/`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-Una vez en el portal de la aplicación, cree un **Secreto de aplicación** para la aplicación y cópielo. Lo necesitará en breve.
+Una vez en el portal de la aplicación, cree un **Secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
 
 
 ## 2\. Configuración de la aplicación para que use la biblioteca ADAL4J y requisitos previos con Maven
@@ -312,7 +312,7 @@ Esto simplemente redirigirá a una página segura que está protegida por el fil
 </html>
 ```
 
-- Por último, vamos a proteger la página web que se desea mediante la creación de una carpeta en `\webapp` denominada `\secure` para que el directorio ahora sea `\webapp\secure`. 
+- Por último, vamos a proteger la página web que se desea mediante la creación de una carpeta en `\webapp` denominada `\secure` para que el directorio ahora sea `\webapp\secure`.
 
 - Dentro del directorio, crearemos un archivo `aad.jsp` y cortaremos y pegaremos lo siguiente:
 
@@ -359,7 +359,7 @@ Para obtener los datos sobre el usuario, debemos usar la API Graph de Azure Acti
 
 Vamos a escribir algunos archivos de Java para que se encarguen de hacer este trabajo:
 
-1. Creamos una carpeta en el directorio raíz denominada 'adal4jsample` para almacenar todos los archivos Java. 
+1. Creamos una carpeta en el directorio raíz denominada 'adal4jsample` para almacenar todos los archivos Java.
 
 Vamos a usar el espacio de nombres `com.microsoft.aad.adal4jsample` en nuestros archivos de Java. La mayoría de los IDE crean una estructura de carpetas anidadas para ello (p. ej. `/com/microsoft/aad/adal4jsample`). Puede hacerlo si lo desea, pero no es necesario.
 
@@ -1750,4 +1750,4 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

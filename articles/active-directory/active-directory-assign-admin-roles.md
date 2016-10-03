@@ -71,31 +71,31 @@ Los roles de administrador disponibles son los siguientes:
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Hacer operaciones de facturación y compra para los productos de Office</p> | <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Hacer operaciones de facturación y compra para los productos de Office</p> | <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p><p>Ver informes</p>
 
 ### Administrador global
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra para los productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p> | N/D
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra de productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Ver informes</p> | N/D
 
 ### Administrador de contraseñas
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuario</p> | <p>Hacer operaciones de facturación y compra para los productos de Office</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuario</p> | <p>Realizar operaciones de facturación y compra de productos de Office</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p><p>Ver informes</p>
 
 ### Administrador de servicios
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p> | <p>Restablecer contraseñas de usuario</p><p>Hacer operaciones de facturación y compra para los productos de Office</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p> | <p>Restablecer contraseñas de usuario</p><p>Realizar operaciones de facturación y compra de productos de Office</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p><p>Ver informes</p>
 
 ### Administrador de usuarios
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Realizar operaciones de facturación y compra para los productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Realizar operaciones de facturación y compra de productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Ver informes</p>
 
 ### Lector de seguridad
 
@@ -147,4 +147,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Ámbitos, permisos y consentimiento en el punto de conexión v2.0
@@ -21,7 +21,7 @@
 Las aplicaciones que se integran con Azure AD siguen un modelo de autorización especial que permite a los usuarios controlar cómo puede tener acceso a sus datos una aplicación. Se ha actualizado la implementación v2.0 de este modelo de autorización y se ha cambiado cómo tiene que interactuar una aplicación con Azure AD. En este tema se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
 
 > [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 ## Ámbitos y permisos
 
@@ -120,4 +120,4 @@ Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens d
 
 Para obtener más información sobre cómo obtener y usar los tokens de actualización, consulte la [referencia de protocolos de v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
@@ -53,6 +53,28 @@ En este escenario:
 
 Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
+## Inicie sesión en Azure.
+
+Abra el **símbolo del sistema de Microsoft Azure** e inicie sesión.
+
+    azure login
+
+Una vez que haya escrito el ejemplo anterior, se proporciona un código. Vaya a https://aka.ms/devicelogin en un explorador para continuar el proceso de inicio de sesión.
+
+![cmd que muestra el inicio de sesión de dispositivos][1]
+
+En el explorador, escriba el código que recibió. Se le redirigirá a una página de inicio de sesión.
+
+![explorador para escribir código][2]
+
+Una vez especificado el código, habrá iniciado sesión; cierre el explorador para continuar con el escenario.
+
+![ha iniciado sesión correctamente][3]
+
+## Cambie al modo Resource Manager.
+
+    azure config mode arm
+
 ## Creación del grupo de recursos
 
 Antes de crear la puerta de enlace de aplicaciones, se creará un grupo de recursos para que pueda contenerla. A continuación, se muestra el comando.
@@ -73,11 +95,13 @@ Después de crear la red virtual, se agrega una subred para la puerta de enlace 
 
 ## Creación de la puerta de enlace de aplicaciones
 
-Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, se necesita un certificado .pfx exportado previamente y la contraseña de este para el paso siguiente. Las direcciones IP usadas para el back-end son las direcciones IP del servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
+Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, para el paso siguiente son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado. La direcciones IP que se usan para el back-end son las direcciones IP para el servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. También configura la descarga SSL. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto. Si ya tiene la aplicación web definida con las direcciones IP del grupo de back-end definido en los pasos anteriores, una vez aprovisionada e iniciada la puerta de enlace de aplicaciones empezará el equilibrio de carga.
+
+
+Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. También configura la descarga SSL. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto. Si ya definió una aplicación web con el grupo de back-end en los pasos anteriores, una vez creada, comienza el equilibrio de carga.
 
 ## Pasos siguientes
 
@@ -88,5 +112,8 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

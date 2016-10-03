@@ -23,7 +23,7 @@
 
 Como administrador global de un servicio en la nube de Microsoft, puede usar el módulo de Microsoft Azure Active Directory para Windows PowerShell para configurar las contraseñas de usuario de modo que no caduquen. También puede usar cmdlets de Windows PowerShell para quitar la configuración de nunca caduca o para ver qué contraseñas de usuario están configuradas para que no caduquen. En este tema se proporciona contenido de ayuda para servicios en la nube, como Microsoft Intune y Office 365, que dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio.
 
-  > [AZURE.NOTE] Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea la lista de temas de [Guía de sincronización de directorios](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+  > [AZURE.NOTE] Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para más información sobre la sincronización de directorios, consulte la lista de temas de [Integración de las identidades locales con Azure Active Directory](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
 Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
@@ -51,9 +51,9 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 2.  Realice una de las operaciones siguientes:
 
-	- Para configurar la contraseña de un usuario para que caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
+	- Para configurar la contraseña de un usuario para que caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-	- Para configurar las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
+	- Para configurar las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ## Configure una contraseña para que no caduque nunca
 
@@ -61,12 +61,12 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 2.  Realice una de las operaciones siguientes:
 
-	- Para configurar la contraseña de un usuario para que nunca caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
+	- Para configurar la contraseña de un usuario para que nunca caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## Pasos siguientes
 
 * **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

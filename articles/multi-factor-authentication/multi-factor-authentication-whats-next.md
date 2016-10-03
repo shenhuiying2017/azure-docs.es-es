@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication" 
-	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication"
+	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # Configuración de Azure Multi-Factor Authentication
 
@@ -28,12 +28,12 @@ Para acceder al Portal de administración de MFA a través de la página Configu
 
 
 Característica| Description| ¿Qué se va a tratar?
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [Alerta de fraude](#fraud-alert)|Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de obtener acceso a sus recursos.|Cómo realizar la instalación y configuración y cómo informar sobre fraudes
 [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor.|Cómo instalar y configurar una omisión por única vez
 [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. |Cómo instalar y configurar los mensajes y saludos personalizados
 [Almacenamiento en caché](#caching-in-azure-multi-factor-authentication)|El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. |Cómo instalar y configurar el almacenamiento en caché de la autenticación.
-[Direcciones IP de confianza](#trusted-ips)|IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa.|Configurar e instalar las direcciones IP que están exentas para la autenticación multifactor	
+[Direcciones IP de confianza](#trusted-ips)|IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa.|Configurar e instalar las direcciones IP que están exentas para la autenticación multifactor
 [Contraseñas de aplicación](#app-passwords)|Las contraseñas de aplicación permiten omitir la autenticación multifactor a una aplicación que no sea compatible con la misma y poder seguir trabajando.|Información acerca de las contraseñas de aplicación.
 [Recordar Multi-Factor Authentication para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA.|Información sobre cómo habilitar esta característica y configurar el número de días.
 [Métodos de verificación seleccionables](#selectable-verification-methods)|Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen.|Información acerca de cómo habilitar o deshabilitar métodos de autenticación específicos, como mensajes de texto o llamada.
@@ -172,9 +172,9 @@ El almacenamiento en caché permite establecer un período de tiempo específico
 
 IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa. Las características están disponibles para los inquilinos de Azure AD que tienen licencias de Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
 
- 
+
 Tipo de un inquilino de Azure AD.| Opciones de IP de confianza disponibles
-:------------- | :------------- | 
+:------------- | :------------- |
 Administrada|Intervalos de direcciones IP específicos. Los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa.
 Federada|<li>Todos los usuarios federados. Todos los usuarios federados que inician sesión desde dentro de la organización omitirán la autenticación multifactor usando una notificación emitida por AD FS.</li><li>Intervalos de direcciones IP específicos. Los administradores pueden especificar un intervalo de direcciones IP que pueden omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet corporativa.
 
@@ -182,7 +182,7 @@ Esta omisión solo funciona desde dentro de la intranet de una empresa. Por ejem
 
 
 |IP de confianza está activado| IP de confianza está desactivado
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 Dentro de la red corporativa|Para los flujos de explorador NO es necesaria la autenticación multifactor.|Para los flujos de explorador es necesaria la autenticación multifactor
 |Para las aplicaciones cliente enriquecidas, las contraseñas regulares funcionarán si el usuario no ha creado ninguna contraseña de aplicación. Una vez que se cree una contraseña de aplicación, se requerirán contraseñas de aplicación.|Para las aplicaciones cliente enriquecidas, se requerirán contraseñas de aplicación.
 Fuera de la red corporativa|Para los flujos de explorador es necesaria la autenticación multifactor.|Para los flujos de explorador es necesaria la autenticación multifactor.
@@ -209,7 +209,7 @@ Fuera de la red corporativa|Para los flujos de explorador es necesaria la autent
 
 
 
- 
+
 ## Contraseñas de aplicación
 
 En algunas aplicaciones, como Office 2010 o anteriores y Apple Mail no se puede utilizar la autenticación multifactor. Para usar estas aplicaciones, tendrá que utilizar "contraseñas de aplicación" en lugar de la contraseña tradicional. Las contraseñas de aplicación permiten a la aplicación omitir la autenticación multifactor y poder seguir trabajando.
@@ -225,7 +225,7 @@ En algunas aplicaciones, como Office 2010 o anteriores y Apple Mail no se puede 
 La siguiente es una lista importante de cosas que debe saber acerca de las contraseñas de aplicación.
 
 Experiencia de autenticación|Para las aplicaciones basadas en explorador|Para las aplicaciones no basadas en explorador
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>El primer factor de autenticación se lleva a cabo localmente</li><li>el segundo factor es un método basado en el teléfono efectuado por Identidad de nube.</li>|<ul><li>Los administradores y usuarios pueden usar contraseñas de aplicación para iniciar sesión.
 
 - Los usuarios pueden tener varias contraseñas de aplicación lo que aumenta el área expuesta al robo. Como son difíciles de recordar, las contraseñas de aplicación se suelen anotar. Esto no es recomendable y no debe hacerse porque para iniciar sesión con la contraseña de aplicación es necesario solo un factor.
@@ -362,7 +362,7 @@ Sin embargo, como los usuarios pueden recordar MFA para los dispositivos de conf
 Ahora es posible elegir los métodos de autenticación que están disponibles para los usuarios cuando se usa la Azure Multi-Factor Authentication. Esta característica anteriormente solo estaba disponible en la versión de servidor local. La tabla siguiente proporciona una breve descripción de los distintos métodos de autenticación que se pueden habilitar o deshabilitar para los usuarios.
 
 Método|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Llamada al teléfono](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Hace una llamada de voz automática al teléfono de autenticación. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. Este número de teléfono no se sincronizará con Active Directory local.
 [Mensaje de texto al teléfono](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envía un mensaje de texto que contiene un código de verificación para el usuario. Se le pide al usuario que o bien conteste al mensaje de texto con el código de comprobación o que escriba el código de verificación en la interfaz de inicio de sesión.
 [Notificación a través de aplicación móvil](multi-factor-authentication-end-user-first-time-mobile-app.md)|En este modo, la aplicación Microsoft Authenticator impide el acceso no autorizado a cuentas y detiene las transacciones fraudulentas. Esto se realiza mediante una notificación push en su teléfono o dispositivo registrado. Simplemente vea la notificación y, si es legítima, seleccione Verificar. En caso contrario, puede elegir Denegar o denegar e informar sobre la notificación fraudulenta. Para obtener información sobre cómo informar de notificaciones fraudulentas consulte How to use the Deny and Report Fraud Feature for Multi-Factor Authentication (Uso de la característica para denegar y notificar fraudes para Multi-Factor Authentication).</br></br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
@@ -379,4 +379,4 @@ Método|Description
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

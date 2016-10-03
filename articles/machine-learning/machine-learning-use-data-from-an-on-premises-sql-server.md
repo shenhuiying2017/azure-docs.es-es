@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/14/2016"
+ms.date="09/16/2016"
 ms.author="garye;krishnan"/>
 
 # Análisis avanzados con Aprendizaje automático de Azure con datos de una base de datos de SQL Server local
@@ -70,49 +70,49 @@ En este tutorial, instalará una instancia de Data Management Gateway en un áre
 
 El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL local.
 
-1.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/Home/) y seleccione el área de trabajo que desee.
+1. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/Home/) y seleccione el área de trabajo que desee.
 
-2.  Haga clic en la hoja **SETTINGS** (Configuración) de la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) de la parte superior.
+2. Haga clic en la hoja **SETTINGS** (Configuración) de la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) de la parte superior.
 
-3.  Haga clic en **NEW DATA GATEWAY** (Nueva puerta de enlace de datos) de la parte inferior de la pantalla.
+3. Haga clic en **NEW DATA GATEWAY** (Nueva puerta de enlace de datos) de la parte inferior de la pantalla.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  En el cuadro de diálogo **New data gateway** (Nueva puerta de enlace de datos), escriba un valor en **Gateway Name** (Nombre de puerta de enlace) y, opcionalmente, en **Description** (Descripción). Haga clic en la flecha situada en la esquina inferior derecha para ir al siguiente paso de la configuración.
+4. En el cuadro de diálogo **New data gateway** (Nueva puerta de enlace de datos), escriba un valor en **Gateway Name** (Nombre de puerta de enlace) y, opcionalmente, en **Description** (Descripción). Haga clic en la flecha situada en la esquina inferior derecha para ir al siguiente paso de la configuración.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
-5.  En el diálogo Download and register data gateway (Descargar y registrar puerta de enlace), copie el valor de GATEWAY REGISTRATION KEY (Clave de registro de la puerta de enlace) en el Portapapeles.
+5. En el diálogo Download and register data gateway (Descargar y registrar puerta de enlace), copie el valor de GATEWAY REGISTRATION KEY (Clave de registro de la puerta de enlace) en el Portapapeles.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway** (Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+6. <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway** (Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-7.  Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace**. Pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Registrar**.
+7. Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace**. Pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Registrar**.
 
-8.  Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway, haga clic en **Cambiar la clave**, pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Aceptar**.
+8. Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway, haga clic en **Cambiar la clave**, pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Aceptar**.
 
-9.  Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la clave de registro de puerta de enlace que copió en el portapapeles y haga clic en **Registrar**.
+9. Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la clave de registro de puerta de enlace que copió en el portapapeles y haga clic en **Registrar**.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
-10.  La configuración de puerta de enlace está completa cuando se establecen los siguientes valores en la pestaña **Inicio** del Administrador de configuración de Microsoft Data Management Gateway:
+10. La configuración de puerta de enlace está completa cuando se establecen los siguientes valores en la pestaña **Inicio** del Administrador de configuración de Microsoft Data Management Gateway:
 
-    -   En **Nombre de puerta de enlace** y **Nombre de instancia** aparece el nombre de la puerta de enlace.
+    - En **Nombre de puerta de enlace** y **Nombre de instancia** aparece el nombre de la puerta de enlace.
 
-    -   **Registro** está establecido en **Registrado**.
+    - **Registro** está establecido en **Registrado**.
 
-    -   El **Estado** está establecido en **Iniciado**.
+    - El **Estado** está establecido en **Iniciado**.
 
-    -   La barra de estado de la parte inferior muestra **Conectado al servicio en la nube Data Management Gateway** junto con una marca de verificación verde.
+    - La barra de estado de la parte inferior muestra **Conectado al servicio en la nube Data Management Gateway** junto con una marca de verificación verde.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-    También se actualiza Estudio de aprendizaje automático de Azure cuando el registro está completado.
+     También se actualiza Estudio de aprendizaje automático de Azure cuando el registro está completado.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-registered.png)
 
-11.  En el cuadro de diálogo **Download and register data gateway** (Descargar y registrar puerta de enlace), haga clic en la marca de verificación para completar la instalación. En la página **Settings** (Configuración), se muestra el estado de la puerta de enlace como "Online" (En línea). En el panel derecho, encontrará el estado y otra información útil.
+11. En el cuadro de diálogo **Download and register data gateway** (Descargar y registrar puerta de enlace), haga clic en la marca de verificación para completar la instalación. En la página **Settings** (Configuración), se muestra el estado de la puerta de enlace como "Online" (En línea). En el panel derecho, encontrará el estado y otra información útil.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-status.png)
 
@@ -162,4 +162,4 @@ Una vez finalizado el experimento, puede visualizar los datos importados desde l
 
 Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server local configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server local mediante **Exportar datos**, ni en experimentos ni en servicios web publicados.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

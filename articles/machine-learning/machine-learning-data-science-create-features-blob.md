@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;garye" />
 
 #Creación de características para los datos de almacenamiento de blobs de Azure mediante Panda
@@ -137,4 +137,4 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

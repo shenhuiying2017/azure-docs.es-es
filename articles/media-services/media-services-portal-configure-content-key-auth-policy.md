@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuración de la directiva de autorización de claves de contenido mediante el Portal" 
+	pageTitle="Configuración de la directiva de autorización de claves de contenido mediante Azure Portal | Microsoft Azure" 
 	description="Aprenda a configurar una directiva de autorización para una clave de contenido." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
 
-#Configuración de la directiva de autorización de claves de contenido 
+#Configuración de la directiva de autorización de claves de contenido
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 
@@ -29,7 +29,7 @@ Servicios multimedia de Microsoft Azure permute entregar transmisiones MPEG-DASH
 Servicios multimedia también proporciona un **servicio de entrega de claves/licencias** con el que los clientes pueden obtener claves AES o licencias de PlayReady/Widevine con el fin de reproducir el contenido cifrado.
 
 Este tema muestra cómo usar el **Portal de Azure clásico** para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Tenga en cuenta que actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
- 
+
 Cuando un reproductor solicita una transmisión que se establece para cifrarse de forma dinámica, Servicios multimedia usa la clave configurada para cifrar dinámicamente el contenido mediante cifrado AES o DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
 
@@ -41,7 +41,7 @@ Si planea tener varias claves de contenido o desea especificar una dirección UR
 
 ###Se aplican algunas consideraciones:
 
-- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 - El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
 - El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos. Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
 
@@ -49,7 +49,7 @@ Si planea tener varias claves de contenido o desea especificar una dirección UR
 ##Procedimiento: configuración de la directiva de autorización de claves
 
 Para configurar la directiva de autorización de claves, seleccione la página **PROTECCIÓN DE CONTENIDO**.
-	
+
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido puede tener restricciones de autorización **open**, **token** o **IP** (**IP** puede configurarse con REST o el SDK de .NET).
 
 ###Restricción open
@@ -71,23 +71,15 @@ Al configurar la directiva con restricción **TOKEN**, debe establecer los valor
 ###PlayReady
 
 Al proteger su contenido con **PlayReady**, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la plantilla de licencia de PlayReady. De forma predeterminada, se establece la siguiente directiva:
-		
-	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-	  <LicenseTemplates>
-	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-	      <LicenseType>Nonpersistent</LicenseType>
-	      <PlayRight>
-	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-	      </PlayRight>
-	    </PlayReadyLicenseTemplate>
-	  </LicenseTemplates>
-	</PlayReadyLicenseResponseTemplate>
+
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
 Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archivo XML diferente que se ajuste al esquema XML definido [aquí](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -96,13 +88,10 @@ Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archi
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Pasos siguientes
-Ahora que ha configurado la directiva de autorización de claves de contenido, consulte el tema [Uso del Portal de Azure clásico para habilitar el cifrado](media-services-manage-content.md#encrypt).
+
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

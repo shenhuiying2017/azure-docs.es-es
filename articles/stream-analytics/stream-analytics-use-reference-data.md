@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -29,7 +29,7 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 <tbody>
 <tr>
 <td>Nombre de propiedad</td>
-<td>Descripción</td>
+<td>Description</td>
 </tr>
 <tr>
 <td>Alias de entrada</td>
@@ -37,11 +37,11 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 </tr>
 <tr>
 <td>Cuenta de almacenamiento</td>
-<td>El nombre de la cuenta de almacenamiento donde se encuentran los archivos de blob. Si está en la misma suscripción que su trabajo de Análisis de transmisiones, puede seleccionarla en el menú desplegable.</td>
+<td>El nombre de la cuenta de almacenamiento donde se encuentran los archivos de blob. Si está en la misma suscripción que su trabajo de Stream Analytics, puede seleccionarla en el menú desplegable.</td>
 </tr>
 <tr>
 <td>Clave de cuenta de almacenamiento</td>
-<td>La clave secreta asociada con la cuenta de almacenamiento. Se rellena automáticamente si la cuenta de almacenamiento está en la misma suscripción que el trabajo de Análisis de transmisiones.</td>
+<td>La clave secreta asociada con la cuenta de almacenamiento. Se rellena automáticamente si la cuenta de almacenamiento está en la misma suscripción que el trabajo de Stream Analytics .</td>
 </tr>
 <tr>
 <td>Contenedor de almacenamiento</td>
@@ -110,4 +110,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

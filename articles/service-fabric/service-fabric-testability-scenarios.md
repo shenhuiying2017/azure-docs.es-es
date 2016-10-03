@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
+   manager="rsinha"
    editor="toddabel"/>
 
 <tags
@@ -20,6 +20,8 @@
 Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Azure Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios.
 
 El servicio de análisis de errores proporciona a los desarrolladores la capacidad de inducir acciones de error para probar los servicios en casos de mal funcionamiento. Sin embargo, hasta ahora se obtendrán solo errores simulados dirigidos. Para realizar más pruebas, puede usar los escenarios de prueba en Service Fabric: una prueba de caos y una prueba de conmutación por error. Estos escenarios simulan errores continuos intercalados, tanto correctos como incorrectos, en todo el clúster durante períodos prolongados de tiempo. Una vez configurada una prueba con la tasa y el tipo de errores, se puede iniciar mediante las API de C# o de PowerShell para generar errores en el clúster y en el servicio.
+
+>[AZURE.WARNING] ChaosTestScenario va a reemplazarse por una versión de Caos más resistente y basado en servicios. Consulte el artículo nuevo sobre [inducción de errores controlados con Caos](service-fabric-controlled-chaos.md) para obtener más detalles.
 
 ## Prueba de caos
 El escenario de caos genera errores en todo el clúster de Service Fabric. El escenario comprime los errores que se ven por lo general durante meses o años en unas pocas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pasan desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio.
@@ -247,4 +249,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

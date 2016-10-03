@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/21/2016"
 	ms.author="jgao"/>
 
 
@@ -91,12 +91,12 @@ En la siguiente tabla se enumeran las versiones de HDInsight que está disponibl
 Versión de HDInsight|Versión de HDP|SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure|Fecha de expiración del soporte técnico|Fecha de desuso
 ---|---|---|---|---|---|---|---
 HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Sí|29/03/2016|Sí||
-HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sí|12/02/2015|Sí||
-HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sí|18/02/2015|Sí||
-HDI 3,1|HDP 2,1|Windows Server 2012R2|Sí|24/06/2014|Sí||
-HDI 3,0|HDP 2,0|Windows Server 2012R2|Sí|11/02/2014|Sí|17/09/2014|30/06/2015
-HDI 2,1|HDP 1,3|Windows Server 2012R2|Sí|28/10/2013|Sí|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1||No|28/10/2013|Sí|26/04/2014|31/05/2015
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sí|12/02/2015|Sí|27/06/2016|31/07/2017
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sí|18/02/2015|Sí|01/03/2016|01/04/2017
+HDI 3,1|HDP 2,1|Windows Server 2012R2|Sí|24/06/2014|No|18/05/2015|30/06/2016
+HDI 3,0|HDP 2,0|Windows Server 2012R2|Sí|11/02/2014|No|17/09/2014|30/06/2015
+HDI 2,1|HDP 1,3|Windows Server 2012R2|Sí|28/10/2013|No|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1||No|28/10/2013|No|26/04/2014|31/05/2015
 
 **Implementación de clústeres no predeterminados**
 
@@ -109,7 +109,7 @@ El SLA se define en términos de "plazo de soporte técnico". Un plazo de soport
 
 La **fecha de desuso** es la fecha tras la cual no se puede crear la versión del clúster en HDInsight.
 
-> [AZURE.NOTE] Los clústeres de HDInsight 2.1 y 3.0 se ejecutan en el SO invitado de Azure [Familia 4](../cloud-services/cloud-services-guestos-update-matrix.md) que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5 y 4.5.1.
+> [AZURE.NOTE] Los clústeres de HDInsight basados en Windows (incluidas las versiones 2.1, 3.0, 3.1, 3.2 y 3.3) se ejecutan en el SO invitado de Azure Familia 4 que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5, 4.5.1 y 4.5.2.
 
 ## Notas de la versión de HortonWorks asociadas con las versiones de HDInsight##
 
@@ -157,4 +157,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

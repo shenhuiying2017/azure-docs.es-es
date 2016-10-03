@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="09/19/2016"
     ms.author="aungoo-msft"/>
 
 # Almacenamiento premium de Azure: diseño de alto rendimiento
@@ -99,7 +99,7 @@ La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usa
 
 Los contadores de rendimiento están disponibles para el procesador y la memoria, así como en cada disco lógico y físico del servidor. Al usar discos de Almacenamiento premium con una máquina virtual, los contadores del disco físico son para cada disco de Almacenamiento premium y los contadores del disco lógico son para cada volumen creado en los discos de Almacenamiento premium. Debe capturar los valores de los discos que hospedan la carga de trabajo de la aplicación. Si hay una asignación uno a uno entre los discos lógicos y físicos, puede hacer referencia a los contadores del disco físico; de lo contrario, haga referencia a los contadores del disco lógico. En Linux, el comando iostat genera un informe de uso de CPU y disco. El informe de uso del disco proporciona estadísticas por cada dispositivo físico o partición. Si tiene un servidor de bases de datos con sus datos e inicia sesión en discos independientes, recopile estos datos para ambos discos. La tabla siguiente describe los contadores de los discos, el procesador y la memoria:
 
-| Contador | Descripción | PerfMon | Iostat |
+| Contador | Description | PerfMon | Iostat |
 |---|---|---|---|
 | **E/S por segundo o transacciones por segundo** | Número de solicitudes de E/S emitidas en el disco de almacenamiento por segundo. | Lecturas de disco/s <br> Escrituras en disco/s | tps <br> r/s <br> w/s |
 | **Escrituras y lecturas de disco** | Porcentaje de operaciones de lectura y escritura realizadas en el disco. | % de tiempo de lectura de disco <br> % de tiempo de escritura de disco | r/s <br> w/s |
@@ -230,6 +230,8 @@ Recuerde que los discos de Almacenamiento premium tienen capacidades de rendimie
 
 ## Almacenamiento en caché de disco  
 Las máquinas virtuales a gran escala que aprovechan Almacenamiento premium de Azure tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Almacenamiento premium persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Almacenamiento premium. Con la caché de disco habilitada en los discos de Almacenamiento premium, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
+
+>[AZURE.WARNING] Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco.
 
 Para más información acerca del funcionamiento de BlobCache, consulte la publicación de blog [Almacenamiento premium de Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/).
 
@@ -540,4 +542,4 @@ Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendado
 - [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

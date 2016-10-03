@@ -30,4 +30,6 @@ Si desea conectarse a SQL Server a través de Internet, debe configurar una regl
 
 9. Haga clic en **Aceptar** para guardar la regla correspondiente a su máquina virtual.
 
-<!---HONumber=AcomDC_0629_2016-->
+>[AZURE.NOTE] Se puede tener un segundo grupo de seguridad de red asociado a la subred (es independiente del grupo de seguridad de red de la máquina virtual). Esto no se hace automáticamente de forma predeterminada; sin embargo, si ha creado un grupo de seguridad de red en la subred, debe abrir el puerto 1433 en la subred y la máquina virtual del grupo de seguridad de red.
+
+<!---HONumber=AcomDC_0921_2016-->

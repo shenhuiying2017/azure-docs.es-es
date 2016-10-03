@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Llamada a una API web desde una aplicación web .NET
@@ -21,7 +21,7 @@
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del middleware OWIN de Microsoft. La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
 
 > [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 Este tutorial se centra principalmente en el uso de ADAL para obtener y usar tokens de acceso en una aplicación web. Encontrará [aquí](active-directory-v2-flows.md#web-apps) la descripción completa. Como requisitos previos, es aconsejable que aprenda primero cómo [agregar un inicio de sesión básico a una aplicación web](active-directory-v2-devquickstarts-dotnet-web.md) o cómo [proteger correctamente una API web](active-directory-v2-devquickstarts-dotnet-api.md).
 
@@ -201,4 +201,4 @@ Para obtener recursos adicionales, consulte:
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

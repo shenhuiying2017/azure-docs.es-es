@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
 
 
 # ¿Qué es el proceso de ciencia de datos en equipos (TDSP)?
 
-El proceso de ciencia de datos en equipos (TDSP) ofrece un enfoque sistemático para compilar aplicaciones inteligentes que permiten a los equipos de científicos de datos colaborar de manera eficaz durante todo el ciclo de vida de las actividades necesarias para convertir estas aplicaciones en productos. Este proceso describe una secuencia de pasos que proporciona **instrucciones** sobre cómo definir el problema, configurar las herramientas y el entorno que sean necesarios, analizar los datos pertinentes, crear y evaluar modelos predictivos y, posteriormente, implementar esos modelos en aplicaciones empresariales.
+El [proceso de ciencia de datos en equipos (TDSP)](data-science-process-overview.md) ofrece un enfoque sistemático para compilar aplicaciones inteligentes que permiten a los equipos de científicos de datos colaborar de manera eficaz durante todo el ciclo de vida de las actividades necesarias para convertir estas aplicaciones en productos. Este proceso describe una secuencia de pasos que proporciona **instrucciones** sobre cómo definir el problema, configurar las herramientas y el entorno que sean necesarios, analizar los datos pertinentes, crear y evaluar modelos predictivos y, posteriormente, implementar esos modelos en aplicaciones empresariales.
 
 Estos son los pasos que componen el **proceso de ciencia de datos en equipos**:
 
@@ -96,4 +96,4 @@ También se proporcionan tutoriales completos que muestran todos los pasos del p
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

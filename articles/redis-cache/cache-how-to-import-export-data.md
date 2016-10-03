@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Importación y exportación de datos en la Caché en Redis de Azure
 
-Importación/Exportación es una operación de administración de datos de Caché en Redis de Azure que permite importar datos en Caché en Redis de Azure o exportar datos desde Caché en Redis de Azure mediante la importación y exportación de una instantánea de base de datos de Caché en Redis (RDB) desde una caché premium a un blob en páginas en una cuenta de Almacenamiento de Azure. Este método le permite migrar entre diferentes instancias de Caché en Redis de Azure o rellenar la caché de datos antes de su uso.
+Import/Export es una operación de administración de datos de Azure Redis Cache que permite importar datos en Azure Redis Cache o exportar datos desde Azure Redis Cache mediante la importación y exportación de una instantánea de base de datos de Redis Cache desde una caché premium a un blob en páginas en una cuenta de Azure Storage. Este método le permite migrar entre diferentes instancias de Azure Redis Cache o rellenar la caché de datos antes de su uso.
 
 En este artículo se proporciona una guía para importar y exportar datos con Caché en Redis de Azure y se responden las preguntas más frecuentes.
 
@@ -26,9 +26,9 @@ En este artículo se proporciona una guía para importar y exportar datos con Ca
 
 ## Importación
 
-La importación se puede usar para traer los archivos RDB compatibles de Redis desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, incluidas las instancias de Redis que se ejecutan en Linux, Windows o cualquier proveedor en la nube como, por ejemplo, Amazon Web Services. La importación de datos supone una manera fácil de crear una caché con datos rellenados previamente. Durante el proceso de importación, Caché en Redis de Azure carga los archivos RDB desde Almacenamiento de Azure en la memoria y, a continuación, inserta las claves en la memoria caché.
+La importación se puede usar para traer los archivos RDB compatibles de Redis desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, incluidas las instancias de Redis que se ejecutan en Linux, Windows o cualquier proveedor en la nube como, por ejemplo, Amazon Web Services. La importación de datos supone una manera fácil de crear una caché con datos rellenados previamente. Durante el proceso de importación, Azure Redis Cache carga los archivos RDB desde Azure Storage en la memoria y, a continuación, inserta las claves en la memoria caché.
 
->[AZURE.NOTE] Antes de comenzar la operación de importación, asegúrese de que los archivos de base de datos de Redis (RDB) se cargan en los blobs en páginas de Almacenamiento de Azure, en la misma región y suscripción que la instancia de Caché en Redis de Azure. Para obtener información, vea [Introducción al Almacenamiento de blobs de Azure](../storage/storage-dotnet-how-to-use-blobs.md). Si exportó el archivo RDB mediante la característica [Exportar de Caché en Redis de Azure](#export), el archivo RDB ya estará almacenado en un blob en páginas y listo para la importación.
+>[AZURE.NOTE] Antes de comenzar la operación de importación, asegúrese de que los archivos de base de datos de Redis (RDB) se cargan en los blobs en páginas de Azure Storage, en la misma región y suscripción que la instancia de Azure Redis Cache. Para obtener información, vea [Introducción al Almacenamiento de blobs de Azure](../storage/storage-dotnet-how-to-use-blobs.md). Si exportó el archivo RDB mediante la característica [Azure Redis Cache Export](#export), el archivo RDB ya estará almacenado en un blob en páginas y listo para la importación.
 
 1. Para importar uno o varios blobs de caché exportados, [vaya a la memoria caché](cache-configure.md#configure-redis-cache-settings) en el Portal de Azure y haga clic en **Importar datos** desde la hoja **Configuración** de la instancia de la caché.
 
@@ -52,14 +52,14 @@ La importación se puede usar para traer los archivos RDB compatibles de Redis d
 
     ![Importación][cache-import-blobs]
 
-    Puede supervisar el progreso de la operación de importación siguiendo las notificaciones del Portal de Azure o viendo los eventos en el [registro de auditoría](cache-configure.md#support-amp-troubleshooting-settings).
+    Puede supervisar el progreso de la operación de importación siguiendo las notificaciones de Azure Portal o viendo los eventos en el [registro de auditoría](cache-configure.md#support-amp-troubleshooting-settings).
 
     ![Progreso de la importación][cache-import-data-import-complete]
 
 
 ## Exportación
 
-La exportación permite exportar los datos almacenados en la Caché en Redis de Azure a archivos RDB compatibles. Puede utilizar esta característica para mover datos desde una instancia de Caché en Redis de Azure a otra o a otro servidor de Redis. Durante el proceso de exportación, se crea un archivo temporal en la máquina virtual que hospeda la instancia del servidor de Caché en Redis de Azure y el archivo se carga en la cuenta de almacenamiento designada. Una vez completada la operación de exportación (de manera correcta o incorrecta), se elimina el archivo temporal.
+La exportación permite exportar los datos almacenados en la Caché en Redis de Azure a archivos RDB compatibles. Puede utilizar esta característica para mover datos desde una instancia de Caché en Redis de Azure a otra o a otro servidor de Redis. Durante el proceso de exportación, se crea un archivo temporal en la máquina virtual que hospeda la instancia del servidor de Azure Redis Cache y el archivo se carga en la cuenta de almacenamiento designada. Una vez completada la operación de exportación (de manera correcta o incorrecta), se elimina el archivo temporal.
 
 1. Para exportar el contenido actual de la memoria caché al almacenamiento, [vaya a la memoria caché](cache-configure.md#configure-redis-cache-settings) en el Portal de Azure y haga clic en **Exportar datos** desde la hoja **Configuración** de la instancia de la caché.
 
@@ -79,11 +79,11 @@ La exportación permite exportar los datos almacenados en la Caché en Redis de 
 
     ![Exportación][cache-export-data]
 
-    Puede supervisar el progreso de la operación de exportación siguiendo las notificaciones del Portal de Azure o viendo los eventos en el [registro de auditoría](cache-configure.md#support-amp-troubleshooting-settings).
+    Puede supervisar el progreso de la operación de exportación siguiendo las notificaciones de Azure Portal o viendo los eventos en el [registro de auditoría](cache-configure.md#support-amp-troubleshooting-settings).
 
     ![][cache-export-data-export-complete]
 
-    Tenga en cuenta que las memorias caché permanecen disponibles para su uso durante el proceso de exportación.
+    Las memorias caché permanecen disponibles para su uso durante el proceso de exportación.
 
 
 ## P+F de Importación/Exportación
@@ -107,7 +107,7 @@ Importación/Exportación solo está disponible en el plan de tarifa Premium.
 
 ### ¿Puedo importar datos desde cualquier servidor de Redis?
 
-Sí, además de importar los datos exportados desde instancias de Caché en Redis de Azure, puede importar archivos RDB desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, como Linux, Windows, o proveedores en la nube (como Amazon Web Services). Para ello, cargue el archivo RDB desde el servidor de Redis deseado en un blob en páginas en una cuenta de Almacenamiento de Azure y, a continuación, impórtelo en la instancia de Caché en Redis de Azure de nivel Premium. Por ejemplo, quizá desee exportar los datos desde la caché de producción e importarlos en una caché que se utiliza como parte de un entorno de ensayo con fines de prueba o migración
+Sí, además de importar los datos exportados desde instancias de Caché en Redis de Azure, puede importar archivos RDB desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, como Linux, Windows, o proveedores en la nube (como Amazon Web Services). Para ello, cargue el archivo RDB desde el servidor de Redis deseado en un blob en páginas en una cuenta de Almacenamiento de Azure y, a continuación, impórtelo en la instancia de Caché en Redis de Azure de nivel Premium. Por ejemplo, quizá desee exportar los datos desde la caché de producción e importarlos en una caché que se utiliza como parte de un entorno de ensayo con fines de prueba o migración.
 
 ### ¿La caché estará disponible durante una operación de Importación/Exportación?
 
@@ -153,7 +153,11 @@ Para solucionarlo, inicie la operación de importación o exportación antes de 
 
 Importación/Exportación solo funciona con archivos RDB almacenados como blobs en páginas. No se admiten otros tipos de blob en este momento, incluidas las cuentas de almacenamiento de blobs con niveles de acceso frecuente y esporádico.
 
-    
+
+## Pasos siguientes
+Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
+
+-	[Introducción al nivel Premium de Caché en Redis de Azure](cache-premium-tier-intro.md)
 
   
 <!-- IMAGES -->
@@ -170,4 +174,4 @@ Importación/Exportación solo funciona con archivos RDB almacenados como blobs 
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -85,8 +85,8 @@ Todos los usuarios de la nueva base de datos mantienen los permisos que tenían 
 
 ## Pasos siguientes
 
-- Consulte [Copy an Azure SQL database using the Azure Portal](sql-database-copy.md) (Copia de una base de datos SQL de Azure mediante el Portal de Azure) para obtener información general de copiar una base de datos de SQL Azure.
-- Consulte [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) (Copia de una base de datos SQL de Azure mediante el Portal de Azure) para copiar una base de datos a través del Portal de Azure.
+- Consulte [Copiar una base de datos SQL de Azure](sql-database-copy.md) para obtener información sobre cómo copiar una base de datos SQL de Azure.
+- Consulte el artículo sobre cómo [copiar una base de datos SQL de Azure mediante Azure Portal](sql-database-copy-portal.md) para realizar una copia de una base de datos a través de Azure Portal.
 - Consulte [Copia de una Base de datos SQL de Azure con PowerShell](sql-database-copy-powershell.md) para copiar una base de datos mediante PowerShell.
 - Consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar usuarios e inicios de sesión al copiar una base de datos a un servidor lógico diferente.
 
@@ -100,4 +100,4 @@ Todos los usuarios de la nueva base de datos mantienen los permisos que tenían 
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

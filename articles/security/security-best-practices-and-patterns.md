@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Patrones y procedimientos recomendados de seguridad en Azure
@@ -26,7 +26,7 @@ Actualmente se pueden consultar los siguientes artículos de patrones y procedim
 - [Procedimientos recomendados de seguridad de Internet de las cosas](azure-security-iot-best-practices.md)
 - [Procedimientos recomendados para actualizaciones de software en IaaS de Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 - [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Implementación de una arquitectura de red híbrida segura en Azure)
+- [Implementing a secure hybrid network architecture in Azure (Implementación de una arquitectura de red híbrida segura en Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure ofrece una plataforma segura en la que puede crear sus soluciones. También proporcionamos servicios y tecnologías para proteger sus soluciones de Azure. Debido a las numerosas opciones disponibles, muchos usuarios han expresado su interés en los procedimientos recomendados y patrones que Microsoft podría recomendar para mejorar la seguridad.
 
@@ -44,4 +44,4 @@ Para cada procedimiento recomendado, explicaremos:
 
 Esperamos incluir muchos más artículos sobre arquitectura de seguridad de Azure y procedimientos recomendados. Si hay algún tema que le gustaría que incluyéramos, háganoslo saber en el área de discusión en la parte inferior de esta página.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

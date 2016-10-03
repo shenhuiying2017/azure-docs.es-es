@@ -65,6 +65,13 @@ Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de event
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
+#### Ejemplo de desencadenador de F# de Centro de eventos de Azure
+
+Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de evento se registrará con el código de función F# siguiente:
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+
 #### Ejemplo de desencadenador Node.js de Centro de eventos de Azure
  
 Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de evento se registrará con el código de función Node.js siguiente:
@@ -100,7 +107,7 @@ El archivo *function.json* del enlace de la salida del Centro de eventos de Azur
 
 #### Ejemplo de código de C# del Centro de eventos de Azure para el enlace de salida
  
-El siguiente código de función de ejemplo de C# muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de C#.
+El siguiente código de función de ejemplo de F# muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de C#.
  
 	using System;
 	
@@ -112,6 +119,15 @@ El siguiente código de función de ejemplo de C# muestra cómo escribir un even
 	    
 	    outputEventHubMessage = msg;
 	}
+
+#### Ejemplo de código de F# del Centro de eventos de Azure para el enlace de salida
+
+El siguiente código de función de ejemplo de F# muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de C#.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
 
 #### Ejemplo de código de Node.js del Centro de eventos de Azure para el enlace de salida
  
@@ -136,4 +152,4 @@ El siguiente código de función de ejemplo de Node.js muestra cómo escribir un
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

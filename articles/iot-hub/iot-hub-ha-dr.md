@@ -18,7 +18,7 @@
 
 # Alta disponibilidad y recuperación ante desastres del Centro de IoT
 
-Como un servicio de Azure, el Centro de IoT proporciona alta disponibilidad (HA) usando redundancias en la región de Azure, sin que la solución tenga que realizar ningún trabajo adicional. Además, Azure ofrece una serie de características que ayudan a crear soluciones con funcionalidad de recuperación ante desastres o disponibilidad entre regiones, si es necesario. Debe diseñar y preparar las soluciones para que aprovechen estas características de recuperación ante desastres si desea proporcionar alta disponibilidad global entre regiones para dispositivos o usuarios. En el artículo [Orientación técnica de la continuidad del negocio de Azure][], se describen las características integradas de Azure para la continuidad empresarial y la recuperación ante desastres. El documento [Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure][] proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
+Como un servicio de Azure, el Centro de IoT proporciona alta disponibilidad (HA) usando redundancias en la región de Azure, sin que la solución tenga que realizar ningún trabajo adicional. Además, Azure ofrece una serie de características que ayudan a crear soluciones con funcionalidad de recuperación ante desastres o disponibilidad entre regiones, si es necesario. Debe diseñar y preparar las soluciones para que aprovechen estas características de recuperación ante desastres si desea proporcionar alta disponibilidad global entre regiones para dispositivos o usuarios. En el artículo [Guía técnica sobre la continuidad empresarial de Azure](../resiliency/resiliency-technical-guidance.md), se describen las características integradas en Azure para la continuidad empresarial y la recuperación ante desastres. El documento [Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure][] proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
 
 ## Recuperación ante desastres de Centro de IoT de Azure
 Además de la alta disponibilidad dentro de una región, Centro de IoT implementa mecanismos de conmutación por error para recuperación ante desastres que no requieren intervención del usuario. La recuperación ante desastres del Centro de IoT se inicia automáticamente y tiene un objetivo de tiempo de recuperación (RTO) de 2 a 26 horas y los siguientes objetivos de punto de recuperación (RPO).
@@ -60,4 +60,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

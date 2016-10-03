@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/16/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
@@ -113,10 +113,7 @@ La información de ubicación se puede caracterizar como sigue, con diferencias 
 Las características basadas en ubicación anteriores se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente.
 
 
-> [AZURE.TIP] Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura (para obtener un ejemplo de cómo obtener esto mediante pyodbc, consulte [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) (Un ejemplo Hola a todos para acceder a SQLServer con python)).
- 
-
-> [AZURE.TIP] Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura (para obtener un ejemplo de cómo obtener esto mediante pyodbc, consulte [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) (Un ejemplo Hola a todos para acceder a SQLServer con python)). Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
@@ -152,4 +149,4 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

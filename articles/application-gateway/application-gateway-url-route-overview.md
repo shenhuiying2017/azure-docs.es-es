@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # Información general del enrutamiento basado en URL
@@ -82,8 +82,8 @@ RequestRoutingRule de tipo PathBasedRouting se usa para enlazar un agente de esc
 
     }
 	
-## Pasos siguientes 
+## Pasos siguientes
 
 Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](application-gateway-create-url-route-portal.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

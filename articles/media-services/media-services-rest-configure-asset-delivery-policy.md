@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de directivas de entrega de activos mediante la API de REST de Servicios multimedia" 
-	description="En este tema se muestra cómo configurar distintas directivas de entrega de activos mediante la API de REST de Servicios multimedia." 
+	pageTitle="Configuración de directivas de entrega de recursos mediante la API de REST de Media Services | Microsoft Azure" 
+	description="En este tema se muestra cómo configurar distintas directivas de entrega de recursos mediante la API de REST de Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de recursos
@@ -24,7 +24,7 @@ Si tiene pensado entregar recursos cifrados dinámicamente, uno de los pasos del
 
 En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos.
 
->[AZURE.NOTE]Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 >
 >Además, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
 
@@ -38,19 +38,19 @@ En la lista siguiente se muestran los formatos usados para transmitir Smooth Str
 
 Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{filename}.ism/Manifest
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=m3u8-aapl)
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=mpd-time-csf)
 
 HDS
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=f4m-f4f)
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
@@ -61,7 +61,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 - No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos. Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
 - Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado, es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.
 - Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo, desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo. Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión. Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.
- 
+
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
@@ -69,7 +69,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 >Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
 
 
-##Directiva de entrega de recursos sin cifrar 
+##Directiva de entrega de recursos sin cifrar
 
 ###<a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
 La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming.
@@ -456,4 +456,4 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -17,68 +17,67 @@
 
 # Hospedaje de varios sitios de Puerta de enlace de aplicaciones
 
-El hospedaje de varios sitios permite configurar más de una aplicación web en la misma instancia de Puerta de enlace de aplicaciones. Esto permite configurar topología más eficaz para las implementaciones empaquetando hasta 20 sitios web en una puerta de enlace de aplicaciones. Cada sitio web podría dirigirse a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com y fabrikam.com desde dos grupos de servidores back-end denominados ContosoServerPool y FabrikamServerPool.
+El hospedaje de varios sitios permite configurar más de una aplicación web en la misma instancia de Puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al empaquetar hasta 20 sitios web en una puerta de enlace de aplicaciones. Cada sitio web podría dirigirse a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com y fabrikam.com desde dos grupos de servidores back-end denominados ContosoServerPool y FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-Las solicitudes de http://contoso.com se enrutarán a ContosoServerPool y las de http://fabrikam.com a FabrikamServerPool.
+Las solicitudes de http://contoso.com se enrutan a ContosoServerPool y las de http://fabrikam.com a FabrikamServerPool.
 
-De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Entre los ejemplos de esto, podrían incluirse http://blog.contoso.com y http://app.contoso.com hospedados en una sola implementación de puerta de enlace de aplicaciones.
+De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Entre los ejemplos del uso de subdominios, podrían incluirse http://blog.contoso.com y http://app.contoso.com hospedados en una sola implementación de puerta de enlace de aplicaciones.
 
 
-##Encabezados de host e Indicación de nombre de servidor (SNI)
+## Encabezados de host e Indicación de nombre de servidor (SNI)
 Existen tres mecanismos comunes para habilitar el hospedaje de varios sitios en la misma infraestructura.
 
 1. Hospede varias aplicaciones web, cada una en una dirección IP única.
 2. Use el nombre de host para hospedar varias aplicaciones web en la misma dirección IP.
 3. Use puertos distintos para hospedar varias aplicaciones web en la misma dirección IP.
 
-Actualmente, una puerta de enlace de aplicaciones obtiene una dirección IP pública única en la que escucha el tráfico. Por lo tanto, la compatibilidad con varias aplicaciones, cada una con su propia dirección IP, no se admite actualmente. Puerta de enlace de aplicaciones admite el hospedaje de varias aplicaciones, cada una escuchando en puertos distintos, pero esto requeriría que las aplicaciones aceptaran el tráfico en puertos no estándar y no suele ser una configuración deseada. Puerta de enlace de aplicaciones se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga SSL con la extensión TLS de Indicación de nombre de servidor (SNI). Esto significa que el explorador web y la granja de servidores web de back-end deben admitir la extensión TLS y HTTP/1.1 como se define en RFC 6066.
+Actualmente, una puerta de enlace de aplicaciones obtiene una dirección IP pública única en la que escucha el tráfico. Por lo tanto, la compatibilidad con varias aplicaciones, cada una con su propia dirección IP, no se admite actualmente. Application Gateway admite el hospedaje de varias aplicaciones, cada una escuchando en puertos distintos; pero este escenario requeriría que las aplicaciones aceptaran el tráfico en puertos no estándar y no suele ser una configuración deseada. Puerta de enlace de aplicaciones se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Los sitios que se hospedan en la puerta de enlace de aplicaciones también pueden admitir la descarga SSL con la extensión TLS de Indicación de nombre de servidor (SNI). Este escenario significa que el explorador cliente y la granja de servidores web back-end deben admitir la extensión TLS y HTTP/1.1, como se define en RFC 6066.
 
-  
 
 ## Elemento de configuración de agente de escucha
 
-El elemento de configuración HTTPListener existente se mejora para admitir los elementos de indicación de nombre de servidor y nombre de host que usa la puerta de enlace de aplicaciones para enrutar el tráfico al grupo de back-end adecuado. Este es el fragmento de código del elemento HttpListeners del archivo de plantilla.
+El elemento de configuración HTTPListener existente se mejora para admitir los elementos de indicación de nombre de servidor y nombre de host, que usa la puerta de enlace de aplicaciones para enrutar el tráfico al grupo de back-end adecuado. El ejemplo de código siguiente es el fragmento de código del elemento HttpListeners del archivo de plantilla.
 
- 		"httpListeners": [
-                    {
-                        "name": "appGatewayHttpsListener1",
-                        "properties": {
-                            "FrontendIPConfiguration": {
-                                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-                            },
-                            "FrontendPort": {
-                                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-                            },
-                            "Protocol": "Https",
-                            "SslCertificate": {
-                                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-                            },
-                            "HostName": "contoso.com",
-                            "RequireServerNameIndication": "true"
-                        }
-                    },
-                    {
-                        "name": "appGatewayHttpListener2",
-                        "properties": {
-                            "FrontendIPConfiguration": {
-                                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-                            },
-                            "FrontendPort": {
-                                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-                            },
-                            "Protocol": "Http",
-                            "HostName": "fabrikam.com",
-                            "RequireServerNameIndication": "false"
-                        }
+    "httpListeners": [
+                {
+                    "name": "appGatewayHttpsListener1",
+                    "properties": {
+                        "FrontendIPConfiguration": {
+                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
+                        },
+                        "FrontendPort": {
+                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
+                        },
+                        "Protocol": "Https",
+                        "SslCertificate": {
+                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
+                        },
+                        "HostName": "contoso.com",
+                        "RequireServerNameIndication": "true"
                     }
-                ],
+                },
+                {
+                    "name": "appGatewayHttpListener2",
+                    "properties": {
+                        "FrontendIPConfiguration": {
+                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
+                        },
+                        "FrontendPort": {
+                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
+                        },
+                        "Protocol": "Http",
+                        "HostName": "fabrikam.com",
+                        "RequireServerNameIndication": "false"
+                    }
+                }
+            ],
 
-	
 
 
-Puede consultar la [plantilla ARM mediante el hospedaje de varios sitios](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para obtener una implementación basada en una plantilla de un extremo a otro.
+
+Puede consultar la [plantilla de Resource Manager con hospedaje de múltiples sitios](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para ver una implementación completa basada en una plantilla.
 
 ## Regla de enrutamiento
 
@@ -119,8 +118,8 @@ No se requiere ningún cambio en la regla de enrutamiento. La regla de enrutamie
 	}
 	]
 	
-## Pasos siguientes 
+## Pasos siguientes
 
 Ahora que conoce el hospedaje de varios sitios, vaya a la sección sobre cómo [crear una puerta de enlace de aplicaciones mediante el hospedaje de varios sitios](application-gateway-create-multisite-azureresourcemanager-powershell.md) para crear una puerta de enlace de aplicaciones con la capacidad de admitir más de una aplicación web.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

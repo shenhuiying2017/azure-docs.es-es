@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="La experiencia de inicio de sesión de Azure MFA con Azure Multi-Factor Authentication " 
+<properties
+	pageTitle="La experiencia de inicio de sesión de Azure MFA con Azure Multi-Factor Authentication "
 	description="Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA."
-	keywords="autenticación de usuario, experiencia de inicio de sesión, inicio de sesión con el teléfono móvil, inicio de sesión con el teléfono del trabajo" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="autenticación de usuario, experiencia de inicio de sesión, inicio de sesión con el teléfono móvil, inicio de sesión con el teléfono del trabajo"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
 > [AZURE.NOTE]  La siguiente documentación incluida en esta página muestra una experiencia típica de inicio de sesión. Para obtener ayuda con el inicio de sesión, vea [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,7 +27,7 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 
 
 ¿Qué hace normalmente?|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Inicio de sesión con el teléfono de la oficina o con un móvil](#signing-in-with-mobile-or-office-phone) | Esto es lo que puede esperar del inicio de sesión si usa el teléfono de la oficina o un móvil.
 [Inicio de sesión en la aplicación Microsoft Authenticator mediante una notificación](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con notificaciones.
 [Inicio de sesión en la aplicación Microsoft Authenticator mediante un código de verificación](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Este es el funcionamiento que puede esperar a la hora de usar la aplicación Microsoft Authenticator con un código de verificación.
@@ -105,6 +105,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
 - Elija un método alternativo e inicie sesión.
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

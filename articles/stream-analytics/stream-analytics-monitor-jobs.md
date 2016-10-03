@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -146,7 +146,7 @@ Si previamente ha habilitado la supervisión de otro trabajo de Análisis de tra
 > 
 > Todos los trabajos de Análisis de transmisiones (y todos los demás recursos de Azure) de esa misma región comparten esta cuenta de almacenamiento para almacenar los datos de supervisión. Si proporciona otra cuenta de almacenamiento, puede provocar efectos secundarios no deseados en la supervisión de sus otros trabajos de Análisis de transmisiones y otros recursos de Azure.
 > 
-> El nombre de la cuenta de almacenamiento utilizado para reemplazar ```“<YOUR STORAGE ACCOUNT NAME>”``` a continuación debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Análisis de transmisiones para el que está habilitando la supervisión.
+> El nombre de la cuenta de almacenamiento utilizado para reemplazar ```“<YOUR STORAGE ACCOUNT NAME>”``` a continuación debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Stream Analytics para el que está habilitando la supervisión.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -167,7 +167,7 @@ Si previamente ha habilitado la supervisión de otro trabajo de Análisis de tra
 
 
 
-## Obtenga soporte técnico
+## Obtención de soporte técnico
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
@@ -180,4 +180,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

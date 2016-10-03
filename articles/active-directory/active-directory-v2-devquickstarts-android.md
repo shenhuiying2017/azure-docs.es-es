@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
@@ -197,4 +197,4 @@ Cuando se haya autenticado correctamente, haga clic en el botón **Request Prote
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

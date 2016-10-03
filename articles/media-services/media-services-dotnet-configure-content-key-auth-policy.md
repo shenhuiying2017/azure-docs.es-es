@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configuración de la directiva de autorización de claves mediante el SDK de Servicios multimedia para .NET" 
+	pageTitle="Configuración de la directiva de autorización de claves de contenido mediante el SDK de .NET de Media Services | Microsoft Azure" 
 	description="Aprenda a configurar una directiva de autorización para una clave de contenido mediante .NET SDK de Servicios multimedia." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;mingfeiy"/>
 
 
 
-#Cifrado dinámico: configuración de la directiva de autorización de claves de contenido 
+# Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
+
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ##Información general
@@ -45,7 +46,7 @@ Para obtener más información, consulte
 
 ###Se aplican algunas consideraciones:
 
-- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 - El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
 - Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted**.
 - Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda encarecidamente crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
@@ -54,24 +55,17 @@ Para obtener más información, consulte
 - En este momento no se puede cifrar el formato de streaming HDS ni las descargas progresivas.
 
 
-##Cifrado dinámico AES-128 
+##Cifrado dinámico AES-128
 
 ###Restricción open
 
 La restricción open significa que el sistema entregará la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas.
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
-	
-	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-	{
-	    // Create ContentKeyAuthorizationPolicy with Open restrictions 
-	    // and create authorization policy             
-	    IContentKeyAuthorizationPolicy policy = _context.
-	                            ContentKeyAuthorizationPolicies.
-	                            CreateAsync("Open Authorization Policy").Result;
-	
-	    List<ContentKeyAuthorizationPolicyRestriction> restrictions =
-	        new List<ContentKeyAuthorizationPolicyRestriction>();
+
+static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Crear ContentKeyAuthorizationPolicy con restricciones abiertas // y crear directivas de autorización IContentKeyAuthorizationPolicy policy = \_context. ContentKeyAuthorizationPolicies. CreateAsync("Directiva de autorización abierta").Result;
+
+List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
 	
 	    ContentKeyAuthorizationPolicyRestriction restriction =
 	        new ContentKeyAuthorizationPolicyRestriction
@@ -154,7 +148,7 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-Al configurar la directiva de restricción de **token**, debe especificar los parámetros de **clave de comprobación principal**, **emisor** y **público**. La **clave de comprobación principal** contiene la clave con la que se firmó el token y el **emisor** es el servicio de tokens seguros que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
+Al configurar la directiva de restricción de **token**, debe especificar los parámetros de **clave de comprobación principal**, **emisor** y **público**. La **clave de comprobación principal** contiene la clave con la que se firmó el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
 
 Al usar el **SDK de Servicios multimedia para .NET**, puede utilizar la clase **TokenRestrictionTemplate** para generar el token de restricción. En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tendría que presentar un token que contenga: una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
 	
@@ -437,10 +431,8 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-##Pasos siguientes
+##Paso siguiente
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

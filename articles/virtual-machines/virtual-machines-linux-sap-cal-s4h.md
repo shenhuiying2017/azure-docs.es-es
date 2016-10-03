@@ -1,20 +1,20 @@
 <properties 
 pageTitle="Implementación de S/4 Hana o BW/4 Hana en Microsoft Azure | Microsoft Azure" 
 description="Implementación de S/4 Hana o BW/4 Hana en Microsoft Azure" 
-services="virtual-machines,virtual-network,storage" 
-documentationCenter="saponazure" 
+services="virtual-machines-linux" 
+documentationCenter="" 
 authors="hermanndms" 
-manager="juergent" 
+manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
   keywords=""/>
 <tags  
-  ms.service="virtual-machines" 
-  ms.devlang="NA" 
-  ms.topic="campaign-page" 
+  ms.service="virtual-machines-linux" 
+  ms.devlang="na" 
+  ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
-  ms.workload="na" 
-  ms.date="09/12/2016" 
+  ms.workload="infrastructure-services" 
+  ms.date="09/15/2016" 
   ms.author="hermannd"/>
 
 
@@ -88,4 +88,4 @@ Ahora es posible conectarse a la solución mediante el botón correspondiente en
 
 Otra opción consiste en iniciar sesión en la máquina virtual Windows cliente e iniciar, por ejemplo, la instancia de SAP GUI configurada previamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

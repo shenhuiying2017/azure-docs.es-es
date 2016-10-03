@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Máquinas virtuales de ciencia de datos en Azure
 
 Se ofrecen instrucciones que describen cómo configurar una VM de Azure y una VM de Azure con el servicio SQL como, por ejemplo, los servidores de Bloc de notas de IPython. La máquina virtual de Windows se configura con herramientas de compatibilidad como Bloc de notas de IPython, el Explorador de almacenamiento de Azure y AzCopy, así como otras utilidades que son útiles para los proyectos de ciencia de datos. El Explorador de almacenamiento de Azure y AzCopy, por ejemplo, permiten cargar de manera cómoda datos en el almacenamiento de blobs de Azure desde la máquina local o descargarlos en el equipo local desde el almacenamiento.
 
-Este menú redirige a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos que usa el proceso de ciencia de datos en equipos (TDSP).
+Este menú redirige a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos que usa el [proceso de ciencia de datos en equipos (TDSP)](data-science-process-overview.md).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -41,4 +41,4 @@ Una vez aprovisionadas y configuradas, estas máquinas virtuales están preparad
 > [AZURE.NOTE] Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** en el [Portal de Azure clásico](http://manage.windowsazure.com/). Para obtener instrucciones paso a paso sobre cómo desasignar la máquina virtual, consulte [Apagado y desasignación de la máquina virtual cuando no esté en uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

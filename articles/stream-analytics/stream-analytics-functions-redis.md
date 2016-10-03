@@ -4,7 +4,7 @@
 	keywords="flujo de datos, caché en redis, cola del bus de servicio"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -202,6 +202,7 @@ También puede consultar los siguientes recursos:
 
 - [Referencia para desarrolladores de Funciones de Azure](../azure-functions/functions-reference.md)
 - [Referencia para desarrolladores de C# de Funciones de Azure](../azure-functions/functions-reference-csharp.md)
+- [Referencia para desarrolladores de F# de Azure Functions](../azure-functions/functions-reference-fsharp.md)
 - [Referencia para desarrolladores de NodeJS de Funciones de Azure](../azure-functions/functions-reference.md)
 - [Enlaces y desencadenadores de las Funciones de azure](../azure-functions/functions-triggers-bindings.md)
 - [Supervisión de Caché en Redis de Azure](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Para mantenerse al día con las noticias y características más recientes, siga
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

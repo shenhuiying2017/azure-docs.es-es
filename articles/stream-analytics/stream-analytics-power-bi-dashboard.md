@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -57,8 +57,8 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
 *	Seleccione **Centro de eventos** y, a continuación, haga clic con el botón secundario.
 *	Escriba o seleccione los valores siguientes en la tercera página:
   *	**Alias de entrada**: escriba un nombre descriptivo para esta entrada de trabajo. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante.
-  * **Centro de eventos**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
-*	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
+  * **Centro de eventos**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Stream Analytics, seleccione el espacio de nombres en el que está el centro de eventos.
+*	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres Bus de servicio**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
 > [AZURE.NOTE]	En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
 
@@ -240,4 +240,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

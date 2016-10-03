@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con SpringCM
@@ -21,7 +21,7 @@ El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión ú
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en Azure Active Directory
+-   Una suscripción habilitada para el inicio de sesión único en SpringCM
   
 Después de completar este tutorial, los usuarios de Azure Active Directory que haya asignado a SpringCM podrán realizar inicios de sesión únicos mediante el panel de acceso de AAD.
 
@@ -102,7 +102,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
     3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión iniciado por el proveedor de servicios (SP)**.
     4.  Como **SAML habilitado**, seleccione **Habilitar**.
-    5.  Haga clic en **Guardar**.
+    5.  Haga clic en **Save**.
 
 8.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -132,7 +132,7 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en Spri
 
 7.  Agregue el usuario a un **Grupo de seguridad**.
 
-8.  Haga clic en **Guardar**.
+8.  Haga clic en **Save**.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.
 
@@ -154,4 +154,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

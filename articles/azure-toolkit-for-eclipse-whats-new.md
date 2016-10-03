@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -210,7 +210,7 @@ Se ha publicado el complemento de Azure para Eclipse, versión preliminar de ago
 
 Se ha publicado el complemento de Azure para Eclipse, versión preliminar de julio de 2013. Esta actualización incluye nuevas características, correcciones de errores y algunas mejoras de facilidad de uso basadas en comentarios que se han producido desde la versión preliminar de mayo de 2013:
 
-* **Capacidad para crear una nueva cuenta de almacenamiento.** Se ha agregado el botón **Nueva** al cuadro de diálogo **Agregar cuenta de almacenamiento**. Esto le permite crear una cuenta de almacenamiento dentro del complemento de Eclipse, sin necesidad de iniciar sesión en el portal de administración de Azure. (Debe disponer previamente de una suscripción de Azure para usar esta característica). Para más información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una nueva cuenta de almacenamiento].
+* **Capacidad para crear una nueva cuenta de almacenamiento.** Se ha agregado el botón **Nueva** al cuadro de diálogo **Agregar cuenta de almacenamiento**. Esto le permite crear una cuenta de almacenamiento dentro del complemento de Eclipse, sin necesidad de iniciar sesión en el portal de administración de Azure. (Debe tener una suscripción de Azure para usar esta característica). Para más información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una nueva cuenta de almacenamiento].
 * **Nueva opción & quot;(automática) & quot; de cuenta de almacenamiento usada para la implementación automática de JDK y del servidor y para almacenamiento en caché.** Al usar la opción **Cargar automáticamente** para el JDK y el servidor de aplicaciones, podrá ya especificar la opción **(automática)** para la cuenta de almacenamiento y la dirección URL que se usarán al cargar el JDK y el servidor de aplicaciones, o al usar el almacenamiento en caché de Azure. En ese momento, estas características usarán automáticamente la misma cuenta de almacenamiento que la que seleccionó en el cuadro de diálogo **Publicar en Azure**. Se ha actualizado el tutorial [Creación de una aplicación Hola a todos para Azure en Eclipse] para incluir el uso de la nueva opción **(automática)**.
 * **Capacidad de configurar los puntos de conexión de servicio de Azure.** Especifique los puntos de conexión de servicio que determinan si la aplicación se implementa y se administra en la plataforma global de Azure, es operada en Azure por medio de 21Vianet en China o en una plataforma privada de Azure. Para más información, consulte [Puntos de conexión de servicio de Azure].
 * **Las implementaciones de gran tamaño pueden especificar un recurso de almacenamiento local.** En caso de que su implementación sea demasiado grande para incluirse en la carpeta approot predeterminada, ahora puede especificar un recurso de almacenamiento local como destino de implementación para el JDK y el servidor de aplicaciones. Para más información, consulte [Deploying Large Deployments].
@@ -369,4 +369,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="09/19/2016" 
 	ms.author="kipandya"/>
 
 # Protección del acceso a los datos de DocumentDB
@@ -38,6 +38,7 @@ DocumentDB proporciona conceptos de primera clase para controlar el acceso a sus
 	- Permiso
 - Recursos de aplicación
 	- Colección
+	- Oferta
 	- Documento
 	- Datos adjuntos
 	- Procedimiento almacenado
@@ -47,7 +48,7 @@ DocumentDB proporciona conceptos de primera clase para controlar el acceso a sus
 En el contexto de estas dos categorías, DocumentDB admite tres tipos de roles de control de acceso: administrador de cuenta, administrador de solo lectura y usuario de base de datos. Los derechos de cada rol de control de acceso son:
  
 - Administrador de cuenta: acceso completo a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
-- Administrador de solo lectura: acceso de solo lectura a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada. 
+- Administrador de solo lectura: acceso de solo lectura a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
 - Usuario de la base de datos: recurso de usuario de DocumentDB asociado a un conjunto específico de recursos propios de DocumentDB (por ejemplo, colecciones, documentos, scripts). Puede haber uno o más recursos de usuario asociados a una base de datos determinada y cada uno de estos puede tener uno o varios permisos asociados.
 
 Teniendo en cuenta las categorías y los recursos mencionados, el modelo de control de acceso de DocumentDB define tres tipos de construcciones de acceso:
@@ -97,11 +98,11 @@ Este es un patrón de diseño típico mediante el cual los tokens de recursos se
 
 1. Se configura un servicio de nivel intermedio para que una aplicación móvil pueda usarlo para compartir fotos del usuario.
 2. Dicho servicio tiene la clave maestra de la cuenta de DocumentDB.
-3. La aplicación fotográfica se instala en dispositivos móviles del usuario final. 
+3. La aplicación fotográfica se instala en dispositivos móviles del usuario final.
 4. Al iniciar sesión, dicha aplicación establece la identidad del usuario con el servicio de nivel intermedio. Este mecanismo de establecimiento de identidad depende únicamente de la aplicación.
 5. Una vez establecida la identidad, el servicio de nivel intermedio solicita permisos en función de esta.
 6. El servicio de nivel intermedio reenvía un token de recurso a la aplicación de teléfono.
-7. La aplicación de teléfono puede seguir usando el token de recurso para obtener acceso directo a los recursos de DocumentDB con los permisos definidos por el token de recurso y para el intervalo permitido por dicho token. 
+7. La aplicación de teléfono puede seguir usando el token de recurso para obtener acceso directo a los recursos de DocumentDB con los permisos definidos por el token de recurso y para el intervalo permitido por dicho token.
 8. Cuando el token de recurso expira, las solicitudes posteriores reciben un mensaje 401 de excepción no autorizada. En este punto, la aplicación de teléfono restablece la identidad y solicita un nuevo token de recurso.
 
 ![Flujo de trabajo de tokens de recursos de DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
@@ -161,9 +162,9 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 
 ## Pasos siguientes
 
-- Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
+- Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 - Para obtener más información acerca de cómo administrar las claves maestras y de solo lectura, haga clic [aquí](documentdb-manage-account.md).
 - Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

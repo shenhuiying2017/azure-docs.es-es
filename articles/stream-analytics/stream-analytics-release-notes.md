@@ -4,7 +4,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -22,7 +22,7 @@
 
 Esta versión contiene la siguiente actualización.
 
-Título | Descripción
+Título | Description
 ---|---
 Disponibilidad general para las salidas de Power BI | Las [salidas de Power BI](stream-analytics-power-bi-dashboard.md) están ahora disponibles. Se ha quitado la expiración de la autorización en 90 días para Power BI. Para obtener más información sobre los escenarios donde es necesario renovar la autorización, consulte la sección [Renovación de la autorización](stream-analytics-power-bi-dashboard.md#Renew-authorization) de Creación de un panel de Power BI.
 
@@ -30,7 +30,7 @@ Disponibilidad general para las salidas de Power BI | Las [salidas de Power BI](
 
 Esta versión contiene la siguiente actualización.
 
-Título | Descripción
+Título | Description
 ---|---
 Nuevos elementos de lenguaje de consulta de Análisis de transmisiones | SAQL incluye ahora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página de MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página de MSDN TRY_CAST") y [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página de MSDN REGEXMATCH").
 
@@ -38,7 +38,7 @@ Nuevos elementos de lenguaje de consulta de Análisis de transmisiones | SAQL in
 
 Esta versión contiene la siguiente actualización.
 
-Título | Descripción
+Título | Description
 ---|---
 Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración del aprendizaje automático en Análisis de transmisiones](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
 Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Consulte el [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obtener más información, así como el [anuncio general del blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
@@ -47,7 +47,7 @@ Integración de Aprendizaje automático de Azure | Esta versión incluye compati
 
 Esta versión contiene la siguiente actualización.
 
-Título | Descripción
+Título | Description
 ---|---
 Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de datos complejos").
 
@@ -55,7 +55,7 @@ Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha a
 
 Esta versión contiene las siguientes actualizaciones.
 
-Título | Descripción
+Título | Description
 ---|---
 Características del lenguaje de consulta adicionales | Análisis de transmisiones ha ampliado el lenguaje de consulta mediante la inclusión de las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Se han quitado las limitaciones de agregados | En esta versión se quita la limitación de 15 agregados en una consulta. Actualmente no hay límites en el número de agregados por consulta.
@@ -67,10 +67,10 @@ Se ha agregado OFFSET para las ventanas de saltos de tamaño constante y las ven
 
 Esta versión contiene las siguientes actualizaciones.
 
-Título | Descripción
+Título | Description
 ---|---
 Vista previa pública de Conjunto de aplicaciones de IoT de Azure | Análisis de transmisiones se incluye en la vista previa pública de Conjunto de aplicaciones de IoT de Azure.
-Integración del Portal de Azure | Además de su presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de Azure](https://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad del Análisis de transmisiones en el Portal de vista previa actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
+Integración del Portal de Azure | Además de su presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de Azure](https://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad de Stream Analyticss en el Portal de versión preliminar actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
 Soporte técnico para la salida de DocumentDB | Ahora se pueden enviar trabajos de Análisis de transmisiones a [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Compatibilidad para entrada de Centro de IoT | Los trabajos de Análisis de transmisiones ahora pueden introducir datos de los Centros de IoT.
 TIMESTAMP BY para eventos heterogéneos | Ahora puede usar [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con expresiones para especificar diferentes campos de marca de tiempo para cada caso cuando un único flujo de datos contiene varios tipos de eventos con marcas de tiempo en distintos campos.
@@ -79,7 +79,7 @@ TIMESTAMP BY para eventos heterogéneos | Ahora puede usar [TIMESTAMP BY](http:/
 
 Esta versión contiene las siguientes actualizaciones.
 
-Título|Descripción
+Título|Description
 ---|---
 Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir en [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
@@ -87,7 +87,7 @@ Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otr
 
 Esta versión contiene las siguientes actualizaciones.
 
-Título|Descripción
+Título|Description
 ---|---
 Función LAST agregada |La función [LAST](http://msdn.microsoft.com/library/mt421186.aspx) ahora está disponible en los trabajos de Análisis de transmisiones, lo que le permite recuperar el evento más reciente en una secuencia de eventos en un período de tiempo determinado.
 Nuevas funciones de matriz|Ahora están disponibles las funciones de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) y [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
@@ -97,18 +97,18 @@ Nuevas funciones de registro|Ahora están disponibles las funciones de registro 
 
 Esta versión contiene las siguientes actualizaciones.
 
-Título|Descripción
+Título|Description
 ---|---
 Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
 Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
-Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Análisis de transmisiones.
+Compatibilidad con la salida de Temas de Service Bus|Las salidas de [Temas de Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Stream Analytics.
 
 ## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
 
-Título|Descripción
+Título|Description
 ---|---
 Particiones de salida de blob personalizadas|Las salidas de almacenamiento de blobs ahora le dan la opción de especificar tanto la frecuencia en la que los blobs de salida son escritos, como la estructura y el formato de la estructura de la carpeta con la ruta de acceso a los datos de salida. 
 
@@ -117,7 +117,7 @@ Particiones de salida de blob personalizadas|Las salidas de almacenamiento de bl
 Esta versión contiene las siguientes actualizaciones.
 
 
-Título|Descripción
+Título|Description
 ---|---
 Se ha incrementado el valor máximo del período de tolerancia de fuera de servicio|El tamaño máximo del período de tolerancia de fuera de servicio es ahora de 59:59 (MM:SS)
 Formato de salida JSON: separación por líneas o matriz|Cuando envíe elementos al Almacenamiento de blobs o al Centro de eventos, tiene la opción de hacer la salida como una matriz de objetos JSON o separando los objetos JSON con una nueva línea. 
@@ -125,7 +125,7 @@ Formato de salida JSON: separación por líneas o matriz|Cuando envíe elementos
 ## Notas de la versión de Análisis de transmisiones del 16/04/2015 ##
 
 
-Título|Descripción
+Título|Description
 ---|---
 Retraso en la configuración de la cuenta de almacenamiento de Azure|Al crear un trabajo de Análisis de transmisiones en una región por primera vez, se le pedirá que cree una nueva cuenta de almacenamiento o que especifique una cuenta existente para la supervisión de trabajos de Análisis de transmisiones en esa región. Debido a la latencia en la configuración de la supervisión, al crear otro trabajo de Análisis de transmisiones en la misma región al cabo de 30 minutos se le solicitará que especifique una segunda cuenta de almacenamiento en lugar de mostrar la configurada recientemente en la lista desplegable de supervisión de cuentas de almacenamiento. Para evitar la creación de una cuenta de almacenamiento innecesaria, espere 30 minutos después de crear un trabajo en una región por primera vez antes de aprovisionar trabajos adicionales en dicha región.
 Actualización del trabajo|En este momento, Análisis de transmisiones no admite modificaciones dinámicas en la definición o la configuración de un trabajo en ejecución. Para cambiar la entrada, salida, la consulta, la escala o la configuración de un trabajo en ejecución, primero debe detener el trabajo.
@@ -149,4 +149,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -56,9 +56,9 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s)**: el proxy inverso puede configurarse para que acepte tráfico HTTP o HTTPS. En el caso del tráfico HTTPS, la terminación SSL se produce en el proxy inverso. Las solicitudes que reenvía el proxy inverso a los servicios del clúster se realizan por HTTP.
- - **Gateway FQDN | internal IP:** para clientes externos, se puede configurar el proxy inverso para que sea accesible a través del dominio del clúster (por ejemplo, micluster.eastus.cloudapp.azure.com). De forma predeterminada, el proxy inverso se ejecuta en cada nodo, por lo que para el tráfico interno se puede acceder en el host local o en cualquier dirección IP del nodo interno (por ejemplo, 10.0.0.1).
- - **Port**: el puerto especificado para el proxy inverso. Por ejemplo: 19008.
- - **ServiceInstanceName:** se trata del nombre completo de la instancia de servicio implementada con la que está tratando de comunicarse (sin el esquema "fabric:/"). Por ejemplo, para establecer conexión con el servicio *fabric:/miAplicación/miServicio/*, usaría *miaplicación/miservicio*.
+ - ** FQDN del clúster| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **Port:** el puerto especificado para el proxy inverso. Por ejemplo: 19008.
+ - **ServiceInstanceName:** se trata del nombre completo de la instancia de servicio implementada con la que está tratando de comunicarse (sin el esquema "fabric:/"). Por ejemplo, para establecer conexión con el servicio *fabric:/miAplicación/miServicio/*, podría usar *miaplicación/miservicio*.
  - **Suffix path**: se trata de la ruta de acceso URL real del servicio con el que quiere conectarse. Por ejemplo, *miAPI/values/add/3*.
  - **PartitionKey**: en un servicio particionado, corresponde a la clave de partición calculada de la partición con la que quiere conectarse. Tenga en cuenta que *no* se trata del identificador GUID de la partición. Este parámetro no es necesario para los servicios que utilizan el esquema de partición de singleton.
  - **PartitionKind:** es el esquema de particiones singleton. El valor puede ser Int64Range o Con nombre. Este parámetro no es necesario para los servicios que utilizan el esquema de partición de singleton.
@@ -205,7 +205,7 @@ Cuando disponga de la plantilla del clúster que quiere implementar (puede conse
         ]
     }
     ```
-4. Para configurar certificados SSL en el puerto del proxy inverso, agregue el certificado a la propiedad httpApplicationGatewayCertificate de la [sección de tipos de recursos](../resource-group-authoring-templates.md) de **clúster**.
+4. Para configurar certificados SSL en el puerto del proxy inverso, agregue el certificado a la propiedad httpApplicationGatewayCertificate de la [sección de tipos de recursos](../resource-group-authoring-templates.md) del **clúster**.
 
     ```json
     {
@@ -241,4 +241,4 @@ Cuando disponga de la plantilla del clúster que quiere implementar (puede conse
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

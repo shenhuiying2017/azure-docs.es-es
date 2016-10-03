@@ -92,8 +92,8 @@ En este ejemplo se crean los siguientes elementos:
 
 - Una regla NAT para trasladar todo el tráfico entrante del puerto 3441 al puerto 3389.
 - Una regla NAT para trasladar todo el tráfico entrante del puerto 3442 al puerto 3389.
-- Una regla de equilibrador de carga para equilibrar todo el tráfico entrante del puerto 80 al puerto 80 en las direcciones del grupo de back-end.
 - Una regla de sondeo para comprobar el estado de mantenimiento en una página llamada **HealthProbe.aspx**.
+- Una regla de equilibrador de carga para equilibrar todo el tráfico entrante del puerto 80 al puerto 80 en las direcciones del grupo de back-end.
 - Un equilibrador de carga que usa todos estos objetos.
 
 Siga estos pasos:
@@ -104,11 +104,7 @@ Siga estos pasos:
 
         $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-2. Cree una regla de equilibrador de carga.
-
-        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-
-3. Cree un sondeo de estado. Hay dos formas de configurar un sondeo:
+2. Cree un sondeo de estado. Hay dos formas de configurar un sondeo:
 
     Sondeo HTTP
 
@@ -117,6 +113,10 @@ Siga estos pasos:
     Sondeo TCP
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+
+3. Cree una regla de equilibrador de carga.
+
+        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 4. Cree el equilibrador de carga mediante los objetos creados anteriormente.
 
@@ -150,16 +150,22 @@ Cree interfaces de red (o modifique las existentes) y asócielas a reglas NAT, r
         Location             : westus
         Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
         Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+        ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
         ProvisioningState    : Succeeded
         Tags                 :
         VirtualMachine       : null
         IpConfigurations     : [
                             {
+                            "Name": "ipconfig1",
+                            "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
+                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
                             "PrivateIpAddress": "10.0.2.6",
                             "PrivateIpAllocationMethod": "Static",
                             "Subnet": {
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                             },
+                            "ProvisioningState": "Succeeded",
+                            "PrivateIpAddressVersion": "IPv4",
                             "PublicIpAddress": {
                                 "Id": null
                             },
@@ -173,19 +179,18 @@ Cree interfaces de red (o modifique las existentes) y asócielas a reglas NAT, r
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                                 }
                             ],
-                            "ProvisioningState": "Succeeded",
-                            "Name": "ipconfig1",
-                            "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                            "Primary": true,
+                            "ApplicationGatewayBackendAddressPools": []
                             }
                         ]
         DnsSettings          : {
                             "DnsServers": [],
-                            "AppliedDnsServers": []
+                            "AppliedDnsServers": [],
+                            "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.cloudapp.net"
                         }
-        AppliedDnsSettings   :
+        EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : False
+        Primary              : 
 
 5. Use el cmdlet `Add-AzureRmVMNetworkInterface` para asignar las tarjetas NIC a distintas máquinas virtuales.
 
@@ -249,4 +254,4 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0921_2016-->

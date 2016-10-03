@@ -22,7 +22,7 @@ Microsoft Azure es la plataforma de aplicaciones de Microsoft para la nube públ
 
 **Cómo leer este artículo**
 
-Azure está en crecimiento constante, por ello es fácil sentirse abrumado. Los servicios básicos son los que se presentan en primer lugar en este documento. Empiece por ahí y pase luego a los servicios adicionales. Esto no quiere decir que no se puedan utilizar únicamente los servicios adicionales; no obstante, los servicios básicos conforman el núcleo de una aplicación que se ejecuta en Azure.
+Azure está en crecimiento constante, por ello es fácil sentirse abrumado. Comience con los servicios básicos, que aparecen primero en este artículo y, luego continúe con los servicios adicionales. Esto no quiere decir que no se puedan utilizar únicamente los servicios adicionales; no obstante, los servicios básicos conforman el núcleo de una aplicación que se ejecuta en Azure.
 
 **Envíenos sus comentarios**
 
@@ -606,4 +606,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="Use Spark en HDInsight para realizar exploración de datos y entrenar modelos de regresión y clasificación binaria. Para ello, use la validación cruzada y la optimización de hiperparámetros."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Exploración y modelado avanzados de datos con Spark 
 
@@ -36,7 +36,7 @@ Una forma habitual de realizar la optimización de hiperparámetros usada aquí 
 Los modelos que usamos incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
 
 - La [regresión lineal con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) es un modelo de regresión lineal que usa un método de descenso de gradiente estocástico (SGD) para la optimización y el ajuste de la escala de las características para predecir las propinas.
-- La [regresión logística con LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) o regresión "logit" es un modelo de regresión que puede usarse cuando la variable dependiente es categórica para realizar la clasificación de los datos. LBFGS es un algoritmo de optimización cuasi Newton que aproxima el algoritmo Broyden–Fletcher Goldfarb–Shanno (BFGS) usando una cantidad limitada de memoria de proceso, y que se usa ampliamente en el aprendizaje automático.
+- La [regresión logística con LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), o regresión "logit", es un modelo de regresión que puede usarse cuando la variable dependiente es de categorías para realizar la clasificación de los datos. LBFGS es un algoritmo de optimización cuasi Newton que aproxima el algoritmo Broyden–Fletcher Goldfarb–Shanno (BFGS) usando una cantidad limitada de memoria de proceso, y que se usa ampliamente en el aprendizaje automático.
 - Los [bosques aleatorios](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) son conjuntos de árboles de decisión. Combinan varios árboles de decisión para reducir el riesgo de sobreajuste. Los bosques aleatorios se usan para clasificación y regresión, y pueden controlar características categóricas, amplían la configuración de clasificación multiclase, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. Los bosques aleatorios son uno de los modelos de aprendizaje automático de más éxito para clasificación y regresión.
 - Los [árboles impulsados por gradiente](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Los GBT se usan para clasificación y regresión, y pueden controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
 
@@ -49,7 +49,7 @@ Se muestran ejemplos donde se usan la VC y el barrido de hiperparámetros para e
 
 ## Requisitos previos
 
-Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Información general sobre la ciencia de los datos con Spark en HDInsight de Azure) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un Notebook de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Necesita una cuenta de Azure y un clúster de Spark 1.6 para HDInsight 3.4 para completar este tutorial. Consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para ver estos requisitos, obtener una descripción de los datos de taxis de Nueva York de 2013 usados aquí e instrucciones para ejecutar código desde un cuaderno de Jupyter en el clúster de Spark. El cuaderno **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contiene los ejemplos de código de este tema están disponibles en [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -1464,7 +1464,7 @@ Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. **Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
+**Imprima la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 **Consumo de modelos**: Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

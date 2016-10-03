@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -143,7 +143,7 @@ En esta sección se detallan los requisitos previos de configuración para el se
 	
 		`chkconfig --list | grep iscsi`
 	
-		A continuación se muestra la salida de ejemplo.
+		A continuación se muestra una salida de ejemplo.
 
 			iscsi   0:off   1:off   2:on3:on4:on5:on6:off
 			iscsid  0:off   1:off   2:on3:on4:on5:on6:off
@@ -330,10 +330,10 @@ Los valores más comunes de `path_grouping_policy` incluyen:
 
 		En el ejemplo siguiente se muestra la salida con un IQN de destino de `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. La salida indica que ha conectado correctamente a las dos interfaces de red habilitadas para iSCSI en el dispositivo.
 
-		    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] \(multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] \(multiple)
-	    	Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] \(multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] \(multiple)
+		    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+	    	Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
 	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
 	    	Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
 	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
@@ -376,21 +376,21 @@ En esta sección se proporcionan algunos consejos útiles si surge algún proble
 
 P: No puedo ver que los cambios en el archivo `multipath.conf` surtan efecto.
 
-R: Si ha realizado algún cambio en el archivo `multipath.conf`, tendrá que reiniciar el servicio de múltiples rutas. Escriba el siguiente comando:
+A. Si ha realizado algún cambio en el archivo `multipath.conf`, tendrá que reiniciar el servicio de múltiples rutas. Escriba el siguiente comando:
     
     service multipathd restart
 
 P: He habilitado dos interfaces de red en el dispositivo StorSimple y dos interfaces de red en el host. Al mostrar las rutas de acceso disponibles, veo solo dos rutas de acceso. Esperaba ver cuatro rutas de acceso disponibles.
 
-R: Asegúrese de que las dos rutas de acceso se encuentran en la misma subred y son enrutables. Si las interfaces de red se encuentran en VLAN distintas y no son enrutables, verá solo dos rutas de acceso. Una manera de comprobarlo es asegurarse de que puede tener acceso a las interfaces de host desde una interfaz de red en el dispositivo StorSimple. Tendrá que [ponerse en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) ya que esta comprobación solo se puede realizar a través de una sesión de soporte técnico.
+A. Asegúrese de que las dos rutas de acceso se encuentran en la misma subred y son enrutables. Si las interfaces de red se encuentran en VLAN distintas y no son enrutables, verá solo dos rutas de acceso. Una manera de comprobarlo es asegurarse de que puede tener acceso a las interfaces de host desde una interfaz de red en el dispositivo StorSimple. Tendrá que [ponerse en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) ya que esta comprobación solo se puede realizar a través de una sesión de soporte técnico.
 
 P: Cuando muestro las rutas de acceso disponibles, no aparece ninguna salida.
 
-R: Normalmente, si no se ve ninguna ruta de acceso, indica un problema con el demonio de múltiples rutas y es muy probable que cualquier problema resida en el archivo `multipath.conf`.
+A. Normalmente, si no se ve ninguna ruta de acceso, indica un problema con el demonio de múltiples rutas y es muy probable que cualquier problema resida en el archivo `multipath.conf`.
 
 También sería conveniente comprobar que realmente puede ver algunos discos después de conectarse al destino, ya que ninguna respuesta de las listas de múltiples rutas también puede deberse a que no hay ningún disco.
 
-- Use el comando siguiente para volver a examinar el bus SCSI: 
+- Use el comando siguiente para volver a examinar el bus SCSI:
  
 	`$ rescan-scsi-bus.sh `(part of sg3\_utils package)
  
@@ -421,7 +421,7 @@ Repita este comando para todas las interfaces de red conectada en el destino iSC
 
 P: No estoy seguro de si el dispositivo está en la lista blanca.
 
-R: Para comprobar si el dispositivo se encuentra en la lista blanca, use el siguiente comando interactivo para solucionar problemas:
+A. Para comprobar si el dispositivo se encuentra en la lista blanca, use el siguiente comando interactivo para solucionar problemas:
 
 	multipathd –k
 	multipathd> show devices
@@ -464,7 +464,7 @@ Para obtener más información, consulte [Usar el comando interactivo de soluci�
 
 ## Lista de comandos útiles
 
-|Tipo|Comando|Descripción|
+|Tipo|Comando|Description|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Iniciar el servicio iSCSI|
 ||`service iscsid stop`|Detener el servicio iSCSI|
@@ -492,4 +492,4 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 - [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

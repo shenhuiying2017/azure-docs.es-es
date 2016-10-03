@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="java"
 	authors="dineshmurthy"
-	manager="carmonm"
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="dineshm"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Cifrado del lado cliente con Java para el Almacenamiento de Microsoft Azure   
@@ -247,4 +247,4 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 	- Paquete de [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->
