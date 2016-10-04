@@ -3,7 +3,7 @@
 	description="Aprenda cómo agregar una personalización de marca de empresa a la página de inicio de sesión en Azure y la página del panel de acceso"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
 
@@ -29,7 +29,7 @@ Este tema explica cómo personalizar la página de inicio de sesión y la págin
 
 > [AZURE.NOTE]
 >
-- La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básico de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+- La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básica de Azure Active Directory, o es un usuario de Office 365. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 - Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -134,7 +134,7 @@ Aunque técnicamente podría configurar un conjunto diferente para cada idioma a
 3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
 4. Haga clic en **Personalizar la información de marca**.
 4. Modifique los elementos que desea personalizar. Todos los campos son opcionales.
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**.
 
 Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la personalización de marca de la página de inicio de sesión.
 
@@ -147,7 +147,7 @@ Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la p
 2. Haga clic en **Agregar personalización de marca para un idioma específico**.
 3. Seleccione el idioma que para el que desea personalizar el logotipo y, después, haga clic en **Siguiente**.
 3. Edite únicamente los elementos para los que desea configurar elementos de reemplazo específicos del idioma. Todos los campos son opcionales. Si un campo se deja en blanco, en su lugar se muestra el valor predeterminado personalizado (o el valor predeterminado de Microsoft si no se ha configurado un valor predeterminado personalizado).
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**.
 
 **Para quitar la personalización de marca de la empresa de su directorio, realice los pasos siguientes:**
 
@@ -164,7 +164,7 @@ Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la p
 
     c. Quite el texto de todos los cuadros de texto.
 
-    d. Haga clic en **Siguiente**.
+    d. Haga clic en **Next**.
 
     e. Quite el texto de todos los cuadros de texto.
 
@@ -193,7 +193,7 @@ Para probar la configuración específica del idioma, debe modificar las prefere
 
 Algunos elementos personalizables de Azure AD disponen de múltiples casos de uso. Puede configurar los logotipos de la compañía una vez por directorio y se utiliza en las páginas de inicio de sesión y del Panel de acceso. Algunos elementos personalizables son específicos únicamente de la página de inicio de sesión. En la tabla siguiente se proporcionan detalles para los diferentes elementos personalizables.
 
-Nombre | Descripción | Restricciones | Recomendaciones
+Nombre | Description | Restricciones | Recomendaciones
 	------------- | ------------- | ------------- | -------------
 Logotipo del banner | El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. | <p>JPG o PNG</p><p>60 x 280 píxeles</p><p>10 KB</p> | <p>Utilice el logotipo completo de su organización (incluidos el pictograma y el logotipo).</p><p>Procure que tenga menos de 30 píxeles de altura para evitar la introducción de barras de desplazamiento en dispositivos móviles.</p><p>Manténgalo por debajo de 4 KB.</p><p>Utilice un PNG transparente (no presuponga que la página de inicio de sesión vaya a tener siempre un fondo blanco).</p>
 Logotipo del icono | (no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. | <p>JPG o PNG</p><p>120 x 120 píxeles</p><p>10 KB</p> | <p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%.
@@ -219,4 +219,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

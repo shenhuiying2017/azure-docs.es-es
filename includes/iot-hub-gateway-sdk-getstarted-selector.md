@@ -6,10 +6,10 @@ En este artículo se ofrece un tutorial detallado sobre el [código de ejemplo H
 
 En este tutorial, se describen los siguientes procedimientos:
 
-- **Conceptos**: información general conceptual de los componentes que constituyen cualquier puerta de enlace creada con el SDK de puerta de enlace.  
+- **Conceptos**: información general conceptual de los componentes que constituyen cualquier puerta de enlace creada con el SDK de puerta de enlace.
 - **Arquitectura de ejemplo Hello World**: describe cómo se aplican los conceptos al ejemplo Hello World y cómo funcionan conjuntamente los componentes.
 - **Compilación del ejemplo**: los pasos necesarios para compilar el ejemplo.
-- **Ejecución del ejemplo**: los pasos necesarios para ejecutar el ejemplo. 
+- **Ejecución del ejemplo**: los pasos necesarios para ejecutar el ejemplo.
 - **Salida típica**: un ejemplo de la salida esperada al ejecutar el ejemplo.
 - **Fragmentos de código**: una colección de fragmentos de código para mostrar cómo el ejemplo Hello World implementa los principales componentes de puerta de enlace.
 
@@ -35,13 +35,15 @@ El SDK proporciona una capa de abstracción que permite crear puertas de enlace 
 
 ### error de Hadoop
 
-Aunque una manera práctica de conceptualizar cómo funciona una puerta de enlace es pensar que los módulos se pasan mensajes entre ellos, no refleja realmente lo que sucede. Los módulos utilizan un bus de mensajes para comunicarse entre sí, publican mensajes en el bus y el bus difunde los mensajes a todos los módulos conectados a él.
+Aunque una manera práctica de conceptualizar cómo funciona una puerta de enlace es pensar que los módulos se pasan mensajes entre ellos, no refleja realmente lo que sucede. Los módulos usan un agente para comunicarse entre sí, publican mensajes en dicho agente (bus, pubsub o cualquier otro patrón de mensajes) y, después, dejan que sea este el que enrute los mensajes a los módulos conectados a él.
 
-Un módulo usa la función **MessageBus\_Publish** para publicar un mensaje en el bus de mensajes. El bus de mensajes entrega los mensajes a un módulo mediante la invocación de una función de devolución de llamada. Un mensaje consta de un conjunto de propiedades de clave/valor y del contenido que se pasa como un bloque de memoria.
+Un módulo usa la función **Broker\_Publish** para publicar un mensaje en el agente. El agente entrega los mensajes a un módulo mediante la invocación de una función de devolución de llamada. Un mensaje consta de un conjunto de propiedades de clave/valor y del contenido que se pasa como un bloque de memoria.
 
 ![][3]
 
-Cada módulo es responsable de filtrar los mensajes, ya que el bus de mensajes utiliza un mecanismo de difusión para entregar cada mensaje a cada módulo conectado a él. Un módulo debe actuar solo en los mensajes que van dirigidos a él. El filtrado de mensajes crea de manera eficaz la canalización de los mensajes. Un módulo normalmente filtra los mensajes que recibe usando las propiedades del mensaje para identificar aquellos que debe procesar.
+### Enrutamiento y filtro de mensajes
+
+Hay dos maneras de dirigir los mensajes a los módulos correctos. Se puede pasar un conjunto de vínculos al agente para que este conozca tanto el origen como el receptor de cada módulo, o bien para que el módulo pueda filtrar por las propiedades del mensaje. Un módulo solo debe actuar en los mensajes destinados a ello. Los vínculos y el filtro de mensajes es lo que realmente crea una canalización de mensajes.
 
 ## Arquitectura de ejemplo Hello World
 
@@ -52,11 +54,11 @@ El ejemplo Hello World ilustra los conceptos descritos en la sección anterior. 
 
 ![][4]
 
-Como se ha descrito en la sección anterior, el módulo Hello World no pasa los mensajes directamente al módulo logger cada cinco segundos. Lo que hace es publicar un mensaje en el bus de mensajes cada cinco segundos.
+Como se ha descrito en la sección anterior, el módulo Hello World no pasa los mensajes directamente al módulo logger cada cinco segundos. En su lugar, lo que hace es publicar un mensaje en el agente cada cinco segundos.
 
-El módulo logger recibe el mensaje del bus de mensajes y examina sus propiedades en un filtro. Si este módulo determina que debe procesar el mensaje, escribe el contenido en un archivo.
+El módulo logger recibe el mensaje del agente y actúa en él, escribe el contenido del mensaje en un archivo.
 
-El módulo logger solo consume mensajes del bus de mensajes, no publica nunca nuevos mensajes en el bus.
+El módulo logger solo consume mensajes del agente, nunca publica mensajes nuevos en el agente.
 
 ![][5]
 
@@ -73,3 +75,4 @@ La ilustración anterior muestra la arquitectura del ejemplo Hello World y las r
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
+<!---HONumber=AcomDC_0928_2016-->

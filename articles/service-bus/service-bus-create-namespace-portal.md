@@ -34,7 +34,7 @@ Un espacio de nombres es un contenedor común para todos los componentes de mens
 
 Consulte nuestro [repositorio de GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) con ejemplos que muestran algunas de las características más avanzadas de mensajería del Bus de servicio de Azure.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

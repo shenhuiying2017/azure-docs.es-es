@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creación de una función de procesamiento de eventos | Microsoft Azure"
    description="Utilice Funciones de Azure para crear una función de C# que se ejecuta basándose en un temporizador de eventos."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 # Creación de una función de Azure de procesamiento de eventos
@@ -44,11 +44,11 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Par
 
 	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. En **Azure Storage Queue output** (Salida de Cola de Almacenamiento de Azure), haga clic en **Select** (Seleccionar) junto a **Storage account connection** (Conexión de cuenta de almacenamiento), seleccione la cuenta de almacenamiento existente o cree una nueva y después haga clic en **Save** (Guardar).
+5. En **Azure Storage Queue output** (Salida de Cola de Almacenamiento de Azure), en **Storage account connection** (Conexión de cuenta de almacenamiento), seleccione una conexión existente o cree una nueva y haga clic en **Save** (Guardar).
 
 	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
-6. En la pestaña **Develop** (Desarrollar), reemplace el script de C# existente en la ventana **Code** (Código) con el código siguiente:
+6. Vuelva a la pestaña **Develop** (Desarrollar) y reemplace el script de C# existente en la ventana **Code** (Código) por el código siguiente:
 
 		using System;
 		
@@ -63,22 +63,22 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Par
 
 	Este código agrega un nuevo mensaje a la cola con la fecha y hora actuales cuando se ejecuta la función.
 
-7. Haga clic en **Save** (Guardar) y consulte la ventana **Logs** (Registros) para la ejecución de la función siguiente.
+7. Haga clic en **Save** (Guardar) y fíjese si en la ventana **Logs** (Registros) se ejecuta la siguiente función.
 
 8. (Opcional) Vaya a la cuenta de almacenamiento y compruebe que los mensajes se agregan a la cola.
 
 9. Vuelva a la pestaña **Integrate** (Integrar) y cambie el campo de programación a `0 0 * * * *`. La función ahora se ejecuta una vez cada hora.
 
-Esto es un ejemplo muy simplificado de un desencadenador de temporizador y de un enlace de salida de cola de almacenamiento. Para más información, consulte los temas [Desencadenador de temporizador de funciones de Azure](functions-bindings-timer.md) y [Enlaces y desencadenadores de funciones de Azure para Almacenamiento de Azure](functions-bindings-storage.md).
+Esto es un ejemplo muy simplificado de un desencadenador de temporizador y de un enlace de salida de cola de almacenamiento. Para más información, consulte los temas [Desencadenador de temporizador de Azure Functions](functions-bindings-timer.md) y [Enlaces y desencadenadores de Azure Functions para Azure Storage](functions-bindings-storage.md).
 
 ##Pasos siguientes
 
-Consulte estos temas para más información sobre Funciones de Azure.
+Consulte estos temas para más información sobre Azure Functions.
 
-+ [Referencia para desarrolladores de Funciones de Azure](functions-reference.md) contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
-+ En [Prueba de las funciones de Azure](functions-test-a-function.md) se describen las diversas herramientas y técnicas para probar las funciones.
-+ En [Escalado de Funciones de Azure](functions-scale.md) se abordan los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
++ [Azure Functions developer reference](functions-reference.md) (Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
++ [Prueba de Azure Functions](functions-test-a-function.md) describe las diversas herramientas y técnicas para probar sus funciones.
++ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!----HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

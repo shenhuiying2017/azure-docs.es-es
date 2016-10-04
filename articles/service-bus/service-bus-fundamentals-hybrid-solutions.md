@@ -110,9 +110,9 @@ La conexión de aplicaciones forma parte desde siempre de la creación de soluci
 
 Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos vínculos para obtener más información.
 
-- Uso de [colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
-- Uso de [temas del Bus de servicio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Uso de [retransmisión de Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
+- Uso de [colas del Bus de servicio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Uso de [temas del Bus de servicio](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Uso de [retransmisión de Bus de servicio](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Ejemplos del Bus de servicio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

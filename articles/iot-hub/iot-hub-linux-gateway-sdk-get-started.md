@@ -13,8 +13,8 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
 
 
 # SDK de puerta de enlace de IoT (beta): introducción usando Linux
@@ -60,6 +60,13 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
           "module path" : "./build/modules/hello_world/libhello_world_hl.so",
           "args" : null
         }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
+        }
       ]
     }
     ```
@@ -76,4 +83,4 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

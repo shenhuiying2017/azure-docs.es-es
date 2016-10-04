@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="karavar"/>
 
 <tags
@@ -92,7 +92,7 @@ El gráfico ofrece la siguiente información:
 
 El informe proporciona la siguiente información:
 
-| Elemento de informe | Descripción
+| Elemento de informe | Description
 | ------ | -------- |
 |Id. de usuario| Muestra el identificador de usuario que se usó. Tenga en cuenta que el valor es lo que el usuario escribió y, en algunos casos, también verá el identificador de usuario incorrecto que se va a usar.|
 |Intentos con error|Muestra el número total de intentos con error para ese identificador de usuario específico. La tabla está ordenada por el mayor número de intentos con error en orden descendente.|
@@ -114,4 +114,4 @@ El informe proporciona la siguiente información:
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

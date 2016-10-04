@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Informes de Azure Active Directory - versión preliminar
@@ -26,7 +26,7 @@ Hay dos áreas principales de informes:
 
 - **Actividades de inicio de sesión**: información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario
 
-- **Actividades del sistema**: información acerca de los usuarios y administración de grupos, sus aplicaciones administradas y actividades de directorio
+- **Registros de auditoría**: información de la actividad del sistema acerca de los usuarios y administración de grupos, sus aplicaciones administradas y actividades de directorio
 
 Según el ámbito de los datos que está buscando, puede tener acceso a estos informes haciendo clic en **Usuarios y grupos** o **Aplicaciones empresariales** en la lista de servicios de [Azure Portal](https://portal.azure.com).
 
@@ -118,7 +118,7 @@ Otro método para filtrar las entradas de las actividades de inicio de sesión c
 
 ![Informes](./media/active-directory-reporting-azure-portal/84.png "Informes")
 
-## Actividades del sistema
+## Registros de auditoría
 
 Los registros de auditoría de Azure Active Directory proporcionan registros de las actividades del sistema para cumplimiento.
 
@@ -216,4 +216,4 @@ Otro método para filtrar las entradas del registro de auditoría es buscar entr
 
 Consulte la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

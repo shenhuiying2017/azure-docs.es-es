@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="carlrab"/>
 
 # Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure
@@ -47,4 +47,4 @@ Las mismas métricas que se exponen en el Portal están también disponibles a t
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->
