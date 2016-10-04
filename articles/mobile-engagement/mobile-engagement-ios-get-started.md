@@ -61,28 +61,24 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 	![][3]
 
-6. Para **XCode 7** - agregue `libxml2.tbd` en lugar de `libxml2.dylib`.
-
-7. Vuelva al Portal de Azure en la página **Información de conexión** de la aplicación y copie la cadena de conexión.
+6. Vuelva al Portal de Azure en la página **Información de conexión** de la aplicación y copie la cadena de conexión.
 
 	![][4]
 
-8. Agregue la siguiente línea de código al archivo **AppDelegate.m**.
+7. Agregue la siguiente línea de código al archivo **AppDelegate.m**.
 
 		#import "EngagementAgent.h"
 
-9. Pegue la cadena de conexión en el delegado `didFinishLaunchingWithOptions`.
+8. Pegue la cadena de conexión en el delegado `didFinishLaunchingWithOptions`.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
-   
+  			[...]   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
 
-10. `setTestLogEnabled` es una instrucción opcional que habilita los registros del SDK para identificar problemas.
+9. `setTestLogEnabled` es una instrucción opcional que habilita los registros del SDK para identificar problemas.
 
 ##<a id="monitor"></a>Habilitación de la supervisión en tiempo real
 
@@ -121,6 +117,7 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 1. En el archivo **AppDeletegate.m**, importe el módulo Engagement Reach.
 
 		#import "AEReachModule.h"
+		#import <UserNotifications/UserNotifications.h>
 
 2. Dentro del método `application:didFinishLaunchingWithOptions`, cree un módulo de Reach y páselo a la línea de inicialización de Engagement existente:
 
@@ -135,12 +132,19 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 
 1. Agregue la siguiente línea al método `application:didFinishLaunchingWithOptions`:
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
 			[application registerForRemoteNotifications];
 		}
-		else {
-
+		else
+		{
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 
@@ -179,4 +183,4 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

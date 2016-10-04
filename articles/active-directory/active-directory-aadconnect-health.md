@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="karavar"/>
 
 <tags
@@ -44,7 +44,7 @@ Azure AD Connect Health para AD FS es compatible con AD FS 2.0 en Windows Server
 
 El vídeo siguiente proporcionará información general de Azure AD Connect Health para AD FS
 
-> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 
@@ -123,4 +123,4 @@ El portal de Azure AD Connect Health permite ver alertas, información de superv
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

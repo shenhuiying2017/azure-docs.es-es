@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # Implementar y administrar un dispositivo virtual StorSimple en Azure
@@ -138,6 +138,8 @@ Después de crear una red virtual, configurar un servicio del Administrador de S
 Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 [AZURE.INCLUDE [Creación de un dispositivo virtual](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Si se produce un error en este paso durante la creación del dispositivo virtual, quizás no tenga conexión a Internet. Para más información, vea cómo [solucionar problemas de conexión a Internet](#troubleshoot-internet-connectivity-errors) al crear un dispositivo virtual.
 
 
 ### Paso 2: Configuración y registro del dispositivo virtual
@@ -272,6 +274,19 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 [AZURE.INCLUDE [Eliminación de un dispositivo virtual](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Solucionar errores de conexión a Internet 
+
+Si no hay ninguna conexión a Internet, se producirá un error durante la creación de un dispositivo virtual. Para solucionar problemas debidos a la conexión a Internet, realice los pasos siguientes en el Portal de Azure clásico:
+
+1. Cree una máquina virtual de Windows Server 2012 en Azure. Esta máquina virtual debe usar la misma cuenta de almacenamiento, red virtual y subred que usa el dispositivo virtual. Si ya tiene un host de Windows Server en Azure con la misma cuenta de almacenamiento, red virtual y subred, también puede usarlo para solucionar los problemas de conexión a Internet.
+2. Inicie sesión de forma remota en la máquina virtual creada en el paso anterior.
+3. Abra una ventana de comandos en la máquina virtual (Win + R y, después, escriba `cmd`).
+4. En el símbolo del sistema, ejecute el siguiente comando.
+
+	`nslookup windows.net`
+
+5. Si `nslookup` produce un error, quiere decir que un error de conexión a Internet impide que el dispositivo virtual se registre en el servicio StorSimple Manager.
+6. Realice los cambios necesarios en la red virtual para garantizar que el dispositivo virtual pueda acceder a sitios de Azure como "windows.net".
 
 ## Pasos siguientes
 
@@ -279,4 +294,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Sepa cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

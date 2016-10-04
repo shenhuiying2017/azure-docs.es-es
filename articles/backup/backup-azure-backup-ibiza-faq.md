@@ -23,11 +23,11 @@
 - [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
 - [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-En este artículo se proporciona información específica acerca del almacén de Servicios de recuperación y complementa el artículo con las [preguntas más frecuentes acerca de Copia de seguridad de Azure](backup-azure-backup-faq). La sección de preguntas más frecuentes acerca de Copia de seguridad de Azure proporciona el conjunto completo de preguntas y respuestas sobre este servicio.
+En este artículo se proporciona información específica acerca del almacén de Servicios de recuperación y complementa el artículo con las [preguntas más frecuentes acerca de Copia de seguridad de Azure](backup-azure-backup-faq.md). La sección de preguntas más frecuentes acerca de Copia de seguridad de Azure proporciona el conjunto completo de preguntas y respuestas sobre este servicio.
 
 Las preguntas acerca de Copia de seguridad de Azure se pueden realizar en la sección Disqus de este artículo o de otros artículos relacionados. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Los almacenes de Servicios de recuperación se basan en Resource Manager, ¿aún se admiten los almacenes de Copia de seguridad (modo clásico)? <br/>
+## Los almacenes de Recovery Services se basan en Resource Manager. ¿Se admiten aún los almacenes de Backup (modo clásico)? <br/>
 Sí, los almacenes de Copia de seguridad son todavía compatibles. Cree almacenes de Copia de seguridad en el [portal de clásico](https://manage.windowsazure.com). Cree almacenes de Servicios de recuperación en el [Portal de Azure](https://portal.azure.com). Sin embargo, se recomienda encarecidamente crear el almacén de Servicios de recuperación, ya que todas las futuras mejoras solo estarán disponibles en dicho almacén.
 
 ## ¿Se puede migrar un almacén de Copia de seguridad a un almacén de Servicios de recuperación? <br/>
@@ -43,4 +43,4 @@ Las copias de seguridad de las máquinas virtuales clásicas del almacén de Cop
 2. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que tanto el almacenamiento como la red correspondientes a la máquina virtual también se migran al modo de Resource Manager.
 3. Cree un almacén de Servicios de recuperación y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Más información acerca de cómo [habilitar la copia de seguridad en el almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

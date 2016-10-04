@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en Azure Security Center
@@ -64,7 +64,7 @@ Puede configurar directivas de seguridad para cada suscripción o grupo de recur
 
 9. En la hoja **Directiva de seguridad**, haga clic en **Activar** para habilitar las recomendaciones de seguridad que desee usar en esta suscripción. Haga clic en **Directiva de prevención** para ver opciones como las de la captura de pantalla siguiente:
 
-	![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Utilice la tabla siguiente como referencia para entender cada opción:
 
@@ -77,8 +77,9 @@ Utilice la tabla siguiente como referencia para entender cada opción:
 | Grupos de seguridad de red | Recomienda configurar los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) para controlar el tráfico entrante y saliente de máquinas virtuales que tienen puntos de conexión públicos. Todas las interfaces de red de máquina virtual heredarán los grupos de seguridad de red configurados para una subred, a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta directiva evalúa las reglas de seguridad de entrada para identificar las reglas que permiten el tráfico entrante. |
 | Firewall de aplicaciones web | Recomienda aprovisionar un firewall de aplicaciones web en máquinas virtuales cuando se cumple una de las siguientes acciones:</br></br>Se utiliza la [Dirección IP pública a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) y las reglas de seguridad entrante para el grupo de seguridad de red asociado están configuradas para permitir el acceso al puerto 80 o 443.</br></br>Se utiliza la IP de carga equilibrada y el equilibrio de carga asociado y las reglas de traducción de direcciones de red (NAT) entrantes están configuradas para permitir el acceso al puerto 80 o 443. Para más información, consulte [Compatibilidad de Azure Resource Manager con Load Balancer](../load-balancer/load-balancer-arm.md). |
 | Firewall de próxima generación | Amplía las medidas de protección de la red más allá de los grupos de seguridad de red, que están integrados en Azure. Security Center detectará las implementaciones para las que se recomienda un firewall de próxima generación y permitirá aprovisionar una aplicación virtual. |
-| Auditoría SQL | Se recomienda que la auditoría del acceso a Azure Database esté habilitada para fines de cumplimiento, detección avanzada e investigación. |
+| Auditoría de SQL y detección de amenazas | Se recomienda que se habilite la auditoría del acceso a Azure Database, con fines de cumplimiento, así como la detección avanzada de amenazas, con fines de investigación. |
 | Cifrado de datos transparente de SQL | Recomienda que el cifrado en reposo se habilite para Azure SQL Database, las copias de seguridad asociadas y los archivos de registro de transacciones. De esta forma, aunque haya infracción de datos, no se podrán leer. |
+| Evaluación de vulnerabilidades | Se recomienda instalar una solución de evaluación de vulnerabilidades en la máquina virtual. |
 
 Después de configurar todas las opciones, haga clic en **Aceptar** en la hoja **Directiva de seguridad** que tiene las recomendaciones y, después, en **Guardar** en la hoja **Directiva de seguridad** que tiene la configuración inicial.
 
@@ -106,4 +107,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

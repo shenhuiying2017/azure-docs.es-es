@@ -72,7 +72,7 @@ Si el dispositivo no aparece como un dispositivo VPN de compatibilidad conocida 
 
 ### ¿Por qué mi túnel de VPN basado en directivas deja de funcionar cuando el tráfico está inactivo?
 
-Este es el comportamiento esperado para puertas de enlace de VPN basadas en directivas (también conocido como enrutamiento estático). Cuando el tráfico a través del túnel está inactivo durante más de 5 minutos, este túnel se cancelará. Cuanto el tráfico comience a fluir en cualquier dirección, el túnel se restablecerá inmediatamente. Si tiene una puerta de enlace VPN basada en enrutamiento (también conocida como dinámica), no experimentará este comportamiento.
+Este es el comportamiento esperado para puertas de enlace de VPN basadas en directivas (también conocido como enrutamiento estático). Cuando el tráfico a través del túnel está inactivo durante más de 5 minutos, este túnel se cancelará. Cuanto el tráfico comience a fluir en cualquier dirección, el túnel se restablecerá inmediatamente.
 
 ### ¿Puedo usar una VPN de software para conectarme a Azure?
 
@@ -276,4 +276,4 @@ No. Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

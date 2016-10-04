@@ -3,7 +3,7 @@
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure con C# y EventProcessorHost"
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/02/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Introducción a los Centros de eventos
 
@@ -94,4 +94,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

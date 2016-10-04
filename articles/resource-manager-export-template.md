@@ -18,7 +18,7 @@
 
 # Exportación de plantillas de Azure Resource Manager desde recursos existentes
 
-Resource Manager permite exportar una plantilla de Resource Manager a partir de recursos existentes en la suscripción. Puede usar esa plantilla generada para aprender sobre la sintaxis de plantillas o para automatizar la nueva implementación de su solución según sea necesario.
+Resource Manager permite exportar una plantilla de Resource Manager a partir de los recursos existentes en una suscripción. Puede usar esa plantilla generada para aprender sobre la sintaxis de plantillas o para automatizar la nueva implementación de su solución según sea necesario.
 
 Es importante tener en cuenta que hay dos formas diferentes de exportar una plantilla:
 
@@ -143,6 +143,8 @@ Por lo general, se recomienda trabajar con una plantilla que implemente toda la 
 ## Exportación de la plantilla desde el grupo de recursos
 
 Aunque cada implementación solo muestra los cambios que haya realizado en el grupo de recursos, puede exportar en cualquier momento una plantilla para mostrar los atributos del grupo de recursos completo.
+
+> [AZURE.NOTE] No se puede exportar una plantilla a un grupo de recursos que tenga más de doscientos recursos.
 
 1. Para ver la plantilla de un grupo de recursos, seleccione **Script de automatización**.
 
@@ -343,4 +345,4 @@ Agregue un tipo de recurso de conexión.
 - Para ver cómo exportar una plantilla mediante PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

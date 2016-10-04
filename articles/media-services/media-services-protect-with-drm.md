@@ -3,7 +3,7 @@
 	description="Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con DRM de Microsoft PlayReady. AMS también le permite entregar DASH cifrado con DRM de Widevine. En este tema se muestra cómo realizar cifrado dinámico con DRM de PlayReady y Widevine."
 	services="media-services"
 	documentationCenter=""
-	authors="Mingfeiy"
+	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;mingfeiy"/>
+	ms.date="09/27/2016"
+	ms.author="juliako"/>
 
 
 #Uso de cifrado dinámico común de PlayReady o Widevine
@@ -81,7 +81,7 @@ Para obtener información detallada, consulte [Carga de archivos en una cuenta d
 
 ##Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
 
-Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o de fragmento, el servidor de streaming a petición se asegurará de que reciba la transmisión en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
+Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o de fragmento, el servidor de streaming a petición se asegurará de que reciba la transmisión en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -329,7 +329,7 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -544,6 +544,8 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 		
 		                };
 		
+					// In this case we only specify Dash streaming protocol in the delivery policy,
+					// All other protocols will be blocked from streaming.
 		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
 		                    "AssetDeliveryPolicy",
 		                AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -628,4 +630,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [Anuncio de los servicios de entrega de licencias de Google Widevine en Servicios multimedia de Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

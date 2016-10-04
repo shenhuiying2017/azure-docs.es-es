@@ -15,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/11/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"
 />
 
@@ -120,4 +120,4 @@ Aquí vamos a usar **LEFT OUTER JOIN** en el mismo flujo de datos (autocombinaci
 
 El objetivo de este tutorial es mostrar cómo escribir diferentes consultas en el lenguaje de consulta de Análisis de transmisiones y ver los resultados en el explorador. Sin embargo, se trata solo de una introducción. Es mucho más lo que puede hacer con Análisis de transmisiones. Análisis de transmisiones admite una gran variedad de entradas y salidas, e incluso puede sacar provecho de las funciones de Aprendizaje automático de Azure, lo que hace que sea una herramienta sólida para el análisis de flujos de datos. Para empezar a buscar más información acerca de Análisis de transmisiones, utilice nuestro [mapa de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Además, para más información acerca de cómo escribir consultas, lea el artículo [Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones](./stream-analytics-stream-analytics-query-patterns.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

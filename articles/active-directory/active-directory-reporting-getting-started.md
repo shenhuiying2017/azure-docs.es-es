@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -156,4 +156,4 @@ Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadrepor
 
 > [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -31,7 +31,7 @@ Requisitos y aspectos clave del emparejamiento de VNET:
 - Las dos redes virtuales emparejadas deben estar en la misma región de Azure.
 - Los espacios de las direcciones IP de las redes virtuales emparejadas no deben superponerse.
 - El emparejamiento de VNET se realiza entre dos redes virtuales y no hay ninguna relación transitiva derivada. Por ejemplo, si la red virtual A está emparejada con la red virtual B y la red virtual B esta emparejada con la red virtual de C, no implica necesariamente que la red virtual esté emparejada con la red virtual C.
-- El emparejamiento se puede establecer entre redes virtuales de dos suscripciones distintas, siempre y cuando un usuario con privilegios de ambas suscripciones lo autorice.
+- El emparejamiento se puede establecer entre redes virtuales de dos suscripciones distintas, siempre y cuando un usuario con privilegios de ambas suscripciones lo autorice y las suscripciones estén asociadas al mismo inquilino de Active Directory.
 - Una red virtual que use el modelo de implementación de Resource Manager se puede emparejar con otra red virtual que use ese mismo modelo, o bien con una red virtual que utilice el modelo de implementación clásico. Sin embargo, las redes virtuales que usen el modelo de implementación clásico no se pueden emparejar entre ellas.
 - Aunque la comunicación entre máquinas virtuales de redes virtuales emparejadas no tiene ninguna restricción de ancho de banda adicional, se sigue aplicando el límite de ancho de banda según el tamaño de la máquina virtual.
 
@@ -88,4 +88,4 @@ El emparejamiento de VNET será gratuito durante el período de evaluación. Una
 - Más información sobre [NSG](virtual-networks-nsg.md).
 - Más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
