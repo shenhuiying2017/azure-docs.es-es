@@ -309,6 +309,7 @@ Puntos importantes que hay que tener en cuenta:
 	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
 		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
+		![Select your data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
