@@ -306,8 +306,9 @@ Puntos importantes que hay que tener en cuenta:
 
 ### Supervisión de una canalización desde la vista de diagrama
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Más servicios** y, a continuación, en **Fábricas de datos**. ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-	2. Seleccione el nombre de la factoría de datos (por ejemplo: **FirstDataFactoryUsingVS09152016**) en la lista de factorías de datos. ![Seleccione su factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
+		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
