@@ -50,7 +50,7 @@ Puede usar uno de los siguientes mecanismos de autenticación:
 > [AZURE.NOTE] Próximamente se admitirá la autenticación de clave de API.
 
 
-Puede obtener más información sobre cómo especificar el tipo de autenticación en el documento OpenAPI (Swagger) en [OpenAPI Specification][1] (Especificación de OpenAPI).
+Puede obtener más información sobre cómo especificar el tipo de autenticación en el documento OpenAPI (Swagger) en [OpenAPI Specification][1] \(Especificación de OpenAPI).
 
 Si su punto de conexión de API permite el acceso no autenticado, debe quitar el objeto ```securityDefintions``` del archivo OpenAPI (Swagger). En el ejemplo siguiente, quite todos los objetos ```securityDefintions``` siguientes:
 
@@ -85,9 +85,9 @@ Cuando se crea el archivo de Swagger, se crea un archivo .json que debe tener a 
 
 #### Obtener ayuda para crear archivos de Swagger
 
-- Si no tiene práctica en la creación de archivos de Swagger o es la primera vez que crea uno, [Get started with Swagger][6] (Introducción a Swagger) es un buen recurso.
+- Si no tiene práctica en la creación de archivos de Swagger o es la primera vez que crea uno, [Get started with Swagger][6] \(Introducción a Swagger) es un buen recurso.
  
-- Para crear su propia API, implementarla en Azure y crear un archivo de Swagger basado en esta nueva API, consulte [Web API tutorial](powerapps-web-api-tutorial.md) (Tutorial sobre API web). En este tutorial se proporciona un archivo de trabajo de Swagger. También encontrará [Hello World example][7] (Ejemplo de Hello World) en GitHub.
+- Para crear su propia API, implementarla en Azure y crear un archivo de Swagger basado en esta nueva API, consulte [Web API tutorial](powerapps-web-api-tutorial.md) (Tutorial sobre API web). En este tutorial se proporciona un archivo de trabajo de Swagger. También encontrará [Hello World example][7] \(Ejemplo de Hello World) en GitHub.
 
 - Para validar los archivos de Swagger, use el [editor de Swagger][8]. Puede pegar los datos de .json y la validación se producirá automáticamente.
 
@@ -137,7 +137,7 @@ Ahora que se ha generado el archivo de Swagger (archivo .json) para la API perso
 Ahora está listo para usar la API personalizada con PowerApp o con el flujo de lógica. En esta sección, se usa una API personalizada de meteorología.
 
 #### Agregar la API personalizada al flujo de lógica
-En este paso, vamos a crear un flujo de lógica muy sencillo que muestra cómo agregar la API personalizada. Para ver una experiencia más detallada, consulte [Get started with logic flows][10] (Introducción a los flujos de lógica).
+En este paso, vamos a crear un flujo de lógica muy sencillo que muestra cómo agregar la API personalizada. Para ver una experiencia más detallada, consulte [Get started with logic flows][10] \(Introducción a los flujos de lógica).
 
 1. En el [portal web][9] de PowerApps, seleccione la pestaña **Home** (Inicio).
 2. En **Make a logic flow** (Crear un flujo de lógica), seleccione **Get started** (Comenzar).
@@ -159,7 +159,7 @@ Los pasos siguientes vendrán determinados por lo que pueda hacer la API. En un 
 
 
 #### Agregar la API personalizada a PowerApp
-En este paso, vamos a crear una aplicación PowerApp muy sencilla que muestra cómo agregar la API personalizada. Para ver una experiencia más detallada, consulte [Create an app from data][11] (Creación de una aplicación a partir de datos).
+En este paso, vamos a crear una aplicación PowerApp muy sencilla que muestra cómo agregar la API personalizada. Para ver una experiencia más detallada, consulte [Create an app from data][11] \(Creación de una aplicación a partir de datos).
 
 > [AZURE.NOTE] Actualmente, las API personalizadas solo se pueden usar en el portal web de PowerApps. No se pueden usar en el cliente de PowerApps.
 
@@ -173,7 +173,7 @@ En este paso, vamos a crear una aplicación PowerApp muy sencilla que muestra c�
 ![](./media/powerapps-register-custom-api/screencustomapi.png "Seleccionar la API personalizada")  
 5. Seleccione **Add data source** (Agregar origen de datos).
 
-Una vez agregado, puede usar la API personalizada en la barra de funciones, un cuadro de texto y mucho más. Por ejemplo, en la barra de funciones, puede empezar a escribir **MySampleWebAPI** para ver las funciones disponibles. [Show data from Office 365 ][12] (Mostrar datos de Office 365) es un ejemplo del uso de la API de Office 365.
+Una vez agregado, puede usar la API personalizada en la barra de funciones, un cuadro de texto y mucho más. Por ejemplo, en la barra de funciones, puede empezar a escribir **MySampleWebAPI** para ver las funciones disponibles. [Show data from Office 365 ][12] \(Mostrar datos de Office 365) es un ejemplo del uso de la API de Office 365.
 
 
 ## Compartir una API personalizada

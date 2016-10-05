@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@ Podemos elegir entre diversos modelos. Para ver cuáles están disponibles, expa
 
 > [AZURE.TIP] Para obtener ayuda para decidir qué algoritmo de Aprendizaje automático se adapta mejor al problema concreto que trata de solucionar, vea [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
-##Entrenamiento de los modelos
+## Entrenamiento de los modelos
+
 En primer lugar, vamos a configurar el modelo del árbol de decisión ampliado:
 
 1.	Busque el módulo [Árbol de decisión ampliado de dos clases][two-class-boosted-decision-tree] en la paleta de módulos y arrástrelo al lienzo.
@@ -82,7 +83,8 @@ Esta parte de nuestro experimento debería tener ahora un aspecto similar al sig
 
 ![Training the second model][2]
 
-##Puntuación y evaluación de modelos
+## Puntuación y evaluación de modelos
+
 Utilizaremos los datos de prueba que se separaron mediante el módulo [Dividir datos][split] para puntuar nuestros modelos entrenados. A continuación podremos comparar los resultados de los dos modelos para ver cuál de ellos generó mejores resultados.
 
 1.	Busque el módulo [Puntuar modelo][score-model] y arrástrelo al lienzo.
@@ -143,4 +145,4 @@ Al examinar estos valores, puede decidir cuál modelo se acerca más a los resul
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

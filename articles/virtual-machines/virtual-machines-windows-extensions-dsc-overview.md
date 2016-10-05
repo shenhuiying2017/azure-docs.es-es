@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Introducción al controlador de extensiones de configuración de estado deseado de Azure #
@@ -27,7 +27,7 @@ El agente de máquina virtual de Azure y las extensiones asociadas forman parte 
 Este artículo presenta la extensión de configuración de estado deseado (DSC) de PowerShell para las máquinas virtuales de Azure como parte del SDK de Azure PowerShell. Puede usar cmdlets nuevos para cargar y aplicar una configuración de DSC de PowerShell en una máquina virtual de Azure habilitada con la extensión DSC de PowerShell. La extensión DSC de PowerShell llama a DSC de PowerShell para aplicar la configuración de DSC recibida en la máquina virtual. Esta funcionalidad también está disponible a través del Portal de Azure.
 
 ## Requisitos previos ##
-**Máquina local** Para interactuar con la extensión de máquina virtual de Azure, será necesario usar el Portal de Azure o el SDK de Azure PowerShell.
+**Máquina local** Para interactuar con la extensión de máquina virtual de Azure, será necesario usar Azure Portal o el SDK de Azure PowerShell.
 
 **Agente invitado** Será preciso que la máquina virtual de Azure afectada por la configuración del DSC tenga un SO que admita Windows Management Framework (WMF) 4.0 o 5.0. La lista completa de las versiones compatibles del SO puede encontrarse en [Release history for the Azure DSC Extension](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/) (Historial de versiones de la extensión DSC de Azure).
 
@@ -44,7 +44,7 @@ Datos de configuración: un archivo .psd1 que contiene datos del entorno de una 
 
 La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. La extensión DSC espera un archivo .zip que contiene al menos un documento de configuración y un conjunto de parámetros proporcionados a través del SDK de Azure PowerShell o del Portal de Azure.
 
-La primera vez que se llama a la extensión, se ejecuta un proceso de instalación. Dicho proceso instala una versión de Windows Management Framework (WMF) como se define a continuación:
+La primera vez que se llama a la extensión, se ejecuta un proceso de instalación. Dicho proceso instala una versión de Windows Management Framework (WMF) usando la siguiente lógica:
 
 1. Si el SO de la máquina virtual de Azure es Windows Server 2016, no se realiza ninguna acción. Windows Server 2016 ya tiene instalada la versión más reciente de PowerShell.
 2. Si está especificada la propiedad `wmfVersion`, se instala esta versión de WMF, salvo que sea incompatible con el SO de la máquina virtual.
@@ -140,8 +140,10 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[número de versión]
 
 Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
+Examine la [plantilla de Azure Resource Manager para la extensión de DSC](virtual-machines-windows-extensions-dsc-template.md).
+
 Para buscar otras funcionalidades que se puedan administrar con DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para encontrar más recursos de DSC.
 
 Para más información sobre cómo pasar parámetros confidenciales a configuraciones, consulte [Cómo pasar las credenciales al controlador de extensiones de la DSC de Azure](virtual-machines-windows-extensions-dsc-credentials.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

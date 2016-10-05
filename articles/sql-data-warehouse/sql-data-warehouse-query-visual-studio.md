@@ -32,7 +32,7 @@ Para utilizar este tutorial, necesitará:
 
 + Una cuenta de Almacenamiento de datos SQL existente. Para crear una, consulte [Creación de una instancia de Almacenamiento de datos SQL de Azure][].
 + SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL][].
-+ El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to Azure SQL Data Warehouse][] (Conexión a Almacenamiento de datos SQL).
++ El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to Azure SQL Data Warehouse][] \(Conexión a Almacenamiento de datos SQL).
 
 ## 1\. Conexión a la instancia de Almacenamiento de datos SQL
 
@@ -86,7 +86,7 @@ Ahora que se ha establecido una conexión a la base de datos, pasemos a escribir
 
 Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos con PowerBI][].
 
-Para configurar el entorno para la autenticación de Azure Active Directory, consulte [Authentication to Azure SQL Data Warehouse][] (Autenticación en Almacenamiento de datos SQL de Azure).
+Para configurar el entorno para la autenticación de Azure Active Directory, consulte [Authentication to Azure SQL Data Warehouse][] \(Autenticación en Almacenamiento de datos SQL de Azure).
 
 <!--Arcticles-->
 [Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

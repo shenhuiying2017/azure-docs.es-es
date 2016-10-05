@@ -36,7 +36,7 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 
 1. En el explorador, abra el [Portal de Azure](https://portal.azure.com/).
 
-2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego elija **Dominios personalizados**.
+2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y elija **Dominios personalizados**.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -58,15 +58,14 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 
 	a) "Renovar automáticamente" su dominio todos los años
 	
-	b) Participar en la "Protección de privacidad" que se incluye en el precio de compra de forma gratuita
+	b) Participar en la "Protección de privacidad" que se incluye en el precio de compra de forma gratuita (excepto los TLD cuyo registro no es compatible con la privacidad. Por ejemplo: .co.in, .co.uk, etc.)
 	
 	c) "Asignar nombres de host predeterminado" para WWW y dominio raíz a la aplicación web actual.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. Haga clic en la hoja **Seleccionar** en **Comprar dominios** y verá la información de compra en la hoja **Confirmación de compra**. Si acepta los términos legales y hace clic en **Comprar**, se enviará su pedido y podrá supervisar el proceso de compra en **Notificación**. La compra de dominio puede tardar algunos minutos en completarse.
 
@@ -103,4 +102,4 @@ Si ha comprado el dominio personalizado desde la hoja **Dominios personalizados 
 - Puede que haya eliminado el dominio personalizado en algún momento. Compruebe los registros de auditoría haciendo clic en **Configuración** > **Registros de auditoría** desde la hoja principal de la aplicación.
 - Puede que la hoja **Dominios personalizados y SSL** en la que busca pertenezca a una aplicación creada en una suscripción de Azure diferente. Cambie a otra aplicación en una suscripción diferente y compruebe su hoja **Dominios personalizados y SSL**. En el portal, no podrá ver ni administrar dominios personalizados creados en una suscripción de Azure diferente de la aplicación. Sin embargo, si hace clic en **Administración avanzada**, la hoja **Administrar dominio** del dominio, se le redirigirá al sitio web del proveedor de dominio, donde podrá [configurar manualmente el dominio personalizado como cualquier dominio externo personalizado](web-sites-custom-domain-name.md) para aplicaciones creadas en una suscripción de Azure diferente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

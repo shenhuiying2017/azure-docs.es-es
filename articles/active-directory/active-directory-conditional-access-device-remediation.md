@@ -138,4 +138,4 @@ Pronto podrá ver instrucciones para teléfonos y tabletas con Android.
 
 [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!----HONumber=AcomDC_0831_2016-->

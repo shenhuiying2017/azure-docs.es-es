@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # Puertos e identificadores URI usados en HDInsight
@@ -36,9 +36,9 @@ Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de 
 
 | Servicio | Port | Protocol | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Conecta los clientes a sshd en el nodo principal 0. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd | 22 | SSH | Conecta los clientes a sshd en el nodo primario principal. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
 | sshd | 22 | SSH | Conecta los clientes a sshd en el nodo de borde (solo HDInsight Premium). Consulte [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md). |
-| sshd | 23 | SSH | Conecta los clientes a sshd en el nodo principal 1. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd | 23 | SSH | Conecta los clientes a sshd en el nodo primario secundario. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
 | Ambari | 443 | HTTPS | Interfaz de usuario web de Ambari. Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari | 443 | HTTPS | API de REST de Ambari. Consulte [Administración de clústeres de HDInsight con la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
 | WebHCat | 443 | HTTPS | API de REST de HCatalog. Consulte [Uso de Hive con Curl](hdinsight-hadoop-use-Pig-curl.md), [Uso de Pig con Curl](hdinsight-hadoop-use-Pig-curl.md) y [Uso de MapReduce con Curl](hdinsight-hadoop-use-mapreduce-curl.md). |
@@ -143,4 +143,4 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 | Agente | Nodos de trabajo | 9092 | [Protocolo de conexión de Kafka](http://kafka.apache.org/protocol.html) | Se utiliza para la comunicación del cliente |
 | &nbsp; | Nodos Zookeeper | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Preguntas más frecuentes" 
+	pageTitle="Preguntas más frecuentes | Microsoft Azure" 
 	description="Preguntas más frecuentes (P+F)" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#Preguntas más frecuentes  
+#Preguntas más frecuentes
 
-##Preguntas más frecuentes generales sobre AMS 
+##Preguntas más frecuentes generales sobre AMS
 
 P: ¿Cómo se escala la indización?
 
-R: las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](media-services-how-to-scale.md) **Tenga en cuenta** que el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
+R: las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](media-services-scale-media-processing-overview.md) **Tenga en cuenta** que el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
 
 P: He cargado, codificado y publicado un vídeo. ¿Cuál es el motivo por el que el vídeo no se reproduce cuando intento transmitirlo?
 
-R: uno de los motivos más habituales es que no dispone de al menos una unidad de streaming reservada asignada en el extremo de streaming desde el que está intentando reproducir. Siga las instrucciones de [Escalación de unidades reservadas de streaming](media-services-how-to-scale.md)
+R: uno de los motivos más habituales es que no dispone de al menos una unidad de streaming reservada asignada en el extremo de streaming desde el que está intentando reproducir. Siga las instrucciones de [Escalación de unidades reservadas de streaming](media-services-portal-scale-streaming-endpoints.md)
 
 P: ¿Puedo realizar una composición en una secuencia en directo?
 
@@ -35,7 +35,7 @@ R: no se ofrece actualmente la composición en secuencias en vivo en Servicios m
 
 P: ¿Puedo usar CDN de Azure con secuencia en directo?
 
-R: servicios multimedia admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md#enable_cdn)). Puede usar el streaming en vivo con CDN. Servicios multimedia de Azure proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
+R: servicios multimedia admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)). Puede usar el streaming en vivo con CDN. Servicios multimedia de Azure proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
 
 P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 
@@ -83,4 +83,4 @@ R: [Media Encoder Estándar](media-services-dotnet-encode-with-media-encoder-sta
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

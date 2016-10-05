@@ -30,10 +30,10 @@
 
 <table>
 <tr><td>**Descarga del SDK**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para Java] (http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Contribuya al SDK**</td><td>[GitHub] (https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Java] (documentdb-java-application.md)</td></tr>
-<tr><td>**Tiempo de ejecución admitido actualmente**</td><td>[JDK 7] (http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Tiempo de ejecución admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Notas de la versión

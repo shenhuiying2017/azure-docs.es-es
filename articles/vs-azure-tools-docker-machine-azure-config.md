@@ -3,7 +3,7 @@
    description="Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas" />
+   ms.author="mlearned" />
 
 # Creación de hosts de Docker en Azure con docker-machine
 
-La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una máquina virtual host que ejecute el demonio de Docker. En este se tema se describe cómo utilizar el comando [docker-machine](https://docs.docker.com/machine/) para crear nuevas máquinas virtuales de Linux, configuradas con el demonio de Docker, que se ejecuten en Azure.
+La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una máquina virtual host que ejecute el demonio de Docker. En este tema, se describe cómo usar el comando [docker-machine](https://docs.docker.com/machine/) para crear máquinas virtuales Linux, configuradas con el demonio de Docker, que se ejecuten en Azure.
 
 **Nota:**
 - *Este artículo depende de la versión 0.7.0 de docker-machine, o de una versión superior*
@@ -27,7 +27,7 @@ La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una 
 
 Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine create` mediante el controlador `azure`.
 
-El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o el [Portal de Azure](https://portal.azure.com).
+El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o [Azure Portal](https://portal.azure.com).
 
 **Uso del portal de Azure**
 - Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
@@ -109,4 +109,4 @@ Con docker-machine se pueden aprovisionar fácilmente hosts de Docker en Azure p
 
 Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker Tools para Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

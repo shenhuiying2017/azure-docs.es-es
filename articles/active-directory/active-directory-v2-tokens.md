@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Referencia de los tokens de v2.0
@@ -21,7 +21,7 @@
 El extremo de la versión 2.0 emite varios tipos de tokens de seguridad en el procesamiento de cada [flujo de autenticación](active-directory-v2-flows.md). Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
 
 > [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 ## Tipos de tokens
 
@@ -29,7 +29,7 @@ El extremo de la versión 2.0 admite el [Protocolo de autorización de OAuth 2.0
 
 Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
-Muchos de los tokens emitidos por el extremo de la versión 2.0 se implementan como Tokens Web Json o JWT. Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes. La información contenida en los JWT se conoce como "notificaciones", o aserciones de información sobre el portador y el asunto del token. Las notificaciones de JWT son los objetos JSON codificados y serializados para su transmisión. Como los JWT emitidos por el extremo de la versión 2.0 están firmados, pero no cifrados, puedes inspeccionar fácilmente el contenido de un JWT con fines de depuración. Hay varias herramientas disponibles para hacerlo, como [calebb.net](http://jwt.calebb.net). Para obtener más información sobre los JWT, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muchos de los tokens emitidos por el extremo de la versión 2.0 se implementan como Tokens Web Json o JWT. Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes. La información contenida en los JWT se conoce como "notificaciones", o aserciones de información sobre el portador y el asunto del token. Las notificaciones de JWT son los objetos JSON codificados y serializados para su transmisión. Como los JWT emitidos por el extremo de la versión 2.0 están firmados, pero no cifrados, puedes inspeccionar fácilmente el contenido de un JWT con fines de depuración. Para obtener más información sobre los JWT, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id\_Tokens
 
@@ -48,7 +48,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 > [AZURE.TIP] Para la práctica, intenta inspeccionar las notificaciones del id\_token de ejemplo pegándolo en [calebb.net](https://calebb.net).
 
 #### Notificaciones en los id\_tokens
-| Nombre | Notificación | Valor de ejemplo | Descripción |
+| Nombre | Notificación | Valor de ejemplo | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | Público | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifica al destinatario previsto del token. En los id\_tokens, la audiencia es el Id. de aplicación de la aplicación, como se asigna a tu aplicación en el portal de registro de la aplicación. La aplicación tiene que validar este valor y rechazar el token si no coincide. |
 | Emisor | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token, así como el inquilino de Azure AD en el que se autenticó al usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión 2.0. También puede usar la parte GUID de la notificación para restringir el conjunto de los inquilinos que tienen permiso para iniciar sesión en la aplicación. El GUID que indica que el usuario es un usuario consumidor de la cuenta Microsoft es `9188040d-6c67-4c5b-b112-36a304b66dad`. |
@@ -121,7 +121,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 Este documento de metadatos es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes extremos necesarios para realizar la autenticación de OpenID Connect.
 
-También incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento en particular. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+También incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
 
 La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarte a hacerlo si es necesario.
 
@@ -134,7 +134,7 @@ Cuando tu aplicación recibe un id\_token al inicio de sesión del usuario, tamb
 - El **Valor de seguridad**: para mitigar ataques de reproducción de tokens.
 - y mucho más...
 
-Para obtener una lista completa de validaciones de notificación que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+Para ver una lista completa de las validaciones de notificación que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
 En la [sección id\_token](#id_tokens) situada arriba se incluyen los detalles de los valores esperados para estas notificaciones.
 
@@ -143,7 +143,7 @@ En la [sección id\_token](#id_tokens) situada arriba se incluyen los detalles d
 
 Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que pueden ayudar a desarrollar y depurar aplicaciones. Las aplicaciones no se deben redactar permitiendo que cualquiera de estas duraciones permanezca constante ya que pueden cambiar y lo harán en algún momento.
 
-| Se necesita el cifrado de tokens | Vigencia | Descripción |
+| SWT | Vigencia | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | Id\_tokens (cuentas profesionales o educativas) | 1 hora | Los id\_tokens normalmente son válidos durante una hora. Tu aplicación web puede utilizar este mismo período de tiempo en el mantenimiento de su propia sesión con el usuario (recomendado), o elegir una duración para la sesión completamente diferente. Si tu aplicación necesita obtener un nuevo id\_token, solo tiene que realizar una nueva solicitud de inicio de sesión en el extremo de autorización de la versión 2.0. Si el usuario tiene una sesión de explorador válida con el extremo de la versión 2.0, no tendrá que volver a escribir sus credenciales. |
 | Id\_tokens (cuentas personales) | 24 horas | Los id\_tokens para cuentas personales normalmente son válidos durante 24 horas. Tu aplicación web puede utilizar este mismo período de tiempo en el mantenimiento de su propia sesión con el usuario (recomendado), o elegir una duración para la sesión completamente diferente. Si tu aplicación necesita obtener un nuevo id\_token, solo tiene que realizar una nueva solicitud de inicio de sesión en el extremo de autorización de la versión 2.0. Si el usuario tiene una sesión de explorador válida con el extremo de la versión 2.0, no tendrá que volver a escribir sus credenciales. |
@@ -154,4 +154,4 @@ Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que 
 | Códigos de autorización (cuentas profesionales o educativas) | 10 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. |
 | Códigos de autorización (cuentas personales) | 5 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. Los códigos de autorización emitidos en nombre de las cuentas personales también son de un solo uso. |
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

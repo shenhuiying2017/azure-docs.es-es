@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 # Vistas previas de informes de Azure Active Directory
@@ -54,4 +54,4 @@ Uso de aplicaciones habilitadas para RMS | Vista previa pública
 **Informes de vista previa privada** |
 Actividad de inicio de sesión de todos los usuarios | Vista previa privada
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
@@ -89,12 +89,12 @@ Un volumen se compone de una serie de atributos:
 
 Siga las instrucciones de este tutorial para realizar las siguientes tareas:
 
-- Agregar un volumen 
-- Modificar un volumen 
+- Agregar un volumen
+- Modificar un volumen
 - Cambiar el tipo de volumen
-- Eliminar un volumen 
-- Desconectar un volumen 
-- Supervisar un volumen 
+- Eliminar un volumen
+- Desconectar un volumen
+- Supervisar un volumen
 
 ## Agregar un volumen
 
@@ -144,8 +144,8 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
 > [AZURE.IMPORTANT] 
 >
-> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. 
-> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo. 
+> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host.
+> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo.
 
 #### Para modificar un volumen
 
@@ -299,4 +299,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

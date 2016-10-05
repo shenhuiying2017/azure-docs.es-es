@@ -77,7 +77,7 @@ El comando **Azlog authorize** asigna el rol Lector a la entidad de servicio de 
 Consulte:
 
 - [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md)
-- [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx) (Lista de los eventos de administración de una suscripción en la API de REST de Azure Insights)
+- [List the management events in a subscription in Azure Insights REST API (Lista de los eventos de administración de una suscripción en la API de REST de Azure Insights)](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## ¿Dónde puedo encontrar detalles sobre las alertas de Azure Security Center?
 
@@ -99,7 +99,7 @@ Consulte [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquin
 
 ### Modificación de la configuración de WAD
 
-El ejemplo siguiente muestra una configuración en la que se recopilan solo los eventos EventID 4624 y EventId 4625 desde el registro de eventos de seguridad. Los eventos de Microsoft Antimalware se recopilan desde el registro de eventos del sistema. Consulte [Consuming events (Eventos de consumo)] (https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) para más información sobre el uso de expresiones de XPath.
+El ejemplo siguiente muestra una configuración en la que se recopilan solo los eventos EventID 4624 y EventId 4625 desde el registro de eventos de seguridad. Los eventos de Microsoft Antimalware se recopilan desde el registro de eventos del sistema. Consulte [Consuming events (Eventos de consumo)](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) para más información sobre el uso de expresiones de XPath.
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
@@ -113,7 +113,9 @@ El ejemplo siguiente muestra una configuración en la que se recopilan solo los 
 
 Después de realizar cambios, compruebe la cuenta de almacenamiento para asegurarse de que se recopilan los eventos correctos.
 
+Si tiene dudas sobre la integración del registro de Azure, envíe un correo electrónico a [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

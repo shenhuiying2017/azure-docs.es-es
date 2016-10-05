@@ -87,6 +87,13 @@ En este ejemplo, se envía una notificación a un [registro de plantillas](../no
 	    context.done();
 	};
 
+## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de temporizador de F#
+
+En este ejemplo, se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `location` y `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
 ## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de cola de C#
 
 En este ejemplo, se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `message`.
@@ -157,4 +164,4 @@ Ejemplo de código:
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

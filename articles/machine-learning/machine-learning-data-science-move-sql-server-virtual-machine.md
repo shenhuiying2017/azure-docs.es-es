@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
@@ -32,7 +32,7 @@ En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL
 <b>ORIGEN</b> |<b>DESTINO: servidor SQL Server en una máquina virtual de Azure</b> |
 ------------------ |-------------------- |
 <b>Archivo plano</b> |1\. <a href="#insert-tables-bcp">Utilidad de copia masiva (BCP) de la línea de comandos </a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserción masiva </a><br> 3. <a href="#sql-builtin-utilities">Utilidades integradas gráficas de SQL Server</a>
-<b>SQL Server local</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportación a un archivo plano </a><br> 3. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br> 4. <a href="#sql-backup">Copia de seguridad y restauración de la base de datos </a><br>
+<b>SQL Server local</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportación a un archivo plano </a><br> 3. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br> 4. <a href="#sql-backup">Copia de seguridad y restauración de una base de datos</a><br>
 
 Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se ejecutan desde SQL Server Management Studio o el Explorador de bases de datos de Visual Studio.
 
@@ -57,7 +57,7 @@ Si los datos se encuentran en un archivo plano (organizado en un formato de fila
 3. [Utilidades integradas gráficas de SQL Server (importación/exportación, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilidad de copia masiva (BCP) de la línea de comandos
+### <a name="insert-tables-bcp"></a>Utilidad de copia masiva (BCP) de la línea de comandos (BCP)
 
 BCP es una utilidad de línea de comandos instalada con SQL Server y es una de las maneras más rápidas de mover datos. Funciona en las tres variantes de SQL Server (SQL Server local, SQL Azure y máquina virtual SQL Server en Azure).
 
@@ -78,7 +78,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
-3. Inserte los datos en la base de datos usando el comando bcp de la siguiente manera. Esto debería funcionar desde la línea de comandos suponiendo que el SQL Server está instalado en la misma máquina:
+3. Inserte los datos en la base de datos usando el comando bcp de la siguiente manera. Esto debería funcionar desde la línea de comandos suponiendo que SQL Server esté instalado en la misma máquina:
 
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
@@ -167,7 +167,7 @@ También puede usar las siguientes estrategias de migración:
 1. [Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Exportación a un archivo plano](#export-flat-file)
 3. [Asistente para migración de Base de datos SQL](#sql-migration)
-4. [Copia de seguridad y restauración de la base de datos](#sql-backup)
+4. [Copia de seguridad y restauración de una base de datos](#sql-backup)
 
 Describimos cada una de estas opciones:
 
@@ -200,15 +200,15 @@ Se pueden usar diversos métodos para la exportación masiva de datos desde un s
 
 ### <a name="sql-migration"></a>Asistente para migración de Base de datos SQL
 
-El [Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otra funcionalidad. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida del Asistente para migración de base de datos de SQL.
+El [Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otras funcionalidades. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida del Asistente para migración de base de datos de SQL.
 
 ![Asistente para migración de SQL Server][2]
 
-### <a name="sql-backup"></a>Copia de seguridad y restauración de la base de datos
+### <a name="sql-backup"></a>Copia de seguridad y restauración de una base de datos
 
 SQL Server es compatible con:
 
-1. La [funcionalidad de copia de seguridad y restauración de la base de datos](https://msdn.microsoft.com/library/ms187048.aspx) (tanto a un archivo local como exportación de bacpac a blob) y [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx) (con bacpac).
+1. La [funcionalidad de copia de seguridad y restauración de la base de datos](https://msdn.microsoft.com/library/ms187048.aspx) (tanto a un archivo local como la exportación de bacpac a blob) y [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx) (con bacpac).
 2. Capacidad para crear directamente las máquinas virtuales de SQL Server en Azure con una copia o una base de datos copiada en una base de datos existente de SQL Azure. Para obtener más detalles, consulte [Usar el Asistente para copiar bases de datos](https://msdn.microsoft.com/library/ms188664.aspx).
 
 A continuación se muestra una captura de pantalla de las opciones de copia de seguridad y restauración de base de datos desde SQL Server Management Studio.
@@ -224,4 +224,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

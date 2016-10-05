@@ -74,4 +74,4 @@ Para más información acerca de las funcionalidades del Catálogo de datos, con
 * [Configuración del glosario empresarial](data-catalog-how-to-business-glossary.md)
 * [Preguntas más frecuentes](data-catalog-frequently-asked-questions.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

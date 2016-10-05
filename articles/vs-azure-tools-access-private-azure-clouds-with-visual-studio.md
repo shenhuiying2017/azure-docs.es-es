@@ -41,6 +41,6 @@ De forma predeterminada, Visual Studio admite extremos REST de nube pública de 
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[Descarga e importación de la configuración de publicación y la información de suscripción] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
+[Descarga e importación de la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

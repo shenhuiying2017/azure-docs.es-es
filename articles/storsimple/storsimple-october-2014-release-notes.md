@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/21/2016"
+    ms.date="09/21/2016"
     ms.author="alkohli" />
 
 # Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014  
@@ -27,31 +27,31 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 >[AZURE.IMPORTANT]
 > 
--	Para instalar las actualizaciones de octubre, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.  
--	Las actualizaciones suelen tardar unas 3 horas en completarse.  
--	La versión de octubre de StorSimple no contiene actualizaciones para el dispositivo virtual de StorSimple. Puede aplicar cualquier actualización disponible de Windows, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo virtual.  
+-	Para instalar las actualizaciones de octubre, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.
+-	Las actualizaciones suelen tardar unas 3 horas en completarse.
+-	La versión de octubre de StorSimple no contiene actualizaciones para el dispositivo virtual de StorSimple. Puede aplicar cualquier actualización disponible de Windows, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo virtual.
 
 Asegúrese de que se cumplen los siguientes requisitos previos antes de actualizar el dispositivo StorSimple.
 
-- Asegúrese de que ambos controladores de dispositivo se están ejecutando antes de buscar actualizaciones. Si no se está ejecutando uno de los controladores, se producirá un error en la búsqueda. Para comprobar que los controladores están en buen estado, vaya a **Estado del Hardware** en la página **Mantenimiento**. Si algún componente **Requiere atención**, póngase en contacto con el soporte técnico de Microsoft antes de continuar.  
-- Asegúrese de que las IP fijas del Controlador 0 y el Controlador 1 sean enrutables y puedan conectarse a Internet, ya que se usan para el mantenimiento de las actualizaciones del dispositivo. Puede usar el [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para hacer ping a una dirección conocida fuera de la red, como outlook.com, para comprobar que el controlador tiene conectividad a la red externa.  
-- Asegúrese de que los puertos de salida necesarios estén disponibles en el dispositivo StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
-- Si la versión del software de dispositivo es anterior a 6.3.9600.17312 (actualización de octubre de 2014), deshabilite los puertos Data 2 y Data 3, en caso de que estén habilitados, antes de iniciar la actualización. Si deja los puertos Data 2 o Data 3 habilitados durante la aplicación de la actualización, el controlador del dispositivo podría entrar en modo de recuperación. Tenga en cuenta que, al deshabilitar las interfaces de red, todos los volúmenes asociados pasarán a estar sin conexión y se interrumpirá la E/S mientras dure la actualización.  
+- Asegúrese de que ambos controladores de dispositivo se están ejecutando antes de buscar actualizaciones. Si no se está ejecutando uno de los controladores, se producirá un error en la búsqueda. Para comprobar que los controladores están en buen estado, vaya a **Estado del Hardware** en la página **Mantenimiento**. Si algún componente **Requiere atención**, póngase en contacto con el soporte técnico de Microsoft antes de continuar.
+- Asegúrese de que las IP fijas del Controlador 0 y el Controlador 1 sean enrutables y puedan conectarse a Internet, ya que se usan para el mantenimiento de las actualizaciones del dispositivo. Puede usar el [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para hacer ping a una dirección conocida fuera de la red, como outlook.com, para comprobar que el controlador tiene conectividad a la red externa.
+- Asegúrese de que los puertos de salida necesarios estén disponibles en el dispositivo StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- Si la versión del software de dispositivo es anterior a 6.3.9600.17312 (actualización de octubre de 2014), deshabilite los puertos Data 2 y Data 3, en caso de que estén habilitados, antes de iniciar la actualización. Si deja los puertos Data 2 o Data 3 habilitados durante la aplicación de la actualización, el controlador del dispositivo podría entrar en modo de recuperación. Tenga en cuenta que, al deshabilitar las interfaces de red, todos los volúmenes asociados pasarán a estar sin conexión y se interrumpirá la E/S mientras dure la actualización.
 
 ## Novedades de la versión de octubre
 
 Esta actualización incluye las mejoras siguientes:
 
-- Ahora puede usar el interfaz de usuario del servicio de Administrador de StorSimple para administrar los controladores del dispositivo. Las acciones de administración incluyen reiniciar, apagar o activar un controlador. Para obtener más información, vaya a [Administrar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).  
-- Puede programar la asignación de ancho de banda WAN según las combinaciones del día de la semana y la hora del día. Esto permite hacer un mejor uso del ancho de banda WAN fuera de horas pico. Se admiten plantillas diferentes de ancho de banda para distintos contenedores de volúmenes. Para obtener más información, vaya a [Administrar las plantillas de ancho de banda de StorSimple](storsimple-manage-bandwidth-templates.md).  
-- Puede configurar notificaciones de correo electrónico para informar a los administradores y a otras personas sobre los problemas existentes o que podrían producirse. Para obtener más información, vaya a [Configurar las alertas](storsimple-manage-alerts.md#configure-alert-settings).  
+- Ahora puede usar el interfaz de usuario del servicio de Administrador de StorSimple para administrar los controladores del dispositivo. Las acciones de administración incluyen reiniciar, apagar o activar un controlador. Para obtener más información, vaya a [Administrar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).
+- Puede programar la asignación de ancho de banda WAN según las combinaciones del día de la semana y la hora del día. Esto permite hacer un mejor uso del ancho de banda WAN fuera de horas pico. Se admiten plantillas diferentes de ancho de banda para distintos contenedores de volúmenes. Para obtener más información, vaya a [Administrar las plantillas de ancho de banda de StorSimple](storsimple-manage-bandwidth-templates.md).
+- Puede configurar notificaciones de correo electrónico para informar a los administradores y a otras personas sobre los problemas existentes o que podrían producirse. Para obtener más información, vaya a [Configurar las alertas](storsimple-manage-alerts.md#configure-alert-settings).
 
 ## Problemas corregidos en la versión de octubre
 
 
 La tabla siguiente contiene un resumen de los problemas corregidos en esta actualización.
 
-| N.º | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Nº | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|---------------------------------|--------------------------------|
 | 1 | Interfaces de red | En la versión anterior, las interfaces de red DATA 2 y DATA 3 se intercambiaron en el software. Esto se corrigió en esta actualización. Borre la configuración y deshabilite estas interfaces de red antes de instalar la actualización. Después de instalar la actualización, tendrá que volver a configurar estas interfaces. | Sí | No |
 | 2 | Paquete de soporte | En la versión anterior, si se ejecutaba el cmdlet **Export-HcsSupportPackage** de Windows PowerShell para recuperar los registros del controlador de administración de placa base (BMC), la operación producía un error con la siguiente advertencia: «La operación se realizó correctamente en este controlador, pero no se pudo realizar en el controlador del mismo nivel debido al siguiente error. Compruebe si el controlador del mismo nivel está en buen estado y si el nodo actual puede conectar con él». Este problema está corregido. | Sí | No |
@@ -69,7 +69,7 @@ La tabla siguiente contiene un resumen de los problemas corregidos en esta actua
 
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| N.º | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Nº | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Restablecimiento de fábrica | En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso. | No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
 | 2 | Restablecimiento de fábrica | No efectúe un restablecimiento de fábrica en un dispositivo StorSimple actualizado de GA a la versión de octubre de 2014. | Esta operación solo funcionará si se instala una revisión. Póngase en contacto con el soporte técnico de Microsoft para obtener dicha revisión. | Sí | No |	
@@ -99,4 +99,4 @@ Esta versión también aplica una actualización de firmware acumulativa que sol
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

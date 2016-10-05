@@ -189,7 +189,7 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
 > [AZURE.NOTE] Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de EventProcessorHost. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de EventProcessorHost según los equipos (o roles) en que se implementan.
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-overview.md
 [cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -198,4 +198,4 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

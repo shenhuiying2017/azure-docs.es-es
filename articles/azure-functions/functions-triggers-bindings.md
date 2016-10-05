@@ -20,7 +20,7 @@
 
 # Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure
 
-Los siguientes artículos explican cómo configurar y codificar desencadenadores y enlaces en funciones de Azure. Se da por supuesto que ya leyó la [referencia para desarrolladores de funciones de Azure](functions-reference.md) y los artículos de referencia para desarrolladores de [C#](functions-reference-csharp.md) o [Node.js](functions-reference-node.md).
+Los siguientes artículos explican cómo configurar y codificar desencadenadores y enlaces en funciones de Azure. Se da por supuesto que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md) y los artículos de referencia para desarrolladores de [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
 
 ## Artículos de desencadenadores y de enlaces
 
@@ -35,4 +35,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Prueba de una función](functions-test-a-function.md)
 * [Escalar una función](functions-scale.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

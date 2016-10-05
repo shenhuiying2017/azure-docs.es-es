@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -41,6 +41,10 @@ Los clústeres de HDInsight proporcionan un nodo principal secundario, lo que pe
 
 > [AZURE.IMPORTANT] Ambos nodos principales están activos y en ejecución dentro del clúster al mismo tiempo. Algunos servicios, como HDFS o YARN solo están “activos” en un nodo principal en un determinado momento (y “en espera” en el otro nodo principal). Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
 
+Los nodos principales (y otros nodos en HDInsight,) tienen un valor numérico como parte del nombre de host del nodo. Por ejemplo, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
+
+> [AZURE.IMPORTANT] No asocie el valor numérico con el hecho de que un nodo sea principal o secundario; el valor numérico solo se incluye para que el nombre de cada nodo sea único.
+
 ###Nodos Nimbus
 
 Para los clústeres de Storm, los nodos Nimbus proporcionan una funcionalidad similar a la de JobTracker de Hadoop al distribuir y supervisar el procesamiento a través de nodos de trabajo. HDInsight proporciona dos nodos Nimbus para el tipo de clúster de Storm.
@@ -64,9 +68,9 @@ Actualmente, el servidor de R en HDInsight es el único tipo de clúster que pro
 
 ## Acceso a los nodos
 
-Se proporciona acceso al clúster a través de Internet a través de una puerta de enlace pública y está limitado a la conexión con los nodos principales y (si se trata de un servidor de R en un clúster de HDInsight) con el nodo perimetral. El acceso a los servicios que se ejecutan en los nodos principales no se ve afectado por tener varios nodos principales, ya que la puerta de enlace pública enruta las solicitudes al nodo principal que hospeda el servicio solicitado. Por ejemplo, si Ambari está hospedado en el nodo principal 1, la puerta de enlace enrutará las solicitudes entrantes de Ambari a ese nodo.
+Se proporciona acceso al clúster a través de Internet a través de una puerta de enlace pública y está limitado a la conexión con los nodos principales y (si se trata de un servidor de R en un clúster de HDInsight) con el nodo perimetral. El acceso a los servicios que se ejecutan en los nodos principales no se ve afectado por tener varios nodos principales, ya que la puerta de enlace pública enruta las solicitudes al nodo principal que hospeda el servicio solicitado. Por ejemplo, si Ambari está hospedado en el nodo principal secundario, la puerta de enlace enrutará las solicitudes entrantes de Ambari a ese nodo.
 
-Al tener acceso al clúster mediante SSH, efectuar la conexión a través del puerto 22 (el valor predeterminado de SSH) permitirá conectarse al nodo principal 0; la conexión a través del puerto 23 provocará la conexión al nodo principal 1. Por ejemplo, `ssh username@mycluster-ssh.azurehdinsight.net` se conectará al nodo principal 0 del clúster denominado __mycluster__.
+Cuando se accede al clúster mediante SSH y la conexión se efectúa a través del puerto 22 (el valor predeterminado de SSH), la conexión se realiza al nodo principal primario; cuando la conexión se efectúa a través del puerto 23, se realiza al nodo principal secundario. Por ejemplo, `ssh username@mycluster-ssh.azurehdinsight.net` se conectará al nodo principal primario del clúster llamado __mycluster__.
 
 > [AZURE.NOTE] Esto también se aplica a los protocolos basados en SSH, como el SSH File Transfer Protocol (SFTP).
 
@@ -143,7 +147,7 @@ La respuesta será similar a la siguiente:
 	  }
 	}
 
-La dirección URL nos indica que el servicio se está ejecutando en el **nodo principal 0**.
+La dirección URL nos indica que el servicio se está ejecutando en el nodo principal __hn0-CLUSTERNAME__.
 
 El estado nos indica que el servicio se está ejecutando o se ha **INICIADO**.
 
@@ -225,4 +229,4 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

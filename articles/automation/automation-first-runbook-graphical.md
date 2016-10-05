@@ -26,7 +26,7 @@ Este tutorial le guiará por la creación de un [runbook gráfico](automation-ru
 
 Para completar este tutorial, necesitará lo siguiente:
 
--	suscripción de Azure. Si aún no tiene ninguna, puede [activar los beneficios de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien <a href="/pricing/free-account/" target="_blank">[registrarse para obtener una cuenta gratis](https://azure.microsoft.com/free/).
+-	Suscripción de Azure. Si aún no tiene ninguna, puede [activar los beneficios de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien <a href="/pricing/free-account/" target="_blank">[registrarse para obtener una cuenta gratis](https://azure.microsoft.com/free/).
 -	[Cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure. Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 -	Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser de producción.
 
@@ -60,7 +60,7 @@ El control Biblioteca en la parte izquierda del editor permite seleccionar activ
 
 Antes de que publiquemos el runbook para que esté disponible en producción, queremos probarlo para asegurarnos de que funciona correctamente. Cuando se prueba un runbook, se ejecuta su versión **Borrador** y se visualizan sus resultados de forma interactiva.
 
-1.	Haga clic en **Panel de prueba** para abrir la hoja Prueba.<br> ![Panel Prueba](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
+1.	Haga clic en **Test pane** (Probar panel) para abrir la hoja Probar.<br> ![Panel Prueba](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
 2.	Haga clic en **Iniciar** para iniciar la prueba. Esta debe ser la única opción habilitada.
 3.	Se crea un [trabajo de runbook](automation-runbook-execution.md) y su estado se muestra en el panel. El estado del trabajo se iniciará como *En cola*, lo que indica que espera que haya algún trabajo de Runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.
 4.	Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, deberíamos ver *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
@@ -90,8 +90,8 @@ Hemos probado y publicado nuestro runbook, pero hasta ahora no hace nada útil. 
 1. En la hoja Cuentas de Automatización, haga clic en el icono **Recursos** para abrir la hoja **Recursos**.
 2. En la hoja Recursos, haga clic en el icono **Variables**.
 3. En la hoja Variables, haga clic en **Agregar una variable**.<br>![Variable de Automatización](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
-4. En la hoja Nueva variable, en el cuadro **Nombre** escriba **AzureSubscriptionId** y en el cuadro **Valor** escriba su identificador de suscripción. Mantenga *cadena* como **Tipo** y el valor predeterminado en **Cifrado**.  
-5. Haga clic en **Crear** para crear la variable.  
+4. En la hoja Nueva variable, en el cuadro **Nombre**, escriba **AzureSubscriptionId** y en el cuadro **Valor** escriba su identificador de suscripción. Mantenga *cadena* como **Tipo** y el valor predeterminado en **Cifrado**.
+5. Haga clic en **Crear** para crear la variable.
 
 
 ## Paso 6: Adición de autenticación para administrar recursos de Azure
@@ -115,7 +115,7 @@ Ahora que tenemos una variable que contiene el identificador de suscripción, po
 15.  Haga clic en **TENANTID** y, en la hoja Valor de parámetro, seleccione **Resultado de la actividad** en **Origen de datos**. Seleccione **Get Run As Connection** (Obtener conexión de ejecución) en la lista, en el cuadro de texto **Ruta de campo** escriba **TenantId** y, después, haga clic en **Aceptar** dos veces.
 16.  En el control Biblioteca, escriba **Set-AzureRmContext** en el cuadro de texto de búsqueda.
 17.	 Agregue **Set-AzureRmContext** al lienzo.
-18.	 En el lienzo seleccione **Set-AzureRmContext**, y en el panel Control de configuración escriba **Specify Subscription Id** (Especificar id. de suscripción) en el cuadro de texto **Etiqueta**.
+18.	 En el lienzo, seleccione **Set-AzureRmContext**, y en el panel Control de configuración escriba **Specify Subscription Id** (Especificar id. de suscripción) en el cuadro de texto **Etiqueta**.
 19.	 Haga clic en **Parámetros**; aparece la hoja Configuración de parámetros de la actividad.
 20. **Set-AzureRmContext** tiene varios conjuntos de parámetros, por lo que necesitamos seleccionar uno antes de poder proporcionar valores de los parámetros. Haga clic en **Conjunto de parámetros** y seleccione el conjunto de parámetros **SubscriptionId**.
 21.	 Una vez seleccionado el conjunto de parámetros, los parámetros se muestran en la hoja Activity Parameter Configuration (Configuración de parámetros de actividad). Haga clic en **SubscriptionID**.
@@ -127,11 +127,11 @@ En este punto, el Runbook debe tener el siguiente aspecto: <br>![Configuración 
 
 ## Paso 7: Adición de una actividad para iniciar una máquina virtual
 
-Ahora agregaremos una actividad **Start-AzureRmVM** para iniciar una máquina virtual. Puede seleccionar cualquier máquina virtual en su suscripción de Azure. Por ahora vamos a codificar ese nombre en el cmdlet.
+Ahora agregaremos una actividad **Start-AzureRmVM** para iniciar una máquina virtual. Puede seleccionar cualquier máquina virtual en su suscripción de Azure. Por ahora, vamos a codificar ese nombre en el cmdlet.
 
 1. En el control Biblioteca, escriba **Start-AzureRm** en el cuadro de texto de búsqueda.
-2. Agregue **Start-AzureRmVM** al lienzo y haga clic y arrástrelo para colocarlo debajo de **Conectar a Azure**.
-3. Mantenga el mouse sobre **Specify Subscription Id** (Especificar id. de suscripción) hasta que aparezca un círculo en la parte inferior de la forma. Haga clic en el círculo y arrastre la flecha hasta **Start-AzureRmVM**.
+2. Agregue **Start-AzureRmVM** al lienzo y haga clic y arrástrelo para colocarlo debajo de **Specify Subscription Id** (Especificar id. de suscripción).
+3. Mantenga el puntero sobre **Specify Subscription Id** (Especificar id. de suscripción) hasta que aparezca un círculo en la parte inferior de la forma. Haga clic en el círculo y arrastre la flecha hasta **Start-AzureRmVM**.
 4.	Seleccione **Start-AzureRmVM**. Haga clic en **Parámetros** y en **Conjunto de parámetros** para ver los conjuntos de **Start-AzureRmVM**. Seleccione el conjunto de parámetros **ResourceGroupNameParameterSetName**. Tenga en cuenta que **ResourceGroupName** y **Name** tienen signos de exclamación al lado. Esto indica que son parámetros necesarios. Tenga en cuenta que ambos esperan valores de cadena.
 5.	Seleccione **Name**. Seleccione **Expresión de PowerShell** como **Origen de datos** y escriba el nombre, entre comillas dobles, de la máquina virtual que vamos a iniciar con este Runbook. Haga clic en **Aceptar**.<br>![Valor del parámetro de nombre Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	Seleccione **ResourceGroupName**. Utilice **Expresión de PowerShell** como **Origen de datos** y escriba el nombre del grupo de recursos entre comillas dobles. Haga clic en **Aceptar**.<br> ![Parámetros Start-AzureRmVM](media/automation-first-runbook-graphical/startazurermvm-params.png)
@@ -169,12 +169,12 @@ Ahora modificaremos el Runbook que solo intente iniciar la máquina virtual si a
 5. Seleccione **Get-AzureRmVM** y después **Conjunto de parámetros** para ver los conjuntos de **Get-AzureRmVM**. Seleccione el conjunto de parámetros **GetVirtualMachineInResourceGroupNameParamSet**. Tenga en cuenta que **ResourceGroupName** y **Name** tienen signos de exclamación al lado. Esto indica que son parámetros necesarios. Tenga en cuenta que ambos esperan valores de cadena.
 6. En **Origen de datos** de **Nombre**, seleccione **Entrada de Runbook** y **VMName**. Haga clic en **OK**.
 7. En **Origen de datos** de **ResourceGroupName**, seleccione **Entrada de Runbook** y **ResourceGroupName**. Haga clic en **OK**.
-8. En **Origen de datos** de **Estado**, seleccione **Valor constante** y haga clic en **Verdadero**. Haga clic en **OK**.  
+8. En **Origen de datos** de **Estado**, seleccione **Valor constante** y haga clic en **Verdadero**. Haga clic en **OK**.
 9. Cree un vínculo desde **Specify Subscription Id** (Especificar id. de suscripción) a **Get-AzureRmVM**.
-10. En el control Biblioteca, expanda **Control de Runbook** y agregue **Código** al lienzo.  
-11. Cree un vínculo de **Get-AzureRmVM** a **Código**.  
+10. En el control Biblioteca, expanda **Control de Runbook** y agregue **Código** al lienzo.
+11. Cree un vínculo de **Get-AzureRmVM** a **Código**.
 12. Haga clic en **Código** y, en el panel Configuración, cambie la etiqueta a **Get Status**.
-13. Seleccione el parámetro **Código**; aparece la hoja **Editor de código**.  
+13. Seleccione el parámetro **Código**; aparece la hoja **Editor de código**.
 14. En el editor de código, pegue el siguiente fragmento de código:
 
      ```
@@ -207,8 +207,8 @@ Ahora modificaremos el Runbook que solo intente iniciar la máquina virtual si a
 
 ## Pasos siguientes
 
--	Para más información sobre la creación de gráficos, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
+-	Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 -	Para empezar a trabajar con Runbooks de PowerShell, consulte [Mi primer Runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 -	Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

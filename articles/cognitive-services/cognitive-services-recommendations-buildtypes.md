@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="09/20/2016"
 	ms.author="luisca"/>
 
 #  Tipos de compilación y calidad de los modelos #
@@ -54,7 +54,7 @@ También debe configurar los siguientes parámetros de compilación:
 |*allowColdItemPlacement* | Se establece en **true**. Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características.
 | *modelingFeatureList* | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. Por ejemplo, "Language,Storage" en el ejemplo anterior.
 
-**La compilación de recomendación admite recomendaciones de usuario**.
+**La compilación de recomendación admite recomendaciones de usuario.**
 
 La compilación de recomendación admite [recomendaciones de usuario](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Esto significa que puede proporcionar recomendaciones personalizadas para los usuarios según sus historiales de transacción. Para las recomendaciones de usuario puede proporcionar el identificador de usuario o el historial de las transacciones recientes de dicho usuario.
 
@@ -263,4 +263,4 @@ Esto desencadenará una compilación que utiliza solo un subconjunto de los dato
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

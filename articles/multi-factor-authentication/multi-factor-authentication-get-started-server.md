@@ -31,7 +31,7 @@ Ahora que hemos determinado si se utiliza la autenticación multifactor local, v
 
 
 
-Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
+Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través de Azure Portal. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 
 ### Para descargar Servidor Azure Multi-Factor Authentication del Portal de Azure.
@@ -65,7 +65,7 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
 
 
 ## Instalación y configuración del Servidor Azure Multi-Factor Authentication
-Una vez descargado el servidor, puede instalarlo y configurarlo. Asegúrese de que el servidor que va a instalar cumple los requisitos siguientes:
+Una vez descargado el servidor, ya se puede instalar y configurar. Asegúrese de que el servidor que va a instalar cumple los requisitos siguientes:
 
 
 
@@ -175,11 +175,11 @@ Además de los campos anteriores, el resultado de la autenticación (aceptación
 ## Configuraciones de servidor de Azure Multi-Factor Authentication avanzadas
 Para obtener información adicional sobre la configuración avanzada y la información de configuración, use la tabla siguiente.
 
-Método|Descripción
-:------------- | :------------- | 
+Método|Description
+:------------- | :------------- |
 [Portal de usuario](multi-factor-authentication-get-started-portal.md)| Información sobre la instalación y configuración del portal de usuario, incluida la implementación y el autoservicio del usuario.
 [Servicio de federación de Active Directory](multi-factor-authentication-get-started-adfs.md)|Información sobre cómo configurar la Azure Multi-Factor Authentication con AD FS.
-[Autenticación de RADIUS](multi-factor-authentication-get-started-server-radius.md)| Información sobre la instalación y configuración del servidor de MFA de Azure con RADIUS.
+[Autenticación RADIUS](multi-factor-authentication-get-started-server-radius.md)| Información sobre la instalación y configuración del servidor de MFA de Azure con RADIUS.
 [Autenticación de IIS](multi-factor-authentication-get-started-server-iis.md)|Información sobre la instalación y configuración del servidor de MFA de Azure con IIS.
 [Autenticación de Windows](multi-factor-authentication-get-started-server-windows.md)| Información sobre la instalación y configuración del servidor de MFA de Azure con la autenticación de Windows.
 [Autenticación LDAP](multi-factor-authentication-get-started-server-ldap.md)|Información sobre la instalación y configuración del servidor de MFA de Azure con la autenticación LDAP.
@@ -187,4 +187,4 @@ Método|Descripción
 [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure.
 [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Información sobre la instalación y configuración del servicio web del servidor de Azure MFA.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

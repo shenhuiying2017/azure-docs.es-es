@@ -3,8 +3,8 @@
    description="Aprenda a realizar una copia de seguridad de los datos de Windows Server mediante la creación de un almacén, la instalación del Agente de Servicios de recuperación y la realización de una copia de seguridad de archivos y carpetas en Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="cómo realizar la copia de seguridad; cómo realizar la copia de seguridad"/>
 
@@ -14,8 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
 
 # Primer análisis: Copia de seguridad de archivos y carpetas con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager
 
@@ -25,13 +25,13 @@ Si desea más información acerca de Copia de seguridad de Azure, lea esta [intr
 
 La copia de seguridad de archivos y carpetas en Azure requiere estas actividades:
 
-![Paso 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Conseguir una suscripción de Azure, si no tiene ya una.<br> ![Paso 2](./media/backup-try-azure-backup-in-10-mins/step-2.png)Crear un almacén de Servicios de recuperación.<br> ![Paso 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Descargar los archivos necesarios.<br> ![Paso 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar y registrar al agente de Servicios de recuperación.<br> ![Paso 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Realizar copias de seguridad de los archivos y las carpetas.
+![Paso 1](./media/backup-try-azure-backup-in-10-mins/step-1.png)Obtener una suscripción de Azure, si no tiene una.<br> ![Paso 2](./media/backup-try-azure-backup-in-10-mins/step-2.png)Crear un almacén de Servicios de recuperación.<br> ![Paso 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Descargar los archivos necesarios.<br> ![Paso 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar y registrar al agente de Servicios de recuperación.<br> ![Paso 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Realizar copias de seguridad de los archivos y las carpetas.
 
 ![Cómo realizar copias de la máquina de Windows con Copia de seguridad de Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ## Paso 1: obtener una suscripción de Azure
 
-Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a cualquier servicio de Azure.
+Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
 ## Paso 2: Creación de un almacén de Servicios de recuperación
 
@@ -49,7 +49,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crea
 
     ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Se abre la hoja del almacén de Servicios de recuperación, que le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
+    Se abre la hoja del almacén de Servicios de recuperación, donde se le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
     ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
@@ -72,7 +72,7 @@ Al crear un almacén de Servicios de recuperación se determina cómo se replica
 
 2. En el **Configuración** hoja, que se abre automáticamente con el panel del almacén, haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad).
 
-3. En la hoja Backup Infrastructure (Infraestructura de copia de seguridad), haga clic en **Backup Configuration** (Configuración de copia de seguridad) para ver el **Tipo de replicación de almacenamiento**.
+3. En la hoja Backup Infrastructure (Infraestructura de copia de seguridad), haga clic en **Configuración de copia de seguridad** para ver el **tipo de replicación de almacenamiento**.
 
     ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-try-azure-backup-in-10-mins/backup-infrastructure.png)
 
@@ -90,7 +90,7 @@ Ahora que ya ha creado un almacén, prepare su infraestructura para realizar la 
 
     ![Abrir hoja de objetivo de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
 
-2. Haga clic en **Introducción > Copia de seguridad** en la hoja de Configuración.
+2. Haga clic en **Introducción > Copia de seguridad** en la hoja Configuración.
 
     ![Abrir hoja de objetivo de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/getting-started-backup.png)
 
@@ -155,13 +155,13 @@ Para realizar la copia de seguridad inicial use el agente de Servicios de recupe
 
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 
-4. En la página Seleccionar elementos para copia de seguridad, haga clic en **Agregar elementos**.
+4. En la página Seleccionar elementos de los que realizar copia de seguridad, haga clic en **Agregar elementos**.
 
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
 
 6. Haga clic en **Siguiente**.
 
-7. En la página **Especifique la programación de copia de seguridad**, escriba la **programación de copias de seguridad** y haga clic en **Siguiente**.
+7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copia de seguridad** y haga clic en **Siguiente**.
 
     Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
 
@@ -203,4 +203,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

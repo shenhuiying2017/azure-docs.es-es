@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-En los siguientes pasos se muestra cómo copiar una base de datos SQL con el [Portal de Azure](https://portal.azure.com) en el mismo servidor o en otro distinto.
+En los siguientes pasos se muestra cómo copiar una base de datos SQL con [Azure Portal](https://portal.azure.com) en el mismo servidor o en otro distinto.
 
 Para copiar una base de datos SQL, necesita lo siguiente:
 
@@ -36,19 +36,20 @@ Para copiar una base de datos SQL, necesita lo siguiente:
 
 ## Copiar la base de datos SQL
 
-Abra la hoja de base de datos SQL correspondiente a la base de datos que desea copiar:
+Abra la página de base de datos SQL correspondiente a la base de datos que desea copiar:
 
 1.	Vaya al [Portal de Azure](https://portal.azure.com).
-2.	Vaya a la base de datos que quiere copiar: Examinar > Bases de datos SQL
-3.	En la hoja de base de datos SQL, haga clic en **Copiar** para abrir la hoja **Copiar**:
+2.	Haga clic en **More Services** (Más servicios) > **Bases de datos SQL** y, luego, en la base de datos que quiera.
+3.	En la página de base de datos SQL, haga clic en **Copiar**:
 
-    ![copiar base de datos][1]
+    ![Base de datos SQL](./media/sql-database-copy-portal/sql-database-copy.png)
 
-1.  Escriba un nombre para la copia de la base de datos. Se proporciona un nombre predeterminado, pero puede cambiarlo si quiere.
-2.  Seleccione un **Servidor de destino**. El servidor de destino es donde se creará la copia de la base de datos. Puede crear un nuevo servidor o seleccionar un servidor existente en la lista.
+1.  En la página **Copiar**, se proporciona un nombre predeterminado para la base de datos. Escriba un nombre diferente si quiere (todas las bases de datos de un servidor deben tener nombres únicos).
+2.  Seleccione un **Servidor de destino**. El servidor de destino es donde se creará la copia de la base de datos. Puede crear la copia de la base de datos en el mismo servidor o en otro distinto. Puede crear un nuevo servidor o seleccionar un servidor existente en la lista.
+3.  Después de seleccionar el **servidor de destino**, se habilitarán las opciones **Grupo de bases de datos elásticas** y **Plan de tarifa**. Si el servidor tiene un grupo, puede copiar la base de datos en él.
 3.  Haga clic en **Aceptar** para iniciar el proceso de copia.
 
-    ![nombre de la base de datos y del servidor][2]
+    ![Base de datos SQL](./media/sql-database-copy-portal/copy-page.png)
 
 
 ## Supervisar el progreso de la operación de copia
@@ -62,7 +63,7 @@ Abra la hoja de base de datos SQL correspondiente a la base de datos que desea c
 
 ## Comprobar que la base de datos está disponible en el servidor
 
-- Haga clic en **EXAMINAR** > **Bases de datos SQL** y compruebe que la nueva base de datos está **En línea**.
+- Haga clic en **More Services** (Más servicios) > **Bases de datos SQL** y compruebe que la nueva base de datos está **en línea**.
 
 
 ## Resolución de inicios de sesión
@@ -72,7 +73,7 @@ Para resolver los inicios de sesión una vez completada la operación de copia, 
 
 ## Pasos siguientes
 
-- Consulte [Copy an Azure SQL database using the Azure Portal](sql-database-copy.md) (Copia de una base de datos SQL de Azure mediante el Portal de Azure) para obtener información general de copiar una base de datos de SQL Azure.
+- Consulte [Copiar una base de datos SQL de Azure](sql-database-copy.md) para obtener información sobre cómo copiar una base de datos SQL de Azure.
 - Consulte [Copia de una Base de datos SQL de Azure con PowerShell](sql-database-copy-powershell.md) para copiar una base de datos mediante PowerShell.
 - Consulte [Copia de una Base de datos SQL de Azure con Transact-SQL](sql-database-copy-transact-sql.md) para copiar una base de datos mediante Transact-SQL.
 - Consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar usuarios e inicios de sesión al copiar una base de datos a un servidor lógico diferente.
@@ -96,4 +97,4 @@ Para resolver los inicios de sesión una vez completada la operación de copia, 
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

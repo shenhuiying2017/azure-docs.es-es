@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Uso de conjuntos de escalado de máquinas virtuales con la extensión de DSC de Azure
 
-Los [conjuntos de escalado de máquinas virtuales (VMSS)](virtual-machines-windows-vmss-powershell-creating.md) pueden utilizarse con el controlador de extensiones de [configuración de estado deseado (DSC) de Azure](virtual-machines-windows-extensions-dsc-overview.md). Los VMSS se emplean para configurar la implementación de máquinas virtuales con el objetivo de cumplir los requisitos de carga. DSC se utiliza para configurar las máquinas virtuales a medida que se conecten, ya que ejecutan el software de producción.
+Los [conjuntos de escalado de máquinas virtuales (VMSS)](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pueden utilizarse con el controlador de extensiones de [configuración de estado deseado (DSC) de Azure](virtual-machines-windows-extensions-dsc-overview.md). VMSS proporciona una manera de implementar y administrar un gran número de máquinas virtuales, y se puede escalar y reducir horizontalmente en respuesta a la carga. DSC se utiliza para configurar las máquinas virtuales a medida que se conecten, ya que ejecutan el software de producción.
 
 ## Diferencias entre implementar máquinas virtuales y VMSS
 
@@ -98,4 +98,13 @@ Un nodo de VMSS tiene una sección properties con el atributo extensionProfile d
 
 El comportamiento de los VMSS es idéntico al de una sola máquina virtual. Cuando se crea una nueva máquina virtual, se aprovisiona automáticamente con la extensión de DSC. Si la extensión requiere una versión más reciente de WMF, se reinicia la máquina virtual antes de conectarse. Cuando se conecta, descarga el archivo .zip de configuración de DSC y lo aprovisiona en la máquina virtual. Pueden encontrar más información en el artículo de [introducción a la extensión de DSC de Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+## Pasos siguientes ##
+Examine la [plantilla de Azure Resource Manager para la extensión de DSC](virtual-machines-windows-extensions-dsc-template.md).
+
+Obtenga información sobre cómo la [extensión de DSC administra de forma segura las credenciales](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md).
+
+Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

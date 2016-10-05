@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="09/21/2016" 
 	ms.author="stefsch"/>
 
 # Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
@@ -29,7 +29,7 @@ Hay tres pasos implicados en la automatización de la creación de un ASE de ILB
 ## Creación del ASE de ILB base ##
 [Aquí][quickstartilbasecreate], en GitHub, encontrará un ejemplo de plantilla de Azure Resource Manager y su archivo de parámetros asociados.
 
-La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes en la creación de los dos ASE de ILB, así como de los ASE enlazados a una VIP pública. La lista siguiente llama a los parámetros especiales o únicos al crear un ASE de ILB:
+La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los dos ASE de ILB, así como de los ASE enlazados a una VIP pública. La lista siguiente llama a los parámetros especiales o únicos al crear un ASE de ILB:
 
 
 - *interalLoadBalancingMode*: en la mayoría de los casos se establece en 3, lo que significa que el tráfico HTTP/HTTPS de los puertos 80 y 443 y los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada al ILB. Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB, mientras que el tráfico HTTP/HTTPS permanecerá en la VIP pública.
@@ -43,7 +43,7 @@ Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE
     
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse. Una vez que la creación se completa, el ASE de ILB se mostrará en el portal, en la lista de entornos del Servicio de aplicaciones de la suscripción que desencadenó la implementación.
+Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse. Una vez completada la creación, el ASE de ILB se mostrará en el portal, en la lista de entornos de App Service de la suscripción que desencadenó la implementación.
 
 ## Carga y configuración del certificado SSL "predeterminado" ##
 
@@ -81,7 +81,7 @@ Los parámetros del archivo *azuredeploy.parameters.json* se enumeran a continua
 - *pfxBlobString*: la representación de la cadena base64 codificada del archivo pfx. Mediante el fragmento de código que se ha mostrado anteriormente, se copiaría la cadena de "exportedcert.pfx.b64" y se pegaría como el valor del atributo *pfxBlobString*.
 - *password*: la contraseña que se usa para proteger el archivo pfx.
 - *certificateThumbprint*: la huella digital del certificado. Si este valor se recupera de Powershell (por ejemplo, *$certificate.Thumbprint* del fragmento de código anterior), se puede usar tal cual. Sin embargo, si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos. *certificateThumbprint* debería ser similar a: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-- *certificateName*: un identificador de cadena fácil de usar que elija y que se usa para identificar el certificado. El nombre se utiliza como parte del identificador único de Azure Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado SSL.
+- *certificateName*: un identificador de cadena fácil de usar que elija y que se usa para identificar el certificado. El nombre se utiliza como parte del identificador único de Azure Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado SSL. El nombre **debe** terminar con el sufijo siguiente: \_yourASENameHere\_InternalLoadBalancingASE. El portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
 
 
 A continuación se muestra un ejemplo abreviado de *azuredeploy.parameters.json*:
@@ -107,12 +107,12 @@ A continuación se muestra un ejemplo abreviado de *azuredeploy.parameters.json*
                    "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
               },
               "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere"
+                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
               }
          }
     }
 
-Una vez que se ha rellenado el archivo *azuredeploy.parameters.json*, se puede configurar el certificado SSL mediante el siguiente fragmento de código de Powershell. Cambie las carpetas PATH del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Azure Resource Manager. Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
+Una vez rellenado el archivo *azuredeploy.parameters.json*, se puede configurar el certificado SSL predeterminado mediante el siguiente fragmento de código de Powershell. Cambie las carpetas PATH del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Azure Resource Manager. Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -128,9 +128,9 @@ Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multii
 
 ## Introducción
 
-Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md).
+Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 
-Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en [Documentación del Entorno del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -142,4 +142,4 @@ Todos los artículos y procedimientos correspondientes a los entornos del Servic
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

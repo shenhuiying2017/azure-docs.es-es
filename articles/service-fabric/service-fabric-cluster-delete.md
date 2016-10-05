@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Eliminación de un clúster y los recursos que contiene | Microsoft Azure"
+   pageTitle="Eliminación de un clúster de Azure y los recursos que contiene | Microsoft Azure"
    description="Aprenda a eliminar completamente un clúster de Service Fabric, bien mediante la eliminación del grupo de recursos que contiene el clúster o por medio de la eliminación selectiva de recursos."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# Eliminación de un clúster de Service Fabric y de los recursos que utiliza
+# Eliminación de un clúster de Service Fabric en Azure y de los recursos que usa
 
-Un clúster de Service Fabric está formado por muchos otros recursos de Azure, además del recurso del clúster propiamente dicho. De modo que, para eliminar completamente un clúster de Service Fabric, también debe eliminar todos los recursos que lo componen. Para ello, tiene dos opciones: eliminar el grupo de recursos en el que se encuentra el clúster (lo que elimina el recurso del clúster y todos los demás recursos del grupo) o eliminar específicamente el recursos del clúster y sus recursos asociados (pero ningún otro recurso del grupo).
+Un clúster de Service Fabric está formado por muchos otros recursos de Azure, además del recurso del clúster propiamente dicho. Así que, para eliminar completamente un clúster de Service Fabric, también debe eliminar todos los recursos que lo componen. Tiene dos opciones: eliminar el grupo de recursos en el que se encuentra el clúster (lo que elimina el recurso del clúster y todos los demás recursos del grupo) o eliminar específicamente el recurso del clúster y sus recursos asociados (pero ningún otro recurso del grupo).
 
 >[AZURE.NOTE] Con la eliminación del recurso del clúster **no** se eliminan todos los demás recursos de los que consta el clúster de Service Fabric.
 
@@ -38,14 +38,14 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Si no ha utilizado la opción *-Force*, recibirá un mensaje para confirmar la eliminación. Tras la confirmación, el grupo de recursos y todos los recursos que contienen se eliminarán.
+Si no ha utilizado la opción *-Force*, recibirá un mensaje para confirmar la eliminación. Tras la confirmación, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 ### Eliminación de un grupo de recursos en el Portal de Azure  
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
 3. Haga clic en el nombre del grupo de recursos en la página de información básica del clúster.
-4. Se abrirá la página **Resource Group Essentials** (Información básica del grupo de recursos).
+4. Se abre la página **Resource Group Essentials** (Información básica del grupo de recursos).
 5. Hacer clic en **Eliminar**.
 6. Siga las instrucciones que se indican en esa página para completar la eliminación del grupo de recursos.
 
@@ -56,13 +56,13 @@ Si no ha utilizado la opción *-Force*, recibirá un mensaje para confirmar la e
 
 Si el grupo de recursos tiene únicamente recursos que están relacionados con el clúster de Service Fabric que quiere eliminar, lo más sencillo es eliminar el grupo de recursos completo. Si quiere eliminar de forma selectiva los recursos del grupo uno a uno, siga los pasos que se muestra a continuación.
 
-Si ha implementado el clúster mediante el portal o por medio de una de las plantillas de ARM de Service Fabric de la galería de plantillas, entonces todos los recursos del clúster están etiquetados con las dos etiquetas siguientes. Puede utilizarlas para decidir qué recursos quiere eliminar.
+Si ha implementado el clúster mediante el portal o por medio de una de las plantillas de Resource Manager de Service Fabric de la galería de plantillas, entonces todos los recursos del clúster están etiquetados con las dos etiquetas siguientes. Puede utilizarlas para decidir qué recursos quiere eliminar.
 
-***Etiqueta 1 :*** Clave = clusterName, valor = 'nombre del clúster'
+***Etiqueta 1:*** Clave = clusterName, valor = 'nombre del clúster'
 
 ***Etiqueta 2:*** Clave = resourceName, valor = ServiceFabric
 
-### Eliminación de recursos específicos en el Portal de Azure
+### Eliminación de recursos específicos en Azure Portal
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
@@ -111,4 +111,4 @@ Lea la siguiente información para saber también sobre la actualización de un 
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

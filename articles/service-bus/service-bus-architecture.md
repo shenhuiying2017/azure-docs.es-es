@@ -23,7 +23,7 @@ En este artículo se describe la arquitectura de procesamiento de Retransmisión
 
 El Bus de servicio se organizada por *unidades de escala*. Una unidad de escalado es una unidad de implementación y contiene todos los componentes necesarios para ejecutar el servicio. Cada región implementa una o más unidades de escala del Bus de servicio.
 
-Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La unidad de escalado controla todos los tipos de entidades del Bus de servicio: retransmisiones y entidades de mensajería asincrónica (colas, temas, suscripciones). Una unidad de escalado del Bus de servicio consta de los siguientes componentes:
+Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La unidad de escalado controla todos los tipos de entidades de Service Bus: retransmisiones y entidades de mensajería asincrónica (colas, temas, suscripciones). Una unidad de escalado del Bus de servicio consta de los siguientes componentes:
 
 - **Un conjunto de nodos de puerta de enlace.** Los nodos de puerta de enlace autentican las solicitudes entrantes y controlan las solicitudes de retransmisión. Cada nodo de puerta de enlace tiene una dirección IP pública.
 
@@ -31,7 +31,7 @@ Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La
 
 - **Un almacén de puerta de enlace.** El almacén de puerta de enlace contiene los datos para todas las entidades que se definen en esta unidad de escalado. El almacén de puerta de enlace se implementa sobre una base de datos SQL de Azure.
 
-- **Varios almacenes de mensajería.** Los almacenes de mensajería contienen los mensajes de todas las colas, los temas y las suscripciones que se definen en esta unidad de escalado. También contiene todos los datos de suscripción. A menos que estén habilitadas las [entidades de mensajería con particiones](service-bus-partitioning.md), se asigna una cola o un tema a un almacén de mensajería. Las suscripciones se almacenan en el mismo almacén de mensajería como su tema principal. Excepto en el caso de la [mensajería Premium](service-bus-premium-messaging.md) del Bus de servicio, los almacenes de mensajería se implementan sobre bases de datos SQL Azure.
+- **Varios almacenes de mensajería.** Los almacenes de mensajería contienen los mensajes de todas las colas, los temas y las suscripciones que se definen en esta unidad de escalado. También contiene todos los datos de suscripción. A menos que estén habilitadas las [entidades de mensajería con particiones](../service-bus-messaging/service-bus-partitioning.md), se asigna una cola o un tema a un almacén de mensajería. Las suscripciones se almacenan en el mismo almacén de mensajería como su tema principal. Excepto en el caso de la [mensajería Premium](../service-bus-messaging/service-bus-premium-messaging.md) de Service Bus, los almacenes de mensajería se implementan sobre bases de datos SQL Azure.
 
 ## Contenedores
 
@@ -55,8 +55,8 @@ Cuando se establece la conexión de retransmisión, los clientes pueden intercam
 
 Ahora que ha leído la información general sobre la arquitectura del Bus de servicio, visite los siguientes vínculos para empezar:
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+- [Introducción a la mensajería del Bus de servicio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
-- [Una solución de mensajería en cola mediante las colas de Bus de servicio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Una solución de mensajería en cola mediante las colas de Bus de servicio](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

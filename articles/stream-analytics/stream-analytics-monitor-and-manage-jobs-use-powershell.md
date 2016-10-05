@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -62,7 +62,7 @@ Azure PowerShell 1.0:
 Se pueden usar los siguientes cmdlets de PowerShell de Azure para supervisar y administrar trabajos de Análisis de transmisiones de Azure. Tenga en cuenta que Azure PowerShell tiene versiones diferentes. **En los ejemplos que se muestran el primer comando es para Azure PowerShell 0.9.8 y el segundo para Azure PowerShell 1.0.** Los comandos de Azure PowerShell 1.0 siempre tendrán incluido "AzureRM" en el comando.
 
 ### Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
-Muestra todos los trabajos de Análisis de transmisiones definidos en la suscripción de Azure o en el grupo de recursos especificado, u obtiene información del trabajo sobre un trabajo específico en un grupo de recursos.
+Muestra todos los trabajos de Stream Analytics definidos en la suscripción de Azure o en el grupo de recursos especificado, u obtiene información del trabajo sobre un trabajo específico en un grupo de recursos.
 
 **Ejemplo 1**
 
@@ -74,7 +74,7 @@ Azure PowerShell 1.0:
 
 	Get-AzureRMStreamAnalyticsJob
 
-Este comando de PowerShell devuelve información acerca de todos los trabajos de Análisis de transmisiones en la suscripción de Azure.
+Este comando de PowerShell devuelve información sobre todos los trabajos de Stream Analytics en la suscripción de Azure.
 
 **Ejemplo 2**
 
@@ -398,7 +398,7 @@ Este comando de PowerShell inicia el trabajo StreamingJob con una hora de inicio
 
 
 ### Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-Detiene la ejecución de un trabajo de Análisis de transmisiones en Microsoft Azure y desasigna recursos que se usaban de forma asincrónica. La definición del trabajo y los metadatos seguirán estando disponible en su suscripción a través del Portal de Azure y de las API de administración, para que el trabajo se pueda editar y reiniciar. No se realizará ningún cobro por un trabajo en estado Detenido.
+Detiene la ejecución de un trabajo de Análisis de transmisiones en Microsoft Azure y desasigna recursos que se usaban de forma asincrónica. La definición del trabajo y los metadatos seguirán estando disponible en su suscripción a través de Azure Portal y de las API de administración, para que el trabajo se pueda editar y reiniciar. No se realizará ningún cobro por un trabajo en estado Detenido.
 
 **Ejemplo 1**
 
@@ -472,4 +472,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

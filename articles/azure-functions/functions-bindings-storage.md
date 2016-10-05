@@ -461,6 +461,21 @@ public class Person
 }
 ```
 
+El siguiente ejemplo de código de F# también funciona con el archivo *function.json* anterior para leer una entidad de tabla individual.
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+```
+
 El siguiente ejemplo de código de Node también funciona con el archivo *function.json* anterior para leer una entidad de tabla individual.
 
 ```javascript
@@ -567,6 +582,47 @@ public class Person
 
 ```
 
+#### Ejemplo de tablas de almacenamiento: creación de entidades de tabla en F#
+
+El siguiente ejemplo de *function.json* y *run.csx* muestra cómo escribir entidades de tabla en F#.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
 #### Ejemplo de tablas de almacenamiento: creación de una entidad de tabla en Node
 
 El siguiente ejemplo de *function.json* y *run.csx* muestra cómo escribir una entidad de tabla en Node.
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

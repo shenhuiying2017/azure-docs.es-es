@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Integración de Azure AD en una aplicación Android
@@ -100,7 +100,7 @@ Para compilar con Maven, puede utilizar pom.xml en el nivel superior.
   * Configure el emulador con SDK 19.
   * Vaya a la carpeta raíz donde ha clonado el repositorio.
   * Ejecute el comando: mvn clean install.
-  * Acceda al directorio de la muestra de inicio rápido: cd samples\\hello.
+  * Acceda al directorio de la muestra de inicio rápido: cd samples\hello.
   * Ejecute el comando: mvn android:deploy android:run.
   * La aplicación debería iniciarse.
   * Escriba las credenciales del usuario de prueba para probarlas.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -288,9 +288,9 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Con procedimiento, debe contar con todo lo necesario para lograr una integración correcta con Azure Active Directory. Para obtener más ejemplos de este trabajo, visite el repositorio AzureADSamples/ en GitHub.
@@ -418,7 +418,7 @@ ADAL cifra los tokens y los almacena en SharedPreferences de forma predeterminad
 
 ### Desafío de portador de Oauth2
 
-La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization\_uri a partir del desafío de portador de Oauth2.
+La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization_uri a partir del desafío de portador de Oauth2.
 
 ### Cookies de sesión en WebView
 
@@ -458,4 +458,4 @@ Obtenga información sobre la [Habilitación de SSO entre aplicaciones en Androi
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0921_2016-->

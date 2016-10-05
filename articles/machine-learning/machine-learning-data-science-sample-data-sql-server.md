@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestreo de datos en SQL Server en Azure
@@ -25,7 +25,7 @@ El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/
 
 >[AZURE.NOTE] En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no es así, consulte el tema [Mover datos a un servidor SQL Server en una máquina virtual de Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obtener instrucciones sobre cómo mover los datos a SQL Server en Azure.
 
-**¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de ciencia de datos en equipos es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+**¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
 El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
 
@@ -60,7 +60,7 @@ Tablesample se puede usar para el muestreo, como se muestra a continuación. Pod
 
 ###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
-Puede utilizar directamente las consultas de ejemplo anteriores en el módulo Importar datos de Aprendizaje automático de Azure para reducir los datos sobre la marcha y usarlos en un experimento de Aprendizaje automático de Azure. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
+Puede utilizar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
    
 ![lector sql][1]
 
@@ -83,7 +83,7 @@ Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas.
 
 ###<a name="python-aml"></a>Conexión con Aprendizaje automático de Azure
 
-Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Aprendizaje automático de Azure mediante el *módulo Importar datos*. Los pasos son los siguientes:
+Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo [Importar datos][import-data]. Los pasos son los siguientes:
 
 1. Escribir la trama de datos de Pandas en un archivo local
 
@@ -111,7 +111,7 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leer datos de un blob de Azure mediante el *módulo Importar datos* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
+3. Leer datos de un blob de Azure mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra en la captura de pantalla siguiente:
  
 ![lector de blobs][2]
 
@@ -122,6 +122,6 @@ Para ver un ejemplo de tutorial completo del proceso de ciencia de datos en equi
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
- 
+ [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

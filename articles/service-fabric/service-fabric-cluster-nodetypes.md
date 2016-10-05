@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 
 # Relación entre los tipos de nodos de Service Fabric y los conjuntos de escalado de máquinas virtuales
 
-Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
+Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de VM independiente. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
 
 En la siguiente captura de pantalla, se muestra un clúster que tiene dos tipos de nodos: front-end y back-end. A su vez, cada tipo de nodo tiene cinco nodos.
 
@@ -27,23 +27,23 @@ En la siguiente captura de pantalla, se muestra un clúster que tiene dos tipos 
 
 ## Asignación de instancias de conjuntos de escalado de máquinas virtuales a los nodos
 
-Como se ha indicado anteriormente, las instancias de conjuntos de escalado de máquinas virtuales comienzan por la instancia 0 y van aumentando. La numeración se refleja en los nombres. Por ejemplo, BackEnd\_0 es la instancia 0 del conjunto de escalado de máquinas virtuales de back-end. En concreto, este conjunto de escalado de máquinas virtuales tiene cinco instancias, denominadas BackEnd\_0, BackEnd\_1, BackEnd\_2, BackEnd\_3 y BackEnd\_4.
+Como se ha indicado anteriormente, las instancias de conjuntos de escalado de máquinas virtuales comienzan por la instancia 0 y van aumentando. La numeración se refleja en los nombres. Por ejemplo, BackEnd_0 es la instancia 0 del conjunto de escalado de VM de BackEnd. Este conjunto de escala de VM en particular tiene cinco instancias llamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 y BackEnd_4.
 
-Al escalar verticalmente un conjunto de escalado de máquinas virtuales, se crea una nueva instancia. El nuevo nombre de instancia de conjunto de escalado de máquinas virtuales será normalmente el nombre del conjunto de escalado de máquinas virtuales seguido del número de instancia. En nuestro ejemplo, será BackEnd\_5.
+Al escalar verticalmente un conjunto de escalado de máquinas virtuales, se crea una nueva instancia. El nuevo nombre de instancia de conjunto de escalado de máquinas virtuales será normalmente el nombre del conjunto de escalado de máquinas virtuales seguido del número de instancia. En nuestro ejemplo, es BackEnd\_5.
 
 
 ## Asignación de equilibradores de carga de conjunto de escalado de máquinas virtuales a cada tipo de nodo o conjunto de escalado de máquinas virtuales
 
-Si ha implementado el clúster desde el portal o ha usado la plantilla ARM de ejemplo que le hemos proporcionado, al mostrar una lista de todos los recursos incluidos en un grupo de recursos, verá los equilibradores de carga para cada conjunto de escalado de máquinas virtuales o cada tipo de nodo.
+Si ha implementado el clúster desde el portal o ha usado la plantilla de Azure Resource Manager que le hemos proporcionado, al mostrar una lista de todos los recursos incluidos en un grupo de recursos, verá los equilibradores de carga para cada conjunto de escalado de VM o tipo de nodo.
 
-El nombre sería algo parecido a: **LB-&lt;nombre tipo nodo&gt;**. Por ejemplo, LB-sfcluster4doc-0, como se muestra en esta captura de pantalla:
+El nombre sería algo parecido a: **LB-&lt;nombre de tipo de nodo&gt;**. Por ejemplo, LB-sfcluster4doc-0, como se muestra en esta captura de pantalla:
 
 
 ![Recursos][Resources]
 
 
 ## Conexión remota a una instancia de conjunto de escalado de máquinas virtuales o un nodo de clúster
-Cada tipo de nodo que se define en un clúster está configurado como un conjunto de escalado de máquinas virtuales independiente. Esto significa que los tipos de nodos se pueden escalar o reducir verticalmente de forma independiente y que pueden estar formados por diferentes SKU de máquina virtual. A diferencia de las máquinas virtuales de instancia única, las instancias de conjunto de escalado de máquinas virtuales no obtienen una dirección IP virtual por sí mismas. Por lo que puede ser un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
+Cada tipo de nodo que se define en un clúster está configurado como un conjunto de escalado de VM independiente. Esto significa que los tipos de nodos se pueden escalar o reducir verticalmente de forma independiente y que pueden estar formados por diferentes SKU de máquina virtual. A diferencia de las máquinas virtuales de instancia única, las instancias de conjunto de escalado de máquinas virtuales no obtienen una dirección IP virtual por sí mismas. Por lo que puede ser un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
 
 Estos son los pasos que puede seguir para detectarlos.
 
@@ -64,7 +64,7 @@ En **Configuración**, haga clic en **Reglas NAT de entrada**. Aquí verá la di
 
 Anteriormente en este documento, se describió la forma de asignar instancias de conjunto de escalado de máquinas virtuales a los nodos. Usaremos ese procedimiento para averiguar el puerto exacto.
 
-Los puertos se asignan en orden ascendente de la instancia del conjunto de escalado de máquinas virtuales, por lo que, en el ejemplo del tipo de nodo de front-end, los puertos para cada una de las cinco instancias serán los siguientes. Ahora, hay que realizar la misma asignación para la instancia del conjunto de escalado de máquinas virtuales.
+Los puertos se asignan en orden ascendente de la instancia del conjunto de escalado de VM, por lo que, en el ejemplo del tipo de nodo de front-end, los puertos para cada una de las cinco instancias serán los siguientes. Ahora, hay que realizar la misma asignación para la instancia del conjunto de escalado de VM.
 
 |**Instancia de conjunto de escalado de VM**|**Puerto**|
 |-----------------------|--------------------------|
@@ -86,7 +86,7 @@ En la siguiente captura de pantalla, se usa la conexión a escritorio remoto par
 
 ### Antes de la implementación del clúster
 
-Cuando se configura el clúster mediante una plantilla ARM, se puede especificar el intervalo en **inboundNatPools**.
+Cuando se configura el clúster mediante una plantilla de Azure Resource Manager, se puede especificar el intervalo en **inboundNatPools**.
 
 Acceda a la definición de recursos para **Microsoft.Network/loadBalancers**. Ahí encontrará la descripción de **inboundNatPools**. Reemplace los valores de *frontendPortRangeStart* y *frontendPortRangeEnd*.
 
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

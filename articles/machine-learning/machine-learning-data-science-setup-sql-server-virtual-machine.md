@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -80,7 +80,6 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Inicio (aprovisionamiento)
     -   Ejecución (aprovisionamiento)
     -   Ejecución
-
 
 ##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
 
@@ -220,7 +219,7 @@ Para crear nuevos inicios de sesión de SQL Server con SQL Server Management Stu
 
 11. Si este es el primer inicio de sesión que crea, es posible que desee designar este inicio de sesión como administrador de SQL Server. Si es así, en la página **Roles de servidor**, active **sysadmin**.
 
-    **Nota de seguridad:** Los miembros del rol del servidor fijo sysadmin tienen el control completo del motor de base de datos. Deberá restringir cuidadosamente la suscripción en este rol.
+    > [AZURE.IMPORTANT] los miembros del rol del servidor fijo sysadmin tienen el control completo del motor de base de datos. Deberá restringir cuidadosamente la suscripción en este rol por motivos de seguridad.
 
     ![sysadmin][12]
 
@@ -307,4 +306,4 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en [d
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

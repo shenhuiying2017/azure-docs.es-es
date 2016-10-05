@@ -95,4 +95,4 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 - Más información sobre [NSG](virtual-networks-nsg.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

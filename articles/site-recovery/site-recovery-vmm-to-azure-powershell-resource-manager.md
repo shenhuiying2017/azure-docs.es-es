@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/16/2016"
 	ms.author="rajanaki"/>
 
 # Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell y Azure Resource Manager
@@ -35,11 +35,11 @@ En este artículo se muestra cómo usar PowerShell para automatizar tareas comun
 El artículo incluye los requisitos previos para el escenario y muestra
 
 - Configuración del almacén de Servicios de recuperación
-- Instalación del proveedor de Azure Site Recovery en un servidor VMM 
+- Instalación del proveedor de Azure Site Recovery en un servidor VMM
 - Registro del servidor en el almacén e incorporación de una cuenta de almacenamiento de Azure
 - Instalación del agente de Servicios de recuperación de Azure en servidores host de Hyper-V
-- Configuración de las opciones de protección para nubes VMM, que se aplicarán a todas las máquinas virtuales protegidas 
-- Habilite la protección para esas máquinas virtuales. 
+- Configuración de las opciones de protección para nubes VMM, que se aplicarán a todas las máquinas virtuales protegidas
+- Habilite la protección para esas máquinas virtuales.
 - Compruebe la conmutación por error para asegurarse de que todo funciona según lo esperado.
 
 Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -75,7 +75,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 ### Requisitos previos de Hyper-V
 
 - Los servidores host de Hyper-V deben estar ejecutando al menos Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.
-- Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. Para 
+- Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. Para
 - Para obtener instrucciones, vea la información sobre [configuración del Agente de réplicas de Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Cualquier servidor o clúster del host de Hyper-V para el que desee administrar la protección debe incluirse en una nube de VMM.
 
@@ -99,9 +99,9 @@ Más información sobre asignación de redes en
 
 
 ###Requisitos previos de PowerShell
-Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para más información sobre cómo configurar PowerShell, vea la [guía para instalar y configurar Azure PowerShell](../powershell-install-configure.md). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
+Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para obtener más información sobre cómo configurar PowerShell, lea la [guía para instalar y configurar Azure PowerShell](../powershell-install-configure.md). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
 
-Para ver sugerencias que puedan ayudarlo a usar los cmdlets, como, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell, vea la [guía de introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell—, lea la [guía de introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## Paso 1: Establecimiento de la suscripción 
 
@@ -345,4 +345,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 [Más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@ La tabla siguiente enumera los requisitos para las puertas de enlace VPN basadas
 
 | | **Puerta de enlace de VPN básica basada en directivas** | **Puerta de enlace de VPN básica basada en enrutamientos** | **Puerta de enlace de VPN estándar basada en enrutamientos** | **Puerta de enlace de VPN de alto rendimiento basada en enrutamientos** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-| **Conectividad de sitio a sitio (S2S)** | Configuración de VPN basada en directivas | Configuración de VPN basada en enrutamiento | Configuración de VPN basada en enrutamiento | Configuración de VPN basada en enrutamiento |
+| **Conectividad de sitio a sitio (S2S)** | Configuración de VPN de PolicyBased | Configuración de VPN de RouteBased | Configuración de VPN de RouteBased | Configuración de VPN de RouteBased |
 | **Conectividad de punto a sitio (P2S**) | No compatible | Compatible (puede coexistir con S2S) | Compatible (puede coexistir con S2S) | Compatible (puede coexistir con S2S) |
 | **Método de autenticación** | Clave precompartida | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S |
 | **Número máximo de conexiones S2S** | 1 | 10 | 10 | 30 |
@@ -11,4 +11,4 @@ La tabla siguiente enumera los requisitos para las puertas de enlace VPN basadas
 |**Compatibilidad con enrutamiento activo (BGP)** | No compatible | No compatible | Compatible | Compatible |
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

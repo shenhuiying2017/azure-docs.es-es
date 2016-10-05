@@ -46,7 +46,7 @@ Una configuración común de SQL Server tiene un extremo que escucha en el puert
 Existen dos formas de restringir el tráfico a este extremo:
 
 
-- [Listas de control de acceso de red][NetworkAccessControlLists] (ACL de red)
+- [Listas de control de acceso de red][NetworkAccessControlLists] \(ACL de red)
 
 - [Grupos de seguridad de red][NetworkSecurityGroups]
 

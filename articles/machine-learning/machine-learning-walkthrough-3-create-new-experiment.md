@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -41,7 +41,8 @@ El siguiente paso de este tutorial es crear un nuevo experimento en Estudio de a
 3.	En la paleta de módulos, a la izquierda del lienzo de experimentos, expanda **Conjuntos de datos guardados**.
 4.	Busque el conjunto de datos que ha creado en **Mis conjuntos de datos** y arrástrelo al lienzo. También puede buscar el conjunto de datos escribiendo su nombre en el cuadro **Buscar** que está encima de la paleta.
 
-##Preparación de los datos
+## Preparación de los datos
+
 Para ver las primeras 100 filas de datos y alguna información estadística de todo el conjunto de datos, haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.
 
 Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). Los encabezados buenos no son esenciales para crear un modelo, pero facilitarán el trabajo con los datos en el experimento. Además, si finalmente se publicara este modelo en un servicio web, los encabezados ayudarían al usuario del servicio a identificar las columnas.
@@ -75,7 +76,8 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
 
 > [AZURE.TIP] Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse (aparecerá una marca de verificación verde en [Editar metadatos][edit-metadata]), haga clic en el puerto de salida del módulo [Editar metadatos][edit-metadata] y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
 
-##Creación de conjuntos de datos de entrenamiento y prueba
+## Creación de conjuntos de datos de entrenamiento y prueba
+
 El siguiente paso del experimento es generar conjuntos de datos independientes que se utilizarán para entrenar y probar nuestro modelo.
 
 Para ello, utilizamos el módulo [Dividir datos][split].
@@ -130,4 +132,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

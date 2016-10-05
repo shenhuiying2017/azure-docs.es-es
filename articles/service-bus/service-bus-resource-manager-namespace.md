@@ -26,7 +26,7 @@ Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres del
 
 >[AZURE.NOTE] Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
 >
->-    [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md) (Creación de un espacio de nombres de Centros de eventos con un Centro de eventos y un grupo de consumidores)
+>-    [Create an Event Hubs namespace with an Event Hub and consumer group (Creación de un espacio de nombres de Centros de eventos con un Centro de eventos y un grupo de consumidores)](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
@@ -35,7 +35,7 @@ Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres del
 
 ## ¿Qué va a implementar?
 
-Con esta plantilla, implementará un espacio de nombres de Bus de servicio con una SKU de nivel [básico o estándar](https://azure.microsoft.com/pricing/details/service-bus/).
+Con esta plantilla, implementará un espacio de nombres de Service Bus con una SKU de nivel [básico, estándar o premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -69,7 +69,8 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
 
 ```
 
-La plantilla define los valores permitidos para este parámetro (Básico o Estándar) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
-
-Hay un cargo base para el nivel Estándar de 10 $ al mes, que le permite realizar hasta 12,5 millones de operaciones al mes sin ningún costo adicional. El nivel Básico cuesta 0,05 $ por cada millón de operaciones.
+La plantilla define los valores permitidos para este parámetro (Básico, Estándar o Premium) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
 
 Para más información sobre los precios de Bus de servicio, consulte [Precios y facturación de Bus de servicio][].
 
@@ -154,4 +153,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

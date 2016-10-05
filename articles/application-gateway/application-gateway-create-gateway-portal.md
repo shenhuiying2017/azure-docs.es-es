@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Creación de una puerta de enlace de aplicaciones mediante el portal
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples. Para obtener una lista completa de las características admitidas, visite [Introducción a Puerta de enlace de aplicaciones](application-gateway-introduction.md).
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md).
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](application-gateway-create-gateway-portal.md)
@@ -83,7 +83,7 @@ Haga clic en **Elegir una red virtual** para configurar la red virtual.
 
 En la hoja *Elegir red virtual*, haga clic en **Crear nuevo**
 
-Aunque no se explica en este escenario, en este momento se puede seleccionar una red virtual existente. Si se utiliza una red virtual existente, es importante saber que necesita una subred vacía o una de red virtual con solo los recursos de Application gateway para poder utilizarse.
+Aunque no se explica en este escenario, en este momento se puede seleccionar una red virtual existente. Si se utiliza una red virtual existente, es importante saber que necesita una subred vacía o una de red virtual con solo los recursos de la puerta de enlace de aplicaciones para utilizarse.
 
 ![elegir hoja de red virtual][4]
 
@@ -157,4 +157,4 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

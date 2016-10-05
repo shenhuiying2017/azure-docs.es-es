@@ -13,9 +13,9 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="09/12/2016" 
 	ms.author="anbacker"/>
-
+ 
 
 # Descripción de la replicación de Hyper-V con Azure Site Recovery
 
@@ -24,7 +24,7 @@ En este artículo se describen los conceptos técnicos que le ayudarán a config
 ## Descripción de los componentes
 
 ### Implementación de sitios de Hyper-V o VMM para la replicación entre el entorno local y Azure.
-
+ 
 Como parte de la configuración de la recuperación ante desastres entre el sitio local local y Azure; es necesario descargar e instalar el proveedor de Azure Site Recovery Provider en el servidor VMM junto con el agente de Servicios de recuperación de Azure que debe instalarse en cada host de Hyper-V.
 
 ![Implementación del sitio de VMM para la replicación entre el sitio local y Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)
@@ -36,11 +36,11 @@ La implementación de sitios de Hyper-V es igual que la implementación de VMM, 
 ### Habilitar protección
 Una vez que protege una máquina virtual en el portal o de forma local, se inicia un trabajo de ASR denominado *Habilitar protección* que se puede supervisar en la pestaña TRABAJOS.
 
-![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/image01.png)
+![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)
 
 El trabajo *Habilitar protección* comprueba los requisitos previos antes de invocar a [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), que crea la replicación en Azure mediante las entradas configuradas durante la protección. El trabajo *Habilitar protección* comienza la replicación inicial del entorno local mediante la invocación de [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), que envía los discos virtuales de la máquina virtual a Azure.
 
-![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/image02.png)
+![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/IMAGE002.PNG)
 
 ### Finalizar la protección
 Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx). Los discos duros virtuales se procesan uno a uno hasta que todos los discos se cargan en Azure. Normalmente esta operación tarda un rato en completarse en función del tamaño del disco y el ancho de banda. Consulte [Administración del uso del ancho de banda de red para la protección del entorno local con Azure](https://support.microsoft.com/kb/3056159) para optimizar el uso de la red. Una vez que finaliza la replicación inicial, el trabajo *Finalizar la protección en la máquina virtual* configura las opciones de red y posteriores a la replicación. Mientras la replicación inicial está en curso, se realiza un seguimiento de todos los cambios en los discos, como se menciona en la sección Replicacion diferencial a continuación. Además, se consume espacio en disco adicional para la instantánea y los archivos HRL. Al finalizar una replicación inicial, la instantánea de máquina virtual de Hyper-V se elimina, lo que dará lugar a la combinación de los cambios en los datos con posterioridad a la replicación inicial en el disco primario.
@@ -57,7 +57,9 @@ Una máquina virtual se marca para resincronización cuando la replicación dife
 
 Una vez finalizada la resincronización, se debe reanudar la replicación diferencial. La resincronización se puede reanudar en caso de una interrupción (por ejemplo, de la red, o de un bloqueo de VMMS, entre otros).
 
-De forma predeterminada, la *resincronización programada automáticamente* se configura fuera del horario de oficina. Si necesita volver a sincronizar manualmente la máquina virtual, seleccione la máquina virtual en el portal y haga clic en VOLVER A SINCRONIZAR. ![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/image04.png)
+De forma predeterminada, la *resincronización programada automáticamente* se configura fuera del horario de oficina. Si necesita volver a sincronizar manualmente la máquina virtual, seleccione la máquina virtual en el portal y haga clic en VOLVER A SINCRONIZAR.
+
+![Solucionar problemas de Hyper-V locales](media/site-recovery-understanding-site-to-azure-protection/image04.png)
 
 La resincronización usa un algoritmo de fragmentación de bloques fijos donde los archivos de origen y destino se dividen en fragmentos fijos; se generan sumas de comprobación para cada fragmento y, luego, se comparan para determinar qué bloques del origen se deben aplicar al destino.
 
@@ -79,4 +81,4 @@ Cuando se producen errores de replicación, existe una lógica de reintento inte
 - [Contacto con el soporte técnico de Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Errores de ASR comunes y sus soluciones](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0921_2016-->

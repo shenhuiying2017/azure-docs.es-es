@@ -19,7 +19,7 @@
 
 # Importación de datos en Búsqueda de Azure con el Portal
 
-El portal de Azure incluye un comando **Importar datos** en el panel de Azure Search que le permite cargar datos en un índice.
+Azure Portal incluye un comando **Importar datos** en el panel de Azure Search que le permite cargar datos en un índice.
 
   ![Importación de datos en la barra de comandos][1]
 
@@ -34,7 +34,7 @@ Puede probar este flujo de trabajo con datos de ejemplo en DocumentDB. Visite [I
 
 ## Orígenes de datos admitidos por el Asistente para la importación de datos
 
-La automatización de la indexación y las herramientas están disponible para los orígenes de datos siguientes:
+El Asistente para importación de datos admite los siguientes orígenes de datos:
 
 - Base de datos SQL de Azure
 - Datos relacionales de SQL Server en una máquina virtual de Azure
@@ -119,4 +119,4 @@ Siga estos vínculos para más información sobre los indexadores:
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

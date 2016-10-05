@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="vittorib"/>
 
 # Integración de Azure AD con una aplicación Apache Cordova
@@ -27,7 +27,7 @@ Apache Cordova permite desarrollar aplicaciones HTML5/JavaScript que se pueden e
 En este tutorial, usaremos el complemento de Apache Cordova para la biblioteca de autenticación de Active Directory (ADAL) para mejorar una aplicación sencilla con las siguientes características:
 
 -	Con solo unas líneas de código, podrá autenticar a un usuario de AD y obtener un token para llamar a la API Graph de Azure AD.
--	Utilice ese token para invocar la API Graph para consultar ese directorio y mostrar los resultados.  
+-	Utilice ese token para invocar la API Graph para consultar ese directorio y mostrar los resultados.
 -	Aproveche la caché de tokens de ADAL para reducir al máximo las peticiones de autenticación que se le muestran al usuario.
 
 Para ello, deberá hacer lo siguiente:
@@ -42,7 +42,7 @@ Para ello, deberá hacer lo siguiente:
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Un inquilino de Azure AD que disponga de una cuenta con derechos de desarrollo de aplicaciones.
-- Un entorno de desarrollo configurado para usar Apache Cordova.  
+- Un entorno de desarrollo configurado para usar Apache Cordova.
 
 Si ya los tiene configurados, vaya directamente al paso 1.
 
@@ -156,7 +156,7 @@ A continuación, hay que agregar el código de la solicitud de token real. Inser
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -180,7 +180,7 @@ La segunda parte del método realiza la solicitud tokewn correcta. El método `a
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -269,4 +269,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-Mult
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

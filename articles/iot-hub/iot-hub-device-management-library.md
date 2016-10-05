@@ -20,7 +20,7 @@
 
 ## Información general
 
-La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] (Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
+La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] \(Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
 
 - Dispositivos gemelos
 - Trabajos del dispositivo
@@ -152,7 +152,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 - Ejemplo de actualización de firmware de Intel Edison: ejemplo con características de administración de dispositivos habilitadas con un dispositivo Intel Edison. Consulte [iotdm\_edison\_sample][lnk-edison-sample].
 - Ejemplo de dispositivos simulados: un ejemplo de dispositivos independientes de plataforma que se ejecuta en dispositivos con Linux y Windows. Consulte [iotdm\_simple\_sample][lnk-simple-sample]
-- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] (Registro de recursos y objetos OMA LWM2M).
+- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] \(Registro de recursos y objetos OMA LWM2M).
 
 ## Apéndice: Recursos y objetos LWM2M admitidos
 

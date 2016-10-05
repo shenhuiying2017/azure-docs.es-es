@@ -27,8 +27,8 @@ A continuación examinaremos las diversas secciones de este archivo.
 Describe las opciones de configuración generales del clúster, como se muestra en el siguiente fragmento de código JSON.
 
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
 
 Asigne cualquier nombre descriptivo al clúster de Service Fabric en la variable **name**. Puede cambiar el valor de **clusterManifestVersion** según su configuración; deberá actualizarlo antes de actualizar la configuración de Service Fabric. Puede dejar el valor predeterminado de **apiVersion**.
 
@@ -68,24 +68,30 @@ Un clúster de Service Fabric necesita un mínimo de 3 nodos. Puede agregar más
 |upgradeDomain|Los dominios de actualización describen conjuntos de nodos que se apagan para las actualizaciones de Service Fabric aproximadamente al mismo tiempo. Puede elegir qué nodos desea asignar a cada dominio de actualización porque no están limitados por ningún requisito físico.| 
 
 
-## Configuraciones de diagnóstico
-Para configurar los parámetros que habilitan el diagnóstico y la solución de problemas de errores de nodos y clústeres, use la sección **diagnosticsFileShare** tal y como se muestra en el siguiente fragmento de código.
-
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
-        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
-    },
-
-Estas variables permiten recopilar registros de seguimiento ETW, volcados de memoria y contadores de rendimiento. Lea [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) y [Seguimiento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para más información sobre los registros de seguimiento ETW. Los [volcados de memoria](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) del nodo de Service Fabric y el clúster se pueden dirigir a la carpeta **crashDumpConnectionString**. Los [contadores de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) del clúster se pueden dirigir a la carpeta **perfCtrConnectionString** de su equipo.
-
-
-## Sección **properties** del clúster
+## **Propiedades** del clúster
 
 La sección **properties** del archivo ClusterConfig.JSON se usa para configurar el clúster de la siguiente manera.
+
+### **diagnosticsStore**
+Para configurar los parámetros que habilitan el diagnóstico y la solución de problemas de errores de nodos y clústeres, use la sección **diagnosticsStore** tal y como se muestra en el siguiente fragmento de código.
+
+    "diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+    }
+
+**metadata** es una descripción del diagnóstico del clúster y se puede establecer según su configuración. Estas variables permiten recopilar registros de seguimiento ETW, volcados de memoria y contadores de rendimiento. Lea [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) y [Seguimiento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para más información sobre los registros de seguimiento ETW. Todos los registros, incluidos [volcados](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) y [contadores de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) se pueden dirigir a la carpeta **connectionString** de su máquina. También puede usar **AzureStorage** para almacenar diagnósticos. Vea a continuación un ejemplo de fragmento de código.
+
+	"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "AzureStorage",
+        "IsEncrypted": "false",
+        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+    }
 
 ### **security** 
 La sección **security** es necesaria para un clúster de Service Fabric independiente protegido. El siguiente fragmento de código muestra una parte de esta sección.
@@ -97,7 +103,7 @@ La sección **security** es necesaria para un clúster de Service Fabric indepen
 		. . .
 	}
 
-**metadata** es una descripción del clúster protegido y se pueden establecer según su configuración. Los valores de **ClusterCredentialType** y **ServerCredentialType** determinan el tipo de seguridad que el clúster y los nodos implementarán. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Azure Active Directory. El resto de la sección **security** se basará en el tipo de la seguridad. Lea [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener información sobre cómo rellenar el resto de la sección **security**.
+**metadata** es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de **ClusterCredentialType** y **ServerCredentialType** determinan el tipo de seguridad que implementarán el clúster y los nodos. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Azure Active Directory. El resto de la sección **security** se basará en el tipo de la seguridad. Lea [Seguridad basada en certificados en un clúster independiente](service-fabric-windows-cluster-x509-security.md) o [Seguridad de Windows en un clúster independiente](service-fabric-windows-cluster-windows-security.md) para más información sobre cómo rellenar el resto de la sección **security**.
 
 ### **reliabilityLevel**
 **reliabilityLevel** define el número de copias de los servicios del sistema que se pueden ejecutar en los nodos principales del clúster. Esto aumenta la confiabilidad de estos servicios y, por lo tanto, el clúster. Puede establecer esta variable en *Bronce*, *Silver*, *Gold* o *Platinum* para 3, 5, 7 o 9 copias de estos servicios, respectivamente. Vea el ejemplo siguiente.
@@ -109,7 +115,7 @@ Como un nodo principal ejecuta una única copia de los servicios del sistema, te
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
-La sección **nodeTypes** describe el tipo de nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código.
+La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código.
 
 	"nodeTypes": [{
         "name": "NodeType0",
@@ -143,11 +149,11 @@ Esta sección permite establecer los directorios raíz de los registros y datos 
             "value": "C:\ProgramData\SF\Log"
     }]
 
-Tenga en cuenta que si solo personaliza la raíz de los datos, la raíz del registro se colocará un nivel por debajo de la raíz de los datos.
+Se recomienda usar una unidad sin sistema operativo como FabricDataRoot y FabricLogRoot, dado que proporciona una mayor confiabilidad frente a bloqueos del sistema operativo. Tenga en cuenta que si solo personaliza la raíz de los datos, la raíz del registro se colocará un nivel por debajo de la raíz de los datos.
 
 
 ## Pasos siguientes
 
-Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Service Fabric de Azure local o en la nube](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric local o en la nube](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

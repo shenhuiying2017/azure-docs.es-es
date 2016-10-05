@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Tipos de punto de conexión v2.0
@@ -63,7 +63,7 @@ La validación del id\_token con una clave de firma pública recibida desde el e
 
 Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicación web en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
-Además de iniciar sesión simple, es posible que una aplicación de servidor web también necesite acceder a algún otro servicio web, como una API de REST. En este caso, la aplicación de servidor web puede participar en un flujo combinado de OpenID Connect y OAuth 2.0 , mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow). Este escenario se explica más adelante en el [tema de introducción a WebApp-WebAPI](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Además de iniciar sesión simple, es posible que una aplicación de servidor web también necesite acceder a algún otro servicio web, como una API de REST. En este caso, la aplicación de servidor web puede participar en un flujo combinado de OpenID Connect y OAuth 2.0 , mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow). Este escenario se explica más adelante, en el [tema de introducción a WebApp-WebAPI](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## API web
 Puede utilizar el punto de conexión v2.0 para proteger también los servicios web, como la API web RESTful de su aplicación. En lugar de los id\_tokens y las cookies de sesión, las API web usan los access\_tokens de OAuth 2.0 para proteger sus datos y autenticar las solicitudes entrantes. El llamador de una API web anexa un access\_token en el encabezado de autorización de una solicitud HTTP:
@@ -118,4 +118,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Sin embargo, el flujo "en nombre de" no está implementado actualmente en el punto de conexión v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

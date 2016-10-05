@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general y comparación de codificadores multimedia a petición de Azure" 
+	pageTitle="Información general y comparación de codificadores multimedia a petición de Azure | Microsoft Azure" 
 	description="En este tema se proporciona información general y una comparación de los codificadores multimedia a petición de Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 #Información general y comparación de codificadores multimedia a petición de Azure
@@ -29,7 +29,7 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
-- Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-portal-manage-streaming-endpoints.md).
 
 Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
 
@@ -38,7 +38,7 @@ Servicios multimedia admite los siguientes codificadores a petición que se desc
 
 En este artículo se ofrece una breve introducción a los codificadores multimedia a petición y se proporcionan vínculos a artículos con información más detallada. También se proporciona una comparación de los codificadores.
 
-Tenga en cuenta que, de forma predeterminada, cada cuenta de Servicios multimedia puede tener una tarea de codificación activa a la vez. Puede reservar unidades de codificación que permiten la ejecución simultánea de varias tareas de codificación, una para cada unidad reservada de codificación que ha adquirido. Para obtener información, consulte [Escalado de unidades de codificación](media-services-portal-encoding-units.md).
+Tenga en cuenta que, de forma predeterminada, cada cuenta de Servicios multimedia puede tener una tarea de codificación activa a la vez. Puede reservar unidades de codificación que permiten la ejecución simultánea de varias tareas de codificación, una para cada unidad reservada de codificación que ha adquirido. Para obtener información, consulte [Escalado de unidades de codificación](media-services-scale-media-processing-overview.md).
 
 ##Media Encoder Estándar
 
@@ -72,7 +72,7 @@ Para más información, consulte [Recorte de un vídeo](media-services-custom-me
 
 Para más información, consulte [Creación de una superposición](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
-###Consulte también
+###Otras referencias
 
 [El blog de Servicios multimedia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
  
@@ -242,4 +242,4 @@ Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -67,8 +67,8 @@ La tabla siguiente describe las propiedades del JSON anterior:
 | structure | Esquema del conjunto de datos<br/><br/>Consulte la sección [Estructura del conjunto de datos](#Structure) para más información. | Nº | N/D |
 | typeProperties | Propiedades correspondientes al tipo seleccionado. Consulte la sección [Tipo de conjunto de datos](#Type) para más información sobre los tipos admitidos y sus propiedades. | Sí | N/D |
 | external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. | No | false | 
-| availability | Define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. <br/><br/>Consulte el tema [Disponibilidad del conjunto de datos](#Availability) para más información<br/><br/>Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más información sobre el modelo de segmentación del conjunto de datos. | Sí | N/D
-| policy | Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Consulte el tema [Directiva del conjunto de datos](#Policy) para más información. | No | N/D |
+| availability | Define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. <br/><br/>Consulte el artículo [Disponibilidad del conjunto de datos](#Availability) para más información. <br/><br/>Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más información. | Sí | N/D
+| policy | Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy). | No | N/D |
 
 ## Ejemplo de conjunto de datos
 En el siguiente ejemplo, el conjunto de datos representa una tabla denominada **MyTable** en una **base de datos SQL de Azure**.
@@ -90,7 +90,7 @@ En el siguiente ejemplo, el conjunto de datos representa una tabla denominada **
 	    }
 	}
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 - type está establecido en AzureSqlTable.
 - La propiedad de tipo tableName (específico del tipo AzureSqlTable) se establece en MyTable.
@@ -137,7 +137,7 @@ La sección **structure** define el esquema del conjunto de datos. Contiene una 
 ## <a name="Availability"></a> Disponibilidad del conjunto de datos
 En la sección **availability** de un conjunto de datos se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc.) o el modelo de segmentación del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
 
-La sección availability siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora.
+La sección de disponibilidad siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora:
 
 	"availability":	
 	{	
@@ -145,7 +145,7 @@ La sección availability siguiente especifica que el conjunto de datos de salida
 		"interval": 1	
 	}
 
-La tabla siguiente describe las propiedades que puede utilizar en la sección de disponibilidad.
+La tabla siguiente describe las propiedades que puede utilizar en la sección de disponibilidad:
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | -------- | ----------- | -------- | ------- |
@@ -166,9 +166,7 @@ Segmentos diarios que comienzan a las 6 a.m., en lugar de a medianoche, que es e
 		"offset": "06:00:00"
 	}
 
-**frequency** está establecido en **Month** e **interval** está establecido en **1** (una vez al mes): si quiere que el segmento se genere el día 9 de cada mes a las 6:00, establezca offset en "09.06:00:00". Recuerde que esta es una hora UTC.
-
-Para un programación de 12 meses (frecuency = month; interval = 12), offset: 60.00:00:00 significa el 1 o 2 de marzo de cada año (60 días desde el principio del año si style = StartOfInterval), en función de si el año es bisiesto o no.
+Establezca la **frecuencia** en **Día** y el **intervalo** en **1** (una vez al día) si desea que el segmento se produzca a las 6 a.m. en lugar de a la hora predeterminada, las 12 a.m. Recuerde que esta es una hora UTC.
 
 ## Ejemplo de anchorDateTime
 
@@ -241,17 +239,17 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 
 Los conjuntos de datos externos son los que no son producidos por una canalización de ejecución en la factoría de datos. Si el conjunto de datos está marcado como **external**, la directiva **ExternalData** puede definirse para influir en el comportamiento de la disponibilidad de los segmentos del conjunto de datos.
 
-A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Generalmente, esto se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
+A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Generalmente, esta configuración se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
 
 | Nombre | Descripción | Obligatorio | Valor predeterminado |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si se supone que los datos estarán disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y el segmento correspondiente está preparado puede retrasarse mediante dataDelay.<br/><br/>Solo se aplica a la hora actual. Por ejemplo, si ahora es la 1:00 p.m. y este valor es de 10 minutos, la validación se iniciará a la 1:10 p.m.<br/><br/>Esta configuración no afecta a los segmentos en el pasado (los segmentos con Slice End Time + dataDelay < Now) se procesarán sin ningún retraso.<br/><br/>El tiempo superior a 23:59 horas se debe especificar con el formato día.horas:minutos:segundos. Por ejemplo, para especificar 24 horas, no use 24:00:00; en su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. | No | 0 |
 | retryInterval | El tiempo de espera entre un error y el siguiente reintento. Se aplica a la hora actual; si el intento anterior falla, esperamos este tiempo después del último intento. <br/><br/>Si ahora es la 1:00 p.m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. | No | 00:01:00 (1 minuto) | 
-| retryTimeout | El tiempo de espera de cada reintento.<br/><br/>Si se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marcará como TimedOut. | No | 00:10:00 (10 minutos) |
+| retryTimeout | El tiempo de espera de cada reintento.<br/><br/>Si esta propiedad se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marcará como TimedOut. | No | 00:10:00 (10 minutos) |
 | maximumRetry | Número de veces que se va a comprobar la disponibilidad de los datos externos. El valor máximo permitido es 10. | No | 3 | 
 
 ## Conjuntos de datos limitados
-Puede crear conjuntos de datos que se limitan a una canalización mediante la propiedad **datasets**. Estos conjuntos de datos solo los pueden usar las actividades dentro de esta canalización, pero no las actividades de otras canalizaciones. En el ejemplo siguiente se define una canalización con dos conjuntos de datos: InputDataset-rdc y OutputDataset-rdc, que se usarán dentro de la canalización.
+Puede crear conjuntos de datos que se limitan a una canalización mediante la propiedad **datasets**. Estos conjuntos de datos solo los pueden usar las actividades dentro de esta canalización, pero no las actividades de otras canalizaciones. En el ejemplo siguiente se define una canalización con dos conjuntos de datos: InputDataset-rdc y OutputDataset-rdc, que se usarán dentro de la canalización:
 
 > [AZURE.IMPORTANT] Los conjuntos de datos con ámbito solo se admiten con las canalizaciones de un solo uso (**pipelineMode** establecido en **OneTime**). Consulte la sección [Canalización de una vez](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información.
 
@@ -344,4 +342,4 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante la pr
 	    }
 	}
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

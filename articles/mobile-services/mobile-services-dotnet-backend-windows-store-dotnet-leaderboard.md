@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
@@ -339,8 +339,7 @@ Utilice el Administrador de paquetes de NuGet para agregar la biblioteca de clie
 
 El modificador -Project especifica el proyecto donde se debe instalar el paquete.
 
-## Incorporación de clases de modelo  
-
+## Adición de clases de modelo
 
 Cree una carpeta denominada Models y agregue las siguientes clases:
 
@@ -766,4 +765,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

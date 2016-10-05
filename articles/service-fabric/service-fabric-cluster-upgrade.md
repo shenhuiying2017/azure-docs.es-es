@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/13/2016"
    ms.author="chackdan"/>
 
 
@@ -29,7 +29,7 @@ Microsoft mantiene el código de tejido y la configuración que se ejecuta en un
 
 Durante esta fase, las actualizaciones se realizan en un dominio de actualización cada vez, y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
 
-Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. A continuación, se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
+Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Después, se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
 
 - Notificación de que tuvimos que revertir una actualización de clúster.
 - Acciones correctoras sugeridas, si hay alguna.
@@ -43,7 +43,7 @@ Si se cumplen las directivas de mantenimiento del clúster, la actualización se
 
 En esta fase, las directivas de mantenimiento se establecen de forma que el número de aplicaciones que tenían un estado correcto al principio de la actualización siga siendo el mismo durante el proceso de actualización. Al igual que en la fase 1, en la fase 2 las actualizaciones se realizan en un dominio de actualización cada vez, y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
 
-Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. A continuación, se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
+Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Después, se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
 
 - Notificación de que tuvimos que revertir una actualización de clúster.
 - Acciones correctoras sugeridas, si hay alguna.
@@ -71,13 +71,10 @@ A continuación se muestran las configuraciones que puede cambiar en un clúster
 
 ### Certificados
 
-Puede actualizar los certificados principales o secundarios fácilmente desde el portal de Azure (como se muestra a continuación) o mediante un comando PUT en el recurso servicefabric.cluster.
+Puede agregar nuevos o eliminar fácilmente los certificados del clúster y el cliente a través del portal. Consulte [este documento para obtener instrucciones detalladas](service-fabric-cluster-security-update-certs-azure.md).
 
 ![Captura de pantalla que muestra las huellas digitales del certificado en el portal de Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Antes de identificar el certificado que quiere usar con los recursos del clúster, debe completar los siguientes pasos; de lo contrario, no se usará el nuevo certificado:
-1. Cargar el certificado nuevo en el Almacén de claves de Azure. Consulte [Seguridad de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones. Empiece en el paso 2 del documento.
-2. Actualizar todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Para ello, consulte [Azure Key Vault Team Blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) (Blog del equipo del Almacén de claves de Azure).
 
 ### Puertos de aplicación
 
@@ -87,7 +84,7 @@ Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, 
 
 1. Agregue un sondeo nuevo al equilibrador de carga adecuado.
 
-    Si implementó el clúster mediante el portal, los equilibradores de carga se llamarán "loadBalancer-0", "loadBalancer-1" y así sucesivamente, uno para cada tipo de nodo. Como los nombres de los equilibradores de carga son únicos solo dentro de un grupo de recursos, es mejor buscarlos en un determinado grupo.
+    Si implementó el clúster mediante el portal, los equilibradores de carga se llamarán "EC-nombre del grupo de recursos-nombreDelTipoDeNodo" y así sucesivamente, uno para cada tipo de nodo. Como los nombres de los equilibradores de carga son únicos solo dentro de un grupo de recursos, es mejor buscarlos en un determinado grupo.
 
     ![Captura de pantalla que muestra cómo agregar un sondeo a un equilibrador de carga en el portal.][AddingProbes]
 
@@ -102,11 +99,11 @@ Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, 
 
 Para cada uno de los tipos de nodo, puede agregar las propiedades de colocación personalizadas que desee usar en sus aplicaciones. NodeType es una propiedad predeterminada que se puede usar sin agregarla explícitamente.
 
->[AZURE.NOTE] Para más información sobre el uso de las restricciones de selección de ubicación y cómo definirlas, consulte la sección "Placement Constraints and Node Properties" (Restricciones de selección de ubicación y propiedades de nodo) en el documento del Administrador de recursos de clúster de Service Fabric que se muestra en [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric).
+>[AZURE.NOTE] Para obtener más información sobre el uso de las restricciones de selección de ubicación y cómo definirlas, consulte la sección "Placement Constraints and Node Properties" (Restricciones de selección de ubicación y propiedades de nodo) en el documento del Administrador de recursos de clúster de Service Fabric que se muestra en [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric).
 
 ### Métricas de capacidad
 
-Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para más información sobre el uso de las métricas de capacidad para notificar la carga, consulte los documentos del Administrador de recursos de clúster de Service Fabric que se describen en [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric) y [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md) (Administración del consumo de recursos y de la carga en Service Fabric con métricas).
+Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para obtener más información sobre el uso de las métricas de capacidad para notificar la carga, consulte los documentos del Administrador de recursos de clúster de Service Fabric que se describen en [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric) y [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md) (Administración del consumo de recursos y de la carga en Service Fabric con métricas).
 
 ### Revisiones de sistema operativo en las máquinas virtuales que componen el clúster
 
@@ -122,8 +119,8 @@ Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del
 - Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md).
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

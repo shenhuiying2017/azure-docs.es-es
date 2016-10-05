@@ -28,6 +28,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## Actualizaciones de noticias
+###### **13 de septiembre de 2016**
+La implementación del SO invitado de septiembre comienza el 13 de septiembre de 2016, y está previsto que se lance el 13 de octubre de 2016.
+
 ###### **9 de agosto de 2016**
 La implementación del SO invitado de agosto comienza el 9 de agosto de 2016, y está previsto que se lance el 8 de septiembre de 2016.
 
@@ -66,9 +69,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.35\_201608-01 | 8 de septiembre de 2016* | Post 4.37 | TBD |
+| WA-GUEST-OS-4.36\_201609-01 | 13 de octubre de 2016 | Post 4.38 | TBD |
+| WA-GUEST-OS-4.35\_201608-01 | 13 de septiembre de 2016 | Post 4.37 | TBD |
 | WA-GUEST-OS-4.34\_201607-01 | 8 de agosto de 2016 | Publicación 4.36 | TBD |
-| WA-GUEST-OS-4.33\_201606-01 | 13 de julio de 2016 | Después de la versión 4.35 | TBD |
+| WA-GUEST-OS-4.33\_201606-01 | 13 de julio de 2016 | 13 de octubre de 2016 | TBD |
 | WA-GUEST-OS-4.32\_201605-01 | 10 de junio de 2016 | 8 de septiembre de 2016 | TBD |
 | WA-GUEST-OS-4.31\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
@@ -95,9 +99,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.42\_201608-01 | 8 de septiembre de 2016* | Post 3.44 | TBD |
+| WA-GUEST-OS-3.43\_201609-01 | 13 de octubre de 2016 | Post 3.45 | TBD |
+| WA-GUEST-OS-3.42\_201608-01 | 13 de septiembre de 2016 | Post 3.44 | TBD |
 | WA-GUEST-OS-3.41\_201607-01 | 8 de agosto de 2016 | Publicación 3.43 | TBD |
-| WA-GUEST-OS-3.40\_201606-01 | 13 de julio de 2016 | Después de la versión 3.42 | TBD |
+| WA-GUEST-OS-3.40\_201606-01 | 13 de julio de 2016 | 13 de octubre de 2016 | TBD |
 | WA-GUEST-OS-3.39\_201605-01 | 10 de junio de 2016 | 8 de septiembre de 2016 | TBD |
 | WA-GUEST-OS-3.38\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
@@ -125,9 +130,10 @@ Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.54\_201608-01 | 8 de septiembre de 2016* | Post 2.56 | TBD |
+| WA-GUEST-OS-2.55\_201609-01 | 13 de octubre de 2016 | Post 2.57 | TBD |
+| WA-GUEST-OS-2.54\_201608-01 | 13 de septiembre de 2016 | Post 2.56 | TBD |
 | WA-GUEST-OS-2.53\_201607-01 | 8 de agosto de 2016 | Publicación 2.55 | TBD |
-| WA-GUEST-OS-2.52\_201606-01 | 13 de julio de 2016 | Después de la versión 2.54 | TBD |
+| WA-GUEST-OS-2.52\_201606-01 | 13 de julio de 2016 | 13 de octubre de 2016 | TBD |
 | WA-GUEST-OS-2.51\_201605-01 | 10 de junio de 2016 | 8 de septiembre de 2016 | TBD |
 | WA-GUEST-OS-2.50\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
@@ -220,4 +226,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

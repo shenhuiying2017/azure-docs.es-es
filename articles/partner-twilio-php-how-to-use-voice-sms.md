@@ -72,7 +72,7 @@ Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador
 
 
 ## <a id="create_app"></a>Creación de una aplicación PHP
-Una aplicación PHP que usa el servicio Twilio y que se ejecuta en Azure no es distinta a otra aplicación PHP que use el servicio Twilio. Mientras que los servicios Twilio se basan en REST y pueden llamarse desde PHP de varias formas, este artículo se centrará en cómo usar los servicios Twilio con la [biblioteca de Twilio para PHP desde Github][twilio_php] (en inglés). Para obtener más información sobre el uso de la biblioteca de Twilio para PHP, vea [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
+Una aplicación PHP que usa el servicio Twilio y que se ejecuta en Azure no es distinta a otra aplicación PHP que use el servicio Twilio. Mientras que los servicios Twilio se basan en REST y pueden llamarse desde PHP de varias formas, este artículo se centrará en cómo usar los servicios Twilio con la [biblioteca de Twilio para PHP desde Github][twilio_php] \(en inglés). Para obtener más información sobre el uso de la biblioteca de Twilio para PHP, vea [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
 
 Puede conseguir instrucciones detalladas para crear e implementar una aplicación de Twilio o PHP en Azure, en [Realización de una llamada telefónica con Twilio en una aplicación PHP en Azure][howto_phonecall_php].
 

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Cómo pasar las credenciales al controlador de extensiones de la DSC de Azure #
@@ -24,6 +24,8 @@
 
 En este artículo se trata la extensión de la configuración de estado deseado de Azure. En [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md) (Introducción al controlador de extensiones de la configuración de estado deseado de Azure) encontrará información general sobre el controlador de extensiones de la DSC.
 
+
+## Transmisión de credenciales
 Como parte del proceso de configuración, es posible que deba configurar las cuentas de usuario, obtener acceso a los servicios o instalar un programa en un contexto de usuario. Para llevar a cabo estas acciones, debe proporcionar las credenciales.
 
 La DSC permite las configuraciones parametrizadas en las que las credenciales se pasan a la configuración y se almacenan de forma segura en archivos MOF. El controlador de extensiones de Azure simplifica la administración de credenciales, ya que administra los certificados de forma automática.
@@ -75,7 +77,7 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
  
 $vm | Update-AzureVM
 ```
-
+## ¿Cómo se protegen las credenciales?
 Al ejecutar este código, se solicita una credencial. Una vez proporcionada, se almacena brevemente en la memoria. Cuando se publica con el cmdlet `Set-AzureVmDscExtension`, se transmite a través de HTTPS a la máquina virtual, donde Azure la almacena cifrada en disco mediante el certificado de máquina virtual local. Se descifra brevemente en la memoria y se vuelve a cifrar para pasarla a DSC.
 
 Este comportamiento no es el mismo que cuando se [usan configuraciones seguras sin el controlador de extensiones](https://msdn.microsoft.com/powershell/dsc/securemof). El entorno de Azure ofrece una manera de transmitir datos de configuración de forma segura mediante certificados. Cuando se utiliza el controlador de extensiones DSC, no es necesario proporcionar $CertificatePath o una entrada $CertificateID / $Thumbprint en ConfigurationData.
@@ -85,8 +87,10 @@ Este comportamiento no es el mismo que cuando se [usan configuraciones seguras s
 
 Para más información sobre el controlador de extensiones DSC de Azure, consulte [Introducción al controlador de extensiones de configuración de estado deseado de Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
+Examine la [plantilla de Azure Resource Manager para la extensión de DSC](virtual-machines-windows-extensions-dsc-template.md).
+
 Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
 Para buscar otras funcionalidades que se puedan administrar con DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para encontrar más recursos de DSC.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

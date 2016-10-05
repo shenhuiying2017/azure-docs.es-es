@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2016"
+   ms.date="09/19/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -53,6 +53,7 @@ La mayoría de los servicios de Azure son compatibles con ExpressRoute.
 
 - La conectividad con las máquinas virtuales y servicios en la nube implementados en redes virtuales son compatibles con la ruta de acceso de emparejamiento privado.
 - Sitios web de Azure es compatible con la ruta de acceso de emparejamiento público.
+- IoT Hub es compatible con la ruta de acceso de emparejamiento público.
 - Se admite Office 365 a través de la ruta de acceso de emparejamiento de Microsoft.
 - Se puede obtener acceso a todos los demás servicios a través de la ruta de acceso de emparejamiento público. Las excepciones son las siguientes:
 
@@ -240,4 +241,4 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 ### ¿Se puede acceder a Dynamics AX Online a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

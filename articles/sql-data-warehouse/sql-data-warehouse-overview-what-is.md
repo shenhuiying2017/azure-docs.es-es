@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -49,7 +49,7 @@ En el siguiente diagrama se muestra la arquitectura con más detalle.
 
 **Nodos de proceso:** los nodos de proceso son el motor que hay detrás de Almacenamiento de datos SQL. Son bases de datos SQL que almacenan los datos y procesan la consulta. Cuando se agregan datos, Almacenamiento de datos SQL distribuye las filas a los nodos de proceso. Los nodos de proceso son los trabajos que ejecutan las consultas en paralelo en los datos. Después del procesamiento, devuelven los resultados al nodo de control. Para finalizar la consulta, el nodo de control agrega los resultados y devuelve el resultado final.
 
-**Almacenamiento:** los datos se almacenan en Almacenamiento de blobs de Azure. Cuando los nodos de proceso interactúan con los datos, escribir y leen directamente del Almacenamiento de blobs. Dado que el Almacenamiento de Azure se amplía de forma transparente e ilimitada, el Almacenamiento de datos SQL puede hacer lo mismo. Puesto que el proceso y el almacenamiento son independientes, Almacenamiento de datos SQL puede escalar automáticamente el almacenamiento por separado del escalado del proceso, y viceversa. El Almacenamiento de blobs de Azure es también totalmente tolerante a errores y simplifica el proceso de copia de seguridad y restauración.
+**Almacenamiento:** los datos se almacenan en Almacenamiento de blobs de Azure. Cuando los nodos de proceso interactúan con los datos, escribir y leen directamente del Almacenamiento de blobs. Como Azure Storage se amplía de forma transparente e ilimitada, SQL Data Warehouse puede hacer lo mismo. Puesto que el proceso y el almacenamiento son independientes, Almacenamiento de datos SQL puede escalar automáticamente el almacenamiento por separado del escalado del proceso, y viceversa. El Almacenamiento de blobs de Azure es también totalmente tolerante a errores y simplifica el proceso de copia de seguridad y restauración.
 
 **Servicio de movimiento de datos:** el Servicio de movimiento de datos (DMS) mueve los datos entre los nodos. DMS proporciona a los nodos de proceso acceso a los datos que necesitan para la combinaciones y agregaciones. DMS no es un servicio de Azure Es un servicio de Windows que se ejecuta junto con Base de datos SQL en todos los nodos. Dado que DMS se ejecuta en segundo plano, el usuario no interactúa directamente con él. Sin embargo, al examinar los planes de consulta, observará que incluyen algunas operaciones de DMS, ya que para ejecutar cada consulta en paralelo, es preciso el movimiento de datos.
 
@@ -60,7 +60,7 @@ Al enfoque de MPP también contribuyen algunas optimizaciones del rendimiento es
 
 - Un optimizador de consultas distribuido y un conjunto de estadísticas complejas en todos los datos. Gracias a la información sobre la distribución y el tamaño de los datos, el servicio puede optimizar las consultas, para lo que evalúa del costo de las operaciones de consulta específicas.
 
-- Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del Servicio de movimiento de datos se producen de forma automática.
+- Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del servicio de movimiento de datos se producen de forma automática.
 
 - Índices de **columnstore ** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
 
@@ -83,7 +83,7 @@ La asignación de recursos a Almacenamiento de datos SQL se mide en Unidades de 
 
 - Microsoft puede hacer ajustes en la arquitectura subyacente del servicio sin que el rendimiento de la carga de trabajo se vea afectado.
 
-- Microsoft puede mejorar rápidamente el rendimiento en Almacenamiento de datos SQL, de forma que sea escalable y que afecte de manera uniforme al sistema.
+- Microsoft puede mejorar rápidamente el rendimiento de SQL Data Warehouse de una manera que sea escalable y que afecte de manera uniforme al sistema.
 
 Las Unidades de almacenamiento de datos proporcionan una medida de tres métricas precisas que están muy correlacionadas con el rendimiento de la carga de trabajo del almacenamiento de datos. El objetivo es que las siguientes métricas clave de carga de trabajo aumenten linealmente con las DWU que ha elegido para el almacenamiento de datos.
 
@@ -124,17 +124,17 @@ Almacenamiento de datos SQL almacena todos los datos en Azure Premium mediante e
 
 ## Integrado con herramientas de Microsoft
 
-Almacenamiento de datos SQL también integra muchas de las herramientas con las que es posible que los usuarios de SQL Server ya estén familiarizados. Entre ellos se incluyen los siguientes:
+Almacenamiento de datos SQL también integra muchas de las herramientas con las que es posible que los usuarios de SQL Server ya estén familiarizados. Entre ellas se incluyen las siguientes:
 
 **Herramientas tradicionales de SQL Server:** Almacenamiento de datos SQL se integra totalmente con SQL Server Analysis Services, Integration Services y Reporting Services.
 
 **Herramientas basadas en la nube:** Almacenamiento de datos SQL se puede usar con varias herramientas nuevas en Azure, como Data Factory, Análisis de transmisiones, Aprendizaje automático y Power BI. Para ver una lista completa, consulte la [información general sobre las herramientas integradas][].
 
-**Herramientas de terceros:** un gran número de proveedores de herramientas de terceros ha certificado la integración de sus herramientas con Almacenamiento de datos SQL. Para ver una lista completa, consulte los [asociados de soluciones de Almacenamiento de datos SQL][].
+**Herramientas de terceros:** un gran número de proveedores de herramientas de terceros ha certificado la integración de sus herramientas con Almacenamiento de datos SQL. Para ver una lista completa, consulte los [asociados de soluciones de SQL Data Warehouse][].
 
 ## Escenarios de orígenes de datos híbridos
 
-El uso de Almacenamiento de datos SQL con PolyBase ofrece a los usuarios la posibilidad sin precedentes de mover datos en su ecosistema y, con ello, de configurar escenarios híbridos avanzados con orígenes de datos no relacionales y locales.
+El uso de SQL Data Warehouse con PolyBase ofrece a los usuarios la posibilidad única de trasladar los datos en su ecosistema y, con ello, de configurar escenarios híbridos avanzados con orígenes de datos no relacionales y locales.
 
 Polybase le permite aprovechar datos de orígenes diferentes con los mismos comandos conocidos de T-SQL. Polybase permite consultar los datos no relacionales que se mantienen en Almacenamiento de blobs de Azure como en una tabla normal. Utilice Polybase para consultar los datos no relacionales o para importar datos no relacionales en Almacenamiento de datos SQL.
 
@@ -142,16 +142,17 @@ Polybase le permite aprovechar datos de orígenes diferentes con los mismos coma
 
 - Polybase es independiente en su integración. Presenta las mismas características y funcionalidad para todos los orígenes compatibles. Los datos leídos por Polybase pueden estar en una variedad de formatos, incluidos archivos delimitados o ORC.
 
-- PolyBase puede utilizarse para acceder al almacenamiento de blobs que también se emplea como almacenamiento para un clúster de HD Insight. Esto le otorga acceso a los mismos datos con herramientas relacionales y no relacionales.
+- PolyBase puede utilizarse para acceder al almacenamiento de blobs que también se emplea como almacenamiento para un clúster de HDInsight. Esto le otorga acceso a los mismos datos con herramientas relacionales y no relacionales.
 
 ## Pasos siguientes
 
 Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Almacenamiento de datos SQL][] y [cargar datos de ejemplo][] rápidamente. Si no está familiarizado con Azure, el [Glosario de Azure][] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.
 
+- [Casos de éxito de clientes]
 - [Blogs]
 - [Solicitud de función]
 - [Vídeos]
-- [Blogs del equipo de CAT]
+- [Blogs de Customer Advisory Team]
 - [Creación de una incidencia de soporte técnico]
 - [Foro de MSDN]
 - [Foro Stack Overflow]
@@ -162,24 +163,25 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Creación de una incidencia de soporte técnico]: sql-data-warehouse-get-started-create-support-ticket.md
-[cargar datos de ejemplo]: sql-data-warehouse-load-sample-databases.md
-[crear un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
-[documentación de migración]: sql-data-warehouse-overview-migrate.md
-[asociados de soluciones de Almacenamiento de datos SQL]: sql-data-warehouse-partner-business-intelligence.md
-[información general sobre las herramientas integradas]: sql-data-warehouse-overview-integrate.md
-[información general sobre la copia de seguridad y la restauración]: sql-data-warehouse-restore-database-overview.md
+[Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[cargar datos de ejemplo]: ./sql-data-warehouse-load-sample-databases.md
+[crear un Almacenamiento de datos SQL]: ./sql-data-warehouse-get-started-provision.md
+[documentación de migración]: ./sql-data-warehouse-overview-migrate.md
+[asociados de soluciones de SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
+[información general sobre las herramientas integradas]: ./sql-data-warehouse-overview-integrate.md
+[información general sobre la copia de seguridad y la restauración]: ./sql-data-warehouse-restore-database-overview.md
 [Glosario de Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Casos de éxito de clientes]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogs del equipo de CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogs de Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Foro de MSDN]: https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=AzureSQLDataWarehouse
 [Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

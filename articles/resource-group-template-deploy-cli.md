@@ -59,15 +59,17 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Cambie al módulo de Administrador de recursos de Azure. Recibirá una confirmación del modo nuevo.
+3. Cambie al módulo de Administrador de recursos de Azure. Se recibe confirmación del modo nuevo.
 
         azure config mode arm
    
         info:     New mode is arm
 
-4. Si no tiene un grupo de recursos existente, puede crear uno. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
+4. Si no tiene un grupo de recursos existente, puede crear uno. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Debe proporcionar una ubicación para el grupo de recursos porque este almacena metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación en la que vayan a residir la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
 
         azure group create -n ExampleResourceGroup -l "West US"
+
+     Se devuelve un resumen del grupo de recursos nuevo.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -85,7 +87,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Para implementar recursos en el grupo de recursos, ejecute el siguiente comando y proporcione los parámetros necesarios. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
+5. Para implementar recursos en el grupo de recursos, ejecute el siguiente comando y proporcione los parámetros necesarios. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL de la plantilla y cualquier otro parámetro necesario para el escenario.
    
      Tiene las siguientes tres opciones para proporcionar valores de parámetro:
 
@@ -171,4 +173,4 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

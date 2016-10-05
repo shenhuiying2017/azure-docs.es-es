@@ -428,7 +428,7 @@ Hay dos controladores
 
 Todos los documentos de DocumentDB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca para quitar el valor fraccionario.
 
-Puede ver el código fuente de la API de controlador de errores [procedente de GitHub] (https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Puede ver el código fuente de la API de controlador de errores [procedente de GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
 Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
 

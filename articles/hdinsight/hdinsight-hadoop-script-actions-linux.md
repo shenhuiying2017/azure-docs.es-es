@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -167,6 +167,11 @@ Esto hace que las siguientes aplicaciones auxiliares estén disponibles para su 
 | `test_is_headnode` | Si se ejecutaba en un nodo principal del clúster, devuelve 1; en caso contrario, es 0. |
 | `test_is_datanode` | Si el nodo actual es un nodo de datos (trabajo), devuelve un 1; en caso contrario, es 0. |
 | `test_is_first_datanode` | Si el nodo actual es el primer nodo de datos (trabajo), (llamado workernode0), devuelve un 1; en caso contrario, es 0. |
+| `get_headnodes` | Devuelve el nombre de dominio completo de los nodos principales del clúster. Los nombres están delimitados por comas. En caso de error, se devuelve una cadena vacía. |
+| `get_primary_headnode` | Obtiene el nombre de dominio completo del nodo principal primario. En caso de error, se devuelve una cadena vacía. |
+| `get_secondary_headnode` | Obtiene el nombre de dominio completo del nodo principal secundario. En caso de error, se devuelve una cadena vacía. |
+| `get_primary_headnode_number` | Obtiene el sufijo numérico del nodo principal primario. En caso de error, se devuelve una cadena vacía. |
+| `get_secondary_headnode_number` | Obtiene el sufijo numérico del nodo principal secundario. En caso de error, se devuelve una cadena vacía. |
 
 ## <a name="commonusage"></a>Patrones de uso común
 
@@ -268,4 +273,4 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

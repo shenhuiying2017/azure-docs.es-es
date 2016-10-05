@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Introducción al cliente Python de Lote de Azure
@@ -44,9 +44,33 @@ El [ejemplo de código][github_article_samples] del tutorial de Python es uno de
 
 ### Entorno de Python
 
-Para ejecutar el script de ejemplo *python\_tutorial\_client.py*, en su estación de trabajo local, necesita un **intérprete de Python** compatible con la versión **2.7** o **3.3-3.5**. El script se ha probado en Linux y Windows.
+Para ejecutar el script de ejemplo *python\_tutorial\_client.py* en una estación de trabajo local, se necesita un **intérprete de Python** compatible con las versiones **2.7** o **3.3**. El script se ha probado en Linux y Windows.
 
-También necesita instalar los paquetes de Python **Lote de Azure** y **Almacenamiento de Azure**, algo que se puede hacer con el comando **pip** y los archivos *requirements.txt*, que se encuentra aquí:
+### Dependencias de cryptography
+
+Debe instalar las dependencias de la biblioteca [cryptography][crypto], requerida por los paquetes de Python `azure-batch` y `azure-storage`. Realice una de las siguientes operaciones adecuadas para su plataforma, o bien consulte la información detallada de la [instalación de cryptography][crypto_install] para más información:
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] Si va a instalar Python 3.3 + en Linux, utilice los equivalentes de python3 para las dependencias de Python. Por ejemplo, en Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Paquetes de Azure
+
+A continuación, instale los paquetes de Python **Azure Batch** y **Azure Storage**. algo que se puede hacer con el comando **pip** y los archivos *requirements.txt*, que se encuentra aquí:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -56,7 +80,7 @@ Emita el siguiente comando **pip** para instalar los paquetes Lote y Almacenamie
 
 O bien, puede instalar manualmente los paquetes de Python [azure-batch][pypi_batch] y [azure-storage][pypi_storage]\:
 
-`pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/> `pip install azure-storage`
 
 > [AZURE.TIP] Si utiliza una cuenta sin privilegios, es posible que necesite agregar a los comandos el prefijo `sudo`. Por ejemplo: `sudo pip install -r requirements.txt`. Para más información acerca de cómo instalar los paquetes de Python, consulte [Installing Packages][pypi_install] \(Instalación de paquetes) en readthedocs.io.
 
@@ -254,7 +278,7 @@ Después, se crea un grupo de nodos de proceso en la cuenta de Lote con una llam
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -263,10 +287,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -282,24 +305,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -310,7 +341,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 Cuando se crea un grupo, se define una instancia de [PoolAddParameter][py_pooladdparam] que especifica varias propiedades para el grupo:
@@ -319,7 +349,7 @@ Cuando se crea un grupo, se define una instancia de [PoolAddParameter][py_poolad
 
 - **Número de nodos de proceso** (*target\_dedicated*: necesario)<p/>Especifica el número de máquinas virtuales deben implementarse en el grupo. Es importante tener en cuenta que todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y, por tanto, los nodos de proceso) en una cuenta de Lote. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) se pueden encontrar en [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
 
-- **Sistema operativo** para nodos (*virtual\_machine\_configuration* **o** *cloud\_service\_configuration*: necesario)<p/>En *python\_tutorial\_client.py*, se crea un grupo de nodos de Linux con una instancia de [VirtualMachineConfiguration][py_vm_config] obtenida con nuestra función auxiliar `get_vm_config_for_distro`. Esta función auxiliar usa [list\_node\_agent\_skus][py_list_skus] para obtener y seleccionar una imagen de una lista de imágenes de [Marketplace de máquinas virtuales de Azure][vm_marketplace] compatibles. En su lugar, puede especificar una instancia de [CloudServiceConfiguration][py_cs_config] y crear un grupo de nodos de Windows desde Servicios en la nube. Para más información acerca de las dos configuraciones, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md).
+- **Sistema operativo** de los nodos [*virtual\_machine\_configuration* **o** *cloud\_service\_configuration* (se requiere)]<p/>En *python\_tutorial\_client.py*, se crea un grupo de nodos de Linux con una instancia de [VirtualMachineConfiguration][py_vm_config]. La función `select_latest_verified_vm_image_with_node_agent_sku` de `common.helpers` simplifica el trabajo con imágenes del [Catálogo de máquinas virtuales de Azure][vm_marketplace]. Para más información acerca del uso de imágenes de Marketplace, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md).
 
 - **Tamaño de los nodos de proceso** (*vm\_size*: necesario)<p/>Dado que especificamos nodos de Linux para nuestra instancia de [VirtualMachineConfiguration][py_vm_config], especificamos también un tamaño de máquina virtual (`STANDARD_A1` en este ejemplo) de los que aparecen en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md). Para más información, vuelva a consultar [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md).
 
@@ -556,7 +586,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 Al ejecutar el script *python\_tutorial\_client.py*, desde el [código de ejemplo][github_article_samples] del tutorial, la salida de la consola será similar a la siguiente. Se produce una pausa en `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` mientras se crean e inician los nodos de proceso del grupo, y se ejecutan los comandos de la tarea de inicio del grupo. Use el [Portal de Azure][azure_portal] para supervisar el grupo, los nodos de proceso, el trabajo y las tareas durante la ejecución, y después de ella. Use el [Portal de Azure][azure_portal] o el [Explorador de Almacenamiento de Microsoft Azure][storage_explorer] para ver los recursos de Almacenamiento (contenedores y blobs) creados por la aplicación.
 
-El tiempo de ejecución suele ser de **aproximadamente de 5-7 minutos** cuando la aplicación se ejecuta con su configuración predeterminada.
+>[AZURE.TIP] Ejecute el script *python\_tutorial\_client.py* desde el directorio `azure-batch-samples/Python/Batch/article_samples`. Utiliza una ruta de acceso relativa para la importación del módulo `common.helpers`, por lo que es posible que vea `ImportError: No module named 'common'` si no ejecuta el script desde este directorio.
+
+El tiempo de ejecución suele ser de **aproximadamente de 5-7 minutos** cuando el ejemplo se ejecuta con su configuración predeterminada.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -601,6 +633,8 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -658,4 +692,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

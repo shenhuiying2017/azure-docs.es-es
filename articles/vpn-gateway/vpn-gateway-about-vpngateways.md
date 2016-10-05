@@ -36,8 +36,6 @@ Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo 
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-###  <a name="skugw"></a>Estimación del rendimiento agregado por tipo de SKU y tipo de puerta de enlace
-
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
@@ -95,7 +93,7 @@ Actualmente, Azure tiene dos modelos de implementación: el clásico y el de Res
 
 #### Emparejamiento de VNET
 
-Es posible que pueda usar el emparejamiento de VNET para crear la conexión, siempre que la red virtual cumpla determinados requisitos. El emparejamiento de VNET no utiliza una puerta de enlace de red virtual. El [emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md) está actualmente en versión preliminar.
+Es posible que pueda usar el emparejamiento de VNET para crear la conexión, siempre que la red virtual cumpla determinados requisitos. El emparejamiento de VNET no utiliza una puerta de enlace de red virtual. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Modelos de implementación y métodos para conexiones de red virtual a red virtual
@@ -150,4 +148,4 @@ Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y di
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
@@ -79,7 +79,7 @@ Ahora que ya tiene información general sobre los conceptos básicos, lea las se
 Los tokens de seguridad que emite Azure AD contienen notificaciones o aserciones de información sobre el usuario que se ha autenticado. La aplicación puede usar estas notificaciones para varias tareas. Por ejemplo, pueden usarse para validar el token, identificar el inquilino de directorio del usuario, mostrar información del usuario o determinar la autorización del usuario, entre otros. Las notificaciones presentes en cualquier token de seguridad dependen del tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación. En la tabla siguiente se proporciona una breve descripción de cada tipo de notificación que Azure AD emite. Para obtener más información, consulte [Tipos de token y notificación compatibles](active-directory-token-and-claims.md).
 
 
-| Notificación | Descripción |
+| Notificación | Description |
 |-------|-------------|
 | Identificador de aplicación | Identifica la aplicación que está usando el token.
 | Público | Identifica el recurso de destinatario al que está destinado el token. |
@@ -468,4 +468,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

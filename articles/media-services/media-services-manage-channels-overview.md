@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Información general de streaming en vivo con Servicios multimedia de Azure" 
-	description="Este tema proporciona información general de streaming en vivo con Servicios multimedia de Azure" 
+	pageTitle="Información general de streaming en vivo con Azure Media Services | Microsoft Azure" 
+	description="En este tema se proporciona información general de streaming en vivo con Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #Información general de streaming en vivo con Servicios multimedia de Azure
@@ -141,7 +141,7 @@ Estado del canal|Indicadores IU del portal|¿Es la facturación?
 Iniciando|Iniciando|No (estado transitorio)
 Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|SÍ
 Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Detenido|No
+Detenido|Stopped|No
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -166,4 +166,4 @@ Detenido|Detenido|No
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

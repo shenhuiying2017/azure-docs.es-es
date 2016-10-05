@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="Inicio de sesión mediante una llamada al teléfono del trabajo o a un móvil con Azure Multi-Factor Authentication" 
-	description="Esta página describe cómo los usuarios pueden iniciar sesión mediante sus teléfonos móviles." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Inicio de sesión mediante una llamada al teléfono del trabajo o a un móvil con Azure Multi-Factor Authentication"
+	description="Esta página describe cómo los usuarios pueden iniciar sesión mediante sus teléfonos móviles."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Inicio de sesión mediante una llamada al teléfono del trabajo o a un móvil con Azure Multi-Factor Authentication
 
@@ -38,13 +38,4 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 <li>Con esto debe haber iniciado sesión.</li>
 
-
-
-
-
-
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

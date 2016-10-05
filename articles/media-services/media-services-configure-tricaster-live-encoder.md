@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configuración del codificador NewTek TriCaster para enviar una transmisión por secuencias en directo de velocidad de bits única" 
+	pageTitle="Configuración del codificador NewTek TriCaster para enviar una transmisión en vivo con velocidad de bits única | Microsoft Azure" 
 	description="En este tema se muestra cómo configurar el codificador en directo TriCaster para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
 #Uso del codificador NewTek TriCaster para enviar una transmisión por secuencias en directo de velocidad de bits única
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS
 ##Requisitos previos
 
 - [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md)
-- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md).
+- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md).
 - Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie la herramienta y conéctese a la cuenta de AMS.
 
@@ -132,7 +132,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 Si la transmisión aparece en el reproductor, entonces el codificador se configuró correctamente para conectarse a AMS.
 
-Si se recibe un error, se deberá restablecer el canal y ajustar la configuración del codificador. Consulte el tema [Solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
+Si se recibe un error, se deberá restablecer el canal y ajustar la configuración del codificador. Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
 
 ##Creación de un programa
 
@@ -154,10 +154,12 @@ La transmisión está ahora preparada para insertarse en un reproductor o distri
 
 ## Solución de problemas
 
-Consulte el tema [Solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
+Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##Paso siguiente
+
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -165,4 +167,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->
